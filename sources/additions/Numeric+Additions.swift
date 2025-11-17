@@ -9,7 +9,11 @@ import CoreFoundation
 
 extension Numeric where Self == Double {
 
-    @inlinable var toCGFloat: CGFloat {
+    @inlinable public var toInt: Int {
+        Int(self)
+    }
+
+    @inlinable  public var toCGFloat: CGFloat {
         CGFloat(self)
     }
 
@@ -18,7 +22,7 @@ extension Numeric where Self == Double {
 
 extension Numeric where Self == CGFloat {
 
-    @inlinable var toFloat: Float {
+    @inlinable  public var toFloat: Float {
         Float(self)
     }
 
