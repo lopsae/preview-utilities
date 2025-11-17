@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Adds a debug overlay that draws a dashed stroke inset in the views border, and a solid stroke
 /// outset of the view border.
-struct DebugOutlineModifier: ViewModifier {
+public struct DebugOutlineModifier: ViewModifier {
 
     let lineWidth: CGFloat
     let options: Options
@@ -21,7 +21,7 @@ struct DebugOutlineModifier: ViewModifier {
     }
 
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content.overlay(alignment: .topLeading) {
             GeometryReader { geometry in
                 // Outer Stroke
@@ -97,8 +97,13 @@ struct DebugOutlineModifier: ViewModifier {
 
 extension DebugOutlineModifier {
 
-    struct Options: OptionSet {
-        let rawValue: Int
+    @MainActor
+    public struct Options: @MainActor OptionSet {
+        public let rawValue: Int
+
+        public init(rawValue: Int) {
+            self.rawValue = rawValue
+        }
 
         static let size: Self =           .init(shiftedBy: 0)
         static let origin: Self =         .init(shiftedBy: 1)
@@ -131,7 +136,7 @@ extension View {
     /// Text("Hello")
     ///     .debugOutline(options: .size, .origin)
     /// ```
-    func debugOutline(
+    public func debugOutline(
         lineWidth: CGFloat = 5,
         options: DebugOutlineModifier.Options...
     ) -> some View {
