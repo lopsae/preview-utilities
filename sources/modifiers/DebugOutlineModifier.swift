@@ -65,17 +65,17 @@ public struct DebugOutlineModifier: ViewModifier {
 
             VStack(alignment: .leading, spacing: 2) {
                 let globalFrame = geometry.frame(in: .global)
-                let floatFormat: FloatingPointFormatStyle<Float> = .number.precision(.fractionLength(2))
+                let doubleFormat: FloatingPointFormatStyle<Double> = .number.precision(.fractionLength(2))
 
                 if options.contains(.size) {
-                    let formattedWidth = globalFrame.width.asFloat.formatted(floatFormat)
-                    let formattedHeight = globalFrame.height.asFloat.formatted(floatFormat)
+                    let formattedWidth = globalFrame.width.formatted(doubleFormat)
+                    let formattedHeight = globalFrame.height.formatted(doubleFormat)
                     Text("size: \(formattedWidth), \(formattedHeight)")
                 }
                 
                 if options.contains(.origin) {
-                    let formattedX = globalFrame.origin.x.asFloat.formatted(floatFormat)
-                    let formattedY = globalFrame.origin.y.asFloat.formatted(floatFormat)
+                    let formattedX = globalFrame.origin.x.formatted(doubleFormat)
+                    let formattedY = globalFrame.origin.y.formatted(doubleFormat)
                     Text("orig: \(formattedX), \(formattedY)")
                 }
                 
@@ -152,11 +152,11 @@ extension View {
 struct EdgeInsetPreviewFormatStyle: FormatStyle {
 
     func format(_ value: EdgeInsets) -> String {
-        let floatFormat: FloatingPointFormatStyle<Float> = .number.precision(.fractionLength(2))
-        let formattedTop = value.top.asFloat.formatted(floatFormat)
-        let formattedLeading = value.leading.asFloat.formatted(floatFormat)
-        let formattedBottom  = value.bottom.asFloat.formatted(floatFormat)
-        let formattedTrailing = value.trailing.asFloat.formatted(floatFormat)
+        let doubleFormat: FloatingPointFormatStyle<Double> = .number.precision(.fractionLength(2))
+        let formattedTop      = value.top.formatted(doubleFormat)
+        let formattedLeading  = value.leading.formatted(doubleFormat)
+        let formattedBottom   = value.bottom.formatted(doubleFormat)
+        let formattedTrailing = value.trailing.formatted(doubleFormat)
         return "t:\(formattedTop), l:\(formattedLeading),\nb:\(formattedBottom), r:\(formattedTrailing)"
     }
 

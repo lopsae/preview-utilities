@@ -28,20 +28,5 @@ extension Numeric where Self == Double {
         Int(self)
     }
 
-    // TODO: is this actually necessary? since CGFloat is a Double
-    @inlinable  public var asCGFloat: CGFloat {
-        CGFloat(self)
-    }
-
 }
 
-
-// TODO: move this to Double, which should be the same as CGFloat
-// TODO: double check uses of this, might be possile to remove and use Double only
-extension Numeric where Self == CGFloat {
-
-    @inlinable  public var asFloat: Float {
-        Float(self)
-    }
-
-}
