@@ -1,7 +1,11 @@
 // swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
+// https://theswiftdev.com/the-swift-package-manifest-file/
+
+
 import PackageDescription
+
 
 let package = Package(
     name: "PreviewUtilities",

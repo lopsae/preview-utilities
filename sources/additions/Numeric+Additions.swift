@@ -9,7 +9,7 @@ import CoreFoundation
 
 extension Numeric where Self == Int {
 
-    @inlinable public var toDouble: Double {
+    @inlinable public var asDouble: Double {
         Double(self)
     }
 
@@ -24,20 +24,23 @@ extension Numeric where Self == Int {
 
 extension Numeric where Self == Double {
 
-    @inlinable public var toInt: Int {
+    @inlinable public var asInt: Int {
         Int(self)
     }
 
-    @inlinable  public var toCGFloat: CGFloat {
+    // TODO: is this actually necessary? since CGFloat is a Double
+    @inlinable  public var asCGFloat: CGFloat {
         CGFloat(self)
     }
 
 }
 
 
+// TODO: move this to Double, which should be the same as CGFloat
+// TODO: double check uses of this, might be possile to remove and use Double only
 extension Numeric where Self == CGFloat {
 
-    @inlinable  public var toFloat: Float {
+    @inlinable  public var asFloat: Float {
         Float(self)
     }
 

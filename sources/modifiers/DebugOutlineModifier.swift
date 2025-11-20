@@ -68,14 +68,14 @@ public struct DebugOutlineModifier: ViewModifier {
                 let floatFormat: FloatingPointFormatStyle<Float> = .number.precision(.fractionLength(2))
 
                 if options.contains(.size) {
-                    let formattedWidth = globalFrame.width.toFloat.formatted(floatFormat)
-                    let formattedHeight = globalFrame.height.toFloat.formatted(floatFormat)
+                    let formattedWidth = globalFrame.width.asFloat.formatted(floatFormat)
+                    let formattedHeight = globalFrame.height.asFloat.formatted(floatFormat)
                     Text("size: \(formattedWidth), \(formattedHeight)")
                 }
                 
                 if options.contains(.origin) {
-                    let formattedX = globalFrame.origin.x.toFloat.formatted(floatFormat)
-                    let formattedY = globalFrame.origin.y.toFloat.formatted(floatFormat)
+                    let formattedX = globalFrame.origin.x.asFloat.formatted(floatFormat)
+                    let formattedY = globalFrame.origin.y.asFloat.formatted(floatFormat)
                     Text("orig: \(formattedX), \(formattedY)")
                 }
                 
@@ -153,10 +153,10 @@ struct EdgeInsetPreviewFormatStyle: FormatStyle {
 
     func format(_ value: EdgeInsets) -> String {
         let floatFormat: FloatingPointFormatStyle<Float> = .number.precision(.fractionLength(2))
-        let formattedTop = value.top.toFloat.formatted(floatFormat)
-        let formattedLeading = value.leading.toFloat.formatted(floatFormat)
-        let formattedBottom  = value.bottom.toFloat.formatted(floatFormat)
-        let formattedTrailing = value.trailing.toFloat.formatted(floatFormat)
+        let formattedTop = value.top.asFloat.formatted(floatFormat)
+        let formattedLeading = value.leading.asFloat.formatted(floatFormat)
+        let formattedBottom  = value.bottom.asFloat.formatted(floatFormat)
+        let formattedTrailing = value.trailing.asFloat.formatted(floatFormat)
         return "t:\(formattedTop), l:\(formattedLeading),\nb:\(formattedBottom), r:\(formattedTrailing)"
     }
 
