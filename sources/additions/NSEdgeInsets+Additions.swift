@@ -4,13 +4,14 @@
 //
 
 
-#if canImport(UIKit)
+#if canImport(AppKit)
 
 
-import UIKit
+import AppKit
 
 
-extension UIEdgeInsets {
+// TODO: added as counterpart of UIEdgeInset, but has not been used. Double check the same idioms apply.
+extension NSEdgeInsets {
 
     init(all value: CGFloat) {
         self.init(top: value, left: value, bottom: value, right: value)
