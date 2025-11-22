@@ -12,7 +12,7 @@ import Testing
 struct SttridableAdditionTests {
 
 
-    func castedClamp<T: Strideable>(_ value: T, to range: Range<T>) -> T
+    func castedClamp<T: Strideable>(_ value: T, to range: Range<T>) -> T?
     where T.Stride == Int {
         value.clamped(to: range)
     }
@@ -27,9 +27,9 @@ struct SttridableAdditionTests {
         #expect(castedClamp(9, to: 4..<7) == 6)
 
         // With empty range
-        #expect(castedClamp(3, to: 5..<5) == 5)
-        #expect(castedClamp(5, to: 5..<5) == 5)
-        #expect(castedClamp(7, to: 5..<5) == 5)
+        #expect(castedClamp(3, to: 5..<5) == nil)
+        #expect(castedClamp(5, to: 5..<5) == nil)
+        #expect(castedClamp(7, to: 5..<5) == nil)
 
         // Fatal error: Range requires lowerBound <= upperBound
         // #expect(castedClamp(5, to: 7..<3) == 5)
