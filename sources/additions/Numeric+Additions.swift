@@ -13,12 +13,6 @@ extension Numeric where Self == Int {
         Double(self)
     }
 
-
-    @inlinable public func clamped(to range: Range<Self>) -> Self {
-        // TODO: test return for empty ranges
-        Swift.max(range.lowerBound, Swift.min(self, range.upperBound - 1))
-    }
-
 }
 
 
