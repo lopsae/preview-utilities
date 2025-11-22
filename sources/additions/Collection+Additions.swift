@@ -18,5 +18,12 @@ extension Collection {
         distance(from: startIndex, to: index)
     }
 
+
+    public func clampDistance(_ distance: Int) -> Int? {
+        let totalDistance = self.distance(fromStartTo: endIndex)
+        let clampedDistance = distance.clamped(to: 0..<totalDistance)
+        return clampedDistance
+    }
+
 }
 
