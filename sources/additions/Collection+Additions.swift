@@ -9,18 +9,14 @@ import Foundation
 
 extension Collection {
 
-
-    // TODO: function to clamp an index or indexDistance to a valid index
-
-
-    public func index(offsetBy offset: IndexDistance) -> Index {
+    public func index(offsetBy offset: Int) -> Index {
         index(startIndex, offsetBy: offset)
     }
 
 
-    public func distanceFromStart(to index: Index) -> IndexDistance {
+    public func distance(fromStartTo index: Index) -> Int {
         distance(from: startIndex, to: index)
     }
 
-
 }
+
