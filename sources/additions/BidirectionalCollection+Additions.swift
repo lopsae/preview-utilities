@@ -5,7 +5,13 @@
 
 
 extension BidirectionalCollection {
-//extension MutableCollection {
+
+    public func clampIndex(_ index: Index) -> Index? {
+        guard !isEmpty else { return nil }
+        let inclusiveUpperBound = self.index(before: endIndex)
+        return index.clamped(to: startIndex...inclusiveUpperBound)
+    }
+
 
     // TODO: is array the appropriate return for a mapping/replace function? check what does a BidirectionalCollection.map implements to
     // Initially copied from ScrumDinger project.
