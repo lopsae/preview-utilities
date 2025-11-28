@@ -15,6 +15,17 @@ extension CGRect {
             .offset(by: origin)
     }
 
+
+    @inlinable func center(size: CGSize) -> CGRect {
+        let centeredRect = CGRect(
+            x: (self.width - size.width) / 2 + self.origin.x,
+            y: (self.height - size.height) / 2 + self.origin.y,
+            width: size.width,
+            height: size.height
+        )
+        return centeredRect
+    }
+
 }
 
 
