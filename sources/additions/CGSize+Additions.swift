@@ -9,6 +9,11 @@ import CoreGraphics
 
 extension CGSize {
 
+    public init(square side: CGFloat) {
+        self.init(width: side, height: side)
+    }
+
+
     /// Returns the lesser of the size components.
     @inlinable var min: CGFloat {
         Swift.min(width, height)
