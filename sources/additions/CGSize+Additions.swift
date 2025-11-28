@@ -20,6 +20,11 @@ extension CGSize {
     }
 
 
+    @inlinable public func rect(origin: CGPoint = .zero) -> CGRect {
+        .init(origin: origin, size: self)
+    }
+
+
     @inlinable public func centered(in size: CGSize) -> CGRect {
         let rect = CGRect(origin: .zero, size: size)
         return rect.center(size: self)
