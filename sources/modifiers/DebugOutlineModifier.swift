@@ -14,6 +14,10 @@ public struct DebugOutlineModifier: ViewModifier {
     let lineWidth: CGFloat
     let options: Options
 
+    let innerShapeStyle:     some ShapeStyle = .blue.tertiary
+    let outerShapeStyle:     some ShapeStyle = .red.tertiary
+    let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
+
 
     init(lineWidth: CGFloat = 5, options: Options = []) {
         self.lineWidth = lineWidth
@@ -24,23 +28,9 @@ public struct DebugOutlineModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content.overlay(alignment: .topLeading) {
             GeometryReader { geometry in
-                // Outer Stroke
-                Rectangle()
-                    .stroke(.blue.tertiary, lineWidth: lineWidth * 2)
-                    .mask {
-                        Path { path in
-                            let frame = geometry.frame(in: .local)
-                            path.addRect(frame.inset(by: -lineWidth))
-                            path.addRect(frame)
-                        }
-                        .fill(style: .init(eoFill: true))
-                    }
-
-                // Inner Stroke
-                Rectangle()
-                    .strokeBorder(.red.tertiary, style: innerStrokeStyle)
-
-                // Geometry Info
+                safeAreaRects(geometry: geometry)
+                outerStrokeRect(geometry: geometry)
+                innerStrokeRect(geometry: geometry)
                 geometryInfoView(geometry)
             } // GeometryReader
             .allowsHitTesting(false)
@@ -53,6 +43,73 @@ public struct DebugOutlineModifier: ViewModifier {
             lineWidth: lineWidth,
             dash: [lineWidth * 3, lineWidth * 2]
         )
+    }
+
+
+    @ViewBuilder
+    private func safeAreaRects(geometry: GeometryProxy) -> some View {
+        let localFrame = geometry.frame(in: .local)
+        let topInset      = geometry.safeAreaInsets.top
+        let leadingInset  = geometry.safeAreaInsets.leading
+        let bottomInset   = geometry.safeAreaInsets.bottom
+        let trailingInset = geometry.safeAreaInsets.trailing
+        // Top.
+        if topInset != 0 {
+            Path { path in
+                localFrame.set(y: -topInset, height: topInset)
+                    .addTo(path: &path)
+            }
+            .fill(safeAreasShapeStyle)
+        }
+
+        // Leading.
+        if leadingInset != 0 {
+            Path { path in
+                localFrame.set(x: -leadingInset, width: leadingInset)
+                    .addTo(path: &path)
+            }
+            .fill(safeAreasShapeStyle)
+        }
+
+        // Bottom.
+        if bottomInset != 0 {
+            Path { path in
+                localFrame.set(y: localFrame.height, height: bottomInset)
+                    .addTo(path: &path)
+            }
+            .fill(safeAreasShapeStyle)
+        }
+
+        // Trailing.
+        if trailingInset != 0 {
+            Path { path in
+                localFrame.set(x: localFrame.width, width: trailingInset)
+                    .addTo(path: &path)
+            }
+            .fill(safeAreasShapeStyle)
+        }
+    }
+
+
+    @ViewBuilder
+    private func outerStrokeRect(geometry: GeometryProxy) -> some View {
+        Rectangle()
+            .stroke(innerShapeStyle, lineWidth: lineWidth * 2)
+            .mask {
+                Path { path in
+                    let frame = geometry.frame(in: .local)
+                    path.addRect(frame.inset(by: -lineWidth))
+                    path.addRect(frame)
+                }
+                .fill(style: .init(eoFill: true))
+            }
+    }
+
+
+    @ViewBuilder
+    private func innerStrokeRect(geometry: GeometryProxy) -> some View {
+        Rectangle()
+            .strokeBorder(outerShapeStyle, style: innerStrokeStyle)
     }
 
 
@@ -105,12 +162,12 @@ extension DebugOutlineModifier {
             self.rawValue = rawValue
         }
 
-        static let size: Self =           .init(shiftedBy: 0)
-        static let origin: Self =         .init(shiftedBy: 1)
-        static let safeAreaInsets: Self = .init(shiftedBy: 2)
-        static let infoOutside: Self =    .init(shiftedBy: 3)
+        public static let size: Self =           .init(shiftedBy: 0)
+        public static let origin: Self =         .init(shiftedBy: 1)
+        public static let safeAreaInsets: Self = .init(shiftedBy: 2)
+        public static let infoOutside: Self =    .init(shiftedBy: 3)
 
-        static let allGeometry: Self = [.size, .origin, .safeAreaInsets]
+        public static let allGeometry: Self = [.size, .origin, .safeAreaInsets]
     }
 
 }
@@ -173,46 +230,68 @@ extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
 // MARK: - Previews
 
 
+private struct PreviewContent {
+
+    static var star: some View {
+        StarShape(points: 6, concaveVertexRatio: 0.8)
+            .fill(.pink)
+    }
+
+    static var smallText: some View {
+        Text("Preview text")
+            .monospaced()
+    }
+
+}
+
+
 #Preview("Default", traits: .headerFooter) {
-    StarShape(points: 5, concaveVertexRatio: 0.5)
-        .fill(.pink)
+    PreviewContent.star
         .debugOutline()
 }
 
 
 #Preview("All geometry", traits: .headerFooter) {
-    StarShape(points: 5, concaveVertexRatio: 0.5)
-        .fill(.pink)
+    PreviewContent.star
         .debugOutline(options: .allGeometry)
 }
 
 
 #Preview("Size only", traits: .headerFooter) {
-    StarShape(points: 5, concaveVertexRatio: 0.5)
-        .fill(.pink)
+    PreviewContent.star
         .debugOutline(options: .size)
 }
 
 
 #Preview("Size and origin", traits: .headerFooter) {
-    StarShape(points: 5, concaveVertexRatio: 0.5)
-        .fill(.pink)
+    PreviewContent.star
         .debugOutline(options: .size, .origin)
 }
 
 
 #Preview("Info outside", traits: .headerFooter) {
-    StarShape(points: 5, concaveVertexRatio: 0.5)
-        .fill(.pink)
+    PreviewContent.star
         .debugOutline(options: .allGeometry, .infoOutside)
+}
+
+
+#Preview("SafeAreas", traits: .headerFooter(.showDividers)) {
+    PreviewContent.star
+        .debugOutline(options: .allGeometry, .infoOutside)
+        .safeAreaPadding(.top,      20)
+        .safeAreaPadding(.leading,  30)
+        .safeAreaPadding(.bottom,   40)
+        .safeAreaPadding(.trailing, 50)
+        .border(.gray.tertiary, width: 1)
+        .padding()
 }
 
 
 #Preview("Interactive", traits: .headerFooter) {
     @Previewable @State var counter: Int = 0
     ZStack(alignment: .topLeading) {
-        StarShape(points: 5, concaveVertexRatio: 0.5)
-            .fill(.pink)
+        PreviewContent.star
+
         Button("Increment", systemImage: "ladybug") {
             counter += 1
         }
@@ -228,15 +307,13 @@ extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
 
 // To preview content where the outline is smaller that the geometry information displayed.
 #Preview("Small content", traits: .headerFooter) {
-    Text("Preview text")
-        .monospaced()
+    PreviewContent.smallText
         .debugOutline(options: .allGeometry)
 }
 
 
-#Preview("Small content with info outside", traits: .headerFooter) {
-    Text("Preview text")
-        .monospaced()
+#Preview("Small content, info outside", traits: .headerFooter) {
+    PreviewContent.smallText
         .debugOutline(options: .allGeometry, .infoOutside)
 }
 
