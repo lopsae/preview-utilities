@@ -14,8 +14,8 @@ public struct DebugOutlineModifier: ViewModifier {
     let lineWidth: CGFloat
     let options: Options
 
-    let innerShapeStyle:     some ShapeStyle = .blue.tertiary
-    let outerShapeStyle:     some ShapeStyle = .red.tertiary
+    let outerShapeStyle:     some ShapeStyle = .blue.tertiary
+    let innerShapeStyle:     some ShapeStyle = .red.tertiary
     let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
 
 
@@ -26,23 +26,17 @@ public struct DebugOutlineModifier: ViewModifier {
 
 
     public func body(content: Content) -> some View {
-        content.overlay(alignment: .topLeading) {
+        content.overlay {
             GeometryReader { geometry in
-                safeAreaRects(geometry: geometry)
-                outerStrokeRect(geometry: geometry)
-                innerStrokeRect(geometry: geometry)
-                geometryInfoView(geometry)
+//                ZStack(alignment: .topTrailing) {
+                    safeAreaRects(geometry: geometry)
+                    outerStrokeRect(geometry: geometry)
+                    innerStrokeRect(geometry: geometry)
+                    geometryInfoView(geometry)
+//                }
             } // GeometryReader
             .allowsHitTesting(false)
         } // overlay
-    }
-
-
-    private var innerStrokeStyle: StrokeStyle {
-        .init(
-            lineWidth: lineWidth,
-            dash: [lineWidth * 3, lineWidth * 2]
-        )
     }
 
 
@@ -93,11 +87,19 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
-        Rectangle()
-            .stroke(innerShapeStyle, lineWidth: lineWidth * 2)
+        var frame = geometry.frame(in: .local)
+        // Minimum size length at which a rectangle is drawn:
+        // `0.17` in iPhone 17 Pro simulator.
+        // `0.25` in macOS 26 in preview canvas.
+        let threshold: Double = 0.25
+        let corrected: Double = 0.30
+        frame.size.height = frame.height <= threshold ? corrected : frame.height
+        frame.size.width = frame.width <= threshold ? corrected : frame.width
+        return Rectangle()
+            .stroke(outerShapeStyle, lineWidth: lineWidth * 2)
+            .frame(size: frame.size)
             .mask {
                 Path { path in
-                    let frame = geometry.frame(in: .local)
                     path.addRect(frame.inset(by: -lineWidth))
                     path.addRect(frame)
                 }
@@ -108,8 +110,12 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
-        Rectangle()
-            .strokeBorder(outerShapeStyle, style: innerStrokeStyle)
+        let strokeStyle = StrokeStyle(
+            lineWidth: lineWidth,
+            dash: [lineWidth * 3, lineWidth * 2]
+        )
+        return Rectangle()
+            .strokeBorder(innerShapeStyle, style: strokeStyle)
     }
 
 
@@ -319,10 +325,18 @@ private struct PreviewContent {
 
 
 // TODO: content with size zero does not display any inner nor outer strokes. Does it also happen with width?
-#Preview("Zero content", traits: .headerFooter) {
+#Preview("Zero height", traits: .headerFooter) {
     Rectangle()
         .fill(.red)
         .frame(height: 0)
+        .debugOutline(options: .allGeometry)
+}
+
+
+#Preview("Zero width", traits: .headerFooter) {
+    Rectangle()
+        .fill(.red)
+        .frame(width: 0)
         .debugOutline(options: .allGeometry)
 }
 
