@@ -160,14 +160,12 @@ public struct DebugOutlineModifier: ViewModifier {
 
 extension DebugOutlineModifier {
 
-    // TODO: seems like other static properties intended for main are all defined in @MainActor, instead of making the struct sendable, update to @MainActor
-    // E.g. PreviewTrait.fixedLayout
-    // See HeaderFooterPreviewOptions
-    @MainActor
-    public struct Options: @MainActor OptionSet {
+    // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
+    // and `PinnedScrollableViews`.
+    public struct Options: OptionSet, Sendable {
         public let rawValue: Int
 
-        public init(rawValue: Int) {
+        nonisolated public init(rawValue: Int) {
             self.rawValue = rawValue
         }
 

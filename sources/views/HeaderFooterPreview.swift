@@ -107,24 +107,21 @@ struct HeaderFooterPreview<Content: View>: View {
 }
 
 
-// TODO: seems like other static properties intended for main are all defined in @MainActor, instead of making the struct sendable, update to @MainActor
-// E.g. PreviewTrait.fixedLayout
+// Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
+// `PinnedScrollableViews`.
 public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
-
     public let rawValue: Int
-
 
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
 
-
+    public static let empty: Self =        .init(rawValue: 0)
     public static let fixedHeader: Self  = .init(shiftedBy: 0)
     public static let fixedFooter: Self  = .init(shiftedBy: 1)
     public static let showDividers: Self = .init(shiftedBy: 2)
 
     public static let fixed: Self = [.fixedHeader, .fixedFooter]
-
 }
 
 
