@@ -9,23 +9,28 @@ import SwiftUI
 
 extension View {
 
-    public func maxWidthFrame() -> some View {
-        self.frame(maxWidth: .infinity)
+    @inlinable public func maxWidthFrame(alignment: Alignment = .center) -> some View {
+        self.frame(maxWidth: .infinity, alignment: alignment)
     }
 
 
-    public func maxHeightFrame() -> some View {
-        self.frame(maxHeight: .infinity)
+    @inlinable public func maxHeightFrame(alignment: Alignment = .center) -> some View {
+        self.frame(maxHeight: .infinity, alignment: alignment)
     }
 
 
-    public func maxSizeFrame() -> some View {
-        self.frame(maxWidth: .infinity, maxHeight: .infinity)
+    @inlinable public func maxSizeFrame(alignment: Alignment = .center) -> some View {
+        self.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
     }
 
 
-    public func frame(square side: CGFloat) -> some View {
-        self.frame(width: side, height: side)
+    @inlinable public func frame(square side: CGFloat, alignment: Alignment = .center) -> some View {
+        self.frame(width: side, height: side, alignment: alignment)
+    }
+
+
+    @inlinable public func frame(size: CGSize, alignment: Alignment = .center) -> some View {
+        self.frame(width: size.width, height: size.height, alignment: alignment)
     }
 
 }
