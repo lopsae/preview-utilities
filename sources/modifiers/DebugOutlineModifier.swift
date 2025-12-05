@@ -160,6 +160,9 @@ public struct DebugOutlineModifier: ViewModifier {
 
 extension DebugOutlineModifier {
 
+    // TODO: seems like other static properties intended for main are all defined in @MainActor, instead of making the struct sendable, update to @MainActor
+    // E.g. PreviewTrait.fixedLayout
+    // See HeaderFooterPreviewOptions
     @MainActor
     public struct Options: @MainActor OptionSet {
         public let rawValue: Int
@@ -168,6 +171,7 @@ extension DebugOutlineModifier {
             self.rawValue = rawValue
         }
 
+        public static let empty: Self =          .init(rawValue: 0)
         public static let size: Self =           .init(shiftedBy: 0)
         public static let origin: Self =         .init(shiftedBy: 1)
         public static let safeAreaInsets: Self = .init(shiftedBy: 2)
@@ -311,18 +315,21 @@ private struct PreviewContent {
 }
 
 
-// To preview content where the outline is smaller that the geometry information displayed.
-// TODO: colapse with info positioning into single preview
-#Preview("Small content", traits: .headerFooter) {
+#Preview("Small content", traits: .fixedHeader) {
+    @Previewable @State var isInfoOutside: Bool = false
+
+    VStack {
+        Toggle("Info Outside", isOn: $isInfoOutside)
+    }
+    .padding()
+
+    let options = DebugOutlineModifier.Options.allGeometry.union(
+        isInfoOutside ? .infoOutside : .empty
+    )
     PreviewContent.smallText
-        .debugOutline(options: .allGeometry)
+        .debugOutline(options: options)
 }
 
-
-#Preview("Small content, info outside", traits: .headerFooter) {
-    PreviewContent.smallText
-        .debugOutline(options: .allGeometry, .infoOutside)
-}
 
 #Preview("Zero size", traits: .fixedHeader) {
     @Previewable @State var isZeroWidth: Bool = true
