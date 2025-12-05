@@ -9,6 +9,10 @@ import SwiftUI
 
 struct HeaderFooterPreview<Content: View>: View {
 
+    @State private var heightPadded: Double = 0
+    @State private var heightComplete: Double = 0
+    @State private var headerTopPadding: Double = 0
+
     let options: HeaderFooterPreviewOptions
     let content: Content
 
@@ -22,24 +26,48 @@ struct HeaderFooterPreview<Content: View>: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack (spacing: 0) {
+
                 Text("Header")
                     .foregroundStyle(.tertiary)
-                    // Double padding to account for background padding.
+                    // Double padding to separate one padding from background,
+                    // which is padded once from views edge.
+                    .padding(.top, headerTopPadding)
                     .padding(.bottom)
                     .padding(.bottom)
                     .maxWidthFrame()
+                    // TODO: possible utility?
+                    .onGeometryChange(for: Double.self) { geometry in
+                        geometry.safeAreaInsets.top
+                    } action: { newTopSafeArea in
+                        let topPadding = minHeaderTopPadding - newTopSafeArea
+                        headerTopPadding = max(0, topPadding)
+                    }
 
                 if !options.contains(.fixedHeader) {
                     Spacer()
                 }
 
-            }
+            } // VStack
             .background {
+                // Header background.
                 ConcentricRectangle(corners: .concentric(minimum: 12))
                 .fill(.gray.tertiary)
+                // TODO: possible utility? .onGeometryChange(\.size.height) { ... }
+                .onGeometryChange(for: Double.self) { geometry in
+                    geometry.size.height
+                } action: { newHeight in
+                    heightPadded = newHeight
+                }
                 .padding()
+                // TODO: possible utility? .onGeometryChange(\.size.height) { $0 - heightPadded } : { padding = $0 }
+                .onGeometryChange(for: Double.self) { geometry in
+                    geometry.size.height
+                } action: { newHeight in
+                    heightComplete = newHeight
+                }
                 .ignoresSafeArea()
-            }
+
+            } // background
 
             if options.contains(.showDividers) {
                 Divider()
@@ -61,19 +89,26 @@ struct HeaderFooterPreview<Content: View>: View {
                     .padding(.top)
                     .padding(.top)
                     .maxWidthFrame()
-            }
+            } // VStack
             .background {
                 ConcentricRectangle(corners: .concentric(minimum: 12))
                 .fill(.gray.tertiary)
                 .padding()
                 .ignoresSafeArea()
-            }
-        }
+            } // background
+        } // VStack
+    }
+
+
+    private var minHeaderTopPadding: Double {
+        (heightComplete - heightPadded) * 1.5 / 2.0
     }
 
 }
 
 
+// TODO: seems like other static properties intended for main are all defined in @MainActor, instead of making the struct sendable, update to @MainActor
+// E.g. PreviewTrait.fixedLayout
 public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 
     public let rawValue: Int
@@ -93,7 +128,15 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 }
 
 
-#Preview("Default") {
+// MARK: - Previews
+
+// TODO: add previews that test the safeareas vs min paddings
+
+// TODO: update all previews with layout
+@MainActor
+private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
+
+#Preview("Default", traits: previewLayout) {
     HeaderFooterPreview {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
@@ -101,7 +144,7 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 }
 
 
-#Preview("Fixed Header") {
+#Preview("Fixed Header", traits: previewLayout) {
     HeaderFooterPreview(options: .fixedHeader) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
