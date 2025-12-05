@@ -68,66 +68,61 @@ struct PreviewHeader: View {
 @MainActor
 private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 400)
 
-#Preview(traits: previewLayout) {
-    // TODO: make a preview modifier that has zero spacing between elements
-    VStack(spacing: 0) {
-        PreviewHeader()
-        Divider()
-        ConcentricRectangle(corners: .concentric(minimum: 12))
-            .fill(.orange)
-            .padding()
-            .ignoresSafeArea()
-    }
+#Preview(traits: .zeroSpacing, previewLayout) {
+    PreviewHeader()
+    Divider()
+    ConcentricRectangle(corners: .concentric(minimum: 12))
+        .fill(.orange)
+        .padding()
+        .ignoresSafeArea()
 }
 
-#Preview("Safearea", traits: previewLayout) {
+#Preview("Safearea", traits: /*.zeroSpacing,*/ previewLayout) {
 
     @Previewable @State var topSafeAreaInset: Double = 60.0
     let sliderRange: ClosedRange<Double> = 0.0...100.0
 
-    // TODO: make a preview modifier that has zero spacing between elements
-    VStack(spacing: 0) {
-        PreviewHeader()
-
-        Divider()
-
-        ConcentricRectangle(corners: .concentric(minimum: 12))
-            .fill(.orange)
-            .overlay(alignment: .top) {
-                VStack {
-                    Slider(
-                        value: $topSafeAreaInset,
-                        in: sliderRange
-                    ) {
-                        Text("Top Safearea")
-                    } currentValueLabel: {
-                        let roundedValue = topSafeAreaInset.formatted(
-                            .number.rounded(rule: .toNearestOrEven, increment: 1.0)
-                        )
-                        Text(roundedValue)
-                    } minimumValueLabel: {
-                        // TODO: utility format to round to integer
-                        Text(sliderRange.lowerBound.formatted(.number.rounded(rule: .toNearestOrEven, increment: 1.0))).font(.caption)
-                    } maximumValueLabel: {
-                        Text(sliderRange.upperBound.formatted(.number.rounded(rule: .toNearestOrEven, increment: 1.0))).font(.caption)
-                    }
-                    let roundedValue = topSafeAreaInset.formatted(
-                        .number.rounded(rule: .toNearestOrEven, increment: 1.0)
-                    )
-                    Text("Top SafeArea: \(roundedValue)")
-                        .monospacedDigit()
-                }
-                .padding()
-            }
-            .padding()
-            .ignoresSafeArea()
-
-    }.safeAreaInset(edge: .top, spacing: 0) {
+    PreviewHeader()
+    .safeAreaInset(edge: .top, spacing: 0) {
         let roundedHeight = topSafeAreaInset.rounded(.toNearestOrEven)
         Rectangle()
             .fill(.red.opacity(0.2))
             .frame(height: roundedHeight)
-            .debugOutline(options: .size)
+        // TODO: safe areas are not displayed when size gets to zero
+            .debugOutline(options: .size, .safeAreaInsets, .infoOutside)
     }
-    .ignoresSafeArea()
+
+    Divider()
+
+    ConcentricRectangle(corners: .concentric(minimum: 12))
+        .fill(.orange)
+        .overlay(alignment: .top) {
+            VStack {
+                Slider(
+                    value: $topSafeAreaInset,
+                    in: sliderRange
+                ) {
+                    Text("Top Safearea")
+                } currentValueLabel: {
+                    let roundedValue = topSafeAreaInset.formatted(
+                        .number.rounded(rule: .toNearestOrEven, increment: 1.0)
+                    )
+                    Text(roundedValue)
+                } minimumValueLabel: {
+                    // TODO: utility format to round to integer
+                    Text(sliderRange.lowerBound.formatted(.number.rounded(rule: .toNearestOrEven, increment: 1.0))).font(.caption)
+                } maximumValueLabel: {
+                    Text(sliderRange.upperBound.formatted(.number.rounded(rule: .toNearestOrEven, increment: 1.0))).font(.caption)
+                }
+                let roundedValue = topSafeAreaInset.formatted(
+                    .number.rounded(rule: .toNearestOrEven, increment: 1.0)
+                )
+                Text("Top SafeArea: \(roundedValue)")
+                    .monospacedDigit()
+            }
+            .padding()
+        } // overlay
+        .padding()
+        .ignoresSafeArea()
+
 }
