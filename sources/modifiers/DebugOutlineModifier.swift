@@ -324,8 +324,7 @@ private struct PreviewContent {
         .debugOutline(options: .allGeometry, .infoOutside)
 }
 
-// TODO: define .fixedHeader trait
-#Preview("Zero size", traits: .headerFooter(.fixedHeader)) {
+#Preview("Zero size", traits: .fixedHeader) {
     @Previewable @State var isZeroWidth: Bool = true
     @Previewable @State var isZeroHeight: Bool = true
 
