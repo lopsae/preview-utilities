@@ -28,12 +28,12 @@ struct HeaderFooterPreviewModifier: PreviewModifier {
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
-    static var headerFooter: PreviewTrait {
+    public static var headerFooter: PreviewTrait {
         .modifier(HeaderFooterPreviewModifier())
     }
 
 
-    static func headerFooter(_ options: HeaderFooterPreviewOptions...) -> PreviewTrait {
+    public static func headerFooter(_ options: HeaderFooterPreviewOptions...) -> PreviewTrait {
         return .modifier(HeaderFooterPreviewModifier(options: options.union()))
     }
 

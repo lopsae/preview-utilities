@@ -74,16 +74,21 @@ struct HeaderFooterPreview<Content: View>: View {
 }
 
 
-struct HeaderFooterPreviewOptions: OptionSet {
+public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 
-    let rawValue: Int
+    public let rawValue: Int
 
 
-    static let fixedHeader: Self  = .init(shiftedBy: 0)
-    static let fixedFooter: Self  = .init(shiftedBy: 1)
-    static let showDividers: Self = .init(shiftedBy: 2)
+    public init(rawValue: Int) {
+        self.rawValue = rawValue
+    }
 
-    static let fixed: Self = [.fixedHeader, .fixedFooter]
+
+    public static let fixedHeader: Self  = .init(shiftedBy: 0)
+    public static let fixedFooter: Self  = .init(shiftedBy: 1)
+    public static let showDividers: Self = .init(shiftedBy: 2)
+
+    public static let fixed: Self = [.fixedHeader, .fixedFooter]
 
 }
 
