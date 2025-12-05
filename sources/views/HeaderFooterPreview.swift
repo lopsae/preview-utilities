@@ -128,7 +128,7 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 }
 
 
-// MARK: - Previews
+// MARK: - Previews.
 
 // TODO: add previews that test the safeareas vs min paddings
 
