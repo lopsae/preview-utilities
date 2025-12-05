@@ -312,6 +312,7 @@ private struct PreviewContent {
 
 
 // To preview content where the outline is smaller that the geometry information displayed.
+// TODO: colapse with info positioning into single preview
 #Preview("Small content", traits: .headerFooter) {
     PreviewContent.smallText
         .debugOutline(options: .allGeometry)
@@ -323,20 +324,23 @@ private struct PreviewContent {
         .debugOutline(options: .allGeometry, .infoOutside)
 }
 
+// TODO: define .fixedHeader trait
+#Preview("Zero size", traits: .headerFooter(.fixedHeader)) {
+    @Previewable @State var isZeroWidth: Bool = true
+    @Previewable @State var isZeroHeight: Bool = true
 
-// TODO: content with size zero does not display any inner nor outer strokes. Does it also happen with width?
-#Preview("Zero height", traits: .headerFooter) {
+    VStack {
+        Toggle("Zero Width", isOn: $isZeroWidth)
+        Toggle("Zero Height", isOn: $isZeroHeight)
+    }
+    .padding()
+
     Rectangle()
         .fill(.red)
-        .frame(height: 0)
-        .debugOutline(options: .allGeometry)
-}
-
-
-#Preview("Zero width", traits: .headerFooter) {
-    Rectangle()
-        .fill(.red)
-        .frame(width: 0)
+        .frame(
+            width: isZeroWidth ? 0.0 : 100.0,
+            height: isZeroHeight ? 0.0 : 100.0
+        )
         .debugOutline(options: .allGeometry)
 }
 
