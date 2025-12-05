@@ -318,6 +318,15 @@ private struct PreviewContent {
 }
 
 
+// TODO: content with size zero does not display any inner nor outer strokes. Does it also happen with width?
+#Preview("Zero content", traits: .headerFooter) {
+    Rectangle()
+        .fill(.red)
+        .frame(height: 0)
+        .debugOutline(options: .allGeometry)
+}
+
+
 // MARK: - Examples of edge cases
 
 
