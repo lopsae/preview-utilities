@@ -65,10 +65,16 @@ struct PreviewHeader: View {
 
 // MARK: - Previews.
 
-@MainActor
-private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 400)
 
-#Preview(traits: .zeroSpacing, previewLayout) {
+@MainActor
+private struct PreviewContent {
+
+     static let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 400)
+
+}
+
+
+#Preview(traits: .zeroSpacing, PreviewContent.previewLayout) {
     PreviewHeader()
     Divider()
     ConcentricRectangle(corners: .concentric(minimum: 12))
@@ -77,7 +83,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
         .ignoresSafeArea()
 }
 
-#Preview("Safearea", traits: /*.zeroSpacing,*/ previewLayout) {
+#Preview("Safearea", traits: .zeroSpacing, PreviewContent.previewLayout) {
 
     @Previewable @State var topSafeAreaInset: Double = 60.0
     let sliderRange: ClosedRange<Double> = 0.0...100.0
@@ -102,7 +108,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
                     value: $topSafeAreaInset,
                     in: sliderRange
                 ) {
-                    Text("Top Safearea")
+                    Text("Top SafeArea")
                 } currentValueLabel: {
                     let roundedValue = topSafeAreaInset.formatted(
                         .number.rounded(rule: .toNearestOrEven, increment: 1.0)
