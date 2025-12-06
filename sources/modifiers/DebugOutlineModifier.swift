@@ -28,12 +28,10 @@ public struct DebugOutlineModifier: ViewModifier {
     public func body(content: Content) -> some View {
         content.overlay {
             GeometryReader { geometry in
-//                ZStack(alignment: .topTrailing) {
-                    safeAreaRects(geometry: geometry)
-                    outerStrokeRect(geometry: geometry)
-                    innerStrokeRect(geometry: geometry)
-                    geometryInfoView(geometry)
-//                }
+                safeAreaRects(geometry: geometry)
+                outerStrokeRect(geometry: geometry)
+                innerStrokeRect(geometry: geometry)
+                geometryInfoView(geometry)
             } // GeometryReader
             .allowsHitTesting(false)
         } // overlay
@@ -346,40 +344,4 @@ private struct PreviewContent {
             height: isZeroHeight ? 0.0 : 100.0
         )
         .debugOutline(options: .allGeometry)
-}
-
-
-// MARK: - Examples of edge cases
-
-
-// Overlay allows its content to overflow around the owner view, without modifying the owner
-// position or size.
-#Preview("Example: .overlay", traits: .headerFooter) {
-
-    Rectangle()
-        .strokeBorder(.red, lineWidth: 10)
-        .frame(square: 50)
-        .overlay(alignment: .topLeading) {
-            VStack(alignment: .leading) {
-                Text("Lorem ipsum dolor sit ame,\nconsectetur adipiscing elit.")
-            }.fixedSize()
-        }
-        .border(.orange, width: 4)
-}
-
-
-// ZStack of the same elements, where the ZStack grows to accomodate the size of all contained
-// elements.
-#Preview("Example: ZStack", traits: .headerFooter) {
-
-    ZStack(alignment: .topLeading) {
-        Rectangle()
-            .strokeBorder(.red, lineWidth: 10)
-            .frame(square: 50)
-        VStack(alignment: .leading) {
-            Text("Lorem ipsum dolor sit ame,\nconsectetur adipiscing elit.")
-        }.fixedSize()
-    }
-    .border(.orange, width: 4)
-
 }
