@@ -256,6 +256,7 @@ extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
 @MainActor
 private struct PreviewContent {
 
+    // TODO: Rename to layout, search for other private struct PreviewContent
     static let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 800)
 
     static var star: some View {
@@ -352,35 +353,35 @@ private struct PreviewContent {
     @Previewable @State var widthIndex: Double = 0
     @Previewable @State var heightIndex: Double = 0
 
-    let sliderRange: ClosedRange<Double> = 0...100
-
-    var width: Double { values[widthIndex.rounded(.toNearestOrEven).asInt] }
-    var height: Double { values[heightIndex.rounded(.toNearestOrEven).asInt] }
-
     let values: [Double] = Array(
         [
-            stride(from: 0.0, to: 0.1, by: 0.02),
-            stride(from: 0.1, to: 1.0, by: 0.1),
+            stride(from: 0.0, to: 1.0, by: 0.1),
             stride(from: 1.0, to: 10.0, by: 1.0),
             stride(from: 10.0, to: 101.0, by: 10.0)
         ].joined()
     )
 
+    var sliderRange: ClosedRange<Double> { 0...values.count.asDouble }
+    var width: Double { values[widthIndex.rounded(.toNearestOrEven).asInt] }
+    var height: Double { values[heightIndex.rounded(.toNearestOrEven).asInt] }
+
+
+
     VStack {
         Slider(
             value: $widthIndex,
-            in: 0...values.count.asDouble,
+            in: sliderRange,
             step: 1.0) {
                 Text("Width")
             }
         Slider(
             value: $heightIndex,
-            in: 0...values.count.asDouble,
+            in: sliderRange,
             step: 1.0) {
                 Text("Width")
             }
 
-        Text("Size: \(width, format: .fractionLength(2)),\(height, format: .fractionLength(2))")
+        Text("Size: \(width, format: .fractionLength(1)),\(height, format: .fractionLength(1))")
             .monospaced()
     }
     .padding()
