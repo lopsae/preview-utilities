@@ -34,6 +34,33 @@ extension Slider where Label : View {
         )
     }
 
+
+    init<Value>(
+        _ title: LocalizedStringKey,
+        value: Binding<Value>,
+        in bounds: ClosedRange<Value> = 0...1,
+        currentValueFormat: FormatStyle<Value, String>,
+        boundsValueFormat: FormatStyle<Value, String>,
+        onEditingChanged: @escaping (Bool) -> Void = { _ in }
+    ) where
+        Value : BinaryFloatingPoint,
+        Value.Stride : BinaryFloatingPoint,
+        Label == Text,
+        ValueLabel == Text
+    {
+        self.init(
+            value: value,
+            in: bounds,
+            neutralValue: nil,
+            enabledBounds: nil,
+            label: { Text(title) },
+            currentValueLabel: { Text(value.wrappedValue, format: currentValueFormat) },
+            minimumValueLabel: { Text(bounds.lowerBound, format: boundsValueFormat) },
+            maximumValueLabel: { Text(bounds.upperBound, format: boundsValueFormat) },
+            onEditingChanged: onEditingChanged
+        )
+    }
+
 }
 
 

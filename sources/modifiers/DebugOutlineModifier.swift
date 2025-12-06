@@ -358,23 +358,17 @@ private struct PreviewContent {
         Slider(
             "Height",
             value: $height,
-            in: sliderRange
-        ) {
-            Text(height, format: .integerBankersRounded)
-        } boundsValueLabel: { value in
-            Text(value, format: .integerBankersRounded)
-        }
-
+            in: sliderRange,
+            currentValueFormat: .roundedIntegerToNearestOrEven,
+            boundsValueFormat: .roundedIntegerToNearestOrEven
+        )
         Slider(
             "Width",
             value: $width,
-            in: sliderRange
-        ) {
-            Text(height, format: .integerBankersRounded)
-        } boundsValueLabel: { boundValue in
-            Text(boundValue, format: .integerBankersRounded)
-        }
-
+            in: sliderRange,
+            currentValueFormat: .roundedIntegerToNearestOrEven,
+            boundsValueFormat: .roundedIntegerToNearestOrEven
+        )
         Text("Size: \(width, format: .roundedIntegerToNearestOrEven),\(height, format: .roundedIntegerToNearestOrEven)")
             .monospaced()
     }
