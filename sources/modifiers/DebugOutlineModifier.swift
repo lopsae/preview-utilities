@@ -41,68 +41,66 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
+        var correctedFrame = correctZeroRect(localFrame)
+
         let topInset      = geometry.safeAreaInsets.top
         let leadingInset  = geometry.safeAreaInsets.leading
         let bottomInset   = geometry.safeAreaInsets.bottom
         let trailingInset = geometry.safeAreaInsets.trailing
-        // Top.
-        if topInset != 0 {
-            Path { path in
-                localFrame.set(y: -topInset, height: topInset)
-                    .addTo(path: &path)
-            }
-            .fill(safeAreasShapeStyle)
-        }
 
-        // Leading.
-        if leadingInset != 0 {
-            Path { path in
-                localFrame.set(x: -leadingInset, width: leadingInset)
-                    .addTo(path: &path)
+        // TODO: draw insets rects of a least a width/height of lineWidth*2, to make it visible even at zero sizes
+        Path { path in
+            // Top.
+            if topInset != 0 {
+                correctedFrame.set(y: -topInset, height: topInset)
+                .addTo(path: &path)
             }
-            .fill(safeAreasShapeStyle)
-        }
+            // Leading.
+            if leadingInset != 0 {
+                correctedFrame.set(x: -leadingInset, width: leadingInset)
+                .addTo(path: &path)
+            }
 
-        // Bottom.
-        if bottomInset != 0 {
-            Path { path in
-                localFrame.set(y: localFrame.height, height: bottomInset)
-                    .addTo(path: &path)
+            // Bottom.
+            if bottomInset != 0 {
+                correctedFrame.set(y: correctedFrame.height, height: bottomInset)
+                .addTo(path: &path)
             }
-            .fill(safeAreasShapeStyle)
-        }
 
-        // Trailing.
-        if trailingInset != 0 {
-            Path { path in
-                localFrame.set(x: localFrame.width, width: trailingInset)
-                    .addTo(path: &path)
+            // Trailing.
+            if trailingInset != 0 {
+                correctedFrame.set(x: correctedFrame.width, width: trailingInset)
+                .addTo(path: &path)
             }
-            .fill(safeAreasShapeStyle)
         }
+        .fill(safeAreasShapeStyle)
+        // Setting this frame is important to force the view to draw. If `content` size is too
+        // close to zero, that same size will be adopted by this view through the overlay, and
+        // nothing in the view will draw, including paths larger that the view. This frame prevents
+        // the size of this view from reaching the minimum known size for getting drawn.
+        .frame(size: correctedFrame.size)
     }
 
 
     @ViewBuilder
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
-        var frame = geometry.frame(in: .local)
-        // Minimum size length at which a rectangle is drawn:
-        // `0.17` in iPhone 17 Pro simulator.
-        // `0.25` in macOS 26 in preview canvas.
-        let threshold: Double = 0.25
-        let corrected: Double = 0.30
-        frame.size.height = frame.height <= threshold ? corrected : frame.height
-        frame.size.width = frame.width <= threshold ? corrected : frame.width
-        return Rectangle()
+        let localFrame = geometry.frame(in: .local)
+        var correctedFrame = correctZeroRect(localFrame)
+
+        Rectangle()
             .stroke(outerShapeStyle, lineWidth: lineWidth * 2)
-            .frame(size: frame.size)
             .mask {
                 Path { path in
-                    path.addRect(frame.inset(by: -lineWidth))
-                    path.addRect(frame)
+                    path.addRect(correctedFrame.inset(by: -lineWidth))
+                    path.addRect(correctedFrame)
                 }
                 .fill(style: .init(eoFill: true))
             }
+            // Setting this frame is important to force the view to draw. If `content` size is too
+            // close to zero, that same size will be adopted by this view through the overlay, and
+            // nothing in the view will draw, including paths larger that the view. This frame prevents
+            // the size of this view from reaching the minimum known size for getting drawn.
+            .frame(size: correctedFrame.size)
     }
 
 
@@ -151,6 +149,22 @@ public struct DebugOutlineModifier: ViewModifier {
             .fixedSize()
             .offset(y: stackOffset)
         }
+    }
+
+
+    /// Returns a rectangle that has a width and height of at least `0.30` each, since `Rectangle`s
+    /// and other viewss of smaller sizes do not get drawn.
+    private func correctZeroRect(_ rect: CGRect) -> CGRect {
+        var mutableRect = rect
+        // Minimum size length at which a rectangle is drawn:
+        // `0.17` in iPhone 17 Pro simulator.
+        // `0.25` in macOS 26 in preview canvas.
+        let threshold: Double = 0.25
+        let corrected: Double = 0.30
+        mutableRect.size.height = rect.height <= threshold ? corrected : rect.height
+        mutableRect.size.width  = rect.width  <= threshold ? corrected : rect.width
+
+        return mutableRect
     }
 
 }
@@ -330,6 +344,7 @@ private struct PreviewContent {
 }
 
 
+// TODO: inner stroke seems to also dissapear when size gets smaller that 5
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.previewLayout) {
     @Previewable @State var isZeroWidth: Bool = true
     @Previewable @State var isZeroHeight: Bool = true
@@ -347,4 +362,5 @@ private struct PreviewContent {
             height: isZeroHeight ? 0.0 : 100.0
         )
         .debugOutline(options: .allGeometry)
+        .safeAreaPadding(20)
 }
