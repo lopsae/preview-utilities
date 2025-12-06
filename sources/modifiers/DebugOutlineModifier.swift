@@ -349,20 +349,42 @@ private struct PreviewContent {
 
 // TODO: inner stroke seems to also dissapear when size gets smaller that 5
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.previewLayout) {
-    @Previewable @State var isZeroWidth: Bool = true
-    @Previewable @State var isZeroHeight: Bool = true
+    @Previewable @State var width: Double = 0.0
+    @Previewable @State var height: Double = 0.0
+
+    let sliderRange: ClosedRange<Double> = 0...100
 
     VStack {
-        Toggle("Zero Width", isOn: $isZeroWidth)
-        Toggle("Zero Height", isOn: $isZeroHeight)
+        Slider(
+            "Height",
+            value: $height,
+            in: sliderRange
+        ) {
+            Text(height, format: .integerBankersRounded)
+        } boundsValueLabel: { value in
+            Text(value, format: .integerBankersRounded)
+        }
+
+        Slider(
+            "Width",
+            value: $width,
+            in: sliderRange
+        ) {
+            Text(height, format: .integerBankersRounded)
+        } boundsValueLabel: { boundValue in
+            Text(boundValue, format: .integerBankersRounded)
+        }
+
+        Text("Size: \(width, format: .roundedIntegerToNearestOrEven),\(height, format: .roundedIntegerToNearestOrEven)")
+            .monospaced()
     }
     .padding()
 
     Rectangle()
         .fill(.red)
         .frame(
-            width: isZeroWidth ? 0.0 : 100.0,
-            height: isZeroHeight ? 0.0 : 100.0
+            width: width.rounded(.toNearestOrEven),
+            height: height.rounded(.toNearestOrEven)
         )
         .debugOutline(options: .allGeometry)
         .safeAreaPadding(20)
