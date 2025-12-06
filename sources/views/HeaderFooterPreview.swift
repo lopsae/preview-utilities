@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HeaderFooterPreview<Content: View>: View {
 
+    // TODO: make 12 for ios, 8 for macOS
+    static var minConcentricRoundedCornerRadius: Double { 12.0 }
+
     @State private var heightPadded: Double = 0
     @State private var heightComplete: Double = 0
     @State private var headerTopPadding: Double = 0
