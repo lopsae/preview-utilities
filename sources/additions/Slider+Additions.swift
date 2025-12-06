@@ -9,6 +9,8 @@ import SwiftUI
 
 extension Slider where Label : View {
 
+    /// Creates a slider to select a value from a given range, which displays a slider label, and
+    /// displays the provided labels for current and bounds values.
     init<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
@@ -35,6 +37,8 @@ extension Slider where Label : View {
     }
 
 
+    /// Creates a slider to select a value from a given range, which displays a slider label and
+    /// produces labels for current and bounds values.
     init<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
@@ -62,6 +66,8 @@ extension Slider where Label : View {
     }
 
 
+    /// Creates a slider to select a value from a given range, subject to a step increment, which
+    /// displays a slider label and produces labels for current and bounds values.
     init<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
@@ -93,6 +99,8 @@ extension Slider where Label : View {
     }
 
 
+    /// Creates a slider to select a value from a given collection, which displays a slider label
+    /// and produces labels for current and bounds values.
     init<Value, Mapped, MapCollection>(
         _ title: LocalizedStringKey,
         valuesMap: MapCollection,
