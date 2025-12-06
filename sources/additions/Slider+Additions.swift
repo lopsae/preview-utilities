@@ -106,8 +106,8 @@ extension Slider where Label : View {
         collection: MapCollection,
         value: Binding<Value>,
         mapped: Binding<MapCollection.Element>,
-        currentMapFormat: FormatStyle<MapCollection.Element, String>,
-        boundsMapFormat: FormatStyle<MapCollection.Element, String>,
+        currentMappedFormat: FormatStyle<MapCollection.Element, String>,
+        boundsMappedFormat: FormatStyle<MapCollection.Element, String>,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
         Value: BinaryFloatingPoint,
@@ -137,9 +137,58 @@ extension Slider where Label : View {
             neutralValue: nil,
             enabledBounds: nil,
             label: { Text(title) },
-            currentValueLabel: { Text(mapped.wrappedValue, format: currentMapFormat) },
-            minimumValueLabel: { Text(collection.first!, format: boundsMapFormat) },
-            maximumValueLabel: { Text(collection.last!, format: boundsMapFormat) },
+            currentValueLabel: { Text(mapped.wrappedValue, format: currentMappedFormat) },
+            minimumValueLabel: { Text(collection.first!, format: boundsMappedFormat) },
+            maximumValueLabel: { Text(collection.last!, format: boundsMappedFormat) },
+            tick: { _ in nil },
+            onEditingChanged: onEditingChanged
+        )
+    }
+
+
+    /// Creates a slider to select a value from a given `StringProtocol` collection, which displays
+    /// a slider label uses collection values for current and bounds labels.
+    init<Value, MapCollection>(
+        _ title: LocalizedStringKey,
+        collection: MapCollection,
+        value: Binding<Value>,
+        mapped: Binding<MapCollection.Element>,
+        onEditingChanged: @escaping (Bool) -> Void = { _ in }
+    ) where
+        Value: BinaryFloatingPoint,
+        Value.Stride : BinaryFloatingPoint,
+        MapCollection: BidirectionalCollection,
+        MapCollection.Element: StringProtocol,
+        MapCollection.Index == Int,
+        Label == Text,
+        ValueLabel == Text
+    {
+        guard !collection.isEmpty else {
+            fatalError("Fatal error: Empty collection.")
+        }
+
+        // TODO: dry
+        let mapBinding = Binding<Value> {
+            value.wrappedValue
+        } set: { newValue in
+            let roundedValue = newValue.rounded(.toNearestOrEven)
+            value.wrappedValue = newValue
+            mapped.wrappedValue = collection[roundedValue.asInt]
+        }
+
+        self.init(
+            value: mapBinding,
+            in: Value(collection.startIndex)...Value(collection.beforeEndIndex),
+            step: 1.0,
+            neutralValue: nil,
+            enabledBounds: nil,
+            label: { Text(title) },
+            currentValueLabel: {
+                let roundedValue = value.wrappedValue.rounded(.toNearestOrEven)
+                Text(collection[roundedValue.asInt])
+            },
+            minimumValueLabel: { Text(collection.first!) },
+            maximumValueLabel: { Text(collection.last!) },
             tick: { _ in nil },
             onEditingChanged: onEditingChanged
         )
@@ -148,7 +197,7 @@ extension Slider where Label : View {
 }
 
 
-// TODO: move to its own
+// TODO: move to its own file
 struct StringPassthroughFormatStyle: FormatStyle {
     func format(_ value: String) -> String { value }
 }
@@ -183,7 +232,15 @@ extension FormatStyle where Self == FirstCharacterFormatStyle {
 // MARK: - Previews
 
 
-#Preview("Collection", traits: .headerFooter) {
+@MainActor
+private struct PreviewContent {
+
+     static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 400)
+
+}
+
+
+#Preview("Collection", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var value: Double = 10
     @Previewable @State var mapped: String = "Not-Assigned"
 
@@ -198,12 +255,30 @@ extension FormatStyle where Self == FirstCharacterFormatStyle {
             collection: String.natoPhoneticAlphabet,
             value: $value,
             mapped: $mapped,
-            currentMapFormat: .passthrough,
-            boundsMapFormat: .firstCharacter(capitalized: true)
+            currentMappedFormat: .passthrough,
+            boundsMappedFormat: .firstCharacter(capitalized: true)
         )
     }
     .padding()
-
 }
 
 
+#Preview("String Collection", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var value: Double = 10
+    @Previewable @State var mapped: String = "Not-Assigned"
+
+    VStack(alignment: .leading) {
+        Text("Value:  \(value, format: .fractionLength(2))")
+            .monospaced()
+        Text("Mapped: \(mapped)")
+            .monospaced()
+
+        Slider(
+            "Collection Slider",
+            collection: String.natoPhoneticAlphabet,
+            value: $value,
+            mapped: $mapped
+        )
+    }
+    .padding()
+}
