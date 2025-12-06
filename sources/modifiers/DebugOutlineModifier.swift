@@ -361,11 +361,9 @@ private struct PreviewContent {
         ].joined()
     )
 
-    var sliderRange: ClosedRange<Double> { 0...values.count.asDouble }
+    var sliderRange: ClosedRange<Double> { values.startIndex.asDouble...values.beforeEndIndex.asDouble }
     var width: Double { values[widthIndex.rounded(.toNearestOrEven).asInt] }
     var height: Double { values[heightIndex.rounded(.toNearestOrEven).asInt] }
-
-
 
     VStack {
         Slider(
