@@ -349,27 +349,38 @@ private struct PreviewContent {
 
 // TODO: inner stroke seems to also dissapear when size gets smaller that 5
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.previewLayout) {
-    @Previewable @State var width: Double = 0.0
-    @Previewable @State var height: Double = 0.0
+    @Previewable @State var widthIndex: Double = 0
+    @Previewable @State var heightIndex: Double = 0
 
     let sliderRange: ClosedRange<Double> = 0...100
 
+    var width: Double { values[widthIndex.rounded(.toNearestOrEven).asInt] }
+    var height: Double { values[heightIndex.rounded(.toNearestOrEven).asInt] }
+
+    let values: [Double] = Array(
+        [
+            stride(from: 0.0, to: 0.1, by: 0.02),
+            stride(from: 0.1, to: 1.0, by: 0.1),
+            stride(from: 1.0, to: 10.0, by: 1.0),
+            stride(from: 10.0, to: 101.0, by: 10.0)
+        ].joined()
+    )
+
     VStack {
         Slider(
-            "Height",
-            value: $height,
-            in: sliderRange,
-            currentValueFormat: .roundedIntegerToNearestOrEven,
-            boundsValueFormat: .roundedIntegerToNearestOrEven
-        )
+            value: $widthIndex,
+            in: 0...values.count.asDouble,
+            step: 1.0) {
+                Text("Width")
+            }
         Slider(
-            "Width",
-            value: $width,
-            in: sliderRange,
-            currentValueFormat: .roundedIntegerToNearestOrEven,
-            boundsValueFormat: .roundedIntegerToNearestOrEven
-        )
-        Text("Size: \(width, format: .roundedIntegerToNearestOrEven),\(height, format: .roundedIntegerToNearestOrEven)")
+            value: $heightIndex,
+            in: 0...values.count.asDouble,
+            step: 1.0) {
+                Text("Width")
+            }
+
+        Text("Size: \(width, format: .fractionLength(2)),\(height, format: .fractionLength(2))")
             .monospaced()
     }
     .padding()
@@ -377,8 +388,8 @@ private struct PreviewContent {
     Rectangle()
         .fill(.red)
         .frame(
-            width: width.rounded(.toNearestOrEven),
-            height: height.rounded(.toNearestOrEven)
+            width: width,
+            height: height
         )
         .debugOutline(options: .allGeometry)
         .safeAreaPadding(20)
