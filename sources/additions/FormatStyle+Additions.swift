@@ -13,6 +13,12 @@ extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
         .number.rounded(rule: .toNearestOrEven, increment: 1.0)
     }
 
+
+    public static func fractionLength(_ length: Int) -> FloatingPointFormatStyle<Double> {
+        .number.precision(.fractionLength(length))
+    }
+
+
     // TODO: delete when unused
     public static var integerBankersRounded: FloatingPointFormatStyle<Double> {
         .number.rounded(rule: .toNearestOrEven, increment: 1.0)
