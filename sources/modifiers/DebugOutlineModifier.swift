@@ -152,18 +152,21 @@ public struct DebugOutlineModifier: ViewModifier {
     }
 
 
-    /// Returns a rectangle that has a width and height of at least `0.30` each, since `Rectangle`s
-    /// and other viewss of smaller sizes do not get drawn.
+    /// Returns a rectangle that has a width and height of at least `0.5` each. `Rectangle`s and
+    /// other views with sizes close to zero may not get drawn.
+    ///
+    /// Minimum size at which a `Rectangle` is found to be drawn:
+    /// + `0.17` in iPhone 17 Pro simulator; however this was found to jump to `0.35` when running
+    ///   in the MacBook Pro Retina display, and if might depend on display resolution.
+    /// + `0.25` in macOS 26 in preview canvas.
+    /// + `0.39` when preview in an iPad Pro 11-inch M4.
+    ///
+    /// Given the inconsistency, the minimal value of `0.5` was chosen as a compromise.
     private func correctZeroRect(_ rect: CGRect) -> CGRect {
+        let minSideLength: Double = 0.5
         var mutableRect = rect
-        // Minimum size length at which a rectangle is drawn:
-        // `0.17` in iPhone 17 Pro simulator.
-        // `0.25` in macOS 26 in preview canvas.
-        let threshold: Double = 0.25
-        let corrected: Double = 0.30
-        mutableRect.size.height = rect.height <= threshold ? corrected : rect.height
-        mutableRect.size.width  = rect.width  <= threshold ? corrected : rect.width
-
+        mutableRect.size.width  = max(minSideLength, rect.width)
+        mutableRect.size.height = max(minSideLength, rect.height)
         return mutableRect
     }
 
