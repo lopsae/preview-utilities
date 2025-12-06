@@ -13,6 +13,11 @@ extension BidirectionalCollection {
     }
 
 
+    public var beforeEndIndex: Index {
+        self.index(before: endIndex)
+    }
+
+
     // TODO: is array the appropriate return for a mapping/replace function? check what does a BidirectionalCollection.map implements to
     // Initially copied from ScrumDinger project.
     func replaceLast(_ transform: (inout Element) throws -> Void) rethrows -> [Element] {
