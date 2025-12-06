@@ -101,25 +101,25 @@ extension Slider where Label : View {
 
     /// Creates a slider to select a value from a given collection, which displays a slider label
     /// and produces labels for current and bounds values.
-    init<Value, Mapped, MapCollection>(
+    init<Value, MapCollection>(
         _ title: LocalizedStringKey,
-        valuesMap: MapCollection,
+        collection: MapCollection,
         value: Binding<Value>,
-        mapped: Binding<Mapped>,
-        currentMapFormat: FormatStyle<Mapped, String>,
-        boundsMapFormat: FormatStyle<Mapped, String>,
+        mapped: Binding<MapCollection.Element>,
+        currentMapFormat: FormatStyle<MapCollection.Element, String>,
+        boundsMapFormat: FormatStyle<MapCollection.Element, String>,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
-        Value : BinaryFloatingPoint,
+        Value: BinaryFloatingPoint,
         Value.Stride : BinaryFloatingPoint,
-        Mapped: Equatable,
-        MapCollection: BidirectionalCollection<Mapped>,
+        MapCollection: BidirectionalCollection,
+        MapCollection.Element: Equatable,
         MapCollection.Index == Int,
         Label == Text,
         ValueLabel == Text
     {
-        guard !valuesMap.isEmpty else {
-            fatalError("Fatal error: Empty collection for valuesMap.")
+        guard !collection.isEmpty else {
+            fatalError("Fatal error: Empty collection.")
         }
 
         let mapBinding = Binding<Value> {
@@ -127,19 +127,19 @@ extension Slider where Label : View {
         } set: { newValue in
             let rounded = newValue.rounded(.toNearestOrEven)
             value.wrappedValue = newValue
-            mapped.wrappedValue = valuesMap[rounded.asInt]
+            mapped.wrappedValue = collection[rounded.asInt]
         }
 
         self.init(
             value: mapBinding,
-            in: Value(valuesMap.startIndex)...Value(valuesMap.beforeEndIndex),
+            in: Value(collection.startIndex)...Value(collection.beforeEndIndex),
             step: 1.0,
             neutralValue: nil,
             enabledBounds: nil,
             label: { Text(title) },
             currentValueLabel: { Text(mapped.wrappedValue, format: currentMapFormat) },
-            minimumValueLabel: { Text(valuesMap.first!, format: boundsMapFormat) },
-            maximumValueLabel: { Text(valuesMap.last!, format: boundsMapFormat) },
+            minimumValueLabel: { Text(collection.first!, format: boundsMapFormat) },
+            maximumValueLabel: { Text(collection.last!, format: boundsMapFormat) },
             tick: { _ in nil },
             onEditingChanged: onEditingChanged
         )
@@ -183,19 +183,19 @@ extension FormatStyle where Self == FirstCharacterFormatStyle {
 // MARK: - Previews
 
 
-#Preview("ValuesMap", traits: .headerFooter) {
+#Preview("Collection", traits: .headerFooter) {
     @Previewable @State var value: Double = 10
     @Previewable @State var mapped: String = "Not-Assigned"
 
     VStack(alignment: .leading) {
-        Text("Value: \(value, format: .fractionLength(2))")
+        Text("Value:  \(value, format: .fractionLength(2))")
             .monospaced()
         Text("Mapped: \(mapped)")
             .monospaced()
 
         Slider(
-            "Mapped Values",
-            valuesMap: String.natoPhoneticAlphabet,
+            "Collection Slider",
+            collection: String.natoPhoneticAlphabet,
             value: $value,
             mapped: $mapped,
             currentMapFormat: .passthrough,
