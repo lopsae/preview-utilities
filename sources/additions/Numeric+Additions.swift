@@ -16,7 +16,7 @@ extension Numeric where Self == Int {
 }
 
 
-extension Numeric where Self == Double {
+extension Numeric where Self : BinaryFloatingPoint {
 
     @inlinable public var asInt: Int {
         Int(self)
