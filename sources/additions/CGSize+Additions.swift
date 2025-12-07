@@ -14,13 +14,18 @@ extension CGSize {
     }
 
 
+    public func add(width: CGFloat = 0, height: CGFloat = 0) -> Self {
+        return .init(width: self.width + width, height: self.height + height)
+    }
+
+
     /// Returns the lesser of the size components.
-    @inlinable var min: CGFloat {
+    @inlinable public var min: CGFloat {
         Swift.min(width, height)
     }
 
 
-    @inlinable var toPoint: CGPoint {
+    @inlinable public var toPoint: CGPoint {
         .init(x: width, y: height)
     }
 
