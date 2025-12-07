@@ -43,3 +43,30 @@ import SwiftUI
     .border(.orange, width: 4)
 
 }
+
+
+#Preview("Overlay+GeometryReader alignment", traits: .headerFooter) {
+
+    Rectangle()
+        .fill(.red.opacity(0.3))
+        .frame(square: 60)
+        .overlay(alignment: .bottomTrailing) {
+            // Geometry reader will remain the size of its container, even if content is bigger.
+            GeometryReader { geometry in
+                let sizeIncrease: CGFloat = 40
+                // Bigger content is always aligned to topLeading, with no ways to modify it.
+                Rectangle()
+                    .stroke(.orange, lineWidth: 5)
+                    .frame(size: geometry.size.add(width: sizeIncrease, height: sizeIncrease))
+
+                // However offset can still reposition the display of the containe view.
+                let offset: CGFloat = -sizeIncrease / 2.0
+                Rectangle()
+                    .stroke(.purple, lineWidth: 5)
+                    .frame(size: geometry.size.add(width: sizeIncrease, height: sizeIncrease))
+                    .offset(x: offset, y: offset)
+            }
+            .debugOutline()
+        }
+
+}
