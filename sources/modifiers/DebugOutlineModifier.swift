@@ -7,8 +7,9 @@
 import SwiftUI
 
 
-/// Adds a debug overlay that draws a dashed stroke inset in the views border, and a solid stroke
-/// outset of the view border.
+/// Adds a debug overlay that draws in an overlay of the modified view a dashed stroke inset in the
+/// view's border, a solid stroke outset, and rectangles to visualize any safe-areas around the
+/// view.
 public struct DebugOutlineModifier: ViewModifier {
 
     let lineWidth: CGFloat
@@ -41,9 +42,10 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
+        // TODO: can be just size?
         let localFrame = geometry.frame(in: .local)
 
-        // When the view is smaller that `lineWidth*2` the safe areas are still drawn with a
+        // When debugged view is smaller that `lineWidth*2` the safe areas are still drawn with a
         // thickness of `lineWidth*2` to remain visible, and offset to stay centered with the
         // origin.
         let minimumRect = CGSize(square: lineWidth * 2).centered(in: localFrame)
@@ -114,8 +116,12 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
+        // When debugged view is smaller that `lineWidth*2` the lineWidth used is reduced allow
+        // it to draw at smaller sizes, otherwise no inner stroke is drawn.
+        let correctedLineWidth = min(geometry.size.min, lineWidth * 2) / 2.0
+
         let strokeStyle = StrokeStyle(
-            lineWidth: lineWidth,
+            lineWidth: correctedLineWidth,
             dash: [lineWidth * 3, lineWidth * 2]
         )
         return Rectangle()
@@ -233,7 +239,7 @@ extension View {
     /// Text("Hello")
     ///     .debugOutline()
     ///
-    /// // Outlines along size and origin info
+    /// // Outlines along size and origin info.
     /// Text("Hello")
     ///     .debugOutline(options: .size, .origin)
     /// ```
@@ -369,7 +375,6 @@ private struct PreviewContent {
 }
 
 
-// TODO: inner stroke seems to also dissapear when size gets smaller that 5
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.previewLayout) {
     @Previewable @State var widthIndex: Double = 0.0
     @Previewable @State var heightIndex: Double = 0.0
@@ -378,8 +383,8 @@ private struct PreviewContent {
 
     let values: [Double] = Array(
         [
-            stride(from: 0.0, to: 1.0, by: 0.1),
-            stride(from: 1.0, to: 16.0, by: 1.0),
+            stride(from: 0.0, to: 2.0, by: 0.1),
+            stride(from: 2.0, to: 16.0, by: 1.0),
             stride(from: 20.0, to: 101.0, by: 10.0)
         ].joined()
     )
