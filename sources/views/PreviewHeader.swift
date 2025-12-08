@@ -13,13 +13,13 @@ struct PreviewHeader: View {
     @State private var fullHeight: Double = 0
     @State private var topSafeArea: Double = 0
 
-    let flexibleSize: Bool
+    let flexibleHeight: Bool
 
     fileprivate var printsUpdates: Bool = false
 
 
-    init(flexibleSize: Bool = true) {
-        self.flexibleSize = flexibleSize
+    init(flexibleHeight: Bool = true) {
+        self.flexibleHeight = flexibleHeight
     }
 
 
@@ -41,7 +41,7 @@ struct PreviewHeader: View {
                     topSafeArea = newTopSafeArea
                 }
 
-            if flexibleSize {
+            if flexibleHeight {
                 Spacer()
             }
 
@@ -103,7 +103,7 @@ private struct PreviewContent {
 
 
 #Preview(traits: .zeroSpacing, PreviewContent.layout) {
-    PreviewHeader(flexibleSize: false)
+    PreviewHeader(flexibleHeight: false)
         .preview_printsUpdates()
 
     Divider()
@@ -118,28 +118,31 @@ private struct PreviewContent {
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
 
     @Previewable @State var topSafeAreaInset: Double = 60.0
+    @Previewable @State var useDeviceSafeArea: Bool = false
+    @Previewable @State var isFlexible: Bool = false
 
     let sliderRange: ClosedRange<Double> = 0.0...100.0
 
-    // TODO: add toggle to disable this
-    Text("clear from device safe area")
-    .font(.caption)
-    .maxWidthFrame()
-    .padding(.bottom)
-    .padding(.bottom)
-    .background {
-        ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
-            .fill(.orange.tertiary)
-            .padding()
-            .ignoresSafeArea()
+    if !useDeviceSafeArea {
+        Text("clear from device safe area")
+        .font(.caption)
+        .maxWidthFrame()
+        .padding(.bottom)
+        .padding(.bottom)
+        .background {
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
+                .fill(.orange.tertiary)
+                .padding()
+                .ignoresSafeArea()
+        }
     }
 
-    PreviewHeader(flexibleSize: false)
+    PreviewHeader(flexibleHeight: isFlexible)
     .preview_printsUpdates()
     .safeAreaInset(edge: .top, spacing: 0) {
         let roundedHeight = topSafeAreaInset.rounded(.toNearestOrEven)
         Rectangle()
-            .fill(.red.opacity(0.2))
+            .fill(.red.opacity(0.1))
             .frame(height: roundedHeight)
             .debugOutline(options: .size, .safeAreaInsets, .infoOutside)
     }
@@ -147,26 +150,29 @@ private struct PreviewContent {
     Divider()
 
     ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
-        .fill(.orange)
-        .overlay(alignment: .top) {
-            VStack {
-                Slider(
-                    "Top SafeArea",
-                    value: $topSafeAreaInset,
-                    in: sliderRange
-                ) {
-                    Text(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)
-                } boundsValueLabel: { boundValue in
-                    Text(boundValue, format: .roundedIntegerToNearestOrEven)
-                        .monospaced()
-                }
-                Text("Top SafeArea: \(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)")
+    .fill(.orange)
+    .overlay(alignment: .bottom) {
+        VStack {
+            Slider(
+                "Top SafeArea",
+                value: $topSafeAreaInset,
+                in: sliderRange
+            ) {
+                Text(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)
+            } boundsValueLabel: { boundValue in
+                Text(boundValue, format: .roundedIntegerToNearestOrEven)
                     .monospaced()
-
             }
-            .padding()
-        } // overlay
+            Text("Top SafeArea: \(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)")
+                .monospaced()
+
+            Toggle("Use device safe area", isOn: $useDeviceSafeArea)
+            Toggle("Flexible height", isOn: $isFlexible)
+
+        }
         .padding()
-        .ignoresSafeArea()
+    } // overlay
+    .padding()
+    .ignoresSafeArea()
 
 }
