@@ -31,6 +31,7 @@ public struct DebugOutlineModifier: ViewModifier {
                 safeAreaRects(geometry: geometry)
                 outerStrokeRect(geometry: geometry)
                 innerStrokeRect(geometry: geometry)
+                originReticuleRects(geometry: geometry)
                 geometryInfoView(geometry)
             } // GeometryReader
             .allowsHitTesting(false)
@@ -41,44 +42,51 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
-        var correctedFrame = correctZeroRect(localFrame)
+
+        // When the view is smaller that `lineWidth*2` the safe areas are still drawn with a
+        // thickness of `lineWidth*2` to remain visible, and offset to stay centered with the
+        // origin.
+        let minimumRect = CGSize(square: lineWidth * 2).centered(in: localFrame)
+        let xOffset = min(0.0, minimumRect.origin.x)
+        let yOffset = min(0.0, minimumRect.origin.y)
+
+        let minWidth  = max(lineWidth * 2, localFrame.width)
+        let minHeight = max(lineWidth * 2, localFrame.height)
 
         let topInset      = geometry.safeAreaInsets.top
         let leadingInset  = geometry.safeAreaInsets.leading
         let bottomInset   = geometry.safeAreaInsets.bottom
         let trailingInset = geometry.safeAreaInsets.trailing
 
-        // TODO: draw insets rects of a least a width/height of lineWidth*2, to make it visible even at zero sizes
-        Path { path in
-            // Top.
-            if topInset != 0 {
-                correctedFrame.set(y: -topInset, height: topInset)
-                .addTo(path: &path)
-            }
-            // Leading.
-            if leadingInset != 0 {
-                correctedFrame.set(x: -leadingInset, width: leadingInset)
-                .addTo(path: &path)
-            }
-
-            // Bottom.
-            if bottomInset != 0 {
-                correctedFrame.set(y: correctedFrame.height, height: bottomInset)
-                .addTo(path: &path)
-            }
-
-            // Trailing.
-            if trailingInset != 0 {
-                correctedFrame.set(x: correctedFrame.width, width: trailingInset)
-                .addTo(path: &path)
-            }
+        // Top.
+        if topInset != 0 {
+            Rectangle()
+                .fill(safeAreasShapeStyle)
+                .frame(width: minWidth, height: topInset)
+                .offset(x: xOffset, y: -topInset)
         }
-        .fill(safeAreasShapeStyle)
-        // Setting this frame is important to force the view to draw. If `content` size is too
-        // close to zero, that same size will be adopted by this view through the overlay, and
-        // nothing in the view will draw, including paths larger that the view. This frame prevents
-        // the size of this view from reaching the minimum known size for getting drawn.
-        .frame(size: correctedFrame.size)
+        // Leading.
+        if leadingInset != 0 {
+            Rectangle()
+                .fill(safeAreasShapeStyle)
+                .frame(width: leadingInset, height: minHeight)
+                .offset(x: -leadingInset, y: yOffset)
+        }
+        // Bottom.
+        if bottomInset != 0 {
+            Rectangle()
+                .fill(safeAreasShapeStyle)
+                .frame(width: minWidth, height: bottomInset)
+                .offset(x: xOffset, y: localFrame.height)
+        }
+
+        // Trailing.
+        if trailingInset != 0 {
+            Rectangle()
+                .fill(safeAreasShapeStyle)
+                .frame(width: trailingInset, height: minHeight)
+                .offset(x: localFrame.width, y: yOffset)
+        }
     }
 
 
@@ -112,6 +120,19 @@ public struct DebugOutlineModifier: ViewModifier {
         )
         return Rectangle()
             .strokeBorder(innerShapeStyle, style: strokeStyle)
+    }
+
+
+    @ViewBuilder
+    private func originReticuleRects(geometry: GeometryProxy) -> some View {
+        Rectangle()
+            .fill(.red)
+            .frame(width: 1, height: lineWidth * 2)
+            .offset(y: -lineWidth)
+        Rectangle()
+            .fill(.red)
+            .frame(width: lineWidth * 2, height: 1)
+            .offset(x: -lineWidth)
     }
 
 
@@ -350,14 +371,14 @@ private struct PreviewContent {
 
 // TODO: inner stroke seems to also dissapear when size gets smaller that 5
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.previewLayout) {
-    @Previewable @State var widthIndex: Double = 0
-    @Previewable @State var heightIndex: Double = 0
+    @Previewable @State var widthIndex: Double = 0.0
+    @Previewable @State var heightIndex: Double = 0.0
 
     let values: [Double] = Array(
         [
             stride(from: 0.0, to: 1.0, by: 0.1),
-            stride(from: 1.0, to: 10.0, by: 1.0),
-            stride(from: 10.0, to: 101.0, by: 10.0)
+            stride(from: 1.0, to: 16.0, by: 1.0),
+            stride(from: 20.0, to: 101.0, by: 10.0)
         ].joined()
     )
 
@@ -385,11 +406,12 @@ private struct PreviewContent {
     .padding()
 
     Rectangle()
-        .fill(.red)
+        .fill(.teal)
         .frame(
             width: width,
             height: height
         )
         .debugOutline(options: .allGeometry)
-        .safeAreaPadding(20)
+        .safeAreaPadding(30)
+        .border(.gray.opacity(0.5), width: 1.0)
 }
