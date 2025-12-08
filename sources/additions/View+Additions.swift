@@ -47,4 +47,14 @@ extension View {
         self.onGeometryChange(for: T.self, of: { $0[keyPath: keyPath] }, action: action)
     }
 
+
+    @inlinable public func onGeometryChange<T>(
+        of keyPath: KeyPath<GeometryProxy, T>,
+        binding: Binding<T>
+    ) -> some View
+        where T : Equatable, T : Sendable
+    {
+        self.onGeometryChange(for: T.self, of: { $0[keyPath: keyPath] }, action: { binding.wrappedValue = $0 })
+    }
+
 }

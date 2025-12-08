@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PreviewHeader: View {
 
-    @State private var paddedHeight: Double = 0
-    @State private var fullHeight: Double = 0
-    @State private var topSafeArea: Double = 0
+    @State private var paddedHeight: CGFloat = 0.0
+    @State private var fullHeight: CGFloat = 0.0
+    @State private var topSafeArea: CGFloat = 0.0
 
     let flexibleHeight: Bool
 
@@ -49,12 +49,12 @@ struct PreviewHeader: View {
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
                 .fill(.gray.tertiary)
-                .onGeometryChange(of: \.size.height) { newHeight in
+                // TODO: reevaluate if using this approach is worthwhile
+                .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
                     if printsUpdates {
-                        print("update paddedHeight:\(newHeight)")
+                        print("update paddedHeight:\(newValue)")
                     }
-                    paddedHeight = newHeight
-                }
+                })
                 .padding()
                 .onGeometryChange(of: \.size.height) { newHeight in
                     if printsUpdates {
@@ -73,6 +73,20 @@ struct PreviewHeader: View {
         let possiblePadding = minPadding - topSafeArea
         return max(0, possiblePadding)
 
+    }
+
+}
+
+
+extension Binding {
+
+    func onSet(action: @escaping (Value) -> ()) -> Self {
+        return .init {
+            self.wrappedValue
+        } set: { newValue in
+            action(newValue)
+            self.wrappedValue = newValue
+        }
     }
 
 }
