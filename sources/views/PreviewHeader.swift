@@ -103,16 +103,23 @@ private struct PreviewContent {
 
 
 #Preview(traits: .zeroSpacing, PreviewContent.layout) {
-    PreviewHeader(flexibleHeight: false)
+    @Previewable @State var isFlexible: Bool = true
+
+    PreviewHeader(flexibleHeight: isFlexible)
         .preview_printsUpdates()
 
     Divider()
 
-    ConcentricRectangle(corners: .concentric(minimum: 12))
-        .fill(.orange)
+    ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
+    .fill(.orange)
+    .overlay(alignment: .bottom) {
+        VStack {
+            Toggle("Flexible height", isOn: $isFlexible)
+        }
         .padding()
-        .ignoresSafeArea()
-    // TODO: add toggle for flexible size
+    } // overlay
+    .padding()
+    .ignoresSafeArea()
 }
 
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
