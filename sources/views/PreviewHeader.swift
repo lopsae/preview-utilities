@@ -3,7 +3,9 @@
 //  Created by Maic Lopez Saenz.
 //
 
+
 import SwiftUI
+
 
 struct PreviewHeader: View {
 
@@ -24,10 +26,7 @@ struct PreviewHeader: View {
                 .padding(.bottom)
                 .padding(.bottom)
                 .maxWidthFrame()
-                // TODO: possible utility?
-                .onGeometryChange(for: Double.self) { geometry in
-                    geometry.safeAreaInsets.top
-                } action: { newTopSafeArea in
+                .onGeometryChange(of: \.safeAreaInsets.top) { newTopSafeArea in
                     let topPadding = minHeaderTopPadding - newTopSafeArea
                     headerTopPadding = max(0, topPadding)
                 }
@@ -40,17 +39,11 @@ struct PreviewHeader: View {
         .background {
             ConcentricRectangle(corners: .concentric(minimum: .fixed(HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)))
                 .fill(.gray.tertiary)
-                // TODO: possible utility? .onGeometryChange(\.size.height) { ... }
-                .onGeometryChange(for: Double.self) { geometry in
-                    geometry.size.height
-                } action: { newHeight in
+                .onGeometryChange(of: \.size.height) { newHeight in
                     heightPadded = newHeight
                 }
                 .padding()
-                // TODO: possible utility? .onGeometryChange(\.size.height) { $0 - heightPadded } : { padding = $0 }
-                .onGeometryChange(for: Double.self) { geometry in
-                    geometry.size.height
-                } action: { newHeight in
+                .onGeometryChange(of: \.size.height) { newHeight in
                     heightComplete = newHeight
                 }
                 .ignoresSafeArea()
@@ -62,6 +55,7 @@ struct PreviewHeader: View {
     }
 
 }
+
 
 // MARK: - Previews.
 
