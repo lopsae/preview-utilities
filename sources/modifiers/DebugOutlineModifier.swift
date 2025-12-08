@@ -42,18 +42,17 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
-        // TODO: can be just size?
-        let localFrame = geometry.frame(in: .local)
+        let size = geometry.size
 
         // When debugged view is smaller that `lineWidth*2` the safe areas are still drawn with a
         // thickness of `lineWidth*2` to remain visible, and offset to stay centered with the
         // origin.
-        let minimumRect = CGSize(square: lineWidth * 2).centered(in: localFrame)
+        let minimumRect = CGSize(square: lineWidth * 2).centered(in: size)
         let xOffset = min(0.0, minimumRect.origin.x)
         let yOffset = min(0.0, minimumRect.origin.y)
 
-        let minWidth  = max(lineWidth * 2, localFrame.width)
-        let minHeight = max(lineWidth * 2, localFrame.height)
+        let minWidth  = max(lineWidth * 2, size.width)
+        let minHeight = max(lineWidth * 2, size.height)
 
         let topInset      = geometry.safeAreaInsets.top
         let leadingInset  = geometry.safeAreaInsets.leading
@@ -79,7 +78,7 @@ public struct DebugOutlineModifier: ViewModifier {
             Rectangle()
                 .fill(safeAreasShapeStyle)
                 .frame(width: minWidth, height: bottomInset)
-                .offset(x: xOffset, y: localFrame.height)
+                .offset(x: xOffset, y: size.height)
         }
 
         // Trailing.
@@ -87,7 +86,7 @@ public struct DebugOutlineModifier: ViewModifier {
             Rectangle()
                 .fill(safeAreasShapeStyle)
                 .frame(width: trailingInset, height: minHeight)
-                .offset(x: localFrame.width, y: yOffset)
+                .offset(x: size.width, y: yOffset)
         }
     }
 
