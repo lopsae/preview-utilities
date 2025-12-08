@@ -47,7 +47,7 @@ struct PreviewHeader: View {
 
         }  // VStack
         .background {
-            ConcentricRectangle(corners: .concentric(minimum: .fixed(HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)))
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
                 .fill(.gray.tertiary)
                 .onGeometryChange(of: \.size.height) { newHeight in
                     if printsUpdates {
@@ -123,16 +123,16 @@ private struct PreviewContent {
 
     // TODO: add toggle to disable this
     Text("clear from device safe area")
-            .font(.caption)
-            .maxWidthFrame()
-            .padding(.bottom)
-            .padding(.bottom)
-            .background {
-                ConcentricRectangle(corners: .concentric(minimum: .fixed(HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)))
-                    .fill(.orange.tertiary)
-                    .padding()
-                    .ignoresSafeArea()
-            }
+    .font(.caption)
+    .maxWidthFrame()
+    .padding(.bottom)
+    .padding(.bottom)
+    .background {
+        ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
+            .fill(.orange.tertiary)
+            .padding()
+            .ignoresSafeArea()
+    }
 
     PreviewHeader(flexibleSize: false)
     .preview_printsUpdates()
@@ -146,7 +146,7 @@ private struct PreviewContent {
 
     Divider()
 
-    ConcentricRectangle(corners: .concentric(minimum: .fixed(HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)))
+    ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
         .fill(.orange)
         .overlay(alignment: .top) {
             VStack {
