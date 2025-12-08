@@ -33,4 +33,18 @@ extension View {
         self.frame(width: size.width, height: size.height, alignment: alignment)
     }
 
+
+    /// Adds an action to be performed when a geometry proxy value changes.
+    ///
+    /// Convenience function for `View.onGeometryChange(for:of:action:)` allowing to infer the
+    /// observed value with the given `keypath`.
+    @inlinable public func onGeometryChange<T>(
+        of keyPath: KeyPath<GeometryProxy, T>,
+        action: @escaping (_ newValue: T) -> Void
+    ) -> some View
+        where T : Equatable, T : Sendable
+    {
+        self.onGeometryChange(for: T.self, of: { $0[keyPath: keyPath] }, action: action)
+    }
+
 }
