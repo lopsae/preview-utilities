@@ -19,26 +19,29 @@ struct MinimumSafeAreaModifier: ViewModifier {
     let minimumInset: CGFloat
 
     public func body(content: Content) -> some View {
-        // TODO: extension of Edge
-        let edgeKeyPath: KeyPath<GeometryProxy, CGFloat> = switch edge {
-        case .top:
-            \.safeAreaInsets.top
-        case .leading:
-            \.safeAreaInsets.leading
-        case .bottom:
-            \.safeAreaInsets.bottom
-        case .trailing:
-            \.safeAreaInsets.trailing
-        }
         content
         .safeAreaPadding(.init(edge), additionalInset)
         // TODO: enable printing of updates, similar to PreviewHeader
-        .onGeometryChange(of: edgeKeyPath, binding: $currentSafeAreaInset)
+        .onGeometryChange(of: edge.geometryProxyKeyPath, binding: $currentSafeAreaInset)
     }
 
 
     private var additionalInset: CGFloat {
         return max(0, minimumInset - currentSafeAreaInset)
+    }
+
+}
+
+
+extension Edge {
+
+    var geometryProxyKeyPath: KeyPath<GeometryProxy, CGFloat> {
+        switch self {
+        case .top:      \.safeAreaInsets.top
+        case .leading:  \.safeAreaInsets.leading
+        case .bottom:   \.safeAreaInsets.bottom
+        case .trailing: \.safeAreaInsets.trailing
+        }
     }
 
 }
