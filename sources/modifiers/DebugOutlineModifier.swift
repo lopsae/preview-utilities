@@ -373,6 +373,8 @@ private struct PreviewContent {
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.previewLayout) {
     @Previewable @State var widthIndex: Double = 0.0
     @Previewable @State var heightIndex: Double = 0.0
+    @Previewable @State var width: Double = 0.0
+    @Previewable @State var height: Double = 0.0
 
     let values: [Double] = Array(
         [
@@ -382,23 +384,25 @@ private struct PreviewContent {
         ].joined()
     )
 
-    var sliderRange: ClosedRange<Double> { values.startIndex.asDouble...values.beforeEndIndex.asDouble }
-    var width: Double { values[widthIndex.rounded(.toNearestOrEven).asInt] }
-    var height: Double { values[heightIndex.rounded(.toNearestOrEven).asInt] }
+    var sliderRange: ClosedRange<Double> = values.startIndex.asDouble...values.beforeEndIndex.asDouble
 
     VStack {
         Slider(
+            "Width",
+            collection: values,
             value: $widthIndex,
-            in: sliderRange,
-            step: 1.0) {
-                Text("Width")
-            }
+            mapped: $width,
+            currentMappedFormat: .fractionLength(1),
+            boundsMappedFormat: .fractionLength(1)
+        )
         Slider(
+            "Height",
+            collection: values,
             value: $heightIndex,
-            in: sliderRange,
-            step: 1.0) {
-                Text("Width")
-            }
+            mapped: $height,
+            currentMappedFormat: .fractionLength(1),
+            boundsMappedFormat: .fractionLength(1)
+        )
 
         Text("Size: \(width, format: .fractionLength(1)),\(height, format: .fractionLength(1))")
             .monospaced()
@@ -412,6 +416,7 @@ private struct PreviewContent {
             height: height
         )
         .debugOutline(options: .allGeometry)
-        .safeAreaPadding(30)
+        .safeAreaPadding(.horizontal, 30)
+        .safeAreaPadding(.vertical, 20)
         .border(.gray.opacity(0.5), width: 1.0)
 }
