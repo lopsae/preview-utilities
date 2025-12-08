@@ -69,12 +69,12 @@ struct PreviewHeader: View {
 @MainActor
 private struct PreviewContent {
 
-     static let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
+    static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
 
 }
 
 
-#Preview(traits: .zeroSpacing, PreviewContent.previewLayout) {
+#Preview(traits: .zeroSpacing, PreviewContent.layout) {
     PreviewHeader()
     Divider()
     ConcentricRectangle(corners: .concentric(minimum: 12))
@@ -83,7 +83,7 @@ private struct PreviewContent {
         .ignoresSafeArea()
 }
 
-#Preview("SafeArea", traits: .zeroSpacing, PreviewContent.previewLayout) {
+#Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
 
     @Previewable @State var topSafeAreaInset: Double = 60.0
     let sliderRange: ClosedRange<Double> = 0.0...100.0

@@ -282,8 +282,7 @@ extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
 @MainActor
 private struct PreviewContent {
 
-    // TODO: Rename to layout, search for other private struct PreviewContent
-    static let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 800)
+    static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 800)
 
     static var star: some View {
         StarShape(points: 6, concaveVertexRatio: 0.8)
@@ -298,37 +297,37 @@ private struct PreviewContent {
 }
 
 
-#Preview("Default", traits: .headerFooter, PreviewContent.previewLayout) {
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
         .debugOutline()
 }
 
 
-#Preview("All geometry", traits: .headerFooter, PreviewContent.previewLayout) {
+#Preview("All geometry", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
         .debugOutline(options: .allGeometry)
 }
 
 
-#Preview("Size only", traits: .headerFooter, PreviewContent.previewLayout) {
+#Preview("Size only", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
         .debugOutline(options: .size)
 }
 
 
-#Preview("Size and origin", traits: .headerFooter, PreviewContent.previewLayout) {
+#Preview("Size and origin", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
         .debugOutline(options: .size, .origin)
 }
 
 
-#Preview("Info outside", traits: .headerFooter, PreviewContent.previewLayout) {
+#Preview("Info outside", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
         .debugOutline(options: .allGeometry, .infoOutside)
 }
 
 
-#Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.previewLayout) {
+#Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
         .debugOutline(options: .allGeometry, .infoOutside)
         .safeAreaPadding(.top,      20)
@@ -340,7 +339,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Interactive", traits: .headerFooter, PreviewContent.previewLayout) {
+#Preview("Interactive", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var counter: Int = 0
     ZStack(alignment: .topLeading) {
         PreviewContent.star
@@ -358,7 +357,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Small content", traits: .fixedHeader, PreviewContent.previewLayout) {
+#Preview("Small content", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var isInfoOutside: Bool = false
 
     VStack {
@@ -374,7 +373,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Zero size", traits: .fixedHeader, PreviewContent.previewLayout) {
+#Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var widthIndex: Double = 0.0
     @Previewable @State var heightIndex: Double = 0.0
     @Previewable @State var width: Double = 0.0
