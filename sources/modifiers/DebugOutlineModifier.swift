@@ -337,10 +337,12 @@ private struct PreviewContent {
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
         .debugOutline(options: .allGeometry, .infoOutside)
-        .safeAreaPadding(.top,      20)
-        .safeAreaPadding(.leading,  30)
-        .safeAreaPadding(.bottom,   40)
-        .safeAreaPadding(.trailing, 50)
+        .safeAreaPadding(.init(
+            top:      20,
+            leading:  30,
+            bottom:   40,
+            trailing: 50
+        ))
         .border(.gray.tertiary)
         .padding()
 }
