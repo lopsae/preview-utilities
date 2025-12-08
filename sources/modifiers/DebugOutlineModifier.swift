@@ -303,27 +303,34 @@ private struct PreviewContent {
 }
 
 
-#Preview("All geometry", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Options", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var options: [(
+        label: String,
+        option: DebugOutlineModifier.Options,
+        enabled: Bool
+    )] = [
+        ("Size",            .size,           true),
+        ("Origin",          .origin,         false),
+        ("SafeArea Insets", .safeAreaInsets, false),
+        ("Info Outside",    .infoOutside,    false),
+        ("All Geometry",    .allGeometry,    false)
+    ]
+
+    let optionsUnion: DebugOutlineModifier.Options = options.reduce(into: .empty) { result, optionTuple in
+        if optionTuple.enabled {
+            result.formUnion(optionTuple.option)
+        }
+    }
+
+    VStack {
+        ForEach(options.enumerated(), id: \.offset) { index, optionTuple in
+            Toggle(optionTuple.label, isOn: $options[index].enabled)
+        }
+    }
+    .padding()
+
     PreviewContent.star
-        .debugOutline(options: .allGeometry)
-}
-
-
-#Preview("Size only", traits: .headerFooter, PreviewContent.layout) {
-    PreviewContent.star
-        .debugOutline(options: .size)
-}
-
-
-#Preview("Size and origin", traits: .headerFooter, PreviewContent.layout) {
-    PreviewContent.star
-        .debugOutline(options: .size, .origin)
-}
-
-
-#Preview("Info outside", traits: .headerFooter, PreviewContent.layout) {
-    PreviewContent.star
-        .debugOutline(options: .allGeometry, .infoOutside)
+        .debugOutline(options: optionsUnion)
 }
 
 
@@ -334,7 +341,7 @@ private struct PreviewContent {
         .safeAreaPadding(.leading,  30)
         .safeAreaPadding(.bottom,   40)
         .safeAreaPadding(.trailing, 50)
-        .border(.gray.tertiary, width: 1)
+        .border(.gray.tertiary)
         .padding()
 }
 
@@ -412,14 +419,13 @@ private struct PreviewContent {
     }
     .padding()
 
-    Rectangle()
-        .fill(.teal)
+    PreviewContent.star
         .frame(
             width: width,
             height: height
         )
-        .debugOutline(options: .allGeometry)
+        .debugOutline(options: .allGeometry, .infoOutside)
         .safeAreaPadding(.horizontal, 30)
         .safeAreaPadding(.vertical, 20)
-        .border(.gray.opacity(0.5), width: 1.0)
+        .border(.gray.tertiary)
 }
