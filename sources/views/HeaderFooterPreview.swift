@@ -24,7 +24,7 @@ struct HeaderFooterPreview<Content: View>: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            PreviewHeader(flexibleHeight: !options.contains(.fixedHeader))
+            PreviewHeaderView(flexibleHeight: !options.contains(.fixedHeader))
 
             if options.contains(.showDividers) {
                 Divider()

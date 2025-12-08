@@ -59,7 +59,7 @@ extension EdgeInsets {
 }
 
 
-struct PreviewHeader: View {
+struct PreviewHeaderView: View {
 
     @State private var paddedHeight: CGFloat = 0.0
     @State private var fullHeight: CGFloat = 0.0
@@ -141,7 +141,7 @@ extension Binding {
 
 // MARK: - Preview utilities.
 
-extension PreviewHeader {
+extension PreviewHeaderView {
 
     fileprivate func preview_printsUpdates() -> Self {
         var mutableSelf = self
@@ -190,7 +190,7 @@ private final class PrintOnce {
     @Previewable @State var isFlexible: Bool = true
 
     printOnce.view
-    PreviewHeader(flexibleHeight: isFlexible)
+    PreviewHeaderView(flexibleHeight: isFlexible)
         .preview_printsUpdates()
 
     Divider()
@@ -232,7 +232,7 @@ private final class PrintOnce {
     }
 
     printOnce.view
-    PreviewHeader(flexibleHeight: isFlexible)
+    PreviewHeaderView(flexibleHeight: isFlexible)
     .preview_printsUpdates()
     .safeAreaInset(edge: .top, spacing: 0) {
         let roundedHeight = topSafeAreaInset.rounded(.toNearestOrEven)
