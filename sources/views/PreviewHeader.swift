@@ -15,6 +15,9 @@ struct PreviewHeader: View {
 
     let flexibleHeight: Bool
 
+    // TODO: revert to gray when replacement is done.
+    private let backgroundStyle: some ShapeStyle = .pink.tertiary // .gray.tertiary
+
     fileprivate var printsUpdates: Bool = false
 
 
@@ -47,8 +50,8 @@ struct PreviewHeader: View {
 
         }  // VStack
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
-                .fill(.gray.tertiary)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minimumConcentricRadius)
+                .fill(backgroundStyle)
                 // TODO: reevaluate if using this approach is worthwhile
                 .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
                     if printsUpdates {
@@ -124,7 +127,7 @@ private struct PreviewContent {
 
     Divider()
 
-    ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
+    ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minimumConcentricRadius)
     .fill(.orange)
     .overlay(alignment: .bottom) {
         VStack {
@@ -151,7 +154,7 @@ private struct PreviewContent {
         .padding(.bottom)
         .padding(.bottom)
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minimumConcentricRadius)
                 .fill(.orange.tertiary)
                 .padding()
                 .ignoresSafeArea()
@@ -170,7 +173,7 @@ private struct PreviewContent {
 
     Divider()
 
-    ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minConcentricRoundedCornerRadius)
+    ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minimumConcentricRadius)
     .fill(.orange)
     .overlay(alignment: .bottom) {
         VStack {
