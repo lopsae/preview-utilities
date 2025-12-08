@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-struct HeaderFooterPreview<Content: View>: View {
+struct HeaderFooterContainerView<Content: View>: View {
 
     // TODO: make 12 for ios, 8 for macOS
     static var minimumConcentricRadius: Double { 12.0 }
@@ -86,7 +86,7 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
 
 #Preview("Default", traits: previewLayout) {
-    HeaderFooterPreview {
+    HeaderFooterContainerView {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
     }
@@ -94,7 +94,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 
 
 #Preview("Fixed Header", traits: previewLayout) {
-    HeaderFooterPreview(options: .fixedHeader) {
+    HeaderFooterContainerView(options: .fixedHeader) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
     }
@@ -103,7 +103,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 
 // TODO: footer looks too tall in watchOS
 #Preview("Fixed Footer") {
-    HeaderFooterPreview(options: .fixedFooter) {
+    HeaderFooterContainerView(options: .fixedFooter) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
     }
@@ -111,7 +111,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 
 
 #Preview("Fixed Both") {
-    HeaderFooterPreview(options: .fixed) {
+    HeaderFooterContainerView(options: .fixed) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
     }
@@ -121,7 +121,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 // TODO: with an element of a set height, header and footer have display issues
 // TODO: in macOS, in all cases, footer is displayed too close to edge
 #Preview("Fixed Both, Inflexible") {
-    HeaderFooterPreview(options: .fixed) {
+    HeaderFooterContainerView(options: .fixed) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
             .frame(width: 100, height: 100)
@@ -130,7 +130,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 
 
 #Preview("Show Dividers") {
-    HeaderFooterPreview(options: .showDividers) {
+    HeaderFooterContainerView(options: .showDividers) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
     }
@@ -138,7 +138,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 
 
 #Preview("Multiple traits") {
-    HeaderFooterPreview(options: [.fixed, .showDividers]) {
+    HeaderFooterContainerView(options: [.fixed, .showDividers]) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
     }

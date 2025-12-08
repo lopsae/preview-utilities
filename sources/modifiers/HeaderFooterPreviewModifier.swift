@@ -18,7 +18,7 @@ struct HeaderFooterPreviewModifier: PreviewModifier {
 
 
     func body(content: Content, context _: ()) -> some View {
-        HeaderFooterPreview(options: options) {
+        HeaderFooterContainerView(options: options) {
             content
         }
     }

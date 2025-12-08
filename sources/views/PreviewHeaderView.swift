@@ -97,7 +97,7 @@ struct PreviewHeaderView: View {
 
         }  // VStack
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minimumConcentricRadius)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
                 .fill(backgroundStyle)
                 // TODO: reevaluate if using this approach is worthwhile
                 .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
@@ -195,7 +195,7 @@ private final class PrintOnce {
 
     Divider()
 
-    ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minimumConcentricRadius)
+    ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
     .fill(.orange)
     .overlay(alignment: .bottom) {
         VStack {
@@ -224,7 +224,7 @@ private final class PrintOnce {
         .padding(.bottom)
         .padding(.bottom)
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minimumConcentricRadius)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
                 .fill(.orange.tertiary)
                 .padding()
                 .ignoresSafeArea()
@@ -244,7 +244,7 @@ private final class PrintOnce {
 
     Divider()
 
-    ConcentricRectangle(minimumConcentricRadius: HeaderFooterPreview<EmptyView>.minimumConcentricRadius)
+    ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
     .fill(.orange)
     .overlay(alignment: .bottom) {
         VStack {
