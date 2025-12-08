@@ -119,9 +119,33 @@ private struct PreviewContent {
 }
 
 
+/// Experimental observable object to print a log message during the first request of views.
+@Observable
+private final class PrintOnce {
+
+    let message: String
+    private(set) var hasPrinted: Bool = false
+
+    init(_ message: String) {
+        self.message = message
+    }
+
+    var view: EmptyView {
+        if !hasPrinted {
+            hasPrinted = true
+            print(message)
+        }
+        return EmptyView()
+    }
+
+}
+
+
 #Preview(traits: .zeroSpacing, PreviewContent.layout) {
+    @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var isFlexible: Bool = true
 
+    printOnce.view
     PreviewHeader(flexibleHeight: isFlexible)
         .preview_printsUpdates()
 
@@ -132,6 +156,8 @@ private struct PreviewContent {
     .overlay(alignment: .bottom) {
         VStack {
             Toggle("Flexible height", isOn: $isFlexible)
+            Text("Has printed once: \(printOnce.hasPrinted)")
+                .font(.caption)
         }
         .padding()
     } // overlay
@@ -140,7 +166,7 @@ private struct PreviewContent {
 }
 
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
-
+    @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var topSafeAreaInset: Double = 60.0
     @Previewable @State var useDeviceSafeArea: Bool = false
     @Previewable @State var isFlexible: Bool = false
@@ -161,6 +187,7 @@ private struct PreviewContent {
         }
     }
 
+    printOnce.view
     PreviewHeader(flexibleHeight: isFlexible)
     .preview_printsUpdates()
     .safeAreaInset(edge: .top, spacing: 0) {
@@ -193,10 +220,11 @@ private struct PreviewContent {
             Toggle("Use device safe area", isOn: $useDeviceSafeArea)
             Toggle("Flexible height", isOn: $isFlexible)
 
+            Text("Has printed once: \(printOnce.hasPrinted)")
+                .font(.caption)
         }
         .padding()
     } // overlay
     .padding()
     .ignoresSafeArea()
-
 }
