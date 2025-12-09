@@ -161,7 +161,7 @@ private final class PrintOnce {
     @Previewable @State var useDeviceSafeArea: Bool = false
     @Previewable @State var isFlexible: Bool = false
 
-    let sliderRange: ClosedRange<Double> = 0.0...100.0
+    printOnce.view
 
     if !useDeviceSafeArea {
         Text("clear from device safe area")
@@ -177,7 +177,6 @@ private final class PrintOnce {
         }
     }
 
-    printOnce.view
     PreviewHeaderView(flexibleHeight: isFlexible)
     .preview_printsUpdates(true)
     .safeAreaInset(edge: .top, spacing: 0) {
@@ -197,13 +196,10 @@ private final class PrintOnce {
             Slider(
                 "Top SafeArea",
                 value: $topSafeAreaInset,
-                in: sliderRange
-            ) {
-                Text(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)
-            } boundsValueLabel: { boundValue in
-                Text(boundValue, format: .roundedIntegerToNearestOrEven)
-                    .monospaced()
-            }
+                in: 0.0...100.0,
+                currentValueFormat: .roundedIntegerToNearestOrEven,
+                boundsValueFormat: .roundedIntegerToNearestOrEven
+            )
             Text("Top SafeArea: \(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)")
                 .monospaced()
 
@@ -212,7 +208,7 @@ private final class PrintOnce {
 
             Text("Has printed once: \(printOnce.hasPrinted)")
                 .font(.caption)
-        }
+        } // VStack
         .padding()
     } // overlay
     .padding()
