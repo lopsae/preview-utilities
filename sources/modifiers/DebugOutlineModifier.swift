@@ -222,6 +222,9 @@ extension DebugOutlineModifier {
 }
 
 
+// MARK: - View extension.
+
+
 extension View {
 
     /// Adds a debug outline overlay to the view.

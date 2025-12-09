@@ -7,54 +7,7 @@
 import SwiftUI
 
 
-/// Experimental modifier to add a minimum safe area padding to a view.
-///
-/// If the view already if affected by a safe-area greater that `minimumInset`, no additional
-/// safe-area is added, otherwise enough safe area padding is added up to `minimumInset`.
-struct MinimumSafeAreaModifier: ViewModifier {
-
-    @State var currentSafeAreaInset: CGFloat = 0.0
-
-    let edge: Edge
-    let minimumInset: CGFloat
-
-    fileprivate var printsUpdates: Bool = false
-
-
-    public func body(content: Content) -> some View {
-        content
-        .safeAreaPadding(.init(edge), additionalInset)
-        // TODO: reevaluate if keeping this approach for logging.
-        .onGeometryChange(of: edge.geometryProxyKeyPath, binding: $currentSafeAreaInset.onSet { newValue in
-            if printsUpdates {
-                print("update currentSafeAreaInset:\(newValue)")
-            }
-        })
-    }
-
-
-    private var additionalInset: CGFloat {
-        return max(0, minimumInset - currentSafeAreaInset)
-    }
-
-}
-
-
-// MARK: - Preview utilities.
-
-
-extension MinimumSafeAreaModifier {
-
-    fileprivate func preview_printsUpdates(_ enable: Bool) -> Self {
-        var mutableSelf = self
-        mutableSelf.printsUpdates = enable
-        return mutableSelf
-    }
-
-}
-
-
-
+// TODO: move to own file
 extension Edge {
 
     var geometryProxyKeyPath: KeyPath<GeometryProxy, CGFloat> {
@@ -69,6 +22,7 @@ extension Edge {
 }
 
 
+// TODO: move to own file
 extension EdgeInsets {
 
     subscript(edge edge: Edge) -> CGFloat {
@@ -107,10 +61,7 @@ struct PreviewHeaderView: View {
 
             Text("Header")
                 .foregroundStyle(.tertiary)
-            // TODO: define convenience view extension call.
-//                .minSafeArea(.top, textTopPadding)
-                .modifier(MinimumSafeAreaModifier(edge: .top, minimumInset: minimumTextTopSafeArea)
-                    .preview_printsUpdates(printsUpdates))
+                .minimumSafeAreaPadding(.top, minimumInset: textMinimumTopSafeArea, printsUpdates: printsUpdates)
                 // Double padding to separate one padding from background,
                 // which is padded once from views edge.
                 .padding(.bottom)
@@ -143,7 +94,7 @@ struct PreviewHeaderView: View {
     }
 
 
-    private var minimumTextTopSafeArea: CGFloat {
+    private var textMinimumTopSafeArea: CGFloat {
         let onePadding = (fullHeight - paddedHeight) / 2.0
         return onePadding * 1.5
     }
