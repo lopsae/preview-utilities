@@ -20,6 +20,16 @@ extension EdgeInsets {
     }
 
 
+    @inlinable public static func horizontal(_ value: CGFloat) -> Self {
+        .init(top: 0.0, leading: value, bottom: 0.0, trailing: value)
+    }
+
+
+    @inlinable public static func vertical(_ value: CGFloat) -> Self {
+        .init(top: value, leading: 0.0, bottom: value, trailing: 0.0)
+    }
+
+
     subscript(edge edge: Edge) -> CGFloat {
         switch edge {
         case .top:      top

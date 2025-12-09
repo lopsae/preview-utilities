@@ -62,6 +62,14 @@ extension View {
     }
 
 
+    @inlinable public func contentMargins(
+        _ insets: EdgeInsets,
+        for placement: ContentMarginPlacement = .automatic
+    ) -> some View {
+        self.contentMargins(.all, insets, for: placement)
+    }
+
+
     @inlinable public func onScrollGeometryChange<T>(
         of keyPath: KeyPath<ScrollGeometry, T>,
         binding: Binding<T>
