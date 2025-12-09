@@ -18,11 +18,18 @@ struct MinimumSafeAreaModifier: ViewModifier {
     let edge: Edge
     let minimumInset: CGFloat
 
+    fileprivate var printsUpdates: Bool = false
+
+
     public func body(content: Content) -> some View {
         content
         .safeAreaPadding(.init(edge), additionalInset)
-        // TODO: enable printing of updates, similar to PreviewHeader
-        .onGeometryChange(of: edge.geometryProxyKeyPath, binding: $currentSafeAreaInset)
+        // TODO: reevaluate if keeping this approach for logging.
+        .onGeometryChange(of: edge.geometryProxyKeyPath, binding: $currentSafeAreaInset.onSet { newValue in
+            if printsUpdates {
+                print("update currentSafeAreaInset:\(newValue)")
+            }
+        })
     }
 
 
@@ -31,6 +38,21 @@ struct MinimumSafeAreaModifier: ViewModifier {
     }
 
 }
+
+
+// MARK: - Preview utilities.
+
+
+extension MinimumSafeAreaModifier {
+
+    fileprivate func preview_printsUpdates(_ enable: Bool) -> Self {
+        var mutableSelf = self
+        mutableSelf.printsUpdates = enable
+        return mutableSelf
+    }
+
+}
+
 
 
 extension Edge {
@@ -87,7 +109,8 @@ struct PreviewHeaderView: View {
                 .foregroundStyle(.tertiary)
             // TODO: define convenience view extension call.
 //                .minSafeArea(.top, textTopPadding)
-                .modifier(MinimumSafeAreaModifier(edge: .top, minimumInset: minimumTextTopSafeArea))
+                .modifier(MinimumSafeAreaModifier(edge: .top, minimumInset: minimumTextTopSafeArea)
+                    .preview_printsUpdates(printsUpdates))
                 // Double padding to separate one padding from background,
                 // which is padded once from views edge.
                 .padding(.bottom)
@@ -102,7 +125,7 @@ struct PreviewHeaderView: View {
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
                 .fill(backgroundStyle)
-                // TODO: reevaluate if using this approach is worthwhile
+                // TODO: reevaluate if keeping this approach for logging.
                 .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
                     if printsUpdates {
                         print("update paddedHeight:\(newValue)")
@@ -146,9 +169,9 @@ extension Binding {
 
 extension PreviewHeaderView {
 
-    fileprivate func preview_printsUpdates() -> Self {
+    fileprivate func preview_printsUpdates(_ enable: Bool) -> Self {
         var mutableSelf = self
-        mutableSelf.printsUpdates = true
+        mutableSelf.printsUpdates = enable
         return mutableSelf
     }
 
@@ -194,7 +217,7 @@ private final class PrintOnce {
 
     printOnce.view
     PreviewHeaderView(flexibleHeight: isFlexible)
-        .preview_printsUpdates()
+        .preview_printsUpdates(true)
 
     Divider()
 
@@ -236,7 +259,7 @@ private final class PrintOnce {
 
     printOnce.view
     PreviewHeaderView(flexibleHeight: isFlexible)
-    .preview_printsUpdates()
+    .preview_printsUpdates(true)
     .safeAreaInset(edge: .top, spacing: 0) {
         let roundedHeight = topSafeAreaInset.rounded(.toNearestOrEven)
         Rectangle()
