@@ -14,8 +14,7 @@ struct PreviewFooterView: View {
 
     let flexibleHeight: Bool
 
-    // TODO: revert to gray when replacement is done.
-    private let backgroundStyle: some ShapeStyle = .pink.tertiary // .gray.tertiary
+    private let backgroundStyle: some ShapeStyle = .gray.tertiary
 
     fileprivate var printsUpdates: Bool = false
 
