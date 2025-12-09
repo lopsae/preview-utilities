@@ -9,6 +9,17 @@ import SwiftUI
 
 extension EdgeInsets {
 
+
+    public init(all value: CGFloat) {
+        self.init(top: value, leading: value, bottom: value, trailing: value)
+    }
+
+
+    @inlinable public static func all(_ value: CGFloat) -> Self {
+        .init(top: value, leading: value, bottom: value, trailing: value)
+    }
+
+
     subscript(edge edge: Edge) -> CGFloat {
         switch edge {
         case .top:      top
