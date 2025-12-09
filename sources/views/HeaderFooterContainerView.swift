@@ -13,11 +13,11 @@ struct HeaderFooterContainerView<Content: View>: View {
     static var minimumConcentricRadius: Double { 12.0 }
 
     let options: HeaderFooterPreviewOptions
-    let content: Content
+    let content: () -> Content
 
 
-    init(options: HeaderFooterPreviewOptions = [], @ViewBuilder content: () -> Content) {
-        self.content = content()
+    init(options: HeaderFooterPreviewOptions = [], @ViewBuilder content: @escaping () -> Content) {
+        self.content = content
         self.options = options
     }
 
@@ -30,29 +30,13 @@ struct HeaderFooterContainerView<Content: View>: View {
                 Divider()
             }
 
-            content
+            content()
 
             if options.contains(.showDividers) {
                 Divider()
             }
 
-            VStack (spacing: 0) {
-                if !options.contains(.fixedFooter) {
-                    Spacer()
-                }
-                Text("Footer")
-                    .foregroundStyle(.tertiary)
-                    // Double padding to account for background padding.
-                    .padding(.top)
-                    .padding(.top)
-                    .maxWidthFrame()
-            } // VStack
-            .background {
-                ConcentricRectangle(corners: .concentric(minimum: 12))
-                .fill(.gray.tertiary)
-                .padding()
-                .ignoresSafeArea()
-            } // background
+            PreviewFooterView(flexibleHeight: !options.contains(.fixedFooter))
         } // VStack
     }
 
