@@ -54,7 +54,25 @@ extension View {
     ) -> some View
         where T : Equatable, T : Sendable
     {
-        self.onGeometryChange(for: T.self, of: { $0[keyPath: keyPath] }, action: { binding.wrappedValue = $0 })
+        self.onGeometryChange(
+            for: T.self,
+            of: { $0[keyPath: keyPath] },
+            action: { binding.wrappedValue = $0 }
+        )
+    }
+
+
+    @inlinable public func onScrollGeometryChange<T>(
+        of keyPath: KeyPath<ScrollGeometry, T>,
+        binding: Binding<T>
+    ) -> some View
+        where T : Equatable, T : Sendable
+    {
+        self.onScrollGeometryChange(
+            for: T.self,
+            of: { $0[keyPath: keyPath] },
+            action: { binding.wrappedValue = $1 }
+        )
     }
 
 }
