@@ -63,13 +63,16 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 
 // MARK: - Previews.
 
-// TODO: add previews that test the safeareas vs min paddings
 
-// TODO: update all previews with layout
 @MainActor
-private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
+private struct PreviewContent {
 
-#Preview("Default", traits: previewLayout) {
+    static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
+
+}
+
+
+#Preview("Default", traits: PreviewContent.layout) {
     HeaderFooterContainerView {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
@@ -77,7 +80,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 }
 
 
-#Preview("Fixed Header", traits: previewLayout) {
+#Preview("Fixed Header", traits: PreviewContent.layout) {
     HeaderFooterContainerView(options: .fixedHeader) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
@@ -86,7 +89,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 
 
 // TODO: footer looks too tall in watchOS
-#Preview("Fixed Footer") {
+#Preview("Fixed Footer", traits: PreviewContent.layout) {
     HeaderFooterContainerView(options: .fixedFooter) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
@@ -94,7 +97,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 }
 
 
-#Preview("Fixed Both") {
+#Preview("Fixed Both", traits: PreviewContent.layout) {
     HeaderFooterContainerView(options: .fixed) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
@@ -104,7 +107,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 
 // TODO: with an element of a set height, header and footer have display issues
 // TODO: in macOS, in all cases, footer is displayed too close to edge
-#Preview("Fixed Both, Inflexible") {
+#Preview("Fixed Both, Inflexible", traits: PreviewContent.layout) {
     HeaderFooterContainerView(options: .fixed) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
@@ -113,7 +116,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 }
 
 
-#Preview("Show Dividers") {
+#Preview("Show Dividers", traits: PreviewContent.layout) {
     HeaderFooterContainerView(options: .showDividers) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
@@ -121,7 +124,7 @@ private let previewLayout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width
 }
 
 
-#Preview("Multiple traits") {
+#Preview("Multiple traits", traits: PreviewContent.layout) {
     HeaderFooterContainerView(options: [.fixed, .showDividers]) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
