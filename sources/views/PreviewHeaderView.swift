@@ -93,6 +93,20 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
 
+    @ViewBuilder
+    static func bottomControls(@ViewBuilder content: () -> some View) -> some View {
+        ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
+        .fill(.orange)
+        .overlay(alignment: .bottom) {
+            VStack {
+                content()
+            }
+            .padding()
+        } // overlay
+        .padding()
+        .ignoresSafeArea()
+    }
+
 }
 
 
@@ -128,18 +142,11 @@ private final class PrintOnce {
 
     Divider()
 
-    ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
-    .fill(.orange)
-    .overlay(alignment: .bottom) {
-        VStack {
-            Toggle("Flexible height", isOn: $isFlexible)
-            Text("Has printed once: \(printOnce.hasPrinted)")
-                .font(.caption)
-        }
-        .padding()
-    } // overlay
-    .padding()
-    .ignoresSafeArea()
+    PreviewContent.bottomControls {
+        Toggle("Flexible height", isOn: $isFlexible)
+        Text("Has printed once: \(printOnce.hasPrinted)")
+            .font(.caption)
+    }
 }
 
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
@@ -176,28 +183,22 @@ private final class PrintOnce {
 
     Divider()
 
-    ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
-    .fill(.orange)
-    .overlay(alignment: .bottom) {
-        VStack {
-            Slider(
-                "Top SafeArea",
-                value: $topSafeAreaInset,
-                in: 0.0...100.0,
-                currentValueFormat: .roundedIntegerToNearestOrEven,
-                boundsValueFormat: .roundedIntegerToNearestOrEven
-            )
-            Text("Top SafeArea: \(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)")
-                .monospaced()
+    PreviewContent.bottomControls {
+        Slider(
+            "Top SafeArea",
+            value: $topSafeAreaInset,
+            in: 0.0...100.0,
+            currentValueFormat: .roundedIntegerToNearestOrEven,
+            boundsValueFormat: .roundedIntegerToNearestOrEven
+        )
+        Text("Top SafeArea: \(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)")
+            .monospaced()
 
-            Toggle("Use device safe area", isOn: $useDeviceSafeArea)
-            Toggle("Flexible height", isOn: $isFlexible)
+        Toggle("Use device safe area", isOn: $useDeviceSafeArea)
+        Toggle("Flexible height", isOn: $isFlexible)
 
-            Text("Has printed once: \(printOnce.hasPrinted)")
-                .font(.caption)
-        } // VStack
-        .padding()
-    } // overlay
-    .padding()
-    .ignoresSafeArea()
+        Text("Has printed once: \(printOnce.hasPrinted)")
+            .font(.caption)
+    }
+
 }
