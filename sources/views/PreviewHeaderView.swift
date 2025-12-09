@@ -71,21 +71,8 @@ struct PreviewHeaderView: View {
 }
 
 
-extension Binding {
-
-    func onSet(action: @escaping (Value) -> ()) -> Self {
-        return .init {
-            self.wrappedValue
-        } set: { newValue in
-            action(newValue)
-            self.wrappedValue = newValue
-        }
-    }
-
-}
-
-
 // MARK: - Preview utilities.
+
 
 extension PreviewHeaderView {
 
@@ -131,7 +118,7 @@ private final class PrintOnce {
 }
 
 
-#Preview(traits: .zeroSpacing, PreviewContent.layout) {
+#Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var isFlexible: Bool = true
 
