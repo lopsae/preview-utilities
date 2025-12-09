@@ -7,37 +7,6 @@
 import SwiftUI
 
 
-// TODO: move to own file
-extension Edge {
-
-    var geometryProxyKeyPath: KeyPath<GeometryProxy, CGFloat> {
-        switch self {
-        case .top:      \.safeAreaInsets.top
-        case .leading:  \.safeAreaInsets.leading
-        case .bottom:   \.safeAreaInsets.bottom
-        case .trailing: \.safeAreaInsets.trailing
-        }
-    }
-
-}
-
-
-// TODO: move to own file
-extension EdgeInsets {
-
-    subscript(edge edge: Edge) -> CGFloat {
-        switch edge {
-        case .top:      top
-        case .leading:  leading
-        case .bottom:   bottom
-        case .trailing: trailing
-        @unknown default: fatalError()
-        }
-    }
-
-}
-
-
 struct PreviewHeaderView: View {
 
     @State private var paddedHeight: CGFloat = 0.0
