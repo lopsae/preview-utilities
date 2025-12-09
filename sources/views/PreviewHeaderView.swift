@@ -65,7 +65,7 @@ struct PreviewHeaderView: View {
 
     private var textMinimumTopSafeArea: CGFloat {
         let onePadding = (fullHeight - paddedHeight) / 2.0
-        return onePadding * 1.5
+        return onePadding * 2.0
     }
 
 }
@@ -95,16 +95,19 @@ private struct PreviewContent {
 
     @ViewBuilder
     static func bottomControls(@ViewBuilder content: () -> some View) -> some View {
-        ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
-        .fill(.orange)
-        .overlay(alignment: .bottom) {
-            VStack {
-                content()
-            }
-            .padding()
-        } // overlay
+        VStack {
+            Spacer()
+            content()
+        }
+        .maxWidthFrame()
         .padding()
-        .ignoresSafeArea()
+        .padding([.horizontal, .bottom])
+        .background {
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
+            .fill(.orange)
+            .padding()
+            .ignoresSafeArea()
+        }
     }
 
 }
@@ -162,7 +165,7 @@ private final class PrintOnce {
         .font(.caption)
         .maxWidthFrame()
         .padding(.bottom)
-        .padding(.bottom)
+        .padding(.vertical)
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
                 .fill(.orange.tertiary)
