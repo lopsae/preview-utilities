@@ -105,8 +105,6 @@ private struct PreviewContent {
 }
 
 
-// TODO: with an element of a set height, header and footer have display issues
-// TODO: in macOS, in all cases, footer is displayed too close to edge
 #Preview("Fixed Both, Inflexible", traits: PreviewContent.layout) {
     HeaderFooterContainerView(options: .fixed) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
