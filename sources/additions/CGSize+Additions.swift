@@ -14,6 +14,17 @@ extension CGSize {
     }
 
 
+    @inlinable public func set(
+        width newWidth: CGFloat? = nil,
+        height newHeight: CGFloat? = nil
+    ) -> Self {
+        var mutableSize = self
+        if let newWidth {  mutableSize.width  = newWidth }
+        if let newHeight { mutableSize.height = newHeight }
+        return mutableSize
+    }
+
+
     public func add(width: CGFloat = 0, height: CGFloat = 0) -> Self {
         return .init(width: self.width + width, height: self.height + height)
     }

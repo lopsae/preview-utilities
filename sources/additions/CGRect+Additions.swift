@@ -16,12 +16,12 @@ extension CGRect {
         width newWidth: CGFloat? = nil,
         height newHeight: CGFloat? = nil
     ) -> Self {
-        var newRect = self
-        if let newX { newRect.origin.x = newX }
-        if let newY { newRect.origin.y = newY }
-        if let newWidth { newRect.size.width  = newWidth }
-        if let newHeight { newRect.size.height = newHeight }
-        return newRect
+        var mutableRect = self
+        if let newX { mutableRect.origin.x = newX }
+        if let newY { mutableRect.origin.y = newY }
+        if let newWidth  { mutableRect.size.width  = newWidth }
+        if let newHeight { mutableRect.size.height = newHeight }
+        return mutableRect
     }
 
 
