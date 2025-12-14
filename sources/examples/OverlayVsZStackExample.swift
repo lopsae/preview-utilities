@@ -7,13 +7,13 @@
 import SwiftUI
 
 
-// Previews to show the differente between stacking content of different sizes using a `ZStack` or
-// an `.overlay` view modifier.
-
-
-// Overlay allows its content to overflow around the owner view, without modifying the owner
-// position or size.
 #Preview("Example: .overlay", traits: .headerFooter) {
+    Text("""
+        Overlay allows its content to overflow around the owner view, without modifying the owner
+        position or size.
+        """)
+    .foregroundStyle(.secondary)
+    .padding([.horizontal, .bottom])
 
     Rectangle()
         .strokeBorder(.red, lineWidth: 10)
@@ -28,9 +28,13 @@ import SwiftUI
 }
 
 
-// ZStack of the same elements, where the ZStack grows to accomodate the size of all contained
-// elements.
 #Preview("Example: ZStack", traits: .headerFooter) {
+    Text("""
+        ZStack of the same elements, where the ZStack grows to accomodate the size of all contained
+        elements
+        """)
+    .foregroundStyle(.secondary)
+    .padding([.horizontal, .bottom])
 
     ZStack(alignment: .topLeading) {
         Rectangle()
@@ -46,6 +50,12 @@ import SwiftUI
 
 
 #Preview("Overlay+GeometryReader alignment", traits: .headerFooter) {
+    Text("""
+        GometryReader takes the size of its container, even if the content is bigger. Bigger
+        content is always aligned topLeading with no known way to modify it.
+        """)
+    .foregroundStyle(.secondary)
+    .padding([.horizontal, .bottom])
 
     Rectangle()
         .fill(.red.opacity(0.3))
@@ -59,7 +69,7 @@ import SwiftUI
                     .stroke(.orange, lineWidth: 5)
                     .frame(size: geometry.size.add(width: sizeIncrease, height: sizeIncrease))
 
-                // However offset can still reposition the display of the containe view.
+                // However offset can still reposition the display of the contained view.
                 let offset: CGFloat = -sizeIncrease / 2.0
                 Rectangle()
                     .stroke(.purple, lineWidth: 5)
