@@ -49,14 +49,14 @@ extension View {
 
 
     @inlinable public func onGeometryChange<T>(
-        of keyPath: KeyPath<GeometryProxy, T> & Sendable,
+        of transform: @escaping @Sendable (GeometryProxy) -> T,
         binding: Binding<T>
     ) -> some View
         where T : Equatable, T : Sendable
     {
         self.onGeometryChange(
             for: T.self,
-            of: { $0[keyPath: keyPath] },
+            of: transform,
             action: { binding.wrappedValue = $0 }
         )
     }
