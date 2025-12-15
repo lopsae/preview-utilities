@@ -140,7 +140,7 @@ private final class PrintOnce {
 
     PreviewContent.topControls {
         Toggle("Flexible height", isOn: $isFlexible)
-        Text("Has printed once: \(printOnce.hasPrinted)")
+        Text("Has printed once: \(printOnce.hasPrinted.description)")
             .font(.caption)
     }
 
@@ -172,7 +172,7 @@ private final class PrintOnce {
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)
         Toggle("Flexible height", isOn: $isFlexible)
 
-        Text("Has printed once: \(printOnce.hasPrinted)")
+        Text("Has printed once: \(printOnce.hasPrinted.description)")
             .font(.caption)
     }
 
