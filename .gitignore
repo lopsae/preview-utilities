@@ -1,0 +1,19 @@
+# gitIgnore for Preview Utilities
+
+# Examples for reference:
+# https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
+# https://github.com/github/gitignore/blob/main/Swift.gitignore
+
+
+# Started from scratch.
+
+
+# Xcode package project
+.DS_Store
+/.build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm/configuration/registries.json
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+.netrc
