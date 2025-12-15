@@ -39,7 +39,7 @@ extension View {
     /// Convenience function for `View.onGeometryChange(for:of:action:)` allowing to infer the
     /// observed value with the given `keypath`.
     @inlinable public func onGeometryChange<T>(
-        of keyPath: KeyPath<GeometryProxy, T>,
+        of keyPath: KeyPath<GeometryProxy, T> & Sendable,
         action: @escaping (_ newValue: T) -> Void
     ) -> some View
         where T : Equatable, T : Sendable
@@ -49,7 +49,7 @@ extension View {
 
 
     @inlinable public func onGeometryChange<T>(
-        of keyPath: KeyPath<GeometryProxy, T>,
+        of keyPath: KeyPath<GeometryProxy, T> & Sendable,
         binding: Binding<T>
     ) -> some View
         where T : Equatable, T : Sendable

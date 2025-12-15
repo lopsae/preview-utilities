@@ -101,6 +101,7 @@ extension Slider where Label : View {
 
     /// Creates a slider to select a value from a given collection, which displays a slider label
     /// and produces labels for current and bounds values.
+    @MainActor
     init<Value, MapCollection>(
         _ title: LocalizedStringKey,
         collection: MapCollection,
@@ -148,6 +149,7 @@ extension Slider where Label : View {
 
     /// Creates a slider to select a value from a given `StringProtocol` collection, which displays
     /// a slider label uses collection values for current and bounds labels.
+    @MainActor
     init<Value, MapCollection>(
         _ title: LocalizedStringKey,
         collection: MapCollection,
