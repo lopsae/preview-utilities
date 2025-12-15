@@ -94,7 +94,7 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
-        var correctedFrame = correctZeroRect(localFrame)
+        let correctedFrame = correctZeroRect(localFrame)
 
         Rectangle()
             .stroke(outerShapeStyle, lineWidth: lineWidth * 2)
@@ -123,7 +123,8 @@ public struct DebugOutlineModifier: ViewModifier {
             lineWidth: correctedLineWidth,
             dash: [lineWidth * 3, lineWidth * 2]
         )
-        return Rectangle()
+
+        Rectangle()
             .strokeBorder(innerShapeStyle, style: strokeStyle)
     }
 
@@ -396,10 +397,9 @@ private struct PreviewContent {
             stride(from: 0.0, to: 2.0, by: 0.1),
             stride(from: 2.0, to: 16.0, by: 1.0),
             stride(from: 20.0, to: 101.0, by: 10.0)
-        ].joined()
+        ]
+        .joined()
     )
-
-    var sliderRange: ClosedRange<Double> = values.startIndex.asDouble...values.beforeEndIndex.asDouble
 
     VStack {
         Slider(

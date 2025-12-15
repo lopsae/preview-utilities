@@ -43,8 +43,8 @@ extension Slider where Label : View {
         _ title: LocalizedStringKey,
         value: Binding<Value>,
         in bounds: ClosedRange<Value> = 0...1,
-        currentValueFormat: FormatStyle<Value, String>,
-        boundsValueFormat: FormatStyle<Value, String>,
+        currentValueFormat: any FormatStyle<Value, String>,
+        boundsValueFormat: any FormatStyle<Value, String>,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
         Value : BinaryFloatingPoint,
@@ -73,8 +73,8 @@ extension Slider where Label : View {
         value: Binding<Value>,
         in bounds: ClosedRange<Value> = 0...1,
         step: Value.Stride = 1,
-        currentValueFormat: FormatStyle<Value, String>,
-        boundsValueFormat: FormatStyle<Value, String>,
+        currentValueFormat: any FormatStyle<Value, String>,
+        boundsValueFormat: any FormatStyle<Value, String>,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
         Value : BinaryFloatingPoint,
@@ -106,8 +106,8 @@ extension Slider where Label : View {
         collection: MapCollection,
         value: Binding<Value>,
         mapped: Binding<MapCollection.Element>,
-        currentMappedFormat: FormatStyle<MapCollection.Element, String>,
-        boundsMappedFormat: FormatStyle<MapCollection.Element, String>,
+        currentMappedFormat: any FormatStyle<MapCollection.Element, String>,
+        boundsMappedFormat: any FormatStyle<MapCollection.Element, String>,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
         Value: BinaryFloatingPoint,

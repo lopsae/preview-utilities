@@ -64,7 +64,7 @@ extension View {
     }
 
 
-    internal func minimumSafeAreaPadding(_ edge: Edge, minimumInset: CGFloat, printsUpdates printsUpdates: Bool) -> some View {
+    internal func minimumSafeAreaPadding(_ edge: Edge, minimumInset: CGFloat, printsUpdates: Bool) -> some View {
         modifier(
             MinimumSafeAreaPaddingModifier(edge: edge, minimumInset: minimumInset, printsUpdates: printsUpdates)
         )
