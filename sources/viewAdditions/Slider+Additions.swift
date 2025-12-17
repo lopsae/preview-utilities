@@ -199,38 +199,6 @@ extension Slider where Label : View {
 }
 
 
-// TODO: move to its own file
-struct StringPassthroughFormatStyle: FormatStyle {
-    func format(_ value: String) -> String { value }
-}
-
-extension FormatStyle where Self == StringPassthroughFormatStyle {
-    static var passthrough: StringPassthroughFormatStyle { .init() }
-}
-
-struct FirstCharacterFormatStyle: FormatStyle {
-    let capitalized: Bool
-
-    init(capitalized: Bool = false) {
-        self.capitalized = capitalized
-    }
-
-    func format(_ value: String) -> String {
-        let firstCharacted = value.first?.description ?? ""
-        return capitalized
-            ? firstCharacted.capitalized
-            : firstCharacted
-    }
-}
-
-extension FormatStyle where Self == FirstCharacterFormatStyle {
-    static var firstCharacter: FirstCharacterFormatStyle { .init() }
-    static func firstCharacter(capitalized: Bool) -> FirstCharacterFormatStyle {
-        .init(capitalized: capitalized)
-    }
-}
-
-
 // MARK: - Previews
 
 
