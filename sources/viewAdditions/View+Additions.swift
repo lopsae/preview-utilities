@@ -34,6 +34,11 @@ extension View {
     }
 
 
+    @inlinable public func roundedRectangleClip(cornerRadius: CGFloat) -> some View {
+        clipShape(RoundedRectangle(cornerRadius: cornerRadius))
+    }
+
+
     /// Adds an action to be performed when a geometry proxy value changes.
     ///
     /// Convenience function for `View.onGeometryChange(for:of:action:)` allowing to infer the
