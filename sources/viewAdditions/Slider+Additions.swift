@@ -148,7 +148,7 @@ extension Slider where Label : View {
 
 
     /// Creates a slider to select a value from a given `StringProtocol` collection, which displays
-    /// a slider label uses collection values for current and bounds labels.
+    /// a slider label and uses collection values for current and bounds labels.
     @MainActor
     init<Value, MapCollection>(
         _ title: LocalizedStringKey,
@@ -215,6 +215,10 @@ private struct PreviewContent {
     @Previewable @State var mapped: String = "Not-Assigned"
 
     VStack(alignment: .leading) {
+        Text("Slider with the natoPhoneticAlphabet collection, current formatted with identity, and bounds formatted with capitalized first character.")
+            .font(.caption)
+            .padding(.bottom)
+
         Text("Value:  \(value, format: .fractionLength(2))")
             .monospaced()
         Text("Mapped: \(mapped)")
@@ -225,11 +229,11 @@ private struct PreviewContent {
             collection: String.natoPhoneticAlphabet,
             value: $value,
             mapped: $mapped,
-            currentMappedFormat: .passthrough,
+            currentMappedFormat: .identity,
             boundsMappedFormat: .firstCharacter(capitalized: true)
         )
     }
-    .padding()
+    .padding(.horizontal)
 }
 
 
@@ -238,6 +242,10 @@ private struct PreviewContent {
     @Previewable @State var mapped: String = "Not-Assigned"
 
     VStack(alignment: .leading) {
+        Text("Slider with the natoPhoneticAlphabet collection, no formats used.")
+            .font(.caption)
+            .padding(.bottom)
+
         Text("Value:  \(value, format: .fractionLength(2))")
             .monospaced()
         Text("Mapped: \(mapped)")
