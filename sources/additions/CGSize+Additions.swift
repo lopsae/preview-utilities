@@ -14,6 +14,11 @@ extension CGSize {
     }
 
 
+    @inlinable public static func square(of side: CGFloat) -> Self {
+        return .init(square: side)
+    }
+
+
     @inlinable public func set(
         width newWidth: CGFloat? = nil,
         height newHeight: CGFloat? = nil
