@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-/// Convenience view that contains a invisible rectangle with the given size.
+/// Convenience view that contains an invisible rectangle framed to a given size.
 public struct ClearRectangle<S: ShapeStyle> : View {
 
     let width: CGFloat?

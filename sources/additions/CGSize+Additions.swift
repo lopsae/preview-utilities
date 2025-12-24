@@ -19,7 +19,7 @@ extension CGSize {
     }
 
 
-    @inlinable public func set(
+    @inlinable public func setting(
         width newWidth: CGFloat? = nil,
         height newHeight: CGFloat? = nil
     ) -> Self {
