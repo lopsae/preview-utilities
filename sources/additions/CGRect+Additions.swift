@@ -10,6 +10,7 @@ import SwiftUI
 
 extension CGRect {
 
+    // TODO: rename to setting
     @inlinable public func set(
         x newX: CGFloat? = nil,
         y newY: CGFloat? = nil,
