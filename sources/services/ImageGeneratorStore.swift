@@ -10,18 +10,18 @@ import SwiftUI
 @MainActor @Observable
 public class ImageGeneratorStore {
 
-    let generator: ImageGeneratorProtocol
+    let generator: any ImageGeneratorProtocol
 
     public private(set) var status: [String: GenerationStatus] = [:]
     public private(set) var images: [String: Image] = [:]
 
 
     // TODO: make init that only receives size and uses isolateedImageGenerator
-    public init(size: CGSize, generator: ImageGeneratorProtocol? = nil) {
+    public init(size: CGSize, generator: (any ImageGeneratorProtocol)? = nil) {
         if let generator {
             self.generator = generator
         } else {
-            self.generator = ImageGenerator(size: size)
+            self.generator = ConcurrentImageGenerator(size: size)
         }
     }
 

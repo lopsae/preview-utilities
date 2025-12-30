@@ -8,10 +8,15 @@ import CryptoKit
 import SwiftUI
 
 
-public protocol ImageGeneratorProtocol: Sendable {
+public protocol ImageGeneratorProtocol: Sendable, Identifiable {
+
+    var id: UUID { get }
     var size: CGSize { get }
+
     func generateImage(with text: String) async -> (image: Image, threadNumber: String)
+
 }
+
 
 // TODO: add some tests for the following cases:
 // + nonisolated class with async function running in inherited main and background threads
@@ -19,12 +24,14 @@ public protocol ImageGeneratorProtocol: Sendable {
 // TODO: createa DefaultIsolationImageGenerator which function runs on the default isolation, to see of that makes visible changes to the defaultIsolation setting.
 
 
-// MARK: - ImageGenerator
+// MARK: - ConcurrentImageGenerator
 
 
-// Package settings use the MainActor default isolation. `nonisolated` is necessary to allow
-// functions in this class to run in the cooperative thread pool.
-nonisolated final class ImageGenerator: ImageGeneratorProtocol, Sendable {
+/// Nonisolated ImageGenerator with a `@concurrent generateImage` function that will always be
+/// called in the cooperative thread pool.
+nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
+
+    let id: UUID = UUID()
 
     let size: CGSize
     let sleepRange: ClosedRange<Duration>
@@ -35,9 +42,13 @@ nonisolated final class ImageGenerator: ImageGeneratorProtocol, Sendable {
     }
 
 
-    // Package settings use the `NonisolatedNonsendingByDefault` upcoming feature, in which async
-    // functions by default will use the actor where it is called. Use `@concurrent` to use the
-    // thread pool.
+    /// Generates an image concurrently, this function always runs in the cooperative thread pool.
+    ///
+    /// This function must use `@concurrent` to use the cooperative thread pool.
+    ///
+    /// Replacing `@concurrent` with `nonisolated` will cause this function to inherit the isolation
+    /// context of the caller, since the package uses the `NonisolatedNonsendingByDefault` upcoming
+    /// feature.
     @concurrent
     func generateImage(with text: String) async -> (image: Image, threadNumber: String) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
@@ -57,6 +68,8 @@ nonisolated final class ImageGenerator: ImageGeneratorProtocol, Sendable {
 /// `NonisolatedNonsendingByDefault` is also enabled, the image generation will occurr in the
 /// isolation contect where `generateImage` is called.
 final class DefaultIsolationImageGenerator: /*ImageGeneratorProtocol,*/ Sendable {
+
+    let id: UUID = UUID()
 
     let size: CGSize
     let sleepRange: ClosedRange<Duration>
@@ -245,7 +258,8 @@ private struct PreviewContent {
 }
 
 
-#Preview("Generator", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Concurrent", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var usesMainActor: Bool = true
     @Previewable @State var images: [(text: String, image: Image?)] = [
         ("One",   nil),
         ("Two",   nil),
@@ -253,14 +267,13 @@ private struct PreviewContent {
         ("Four",  nil),
         ("Five",  nil)
     ]
-
-    let imageGenerator = ImageGenerator(
+    @Previewable @State var imageGenerator = ConcurrentImageGenerator(
         size: .init(square: 100),
         sleepRange: .seconds(0.5) ... .seconds(1)
     )
 
     VStack {
-        ForEach(images.enumerated(), id: \.offset) { index, tuple in
+        ForEach(images.enumerated(), id: \.offset ) { index, tuple in
             Group {
                 if let image = tuple.image {
                     image.resizable()
@@ -270,15 +283,38 @@ private struct PreviewContent {
             }
             .frame(size: imageGenerator.size)
             .roundedRectangleClip(cornerRadius: 8)
+
             .task {
-                // ImageGenerator is called here from the MainActor isolation.
-                let image = await imageGenerator.generateImage(with: tuple.text).image
-                var mutableTuple = tuple
-                mutableTuple.image = image
-                images[index] = mutableTuple
+                let imageTask = if usesMainActor {
+                    // Called from inherited the MainActor isolation.
+                    Task {
+                        await imageGenerator.generateImage(with: tuple.text)
+                    }
+                } else {
+                    // Called using cooperative thread pool.
+                    Task.detached {
+                        await imageGenerator.generateImage(with: tuple.text)
+                    }
+                }
+                let image = await imageTask.value.image
+                images[index].image = image //mutableTuple
             }
+            .id(imageGenerator.id.hash(with: index))
         }
     } // VStack
+    .onChange(of: usesMainActor) {
+        // Reset image generator and stored images.
+        imageGenerator = ConcurrentImageGenerator(
+            size: imageGenerator.size,
+            sleepRange: imageGenerator.sleepRange
+        )
+        images = images.map { text, image in
+            (text, nil)
+        }
+    }
+
+    Toggle("Call from Main Actor", isOn: $usesMainActor)
+        .padding()
 }
 
 
