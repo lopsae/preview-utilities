@@ -109,6 +109,9 @@ public class ImageGeneratorStore {
 
 }
 
+
+// TODO: createa DefaultIsolationImageGenerator which function runs on the default isolation, to see of that makes visible changes to the defaultIsolation setting.
+
 // Package settings use the MainActor default isolation. `nonisolated` is necessary to allow
 // functions in this class to run in the cooperative thread pool.
 nonisolated final class ImageGenerator: Sendable {
