@@ -29,7 +29,7 @@ nonisolated final class ImageGenerator: ImageGeneratorProtocol, Sendable {
     let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(4)) {
+    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)) {
         self.size = size
         self.sleepRange = sleepRange
     }
@@ -61,7 +61,7 @@ final class DefaultIsolationImageGenerator: /*ImageGeneratorProtocol,*/ Sendable
     let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(4)) {
+    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)) {
         self.size = size
         self.sleepRange = sleepRange
     }
@@ -307,8 +307,6 @@ private struct ColorComponents: Sendable {
                 }
                 let image = await imageTask.value
 
-
-//                let image = await imageGenerator.generateImage(with: tuple.text).image
                 var mutableTuple = tuple
                 mutableTuple.image = image
                 images[index] = mutableTuple
