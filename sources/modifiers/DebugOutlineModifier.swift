@@ -223,7 +223,7 @@ extension DebugOutlineModifier {
 }
 
 
-// MARK: - View extension.
+// MARK: - View Extension
 
 
 extension View {

@@ -85,7 +85,7 @@ extension CGRect {
 #endif
 
 
-// MARK:- Interactions with Path.
+// MARK: - Interactions with Path
 
 extension CGRect {
 

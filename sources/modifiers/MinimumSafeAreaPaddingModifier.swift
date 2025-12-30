@@ -52,7 +52,7 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
 }
 
 
-// MARK: - View extension.
+// MARK: - View Extension
 
 
 extension View {
