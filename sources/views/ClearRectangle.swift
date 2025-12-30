@@ -52,7 +52,9 @@ public struct ClearRectangle<S: ShapeStyle> : View {
 }
 
 
-// MARK: - Previews.
+
+// MARK: - Previews
+
 
 #Preview(traits: .fixedHeader) {
     ClearRectangle(size: .square(of: 50.0), fill: Color.red.opacity(0.3))

@@ -283,10 +283,9 @@ extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
 // MARK: - Previews
 
 
-@MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 800)
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
 
     static var star: some View {
         StarShape(points: 6, concaveVertexRatio: 0.8)

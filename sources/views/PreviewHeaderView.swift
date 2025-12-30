@@ -70,7 +70,7 @@ struct PreviewHeaderView: View {
 }
 
 
-// MARK: - Preview utilities.
+// MARK: - Preview utilities
 
 
 extension PreviewHeaderView {
@@ -84,10 +84,9 @@ extension PreviewHeaderView {
 }
 
 
-// MARK: - Previews.
+// MARK: - Previews
 
 
-@MainActor
 private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)

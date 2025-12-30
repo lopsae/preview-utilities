@@ -61,10 +61,9 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 }
 
 
-// MARK: - Previews.
+// MARK: - Previews
 
 
-@MainActor
 private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)

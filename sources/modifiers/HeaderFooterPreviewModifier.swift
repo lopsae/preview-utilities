@@ -52,6 +52,9 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
+// MARK: - Previews
+
+
 #Preview("Default", traits: .headerFooter) {
     StarShape(points: 4, concaveVertexRatio: 0.5)
         .fill(.yellow)
