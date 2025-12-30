@@ -19,7 +19,7 @@ public protocol ImageGeneratorProtocol: Sendable {
 // TODO: createa DefaultIsolationImageGenerator which function runs on the default isolation, to see of that makes visible changes to the defaultIsolation setting.
 
 
-// MARK: - ImageGenerator.
+// MARK: - ImageGenerator
 
 
 // Package settings use the MainActor default isolation. `nonisolated` is necessary to allow
@@ -46,7 +46,7 @@ nonisolated final class ImageGenerator: ImageGeneratorProtocol, Sendable {
 }
 
 
-// MARK: - DefaultIsolationImageGenerator.
+// MARK: - DefaultIsolationImageGenerator
 
 
 /// Image generator that uses the package's default isolation context, which is configured to
@@ -73,7 +73,7 @@ final class DefaultIsolationImageGenerator: /*ImageGeneratorProtocol,*/ Sendable
 }
 
 
-// MARK: - ImageGeneratorUtils.
+// MARK: - ImageGeneratorUtils
 
 
 /// Collection of static non-isolated-non-sending functions to be used by image generators from any
@@ -238,7 +238,14 @@ private struct ColorComponents: Sendable {
 // MARK: - Previews
 
 
-#Preview("Generator", traits: .fixedHeader) {
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
+
+}
+
+
+#Preview("Generator", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var images: [(text: String, image: Image?)] = [
         ("One",   nil),
         ("Two",   nil),
@@ -275,7 +282,7 @@ private struct ColorComponents: Sendable {
 }
 
 
-#Preview("Default Isolation", traits: .fixedHeader) {
+#Preview("Default Isolation", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var images: [(text: String, image: Image?)] = [
         ("Un",     nil),
         ("Deux",   nil),
