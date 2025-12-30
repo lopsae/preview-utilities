@@ -9,24 +9,24 @@ import SwiftUI
 
 
 @MainActor @Observable
-class ImageGeneratorStore {
+public class ImageGeneratorStore {
 
     let generator: ImageGenerator
 
-    private(set) var status: [String: GenerationStatus] = [:]
-    private(set) var images: [String: Image] = [:]
+    public private(set) var status: [String: GenerationStatus] = [:]
+    public private(set) var images: [String: Image] = [:]
 
 
-    init(size: CGSize) {
+    public init(size: CGSize) {
         generator = .init(size: size)
     }
 
 
-    var size: CGSize { generator.size }
+    public var size: CGSize { generator.size }
 
 
     @concurrent @discardableResult
-    func generateImage(with text: String) async -> Image {
+    public func generateImage(with text: String) async -> Image {
         if let image = await images[text] {
             return image
         }
@@ -66,19 +66,19 @@ class ImageGeneratorStore {
     }
 
 
-    enum GenerationStatus {
+    public enum GenerationStatus {
 
         case requested(threadName: String)
         case stored(threadName: String, requestThreadName: String, generationThreadName: String)
 
-        var statusColor: Color {
+        public var statusColor: Color {
             switch self {
             case .requested: .orange
             case .stored:    .green
             }
         }
 
-        var statusText: String {
+        public var statusText: String {
             switch self {
             case let .requested(threadName):
                 "Requested in \(threadName)"
@@ -92,7 +92,7 @@ class ImageGeneratorStore {
         }
 
 
-        var compactStatusText: String {
+        public var compactStatusText: String {
             switch self {
             case let .requested(threadName):
                 "req:\(threadName)"
