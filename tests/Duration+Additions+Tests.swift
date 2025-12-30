@@ -42,4 +42,20 @@ struct DurationAdditionsTests {
         }
     }
 
+
+    @Test func randomDurationSingleValueRange() async throws {
+        let iterations: Int = 1000
+        // Whole seconds
+        for _ in 0 ..< iterations {
+            let randomDuration: Duration = .random(in: .seconds(55) ... .seconds(55))
+            #expect(randomDuration == .seconds(55))
+        }
+
+        // Only attoseconds.
+        for _ in 0 ..< iterations {
+            let randomDuration: Duration = .random(in: .init(attoseconds: 77) ... .init(attoseconds: 77))
+            #expect(randomDuration == .init(attoseconds: 77))
+        }
+    }
+
 }
