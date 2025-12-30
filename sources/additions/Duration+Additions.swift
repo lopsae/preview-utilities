@@ -6,6 +6,7 @@
 //
 
 
+nonisolated
 private let attosecondsPerSecond: Int128 = 1_000_000_000_000_000_000
 
 
@@ -14,7 +15,8 @@ extension Duration {
     /// Generates a random Duration within a specified closed range.
     /// - Parameter range: The range of durations to choose from.
     /// - Returns: A random Duration within the range.
-    static func random(in range: ClosedRange<Duration>) -> Duration {
+    nonisolated
+    public static func random(in range: ClosedRange<Duration>) -> Duration {
         // Contain seconds and attoseconds together using Int128.
         let lowerBoundAttoseconds = Int128(range.lowerBound.components.seconds) * attosecondsPerSecond + Int128(range.lowerBound.components.attoseconds)
         let upperBoundAttoseconds = Int128(range.upperBound.components.seconds) * attosecondsPerSecond + Int128(range.upperBound.components.attoseconds)
@@ -34,6 +36,7 @@ extension Duration {
 extension ClosedRange where Bound == Duration {
 
     /// Returns a random duration within the range.
+    @inlinable nonisolated
     func randomDuration() -> Duration {
         Duration.random(in: self)
     }
