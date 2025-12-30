@@ -9,7 +9,7 @@
 import Testing
 
 
-struct SttridableAdditionTests {
+struct StridableAdditionTests {
 
 
     func castedClamp<T: Strideable>(_ value: T, to range: Range<T>) -> T?
