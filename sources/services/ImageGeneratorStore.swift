@@ -109,36 +109,41 @@ public class ImageGeneratorStore {
 
 }
 
-
+// TODO: add some tests for the following cases:
+// + nonisolated class with async function running in inherited main and background threads
+// + default isolated class with async function running in default main and concurrent threads, called from main and background threads
 // TODO: createa DefaultIsolationImageGenerator which function runs on the default isolation, to see of that makes visible changes to the defaultIsolation setting.
+
+
+// MARK: - ImageGenerator
 
 // Package settings use the MainActor default isolation. `nonisolated` is necessary to allow
 // functions in this class to run in the cooperative thread pool.
 nonisolated final class ImageGenerator: Sendable {
 
-    private struct Components: Sendable {
-        let hue: CGFloat
-        let saturation: CGFloat
-        let brightness: CGFloat
-    }
-
-
     let size: CGSize
-
 
     init(size: CGSize) {
         self.size = size
     }
 
-    // TODO: add some tests for the following cases:
-    // + nonisolated class with async function running in inherited main and background threads
-    // + default isolated class with async function running in default main and concurrent threads, called from main and background threads
 
     // Package settings use the `NonisolatedNonsendingByDefault` upcoming feature, in which async
-    // async functions by default will use the actor where it is called. Use `@concurrent` to use
-    // the cooperative thread pool.
+    // functions by default will use the actor where it is called. Use `@concurrent` to use the
+    // thread pool.
     @concurrent
     func generateImage(with text: String) async -> (image: Image, threadNumber: String) {
+        return await ImageGeneratorUtils.generateImage(text: text, size: size)
+    }
+
+}
+
+
+/// Collection of static non-isolated functions to be used by image generators from any isolation
+/// context.
+nonisolated final class ImageGeneratorUtils: Sendable {
+
+    static nonisolated func generateImage(text: String, size: CGSize) async -> (image: Image, threadNumber: String) {
         // Simulate async work.
         let millis = (2000..<4000).randomElement()!
         // TODO: if canceled an additional status could be recorded
@@ -148,13 +153,13 @@ nonisolated final class ImageGenerator: Sendable {
         let threadNumber = ThreadInfo.currentDisplayNumber()
         let components = colorComponentsFromString(text)
 
-        let image = buildImage(text: text, caption: threadName, components: components)
+        let image = buildImage(text: text, size: size, caption: threadName, components: components)
         return (image: image, threadNumber: threadNumber)
     }
 
 
     #if canImport(AppKit)
-    private nonisolated func buildImage(text: String, caption: String, components: Components) -> Image {
+    private static nonisolated func buildImage(text: String, size: CGSize, caption: String, components: ColorComponents) -> Image {
         let nsImage = NSImage(size: size, flipped: true) { nsRect in
             // Background.
             let backgroundColor = NSColor(
@@ -172,7 +177,7 @@ nonisolated final class ImageGenerator: Sendable {
             shadow.shadowColor = NSColor.black.withAlphaComponent(0.5)
             shadow.set()
 
-            self.drawStrings(text: text, caption: caption)
+            self.drawStrings(text: text, size: size, caption: caption)
             return true
         }
 
@@ -182,7 +187,7 @@ nonisolated final class ImageGenerator: Sendable {
 
 
     #if canImport(UIKit)
-    private nonisolated func buildImage(text: String, caption: String, components: Components) -> Image {
+    private static nonisolated func buildImage(text: String, size: CGSize, caption: String, components: ColorComponents) -> Image {
         let format = UIGraphicsImageRendererFormat()
         let renderer = UIGraphicsImageRenderer(size: size, format: format)
         let uiImage = renderer.image { context in
@@ -204,7 +209,7 @@ nonisolated final class ImageGenerator: Sendable {
                 color: UIColor.black.withAlphaComponent(0.5).cgColor
             )
 
-            drawStrings(text: text, caption: caption)
+            drawStrings(text: text, size: size, caption: caption)
         }
 
         return Image(uiImage: uiImage)
@@ -212,7 +217,7 @@ nonisolated final class ImageGenerator: Sendable {
     #endif
 
 
-    private nonisolated func drawStrings(text: String, caption: String) {
+    private static nonisolated func drawStrings(text: String, size: CGSize, caption: String) {
         #if canImport(AppKit)
         typealias PlatformFont = NSFont
         typealias PlatformColor = NSColor
@@ -248,7 +253,7 @@ nonisolated final class ImageGenerator: Sendable {
 
 
     /// Generates deterministic color components for the given `string`.
-    private nonisolated func colorComponentsFromString(_ string: String) -> Components {
+    private static nonisolated func colorComponentsFromString(_ string: String) -> ColorComponents {
         let hash = persistentHash(for: string)
 
         let hue: Double = (hash % 360).asDouble / 360.0
@@ -261,7 +266,7 @@ nonisolated final class ImageGenerator: Sendable {
     }
 
 
-    private nonisolated func persistentHash(for input: String) -> Int {
+    private static nonisolated func persistentHash(for input: String) -> Int {
         guard let inputData = input.data(using: .utf8)
         else { return 0 }
 
@@ -273,6 +278,13 @@ nonisolated final class ImageGenerator: Sendable {
         return intValue
     }
 
+}
+
+
+private struct ColorComponents: Sendable {
+    let hue: CGFloat
+    let saturation: CGFloat
+    let brightness: CGFloat
 }
 
 
