@@ -12,12 +12,14 @@ import UIKit
 
 extension UIEdgeInsets {
 
+    @inlinable nonisolated
     init(all value: CGFloat) {
         self.init(top: value, left: value, bottom: value, right: value)
     }
 
 
-    @inlinable static func all(_ value: CGFloat) -> Self {
+    @inlinable nonisolated
+    static func all(_ value: CGFloat) -> Self {
         .init(top: value, left: value, bottom: value, right: value)
     }
 

@@ -9,7 +9,8 @@ import CoreFoundation
 
 extension Numeric where Self == Int {
 
-    @inlinable public var asDouble: Double {
+    @inlinable nonisolated
+    public var asDouble: Double {
         Double(self)
     }
 
@@ -18,7 +19,8 @@ extension Numeric where Self == Int {
 
 extension Numeric where Self : BinaryFloatingPoint {
 
-    @inlinable public var asInt: Int {
+    @inlinable nonisolated
+    public var asInt: Int {
         Int(self)
     }
 

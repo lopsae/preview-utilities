@@ -13,6 +13,7 @@ import UIKit
 
 extension NSParagraphStyle {
 
+    @inlinable nonisolated
     public static func make(
         mutate: (NSMutableParagraphStyle) -> Void
     ) -> NSParagraphStyle {
@@ -25,6 +26,7 @@ extension NSParagraphStyle {
 
 extension NSMutableParagraphStyle {
 
+    @inlinable nonisolated
     public convenience init(mutate: (Self) -> Void) {
         self.init()
         mutate(self)

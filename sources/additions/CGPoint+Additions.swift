@@ -9,8 +9,11 @@ import CoreGraphics
 
 extension CGPoint {
 
+    // TODO: consider renaming times to multiplying
+
     /// Returns the a `CGPoint` with each of the component of `self` multiplied by `multiplier`.
-    @inlinable func times(by multiplier: CGFloat) -> Self {
+    @inlinable nonisolated
+    func times(by multiplier: CGFloat) -> Self {
         .init(
             x: self.x * multiplier,
             y: self.y * multiplier
@@ -21,7 +24,8 @@ extension CGPoint {
     /// Returns the Hadamart product of `self` and `multiplier`.
     ///
     /// https://en.wikipedia.org/wiki/Hadamard_product_(matrices)
-    @inlinable func times(by multiplier: Self) -> Self {
+    @inlinable nonisolated
+    func times(by multiplier: Self) -> Self {
         .init(
             x: self.x * multiplier.x,
             y: self.y * multiplier.y
@@ -32,7 +36,8 @@ extension CGPoint {
     /// Returns the Hadamart product of `self` and `multiplier`, where `x` is multiplied by `width`, and `y` by `heigth`.
     ///
     /// https://en.wikipedia.org/wiki/Hadamard_product_(matrices)
-    @inlinable func times(size multiplier: CGSize) -> Self {
+    @inlinable nonisolated
+    func times(size multiplier: CGSize) -> Self {
         .init(
             x: self.x * multiplier.width,
             y: self.y * multiplier.height
@@ -41,7 +46,8 @@ extension CGPoint {
 
 
     /// Returns `self` offset by the given components.
-    @inlinable func offset(x: CGFloat = 0, y: CGFloat = 0) -> Self {
+    @inlinable nonisolated
+    func offset(x: CGFloat = 0, y: CGFloat = 0) -> Self {
         .init(
             x: self.x + x,
             y: self.y + y
@@ -50,7 +56,8 @@ extension CGPoint {
 
 
     /// Returns `self` offset by the given `CGPoint`.
-    @inlinable func offset(by other: Self) -> Self {
+    @inlinable nonisolated
+    func offset(by other: Self) -> Self {
         .init(
             x: self.x + other.x,
             y: self.y + other.y
