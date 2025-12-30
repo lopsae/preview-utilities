@@ -11,14 +11,19 @@ import SwiftUI
 @MainActor @Observable
 public class ImageGeneratorStore {
 
-    let generator: ImageGenerator
+    let generator: ImageGeneratorProtocol
 
     public private(set) var status: [String: GenerationStatus] = [:]
     public private(set) var images: [String: Image] = [:]
 
 
-    public init(size: CGSize) {
-        generator = .init(size: size)
+    // TODO: make init that only receives size and uses isolateedImageGenerator
+    public init(size: CGSize, generator: ImageGeneratorProtocol? = nil) {
+        if let generator {
+            self.generator = generator
+        } else {
+            self.generator = ImageGenerator(size: size)
+        }
     }
 
 
@@ -109,22 +114,31 @@ public class ImageGeneratorStore {
 
 }
 
+
+public protocol ImageGeneratorProtocol: Sendable {
+    var size: CGSize { get }
+    func generateImage(with text: String) async -> (image: Image, threadNumber: String)
+}
+
 // TODO: add some tests for the following cases:
 // + nonisolated class with async function running in inherited main and background threads
 // + default isolated class with async function running in default main and concurrent threads, called from main and background threads
 // TODO: createa DefaultIsolationImageGenerator which function runs on the default isolation, to see of that makes visible changes to the defaultIsolation setting.
 
 
-// MARK: - ImageGenerator
+// MARK: - ImageGenerator.
+
 
 // Package settings use the MainActor default isolation. `nonisolated` is necessary to allow
 // functions in this class to run in the cooperative thread pool.
-nonisolated final class ImageGenerator: Sendable {
+nonisolated final class ImageGenerator: ImageGeneratorProtocol, Sendable {
 
     let size: CGSize
+    let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize) {
+    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(4)) {
         self.size = size
+        self.sleepRange = sleepRange
     }
 
 
@@ -133,7 +147,7 @@ nonisolated final class ImageGenerator: Sendable {
     // thread pool.
     @concurrent
     func generateImage(with text: String) async -> (image: Image, threadNumber: String) {
-        return await ImageGeneratorUtils.generateImage(text: text, size: size)
+        return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -152,13 +166,15 @@ nonisolated final class ImageGenerator: Sendable {
 final class DefaultIsolationImageGenerator: /*ImageGeneratorProtocol,*/ Sendable {
 
     let size: CGSize
+    let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize) {
+    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(4)) {
         self.size = size
+        self.sleepRange = sleepRange
     }
 
     func generateImage(with text: String) async -> (image: Image, threadNumber: String) {
-        return await ImageGeneratorUtils.generateImage(text: text, size: size)
+        return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -171,17 +187,21 @@ final class DefaultIsolationImageGenerator: /*ImageGeneratorProtocol,*/ Sendable
 /// isolation context. 
 nonisolated final class ImageGeneratorUtils {
 
-    /// Generates an image using the callers isolation context.
+    /// Generates an image using the callers isolation context, optionally sleeps for a random
+    /// duration within the given duration range.
     ///
     /// - Note:
     /// The package settings enable `NonisolatedNonsendingByDefault`, irregardless this function is
     /// marked `nonisolated(nonsending)` for explicitness.
     nonisolated(nonsending)
-    static func generateImage(text: String, size: CGSize) async -> (image: Image, threadNumber: String) {
+    static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
+    async -> (image: Image, threadNumber: String) {
         // Simulate async work.
-        let millis = (2000..<4000).randomElement()!
-        // TODO: if canceled an additional status could be recorded
-        try? await Task.sleep(for: .milliseconds(millis))
+        if let sleepRange {
+            let sleepDuration = sleepRange.randomDuration()
+            // TODO: if canceled an additional status could be recorded
+            try? await Task.sleep(for: sleepDuration)
+        }
 
         let threadName = ThreadInfo.currentDisplayName()
         let threadNumber = ThreadInfo.currentDisplayNumber()
@@ -334,7 +354,10 @@ private struct ColorComponents: Sendable {
         ("Five",  nil)
     ]
 
-    let imageGenerator = ImageGenerator(size: .init(square: 100))
+    let imageGenerator = ImageGenerator(
+        size: .init(square: 100),
+        sleepRange: .seconds(0.5) ... .seconds(1)
+    )
 
     VStack {
         ForEach(images.enumerated(), id: \.offset) { index, tuple in
@@ -368,7 +391,10 @@ private struct ColorComponents: Sendable {
         ("Cinq",   nil)
     ]
 
-    let imageGenerator = DefaultIsolationImageGenerator(size: .init(square: 100))
+    let imageGenerator = DefaultIsolationImageGenerator(
+        size: .init(square: 100),
+        sleepRange: .seconds(0.5) ... .seconds(1)
+    )
 
     VStack {
         ForEach(images.enumerated(), id: \.offset) { index, tuple in
