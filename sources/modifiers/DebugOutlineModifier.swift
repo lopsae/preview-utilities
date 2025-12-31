@@ -283,6 +283,7 @@ extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
 // MARK: - Previews
 
 
+@MainActor
 private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
