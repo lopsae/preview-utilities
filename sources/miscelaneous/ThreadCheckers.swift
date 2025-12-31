@@ -27,7 +27,7 @@ final class NonisolatedThreadChecker: Sendable {
     }
 
 
-    func defaultThreadNumber() -> Int? {
+    func defaultIsolationThreadNumber() async -> Int? {
         let threadNumber = ThreadInfo.currentThreadNumber()
         return threadNumber
     }
@@ -63,12 +63,12 @@ final class NonisolatedThreadChecker: Sendable {
         taskThreadNumber = ThreadInfo.currentThreadNumber()
         taskConcurrentThreadNumber = await checker.concurrentThreadNumber()
         taskNonisolatedThreadNumber = await checker.nonisolatedThreadNumber()
-        taskDefaultThreadNumber = await checker.defaultThreadNumber()
+        taskDefaultThreadNumber = await checker.defaultIsolationThreadNumber()
         Task.detached {
             detachedThreadNumber = ThreadInfo.currentThreadNumber()
             detachedConcurrentThreadNumber = await checker.concurrentThreadNumber()
             detachedNonisolatedThreadNumber = await checker.nonisolatedThreadNumber()
-            detachedDefaultThreadNumber = await checker.defaultThreadNumber()
+            detachedDefaultThreadNumber = await checker.defaultIsolationThreadNumber()
         }
     }
 
