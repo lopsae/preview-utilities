@@ -6,21 +6,30 @@
 
 import Foundation
 import RegexBuilder
+import SwiftUI
 
 
 nonisolated struct ThreadInfo {
 
-    static func currentDisplayNumber() -> String {
+    static func currentThreadNumber() -> Int? {
         let threadDescription = Thread.current.description
-        let threadNumber = threadDescription.firstMatch {
+        let match = threadDescription.firstMatch {
             Regex {
                 One("number = ")
                 Capture {
                     OneOrMore(.digit)
+                } transform: { match in
+                    Int(match)
                 }
             }
-        }?.1
+        }
 
+        return match?.1
+    }
+
+
+    static func currentDisplayNumber() -> String {
+        let threadNumber = currentThreadNumber()
         return threadNumber?.description ?? "nil"
     }
 
@@ -31,3 +40,32 @@ nonisolated struct ThreadInfo {
     }
 
 }
+
+
+#Preview {
+    @Previewable @State var appearThreadNumber: Int? = nil
+    @Previewable @State var taskThreadNumber: Int? = nil
+    @Previewable @State var innerTaskThreadNumber: Int? = nil
+    @Previewable @State var detachedTaskThreadNumber: Int? = nil
+
+    Text("Appear thread: \(appearThreadNumber, default: "nil")")
+    Text("Task thread: \(taskThreadNumber, default: "nil")")
+    Text("Inner Task thread: \(innerTaskThreadNumber, default: "nil")")
+    Text("Detached Task thread: \(detachedTaskThreadNumber, default: "nil")")
+    .onAppear {
+        appearThreadNumber = ThreadInfo.currentThreadNumber()
+    }
+    .task {
+        taskThreadNumber = ThreadInfo.currentThreadNumber()
+        Task {
+            innerTaskThreadNumber = ThreadInfo.currentThreadNumber()
+        }
+        Task.detached {
+            let threadNumber = ThreadInfo.currentThreadNumber()
+            await MainActor.run {
+                detachedTaskThreadNumber = threadNumber
+            }
+        }
+    }
+}
+
