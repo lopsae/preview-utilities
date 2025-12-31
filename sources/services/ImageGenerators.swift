@@ -57,6 +57,41 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
 }
 
 
+// MARK: - NonisolatedImageGenerator
+
+
+/// Nonisolated ImageGenerator with a `nonisolated generateImage` function that will inherit the
+/// isolation context of the caller.
+nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
+
+    let id: UUID = UUID()
+
+    let size: CGSize
+    let sleepRange: ClosedRange<Duration>
+
+    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)) {
+        self.size = size
+        self.sleepRange = sleepRange
+    }
+
+
+    /// Generates an image asyncronously, this function inherits the isolation context of the
+    /// caller.
+    ///
+    /// This function must use `nonisolated` to inherit the caller isolation context. The package
+    /// uses the `NonisolatedNonsendingByDefault` upcoming feature.
+    ///
+    /// Removing `nonisolated` will cause this function to run in the package default isolation
+    /// context when run from a detached task. Otherwise, when run from a regular `Task`, it will
+    /// inherit the callers context; it is unclear why this happens.
+    nonisolated
+    func generateImage(with text: String) async -> (image: Image, threadNumber: String) {
+        return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
+    }
+
+}
+
+
 // MARK: - DefaultIsolationImageGenerator
 
 
@@ -251,6 +286,7 @@ private struct ColorComponents: Sendable {
 // MARK: - Previews
 
 
+@MainActor
 private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
@@ -305,6 +341,66 @@ private struct PreviewContent {
     .onChange(of: usesMainActor) {
         // Reset image generator and stored images.
         imageGenerator = ConcurrentImageGenerator(
+            size: imageGenerator.size,
+            sleepRange: imageGenerator.sleepRange
+        )
+        images = images.map { text, image in
+            (text, nil)
+        }
+    }
+
+    Toggle("Call from Main Actor", isOn: $usesMainActor)
+        .padding()
+}
+
+
+#Preview("Nonisolated", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var usesMainActor: Bool = true
+    @Previewable @State var images: [(text: String, image: Image?)] = [
+        ("Uno",    nil),
+        ("Dos",    nil),
+        ("Tres",   nil),
+        ("Cuatro", nil),
+        ("Cinco",  nil)
+    ]
+    @Previewable @State var imageGenerator = NonisolatedImageGenerator(
+        size: .init(square: 100),
+        sleepRange: .seconds(0.5) ... .seconds(1)
+    )
+
+    VStack {
+        ForEach(images.enumerated(), id: \.offset ) { index, tuple in
+            Group {
+                if let image = tuple.image {
+                    image.resizable()
+                } else {
+                    Rectangle().fill(.secondary)
+                }
+            }
+            .frame(size: imageGenerator.size)
+            .roundedRectangleClip(cornerRadius: 8)
+
+            .task {
+                let imageTask = if usesMainActor {
+                    // Called from inherited the MainActor isolation.
+                    Task {
+                        await imageGenerator.generateImage(with: tuple.text)
+                    }
+                } else {
+                    // Called using cooperative thread pool.
+                    Task.detached {
+                        await imageGenerator.generateImage(with: tuple.text)
+                    }
+                }
+                let image = await imageTask.value.image
+                images[index].image = image //mutableTuple
+            }
+            .id(imageGenerator.id.hash(with: index))
+        }
+    } // VStack
+    .onChange(of: usesMainActor) {
+        // Reset image generator and stored images.
+        imageGenerator = NonisolatedImageGenerator(
             size: imageGenerator.size,
             sleepRange: imageGenerator.sleepRange
         )
