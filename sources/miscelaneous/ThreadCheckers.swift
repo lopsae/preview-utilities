@@ -27,7 +27,7 @@ final class NonisolatedThreadChecker: Sendable {
 // MARK: - Previews
 
 
-#Preview("Nonisolated", traits: .fixedHeader) {
+#Preview("Nonisolated", traits: .regularSpacing, .fixedHeader) {
     @Previewable @State var taskThreadInfo: ThreadInfo? = nil
     @Previewable @State var taskConcurrentThreadInfo: ThreadInfo? = nil
     @Previewable @State var taskNonisolatedThreadInfo: ThreadInfo? = nil

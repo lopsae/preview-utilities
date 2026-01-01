@@ -61,7 +61,7 @@ nonisolated struct ThreadInfo {
 
 
 // FIXME: try to do these in a grid?
-#Preview {
+#Preview(traits: .regularSpacing, .headerFooter) {
     @Previewable @State var appearThreadNumber: Int? = nil
     @Previewable @State var taskThreadNumber: Int? = nil
     @Previewable @State var innerTaskThreadNumber: Int? = nil
