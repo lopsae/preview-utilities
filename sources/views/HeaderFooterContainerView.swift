@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-struct HeaderFooterContainerView<Content: View>: View {
+public struct HeaderFooterContainerView<Content: View>: View {
 
     // TODO: make 12 for ios, 8 for macOS
     static var minimumConcentricRadius: Double { 12.0 }
@@ -22,7 +22,7 @@ struct HeaderFooterContainerView<Content: View>: View {
     }
 
 
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 0) {
             PreviewHeaderView(flexibleHeight: !options.contains(.fixedHeader))
 
