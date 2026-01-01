@@ -136,6 +136,7 @@ nonisolated final class ImageGeneratorUtils {
     /// marked `nonisolated(nonsending)` for explicitness.
     nonisolated(nonsending)
     static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
+    // FIXME: threadnumber should be an int, or could be threadInfo
     async -> (image: Image, threadNumber: String) {
         // Simulate async work.
         if let sleepRange {
@@ -144,8 +145,10 @@ nonisolated final class ImageGeneratorUtils {
             try? await Task.sleep(for: sleepDuration)
         }
 
-        let threadName = ThreadInfo.currentDisplayName()
-        let threadNumber = ThreadInfo.currentDisplayNumber()
+        // FIXME: store/use threadInfo directly.
+        let threadInfo = ThreadInfo()
+        let threadName = threadInfo.displayName
+        let threadNumber = threadInfo.number?.description ?? "nil"
         let components = colorComponentsFromString(text)
 
         let image = buildImage(text: text, size: size, caption: threadName, components: components)

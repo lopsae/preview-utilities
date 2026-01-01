@@ -8,29 +8,18 @@ import SwiftUI
 
 
 /// Nonisolated sendable object that contains a concurrent async function, a explicit nonisolated
-/// async function, and an async function with the default isolation, to inspect the thread running
+/// async function, and an async function with the default isolation; to inspect the thread running
 /// in each function.
 nonisolated
 final class NonisolatedThreadChecker: Sendable {
 
     @concurrent
-    func concurrentThreadNumber() async -> Int? {
-        let threadNumber = ThreadInfo.currentThreadNumber()
-        return threadNumber
-    }
-
+    func concurrentThreadInfo() async -> ThreadInfo { .init() }
 
     nonisolated
-    func nonisolatedThreadNumber() async -> Int? {
-        let threadNumber = ThreadInfo.currentThreadNumber()
-        return threadNumber
-    }
+    func nonisolatedThreadInfo() async -> ThreadInfo { .init() }
 
-
-    func defaultIsolationThreadNumber() async -> Int? {
-        let threadNumber = ThreadInfo.currentThreadNumber()
-        return threadNumber
-    }
+    func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
 
 }
 
@@ -48,6 +37,7 @@ final class NonisolatedThreadChecker: Sendable {
     @Previewable @State var detachedNonisolatedThreadNumber: Int? = nil
     @Previewable @State var detachedDefaultThreadNumber: Int? = nil
 
+    Divider()
     Text("Task thread: \(taskThreadNumber, default: "nil")")
     Text("Concurrent thread: \(taskConcurrentThreadNumber, default: "nil")")
     Text("Nonisolated thread: \(taskNonisolatedThreadNumber, default: "nil")")
@@ -60,15 +50,16 @@ final class NonisolatedThreadChecker: Sendable {
     Divider()
     .task {
         let checker = NonisolatedThreadChecker()
-        taskThreadNumber = ThreadInfo.currentThreadNumber()
-        taskConcurrentThreadNumber = await checker.concurrentThreadNumber()
-        taskNonisolatedThreadNumber = await checker.nonisolatedThreadNumber()
-        taskDefaultThreadNumber = await checker.defaultIsolationThreadNumber()
+        taskThreadNumber = ThreadInfo().number
+        taskConcurrentThreadNumber = await checker.concurrentThreadInfo().number
+        taskNonisolatedThreadNumber = await checker.nonisolatedThreadInfo().number
+        taskDefaultThreadNumber = await checker.defaultIsolationThreadInfo().number
         Task.detached {
-            detachedThreadNumber = ThreadInfo.currentThreadNumber()
-            detachedConcurrentThreadNumber = await checker.concurrentThreadNumber()
-            detachedNonisolatedThreadNumber = await checker.nonisolatedThreadNumber()
-            detachedDefaultThreadNumber = await checker.defaultIsolationThreadNumber()
+            // FIXME: mainactor isolated property is being modified here!
+            detachedThreadNumber = ThreadInfo().number
+            detachedConcurrentThreadNumber = await checker.concurrentThreadInfo().number
+            detachedNonisolatedThreadNumber = await checker.nonisolatedThreadInfo().number
+            detachedDefaultThreadNumber = await checker.defaultIsolationThreadInfo().number
         }
     }
 

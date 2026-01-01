@@ -15,40 +15,42 @@ struct ThreadCheckerTests {
     @Test func nonisoltedThreadChecked() async throws {
         let threadChecker = NonisolatedThreadChecker()
 
-        let currentThread = ThreadInfo.currentThreadNumber()
+        let currentThreadInfo = ThreadInfo()
         // Test should be running in the Main thread.
-        #expect(currentThread == 1)
+        #expect(currentThreadInfo.isMain)
 
-        let concurrentThread = await threadChecker.concurrentThreadNumber()
+        let concurrentThreadInfo = await threadChecker.concurrentThreadInfo()
         // Concurrent isolation should always send to a background thread.
-        #expect(concurrentThread != 1)
+        #expect(concurrentThreadInfo.isBackground)
 
-        let nonisolatedThread = await threadChecker.nonisolatedThreadNumber()
+        let nonisolatedThreadInfo = await threadChecker.nonisolatedThreadInfo()
         // Nonisolated should inherit the current isolation context: Main.
-        #expect(nonisolatedThread == 1)
+        #expect(nonisolatedThreadInfo.isMain)
 
-        let defaultIsolationThread = await threadChecker.defaultIsolationThreadNumber()
+        let defaultIsolationThreadInfo = await threadChecker.defaultIsolationThreadInfo()
         // Default isolation should inherit the current isolation context: Main.
-        #expect(defaultIsolationThread == 1)
+        #expect(defaultIsolationThreadInfo.isMain)
 
         let detachedTask = Task.detached {
-            let detachedThread = ThreadInfo.currentThreadNumber()
-            // Detached task should run in a background thread.
-            #expect(detachedThread != 1)
-
-            let concurrentThread = await threadChecker.concurrentThreadNumber()
-            // Concurrent isolation should run in a background thread.
-            #expect(concurrentThread != 1)
-
-            let nonisolatedThread = await threadChecker.nonisolatedThreadNumber()
-            // Nonisolated should inherit the current isolation context.
-            #expect(nonisolatedThread == detachedThread)
-
-            let defaultIsolationThread = await threadChecker.defaultIsolationThreadNumber()
-            // Default isolation should inherit the current isolation context.
-            #expect(defaultIsolationThread == detachedThread)
+            // #expect failures do not work correctly in detached tasks, since the testing context
+            // is lost. The #expect may fail, but the test will be marked as passed!
+            return (
+                detachedInfo: ThreadInfo(),
+                concurrentInfo: await threadChecker.concurrentThreadInfo(),
+                nonisolatedInfo: await threadChecker.nonisolatedThreadInfo(),
+                defaultIsolationInfo: await threadChecker.defaultIsolationThreadInfo()
+            )
         }
-        #expect(await detachedTask.result.isSuccess)
+
+        let detachedResult = await detachedTask.value
+        // Detached task should run in a background thread.
+        #expect(detachedResult.detachedInfo.isBackground)
+        // Concurrent isolation should run in a background thread.
+        #expect(detachedResult.concurrentInfo.isBackground)
+        // Nonisolated should inherit the current isolation context.
+        #expect(detachedResult.nonisolatedInfo.number == detachedResult.detachedInfo.number)
+        // Default isolation should inherit the current isolation context.
+        #expect(detachedResult.defaultIsolationInfo.number == detachedResult.detachedInfo.number)
     }
 
 }

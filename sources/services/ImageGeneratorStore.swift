@@ -34,10 +34,11 @@ public class ImageGeneratorStore {
         if let image = await images[text] {
             return image
         }
-        let requestThreadNumber = ThreadInfo.currentDisplayNumber()
+        // FIXME: use thread info directly?
+        let requestThreadNumber = ThreadInfo().number?.description ?? "nil"
         await markAsRequested(text: text, threadName: requestThreadNumber)
 
-        let storageThreadNumber = ThreadInfo.currentDisplayNumber()
+        let storageThreadNumber = ThreadInfo().number?.description ?? "nil"
         let generateTuple = await generator.generateImage(with: text)
         await storeImage(
             generateTuple.image, text: text,
@@ -72,6 +73,7 @@ public class ImageGeneratorStore {
 
     public enum GenerationStatus {
 
+        // FIXME: store either threadnumber as int, or the whole thread info
         case requested(threadName: String)
         case stored(threadName: String, requestThreadName: String, generationThreadName: String)
 
