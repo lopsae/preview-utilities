@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Binding {
 
-    /// Returns a binding that wrappes the caller and performs `action` on every set.
+    /// Returns a binding that wrapps the caller and performs `action` on every set.
     @MainActor
     func onSet(action: @escaping (Value) -> ()) -> Self {
         return .init {
