@@ -55,13 +55,27 @@ final class NonisolatedThreadChecker: Sendable {
         taskNonisolatedThreadNumber = await checker.nonisolatedThreadInfo().number
         taskDefaultThreadNumber = await checker.defaultIsolationThreadInfo().number
         Task.detached {
-            // FIXME: mainactor isolated property is being modified here!
-            detachedThreadNumber = ThreadInfo().number
-            detachedConcurrentThreadNumber = await checker.concurrentThreadInfo().number
-            detachedNonisolatedThreadNumber = await checker.nonisolatedThreadInfo().number
-            detachedDefaultThreadNumber = await checker.defaultIsolationThreadInfo().number
+            // Experimental way to assign a state in main.
+            await _detachedThreadNumber
+                .setOnMain(ThreadInfo().number)
+            await _detachedConcurrentThreadNumber
+                .setOnMain(checker.concurrentThreadInfo().number)
+            await _detachedNonisolatedThreadNumber
+                .setOnMain(checker.nonisolatedThreadInfo().number)
+            await _detachedDefaultThreadNumber
+                .setOnMain(checker.defaultIsolationThreadInfo().number)
         }
     }
 
+
+}
+
+
+extension State {
+
+    @MainActor
+    func setOnMain(_ newValue: Value) {
+        self.wrappedValue = newValue
+    }
 
 }
