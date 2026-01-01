@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+/// Wraps the preview content in a `VStack` with zero spacing.
 struct ZeroSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
@@ -18,6 +19,8 @@ struct ZeroSpacingPreviewModifier: PreviewModifier {
 }
 
 
+/// Wraps the preview content in a `VStack` with zero spacing and surrounded by two additional views
+/// to visualize the order of preview trait application.
 private struct DebugZeroSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
@@ -33,11 +36,14 @@ private struct DebugZeroSpacingPreviewModifier: PreviewModifier {
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
+    /// Wraps the preview content in a `VStack` with zero spacing.
     public static var zeroSpacing: PreviewTrait {
         .modifier(ZeroSpacingPreviewModifier())
     }
 
 
+    /// Wraps the preview content in a `VStack` with zero spacing and surrounded by two additional
+    /// views to visualize the order of preview trait application.
     fileprivate static var debugZeroSpacing: PreviewTrait {
         .modifier(DebugZeroSpacingPreviewModifier())
     }
@@ -65,6 +71,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 #Preview("No Trait") {
     Text("By default, a preview wraps its content in a VStack with default spacing.")
         .multilineTextAlignment(.center)
+        .padding(.horizontal)
 
     Rectangle()
         .fill(.teal)
