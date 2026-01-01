@@ -39,15 +39,15 @@ final class NonisolatedThreadChecker: Sendable {
     @Previewable @State var detachedDefaultThreadInfo: ThreadInfo? = nil
 
     Divider()
-    Text("Task thread: \(emptyDefault: taskThreadInfo?.reverseDisplayName)")
-    Text("Concurrent thread: \(emptyDefault: taskConcurrentThreadInfo?.reverseDisplayName)")
-    Text("Nonisolated thread: \(emptyDefault: taskNonisolatedThreadInfo?.reverseDisplayName)")
-    Text("Default isolation thread: \(emptyDefault: taskDefaultThreadInfo?.reverseDisplayName)")
+    Text("Task thread: \(emptyDefault: taskThreadInfo?.numberLeadingDisplayName)")
+    Text("Concurrent thread: \(emptyDefault: taskConcurrentThreadInfo?.numberLeadingDisplayName)")
+    Text("Nonisolated thread: \(emptyDefault: taskNonisolatedThreadInfo?.numberLeadingDisplayName)")
+    Text("Default isolation thread: \(emptyDefault: taskDefaultThreadInfo?.numberLeadingDisplayName)")
     Divider()
-    Text("Detached thread: \(nilDefault: detachedThreadInfo?.reverseDisplayName)")
-    Text("Concurrent thread: \(nilDefault: detachedConcurrentThreadInfo?.reverseDisplayName)")
-    Text("Nonisolated thread: \(nilDefault: detachedNonisolatedThreadInfo?.reverseDisplayName)")
-    Text("Default isolation thread: \(nilDefault: detachedDefaultThreadInfo?.reverseDisplayName)")
+    Text("Detached thread: \(nilDefault: detachedThreadInfo?.numberLeadingDisplayName)")
+    Text("Concurrent thread: \(nilDefault: detachedConcurrentThreadInfo?.numberLeadingDisplayName)")
+    Text("Nonisolated thread: \(nilDefault: detachedNonisolatedThreadInfo?.numberLeadingDisplayName)")
+    Text("Default isolation thread: \(nilDefault: detachedDefaultThreadInfo?.numberLeadingDisplayName)")
     Divider()
     .task {
         let checker = NonisolatedThreadChecker()

@@ -48,7 +48,7 @@ nonisolated struct ThreadInfo {
 
     /// Returns the number and name of the thread for display, with the number first, E.g.: `1 Main`
     /// or `7 Background`.
-    var reverseDisplayName: String {
+    var numberLeadingDisplayName: String {
         guard let number else {
             return "Unknown"
         }
