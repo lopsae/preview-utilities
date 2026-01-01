@@ -27,44 +27,84 @@ final class NonisolatedThreadChecker: Sendable {
 // MARK: - Previews
 
 
-#Preview("Nonisolated", traits: .regularSpacing, .fixedHeader) {
+#Preview("Nonisolated", traits: .regularSpacing, .headerFooter) {
     @Previewable @State var taskThreadInfo: ThreadInfo? = nil
     @Previewable @State var taskConcurrentThreadInfo: ThreadInfo? = nil
     @Previewable @State var taskNonisolatedThreadInfo: ThreadInfo? = nil
-    @Previewable @State var taskDefaultThreadInfo: ThreadInfo? = nil
+    @Previewable @State var taskDefaultIsolationThreadInfo: ThreadInfo? = nil
 
     @Previewable @State var detachedThreadInfo: ThreadInfo? = nil
     @Previewable @State var detachedConcurrentThreadInfo: ThreadInfo? = nil
     @Previewable @State var detachedNonisolatedThreadInfo: ThreadInfo? = nil
-    @Previewable @State var detachedDefaultThreadInfo: ThreadInfo? = nil
+    @Previewable @State var detachedDefaultIsolationThreadInfo: ThreadInfo? = nil
 
-    Divider()
-    Text("Task thread: \(emptyDefault: taskThreadInfo?.numberLeadingDisplayName)")
-    Text("Concurrent thread: \(emptyDefault: taskConcurrentThreadInfo?.numberLeadingDisplayName)")
-    Text("Nonisolated thread: \(emptyDefault: taskNonisolatedThreadInfo?.numberLeadingDisplayName)")
-    Text("Default isolation thread: \(emptyDefault: taskDefaultThreadInfo?.numberLeadingDisplayName)")
-    Divider()
-    Text("Detached thread: \(nilDefault: detachedThreadInfo?.numberLeadingDisplayName)")
-    Text("Concurrent thread: \(nilDefault: detachedConcurrentThreadInfo?.numberLeadingDisplayName)")
-    Text("Nonisolated thread: \(nilDefault: detachedNonisolatedThreadInfo?.numberLeadingDisplayName)")
-    Text("Default isolation thread: \(nilDefault: detachedDefaultThreadInfo?.numberLeadingDisplayName)")
-    Divider()
+    Grid(alignment: .leading, horizontalSpacing: 20) {
+        GridRow {
+            Text("In Task").bold()
+            Text("Thread").bold().maxWidthFrame(alignment: .leading)
+        }
+
+        Divider().gridCellUnsizedAxes(.horizontal)
+
+        GridRow {
+            Text("Parent")
+            Text(taskThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Concurrent")
+            Text(taskConcurrentThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Non Isolated")
+            Text(taskNonisolatedThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Default Isolation")
+            Text(taskDefaultIsolationThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+
+        Divider().gridCellUnsizedAxes(.horizontal)
+
+        GridRow {
+            Text("In Detached").bold()
+            Text("Thread").bold().maxWidthFrame(alignment: .leading)
+        }
+
+        Divider().gridCellUnsizedAxes(.horizontal)
+
+        GridRow {
+            Text("Parent")
+            Text(detachedThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Concurrent")
+            Text(detachedConcurrentThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Non Isolated")
+            Text(detachedNonisolatedThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Default Isolation")
+            Text(detachedDefaultIsolationThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+    } // Grid
+    .padding(.horizontal)
     .task {
         let checker = NonisolatedThreadChecker()
         taskThreadInfo = ThreadInfo()
         taskConcurrentThreadInfo = await checker.concurrentThreadInfo()
         taskNonisolatedThreadInfo = await checker.nonisolatedThreadInfo()
-        taskDefaultThreadInfo = await checker.defaultIsolationThreadInfo()
+        taskDefaultIsolationThreadInfo = await checker.defaultIsolationThreadInfo()
         Task.detached {
             try? await Task.sleep(for: .seconds(2))
             // Experimental way to assign a state in main.
             await _detachedThreadInfo.setOnMain(ThreadInfo())
-            await $detachedConcurrentThreadInfo.setOnMain(checker.concurrentThreadInfo())
+            await $detachedConcurrentThreadInfo.setOnMain(await checker.concurrentThreadInfo())
             await $detachedNonisolatedThreadInfo.setOnMain(await checker.nonisolatedThreadInfo())
-            await $detachedDefaultThreadInfo.setOnMain(await checker.defaultIsolationThreadInfo())
+            await $detachedDefaultIsolationThreadInfo.setOnMain(await checker.defaultIsolationThreadInfo())
         }
     }
-
 
 }
 

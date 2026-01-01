@@ -60,29 +60,51 @@ nonisolated struct ThreadInfo {
 }
 
 
-// FIXME: try to do these in a grid?
 #Preview(traits: .regularSpacing, .headerFooter) {
-    @Previewable @State var appearThreadNumber: Int? = nil
-    @Previewable @State var taskThreadNumber: Int? = nil
-    @Previewable @State var innerTaskThreadNumber: Int? = nil
-    @Previewable @State var detachedTaskThreadNumber: Int? = nil
+    @Previewable @State var appearThreadInfo: ThreadInfo? = nil
+    @Previewable @State var taskThreadInfo: ThreadInfo? = nil
+    @Previewable @State var innerTaskThreadInfo: ThreadInfo? = nil
+    @Previewable @State var detachedTaskThreadInfo: ThreadInfo? = nil
 
-    Text("OnAppear thread: \(appearThreadNumber, default: "nil")")
-    Text("Task thread: \(taskThreadNumber, default: "nil")")
-    Text("Inner Task thread: \(innerTaskThreadNumber, default: "nil")")
-    Text("Detached Task thread: \(detachedTaskThreadNumber, default: "nil")")
+    Grid(alignment: .leading, horizontalSpacing: 20) {
+        GridRow {
+            Text("Context").bold()
+            Text("Thread").bold().maxWidthFrame(alignment: .leading)
+        }
+
+        Divider().gridCellUnsizedAxes(.horizontal)
+
+        GridRow {
+            Text("On Appear")
+            Text(appearThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Task")
+            Text(taskThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Inner Task")
+            Text(innerTaskThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Detached Task")
+            Text(detachedTaskThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+    } // Grid
+    .padding(.horizontal)
     .onAppear {
-        appearThreadNumber = ThreadInfo().number
+        appearThreadInfo = ThreadInfo()
     }
     .task {
-        taskThreadNumber = ThreadInfo().number
+        try? await Task.sleep(for: .seconds(2))
+        taskThreadInfo = ThreadInfo()
         Task {
-            innerTaskThreadNumber = ThreadInfo().number
+            innerTaskThreadInfo = ThreadInfo()
         }
         Task.detached {
-            let threadNumber = ThreadInfo().number
+            let threadInfo = ThreadInfo()
             await MainActor.run {
-                detachedTaskThreadNumber = threadNumber
+                detachedTaskThreadInfo = threadInfo
             }
         }
     }
