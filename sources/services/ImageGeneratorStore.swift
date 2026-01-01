@@ -44,7 +44,7 @@ public class ImageGeneratorStore {
             generateTuple.image, text: text,
             threadName: storageThreadNumber,
             requestThreadName: requestThreadNumber,
-            generationThreadName: generateTuple.threadNumber
+            generationThreadName: generateTuple.threadInfo.number?.description ?? "nil"
         )
 
         return generateTuple.image

@@ -9,7 +9,8 @@ import RegexBuilder
 import SwiftUI
 
 
-nonisolated struct ThreadInfo {
+nonisolated
+public struct ThreadInfo: Sendable {
 
     let number: Int?
 

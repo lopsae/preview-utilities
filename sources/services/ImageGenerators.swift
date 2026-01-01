@@ -13,7 +13,14 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
     var id: UUID { get }
     var size: CGSize { get }
 
-    func generateImage(with text: String) async -> (image: Image, threadNumber: String)
+    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
+
+}
+
+
+nonisolated enum ImageGeneratorDefaults {
+
+    static let sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)
 
 }
 
@@ -36,7 +43,7 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
     let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)) {
+    init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
         self.size = size
         self.sleepRange = sleepRange
     }
@@ -50,7 +57,7 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
     /// context of the caller, since the package uses the `NonisolatedNonsendingByDefault` upcoming
     /// feature.
     @concurrent
-    func generateImage(with text: String) async -> (image: Image, threadNumber: String) {
+    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -69,7 +76,7 @@ nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Senda
     let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)) {
+    init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
         self.size = size
         self.sleepRange = sleepRange
     }
@@ -85,7 +92,7 @@ nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Senda
     /// context when run from a detached task. Otherwise, when run from a regular `Task`, it will
     /// inherit the callers context; it is unclear why this happens.
     nonisolated
-    func generateImage(with text: String) async -> (image: Image, threadNumber: String) {
+    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -109,12 +116,12 @@ final class DefaultIsolationImageGenerator: /*ImageGeneratorProtocol,*/ Sendable
     let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize, sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)) {
+    init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
         self.size = size
         self.sleepRange = sleepRange
     }
 
-    func generateImage(with text: String) async -> (image: Image, threadNumber: String) {
+    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -137,7 +144,7 @@ nonisolated final class ImageGeneratorUtils {
     nonisolated(nonsending)
     static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
     // FIXME: threadnumber should be an int, or could be threadInfo
-    async -> (image: Image, threadNumber: String) {
+    async -> (image: Image, threadInfo: ThreadInfo) {
         // Simulate async work.
         if let sleepRange {
             let sleepDuration = sleepRange.randomDuration()
@@ -145,14 +152,11 @@ nonisolated final class ImageGeneratorUtils {
             try? await Task.sleep(for: sleepDuration)
         }
 
-        // FIXME: store/use threadInfo directly.
         let threadInfo = ThreadInfo()
-        let threadName = threadInfo.displayName
-        let threadNumber = threadInfo.number?.description ?? "nil"
         let components = colorComponentsFromString(text)
 
-        let image = buildImage(text: text, size: size, caption: threadName, components: components)
-        return (image: image, threadNumber: threadNumber)
+        let image = buildImage(text: text, size: size, caption: threadInfo.displayName, components: components)
+        return (image: image, threadInfo: threadInfo)
     }
 
 
