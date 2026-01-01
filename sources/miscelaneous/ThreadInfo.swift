@@ -35,6 +35,7 @@ nonisolated struct ThreadInfo {
     var isBackground: Bool { number != nil && number != 1 }
 
 
+    /// Returns the name and number of the thread for display, E.g.: `Main 1` or `Background 7`.
     var displayName: String {
         guard let number else {
             return "Unknown"
@@ -42,6 +43,18 @@ nonisolated struct ThreadInfo {
 
         let name = isMain ? "Main" : "Background"
         return "\(name) \(number)"
+    }
+
+
+    /// Returns the number and name of the thread for display, with the number first, E.g.: `1 Main`
+    /// or `7 Background`.
+    var reverseDisplayName: String {
+        guard let number else {
+            return "Unknown"
+        }
+
+        let name = isMain ? "Main" : "Background"
+        return "\(number) \(name)"
     }
 
 }
