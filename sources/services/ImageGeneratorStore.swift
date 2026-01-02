@@ -34,48 +34,47 @@ public class ImageGeneratorStore {
         if let image = await images[text] {
             return image
         }
-        // FIXME: use thread info directly?
-        let requestThreadNumber = ThreadInfo().number?.description ?? "nil"
-        await markAsRequested(text: text, threadName: requestThreadNumber)
+        let requestThreadInfo = ThreadInfo()
+        await markAsRequested(text: text, threadInfo: requestThreadInfo)
 
-        let storageThreadNumber = ThreadInfo().number?.description ?? "nil"
         let generateTuple = await generator.generateImage(with: text)
+
+        let storageThreadInfo = ThreadInfo()
         await storeImage(
             generateTuple.image, text: text,
-            threadName: storageThreadNumber,
-            requestThreadName: requestThreadNumber,
-            generationThreadName: generateTuple.threadInfo.number?.description ?? "nil"
+            threadInfo: storageThreadInfo,
+            requestThreadInfo: requestThreadInfo,
+            generationThreadInfo: generateTuple.threadInfo
         )
 
         return generateTuple.image
     }
 
 
-    private func markAsRequested(text: String, threadName: String) {
-        status[text] = .requested(threadName: threadName)
+    private func markAsRequested(text: String, threadInfo: ThreadInfo) {
+        status[text] = .requested(threadInfo: threadInfo)
     }
 
 
     private func storeImage(
         _ image: Image,
         text: String,
-        threadName: String,
-        requestThreadName: String,
-        generationThreadName: String
+        threadInfo: ThreadInfo,
+        requestThreadInfo: ThreadInfo,
+        generationThreadInfo: ThreadInfo
     ) {
         images[text] = image
         status[text] = .stored(
-            threadName: threadName,
-            requestThreadName: requestThreadName,
-            generationThreadName: generationThreadName)
+            threadInfo: threadInfo,
+            requestThreadInfo: requestThreadInfo,
+            generationThreadInfo: generationThreadInfo)
     }
 
 
     public enum GenerationStatus {
 
-        // FIXME: store either threadnumber as int, or the whole thread info
-        case requested(threadName: String)
-        case stored(threadName: String, requestThreadName: String, generationThreadName: String)
+        case requested(threadInfo: ThreadInfo)
+        case stored(threadInfo: ThreadInfo, requestThreadInfo: ThreadInfo, generationThreadInfo: ThreadInfo)
 
         public var statusColor: Color {
             switch self {
@@ -86,28 +85,28 @@ public class ImageGeneratorStore {
 
         public var statusText: String {
             switch self {
-            case let .requested(threadName):
-                "Requested in \(threadName)"
+            case let .requested(threadInfo):
+                "Requested in \(threadInfo.number?.description ?? "nil")"
             case let .stored(
-                threadName,
-                requestThreadName: requestThreadName,
-                generationThreadName: generationThreadName
+                threadInfo,
+                requestThreadInfo: requestThreadInfo,
+                generationThreadInfo: generationThreadInfo
             ):
-                "Stored in \(threadName) ← gen:\(generationThreadName) ← req:\(requestThreadName)"
+                "Stored in \(nilDefault: threadInfo.number) ← gen:\(nilDefault: generationThreadInfo.number) ← req:\(nilDefault: requestThreadInfo.number)"
             }
         }
 
 
         public var compactStatusText: String {
             switch self {
-            case let .requested(threadName):
-                "req:\(threadName)"
+            case let .requested(threadInfo):
+                "req:\(nilDefault: threadInfo.number)"
             case let .stored(
-                threadName,
-                requestThreadName: requestThreadName,
-                generationThreadName: generationThreadName
+                threadInfo,
+                requestThreadInfo: requestThreadInfo,
+                generationThreadInfo: generationThreadInfo
             ):
-                "s:\(threadName) ← g:\(generationThreadName) ← r:\(requestThreadName)"
+                "s:\(nilDefault: threadInfo.number) ← g:\(nilDefault: generationThreadInfo.number) ← r:\(nilDefault: requestThreadInfo.number)"
             }
         }
 

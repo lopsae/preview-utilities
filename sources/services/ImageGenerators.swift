@@ -146,7 +146,6 @@ nonisolated final class ImageGeneratorUtils {
     /// marked `nonisolated(nonsending)` for explicitness.
     nonisolated(nonsending)
     static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
-    // FIXME: threadnumber should be an int, or could be threadInfo
     async -> (image: Image, threadInfo: ThreadInfo) {
         // Simulate async work.
         if let sleepRange {
