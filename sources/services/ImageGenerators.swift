@@ -14,6 +14,7 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
     var size: CGSize { get }
 
     func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
+    func createNew() -> any ImageGeneratorProtocol
 
 }
 
@@ -46,6 +47,11 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
     init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
         self.size = size
         self.sleepRange = sleepRange
+    }
+
+
+    func createNew() -> any ImageGeneratorProtocol {
+        Self(size: size, sleepRange: sleepRange)
     }
 
 
@@ -82,6 +88,11 @@ nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Senda
     }
 
 
+    func createNew() -> any ImageGeneratorProtocol {
+        Self(size: size, sleepRange: sleepRange)
+    }
+
+
     /// Generates an image asyncronously, this function inherits the isolation context of the
     /// caller.
     ///
@@ -114,6 +125,11 @@ nonisolated final class DefaultIsolationImageGenerator: ImageGeneratorProtocol, 
     init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
         self.size = size
         self.sleepRange = sleepRange
+    }
+
+
+    func createNew() -> any ImageGeneratorProtocol {
+        Self(size: size, sleepRange: sleepRange)
     }
 
 
@@ -300,6 +316,101 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
 
+
+    struct GeneratorPreview: View {
+
+        @State var usesMainActor: Bool = true
+        @State var images: [Int: Image] = [:]
+        @State var generator: any ImageGeneratorProtocol
+
+        let strings: [String]
+//        var generator: any ImageGeneratorProtocol
+
+        init(strings: [String], generator: any ImageGeneratorProtocol) {
+            self.strings = strings
+            self.generator = generator
+        }
+
+        var body: some View {
+            VStack {
+                ForEach(strings.enumerated(), id: \.offset) { index, string in
+                    Group {
+                        if let image = images[index] {
+                            image.resizable()
+                        } else {
+                            Rectangle().fill(.secondary)
+                        }
+                    }
+                    .frame(size: generator.size)
+                    .roundedRectangleClip(cornerRadius: 8)
+                    .task {
+                        let imageTask = if usesMainActor {
+                            // Called from inherited the MainActor isolation.
+                            Task {
+                                print("In Task: Generating from: \(ThreadInfo().displayName)")
+                                return await generator.generateImage(with: string)
+                            }
+                        } else {
+                            // Called using cooperative thread pool.
+                            Task.detached {
+                                print("In Detached: Generating from: \(ThreadInfo().displayName)")
+                                return await generator.generateImage(with: string)
+                            }
+                        }
+                        let image = await imageTask.value.image
+                        images[index] = image
+                    }
+                    .id(generator.id.hash(with: index))
+                }
+            } // VStack
+            .onChange(of: usesMainActor) {
+                // Reset image generator and stored images.
+                print("Resetting Generator")
+                generator = generator.createNew()
+                images = [:]
+            }
+
+            Toggle("Call from Main Actor", isOn: $usesMainActor)
+                .padding()
+        }
+    }
+
+}
+
+
+#Preview("ConcurrentDeux", traits: .fixedHeader, PreviewContent.layout) {
+    let strings: [String] = ["One", "Two", "Three", "Four", "Five"]
+    PreviewContent.GeneratorPreview(
+        strings: strings,
+        generator: ConcurrentImageGenerator(
+            size: .square(of: 100),
+            sleepRange: .seconds(0.5) ... .seconds(1)
+        )
+    )
+}
+
+
+#Preview("NonisolatedDeux", traits: .fixedHeader, PreviewContent.layout) {
+    let strings: [String] = ["One", "Two", "Three", "Four", "Five"]
+    PreviewContent.GeneratorPreview(
+        strings: strings,
+        generator: NonisolatedImageGenerator(
+            size: .square(of: 100),
+            sleepRange: .seconds(0.5) ... .seconds(1)
+        )
+    )
+}
+
+
+#Preview("DefaultIsolationDeux", traits: .fixedHeader, PreviewContent.layout) {
+    let strings: [String] = ["One", "Two", "Three", "Four", "Five"]
+    PreviewContent.GeneratorPreview(
+        strings: strings,
+        generator: DefaultIsolationImageGenerator(
+            size: .square(of: 100),
+            sleepRange: .seconds(0.5) ... .seconds(1)
+        )
+    )
 }
 
 
