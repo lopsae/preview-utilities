@@ -104,6 +104,7 @@ nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Senda
     /// inherit the callers context; it is unclear why this happens.
     nonisolated
     func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
+        print("generateImage from: \(ThreadInfo().displayName)")
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -324,7 +325,6 @@ private struct PreviewContent {
         @State var generator: any ImageGeneratorProtocol
 
         let strings: [String]
-//        var generator: any ImageGeneratorProtocol
 
         init(strings: [String], generator: any ImageGeneratorProtocol) {
             self.strings = strings
@@ -345,13 +345,13 @@ private struct PreviewContent {
                     .roundedRectangleClip(cornerRadius: 8)
                     .task {
                         let imageTask = if usesMainActor {
-                            // Called from inherited the MainActor isolation.
+                            // Call from inherited the MainActor isolation.
                             Task {
                                 print("In Task: Generating from: \(ThreadInfo().displayName)")
                                 return await generator.generateImage(with: string)
                             }
                         } else {
-                            // Called using cooperative thread pool.
+                            // Call using cooperative thread pool.
                             Task.detached {
                                 print("In Detached: Generating from: \(ThreadInfo().displayName)")
                                 return await generator.generateImage(with: string)
@@ -592,4 +592,116 @@ private struct PreviewContent {
 
     Toggle("Call from Main Actor", isOn: $usesMainActor)
         .padding()
+}
+
+
+// TODO: remove preview prints
+extension PreviewContent {
+
+    /// Preview that stores the image generator in a type erasd `any ImageGeneratorProtocol`
+    /// property, which modifies the isolation behaviour of the image generator.
+    ///
+    /// This issue seems to arise from *existential types* when storing the generator as an
+    /// `any protocol`. The boxing of the generator implementation seems to change the isolation
+    /// context where `generateImage` is called, hence modifying the isolation when the function
+    /// inherits the isolation context from the caller.
+    ///
+    /// Modifying the package's settings to a nonisolated default isolation will modify the
+    /// isolation the protocol boxing provides seemingtly to `nonisolated`. In that case the context
+    /// inheritance works as expected.
+    ///
+    /// https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
+    /// https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
+    struct TypeErasedPreview: View {
+        @State var usesMainActor: Bool = true
+        @State var image: Image? = nil
+        @State var generator: any ImageGeneratorProtocol
+        let string = "Erasure"
+
+        init(generator: any ImageGeneratorProtocol) {
+            self.generator = generator
+        }
+
+        var body: some View {
+            Group {
+                if let image {
+                    image.resizable()
+                } else {
+                    Rectangle().fill(.secondary)
+                }
+            }
+            .frame(size: generator.size)
+            .roundedRectangleClip(cornerRadius: 8)
+            .task {
+                let imageTask = if usesMainActor {
+                    // Call from inherited the MainActor isolation.
+                    Task {
+                        print("In Task: Generating from: \(ThreadInfo().displayName)")
+                        return await generator.generateImage(with: string)
+                    }
+                } else {
+                    // Call using cooperative thread pool.
+                    Task.detached {
+                        print("In Detached: Generating from: \(ThreadInfo().displayName)")
+                        return await generator.generateImage(with: string)
+                    }
+                }
+                let generatedImage = await imageTask.value.image
+                image = generatedImage
+            }
+            .id(generator.id.hash(with: string))
+
+            Toggle("Call from Main Actor", isOn: $usesMainActor)
+            .onChange(of: usesMainActor) {
+                // Reset image generator and stored images.
+                print("Resetting Generator")
+                generator = generator.createNew()
+                image = nil
+            }
+        }
+    }
+
+}
+
+
+#Preview("ConcurrentErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+    // TODO: PreviewCaption?
+    Text("Since @concurrent does not depend on isolation context inheritance, generation still happens in the cooperative thread pool.")
+        .maxWidthFrame(alignment: .leading)
+        .padding(.horizontal)
+
+    PreviewContent.TypeErasedPreview(
+        generator: ConcurrentImageGenerator(
+            size: .square(of: 100),
+            sleepRange: .seconds(0.5) ... .seconds(1)
+        )
+    )
+}
+
+
+#Preview("NonisolatedErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+    Text("The protocol boxing seems to override the original caller context to main. Given that nonisolated inherits the caller context, all generation occurs in Main.")
+        .maxWidthFrame(alignment: .leading)
+        .padding(.horizontal)
+
+    PreviewContent.TypeErasedPreview(
+        generator: NonisolatedImageGenerator(
+            size: .square(of: 100),
+            sleepRange: .seconds(0.5) ... .seconds(1)
+        )
+    )
+}
+
+
+#Preview("DefaultIsolationErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+    Text("Image generation uses the default isolation of Main, in this case the protocol boxing override shoud not modify the generation context.")
+        .maxWidthFrame(alignment: .leading)
+        .padding(.horizontal)
+
+    PreviewContent.TypeErasedPreview(
+        generator: DefaultIsolationImageGenerator(
+            size: .square(of: 100),
+            sleepRange: .seconds(0.5) ... .seconds(1)
+        )
+    )
 }
