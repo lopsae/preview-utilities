@@ -6,12 +6,12 @@
 
 extension DefaultStringInterpolation {
 
-    mutating func appendInterpolation(nilDefault string: String?) {
-        appendInterpolation(string, default: "nil")
+    mutating func appendInterpolation<T>(nilDefault value: T?) {
+        appendInterpolation(value, default: "nil")
     }
 
-    mutating func appendInterpolation(emptyDefault string: String?) {
-        appendInterpolation(string, default: "")
+    mutating func appendInterpolation<T>(emptyDefault value: T?) {
+        appendInterpolation(value, default: String())
     }
 
 }
