@@ -228,6 +228,14 @@ extension DebugOutlineModifier {
 
 extension View {
 
+    /// Adds a debug outline overlay to the view using the default options.
+    ///
+    /// - Returns: The calling view with an overlay highlighing its frame.
+    public func debugOutline() -> some View {
+        modifier(DebugOutlineModifier())
+    }
+
+
     /// Adds a debug outline overlay to the view.
     ///
     /// - Parameters:
@@ -238,9 +246,9 @@ extension View {
     ///
     /// Example usage:
     /// ```swift
-    /// // Only outlines.
+    /// // Hairline outline.
     /// Text("Hello")
-    ///     .debugOutline()
+    ///     .debugOutline(lineWidth: 1)
     ///
     /// // Outlines along size and origin info.
     /// Text("Hello")
