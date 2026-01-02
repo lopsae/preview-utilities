@@ -102,14 +102,9 @@ nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Senda
 // MARK: - DefaultIsolationImageGenerator
 
 
-/// Image generator that uses the package's default isolation context, which is configured to
-/// MainActor isolation. When called even from a background thread, the image generation will
-/// always happens in the main thread.
-///
-/// If the package default isolation setting is changed to non-isolated, and assuming
-/// `NonisolatedNonsendingByDefault` is also enabled, the image generation will occurr in the
-/// isolation contect where `generateImage` is called.
-final class DefaultIsolationImageGenerator: /*ImageGeneratorProtocol,*/ Sendable {
+/// Nonisolated ImageGenerator with a `generateImage` without `nonisolated` using the package's
+/// default isolation context, which is configured to MainActor isolation.
+nonisolated final class DefaultIsolationImageGenerator: ImageGeneratorProtocol, Sendable {
 
     let id: UUID = UUID()
 
@@ -121,6 +116,14 @@ final class DefaultIsolationImageGenerator: /*ImageGeneratorProtocol,*/ Sendable
         self.sleepRange = sleepRange
     }
 
+
+    /// Generates an image asyncronously, this function uses the package's default isolation, which
+    /// is configured to MainActor isolation.
+    ///
+    /// This function must NOT use `nonisolated` to use the package's default isolation.
+    ///
+    /// Adding `nonisolated` will cause this function to inherit the isolation from the caller
+    /// isolation context.
     func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
@@ -316,7 +319,7 @@ private struct PreviewContent {
     )
 
     VStack {
-        ForEach(images.enumerated(), id: \.offset ) { index, tuple in
+        ForEach(images.enumerated(), id: \.offset) { index, tuple in
             Group {
                 if let image = tuple.image {
                     image.resizable()
@@ -376,7 +379,7 @@ private struct PreviewContent {
     )
 
     VStack {
-        ForEach(images.enumerated(), id: \.offset ) { index, tuple in
+        ForEach(images.enumerated(), id: \.offset) { index, tuple in
             Group {
                 if let image = tuple.image {
                     image.resizable()
@@ -422,6 +425,7 @@ private struct PreviewContent {
 
 
 #Preview("Default Isolation", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var usesMainActor: Bool = true
     @Previewable @State var images: [(text: String, image: Image?)] = [
         ("Un",     nil),
         ("Deux",   nil),
@@ -429,8 +433,7 @@ private struct PreviewContent {
         ("Quatre", nil),
         ("Cinq",   nil)
     ]
-
-    let imageGenerator = DefaultIsolationImageGenerator(
+    @Previewable @State var imageGenerator = DefaultIsolationImageGenerator(
         size: .init(square: 100),
         sleepRange: .seconds(0.5) ... .seconds(1)
     )
@@ -446,17 +449,37 @@ private struct PreviewContent {
             }
             .frame(size: imageGenerator.size)
             .roundedRectangleClip(cornerRadius: 8)
-            .task {
-                let imageTask = Task.detached {
-                    // ImageGenerator is called here outside of MainActor isolation.
-                    await imageGenerator.generateImage(with: tuple.text).image
-                }
-                let image = await imageTask.value
 
-                var mutableTuple = tuple
-                mutableTuple.image = image
-                images[index] = mutableTuple
+            .task {
+                let imageTask = if usesMainActor {
+                    // Called from inherited the MainActor isolation.
+                    Task {
+                        await imageGenerator.generateImage(with: tuple.text)
+                    }
+                } else {
+                    // Called using cooperative thread pool.
+                    Task.detached {
+                        print("Generating in \(ThreadInfo().displayName)")
+                        return await imageGenerator.generateImage(with: tuple.text)
+                    }
+                }
+                let image = await imageTask.value.image
+                images[index].image = image //mutableTuple
             }
+            .id(imageGenerator.id.hash(with: index))
         }
     } // VStack
+    .onChange(of: usesMainActor) {
+        // Reset image generator and stored images.
+        imageGenerator = DefaultIsolationImageGenerator(
+            size: imageGenerator.size,
+            sleepRange: imageGenerator.sleepRange
+        )
+        images = images.map { text, image in
+            (text, nil)
+        }
+    }
+
+    Toggle("Call from Main Actor", isOn: $usesMainActor)
+        .padding()
 }
