@@ -13,8 +13,8 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
     var id: UUID { get }
     var size: CGSize { get }
 
-    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
-    func createNew() -> any ImageGeneratorProtocol
+    nonisolated func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
+    func createNew() -> Self
 
 }
 
@@ -50,7 +50,7 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
     }
 
 
-    func createNew() -> any ImageGeneratorProtocol {
+    func createNew() -> Self {
         Self(size: size, sleepRange: sleepRange)
     }
 
@@ -75,7 +75,8 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
 
 /// Nonisolated ImageGenerator with a `nonisolated generateImage` function that will inherit the
 /// isolation context of the caller.
-nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
+nonisolated
+final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
 
     let id: UUID = UUID()
 
@@ -88,7 +89,7 @@ nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Senda
     }
 
 
-    func createNew() -> any ImageGeneratorProtocol {
+    func createNew() -> Self {
         Self(size: size, sleepRange: sleepRange)
     }
 
@@ -113,10 +114,12 @@ nonisolated final class NonisolatedImageGenerator: ImageGeneratorProtocol, Senda
 
 // MARK: - DefaultIsolationImageGenerator
 
+// FIXME: after updating protocol to nonisolated, this implementation is the same as isolated, update to showcase main isolation
 
 /// Nonisolated ImageGenerator with a `generateImage` without `nonisolated` using the package's
 /// default isolation context, which is configured to MainActor isolation.
-nonisolated final class DefaultIsolationImageGenerator: ImageGeneratorProtocol, Sendable {
+nonisolated
+final class DefaultIsolationImageGenerator: ImageGeneratorProtocol, Sendable {
 
     let id: UUID = UUID()
 
@@ -129,7 +132,7 @@ nonisolated final class DefaultIsolationImageGenerator: ImageGeneratorProtocol, 
     }
 
 
-    func createNew() -> any ImageGeneratorProtocol {
+    func createNew() -> Self {
         Self(size: size, sleepRange: sleepRange)
     }
 
@@ -141,8 +144,9 @@ nonisolated final class DefaultIsolationImageGenerator: ImageGeneratorProtocol, 
     ///
     /// Adding `nonisolated` will cause this function to inherit the isolation from the caller
     /// isolation context.
+    @MainActor
     func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
-        return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
+            return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -317,16 +321,23 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
 
+}
 
-    struct GeneratorPreview: View {
+
+// MARK: - GeneratorPreview
+
+
+extension PreviewContent {
+
+    struct GeneratorPreview<Generator: ImageGeneratorProtocol>: View {
 
         @State var usesMainActor: Bool = true
         @State var images: [Int: Image] = [:]
-        @State var generator: any ImageGeneratorProtocol
+        @State var generator: Generator
 
         let strings: [String]
 
-        init(strings: [String], generator: any ImageGeneratorProtocol) {
+        init(strings: [String], generator: Generator) {
             self.strings = strings
             self.generator = generator
         }
@@ -345,15 +356,15 @@ private struct PreviewContent {
                     .roundedRectangleClip(cornerRadius: 8)
                     .task {
                         let imageTask = if usesMainActor {
-                            // Call from inherited the MainActor isolation.
+                            // Call from inherited MainActor isolation.
                             Task {
                                 print("In Task: Generating from: \(ThreadInfo().displayName)")
                                 return await generator.generateImage(with: string)
                             }
                         } else {
                             // Call using cooperative thread pool.
-                            Task.detached {
-                                print("In Detached: Generating from: \(ThreadInfo().displayName)")
+                            Task.detached {// [capturedGenerator] in
+                                print("In Detached: start from: \(ThreadInfo().displayName)")
                                 return await generator.generateImage(with: string)
                             }
                         }
@@ -595,11 +606,18 @@ private struct PreviewContent {
 }
 
 
+// MARK: - TypeErasedPreview
+
+
 // TODO: remove preview prints
 extension PreviewContent {
 
     /// Preview that stores the image generator in a type erasd `any ImageGeneratorProtocol`
-    /// property, which modifies the isolation behaviour of the image generator.
+    /// property, which can modify the isolation behaviour of the image generator.
+    ///
+    /// To see the issues mentioned in this previews remove `nonisolated` from the `generateImage`
+    /// protocol specification. Previously, ``ImageGeneratorProtocol`` did not specify a
+    /// `nonisolated generateImage`, which surfaced the protocol boxing issues.
     ///
     /// This issue seems to arise from *existential types* when storing the generator as an
     /// `any protocol`. The boxing of the generator implementation seems to change the isolation
