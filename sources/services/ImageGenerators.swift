@@ -8,13 +8,32 @@ import CryptoKit
 import SwiftUI
 
 
+/// Protocol for all image generators.
 public protocol ImageGeneratorProtocol: Sendable, Identifiable {
 
+    /// Unique identifier of the generator.
     var id: UUID { get }
+
+    /// Size of the generated images.
     var size: CGSize { get }
 
+    /// Generates an image with a given string, returns the image and the ``ThreadInfo`` where the
+    /// image was generated.
+    ///
+    /// This function MUST be defined in the protocol as `nonisolated` for the different
+    /// implementations to work as expected. Removing `nonisolated` will change the behavior of
+    /// ``NonisolatedImageGenerator`` since protocol boxing (even when using generics) seems to
+    /// override the callers isolation context to the package's default.
+    ///
+    /// - SeeAlso: [The Swift Programing Language - Protocols as Types][protocols-as-types]
+    /// - SeeAlso: [The Swift Programing Language - Boxed Protocol Types][boxed-protocol-types]
+    ///
+    /// [protocols-as-types]:   https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
+    /// [boxed-protocol-types]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
     nonisolated func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
-    func createNew() -> Self
+
+    /// Creates a copy of the generator with the same settings but a different ``id``.
+    func makeCopy() -> Self
 
 }
 
@@ -37,11 +56,12 @@ nonisolated enum ImageGeneratorDefaults {
 
 /// Nonisolated ImageGenerator with a `@concurrent generateImage` function that will always be
 /// called in the cooperative thread pool.
-nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
+nonisolated
+public final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
 
-    let id: UUID = UUID()
+    public let id: UUID = UUID()
 
-    let size: CGSize
+    public let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
     init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
@@ -50,7 +70,7 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
     }
 
 
-    func createNew() -> Self {
+    public func makeCopy() -> Self {
         Self(size: size, sleepRange: sleepRange)
     }
 
@@ -63,7 +83,7 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
     /// context of the caller, since the package uses the `NonisolatedNonsendingByDefault` upcoming
     /// feature.
     @concurrent
-    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
+    public func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -76,11 +96,11 @@ nonisolated final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendab
 /// Nonisolated ImageGenerator with a `nonisolated generateImage` function that will inherit the
 /// isolation context of the caller.
 nonisolated
-final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
+public final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
 
-    let id: UUID = UUID()
+    public let id: UUID = UUID()
 
-    let size: CGSize
+    public let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
     init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
@@ -89,7 +109,7 @@ final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
     }
 
 
-    func createNew() -> Self {
+    public func makeCopy() -> Self {
         Self(size: size, sleepRange: sleepRange)
     }
 
@@ -97,14 +117,13 @@ final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
     /// Generates an image asyncronously, this function inherits the isolation context of the
     /// caller.
     ///
-    /// This function must use `nonisolated` to inherit the caller isolation context. The package
-    /// uses the `NonisolatedNonsendingByDefault` upcoming feature.
-    ///
-    /// Removing `nonisolated` will cause this function to run in the package default isolation
-    /// context when run from a detached task. Otherwise, when run from a regular `Task`, it will
-    /// inherit the callers context; it is unclear why this happens.
+    /// If `nonisolated` is removed from ``ImageGeneratorProtocol/generateImage(with:)`` this
+    /// implementation shows a modified behavior, since protocol boxing will override the isolation
+    /// context inheritance and use the package's defaul isolation instead. Also removing
+    /// `nonisolated` here would also change this implementation behavior when used directly
+    /// (without protocol boxing), in this case the function uses the package's default isolation.
     nonisolated
-    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
+    public func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
         print("generateImage from: \(ThreadInfo().displayName)")
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
@@ -112,18 +131,16 @@ final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
 }
 
 
-// MARK: - DefaultIsolationImageGenerator
+// MARK: - MainActorImageGenerator
 
-// FIXME: after updating protocol to nonisolated, this implementation is the same as isolated, update to showcase main isolation
 
-/// Nonisolated ImageGenerator with a `generateImage` without `nonisolated` using the package's
-/// default isolation context, which is configured to MainActor isolation.
+/// Nonisolated ImageGenerator with a `generateImage` isolated to MainActor.
 nonisolated
-final class DefaultIsolationImageGenerator: ImageGeneratorProtocol, Sendable {
+public final class MainActorImageGenerator: ImageGeneratorProtocol, Sendable {
 
-    let id: UUID = UUID()
+    public let id: UUID = UUID()
 
-    let size: CGSize
+    public let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
     init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
@@ -132,20 +149,14 @@ final class DefaultIsolationImageGenerator: ImageGeneratorProtocol, Sendable {
     }
 
 
-    func createNew() -> Self {
+    public func makeCopy() -> Self {
         Self(size: size, sleepRange: sleepRange)
     }
 
 
-    /// Generates an image asyncronously, this function uses the package's default isolation, which
-    /// is configured to MainActor isolation.
-    ///
-    /// This function must NOT use `nonisolated` to use the package's default isolation.
-    ///
-    /// Adding `nonisolated` will cause this function to inherit the isolation from the caller
-    /// isolation context.
+    /// Generates an image asyncronously, this function is isolated to MainActor.
     @MainActor
-    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
+    public func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
             return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -329,6 +340,7 @@ private struct PreviewContent {
 
 extension PreviewContent {
 
+    /// Preview that stores the image generator using a generic of ``ImageGeneratorProtocol``.
     struct GeneratorPreview<Generator: ImageGeneratorProtocol>: View {
 
         @State var usesMainActor: Bool = true
@@ -377,7 +389,7 @@ extension PreviewContent {
             .onChange(of: usesMainActor) {
                 // Reset image generator and stored images.
                 print("Resetting Generator")
-                generator = generator.createNew()
+                generator = generator.makeCopy()
                 images = [:]
             }
 
@@ -411,10 +423,10 @@ extension PreviewContent {
 }
 
 
-#Preview("DefaultIsolation", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("MainActor", traits: .fixedHeader, PreviewContent.layout) {
     PreviewContent.GeneratorPreview(
         strings: ["Un", "Deux", "Trois", "Quatre", "Cinq"],
-        generator: DefaultIsolationImageGenerator(
+        generator: MainActorImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
         )
@@ -431,21 +443,26 @@ extension PreviewContent {
     /// Preview that stores the image generator in a type erasd `any ImageGeneratorProtocol`
     /// property, which can modify the isolation behaviour of the image generator.
     ///
-    /// To see the issues mentioned in this previews remove `nonisolated` from the `generateImage`
-    /// protocol specification. Previously, ``ImageGeneratorProtocol`` did not specify a
-    /// `nonisolated generateImage`, which surfaced the protocol boxing issues.
+    /// To see the issues mentioned in this previews remove `nonisolated` from the
+    /// ``ImageGeneratorProtocol/generateImage(with:)`` specification. Previously,
+    /// ``ImageGeneratorProtocol`` did not specify a `nonisolated generateImage`, which surfaced the
+    /// protocol boxing issues.
     ///
     /// This issue seems to arise from *existential types* when storing the generator as an
-    /// `any protocol`. The boxing of the generator implementation seems to change the isolation
+    /// `any protocol`. The protocol boxing of the generator implementation seems to change the isolation
     /// context where `generateImage` is called, hence modifying the isolation when the function
-    /// inherits the isolation context from the caller.
+    /// inherits the isolation context from the caller. This behaviour can be seen specifically
+    /// with ``NonisolatedImageGenerator`` which is setup to inherit the isolation context.
     ///
     /// Modifying the package's settings to a nonisolated default isolation will modify the
-    /// isolation the protocol boxing provides seemingtly to `nonisolated`. In that case the context
-    /// inheritance works as expected.
+    /// isolation the protocol boxing provides seemingly to `nonisolated`, in which case the context
+    /// inheritance works as expected again since the protocol boxing would inherit the context.
     ///
-    /// https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
-    /// https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
+    /// - SeeAlso: [The Swift Programing Language - Protocols as Types][protocols-as-types]
+    /// - SeeAlso: [The Swift Programing Language - Boxed Protocol Types][boxed-protocol-types]
+    ///
+    /// [protocols-as-types]:   https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
+    /// [boxed-protocol-types]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
     struct TypeErasedPreview: View {
         @State var usesMainActor: Bool = true
         @State var image: Image? = nil
@@ -489,7 +506,7 @@ extension PreviewContent {
             .onChange(of: usesMainActor) {
                 // Reset image generator and stored images.
                 print("Resetting Generator")
-                generator = generator.createNew()
+                generator = generator.makeCopy()
                 image = nil
             }
         }
@@ -527,13 +544,13 @@ extension PreviewContent {
 }
 
 
-#Preview("DefaultIsolationErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
-    Text("Image generation uses the default isolation of Main, in this case the protocol boxing override shoud not modify the generation context.")
+#Preview("MainActorErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+    Text("Image generation is isolated to Main, in this case the protocol boxing override shoud not modify the generation context.")
         .maxWidthFrame(alignment: .leading)
         .padding(.horizontal)
 
     PreviewContent.TypeErasedPreview(
-        generator: DefaultIsolationImageGenerator(
+        generator: MainActorImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
         )
