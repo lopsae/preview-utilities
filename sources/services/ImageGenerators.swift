@@ -389,10 +389,9 @@ extension PreviewContent {
 }
 
 
-#Preview("ConcurrentDeux", traits: .fixedHeader, PreviewContent.layout) {
-    let strings: [String] = ["One", "Two", "Three", "Four", "Five"]
+#Preview("Concurrent", traits: .fixedHeader, PreviewContent.layout) {
     PreviewContent.GeneratorPreview(
-        strings: strings,
+        strings: ["One", "Two", "Three", "Four", "Five"],
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
@@ -401,10 +400,9 @@ extension PreviewContent {
 }
 
 
-#Preview("NonisolatedDeux", traits: .fixedHeader, PreviewContent.layout) {
-    let strings: [String] = ["One", "Two", "Three", "Four", "Five"]
+#Preview("Nonisolated", traits: .fixedHeader, PreviewContent.layout) {
     PreviewContent.GeneratorPreview(
-        strings: strings,
+        strings: ["Uno", "Dos", "Tres", "Cuatro", "Cinco"],
         generator: NonisolatedImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
@@ -413,196 +411,14 @@ extension PreviewContent {
 }
 
 
-#Preview("DefaultIsolationDeux", traits: .fixedHeader, PreviewContent.layout) {
-    let strings: [String] = ["One", "Two", "Three", "Four", "Five"]
+#Preview("DefaultIsolation", traits: .fixedHeader, PreviewContent.layout) {
     PreviewContent.GeneratorPreview(
-        strings: strings,
+        strings: ["Un", "Deux", "Trois", "Quatre", "Cinq"],
         generator: DefaultIsolationImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
         )
     )
-}
-
-
-#Preview("Concurrent", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var usesMainActor: Bool = true
-    @Previewable @State var images: [(text: String, image: Image?)] = [
-        ("One",   nil),
-        ("Two",   nil),
-        ("Three", nil),
-        ("Four",  nil),
-        ("Five",  nil)
-    ]
-    @Previewable @State var imageGenerator = ConcurrentImageGenerator(
-        size: .init(square: 100),
-        sleepRange: .seconds(0.5) ... .seconds(1)
-    )
-
-    VStack {
-        ForEach(images.enumerated(), id: \.offset) { index, tuple in
-            Group {
-                if let image = tuple.image {
-                    image.resizable()
-                } else {
-                    Rectangle().fill(.secondary)
-                }
-            }
-            .frame(size: imageGenerator.size)
-            .roundedRectangleClip(cornerRadius: 8)
-
-            .task {
-                let imageTask = if usesMainActor {
-                    // Called from inherited the MainActor isolation.
-                    Task {
-                        await imageGenerator.generateImage(with: tuple.text)
-                    }
-                } else {
-                    // Called using cooperative thread pool.
-                    Task.detached {
-                        await imageGenerator.generateImage(with: tuple.text)
-                    }
-                }
-                let image = await imageTask.value.image
-                images[index].image = image //mutableTuple
-            }
-            .id(imageGenerator.id.hash(with: index))
-        }
-    } // VStack
-    .onChange(of: usesMainActor) {
-        // Reset image generator and stored images.
-        imageGenerator = ConcurrentImageGenerator(
-            size: imageGenerator.size,
-            sleepRange: imageGenerator.sleepRange
-        )
-        images = images.map { text, image in
-            (text, nil)
-        }
-    }
-
-    Toggle("Call from Main Actor", isOn: $usesMainActor)
-        .padding()
-}
-
-
-#Preview("Nonisolated", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var usesMainActor: Bool = true
-    @Previewable @State var images: [(text: String, image: Image?)] = [
-        ("Uno",    nil),
-        ("Dos",    nil),
-        ("Tres",   nil),
-        ("Cuatro", nil),
-        ("Cinco",  nil)
-    ]
-    @Previewable @State var imageGenerator = NonisolatedImageGenerator(
-        size: .init(square: 100),
-        sleepRange: .seconds(0.5) ... .seconds(1)
-    )
-
-    VStack {
-        ForEach(images.enumerated(), id: \.offset) { index, tuple in
-            Group {
-                if let image = tuple.image {
-                    image.resizable()
-                } else {
-                    Rectangle().fill(.secondary)
-                }
-            }
-            .frame(size: imageGenerator.size)
-            .roundedRectangleClip(cornerRadius: 8)
-
-            .task {
-                let imageTask = if usesMainActor {
-                    // Called from inherited the MainActor isolation.
-                    Task {
-                        await imageGenerator.generateImage(with: tuple.text)
-                    }
-                } else {
-                    // Called using cooperative thread pool.
-                    Task.detached {
-                        await imageGenerator.generateImage(with: tuple.text)
-                    }
-                }
-                let image = await imageTask.value.image
-                images[index].image = image //mutableTuple
-            }
-            .id(imageGenerator.id.hash(with: index))
-        }
-    } // VStack
-    .onChange(of: usesMainActor) {
-        // Reset image generator and stored images.
-        imageGenerator = NonisolatedImageGenerator(
-            size: imageGenerator.size,
-            sleepRange: imageGenerator.sleepRange
-        )
-        images = images.map { text, image in
-            (text, nil)
-        }
-    }
-
-    Toggle("Call from Main Actor", isOn: $usesMainActor)
-        .padding()
-}
-
-
-#Preview("Default Isolation", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var usesMainActor: Bool = true
-    @Previewable @State var images: [(text: String, image: Image?)] = [
-        ("Un",     nil),
-        ("Deux",   nil),
-        ("Trois",  nil),
-        ("Quatre", nil),
-        ("Cinq",   nil)
-    ]
-    @Previewable @State var imageGenerator = DefaultIsolationImageGenerator(
-        size: .init(square: 100),
-        sleepRange: .seconds(0.5) ... .seconds(1)
-    )
-
-    VStack {
-        ForEach(images.enumerated(), id: \.offset) { index, tuple in
-            Group {
-                if let image = tuple.image {
-                    image.resizable()
-                } else {
-                    Rectangle().fill(.secondary)
-                }
-            }
-            .frame(size: imageGenerator.size)
-            .roundedRectangleClip(cornerRadius: 8)
-
-            .task {
-                let imageTask = if usesMainActor {
-                    // Called from inherited the MainActor isolation.
-                    Task {
-                        await imageGenerator.generateImage(with: tuple.text)
-                    }
-                } else {
-                    // Called using cooperative thread pool.
-                    Task.detached {
-                        print("Generating in \(ThreadInfo().displayName)")
-                        return await imageGenerator.generateImage(with: tuple.text)
-                    }
-                }
-                let image = await imageTask.value.image
-                images[index].image = image //mutableTuple
-            }
-            .id(imageGenerator.id.hash(with: index))
-        }
-    } // VStack
-    .onChange(of: usesMainActor) {
-        // Reset image generator and stored images.
-        imageGenerator = DefaultIsolationImageGenerator(
-            size: imageGenerator.size,
-            sleepRange: imageGenerator.sleepRange
-        )
-        images = images.map { text, image in
-            (text, nil)
-        }
-    }
-
-    Toggle("Call from Main Actor", isOn: $usesMainActor)
-        .padding()
 }
 
 
