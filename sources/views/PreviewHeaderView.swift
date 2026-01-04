@@ -14,8 +14,6 @@ struct PreviewHeaderView: View {
 
     let flexibleHeight: Bool
 
-    private let backgroundStyle: some ShapeStyle = .gray.tertiary
-
     fileprivate var printsUpdates: Bool = false
 
 
@@ -43,7 +41,7 @@ struct PreviewHeaderView: View {
         }  // VStack
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-                .fill(backgroundStyle)
+                .fill(HeaderFooterContainerView.backgroundStyle)
                 // TODO: reevaluate if keeping this approach for logging.
                 .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
                     if printsUpdates {

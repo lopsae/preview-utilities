@@ -45,7 +45,7 @@ struct PreviewCaption: View {
         }
         .padding()
         .background {
-            Rectangle().fill(.gray.tertiary)
+            Rectangle().fill(HeaderFooterContainerView.backgroundStyle)
                 .roundedRectangleClip(cornerRadius: HeaderFooterContainerView.minimumConcentricRadius)
         }
         .padding(.horizontal)

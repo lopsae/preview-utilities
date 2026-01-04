@@ -63,7 +63,7 @@ extension HeaderFooterContainerView where Content == Never {
     // TODO: make 12 for ios, 8 for macOS
     static var minimumConcentricRadius: Double { 12.0 }
 
-    // TODO: also add background color here
+    static var backgroundStyle: some ShapeStyle { .gray.tertiary }
 
 }
 
