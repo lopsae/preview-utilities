@@ -9,9 +9,6 @@ import SwiftUI
 
 public struct HeaderFooterContainerView<Content: View>: View {
 
-    // TODO: make 12 for ios, 8 for macOS
-    static var minimumConcentricRadius: Double { 12.0 }
-
     let options: HeaderFooterPreviewOptions
     let content: () -> Content
 
@@ -58,6 +55,16 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
     public static let showDividers: Self = .init(shiftedBy: 2)
 
     public static let fixed: Self = [.fixedHeader, .fixedFooter]
+}
+
+
+extension HeaderFooterContainerView where Content == Never {
+
+    // TODO: make 12 for ios, 8 for macOS
+    static var minimumConcentricRadius: Double { 12.0 }
+
+    // TODO: also add background color here
+
 }
 
 

@@ -40,7 +40,7 @@ struct PreviewFooterView: View {
                 .maxWidthFrame()
         }  // VStack
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
                 .fill(backgroundStyle)
                 // TODO: reevaluate if keeping this approach for logging.
                 .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
@@ -100,7 +100,7 @@ private struct PreviewContent {
         .padding()
         .padding([.horizontal, .bottom])
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
             .fill(.orange)
             .padding()
             .ignoresSafeArea()
@@ -195,7 +195,7 @@ private final class PrintOnce {
         .padding(.vertical)
         .padding(.vertical)
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView<EmptyView>.minimumConcentricRadius)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
                 .fill(.orange.tertiary)
                 .padding()
                 .ignoresSafeArea()
