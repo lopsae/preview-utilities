@@ -467,9 +467,11 @@ extension PreviewContent {
         @State var usesMainActor: Bool = true
         @State var image: Image? = nil
         @State var generator: any ImageGeneratorProtocol
-        let string = "Erasure"
 
-        init(generator: any ImageGeneratorProtocol) {
+        let string: String
+
+        init(string: String, generator: any ImageGeneratorProtocol) {
+            self.string = string
             self.generator = generator
         }
 
@@ -516,12 +518,12 @@ extension PreviewContent {
 
 
 #Preview("ConcurrentErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
-    // TODO: PreviewCaption?
-    Text("Since @concurrent does not depend on isolation context inheritance, generation still happens in the cooperative thread pool.")
-        .maxWidthFrame(alignment: .leading)
-        .padding(.horizontal)
+    PreviewCaption(
+        "Generation always happens in the cooperative thread pool, since `@concurrent` does not",
+        "depend on isolation context inheritance")
 
     PreviewContent.TypeErasedPreview(
+        string: "Concurrent",
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
@@ -531,11 +533,16 @@ extension PreviewContent {
 
 
 #Preview("NonisolatedErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
-    Text("The protocol boxing seems to override the original caller context to main. Given that nonisolated inherits the caller context, all generation occurs in Main.")
-        .maxWidthFrame(alignment: .leading)
-        .padding(.horizontal)
+    PreviewCaption(
+        "Protocol boxing overrides the original caller context to the default isolation. Given that",
+        "nonisolated inherits the caller context, all generation occurs in Main."
+    ).paragraph(
+        "**Note**: This issue can only be seen if `nonisolated` is removed from",
+        "`ImageGeneratorProtocol/generateImage(with:)`. Otherwise this works as expected."
+    )
 
     PreviewContent.TypeErasedPreview(
+        string: "NonIsolated",
         generator: NonisolatedImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
@@ -545,11 +552,12 @@ extension PreviewContent {
 
 
 #Preview("MainActorErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
-    Text("Image generation is isolated to Main, in this case the protocol boxing override shoud not modify the generation context.")
-        .maxWidthFrame(alignment: .leading)
-        .padding(.horizontal)
+    PreviewCaption(
+        "Image generation is isolated to Main, in this case the protocol boxing override does not",
+        "modify the generation context.")
 
     PreviewContent.TypeErasedPreview(
+        string: "MainActor",
         generator: MainActorImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
