@@ -110,23 +110,36 @@ private struct PreviewContent {
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var isFlexible: Bool = true
+    @Previewable @State var fixedHeight: Double = 400
 
     printOnce.view
+
     PreviewHeaderView(flexibleHeight: isFlexible)
         .preview_printsUpdates(true)
 
     Divider()
 
+    Rectangle().fill(.red.tertiary)
+        .frame(width: 100, height: fixedHeight)
+        .debugOutline(lineWidth: 1, options: .size)
+
+    Divider()
+
     PreviewContent.bottomControls {
+        Slider(
+            "Fixed Height",
+            value: $fixedHeight,
+            in: 0...800,
+            valueFormat: .roundedIntegerToNearestOrEven)
         Toggle("Flexible height", isOn: $isFlexible)
     }
 }
 
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
-    @Previewable @State var topSafeAreaInset: Double = 60.0
+    @Previewable @State var topSafeAreaInset: Double = 60
     @Previewable @State var useDeviceSafeArea: Bool = false
-    @Previewable @State var isFlexible: Bool = false
+    @Previewable @State var isFlexible: Bool = true
 
     printOnce.view
 
@@ -140,10 +153,9 @@ private struct PreviewContent {
     PreviewHeaderView(flexibleHeight: isFlexible)
     .preview_printsUpdates(true)
     .safeAreaInset(edge: .top, spacing: 0) {
-        let roundedHeight = topSafeAreaInset.rounded(.toNearestOrEven)
         Rectangle()
             .fill(.red.opacity(0.1))
-            .frame(height: roundedHeight)
+            .frame(height: topSafeAreaInset)
             .debugOutline(lineWidth: 1, options: .size, .safeAreaInsets, .infoOutside)
             .padding(.horizontal, 8)
     }
@@ -154,11 +166,11 @@ private struct PreviewContent {
         Slider(
             "Top SafeArea",
             value: $topSafeAreaInset,
-            in: 0.0...100.0,
+            in: 0...100,
             currentValueFormat: .roundedIntegerToNearestOrEven,
             boundsValueFormat: .roundedIntegerToNearestOrEven
         )
-        Text("Top SafeArea: \(topSafeAreaInset, format: .roundedIntegerToNearestOrEven)")
+        Text("Top SafeArea: \(topSafeAreaInset, format: .fractionLength(2))")
             .monospaced()
 
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)

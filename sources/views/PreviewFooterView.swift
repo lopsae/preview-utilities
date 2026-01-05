@@ -106,11 +106,11 @@ private struct PreviewContent {
 }
 
 
-// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset.
+// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset. Issue does not happen in header.
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var isFlexible: Bool = true
-    @Previewable @State var fixedHeight: Double = 400.0
+    @Previewable @State var fixedHeight: Double = 400
 
     printOnce.view
 
@@ -119,7 +119,7 @@ private struct PreviewContent {
         Slider(
             "Fixed Height",
             value: $fixedHeight,
-            in: 0.0...800.0,
+            in: 0...800,
             valueFormat: .roundedIntegerToNearestOrEven)
     }
 
@@ -136,12 +136,12 @@ private struct PreviewContent {
 }
 
 
-// FIXME: in ios, when using flexible height, if the safeare inset goes under the minimum, a infinite update of currentSafeAreaInset is triggered
+// FIXME: in ios, when using flexible height, if the safeare inset goes under the minimum, a infinite update of currentSafeAreaInset is triggered. Does not happen in header.
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
-    @Previewable @State var bottomSafeAreaInset: Double = 60.0
+    @Previewable @State var bottomSafeAreaInset: Double = 60
     @Previewable @State var useDeviceSafeArea: Bool = false
-    @Previewable @State var isFlexible: Bool = false
+    @Previewable @State var isFlexible: Bool = true
 
     printOnce.view
 
@@ -149,7 +149,7 @@ private struct PreviewContent {
         Slider(
             "Bottom SafeArea",
             value: $bottomSafeAreaInset,
-            in: 0.0...100.0,
+            in: 0...100,
             valueFormat: .roundedIntegerToNearestOrEven)
         Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .fractionLength(2))")
             .monospaced()
@@ -167,6 +167,7 @@ private struct PreviewContent {
             .fill(.red.opacity(0.1))
             .frame(width: 200, height: bottomSafeAreaInset)
             .debugOutline(lineWidth: 1, options: .size, .safeAreaInsets)
+            .padding(.horizontal, 8)
     }
 
     if !useDeviceSafeArea {
