@@ -92,8 +92,12 @@ private struct PreviewContent {
 
     @ViewBuilder
     static func bottomControls(@ViewBuilder content: () -> some View) -> some View {
+        Text("Flexible")
+        .foregroundStyle(.secondary)
+        .maxSizeFrame()
+        .concentricSafeAreaBackground(fill: .orange, paddingEdges: .not(.bottom))
+
         VStack {
-            Spacer()
             content()
         }
         .maxWidthFrame()
