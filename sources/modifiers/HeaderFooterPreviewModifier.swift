@@ -64,19 +64,47 @@ extension PreviewTrait where T == Preview.ViewTraits {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .headerFooter) {
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
+
+}
+
+
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     StarShape(points: 4, concaveVertexRatio: 0.5)
         .fill(.yellow)
 }
 
 
-#Preview("Fixed header", traits: .fixedHeader) {
+// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset. Issue does not happen in header.
+#Preview("Content Height", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var contentHeight: Double = 200
+
+    Slider(
+        "Content Height",
+        value: $contentHeight,
+        in: 0...800,
+        valueFormat: .roundedIntegerToNearestOrEven)
+    .padding([.horizontal, .bottom])
+
+    Divider()
+
+    Rectangle()
+        .fill(.teal.secondary)
+        .frame(width: 200, height: contentHeight)
+        .debugOutline(lineWidth: 1, options: .size)
+}
+
+
+#Preview("Fixed header", traits: .fixedHeader, PreviewContent.layout) {
     StarShape(points: 4, concaveVertexRatio: 0.5)
         .fill(.yellow)
 }
 
 
-#Preview("Multiple traits", traits: .headerFooter(.fixed, .showDividers)) {
+#Preview("Multiple traits", traits: .headerFooter(.fixed, .showDividers), PreviewContent.layout) {
     StarShape(points: 4, concaveVertexRatio: 0.5)
         .fill(.yellow)
 }

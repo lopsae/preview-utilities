@@ -85,7 +85,7 @@ private struct PreviewContent {
     @Previewable @State var showsDividers: Bool = false
     @Previewable @State var isFixedContent: Bool = false
 
-    var options: HeaderFooterPreviewOptions = .init()
+    var options: HeaderFooterPreviewOptions = []
     if isHeaderFixed { options.formUnion(.fixedHeader) }
     if isFooterFixed { options.formUnion(.fixedFooter) }
     if showsDividers { options.formUnion(.showDividers) }
@@ -105,6 +105,38 @@ private struct PreviewContent {
         Rectangle()
             .fill(.teal.secondary)
             .frame(width: 200, height: isFixedContent ? 100 : .infinity)
+            .debugOutline(lineWidth: 1, options: .size)
+    }
+}
+
+
+// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset. Issue does not happen in header.
+#Preview("Content Height", traits: PreviewContent.layout) {
+    @Previewable @State var isHeaderFixed: Bool = false
+    @Previewable @State var isFooterFixed: Bool = false
+    @Previewable @State var contentHeight: Double = 200
+
+    var options: HeaderFooterPreviewOptions = []
+    if isHeaderFixed { options.formUnion(.fixedHeader) }
+    if isFooterFixed { options.formUnion(.fixedFooter) }
+
+    return HeaderFooterContainerView(options: options) {
+        VStack {
+            Toggle("Fixed Header", isOn: $isHeaderFixed)
+            Toggle("Fixed Footer", isOn: $isFooterFixed)
+            Slider(
+                "Content Height",
+                value: $contentHeight,
+                in: 0...800,
+                valueFormat: .roundedIntegerToNearestOrEven)
+                .padding(.bottom)
+        }.padding(.horizontal)
+
+        Divider()
+
+        Rectangle()
+            .fill(.teal.secondary)
+            .frame(width: 200, height: contentHeight)
             .debugOutline(lineWidth: 1, options: .size)
     }
 }
