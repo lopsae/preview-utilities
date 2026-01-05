@@ -86,23 +86,35 @@ extension PreviewFooterView {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
 
     @ViewBuilder
     static func topControls(@ViewBuilder content: () -> some View) -> some View {
+        // TODO: can a modifier be made for a safearea background?
         VStack {
             content()
-            Spacer()
         }
         .maxWidthFrame()
         .padding()
-        .padding([.horizontal, .bottom])
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
             .fill(.orange)
             .padding()
             .ignoresSafeArea()
         }
+        .safeAreaPadding([.horizontal, .bottom])
+
+        Text("Flexible")
+        .foregroundStyle(.secondary)
+        .maxSizeFrame()
+        .padding()
+        .background {
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
+            .fill(.orange)
+            .padding([.horizontal, .bottom])
+            .ignoresSafeArea()
+        }
+        .safeAreaPadding([.horizontal, .bottom])
     }
 
 }
@@ -130,17 +142,31 @@ private final class PrintOnce {
 }
 
 
+// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset.
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var isFlexible: Bool = true
+    @Previewable @State var fixedHeight: Double = 400.0
 
     printOnce.view
 
     PreviewContent.topControls {
         Toggle("Flexible height", isOn: $isFlexible)
+        Slider(
+            "Fixed Height",
+            value: $fixedHeight,
+            in: 0.0...800.0,
+            currentValueFormat: .roundedIntegerToNearestOrEven,
+            boundsValueFormat: .roundedIntegerToNearestOrEven)
         Text("Has printed once: \(printOnce.hasPrinted.description)")
             .font(.caption)
     }
+
+    Divider()
+
+    Rectangle().fill(.red.tertiary)
+        .frame(width: 100, height: fixedHeight)
+        .debugOutline(lineWidth: 1, options: .size)
 
     Divider()
 
@@ -148,6 +174,8 @@ private final class PrintOnce {
         .preview_printsUpdates(true)
 }
 
+
+// FIXME: in ios, when using flexible height, if the safeare inset goes under the minimum, a infinite update of currentSafeAreaInset is triggered
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var bottomSafeAreaInset: Double = 60.0
@@ -164,7 +192,7 @@ private final class PrintOnce {
             currentValueFormat: .roundedIntegerToNearestOrEven,
             boundsValueFormat: .roundedIntegerToNearestOrEven
         )
-        Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .roundedIntegerToNearestOrEven)")
+        Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .fractionLength(2))")
             .monospaced()
 
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)
@@ -179,10 +207,9 @@ private final class PrintOnce {
     PreviewFooterView(flexibleHeight: isFlexible)
     .preview_printsUpdates(true)
     .safeAreaInset(edge: .bottom, spacing: 0) {
-        let roundedHeight = bottomSafeAreaInset.rounded(.toNearestOrEven)
         Rectangle()
             .fill(.red.opacity(0.1))
-            .frame(height: roundedHeight)
+            .frame(height: bottomSafeAreaInset)
             .debugOutline(options: .size, .safeAreaInsets)
     }
 
@@ -201,3 +228,7 @@ private final class PrintOnce {
     }
 
 }
+
+
+// FIXME: add similar previews with fixed size for Header view
+// FIXME: add similar previews with fixed size for HeaderFooter
