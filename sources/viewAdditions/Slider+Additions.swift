@@ -38,7 +38,10 @@ extension Slider where Label : View {
 
 
     /// Creates a slider to select a value from a given range, which displays a slider label and
-    /// produces labels for current and bounds values.
+    /// produces `Text` labels for current and bounds values.
+    ///
+    /// Current and bound values are transformed through the given `FormatStyle`s to produce the
+    /// string to display in their respective `Text` labels.
     init<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
@@ -66,8 +69,42 @@ extension Slider where Label : View {
     }
 
 
+    /// Creates a slider to select a value from a given range, which displays a slider label and
+    /// produces `Text` labels for current and bounds values.
+    ///
+    /// Current and bound values are transformed through the same given `FormatStyle`s to produce
+    /// the string to display in their respective `Text` labels.
+    init<Value>(
+        _ title: LocalizedStringKey,
+        value: Binding<Value>,
+        in bounds: ClosedRange<Value> = 0...1,
+        valueFormat: any FormatStyle<Value, String>,
+        onEditingChanged: @escaping (Bool) -> Void = { _ in }
+    ) where
+        Value : BinaryFloatingPoint,
+        Value.Stride : BinaryFloatingPoint,
+        Label == Text,
+        ValueLabel == Text
+    {
+        self.init(
+            value: value,
+            in: bounds,
+            neutralValue: nil,
+            enabledBounds: nil,
+            label: { Text(title) },
+            currentValueLabel: { Text(value.wrappedValue, format: valueFormat) },
+            minimumValueLabel: { Text(bounds.lowerBound, format: valueFormat) },
+            maximumValueLabel: { Text(bounds.upperBound, format: valueFormat) },
+            onEditingChanged: onEditingChanged
+        )
+    }
+
+
     /// Creates a slider to select a value from a given range, subject to a step increment, which
-    /// displays a slider label and produces labels for current and bounds values.
+    /// displays a slider label and produces `Text` labels for current and bounds values.
+    ///
+    /// Current and bound values are transformed through the given `FormatStyle`s to produce the
+    /// string to display in their respective `Text` labels.
     init<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
@@ -100,7 +137,10 @@ extension Slider where Label : View {
 
 
     /// Creates a slider to select a value from a given collection, which displays a slider label
-    /// and produces labels for current and bounds values.
+    /// and produces `Text` labels for current and bounds values.
+    ///
+    /// Current and bound values are transformed through the given `FormatStyle`s from the
+    /// collection mapped value to the string to display in their respective `Text` labels.
     @MainActor
     init<Value, MapCollection>(
         _ title: LocalizedStringKey,
@@ -148,7 +188,8 @@ extension Slider where Label : View {
 
 
     /// Creates a slider to select a value from a given `StringProtocol` collection, which displays
-    /// a slider label and uses collection values for current and bounds labels.
+    /// a slider label and uses collection values to produce `Text` labels for current and bounds
+    /// values.
     @MainActor
     init<Value, MapCollection>(
         _ title: LocalizedStringKey,
@@ -169,7 +210,7 @@ extension Slider where Label : View {
             fatalError("Fatal error: Empty collection.")
         }
 
-        // TODO: dry
+        // TODO: dry, repeated in other constructors
         let mapBinding = Binding<Value> {
             value.wrappedValue
         } set: { newValue in
@@ -215,6 +256,7 @@ private struct PreviewContent {
     @Previewable @State var mapped: String = "Not-Assigned"
 
     VStack(alignment: .leading) {
+        // TODO: Use Preview Caption
         Text("Slider with the natoPhoneticAlphabet collection, current formatted with identity, and bounds formatted with capitalized first character.")
             .font(.caption)
             .padding(.bottom)
