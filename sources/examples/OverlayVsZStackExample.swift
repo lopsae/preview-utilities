@@ -70,7 +70,7 @@ import SwiftUI
                     .frame(size: geometry.size.add(width: sizeIncrease, height: sizeIncrease))
 
                 // However offset can still reposition the display of the contained view.
-                let offset: CGFloat = -sizeIncrease / 2.0
+                let offset: CGFloat = -sizeIncrease / 2
                 Rectangle()
                     .stroke(.purple, lineWidth: 5)
                     .frame(size: geometry.size.add(width: sizeIncrease, height: sizeIncrease))

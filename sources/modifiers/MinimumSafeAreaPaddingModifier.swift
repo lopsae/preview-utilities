@@ -13,7 +13,7 @@ import SwiftUI
 /// safe-area is added, otherwise enough safe area padding is added up to `minimumInset`.
 struct MinimumSafeAreaPaddingModifier: ViewModifier {
 
-    @State private var currentSafeAreaInset: CGFloat = 0.0
+    @State private var currentSafeAreaInset: CGFloat = .zero
 
     let edge: Edge
     let minimumInset: CGFloat

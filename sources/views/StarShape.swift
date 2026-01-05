@@ -17,12 +17,12 @@ struct StarShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         let center = rect.center
-        let outerRadius = rect.size.min / 2.0
+        let outerRadius = rect.size.min / 2
         let innerRadius = outerRadius * concaveVertexRatio
 
         // TODO: figure out angle operations using Angle?
-        let angleStep = .pi * 2.0 / CGFloat(points)
-        let halfAngleStep = angleStep / 2.0
+        let angleStep = .pi * 2 / points.asDouble
+        let halfAngleStep = angleStep / 2
 
         for index in 0 ..< points {
             // First point points upwards.

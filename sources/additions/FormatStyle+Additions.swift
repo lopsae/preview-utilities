@@ -10,7 +10,7 @@ import Foundation
 extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
 
     public static var roundedIntegerToNearestOrEven: FloatingPointFormatStyle<Double> {
-        .number.rounded(rule: .toNearestOrEven, increment: 1.0)
+        .number.rounded(rule: .toNearestOrEven, increment: 1)
     }
 
 

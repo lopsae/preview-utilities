@@ -21,12 +21,20 @@ extension EdgeInsets {
 
 
     @inlinable public static func horizontal(_ value: CGFloat) -> Self {
-        .init(top: 0.0, leading: value, bottom: 0.0, trailing: value)
+        .init(
+            top:      .zero,
+            leading:  value,
+            bottom:   .zero,
+            trailing: value)
     }
 
 
     @inlinable public static func vertical(_ value: CGFloat) -> Self {
-        .init(top: value, leading: 0.0, bottom: value, trailing: 0.0)
+        .init(
+            top:      value,
+            leading:  .zero,
+            bottom:   value,
+            trailing: .zero)
     }
 
 
