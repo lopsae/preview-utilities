@@ -103,28 +103,6 @@ private struct PreviewContent {
 }
 
 
-/// Experimental observable object to print a log message during the first request of views.
-@Observable
-private final class PrintOnce {
-
-    let message: String
-    private(set) var hasPrinted: Bool = false
-
-    init(_ message: String) {
-        self.message = message
-    }
-
-    var view: EmptyView {
-        if !hasPrinted {
-            hasPrinted = true
-            print(message)
-        }
-        return EmptyView()
-    }
-
-}
-
-
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var isFlexible: Bool = true
@@ -137,8 +115,6 @@ private final class PrintOnce {
 
     PreviewContent.bottomControls {
         Toggle("Flexible height", isOn: $isFlexible)
-        Text("Has printed once: \(printOnce.hasPrinted.description)")
-            .font(.caption)
     }
 }
 
@@ -183,9 +159,6 @@ private final class PrintOnce {
 
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)
         Toggle("Flexible height", isOn: $isFlexible)
-
-        Text("Has printed once: \(printOnce.hasPrinted.description)")
-            .font(.caption)
     }
 
 }

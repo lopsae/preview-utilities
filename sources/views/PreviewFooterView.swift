@@ -106,28 +106,6 @@ private struct PreviewContent {
 }
 
 
-/// Experimental observable object to print a log message during the first request of views.
-@Observable
-private final class PrintOnce {
-
-    let message: String
-    private(set) var hasPrinted: Bool = false
-
-    init(_ message: String) {
-        self.message = message
-    }
-
-    var view: EmptyView {
-        if !hasPrinted {
-            hasPrinted = true
-            print(message)
-        }
-        return EmptyView()
-    }
-
-}
-
-
 // FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset.
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
@@ -143,8 +121,6 @@ private final class PrintOnce {
             value: $fixedHeight,
             in: 0.0...800.0,
             valueFormat: .roundedIntegerToNearestOrEven)
-        Text("Has printed once: \(printOnce.hasPrinted.description)")
-            .font(.caption)
     }
 
     Divider()
@@ -180,9 +156,6 @@ private final class PrintOnce {
 
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)
         Toggle("Flexible height", isOn: $isFlexible)
-
-        Text("Has printed once: \(printOnce.hasPrinted.description)")
-            .font(.caption)
     }
 
     Divider()
