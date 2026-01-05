@@ -31,3 +31,12 @@ extension Edge {
     }
 
 }
+
+
+extension Edge.Set {
+
+    static func not(_ edges: Edge.Set) -> Edge.Set {
+        .all.subtracting(edges)
+    }
+
+}
