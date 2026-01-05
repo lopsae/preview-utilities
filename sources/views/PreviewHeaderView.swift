@@ -88,7 +88,7 @@ extension PreviewHeaderView {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
 
     @ViewBuilder
     static func bottomControls(@ViewBuilder content: () -> some View) -> some View {
@@ -97,14 +97,7 @@ private struct PreviewContent {
             content()
         }
         .maxWidthFrame()
-        .padding()
-        .padding([.horizontal, .bottom])
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-            .fill(.orange)
-            .padding()
-            .ignoresSafeArea()
-        }
+        .concentricSafeAreaBackground(fill: .orange)
     }
 
 }
@@ -161,14 +154,7 @@ private final class PrintOnce {
         Text("clear from device safe area")
         .font(.caption)
         .maxWidthFrame()
-        .padding(.bottom)
-        .padding(.vertical)
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-                .fill(.orange.tertiary)
-                .padding()
-                .ignoresSafeArea()
-        }
+        .concentricSafeAreaBackground(fill: .orange.tertiary, innerPaddingEdges: .not(.top))
     }
 
     PreviewHeaderView(flexibleHeight: isFlexible)
@@ -178,7 +164,8 @@ private final class PrintOnce {
         Rectangle()
             .fill(.red.opacity(0.1))
             .frame(height: roundedHeight)
-            .debugOutline(options: .size, .safeAreaInsets, .infoOutside)
+            .debugOutline(lineWidth: 1, options: .size, .safeAreaInsets, .infoOutside)
+            .padding(.horizontal, 8)
     }
 
     Divider()
