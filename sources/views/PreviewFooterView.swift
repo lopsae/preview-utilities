@@ -156,8 +156,7 @@ private final class PrintOnce {
             "Fixed Height",
             value: $fixedHeight,
             in: 0.0...800.0,
-            currentValueFormat: .roundedIntegerToNearestOrEven,
-            boundsValueFormat: .roundedIntegerToNearestOrEven)
+            valueFormat: .roundedIntegerToNearestOrEven)
         Text("Has printed once: \(printOnce.hasPrinted.description)")
             .font(.caption)
     }
@@ -189,9 +188,7 @@ private final class PrintOnce {
             "Bottom SafeArea",
             value: $bottomSafeAreaInset,
             in: 0.0...100.0,
-            currentValueFormat: .roundedIntegerToNearestOrEven,
-            boundsValueFormat: .roundedIntegerToNearestOrEven
-        )
+            valueFormat: .roundedIntegerToNearestOrEven)
         Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .fractionLength(2))")
             .monospaced()
 
@@ -210,7 +207,7 @@ private final class PrintOnce {
         Rectangle()
             .fill(.red.opacity(0.1))
             .frame(height: bottomSafeAreaInset)
-            .debugOutline(options: .size, .safeAreaInsets)
+            .debugOutline(lineWidth: 1, options: .size, .safeAreaInsets)
     }
 
     if !useDeviceSafeArea {
