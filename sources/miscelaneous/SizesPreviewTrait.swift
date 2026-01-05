@@ -22,7 +22,8 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 // MARK: - Previews
 
-#Preview(traits: .iphoneSize) { // 402, 778
+
+#Preview(traits: .iphoneSize) {
     ClearRectangle()
         .debugOutline(options: .size)
 }

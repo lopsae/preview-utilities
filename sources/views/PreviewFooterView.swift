@@ -58,6 +58,7 @@ struct PreviewFooterView: View {
     }
 
 
+    // FIXME: also implement prevent small updates to this, keep it in integers
     private var textMinimumBottomSafeArea: CGFloat {
         let onePadding = (fullHeight - paddedHeight) / 2.0
         return onePadding * 2.0
@@ -90,31 +91,16 @@ private struct PreviewContent {
 
     @ViewBuilder
     static func topControls(@ViewBuilder content: () -> some View) -> some View {
-        // TODO: can a modifier be made for a safearea background?
         VStack {
             content()
         }
         .maxWidthFrame()
-        .padding()
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-            .fill(.orange)
-            .padding()
-            .ignoresSafeArea()
-        }
-        .safeAreaPadding([.horizontal, .bottom])
+        .concentricSafeAreaBackground(fill: .orange, innerPaddingEdges: .not(.top))
 
         Text("Flexible")
         .foregroundStyle(.secondary)
         .maxSizeFrame()
-        .padding()
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-            .fill(.orange)
-            .padding([.horizontal, .bottom])
-            .ignoresSafeArea()
-        }
-        .safeAreaPadding([.horizontal, .bottom])
+        .concentricSafeAreaBackground(fill: .orange, paddingEdges: .not(.top))
     }
 
 }
@@ -206,7 +192,7 @@ private final class PrintOnce {
     .safeAreaInset(edge: .bottom, spacing: 0) {
         Rectangle()
             .fill(.red.opacity(0.1))
-            .frame(height: bottomSafeAreaInset)
+            .frame(width: 200, height: bottomSafeAreaInset)
             .debugOutline(lineWidth: 1, options: .size, .safeAreaInsets)
     }
 
@@ -214,14 +200,61 @@ private final class PrintOnce {
         Text("clear from device safe area")
         .font(.caption)
         .maxWidthFrame()
-        .padding(.vertical)
-        .padding(.vertical)
+        .concentricSafeAreaBackground(fill: .orange.tertiary)
+    }
+
+}
+
+
+struct ConcentricSafeareaBackgroundModifier<S: ShapeStyle>: ViewModifier {
+
+    let fill: S
+    let innerPaddingEdges: Edge.Set
+    let backgroundPaddingEdges: Edge.Set
+
+    func body(content: Content) -> some View {
+        content
+        // One padding always for content.
+        .padding()
+        // One padding from the background edge.
+        .padding(innerPaddingEdges)
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-                .fill(.orange.tertiary)
-                .padding()
+                .fill(fill)
+                .padding(backgroundPaddingEdges)
                 .ignoresSafeArea()
         }
+    }
+
+}
+
+
+extension View {
+
+    func concentricSafeAreaBackground(
+        fill: some ShapeStyle,
+        innerPaddingEdges: Edge.Set = .all,
+        backgroundPaddingEdges: Edge.Set = .all,
+    ) -> some View {
+        let backgroundModifier = ConcentricSafeareaBackgroundModifier(
+            fill: fill,
+            innerPaddingEdges: innerPaddingEdges,
+            backgroundPaddingEdges: backgroundPaddingEdges
+        )
+        return modifier(backgroundModifier)
+    }
+
+
+    func concentricSafeAreaBackground(
+        fill: some ShapeStyle,
+        paddingEdges: Edge.Set
+    ) -> some View {
+        let backgroundModifier = ConcentricSafeareaBackgroundModifier(
+            fill: fill,
+            innerPaddingEdges: paddingEdges,
+            backgroundPaddingEdges: paddingEdges
+        )
+        return modifier(backgroundModifier)
     }
 
 }
