@@ -95,7 +95,7 @@ private struct PreviewContent {
             content()
         }
         .maxWidthFrame()
-        .concentricSafeAreaBackground(fill: .orange, innerPaddingEdges: .not(.top))
+        .concentricSafeAreaBackground(fill: .orange, contentPaddingEdges: .not(.top))
 
         Text("Flexible")
         .foregroundStyle(.secondary)
@@ -174,60 +174,6 @@ private struct PreviewContent {
         .font(.caption)
         .maxWidthFrame()
         .concentricSafeAreaBackground(fill: .orange.tertiary)
-    }
-
-}
-
-
-struct ConcentricSafeareaBackgroundModifier<S: ShapeStyle>: ViewModifier {
-
-    let fill: S
-    let innerPaddingEdges: Edge.Set
-    let backgroundPaddingEdges: Edge.Set
-
-    func body(content: Content) -> some View {
-        content
-        // One padding always for content.
-        .padding()
-        // One padding from the background edge.
-        .padding(innerPaddingEdges)
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-                .fill(fill)
-                .padding(backgroundPaddingEdges)
-                .ignoresSafeArea()
-        }
-    }
-
-}
-
-
-extension View {
-
-    func concentricSafeAreaBackground(
-        fill: some ShapeStyle,
-        innerPaddingEdges: Edge.Set = .all,
-        backgroundPaddingEdges: Edge.Set = .all,
-    ) -> some View {
-        let backgroundModifier = ConcentricSafeareaBackgroundModifier(
-            fill: fill,
-            innerPaddingEdges: innerPaddingEdges,
-            backgroundPaddingEdges: backgroundPaddingEdges
-        )
-        return modifier(backgroundModifier)
-    }
-
-
-    func concentricSafeAreaBackground(
-        fill: some ShapeStyle,
-        paddingEdges: Edge.Set
-    ) -> some View {
-        let backgroundModifier = ConcentricSafeareaBackgroundModifier(
-            fill: fill,
-            innerPaddingEdges: paddingEdges,
-            backgroundPaddingEdges: paddingEdges
-        )
-        return modifier(backgroundModifier)
     }
 
 }

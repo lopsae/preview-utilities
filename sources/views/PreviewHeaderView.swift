@@ -130,7 +130,7 @@ private struct PreviewContent {
         Text("clear from device safe area")
         .font(.caption)
         .maxWidthFrame()
-        .concentricSafeAreaBackground(fill: .orange.tertiary, innerPaddingEdges: .not(.top))
+        .concentricSafeAreaBackground(fill: .orange.tertiary, contentPaddingEdges: .not(.top))
     }
 
     PreviewHeaderView(flexibleHeight: isFlexible)

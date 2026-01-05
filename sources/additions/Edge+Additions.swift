@@ -35,6 +35,7 @@ extension Edge {
 
 extension Edge.Set {
 
+    @inlinable
     static func not(_ edges: Edge.Set) -> Edge.Set {
         .all.subtracting(edges)
     }
