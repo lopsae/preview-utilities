@@ -83,6 +83,7 @@ private struct PreviewContent {
     @Previewable @State var isHeaderFixed: Bool = false
     @Previewable @State var isFooterFixed: Bool = false
     @Previewable @State var showsDividers: Bool = false
+    @Previewable @State var isFixedContent: Bool = false
 
     var options: HeaderFooterPreviewOptions = .init()
     if isHeaderFixed { options.formUnion(.fixedHeader) }
@@ -94,27 +95,16 @@ private struct PreviewContent {
             Toggle("Fixed Header", isOn: $isHeaderFixed)
             Toggle("Fixed Footer", isOn: $isFooterFixed)
             Toggle("Show Dividers", isOn: $showsDividers)
+            Divider()
+            Toggle("Fixed Content", isOn: $isFixedContent)
+                .padding(.bottom)
         }.padding(.horizontal)
 
+        Divider()
 
-        StarShape(points: 8, concaveVertexRatio: 0.5)
-            .fill(.orange)
-    }
-}
-
-
-#Preview("Fixed Both, Inflexible", traits: PreviewContent.layout) {
-    HeaderFooterContainerView(options: .fixed) {
-        StarShape(points: 8, concaveVertexRatio: 0.5)
-            .fill(.orange)
-            .frame(width: 100, height: 100)
-    }
-}
-
-
-#Preview("Multiple traits", traits: PreviewContent.layout) {
-    HeaderFooterContainerView(options: [.fixed, .showDividers]) {
-        StarShape(points: 8, concaveVertexRatio: 0.5)
-            .fill(.orange)
+        Rectangle()
+            .fill(.teal.secondary)
+            .frame(width: 200, height: isFixedContent ? 100 : .infinity)
+            .debugOutline(lineWidth: 1, options: .size)
     }
 }
