@@ -80,32 +80,23 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: PreviewContent.layout) {
-    HeaderFooterContainerView {
-        StarShape(points: 8, concaveVertexRatio: 0.5)
-            .fill(.orange)
-    }
-}
+    @Previewable @State var isHeaderFixed: Bool = false
+    @Previewable @State var isFooterFixed: Bool = false
+    @Previewable @State var showsDividers: Bool = false
+
+    var options: HeaderFooterPreviewOptions = .init()
+    if isHeaderFixed { options.formUnion(.fixedHeader) }
+    if isFooterFixed { options.formUnion(.fixedFooter) }
+    if showsDividers { options.formUnion(.showDividers) }
+
+    return HeaderFooterContainerView(options: options) {
+        VStack {
+            Toggle("Fixed Header", isOn: $isHeaderFixed)
+            Toggle("Fixed Footer", isOn: $isFooterFixed)
+            Toggle("Show Dividers", isOn: $showsDividers)
+        }.padding(.horizontal)
 
 
-#Preview("Fixed Header", traits: PreviewContent.layout) {
-    HeaderFooterContainerView(options: .fixedHeader) {
-        StarShape(points: 8, concaveVertexRatio: 0.5)
-            .fill(.orange)
-    }
-}
-
-
-// TODO: footer looks too tall in watchOS
-#Preview("Fixed Footer", traits: PreviewContent.layout) {
-    HeaderFooterContainerView(options: .fixedFooter) {
-        StarShape(points: 8, concaveVertexRatio: 0.5)
-            .fill(.orange)
-    }
-}
-
-
-#Preview("Fixed Both", traits: PreviewContent.layout) {
-    HeaderFooterContainerView(options: .fixed) {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
     }
@@ -117,14 +108,6 @@ private struct PreviewContent {
         StarShape(points: 8, concaveVertexRatio: 0.5)
             .fill(.orange)
             .frame(width: 100, height: 100)
-    }
-}
-
-
-#Preview("Show Dividers", traits: PreviewContent.layout) {
-    HeaderFooterContainerView(options: .showDividers) {
-        StarShape(points: 8, concaveVertexRatio: 0.5)
-            .fill(.orange)
     }
 }
 
