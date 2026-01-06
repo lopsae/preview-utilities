@@ -1,8 +1,6 @@
 //
-//  Duration+Additions.swift
 //  PreviewUtilities
-//
-//  Created by Maic Lopez Saenz on 2025-12-30.
+//  Created by Maic Lopez Saenz.
 //
 
 

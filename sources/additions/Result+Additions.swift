@@ -1,8 +1,6 @@
 //
-//  Result+Additions.swift
 //  PreviewUtilities
-//
-//  Created by Maic Lopez Saenz on 2025-12-31.
+//  Created by Maic Lopez Saenz.
 //
 
 
