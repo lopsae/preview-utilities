@@ -12,6 +12,9 @@ import SwiftUI
 /// view.
 public struct DebugOutlineModifier: ViewModifier {
 
+    private static let minLineWidth: CGFloat = 1
+    private static let minReticuleLength: CGFloat = 2
+
     let lineWidth: CGFloat
     let options: Options
 
@@ -20,6 +23,9 @@ public struct DebugOutlineModifier: ViewModifier {
     let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
 
 
+    /// Creates a modifier with a given line width and options.
+    ///
+    /// The line width can be 1 at a minimum, smaller values are ignored.
     init(lineWidth: CGFloat = 5, options: Options = []) {
         self.lineWidth = lineWidth
         self.options = options
@@ -43,16 +49,17 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let size = geometry.size
+        let boundedLineWidth = max(lineWidth, Self.minLineWidth)
 
         // When debugged view is smaller that `lineWidth*2` the safe areas are still drawn with a
         // thickness of `lineWidth*2` to remain visible, and offset to stay centered with the
         // origin.
-        let minimumRect = CGSize(square: lineWidth * 2).centered(in: size)
+        let minimumRect = CGSize(square: boundedLineWidth * 2).centered(in: size)
         let xOffset = min(0.0, minimumRect.origin.x)
         let yOffset = min(0.0, minimumRect.origin.y)
 
-        let minWidth  = max(lineWidth * 2, size.width)
-        let minHeight = max(lineWidth * 2, size.height)
+        let minWidth  = max(boundedLineWidth * 2, size.width)
+        let minHeight = max(boundedLineWidth * 2, size.height)
 
         let topInset      = geometry.safeAreaInsets.top
         let leadingInset  = geometry.safeAreaInsets.leading
@@ -95,12 +102,13 @@ public struct DebugOutlineModifier: ViewModifier {
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
         let correctedFrame = correctZeroRect(localFrame)
+        let boundedLineWidth = max(lineWidth, Self.minLineWidth)
 
         Rectangle()
-            .stroke(outerShapeStyle, lineWidth: lineWidth * 2)
+            .stroke(outerShapeStyle, lineWidth: boundedLineWidth * 2)
             .mask {
                 Path { path in
-                    path.addRect(correctedFrame.inset(by: -lineWidth))
+                    path.addRect(correctedFrame.inset(by: -boundedLineWidth))
                     path.addRect(correctedFrame)
                 }
                 .fill(style: .init(eoFill: true))
@@ -115,13 +123,14 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
+        let boundedLineWidth = max(lineWidth, Self.minLineWidth)
         // When debugged view is smaller that `lineWidth*2` the lineWidth used is reduced allow
         // it to draw at smaller sizes, otherwise no inner stroke is drawn.
-        let correctedLineWidth = min(geometry.size.min, lineWidth * 2) / 2.0
+        let correctedLineWidth = min(geometry.size.min, boundedLineWidth * 2) / 2.0
 
         let strokeStyle = StrokeStyle(
             lineWidth: correctedLineWidth,
-            dash: [lineWidth * 3, lineWidth * 2]
+            dash: [boundedLineWidth * 3, boundedLineWidth * 2]
         )
 
         Rectangle()
@@ -131,23 +140,29 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func originReticuleRects(geometry: GeometryProxy) -> some View {
+        let thickness: CGFloat = 1
+        let boundedLength = max(lineWidth, Self.minReticuleLength)
+        // +thickness to correctly center the reticule, specially at very small sizes.
+        let reticuleLength = (boundedLength * 2) + thickness
+
         Rectangle()
             .fill(.red)
-            .frame(width: 1, height: lineWidth * 2)
-            .offset(y: -lineWidth)
+            .frame(width: thickness, height: reticuleLength)
+            .offset(y: -boundedLength)
         Rectangle()
             .fill(.red)
-            .frame(width: lineWidth * 2, height: 1)
-            .offset(x: -lineWidth)
+            .frame(width: reticuleLength, height: thickness)
+            .offset(x: -boundedLength)
     }
 
 
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
         if !options.isEmpty {
+            let boundedLineWidth = max(lineWidth, Self.minLineWidth)
             let stackOffset = options.contains(.infoOutside)
                 ? geometry.size.height
-                : 0
+                : .zero
 
             VStack(alignment: .leading, spacing: 2) {
                 let globalFrame = geometry.frame(in: .global)
@@ -172,7 +187,7 @@ public struct DebugOutlineModifier: ViewModifier {
             .font(.caption)
             .monospaced()
             .foregroundStyle(.secondary)
-            .padding([.top, .leading], lineWidth * 1.5)
+            .padding([.top, .leading], boundedLineWidth * 1.5)
             .fixedSize()
             .offset(y: stackOffset)
         }
@@ -198,6 +213,9 @@ public struct DebugOutlineModifier: ViewModifier {
     }
 
 }
+
+
+// MARK: - Options
 
 
 extension DebugOutlineModifier {
@@ -239,7 +257,8 @@ extension View {
     /// Adds a debug outline overlay to the view.
     ///
     /// - Parameters:
-    ///   - lineWidth: The width of the debug outline strokes. Default is 5.
+    ///   - lineWidth: The width of the debug outline strokes. Default is 5, minimum is 1, smaller
+    ///       values are ignored.
     ///   - options: Options to enable display of additional information, and other display configurations.
     ///
     /// - Returns: The calling view with an overlay highlighing its frame, and additional information when enabled.
@@ -312,10 +331,12 @@ private struct PreviewContent {
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
         .debugOutline()
+        .padding(.horizontal)
 }
 
 
 #Preview("Options", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var lineWidth: Double = 10
     @Previewable @State var options: [(
         label: String,
         option: DebugOutlineModifier.Options,
@@ -338,11 +359,19 @@ private struct PreviewContent {
         ForEach(options.enumerated(), id: \.offset) { index, optionTuple in
             Toggle(optionTuple.label, isOn: $options[index].enabled)
         }
+        Slider(
+            "Line Width",
+            value: $lineWidth,
+            in: 0...15,
+            valueFormat: .roundedIntegerToNearestOrEven)
+        Text("Line Width: \(lineWidth, format: .fractionLength(2))")
+            .monospaced()
     }
     .padding()
 
     PreviewContent.star
-        .debugOutline(options: optionsUnion)
+        .debugOutline(lineWidth: lineWidth, options: optionsUnion)
+        .padding(.horizontal)
 }
 
 
@@ -362,6 +391,11 @@ private struct PreviewContent {
 
 #Preview("Interactive", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var counter: Int = 0
+
+    Text("Counter: \(counter)")
+        .monospaced()
+        .padding(.not(.top))
+
     ZStack(alignment: .topLeading) {
         PreviewContent.star
 
@@ -372,9 +406,7 @@ private struct PreviewContent {
         .padding()
     }
     .debugOutline(options: .allGeometry)
-    Text("Counter: \(counter)")
-        .monospaced()
-        .padding()
+    .padding(.horizontal)
 }
 
 
@@ -395,6 +427,7 @@ private struct PreviewContent {
 
 
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var lineWidth: Double = 5
     @Previewable @State var widthIndex: Double = 0.0
     @Previewable @State var heightIndex: Double = 0.0
     @Previewable @State var width: Double = 0.0
@@ -410,6 +443,14 @@ private struct PreviewContent {
     )
 
     VStack {
+        Slider(
+            "Line Width",
+            value: $lineWidth,
+            in: 0...15,
+            valueFormat: .roundedIntegerToNearestOrEven)
+        Text("Line Width: \(lineWidth, format: .fractionLength(2))")
+            .monospaced()
+
         Slider(
             "Width",
             collection: values,
@@ -437,8 +478,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOutline(options: .allGeometry, .infoOutside)
-        .safeAreaPadding(.horizontal, 30)
-        .safeAreaPadding(.vertical, 20)
+        .debugOutline(lineWidth: lineWidth, options: .allGeometry, .infoOutside)
+        .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
