@@ -40,6 +40,7 @@ struct PreviewCaption: View {
             ForEach(textStrings.enumerated(), id: \.offset) { index, string in
                 let markdownString = (try? AttributedString(markdown: string)) ?? AttributedString("[markdown failed!] " + string)
                 Text(markdownString)
+                    .fixedSize(horizontal: false, vertical: true)
                     .maxWidthFrame(alignment: .leading)
             }
         }
@@ -93,11 +94,12 @@ struct PreviewCaption: View {
         "**Caption** for a preview",
         "that can have text defined",
         "in _multiple lines_ with ",
-        "`Markdown support`."
+        "`Markdown support`.",
+        "Lorem ipsum"
     )
 
     Rectangle().fill(.red.tertiary)
-        .frame(square: 100)
+        .frame(width: 100, height: 500)
 }
 
 
@@ -110,6 +112,51 @@ struct PreviewCaption: View {
 
     Rectangle().fill(.red.tertiary)
         .frame(square: 100)
+}
+
+
+// FIXME: this showcases preview size issues when run in macOS.
+#Preview("FixedSizeText Issue", traits: .fixedLayout(width: 400, height: 300)) {
+
+    VStack {
+        Rectangle().fill(.red.tertiary)
+        Rectangle().fill(.red.secondary)
+        Text(String.loremIpsum)
+            .fixedSize(horizontal: false, vertical: true)
+        Rectangle().fill(.red.secondary)
+        Rectangle().fill(.red.tertiary)
+    }
+    // Setting this frame forces the window to the correct size.
+//    .frame(width: 400, height: 300)
+
+}
+
+
+// FIXME: in IOS, content freezes when fixed height grows enough to push the footer out of layout, likely caused by PreviewFooter issues.
+#Preview("LoremIpsum", traits:  .regularSpacing, .headerFooter(.fixed), .iphoneSize) {
+    @Previewable @State var wordCount: Double = 50
+    @Previewable @State var fixedHeight: Double = 200
+
+    let loremIpsumWords = String.loremIpsum.components(separatedBy: .whitespacesAndNewlines)
+    PreviewCaption(loremIpsumWords.prefix(wordCount.rounded().asInt).joined(separator: " "))
+
+    VStack {
+        Slider(
+            "Word Count",
+            value: $wordCount,
+            in: 0...loremIpsumWords.beforeEndIndex.asDouble,
+            valueFormat: .roundedIntegerToNearestOrEven)
+        Slider(
+            "Fixed Height",
+            value: $fixedHeight,
+            in: 0...800,
+            valueFormat: .roundedIntegerToNearestOrEven)
+    }
+    .padding()
+
+    Rectangle().fill(.red.tertiary)
+        .frame(width: 100, height: fixedHeight)
+        .debugOutline(lineWidth: 1, options: .size)
 }
 
 #Preview("Paragraph", traits:  .regularSpacing, .headerFooter, .iphoneSize) {
