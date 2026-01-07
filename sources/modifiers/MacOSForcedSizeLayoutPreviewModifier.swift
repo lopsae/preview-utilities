@@ -17,7 +17,11 @@ import SwiftUI
 /// size.
 ///
 /// This modifier was built to fix issues with multiline `Text` views using `fixedSize`, which in
-/// macOS cause issues with other flexible views. See example previews for more details.
+/// macOS cause issues with other flexible views. In general this modifier is not necessary unless
+/// `Text` with `fixedSize` can influence the size of the preview, for example, when using
+/// ``PreviewCaption``.
+///
+/// See example previews for more details.
 struct MacOSForcedSizeLayoutPreviewModifier: PreviewModifier {
 
     let size: CGSize
@@ -40,14 +44,20 @@ struct MacOSForcedSizeLayoutPreviewModifier: PreviewModifier {
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
+    /// In macOS, applies a forced size modifier and the `.iPhoneProSizeLayout` trait; in other
+    /// platforms this returns only the `.iPhoneProSizeLayout` trait.
+    ///
+    /// In general this trait is not necessary unless `Text` with `fixedSize` can influence the size
+    /// of the preview, for example, when using ``PreviewCaption``. Use `.iPhoneProSizeLayout`
+    /// directly unless the forced size is needed.
     public static var iPhoneProSizeForcedLayout: PreviewTrait {
         #if os(macOS)
-        .init(
+        return .init(
             .modifier(MacOSForcedSizeLayoutPreviewModifier(size: iPhoneProSize)),
-            .fixedLayout(size: iPhoneProSize)
+            .iPhoneProSizeLayout
         )
         #else
-        return .fixedLayout(size: iPhoneProSize)
+        return .iPhoneProSizeLayout
         #endif
     }
 
