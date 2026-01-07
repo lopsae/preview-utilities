@@ -71,3 +71,59 @@ extension View {
     }
 
 }
+
+
+// MARK: - Previews
+
+
+// FIXME: in ios, agains the device safearea, reducing the bottom safe are so that the total safe are is less that the minimal padding will trigger an infinite update to currentSafeAreaInset
+#Preview(traits: .iPhoneProSizeLayout) {
+    @Previewable @State var topContentHeight: Double = 100.0
+    @Previewable @State var bottomSafeAreaInset: Double = 60.0
+    @Previewable @State var useDeviceSafeArea: Bool = true
+
+    Slider(
+        "Top Content Height",
+        value: $topContentHeight,
+        in: 0.0...1000.0,
+        currentValueFormat: .arithmeticRoundedInteger,
+        boundsValueFormat: .arithmeticRoundedInteger
+    )
+    Text("Top Content Height: \(topContentHeight, format: .fractionLength(2))")
+        .monospaced()
+
+    Slider(
+        "Bottom SafeArea",
+        value: $bottomSafeAreaInset,
+        in: 0.0...100.0,
+        currentValueFormat: .arithmeticRoundedInteger,
+        boundsValueFormat: .arithmeticRoundedInteger
+    )
+    Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .fractionLength(2))")
+        .monospaced()
+    Toggle("Use device safe area", isOn: $useDeviceSafeArea)
+
+    Spacer()
+
+    Rectangle().fill(.green.tertiary)
+        .frame(width: 100, height: topContentHeight)
+        .debugOutline(lineWidth: 1, options: .size)
+
+    Text("Padded Content")
+        .maxWidthFrame()
+        .minimumSafeAreaPadding(.bottom, minimumInset: 50.0, printsUpdates: true)
+        .debugOutline(options: .safeAreaInsets)
+        .padding(.horizontal)
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            Rectangle().fill(.red.tertiary)
+                .frame(width: 100, height: bottomSafeAreaInset)
+        }
+
+    if !useDeviceSafeArea {
+        Text("clear from device safe area")
+        .font(.caption)
+        .maxWidthFrame()
+        .concentricSafeAreaBackground(fill: .orange.tertiary)
+    }
+
+}
