@@ -86,10 +86,21 @@ struct PreviewCaption: View {
 }
 
 
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
+
+}
+
+
 // MARK: - Previews
 
 
-#Preview("Default", traits: .regularSpacing, .headerFooter, .iphoneSize) {
+#Preview("Default", traits: .regularSpacing, .headerFooter, PreviewContent.layout) {
     PreviewCaption(
         "**Caption** for a preview",
         "that can have text defined",
@@ -99,13 +110,13 @@ struct PreviewCaption: View {
     )
 
     Rectangle().fill(.red.tertiary)
-        .frame(width: 100, height: 500)
+        .frame(square: 100)
 }
 
 
-#Preview("Spacing", traits:  .regularSpacing, .headerFooter, .iphoneSize) {
+#Preview("Spacing", traits:  .regularSpacing, .headerFooter, PreviewContent.layout) {
     PreviewCaption(
-        "**Inserts", "space**", "between", "parameters.",
+        "**Inserts", "spaces**", "between", "parameters.",
         "\nNewlines are ignored.",
         "Existing", "  space", "  is  ", "**persisted**."
     )
@@ -115,25 +126,9 @@ struct PreviewCaption: View {
 }
 
 
-// FIXME: this showcases preview size issues when run in macOS.
-#Preview("FixedSizeText Issue", traits: .fixedLayout(width: 400, height: 300)) {
-
-    VStack {
-        Rectangle().fill(.red.tertiary)
-        Rectangle().fill(.red.secondary)
-        Text(String.loremIpsum)
-            .fixedSize(horizontal: false, vertical: true)
-        Rectangle().fill(.red.secondary)
-        Rectangle().fill(.red.tertiary)
-    }
-    // Setting this frame forces the window to the correct size.
-//    .frame(width: 400, height: 300)
-
-}
-
-
 // FIXME: in IOS, content freezes when fixed height grows enough to push the footer out of layout, likely caused by PreviewFooter issues.
-#Preview("LoremIpsum", traits:  .regularSpacing, .headerFooter(.fixed), .iphoneSize) {
+// TODO: this should have enough text to push out of the given size layout, to show that large text is respected.
+#Preview("LoremIpsum", traits:  .regularSpacing, .headerFooter(.fixed), PreviewContent.layout) {
     @Previewable @State var wordCount: Double = 50
     @Previewable @State var fixedHeight: Double = 200
 
@@ -159,7 +154,7 @@ struct PreviewCaption: View {
         .debugOutline(lineWidth: 1, options: .size)
 }
 
-#Preview("Paragraph", traits:  .regularSpacing, .headerFooter, .iphoneSize) {
+#Preview("Paragraph", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {
     PreviewCaption(
         "**Paragraphs**"
     ).paragraph(
@@ -173,9 +168,22 @@ struct PreviewCaption: View {
 }
 
 
-#Preview("Empty", traits:  .regularSpacing, .headerFooter, .iphoneSize) {
+#Preview("Empty", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {
     PreviewCaption()
 
     Rectangle().fill(.red.tertiary)
         .frame(square: 100)
+}
+
+
+#Preview("Text.fixedSize Issue", traits: .regularSpacing, .fixedHeader, .iPhoneProSizeLayout) {
+    PreviewCaption(
+        "Without forced layout, using `Text.fixedSize` causes layout issues in macOS previews",
+        "any time there is other views with flexible height."
+    ).paragraph(
+        "This issues does not ocurr in iOS."
+    )
+
+    Rectangle().fill(.red.tertiary)
+        .frame(width: 100)
 }
