@@ -22,6 +22,16 @@ extension String {
     public static let sphinxOfBlackQuartz: String = "sphinx of black quartz, judge my vow"
 
 
+    // TODO: deprecate
+    @available(*, deprecated, renamed: "Strings.loremIpsum")
+    public static let loremIpsum: String = Strings.loremIpsum
+
+}
+
+
+/// Container of convenience strings and utilities.
+enum Strings {
+
     /// Returns a _Lorem ipsum_ string as found in its [wikipedia article][lorem-ipsum].
     ///
     /// Contains 69 words.
@@ -34,6 +44,25 @@ extension String {
         + "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur "
         + "sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id "
         + "est laborum."
+
+
+    public static let loremIpsumWords = Strings.loremIpsum.split(separator: .whitespace)
+
+    public static func loremIpsum(words: Int) -> String {
+        // TODO: could this be done by joining together whole loremIpsum words, and then appending a range?
+        guard words > 0 else { return "" }
+        guard !loremIpsumWords.isEmpty else { fatalError() }
+        
+        var result: [Substring] = []
+        result.reserveCapacity(words)
+        
+        for index in 0..<words {
+            let wordIndex = index % loremIpsumWords.count
+            result.append(loremIpsumWords[wordIndex])
+        }
+        
+        return result.joined(separator: " ")
+    }
 
 }
 
