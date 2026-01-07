@@ -7,18 +7,17 @@
 import SwiftUI
 
 
-// TODO: test with more that one element, since its unclear how frame will apply to content not wrapped in a container like VStack.
-
-
 #if os(macOS)
 
-/// Wraps the preview content `.frame` with a given size forcing the preview. Intended to fix layout
-/// issues in macOS previews.
+/// Wraps the preview content in a `VStack` and a `.frame` with a given size to force the preview
+/// size. Intended to fix layout issues in macOS previews.
 ///
 /// Previews in macOS are able to override the size of the window even when `.fixedLayout` trait is
-/// used. In some cases, like multiline `Text` views using `fixedSize` this can completely render
-/// the preview unusable. This trait simply wraps the content to a given frame size, forcing the
-/// content to use that size.
+/// used. This trait simply wraps the content to a given frame size, forcing the content to use that
+/// size.
+///
+/// This modifier was built to fix issues with multiline `Text` views using `fixedSize`, which in
+/// macOS cause issues with other flexible views. See example previews for more details.
 struct MacOSForcedSizeLayoutPreviewModifier: PreviewModifier {
 
     let size: CGSize
@@ -30,7 +29,9 @@ struct MacOSForcedSizeLayoutPreviewModifier: PreviewModifier {
 
 
     func body(content: Content, context _: ()) -> some View {
-        content.frame(size: size)
+        VStack(spacing: 0) {
+            content
+        }.frame(size: size)
     }
 
 }
@@ -88,7 +89,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
     @Previewable @State var isFixedHeight: Bool = true
 
     VStack {
-        Text("Without forced size, window height explodes again in macOS.")
+        Text("Without forced size, window height explodes in macOS.")
         Slider(
             "Word count",
             value: $wordCount,
@@ -110,8 +111,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
-// FIXME: frame size is applied to all elements individually
-#Preview("Texts", traits: .iPhoneProSizeForcedLayout) {
+#Preview("Multiple Views", traits: .iPhoneProSizeForcedLayout) {
     Text("Several texts to ascertain that size is applied to all content as a whole.")
     Text("One")
     Text("Two")
@@ -123,7 +123,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 // MARK: - Examples
 
 
-#Preview("fixedSize false", traits: .fixedLayout(width: 400, height: 300)) {
+#Preview("Example: fixedSize false", traits: .fixedLayout(width: 400, height: 300)) {
     @Previewable @State var wordCount: Double = 10
     @Previewable @State var isFixedHeight: Bool = false
 
@@ -149,12 +149,12 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
-#Preview("fixedSize true", traits: .fixedLayout(width: 400, height: 300)) {
-    @Previewable @State var wordCount: Double = 10
+#Preview("Example: fixedSize true", traits: .fixedLayout(width: 400, height: 300)) {
+    @Previewable @State var wordCount: Double = 30
     @Previewable @State var isFixedHeight: Bool = true
 
     VStack {
-        Text("`fixedLayout` fails and height increases considerably when preview starts with `fixedHeight` to `true`.")
+        Text("`fixedLayout` fails and height explodes when preview starts with `fixedHeight` to `true`.")
         Slider(
             "Word count",
             value: $wordCount,
@@ -176,7 +176,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
-#Preview("With frame", traits: .fixedLayout(width: 400, height: 300)) {
+#Preview("Example: with frame", traits: .fixedLayout(width: 400, height: 300)) {
     @Previewable @State var wordCount: Double = 10
     @Previewable @State var isFixedHeight: Bool = true
 
