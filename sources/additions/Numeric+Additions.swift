@@ -24,5 +24,11 @@ extension Numeric where Self : BinaryFloatingPoint {
         Int(self)
     }
 
+
+    @inlinable nonisolated
+    public var arithmeticRoundedInt: Int {
+        rounded(.toNearestOrEven).asInt
+    }
+
 }
 
