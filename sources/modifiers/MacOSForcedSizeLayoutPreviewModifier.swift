@@ -54,6 +54,48 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    struct TextWithFixedHeight: View {
+        var caption: LocalizedStringKey
+        @Binding var wordCount: Double
+        @Binding var isFixedHeight: Bool
+
+        var body: some View {
+            VStack {
+                Text(caption)
+                    .maxWidthFrame(alignment: .leading)
+                    .padding(8)
+                    .background(.gray.tertiary)
+                    .containerShape(.rect(cornerRadius: 8))
+                Slider(
+                    "Word count",
+                    value: $wordCount,
+                    in: 0...100,
+                    valueFormat: .arithmeticRoundedInteger)
+                Text("Word Count: \(wordCount.arithmeticRoundedInt)")
+                    .monospaced().font(.caption)
+                Toggle("Is Fixed Height", isOn: $isFixedHeight)
+
+                Divider()
+
+                Text(Strings.loremIpsum(words: wordCount.rounded().asInt))
+                    // This `fixedSize` is the culprit of the sizing issues.
+                    .fixedSize(horizontal: false, vertical: isFixedHeight)
+                Rectangle().fill(.red.tertiary)
+            }
+            .padding()
+            .debugOutline(options: .size)
+        }
+    }
+
+}
+
+
 // MARK: - Previews
 
 
@@ -61,26 +103,9 @@ extension PreviewTrait where T == Preview.ViewTraits {
     @Previewable @State var wordCount: Double = 20
     @Previewable @State var isFixedHeight: Bool = true
 
-    VStack {
-        Text("Forced Layout keeps the size of the view in macOS.")
-        Slider(
-            "Word count",
-            value: $wordCount,
-            in: 0...100,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Word Count: \(wordCount.arithmeticRoundedInt)")
-            .monospaced().font(.caption)
-        Toggle("Is Fixed Height", isOn: $isFixedHeight)
-
-        Divider()
-
-        Text(Strings.loremIpsum(words: wordCount.rounded().asInt))
-        // When fixedSize is used and the text is multiline, the rectangles expand masively in size.
-            .fixedSize(horizontal: false, vertical: isFixedHeight)
-        Rectangle().fill(.red.tertiary)
-    }
-    .padding()
-    .debugOutline(options: .size)
+    PreviewContent.TextWithFixedHeight(
+        caption: "`ForcedLayout` keeps the size of the view in macOS.",
+        wordCount: $wordCount, isFixedHeight: $isFixedHeight)
 }
 
 
@@ -88,26 +113,9 @@ extension PreviewTrait where T == Preview.ViewTraits {
     @Previewable @State var wordCount: Double = 20
     @Previewable @State var isFixedHeight: Bool = true
 
-    VStack {
-        Text("Without forced size, window height explodes in macOS.")
-        Slider(
-            "Word count",
-            value: $wordCount,
-            in: 0...100,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Word Count: \(wordCount.arithmeticRoundedInt)")
-            .monospaced().font(.caption)
-        Toggle("Is Fixed Height", isOn: $isFixedHeight)
-
-        Divider()
-
-        Text(Strings.loremIpsum(words: wordCount.rounded().asInt))
-        // When fixedSize is used and the text is multiline, the rectangles expand masively in size.
-            .fixedSize(horizontal: false, vertical: isFixedHeight)
-        Rectangle().fill(.red.tertiary)
-    }
-    .padding()
-    .debugOutline(options: .size)
+    PreviewContent.TextWithFixedHeight(
+        caption: "Without forced size, window height explodes in macOS.",
+        wordCount: $wordCount, isFixedHeight: $isFixedHeight)
 }
 
 
@@ -123,25 +131,15 @@ extension PreviewTrait where T == Preview.ViewTraits {
 // MARK: - Examples
 
 
-#Preview("Example: fixedSize false", traits: .fixedLayout(width: 400, height: 300)) {
-    @Previewable @State var wordCount: Double = 10
-    @Previewable @State var isFixedHeight: Bool = false
-
+#Preview("Example: Basic", traits: .fixedLayout(width: 400, height: 300)) {
     VStack {
-        Text("`fixedLayout` is respected when preview starts with `fixedHeight` to `false`.")
-        Slider(
-            "Word count",
-            value: $wordCount,
-            in: 0...100,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Word Count: \(wordCount.arithmeticRoundedInt)")
-            .monospaced().font(.caption)
-        Toggle("Is Fixed Height", isOn: $isFixedHeight)
+        Text("Using a `Text` with `fixedLayout` in a macOS preview causes the preview height to explode.")
 
         Divider()
 
-        Text(Strings.loremIpsum(words: wordCount.rounded().asInt))
-            .fixedSize(horizontal: false, vertical: isFixedHeight)
+        // When fixedSize is used and the text is multiline, the rectangles expand masively in size.
+        Text(Strings.loremIpsum)
+            .fixedSize(horizontal: false, vertical: true)
         Rectangle().fill(.red.tertiary)
     }
     .padding()
@@ -149,56 +147,33 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
-#Preview("Example: fixedSize true", traits: .fixedLayout(width: 400, height: 300)) {
-    @Previewable @State var wordCount: Double = 30
+#Preview("Example: fixedHeight false", traits: .fixedLayout(width: 400, height: 300)) {
+    @Previewable @State var wordCount: Double = 20
+    @Previewable @State var isFixedHeight: Bool = false
+
+    PreviewContent.TextWithFixedHeight(
+        caption: "`fixedLayout` is respected when preview starts with `fixedHeight` to `false`.",
+        wordCount: $wordCount, isFixedHeight: $isFixedHeight)
+}
+
+
+#Preview("Example: fixedHeight true", traits: .fixedLayout(width: 400, height: 300)) {
+    @Previewable @State var wordCount: Double = 20
     @Previewable @State var isFixedHeight: Bool = true
 
-    VStack {
-        Text("`fixedLayout` fails and height explodes when preview starts with `fixedHeight` to `true`.")
-        Slider(
-            "Word count",
-            value: $wordCount,
-            in: 0...100,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Word Count: \(wordCount.arithmeticRoundedInt)")
-            .monospaced().font(.caption)
-        Toggle("Is Fixed Height", isOn: $isFixedHeight)
-
-        Divider()
-
-        Text(Strings.loremIpsum(words: wordCount.rounded().asInt))
-        // When fixedSize is used and the text is multiline, the rectangles expand masively in size.
-            .fixedSize(horizontal: false, vertical: isFixedHeight)
-        Rectangle().fill(.red.tertiary)
-    }
-    .padding()
-    .debugOutline(options: .size)
+    PreviewContent.TextWithFixedHeight(
+        caption: "`fixedLayout` fails and height explodes when preview **starts** with `fixedHeight` to `true`.",
+        wordCount: $wordCount, isFixedHeight: $isFixedHeight)
 }
 
 
 #Preview("Example: with frame", traits: .fixedLayout(width: 400, height: 300)) {
-    @Previewable @State var wordCount: Double = 10
+    @Previewable @State var wordCount: Double = 20
     @Previewable @State var isFixedHeight: Bool = true
 
-    VStack {
-        Text("`frame` overrides the `fixedLayout` entirely, and forces the view to size.")
-        Slider(
-            "Word count",
-            value: $wordCount,
-            in: 0...100,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Word Count: \(wordCount.arithmeticRoundedInt)")
-            .monospaced().font(.caption)
-        Toggle("Is Fixed Height", isOn: $isFixedHeight)
-
-        Divider()
-
-        Text(Strings.loremIpsum(words: wordCount.rounded().asInt))
-        // When fixedSize is used and the text is multiline, the rectangles expand masively in size.
-            .fixedSize(horizontal: false, vertical: isFixedHeight)
-        Rectangle().fill(.red.tertiary)
-    }
-    .padding()
-    .debugOutline(options: .size)
-    .frame(width: 450, height: 300)
+    PreviewContent.TextWithFixedHeight(
+        caption: "`frame` overrides the `fixedLayout` entirely, and forces the view to size.",
+        wordCount: $wordCount, isFixedHeight: $isFixedHeight
+    )
+    .frame(width: 400, height: 300)
 }
