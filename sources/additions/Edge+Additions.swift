@@ -9,7 +9,8 @@ import SwiftUI
 
 extension Edge {
 
-    var geometryProxyKeyPath: KeyPath<GeometryProxy, CGFloat> & Sendable {
+    /// Returns a `GeometryProxy` keypath to the `safeAreaInset` of this edge.
+    var geometryProxySafeAreaInsetKeyPath: KeyPath<GeometryProxy, CGFloat> & Sendable {
         switch self {
         case .top:      \.safeAreaInsets.top
         case .leading:  \.safeAreaInsets.leading
@@ -19,7 +20,7 @@ extension Edge {
     }
 
 
-    var geometryProxyTransform: @Sendable (GeometryProxy) -> CGFloat {
+    var geometryProxySafeAreaInsetTransform: @Sendable (GeometryProxy) -> CGFloat {
         switch self {
         case .top:      \.safeAreaInsets.top
         case .leading:  \.safeAreaInsets.leading

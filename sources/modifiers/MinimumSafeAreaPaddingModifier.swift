@@ -7,17 +7,22 @@
 import SwiftUI
 
 
-/// Experimental modifier to add a minimum safe area padding to a view.
+/// Experimental modifier to add a minimum safe area padding to an edge of a view.
 ///
-/// If the view already is affected by a safe-area greater that `minimumInset`, no additional
-/// safe-area is added, otherwise enough safe area padding is added up to `minimumInset`.
+/// Adds safe area to the current padding up to `minimumInset`; if the view has a safe area of at
+/// least `minimumInset` no padding is added.
 struct MinimumSafeAreaPaddingModifier: ViewModifier {
 
-    @State private var currentSafeAreaInset: CGFloat = .zero
+    /// Last tracked safe area inset reported by `onGeometryChange`. This value is updated only
+    /// when change is over a given threshold.
+    @State private var safeAreaInset: CGFloat = .zero
 
+    /// Edge to which the minimum safe area padding is applied.
     let edge: Edge
+    /// Minimum safe area inset to allow the content view to have.
     let minimumInset: CGFloat
 
+    /// When `true`, prints all updates to `safeAreaInset`.
     fileprivate var printsUpdates: Bool
 
 
@@ -38,14 +43,14 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
         .safeAreaPadding(.init(edge), additionalInset)
         // TODO: reevaluate if keeping this approach for logging.
         .onGeometryChange(
-            keyPath: edge.geometryProxyKeyPath,
-            binding: $currentSafeAreaInset.onSet { newValue in
+            keyPath: edge.geometryProxySafeAreaInsetKeyPath,
+            binding: $safeAreaInset.onSet { newValue in
                 if printsUpdates {
                     print("updated currentSafeAreaInset: \(newValue)")
                 }
             },
-            transform: { [currentSafeAreaInset] newEdgeInset in
-                currentSafeAreaInset.stabilizedValue(newEdgeInset, threshold: 0.5)
+            transform: { [safeAreaInset] newEdgeInset in
+                safeAreaInset.stabilizedValue(newEdgeInset, threshold: 0.5)
             }
         )
         // Previously currentSafeAreaInset was updated on EVERY change of the geometry proxy property
@@ -54,9 +59,9 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
         // Using the device safe area, and reducing the add'l safe area enough that the total safe
         // area is under minimal padding (80) would trigger an infinite update to
         // currentSafeAreaInset.
-//        .onGeometryChange(keyPath: edge.geometryProxyKeyPath, binding: $currentSafeAreaInset.onSet { newValue in
+//        .onGeometryChange(keyPath: edge.geometryProxyKeyPath, binding: $safeAreaInset.onSet { newValue in
 //            if printsUpdates {
-//                print("[deprecated] updated currentSafeAreaInset:\(newValue)")
+//                print("[deprecated] updated safeAreaInset:\(newValue)")
 //            }
 //        })
     }
@@ -64,7 +69,7 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
 
     private var additionalInset: CGFloat {
         // TODO: value.clamp(lowest: 0) or value.bound(lowest: 0), comparable already has clamped
-        return max(0, minimumInset - currentSafeAreaInset)
+        return max(0, minimumInset - safeAreaInset)
     }
 
 }
@@ -179,13 +184,12 @@ extension View {
                                 .font(.caption.monospaced())
                                 .fixedSize()
                         }
-                    }//.fixedSize()
-
-                }
+                    } // VStack
+                } // ZStack
                 .frame(size: geometry.size, alignment: .center)
                 .border(.quaternary, width: options.contains(.border) ? 1 : 0)
-            }
-        }
+            } // GeometryReader
+        } // Overlay
     }
 
 }
