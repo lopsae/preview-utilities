@@ -132,20 +132,19 @@ private struct PreviewContent {
     @Previewable @State var wordCount: Double = 50
     @Previewable @State var fixedHeight: Double = 200
 
-    let loremIpsumWords = String.loremIpsum.components(separatedBy: .whitespacesAndNewlines)
-    PreviewCaption(loremIpsumWords.prefix(wordCount.rounded().asInt).joined(separator: " "))
+    PreviewCaption(Strings.loremIpsum(words: wordCount.arithmeticRoundedInt))
 
     VStack {
         Slider(
             "Word Count",
             value: $wordCount,
-            in: 0...loremIpsumWords.beforeEndIndex.asDouble,
-            valueFormat: .roundedIntegerToNearestOrEven)
+            in: 0...100,
+            valueFormat: .arithmeticRoundedInteger)
         Slider(
             "Fixed Height",
             value: $fixedHeight,
             in: 0...800,
-            valueFormat: .roundedIntegerToNearestOrEven)
+            valueFormat: .arithmeticRoundedInteger)
     }
     .padding()
 
