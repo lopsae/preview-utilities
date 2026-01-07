@@ -37,7 +37,6 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
         content
         .safeAreaPadding(.init(edge), additionalInset)
         // TODO: reevaluate if keeping this approach for logging.
-        // TODO: could absolute distance of 1 be used instead of floor?
         .onGeometryChange(
             keyPath: edge.geometryProxyKeyPath,
             binding: $currentSafeAreaInset.onSet { newValue in
@@ -45,13 +44,16 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
                     print("updated currentSafeAreaInset: \(newValue)")
                 }
             },
-            transform: floor
+            transform: { [currentSafeAreaInset] newEdgeInset in
+                currentSafeAreaInset.stabilizedValue(newEdgeInset, threshold: 0.5)
+            }
         )
         // Previously currentSafeAreaInset was updated on EVERY change of the geometry proxy property
         // this resulted on issues in the iOS Default preview. Code is retained for future testing.
         // Previous issue:
-        // Using the device safe area, and reducing the bottom safe enough that the total safe area
-        // is under minimal padding (50) would trigger an infinite update to currentSafeAreaInset.
+        // Using the device safe area, and reducing the add'l safe area enough that the total safe
+        // area is under minimal padding (80) would trigger an infinite update to
+        // currentSafeAreaInset.
 //        .onGeometryChange(keyPath: edge.geometryProxyKeyPath, binding: $currentSafeAreaInset.onSet { newValue in
 //            if printsUpdates {
 //                print("[deprecated] updated currentSafeAreaInset:\(newValue)")
