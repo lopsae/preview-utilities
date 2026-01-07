@@ -39,6 +39,9 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
 
 
     func body(content: Content) -> some View {
+        let insetDifference = minimumInset - safeAreaInset
+        let additionalInset = insetDifference.clamped(to: 0...)
+
         content
         .safeAreaPadding(.init(edge), additionalInset)
         // TODO: reevaluate if keeping this approach for logging.
@@ -53,23 +56,18 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
                 safeAreaInset.stabilizedValue(newEdgeInset, threshold: 0.5)
             }
         )
+
         // Previously currentSafeAreaInset was updated on EVERY change of the geometry proxy property
         // this resulted on issues in the iOS Default preview. Code is retained for future testing.
         // Previous issue:
         // Using the device safe area, and reducing the add'l safe area enough that the total safe
         // area is under minimal padding (80) would trigger an infinite update to
         // currentSafeAreaInset.
-//        .onGeometryChange(keyPath: edge.geometryProxyKeyPath, binding: $safeAreaInset.onSet { newValue in
+//        .onGeometryChange(keyPath: edge.geometryProxySafeAreaInsetKeyPath, binding: $safeAreaInset.onSet { newValue in
 //            if printsUpdates {
 //                print("[deprecated] updated safeAreaInset:\(newValue)")
 //            }
 //        })
-    }
-
-
-    private var additionalInset: CGFloat {
-        // TODO: value.clamp(lowest: 0) or value.bound(lowest: 0), comparable already has clamped
-        return max(0, minimumInset - safeAreaInset)
     }
 
 }
