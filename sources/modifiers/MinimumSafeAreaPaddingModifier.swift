@@ -126,21 +126,13 @@ extension View {
     Divider()
 
     Rectangle().fill(.green.tertiary)
-        .frame(width: 100, height: topContentHeight)
-        .overlay {
-            Text("Top Content")
-                .foregroundStyle(.secondary)
-                .font(.caption.monospaced())
-        }
-        .debugOutline(lineWidth: 1, options: .size)
+        .frame(width: 120, height: topContentHeight)
+        .previewCaption("Top Content", .height, .border)
+
 
     Rectangle().fill(.gray.tertiary)
         .frame(width: 50)
-        .overlay {
-            Text("Spacer")
-                .foregroundStyle(.secondary)
-                .font(.caption.monospaced())
-        }
+        .previewCaption("Spacer")
 
     VStack {
         Text("Padded Content")
@@ -154,11 +146,7 @@ extension View {
     .safeAreaInset(edge: .bottom, spacing: .zero) {
         Rectangle().fill(.red.tertiary)
             .frame(width: 150, height: addlSafeArea)
-            .overlay {
-                Text("Add'l SafeArea")
-                    .foregroundStyle(.secondary)
-                    .font(.caption.monospaced())
-            }
+            .previewCaption("Add'l SafeArea", .height, .border)
     }
 
     if !useDeviceSafeArea {
@@ -168,4 +156,40 @@ extension View {
         .concentricSafeAreaBackground(fill: .orange.tertiary)
     }
 
+}
+
+
+extension View {
+
+    /// Experimental labeling for interactive preview elements, specially rectangles.
+    func previewCaption(_ key: LocalizedStringKey, _ options: PreviewCaptionOptions...) -> some View {
+        self.overlay {
+            GeometryReader { geometry in
+                ZStack(alignment: .bottom) {
+                    VStack(spacing: .zero) {
+                        Text(key)
+                            .foregroundStyle(.secondary)
+                            .font(.caption)
+                            .fixedSize()
+                        if options.contains(.height) {
+                            Text("height: \(geometry.size.height, format: .fractionLength(2))")
+                                .foregroundStyle(.secondary)
+                                .font(.caption.monospaced())
+                                .fixedSize()
+                        }
+                    }//.fixedSize()
+
+                }
+                .frame(size: geometry.size, alignment: .center)
+                .border(.quaternary, width: options.contains(.border) ? 1 : 0)
+            }
+        }
+    }
+
+}
+
+
+enum PreviewCaptionOptions {
+    case border
+    case height
 }
