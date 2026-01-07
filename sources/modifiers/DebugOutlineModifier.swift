@@ -166,17 +166,17 @@ public struct DebugOutlineModifier: ViewModifier {
 
             VStack(alignment: .leading, spacing: 2) {
                 let globalFrame = geometry.frame(in: .global)
-                let doubleFormat: FloatingPointFormatStyle<Double> = .number.precision(.fractionLength(2))
+                let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
                 if options.contains(.size) {
-                    let formattedWidth = globalFrame.width.formatted(doubleFormat)
-                    let formattedHeight = globalFrame.height.formatted(doubleFormat)
+                    let formattedWidth = globalFrame.width.formatted(fractionLength)
+                    let formattedHeight = globalFrame.height.formatted(fractionLength)
                     Text("size: \(formattedWidth), \(formattedHeight)")
                 }
                 
                 if options.contains(.origin) {
-                    let formattedX = globalFrame.origin.x.formatted(doubleFormat)
-                    let formattedY = globalFrame.origin.y.formatted(doubleFormat)
+                    let formattedX = globalFrame.origin.x.formatted(fractionLength)
+                    let formattedY = globalFrame.origin.y.formatted(fractionLength)
                     Text("orig: \(formattedX), \(formattedY)")
                 }
                 
@@ -289,12 +289,15 @@ extension View {
 struct EdgeInsetPreviewFormatStyle: FormatStyle {
 
     func format(_ value: EdgeInsets) -> String {
-        let doubleFormat: FloatingPointFormatStyle<Double> = .number.precision(.fractionLength(2))
-        let formattedTop      = value.top.formatted(doubleFormat)
-        let formattedLeading  = value.leading.formatted(doubleFormat)
-        let formattedBottom   = value.bottom.formatted(doubleFormat)
-        let formattedTrailing = value.trailing.formatted(doubleFormat)
-        return "t:\(formattedTop), l:\(formattedLeading),\nb:\(formattedBottom), r:\(formattedTrailing)"
+        let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
+        let formattedTop      = value.top.formatted(fractionLength)
+        let formattedLeading  = value.leading.formatted(fractionLength)
+        let formattedBottom   = value.bottom.formatted(fractionLength)
+        let formattedTrailing = value.trailing.formatted(fractionLength)
+        return """
+            t:\(formattedTop), l:\(formattedLeading),
+            b:\(formattedBottom), r:\(formattedTrailing)
+            """
     }
 
 }
