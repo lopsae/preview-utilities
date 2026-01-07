@@ -92,48 +92,74 @@ extension View {
 // MARK: - Previews
 
 
-// FIXME: in ios, agains the device safearea, reducing the bottom safe are so that the total safe are is less that the minimal padding will trigger an infinite update to currentSafeAreaInset
-#Preview(traits: .iPhoneProSizeLayout) {
+#Preview("Default", traits: .zeroSpacing, .iPhoneProSizeLayout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
-    @Previewable @State var topContentHeight: Double = 100.0
-    @Previewable @State var bottomSafeAreaInset: Double = 60.0
+    @Previewable @State var topContentHeight: Double = 300
+    @Previewable @State var addlSafeArea: Double = 60
     @Previewable @State var useDeviceSafeArea: Bool = true
+
+    let minimumInset: Double = 80
 
     printOnce.view
 
-    Slider(
-        "Top Content Height",
-        value: $topContentHeight,
-        in: 0.0...1000.0,
-        valueFormat: .arithmeticRoundedInteger)
-    Text("Top Content Height: \(topContentHeight, format: .fractionLength(2))")
-        .monospaced()
+    VStack {
+        Slider(
+            "Top Content Height",
+            value: $topContentHeight,
+            in: 200...1000,
+            valueFormat: .arithmeticRoundedInteger)
+        Text("Top Content Height: \(topContentHeight, format: .fractionLength(2))")
+            .monospaced()
 
-    Slider(
-        "Bottom SafeArea",
-        value: $bottomSafeAreaInset,
-        in: 0.0...100.0,
-        valueFormat: .arithmeticRoundedInteger)
+        Slider(
+            "Add'l SafeArea",
+            value: $addlSafeArea,
+            in: 0...100,
+            valueFormat: .arithmeticRoundedInteger)
 
-    Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .fractionLength(2))")
-        .monospaced()
-    Toggle("Use device safe area", isOn: $useDeviceSafeArea)
+        Text("Add'l SafeArea: \(addlSafeArea, format: .fractionLength(2))")
+            .monospaced()
+        Toggle("Use device safe area", isOn: $useDeviceSafeArea)
+    }
+    .padding()
 
-    Spacer()
+    Divider()
 
     Rectangle().fill(.green.tertiary)
         .frame(width: 100, height: topContentHeight)
+        .overlay {
+            Text("Top Content")
+                .foregroundStyle(.secondary)
+                .font(.caption.monospaced())
+        }
         .debugOutline(lineWidth: 1, options: .size)
 
-    Text("Padded Content")
-        .maxWidthFrame()
-        .minimumSafeAreaPadding(.bottom, minimumInset: 50.0, printsUpdates: true)
-        .debugOutline(options: .safeAreaInsets)
-        .padding(.horizontal)
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            Rectangle().fill(.red.tertiary)
-                .frame(width: 100, height: bottomSafeAreaInset)
+    Rectangle().fill(.gray.tertiary)
+        .frame(width: 50)
+        .overlay {
+            Text("Spacer")
+                .foregroundStyle(.secondary)
+                .font(.caption.monospaced())
         }
+
+    VStack {
+        Text("Padded Content")
+        Text("Minimum Inset: \(minimumInset, format: .fractionLength(2))")
+            .font(.caption.monospaced())
+    }
+    .maxWidthFrame()
+    .minimumSafeAreaPadding(.bottom, minimumInset: minimumInset, printsUpdates: true)
+    .debugOutline(options: .safeAreaInsets)
+    .padding(.horizontal)
+    .safeAreaInset(edge: .bottom, spacing: .zero) {
+        Rectangle().fill(.red.tertiary)
+            .frame(width: 150, height: addlSafeArea)
+            .overlay {
+                Text("Add'l SafeArea")
+                    .foregroundStyle(.secondary)
+                    .font(.caption.monospaced())
+            }
+    }
 
     if !useDeviceSafeArea {
         Text("clear from device safe area")
