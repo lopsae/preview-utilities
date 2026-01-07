@@ -9,9 +9,7 @@ import SwiftUI
 
 extension Edge {
 
-    // TODO: could not be used because KeyPath was not sendable. replaced with geometryProxyTransform
-    // Evaluate if to keep it.
-    var geometryProxyKeyPath: KeyPath<GeometryProxy, CGFloat> {
+    var geometryProxyKeyPath: KeyPath<GeometryProxy, CGFloat> & Sendable {
         switch self {
         case .top:      \.safeAreaInsets.top
         case .leading:  \.safeAreaInsets.leading

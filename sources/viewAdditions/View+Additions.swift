@@ -47,23 +47,93 @@ extension View {
 
     /// Adds an action to be performed when a geometry proxy value changes.
     ///
-    /// Convenience function for `View.onGeometryChange(for:of:action:)` allowing to infer the
-    /// observed value with the given `keypath`.
-    @inlinable public func onGeometryChange<T>(
-        of keyPath: KeyPath<GeometryProxy, T> & Sendable,
-        action: @escaping (_ newValue: T) -> Void
+    /// Convenience function for `View.onGeometryChange(for:of:action:)` that infers the type of
+    /// the observed value from a given `keypath`.
+    ///
+    /// This function propagates ALL changes of the observed property to `action`. Use with caution.
+    @inlinable
+    public func onGeometryChange<Property>(
+        keyPath: KeyPath<GeometryProxy, Property> & Sendable,
+        action: @escaping (_ newValue: Property) -> Void
     ) -> some View
-        where T : Equatable, T : Sendable
+        where Property : Equatable & Sendable
     {
-        self.onGeometryChange(for: T.self, of: { $0[keyPath: keyPath] }, action: action)
+        self.onGeometryChange(for: Property.self, of: { $0[keyPath: keyPath] }, action: action)
     }
 
 
-    @inlinable public func onGeometryChange<T>(
+    /// Updates a binding when a geometry proxy value changes.
+    ///
+    /// Convenience function for `View.onGeometryChange(for:of:action:)` that infers the type of
+    /// the observed value from a given `keypath` and updates a binding directly.
+    ///
+    /// This function propagates ALL changes of the observed property to `binding`. Use with caution.
+    @inlinable
+    public func onGeometryChange<Property>(
+        keyPath: KeyPath<GeometryProxy, Property> & Sendable,
+        binding: Binding<Property>,
+    ) -> some View
+    where Property: Equatable & Sendable
+    {
+        self.onGeometryChange(
+            keyPath: keyPath,
+            action: { binding.wrappedValue = $0 }
+        )
+    }
+
+
+    /// Adds an action to be performed when a value, created from a geometry proxy property,
+    /// changes.
+    ///
+    /// Convenience function for `View.onGeometryChange(for:of:action:)` that infers the type of
+    /// the observed value from a given `keypath`.
+    @inlinable
+    public func onGeometryChange<Property, Result>(
+        keyPath: KeyPath<GeometryProxy, Property> & Sendable,
+        transform: @Sendable @escaping (Property) -> Result,
+        action: @escaping (_ newValue: Result) -> Void
+    ) -> some View
+    where
+        Property : Equatable & Sendable,
+        Result: Equatable & Sendable
+    {
+        self.onGeometryChange(for: Result.self, of: { geometryProxy in
+            let value = geometryProxy[keyPath: keyPath]
+            let result = transform(value)
+            return result
+        }, action: action)
+    }
+
+
+    /// Updates a binding when a value, created from a geometry proxy property, changes.
+    ///
+    /// Convenience function for `View.onGeometryChange(for:of:action:)` that infers the type of
+    /// the observed value from a given `keypath` and updates a binding directly.
+    @inlinable
+    public func onGeometryChange<Property, Result>(
+        keyPath: KeyPath<GeometryProxy, Property> & Sendable,
+        binding: Binding<Result>,
+        transform: @Sendable @escaping (Property) -> Result
+    ) -> some View
+    where
+        Property : Equatable & Sendable,
+        Result: Equatable & Sendable
+    {
+        self.onGeometryChange(
+            keyPath: keyPath,
+            transform: transform,
+            action: { binding.wrappedValue = $0 }
+        )
+    }
+
+
+    // TODO: deprecate? since keypath sendability was figured out
+    @inlinable
+    public func onGeometryChange<T>(
         of transform: @escaping @Sendable (GeometryProxy) -> T,
         binding: Binding<T>
     ) -> some View
-        where T : Equatable, T : Sendable
+        where T : Equatable & Sendable
     {
         self.onGeometryChange(
             for: T.self,

@@ -47,7 +47,7 @@ struct PreviewFooterView: View {
                     }
                 })
                 .padding()
-                .onGeometryChange(of: \.size.height) { newHeight in
+                .onGeometryChange(keyPath: \.size.height) { newHeight in
                     if printsUpdates {
                         print("update fullHeight:\(newHeight)")
                     }
