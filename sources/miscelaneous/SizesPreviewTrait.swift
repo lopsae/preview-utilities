@@ -9,12 +9,29 @@ import SwiftUI
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
-    /// Returns a fixed layout preview trait with the approximate size , `400x800`, of the iPhone
-    /// Pro safe area.
+    /// Aproximate size of an iPhone Pro safe area: `400x800`.
     ///
     /// The actual reported size of the safe area in the iPhone 17 Pro simulator is `402x778`.
+    public static var iPhoneProSize: CGSize { .init(width: 400, height: 800) }
+
+
+    /// Returns a fixed layout preview trait with a given size.
+    public static func fixedLayout(size: CGSize) -> PreviewTrait {
+        return .fixedLayout(width: size.width, height: size.height)
+    }
+
+
+    /// Returns a fixed layout preview trait with the approximate size of the iPhone Pro safe area:
+    /// `400x800`.
+    public static var iPhoneProSizeLayout: PreviewTrait {
+        return .fixedLayout(size: iPhoneProSize)
+    }
+
+
+    // TODO: deprecate
+    @available(*, deprecated, renamed: "iPhoneProSizeLayout")
     public static var iphoneSize: PreviewTrait {
-        return .fixedLayout(width: 400, height: 800)
+        return .fixedLayout(size: iPhoneProSize)
     }
 
 }
@@ -23,7 +40,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 // MARK: - Previews
 
 
-#Preview(traits: .iphoneSize) {
+#Preview(traits: .iPhoneProSizeLayout) {
     ClearRectangle()
         .debugOutline(options: .size)
 }
