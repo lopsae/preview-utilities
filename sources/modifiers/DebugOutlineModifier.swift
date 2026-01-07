@@ -310,17 +310,17 @@ extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
 }
 
 
-// MARK: - Previews
+// MARK: - PreviewContent
 
 
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
     static var star: some View {
         StarShape(points: 6, concaveVertexRatio: 0.8)
-            .fill(.pink)
+            .fill(.pink.gradient)
     }
 
     static var smallText: some View {
@@ -329,6 +329,9 @@ private struct PreviewContent {
     }
 
 }
+
+
+// MARK: - Previews
 
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
@@ -366,7 +369,7 @@ private struct PreviewContent {
             "Line Width",
             value: $lineWidth,
             in: 0...15,
-            valueFormat: .roundedIntegerToNearestOrEven)
+            valueFormat: .arithmeticRoundedInteger)
         Text("Line Width: \(lineWidth, format: .fractionLength(2))")
             .monospaced()
     }
@@ -450,7 +453,7 @@ private struct PreviewContent {
             "Line Width",
             value: $lineWidth,
             in: 0...15,
-            valueFormat: .roundedIntegerToNearestOrEven)
+            valueFormat: .arithmeticRoundedInteger)
         Text("Line Width: \(lineWidth, format: .fractionLength(2))")
             .monospaced()
 
