@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Caption with a background similar to the header and footer created by
 /// ``HeaderFooterContainerView``. Intended to provide additional detail along a preview.
-struct PreviewCaption: View {
+public struct PreviewCaption: View {
 
     /// String for each text produced in the caption.
     let textStrings: [String]
@@ -35,7 +35,7 @@ struct PreviewCaption: View {
     }
 
 
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 8 ) {
             ForEach(textStrings.enumerated(), id: \.offset) { index, string in
                 let markdownString = (try? AttributedString(markdown: string)) ?? AttributedString("[markdown failed!] " + string)
