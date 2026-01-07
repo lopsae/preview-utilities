@@ -281,7 +281,8 @@ nonisolated final class ImageGeneratorUtils {
         ])
         let captionSize = captionAttrString.size()
         var captionRect = captionSize.centered(in: size)
-        captionRect.origin.y = textRect.maxY + 0
+        let captionSpacing: CGFloat = .zero
+        captionRect.origin.y = textRect.maxY + captionSpacing
 
         textAttrString.draw(in: textRect)
         captionAttrString.draw(in: captionRect)
@@ -304,7 +305,7 @@ nonisolated final class ImageGeneratorUtils {
 
     private static func persistentHash(for input: String) -> Int {
         guard let inputData = input.data(using: .utf8)
-        else { return 0 }
+        else { return .zero }
 
         let hashed: SHA256Digest = SHA256.hash(data: inputData)
         let intValue: Int = hashed.reduce(0) { partialResult, int8 in

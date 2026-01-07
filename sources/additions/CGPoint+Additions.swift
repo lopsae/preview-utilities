@@ -47,7 +47,7 @@ extension CGPoint {
 
     /// Returns `self` offset by the given components.
     @inlinable nonisolated
-    func offset(x: CGFloat = 0, y: CGFloat = 0) -> Self {
+    func offset(x: CGFloat = .zero, y: CGFloat = .zero) -> Self {
         .init(
             x: self.x + x,
             y: self.y + y

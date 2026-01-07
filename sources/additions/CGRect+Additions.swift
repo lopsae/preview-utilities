@@ -48,7 +48,7 @@ extension CGRect {
 
 
     @inlinable nonisolated
-    public func offset(x: CGFloat = 0, y: CGFloat = 0) -> Self {
+    public func offset(x: CGFloat = .zero, y: CGFloat = .zero) -> Self {
         self.offsetBy(dx: x, dy: y)
     }
 

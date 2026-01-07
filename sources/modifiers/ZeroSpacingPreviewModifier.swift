@@ -11,7 +11,7 @@ import SwiftUI
 struct ZeroSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             content
         }
     }
@@ -24,7 +24,7 @@ struct ZeroSpacingPreviewModifier: PreviewModifier {
 private struct DebugZeroSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             Text("ZeroSpacing Top")
             content
             Text("ZeroSpacing Bottom")

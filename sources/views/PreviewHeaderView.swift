@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PreviewHeaderView: View {
 
-    @State private var paddedHeight: CGFloat = 0.0
-    @State private var fullHeight: CGFloat = 0.0
+    @State private var paddedHeight: CGFloat = .zero
+    @State private var fullHeight: CGFloat = .zero
 
     let flexibleHeight: Bool
 
@@ -23,7 +23,7 @@ struct PreviewHeaderView: View {
 
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
 
             Text("Header")
                 .foregroundStyle(.tertiary)
@@ -152,7 +152,7 @@ private struct PreviewContent {
 
     PreviewHeaderView(flexibleHeight: isFlexible)
     .preview_printsUpdates(true)
-    .safeAreaInset(edge: .top, spacing: 0) {
+    .safeAreaInset(edge: .top, spacing: .zero) {
         Rectangle()
             .fill(.red.opacity(0.1))
             .frame(height: topSafeAreaInset)

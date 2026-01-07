@@ -20,7 +20,7 @@ public struct HeaderFooterContainerView<Content: View>: View {
 
 
     public var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             PreviewHeaderView(flexibleHeight: !options.contains(.fixedHeader))
 
             if options.contains(.showDividers) {
@@ -49,7 +49,7 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
         self.rawValue = rawValue
     }
 
-    public static let empty: Self =        .init(rawValue: 0)
+    public static let empty: Self =        .init(rawValue: .zero)
     public static let fixedHeader: Self  = .init(shiftedBy: 0)
     public static let fixedFooter: Self  = .init(shiftedBy: 1)
     public static let showDividers: Self = .init(shiftedBy: 2)
@@ -61,7 +61,7 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 extension HeaderFooterContainerView where Content == Never {
 
     // TODO: make 12 for ios, 8 for macOS
-    static var minimumConcentricRadius: Double { 12.0 }
+    static var minimumConcentricRadius: Double { 12 }
 
     static var backgroundStyle: some ShapeStyle { .gray.tertiary }
 

@@ -185,7 +185,7 @@ extension View {
                     } // VStack
                 } // ZStack
                 .frame(size: geometry.size, alignment: .center)
-                .border(.quaternary, width: options.contains(.border) ? 1 : 0)
+                .border(.quaternary, width: options.contains(.border) ? 1 : .zero)
             } // GeometryReader
         } // Overlay
     }

@@ -33,7 +33,7 @@ struct MacOSForcedSizeLayoutPreviewModifier: PreviewModifier {
 
 
     func body(content: Content, context _: ()) -> some View {
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             content
         }.frame(size: size)
     }

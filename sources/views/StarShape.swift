@@ -39,7 +39,7 @@ struct StarShape: Shape {
                 .times(by: innerRadius)
                 .offset(by: center)
 
-            if index == 0 {
+            if index == .zero {
                 path.move(to: outerPoint)
             } else {
                 path.addLine(to: outerPoint)

@@ -33,7 +33,7 @@ extension CGSize {
 
     // TODO: rename to adding
     @inlinable nonisolated
-    public func add(width: CGFloat = 0, height: CGFloat = 0) -> Self {
+    public func add(width: CGFloat = .zero, height: CGFloat = .zero) -> Self {
         return .init(width: self.width + width, height: self.height + height)
     }
 
