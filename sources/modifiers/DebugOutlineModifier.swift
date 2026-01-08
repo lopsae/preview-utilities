@@ -64,8 +64,7 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let size = geometry.size
-        // TODO: use clamped
-        let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
+        let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
 
         // When debugged view is smaller that `lineWidth*2` the safe areas are still drawn with a
         // thickness of `lineWidth*2` to remain visible, and offset to stay centered with the
@@ -118,8 +117,7 @@ public struct DebugOutlineModifier: ViewModifier {
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
         let correctedFrame = correctZeroRect(localFrame)
-        // TODO: use clamped
-        let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
+        let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
 
         Rectangle()
             .stroke(outerShapeStyle, lineWidth: boundedLineWidth * 2)
@@ -140,8 +138,7 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
-        // TODO: use clamped
-        let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
+        let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
         // When debugged view is smaller that `lineWidth*2` the lineWidth used is reduced allow
         // it to draw at smaller sizes, otherwise no inner stroke is drawn.
         let correctedLineWidth = min(geometry.size.min, boundedLineWidth * 2) / 2.0
@@ -159,8 +156,7 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func originReticuleRects(geometry: GeometryProxy) -> some View {
         let thickness: CGFloat = 1
-        // TODO: use clamped
-        let boundedLength = max(newOptions.lineWidth, Self.minReticuleLength)
+        let boundedLength = newOptions.lineWidth.clamped(to: Self.minReticuleLength...)
         // +thickness to correctly center the reticule, specially at very small sizes.
         let reticuleLength = (boundedLength * 2) + thickness
 
@@ -178,8 +174,7 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
         if !oldOptions.isEmpty {
-            // TODO: use clamped
-            let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
+            let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
             let stackOffset = newOptions.infoPosition.isOuter
                 ? geometry.size.height
                 : .zero
