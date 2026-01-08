@@ -105,7 +105,7 @@ private struct PreviewContent {
         Rectangle()
             .fill(.teal.secondary)
             .frame(width: 200, height: isFixedContent ? 100 : .infinity)
-            .debugOutline(lineWidth: 1, options: .size)
+            .debugOutline(lineWidth: 1, oldOptions: .size)
     }
 }
 
@@ -137,6 +137,6 @@ private struct PreviewContent {
         Rectangle()
             .fill(.teal.secondary)
             .frame(width: 200, height: contentHeight)
-            .debugOutline(lineWidth: 1, options: .size)
+            .debugOutline(lineWidth: 1, oldOptions: .size)
     }
 }

@@ -410,9 +410,9 @@ extension View {
     /// ```
     public func debugOutline(
         lineWidth: CGFloat = 5,
-        options: DebugOutlineModifier.Options...
+        oldOptions: DebugOutlineModifier.Options...
     ) -> some View {
-        modifier(DebugOutlineModifier(lineWidth: lineWidth, oldOptions: options.union()))
+        modifier(DebugOutlineModifier(lineWidth: lineWidth, oldOptions: oldOptions.union()))
     }
 
 
@@ -420,7 +420,7 @@ extension View {
     // TODO: remove oldOptions after transition is done
     public func debugOutline(
         _ traits: DebugOutlineModifier.NewOptions.Trait...,
-        options oldOptions: DebugOutlineModifier.Options...
+        oldOptions: DebugOutlineModifier.Options...
     ) -> some View {
         let options = DebugOutlineModifier.NewOptions(traits: traits)
         return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
@@ -430,7 +430,7 @@ extension View {
     // TODO: remove oldOptions after transition is done
     public func debugOutline(
         traits: [DebugOutlineModifier.NewOptions.Trait],
-        options oldOptions: DebugOutlineModifier.Options...
+        oldOptions: DebugOutlineModifier.Options...
     ) -> some View {
         let options = DebugOutlineModifier.NewOptions(traits: traits)
         return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
@@ -548,14 +548,14 @@ private struct PreviewContent {
     .padding()
 
     PreviewContent.star
-        .debugOutline(traits: [.lineWidth(lineWidth)] + traits, options: oldOptionsUnion)
+        .debugOutline(traits: [.lineWidth(lineWidth)] + traits, oldOptions: oldOptionsUnion)
         .padding(.horizontal)
 }
 
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
-        .debugOutline(.outerInfo, options: .allGeometry)
+        .debugOutline(.outerInfo, oldOptions: .allGeometry)
         .safeAreaPadding(.init(
             top:      20,
             leading:  30,
@@ -583,7 +583,7 @@ private struct PreviewContent {
         .buttonStyle(.borderedProminent)
         .padding()
     }
-    .debugOutline(options: .allGeometry)
+    .debugOutline(oldOptions: .allGeometry)
     .padding(.horizontal)
 }
 
@@ -597,7 +597,7 @@ private struct PreviewContent {
     .padding()
 
     PreviewContent.smallText
-        .debugOutline(traits: isOuterInfo ? [.outerInfo] : [], options: .allGeometry)
+        .debugOutline(traits: isOuterInfo ? [.outerInfo] : [], oldOptions: .allGeometry)
 }
 
 
@@ -653,7 +653,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOutline(.lineWidth(lineWidth), .outerInfo, options: .allGeometry)
+        .debugOutline(.lineWidth(lineWidth), .outerInfo, oldOptions: .allGeometry)
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }

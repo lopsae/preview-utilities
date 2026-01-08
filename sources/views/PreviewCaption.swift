@@ -150,7 +150,7 @@ private struct PreviewContent {
 
     Rectangle().fill(.red.tertiary)
         .frame(width: 100, height: fixedHeight)
-        .debugOutline(lineWidth: 1, options: .size)
+        .debugOutline(lineWidth: 1, oldOptions: .size)
 }
 
 #Preview("Paragraph", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {
