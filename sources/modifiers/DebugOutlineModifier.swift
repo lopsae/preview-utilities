@@ -180,7 +180,7 @@ public struct DebugOutlineModifier: ViewModifier {
         if !options.isEmpty {
             // TODO: use clamped
             let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
-            let stackOffset = options.contains(.infoOutside)
+            let stackOffset = newOptions.infoPosition.isOuter
                 ? geometry.size.height
                 : .zero
 
@@ -250,20 +250,22 @@ extension DebugOutlineModifier {
             self.rawValue = rawValue
         }
 
+        // TODO: make sure empty is also defined in HeaderFooterPreviewOptions as example.
         public static let empty: Self =          .init(rawValue: 0)
         public static let size: Self =           .init(shiftedBy: 0)
         public static let origin: Self =         .init(shiftedBy: 1)
         public static let safeAreaInsets: Self = .init(shiftedBy: 2)
-        public static let infoOutside: Self =    .init(shiftedBy: 3)
 
         public static let allGeometry: Self = [.size, .origin, .safeAreaInsets]
     }
 
 
     // TODO: does it need to be sendable?
+    // TODO: move trait outside of options, might allow to make options interal
     public struct NewOptions {
 
         var lineWidth: CGFloat = 5
+        var infoPosition: InfoPosition = .inner(.topLeading)
 //        var displaysWidth: Bool = false
 //        var displaysHeight: Bool = false
 //        var displaysOrigin: Bool = false
@@ -279,6 +281,30 @@ extension DebugOutlineModifier {
             for trait in traits {
                 trait.apply(to: &self)
             }
+        }
+
+
+        enum InfoPosition {
+
+            case inner(Alignment)
+            case outer // TODO: pending to add alignment options
+
+            var isOuter: Bool {
+                switch self {
+                case .inner: false
+                case .outer: true
+                }
+            }
+
+            var innerAlignment: Alignment? {
+                switch self {
+                case .inner(let alignment):
+                    return alignment
+                case .outer:
+                    return nil
+                }
+            }
+
         }
 
 
@@ -299,6 +325,15 @@ extension DebugOutlineModifier {
             }
         }
 
+        struct InfoPositionModifier: Modifier {
+            let infoPosition: InfoPosition
+            func update(options: inout DebugOutlineModifier.NewOptions) {
+                options.infoPosition = infoPosition
+            }
+        }
+
+
+        /// Customizations that can be applied to a debug outline.
         public enum Trait {
             case modifier(any Modifier)
 
@@ -314,6 +349,18 @@ extension DebugOutlineModifier {
 
             static func lineWidth(_ lineWidth: CGFloat) -> Trait {
                 .modifier(LineWidthModifier(lineWidth: lineWidth))
+            }
+
+            static var innerInfo: Trait {
+                .modifier(InfoPositionModifier(infoPosition: .inner(.topLeading)))
+            }
+
+            static func innerInfo(_ innerAlingment: Alignment) -> Trait {
+                .modifier(InfoPositionModifier(infoPosition: .inner(innerAlingment)))
+            }
+
+            static var outerInfo: Trait {
+                .modifier(InfoPositionModifier(infoPosition: .outer))
             }
 
         }
@@ -370,8 +417,19 @@ extension View {
 
 
 
+    // TODO: remove oldOptions after transition is done
     public func debugOutline(
         _ traits: DebugOutlineModifier.NewOptions.Trait...,
+        options oldOptions: DebugOutlineModifier.Options...
+    ) -> some View {
+        let options = DebugOutlineModifier.NewOptions(traits: traits)
+        return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
+    }
+
+
+    // TODO: remove oldOptions after transition is done
+    public func debugOutline(
+        traits: [DebugOutlineModifier.NewOptions.Trait],
         options oldOptions: DebugOutlineModifier.Options...
     ) -> some View {
         let options = DebugOutlineModifier.NewOptions(traits: traits)
@@ -441,7 +499,7 @@ private struct PreviewContent {
 
 #Preview("Options", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var lineWidth: Double = 10
-    @Previewable @State var options: [(
+    @Previewable @State var oldOptions: [(
         label: String,
         option: DebugOutlineModifier.Options,
         enabled: Bool
@@ -449,19 +507,35 @@ private struct PreviewContent {
         ("Size",            .size,           true),
         ("Origin",          .origin,         false),
         ("SafeArea Insets", .safeAreaInsets, false),
-        ("Info Outside",    .infoOutside,    false),
         ("All Geometry",    .allGeometry,    false)
     ]
+    @Previewable @State var newOptions: [(
+        label: String,
+        trait: DebugOutlineModifier.NewOptions.Trait,
+        enabled: Bool
+    )] = [
+        ("Info Outside", .outerInfo, false)
+    ]
 
-    let optionsUnion: DebugOutlineModifier.Options = options.reduce(into: .empty) { result, optionTuple in
+    let oldOptionsUnion: DebugOutlineModifier.Options = oldOptions.reduce(into: .empty) { result, optionTuple in
         if optionTuple.enabled {
             result.formUnion(optionTuple.option)
         }
     }
+    let traits: [DebugOutlineModifier.NewOptions.Trait] = newOptions.compactMap { optionTuple in
+        let (_, trait, enabled) = optionTuple
+        return enabled
+            ? trait
+            : nil
+    }
 
     VStack {
-        ForEach(options.enumerated(), id: \.offset) { index, optionTuple in
-            Toggle(optionTuple.label, isOn: $options[index].enabled)
+        ForEach(oldOptions.enumerated(), id: \.offset) { index, optionTuple in
+            Toggle(optionTuple.label, isOn: $oldOptions[index].enabled)
+        }
+        Divider()
+        ForEach(newOptions.enumerated(), id: \.offset) { index, optionTuple in
+            Toggle(optionTuple.label, isOn: $newOptions[index].enabled)
         }
         Slider(
             "Line Width",
@@ -474,14 +548,14 @@ private struct PreviewContent {
     .padding()
 
     PreviewContent.star
-        .debugOutline(.lineWidth(lineWidth), options: optionsUnion)
+        .debugOutline(traits: [.lineWidth(lineWidth)] + traits, options: oldOptionsUnion)
         .padding(.horizontal)
 }
 
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
-        .debugOutline(options: .allGeometry, .infoOutside)
+        .debugOutline(.outerInfo, options: .allGeometry)
         .safeAreaPadding(.init(
             top:      20,
             leading:  30,
@@ -515,18 +589,15 @@ private struct PreviewContent {
 
 
 #Preview("Small content", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var isInfoOutside: Bool = false
+    @Previewable @State var isOuterInfo: Bool = false
 
     VStack {
-        Toggle("Info Outside", isOn: $isInfoOutside)
+        Toggle("Outer Info", isOn: $isOuterInfo)
     }
     .padding()
 
-    let options = DebugOutlineModifier.Options.allGeometry.union(
-        isInfoOutside ? .infoOutside : .empty
-    )
     PreviewContent.smallText
-        .debugOutline(options: options)
+        .debugOutline(traits: isOuterInfo ? [.outerInfo] : [], options: .allGeometry)
 }
 
 
@@ -582,7 +653,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOutline(.lineWidth(lineWidth), options: .allGeometry, .infoOutside)
+        .debugOutline(.lineWidth(lineWidth), .outerInfo, options: .allGeometry)
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
