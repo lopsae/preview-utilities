@@ -277,17 +277,12 @@ extension DebugOutlineModifier {
         init(traits: [Trait]) {
             self.init()
             for trait in traits {
-                update(with: trait)
+                trait.apply(to: &self)
             }
         }
 
-        // TODO: necessary?
-        mutating func update(with trait: Trait) {
-            trait.modifier.update(options: &self)
-        }
 
-
-        protocol Modifier {
+        public protocol Modifier {
             func update(options: inout NewOptions)
         }
 
@@ -304,19 +299,19 @@ extension DebugOutlineModifier {
             }
         }
 
-        // TODO: can be enum?
-        public struct Trait {
-            let modifier: any Modifier
+        public enum Trait {
+            case modifier(any Modifier)
 
-            init(modifier: any Modifier) {
-                self.modifier = modifier
+            func apply(to options: inout NewOptions) {
+                switch self {
+                case .modifier(let aModifier):
+                    aModifier.update(options: &options)
+                }
             }
 
-            static func modifier(_ modifier: some Modifier) -> Trait {
-                return .init(modifier: modifier)
-            }
 
-            var hairline: Trait { .init(modifier: HairlineModifier()) }
+            static var hairline: Trait { .modifier(HairlineModifier()) }
+
             static func lineWidth(_ lineWidth: CGFloat) -> Trait {
                 .modifier(LineWidthModifier(lineWidth: lineWidth))
             }
