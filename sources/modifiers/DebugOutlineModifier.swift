@@ -15,7 +15,7 @@ public struct DebugOutlineModifier: ViewModifier {
     private static let minLineWidth: CGFloat = 1
     private static let minReticuleLength: CGFloat = 2
 
-    let options: Options
+    let oldOptions: OldOptions
 
     let newOptions: NewOptions
 
@@ -29,20 +29,20 @@ public struct DebugOutlineModifier: ViewModifier {
     /// Creates a modifier with a given line width and options.
     ///
     /// The line width can be 1 at a minimum, smaller values are ignored.
-    init(lineWidth: CGFloat = 5, oldOptions: Options = []) {
-        self.options = oldOptions
+    init(lineWidth: CGFloat = 5, oldOptions: OldOptions = []) {
+        self.oldOptions = oldOptions
         self.newOptions = .init(traits: [.lineWidth(lineWidth)])
     }
 
 
     init() {
-        self.options = []
+        self.oldOptions = []
         self.newOptions = .init()
     }
 
 
-    init(newOptions: NewOptions, oldOptions: Options = []) {
-        self.options = oldOptions
+    init(newOptions: NewOptions, oldOptions: OldOptions = []) {
+        self.oldOptions = oldOptions
         self.newOptions = newOptions
     }
 
@@ -177,7 +177,7 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
-        if !options.isEmpty {
+        if !oldOptions.isEmpty {
             // TODO: use clamped
             let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
             let stackOffset = newOptions.infoPosition.isOuter
@@ -188,19 +188,19 @@ public struct DebugOutlineModifier: ViewModifier {
                 let globalFrame = geometry.frame(in: .global)
                 let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
-                if options.contains(.size) {
+                if oldOptions.contains(.size) {
                     let formattedWidth = globalFrame.width.formatted(fractionLength)
                     let formattedHeight = globalFrame.height.formatted(fractionLength)
                     Text("size: \(formattedWidth), \(formattedHeight)")
                 }
                 
-                if options.contains(.origin) {
+                if oldOptions.contains(.origin) {
                     let formattedX = globalFrame.origin.x.formatted(fractionLength)
                     let formattedY = globalFrame.origin.y.formatted(fractionLength)
                     Text("orig: \(formattedX), \(formattedY)")
                 }
                 
-                if options.contains(.safeAreaInsets) {
+                if oldOptions.contains(.safeAreaInsets) {
                     Text("safeInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
                 }
             } // VStack
@@ -243,7 +243,7 @@ extension DebugOutlineModifier {
     // TODO: make sure these notes are preserved in other implementation of OptionSet: HeaderFooterPreviewOptions
     // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
     // and `PinnedScrollableViews`.
-    public struct Options: OptionSet, Sendable {
+    public struct OldOptions: OptionSet, Sendable {
         public let rawValue: Int
 
         nonisolated public init(rawValue: Int) {
@@ -410,7 +410,7 @@ extension View {
     /// ```
     public func debugOutline(
         lineWidth: CGFloat = 5,
-        oldOptions: DebugOutlineModifier.Options...
+        oldOptions: DebugOutlineModifier.OldOptions...
     ) -> some View {
         modifier(DebugOutlineModifier(lineWidth: lineWidth, oldOptions: oldOptions.union()))
     }
@@ -420,7 +420,7 @@ extension View {
     // TODO: remove oldOptions after transition is done
     public func debugOutline(
         _ traits: DebugOutlineModifier.NewOptions.Trait...,
-        oldOptions: DebugOutlineModifier.Options...
+        oldOptions: DebugOutlineModifier.OldOptions...
     ) -> some View {
         let options = DebugOutlineModifier.NewOptions(traits: traits)
         return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
@@ -430,7 +430,7 @@ extension View {
     // TODO: remove oldOptions after transition is done
     public func debugOutline(
         traits: [DebugOutlineModifier.NewOptions.Trait],
-        oldOptions: DebugOutlineModifier.Options...
+        oldOptions: DebugOutlineModifier.OldOptions...
     ) -> some View {
         let options = DebugOutlineModifier.NewOptions(traits: traits)
         return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
@@ -501,7 +501,7 @@ private struct PreviewContent {
     @Previewable @State var lineWidth: Double = 10
     @Previewable @State var oldOptions: [(
         label: String,
-        option: DebugOutlineModifier.Options,
+        option: DebugOutlineModifier.OldOptions,
         enabled: Bool
     )] = [
         ("Size",            .size,           true),
@@ -517,7 +517,7 @@ private struct PreviewContent {
         ("Info Outside", .outerInfo, false)
     ]
 
-    let oldOptionsUnion: DebugOutlineModifier.Options = oldOptions.reduce(into: .empty) { result, optionTuple in
+    let oldOptionsUnion: DebugOutlineModifier.OldOptions = oldOptions.reduce(into: .empty) { result, optionTuple in
         if optionTuple.enabled {
             result.formUnion(optionTuple.option)
         }
