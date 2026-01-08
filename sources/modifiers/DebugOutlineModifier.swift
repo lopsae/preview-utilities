@@ -175,11 +175,8 @@ public struct DebugOutlineModifier: ViewModifier {
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
         if !oldOptions.isEmpty {
             let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
-            let stackOffset = newOptions.infoPosition.isOuter
-                ? geometry.size.height
-                : .zero
 
-            VStack(alignment: .leading, spacing: 2) {
+            let infoTextGroup = Group {
                 let globalFrame = geometry.frame(in: .global)
                 let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
@@ -188,23 +185,42 @@ public struct DebugOutlineModifier: ViewModifier {
                     let formattedHeight = globalFrame.height.formatted(fractionLength)
                     Text("size: \(formattedWidth), \(formattedHeight)")
                 }
-                
+
                 if oldOptions.contains(.origin) {
                     let formattedX = globalFrame.origin.x.formatted(fractionLength)
                     let formattedY = globalFrame.origin.y.formatted(fractionLength)
                     Text("orig: \(formattedX), \(formattedY)")
                 }
-                
+
                 if oldOptions.contains(.safeAreaInsets) {
                     Text("safeInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
+                        .multilineTextAlignment(newOptions.infoPosition.textAlignment)
                 }
-            } // VStack
-            .font(.caption)
-            .monospaced()
-            .foregroundStyle(.secondary)
-            .padding([.top, .leading], boundedLineWidth * 1.5)
-            .fixedSize()
-            .offset(y: stackOffset)
+            } // Group
+
+            switch newOptions.infoPosition {
+            case .inner(let innerAlignment):
+                VStack(alignment: innerAlignment.horizontal.swiftAlignment, spacing: 2) {
+                    infoTextGroup
+                }
+                .font(.caption)
+                .monospaced()
+                .foregroundStyle(.secondary)
+                .padding(boundedLineWidth * 1.5)
+                .fixedSize()
+                .maxSizeFrame(alignment: innerAlignment.swiftAlignment)
+                .border(.blue)
+            case .outer:
+                VStack(alignment: .leading, spacing: 2) {
+                    infoTextGroup
+                }
+                .font(.caption)
+                .monospaced()
+                .foregroundStyle(.secondary)
+                .padding([.top, .leading], boundedLineWidth * 1.5)
+                .fixedSize()
+                .offset(y: geometry.size.height)
+            }
         }
     }
 
@@ -338,7 +354,7 @@ struct EdgeInsetPreviewFormatStyle: FormatStyle {
         let formattedBottom   = value.bottom.formatted(fractionLength)
         let formattedTrailing = value.trailing.formatted(fractionLength)
         return """
-            t:\(formattedTop), l:\(formattedLeading),
+            t:\(formattedTop), l:\(formattedLeading)
             b:\(formattedBottom), r:\(formattedTrailing)
             """
     }
@@ -391,10 +407,10 @@ private struct PreviewContent {
         option: DebugOutlineModifier.OldOptions,
         enabled: Bool
     )] = [
-        ("Size",            .size,           true),
+        ("Size",            .size,           false),
         ("Origin",          .origin,         false),
         ("SafeArea Insets", .safeAreaInsets, false),
-        ("All Geometry",    .allGeometry,    false)
+        ("All Geometry",    .allGeometry,    true)
     ]
     @Previewable @State var newOptions: [(
         label: String,
@@ -404,19 +420,57 @@ private struct PreviewContent {
         ("Info Outside", .outerInfo, false)
     ]
 
+    @Previewable @State var isInnerPosition: Bool = true
+    @Previewable @State var innerHorizontalAlignment: DebugOutlineModifier.NewOptions.HorizontalAlignment = .leading
+    @Previewable @State var innerVerticalAlignment: DebugOutlineModifier.NewOptions.VerticalAlignment = .top
+
+    let makeTraits: () -> [DebugOutlineModifier.NewOptions.Trait] = {
+        var traits: [DebugOutlineModifier.NewOptions.Trait] = newOptions.compactMap { optionTuple in
+            let (_, trait, enabled) = optionTuple
+            return enabled
+                ? trait
+                : nil
+        }
+
+        let positionTrait: DebugOutlineModifier.NewOptions.Trait = if isInnerPosition {
+            .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
+        } else {
+            .outerInfo
+        }
+        traits.append(positionTrait)
+        return traits
+    }
+
     let oldOptionsUnion: DebugOutlineModifier.OldOptions = oldOptions.reduce(into: .empty) { result, optionTuple in
         if optionTuple.enabled {
             result.formUnion(optionTuple.option)
         }
     }
-    let traits: [DebugOutlineModifier.NewOptions.Trait] = newOptions.compactMap { optionTuple in
-        let (_, trait, enabled) = optionTuple
-        return enabled
-            ? trait
-            : nil
-    }
+    let traits = makeTraits()
 
     VStack {
+        Picker("Position", selection: $isInnerPosition) {
+            Text("Inner").tag(true)
+            Text("Outer").tag(false)
+        }
+        .pickerStyle(.segmented)
+
+        if isInnerPosition {
+            Picker("Horizontal Alignment", selection: $innerHorizontalAlignment) {
+                ForEach(DebugOutlineModifier.NewOptions.HorizontalAlignment.allCases) { alignment in
+                    Text(alignment.rawValue.capitalized).tag(alignment)
+                }
+            }
+            .pickerStyle(.segmented)
+
+            Picker("Veertical Alignment", selection: $innerVerticalAlignment) {
+                ForEach(DebugOutlineModifier.NewOptions.VerticalAlignment.allCases) { alignment in
+                    Text(alignment.rawValue.capitalized).tag(alignment)
+                }
+            }
+            .pickerStyle(.segmented)
+        }
+
         ForEach(oldOptions.enumerated(), id: \.offset) { index, optionTuple in
             Toggle(optionTuple.label, isOn: $oldOptions[index].enabled)
         }
@@ -432,7 +486,7 @@ private struct PreviewContent {
         Text("Line Width: \(lineWidth, format: .fractionLength(2))")
             .monospaced()
     }
-    .padding()
+    .padding(.not(.top))
 
     PreviewContent.star
         .debugOutline(traits: [.lineWidth(lineWidth)] + traits, oldOptions: oldOptionsUnion)
