@@ -15,20 +15,35 @@ public struct DebugOutlineModifier: ViewModifier {
     private static let minLineWidth: CGFloat = 1
     private static let minReticuleLength: CGFloat = 2
 
-    let lineWidth: CGFloat
     let options: Options
+
+    let newOptions: NewOptions
 
     let outerShapeStyle:     some ShapeStyle = .blue.tertiary
     let innerShapeStyle:     some ShapeStyle = .red.tertiary
     let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
 
 
+    // TODO: transitional initializer, remove!
+
     /// Creates a modifier with a given line width and options.
     ///
     /// The line width can be 1 at a minimum, smaller values are ignored.
-    init(lineWidth: CGFloat = 5, options: Options = []) {
-        self.lineWidth = lineWidth
-        self.options = options
+    init(lineWidth: CGFloat = 5, oldOptions: Options = []) {
+        self.options = oldOptions
+        self.newOptions = .init(traits: [.lineWidth(lineWidth)])
+    }
+
+
+    init() {
+        self.options = []
+        self.newOptions = .init()
+    }
+
+
+    init(newOptions: NewOptions, oldOptions: Options = []) {
+        self.options = oldOptions
+        self.newOptions = newOptions
     }
 
 
@@ -49,7 +64,8 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let size = geometry.size
-        let boundedLineWidth = max(lineWidth, Self.minLineWidth)
+        // TODO: use clamped
+        let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
 
         // When debugged view is smaller that `lineWidth*2` the safe areas are still drawn with a
         // thickness of `lineWidth*2` to remain visible, and offset to stay centered with the
@@ -102,7 +118,8 @@ public struct DebugOutlineModifier: ViewModifier {
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
         let correctedFrame = correctZeroRect(localFrame)
-        let boundedLineWidth = max(lineWidth, Self.minLineWidth)
+        // TODO: use clamped
+        let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
 
         Rectangle()
             .stroke(outerShapeStyle, lineWidth: boundedLineWidth * 2)
@@ -123,7 +140,8 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
-        let boundedLineWidth = max(lineWidth, Self.minLineWidth)
+        // TODO: use clamped
+        let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
         // When debugged view is smaller that `lineWidth*2` the lineWidth used is reduced allow
         // it to draw at smaller sizes, otherwise no inner stroke is drawn.
         let correctedLineWidth = min(geometry.size.min, boundedLineWidth * 2) / 2.0
@@ -141,7 +159,8 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func originReticuleRects(geometry: GeometryProxy) -> some View {
         let thickness: CGFloat = 1
-        let boundedLength = max(lineWidth, Self.minReticuleLength)
+        // TODO: use clamped
+        let boundedLength = max(newOptions.lineWidth, Self.minReticuleLength)
         // +thickness to correctly center the reticule, specially at very small sizes.
         let reticuleLength = (boundedLength * 2) + thickness
 
@@ -159,7 +178,8 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
         if !options.isEmpty {
-            let boundedLineWidth = max(lineWidth, Self.minLineWidth)
+            // TODO: use clamped
+            let boundedLineWidth = max(newOptions.lineWidth, Self.minLineWidth)
             let stackOffset = options.contains(.infoOutside)
                 ? geometry.size.height
                 : .zero
@@ -220,6 +240,7 @@ public struct DebugOutlineModifier: ViewModifier {
 
 extension DebugOutlineModifier {
 
+    // TODO: make sure these notes are preserved in other implementation of OptionSet: HeaderFooterPreviewOptions
     // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
     // and `PinnedScrollableViews`.
     public struct Options: OptionSet, Sendable {
@@ -238,6 +259,72 @@ extension DebugOutlineModifier {
         public static let allGeometry: Self = [.size, .origin, .safeAreaInsets]
     }
 
+
+    // TODO: does it need to be sendable?
+    public struct NewOptions {
+
+        var lineWidth: CGFloat = 5
+//        var displaysWidth: Bool = false
+//        var displaysHeight: Bool = false
+//        var displaysOrigin: Bool = false
+//        var displaysSafeAreaInsets: Bool = false
+//        var displaysInfoOutside: Bool = false
+
+
+        init() { }
+
+
+        init(traits: [Trait]) {
+            self.init()
+            for trait in traits {
+                update(with: trait)
+            }
+        }
+
+        // TODO: necessary?
+        mutating func update(with trait: Trait) {
+            trait.modifier.update(options: &self)
+        }
+
+
+        protocol Modifier {
+            func update(options: inout NewOptions)
+        }
+
+        struct HairlineModifier: Modifier {
+            func update(options: inout DebugOutlineModifier.NewOptions) {
+                options.lineWidth = 1
+            }
+        }
+
+        struct LineWidthModifier: Modifier {
+            let lineWidth: CGFloat
+            func update(options: inout DebugOutlineModifier.NewOptions) {
+                options.lineWidth = lineWidth
+            }
+        }
+
+        // TODO: can be enum?
+        public struct Trait {
+            let modifier: any Modifier
+
+            init(modifier: any Modifier) {
+                self.modifier = modifier
+            }
+
+            static func modifier(_ modifier: some Modifier) -> Trait {
+                return .init(modifier: modifier)
+            }
+
+            var hairline: Trait { .init(modifier: HairlineModifier()) }
+            static func lineWidth(_ lineWidth: CGFloat) -> Trait {
+                .modifier(LineWidthModifier(lineWidth: lineWidth))
+            }
+
+        }
+
+    }
+
 }
 
 
@@ -251,6 +338,12 @@ extension View {
     /// - Returns: The calling view with an overlay highlighing its frame.
     public func debugOutline() -> some View {
         modifier(DebugOutlineModifier())
+    }
+
+
+    public func debugOutline(_ traits: DebugOutlineModifier.NewOptions.Trait...) -> some View {
+        let options = DebugOutlineModifier.NewOptions(traits: traits)
+        return modifier(DebugOutlineModifier(newOptions: options))
     }
 
 
@@ -277,7 +370,17 @@ extension View {
         lineWidth: CGFloat = 5,
         options: DebugOutlineModifier.Options...
     ) -> some View {
-        modifier(DebugOutlineModifier(lineWidth: lineWidth, options: options.union()))
+        modifier(DebugOutlineModifier(lineWidth: lineWidth, oldOptions: options.union()))
+    }
+
+
+
+    public func debugOutline(
+        _ traits: DebugOutlineModifier.NewOptions.Trait...,
+        options oldOptions: DebugOutlineModifier.Options...
+    ) -> some View {
+        let options = DebugOutlineModifier.NewOptions(traits: traits)
+        return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
     }
 
 }
@@ -376,7 +479,7 @@ private struct PreviewContent {
     .padding()
 
     PreviewContent.star
-        .debugOutline(lineWidth: lineWidth, options: optionsUnion)
+        .debugOutline(.lineWidth(lineWidth), options: optionsUnion)
         .padding(.horizontal)
 }
 
@@ -484,7 +587,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOutline(lineWidth: lineWidth, options: .allGeometry, .infoOutside)
+        .debugOutline(.lineWidth(lineWidth), options: .allGeometry, .infoOutside)
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
