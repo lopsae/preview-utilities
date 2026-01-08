@@ -173,7 +173,7 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
-        if newOptions.displaysInfo || !oldOptions.isEmpty {
+        if !newOptions.infoElements.isEmpty || !oldOptions.isEmpty {
             let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
 
             let infoTextGroup = Group {
@@ -192,7 +192,7 @@ public struct DebugOutlineModifier: ViewModifier {
                     Text("orig: \(formattedX), \(formattedY)")
                 }
 
-                if newOptions.displaysSafeAreaInsets {
+                if newOptions.infoElements.contains(.safeAreaInsets) {
                     Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
                         .multilineTextAlignment(newOptions.infoPosition.textAlignment)
                 }

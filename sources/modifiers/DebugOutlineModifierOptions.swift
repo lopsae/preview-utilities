@@ -14,11 +14,8 @@ extension DebugOutlineModifier {
     public struct NewOptions {
 
         var lineWidth: CGFloat = 5
+        var infoElements: InfoElements = .empty
         var infoPosition: InfoPosition = .inner(.topLeading)
-//        var displaysWidth: Bool = false
-//        var displaysHeight: Bool = false
-//        var displaysOrigin: Bool = false
-        var displaysSafeAreaInsets: Bool = false
 
 
         init() { }
@@ -31,10 +28,34 @@ extension DebugOutlineModifier {
             }
         }
 
-        var displaysInfo: Bool {
-            displaysSafeAreaInsets
+    }
+
+}
+
+
+// MARK: - InfoElements
+
+
+extension DebugOutlineModifier.NewOptions {
+
+    // TODO: make sure these notes are preserved in other implementation of OptionSet: HeaderFooterPreviewOptions
+    // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
+    // and `PinnedScrollableViews`.
+    struct InfoElements: OptionSet, Sendable {
+        let rawValue: Int
+
+        nonisolated init(rawValue: Int) {
+            self.rawValue = rawValue
         }
 
+        // TODO: make sure empty is also defined in HeaderFooterPreviewOptions as example.
+        static let empty: Self =          .init(rawValue: 0)
+        // TODO: replace size with separate width/height
+        static let size: Self =           .init(shiftedBy: 0)
+        static let origin: Self =         .init(shiftedBy: 1)
+        static let safeAreaInsets: Self = .init(shiftedBy: 2)
+
+        static let allGeometry: Self = [.size, .origin]
     }
 
 }
@@ -144,7 +165,7 @@ extension DebugOutlineModifier.NewOptions {
             .modifier(LineWidthModifier(lineWidth: lineWidth))
         }
 
-        static let safeAreaInsets: Trait = .modifier(SafeAreaInsetsModifier())
+        static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
 
         static var innerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .inner(.topLeading)))
 
@@ -182,16 +203,17 @@ extension DebugOutlineModifier.NewOptions {
         }
     }
 
+    struct InfoElementsModifier: Modifier {
+        let infoElements: InfoElements
+        func update(options: inout DebugOutlineModifier.NewOptions) {
+            options.infoElements.formUnion(infoElements)
+        }
+    }
+
     struct InfoPositionModifier: Modifier {
         let infoPosition: InfoPosition
         func update(options: inout DebugOutlineModifier.NewOptions) {
             options.infoPosition = infoPosition
-        }
-    }
-
-    struct SafeAreaInsetsModifier: Modifier {
-        func update(options: inout DebugOutlineModifier.NewOptions) {
-            options.displaysSafeAreaInsets = true
         }
     }
 
