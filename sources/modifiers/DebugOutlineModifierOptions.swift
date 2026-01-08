@@ -18,8 +18,7 @@ extension DebugOutlineModifier {
 //        var displaysWidth: Bool = false
 //        var displaysHeight: Bool = false
 //        var displaysOrigin: Bool = false
-//        var displaysSafeAreaInsets: Bool = false
-//        var displaysInfoOutside: Bool = false
+        var displaysSafeAreaInsets: Bool = false
 
 
         init() { }
@@ -30,6 +29,10 @@ extension DebugOutlineModifier {
             for trait in traits {
                 trait.apply(to: &self)
             }
+        }
+
+        var displaysInfo: Bool {
+            displaysSafeAreaInsets
         }
 
     }
@@ -121,32 +124,37 @@ extension DebugOutlineModifier.NewOptions {
     /// Customizations that can be applied to a debug outline.
     public enum Trait {
         case modifier(any Modifier)
+        case traits([Trait])
 
         func apply(to options: inout DebugOutlineModifier.NewOptions) {
             switch self {
-            case .modifier(let aModifier):
-                aModifier.update(options: &options)
+            case .modifier(let modifier):
+                modifier.update(options: &options)
+            case .traits(let traits):
+                for trait in traits {
+                    trait.apply(to: &options)
+                }
             }
         }
 
 
-        static var hairline: Trait { .modifier(HairlineModifier()) }
+        static let hairline: Trait = .modifier(HairlineModifier())
 
         static func lineWidth(_ lineWidth: CGFloat) -> Trait {
             .modifier(LineWidthModifier(lineWidth: lineWidth))
         }
 
-        static var innerInfo: Trait {
-            .modifier(InfoPositionModifier(infoPosition: .inner(.topLeading)))
-        }
+        static let safeAreaInsets: Trait = .modifier(SafeAreaInsetsModifier())
+
+        static var innerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .inner(.topLeading)))
 
         static func innerInfo(_ innerAlingment: InnerAlignment) -> Trait {
             .modifier(InfoPositionModifier(infoPosition: .inner(innerAlingment)))
         }
 
-        static var outerInfo: Trait {
-            .modifier(InfoPositionModifier(infoPosition: .outer))
-        }
+        static let outerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .outer))
+
+        static let allGeometry: Trait = .traits([.safeAreaInsets])
 
     }
 }
@@ -178,6 +186,12 @@ extension DebugOutlineModifier.NewOptions {
         let infoPosition: InfoPosition
         func update(options: inout DebugOutlineModifier.NewOptions) {
             options.infoPosition = infoPosition
+        }
+    }
+
+    struct SafeAreaInsetsModifier: Modifier {
+        func update(options: inout DebugOutlineModifier.NewOptions) {
+            options.displaysSafeAreaInsets = true
         }
     }
 

@@ -173,7 +173,7 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
-        if !oldOptions.isEmpty {
+        if newOptions.displaysInfo || !oldOptions.isEmpty {
             let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
 
             let infoTextGroup = Group {
@@ -192,8 +192,8 @@ public struct DebugOutlineModifier: ViewModifier {
                     Text("orig: \(formattedX), \(formattedY)")
                 }
 
-                if oldOptions.contains(.safeAreaInsets) {
-                    Text("safeInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
+                if newOptions.displaysSafeAreaInsets {
+                    Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
                         .multilineTextAlignment(newOptions.infoPosition.textAlignment)
                 }
             } // Group
@@ -265,9 +265,8 @@ extension DebugOutlineModifier {
         public static let empty: Self =          .init(rawValue: 0)
         public static let size: Self =           .init(shiftedBy: 0)
         public static let origin: Self =         .init(shiftedBy: 1)
-        public static let safeAreaInsets: Self = .init(shiftedBy: 2)
 
-        public static let allGeometry: Self = [.size, .origin, .safeAreaInsets]
+        public static let allGeometry: Self = [.size, .origin]
     }
 
 }
@@ -407,17 +406,18 @@ private struct PreviewContent {
         option: DebugOutlineModifier.OldOptions,
         enabled: Bool
     )] = [
-        ("Size",            .size,           false),
+        ("Size",            .size,           true),
         ("Origin",          .origin,         false),
-        ("SafeArea Insets", .safeAreaInsets, false),
-        ("All Geometry",    .allGeometry,    true)
+        ("All Geometry",    .allGeometry,    false)
     ]
     @Previewable @State var newOptions: [(
         label: String,
         trait: DebugOutlineModifier.NewOptions.Trait,
         enabled: Bool
     )] = [
-        ("Info Outside", .outerInfo, false)
+        ("SafeArea Insets", .safeAreaInsets, false),
+        ("All Geometry",    .allGeometry,    false),
+        ("Info Outside",    .outerInfo,      false)
     ]
 
     @Previewable @State var isInnerPosition: Bool = true
@@ -496,7 +496,7 @@ private struct PreviewContent {
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
-        .debugOutline(.outerInfo, oldOptions: .allGeometry)
+        .debugOutline(.allGeometry, .outerInfo, oldOptions: .allGeometry)
         .safeAreaPadding(.init(
             top:      20,
             leading:  30,
@@ -524,7 +524,7 @@ private struct PreviewContent {
         .buttonStyle(.borderedProminent)
         .padding()
     }
-    .debugOutline(oldOptions: .allGeometry)
+    .debugOutline(.allGeometry, oldOptions: .allGeometry)
     .padding(.horizontal)
 }
 
@@ -538,7 +538,7 @@ private struct PreviewContent {
     .padding()
 
     PreviewContent.smallText
-        .debugOutline(traits: isOuterInfo ? [.outerInfo] : [], oldOptions: .allGeometry)
+        .debugOutline(traits: [.allGeometry] + (isOuterInfo ? [.outerInfo] : []), oldOptions: .allGeometry)
 }
 
 
@@ -594,7 +594,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOutline(.lineWidth(lineWidth), .outerInfo, oldOptions: .allGeometry)
+        .debugOutline(.lineWidth(lineWidth), .allGeometry, .outerInfo, oldOptions: .allGeometry)
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }

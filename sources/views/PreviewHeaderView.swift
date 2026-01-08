@@ -156,7 +156,7 @@ private struct PreviewContent {
         Rectangle()
             .fill(.red.opacity(0.1))
             .frame(height: topSafeAreaInset)
-            .debugOutline(.hairline, .outerInfo, oldOptions: .size, .safeAreaInsets)
+            .debugOutline(.hairline, .safeAreaInsets, .outerInfo, oldOptions: .size)
             .padding(.horizontal, 8)
     }
 
