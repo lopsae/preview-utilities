@@ -127,6 +127,7 @@ private struct PreviewContent {
 
 
 // FIXME: in IOS, content freezes when fixed height grows enough to push the footer out of layout, likely caused by PreviewFooter issues.
+// FIXME: this still seems to be happening after possible fix in minSafeAreaPadding, add printing capability to test.
 // TODO: this should have enough text to push out of the given size layout, to show that large text is respected.
 #Preview("LoremIpsum", traits:  .regularSpacing, .headerFooter(.fixed), PreviewContent.layout) {
     @Previewable @State var wordCount: Double = 50
@@ -150,7 +151,7 @@ private struct PreviewContent {
 
     Rectangle().fill(.red.tertiary)
         .frame(width: 100, height: fixedHeight)
-        .debugOutline(lineWidth: 1, oldOptions: .size)
+        .debugOutline(.hairline, .size)
 }
 
 #Preview("Paragraph", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {

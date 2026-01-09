@@ -55,7 +55,7 @@ extension DebugOutlineModifier.NewOptions {
         static let origin: Self =         .init(shiftedBy: 1)
         static let safeAreaInsets: Self = .init(shiftedBy: 2)
 
-        static let allGeometry: Self = [.size, .origin]
+        static let allGeometry: Self = [.size, .origin, .safeAreaInsets]
     }
 
 }
@@ -165,7 +165,10 @@ extension DebugOutlineModifier.NewOptions {
             .modifier(LineWidthModifier(lineWidth: lineWidth))
         }
 
+        static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
+        static let origin: Trait         = .modifier(InfoElementsModifier(infoElements: .origin))
         static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
+        static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
         static var innerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .inner(.topLeading)))
 
@@ -174,8 +177,6 @@ extension DebugOutlineModifier.NewOptions {
         }
 
         static let outerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .outer))
-
-        static let allGeometry: Trait = .traits([.safeAreaInsets])
 
     }
 }

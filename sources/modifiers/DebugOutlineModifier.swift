@@ -180,13 +180,13 @@ public struct DebugOutlineModifier: ViewModifier {
                 let globalFrame = geometry.frame(in: .global)
                 let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
-                if oldOptions.contains(.size) {
+                if newOptions.infoElements.contains(.size) {
                     let formattedWidth = globalFrame.width.formatted(fractionLength)
                     let formattedHeight = globalFrame.height.formatted(fractionLength)
                     Text("size: \(formattedWidth), \(formattedHeight)")
                 }
 
-                if oldOptions.contains(.origin) {
+                if newOptions.infoElements.contains(.origin) {
                     let formattedX = globalFrame.origin.x.formatted(fractionLength)
                     let formattedY = globalFrame.origin.y.formatted(fractionLength)
                     Text("orig: \(formattedX), \(formattedY)")
@@ -209,7 +209,6 @@ public struct DebugOutlineModifier: ViewModifier {
                 .padding(boundedLineWidth * 1.5)
                 .fixedSize()
                 .maxSizeFrame(alignment: innerAlignment.swiftAlignment)
-                .border(.blue)
             case .outer:
                 VStack(alignment: .leading, spacing: 2) {
                     infoTextGroup
@@ -263,10 +262,6 @@ extension DebugOutlineModifier {
 
         // TODO: make sure empty is also defined in HeaderFooterPreviewOptions as example.
         public static let empty: Self =          .init(rawValue: 0)
-        public static let size: Self =           .init(shiftedBy: 0)
-        public static let origin: Self =         .init(shiftedBy: 1)
-
-        public static let allGeometry: Self = [.size, .origin]
     }
 
 }
@@ -310,32 +305,32 @@ extension View {
     /// Text("Hello")
     ///     .debugOutline(options: .size, .origin)
     /// ```
-    public func debugOutline(
-        lineWidth: CGFloat = 5,
-        oldOptions: DebugOutlineModifier.OldOptions...
-    ) -> some View {
-        modifier(DebugOutlineModifier(lineWidth: lineWidth, oldOptions: oldOptions.union()))
-    }
+//    public func debugOutline(
+//        lineWidth: CGFloat = 5,
+//        oldOptions: DebugOutlineModifier.OldOptions...
+//    ) -> some View {
+//        modifier(DebugOutlineModifier(lineWidth: lineWidth, oldOptions: oldOptions.union()))
+//    }
 
 
 
     // TODO: remove oldOptions after transition is done
-    public func debugOutline(
-        _ traits: DebugOutlineModifier.NewOptions.Trait...,
-        oldOptions: DebugOutlineModifier.OldOptions...
-    ) -> some View {
-        let options = DebugOutlineModifier.NewOptions(traits: traits)
-        return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
-    }
+//    public func debugOutline(
+//        _ traits: DebugOutlineModifier.NewOptions.Trait...,
+//        oldOptions: DebugOutlineModifier.OldOptions...
+//    ) -> some View {
+//        let options = DebugOutlineModifier.NewOptions(traits: traits)
+//        return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
+//    }
 
 
     // TODO: remove oldOptions after transition is done
     public func debugOutline(
         traits: [DebugOutlineModifier.NewOptions.Trait],
-        oldOptions: DebugOutlineModifier.OldOptions...
+//        oldOptions: DebugOutlineModifier.OldOptions...
     ) -> some View {
         let options = DebugOutlineModifier.NewOptions(traits: traits)
-        return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
+        return modifier(DebugOutlineModifier(newOptions: options, oldOptions: []))
     }
 
 }
@@ -401,23 +396,15 @@ private struct PreviewContent {
 
 #Preview("Options", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var lineWidth: Double = 10
-    @Previewable @State var oldOptions: [(
-        label: String,
-        option: DebugOutlineModifier.OldOptions,
-        enabled: Bool
-    )] = [
-        ("Size",            .size,           true),
-        ("Origin",          .origin,         false),
-        ("All Geometry",    .allGeometry,    false)
-    ]
-    @Previewable @State var newOptions: [(
+    @Previewable @State var options: [(
         label: String,
         trait: DebugOutlineModifier.NewOptions.Trait,
         enabled: Bool
     )] = [
+        ("Size",            .size,           true),
+        ("Origin",          .origin,         false),
         ("SafeArea Insets", .safeAreaInsets, false),
-        ("All Geometry",    .allGeometry,    false),
-        ("Info Outside",    .outerInfo,      false)
+        ("All Geometry",    .allGeometry,    false)
     ]
 
     @Previewable @State var isInnerPosition: Bool = true
@@ -425,7 +412,9 @@ private struct PreviewContent {
     @Previewable @State var innerVerticalAlignment: DebugOutlineModifier.NewOptions.VerticalAlignment = .top
 
     let makeTraits: () -> [DebugOutlineModifier.NewOptions.Trait] = {
-        var traits: [DebugOutlineModifier.NewOptions.Trait] = newOptions.compactMap { optionTuple in
+        var traits: [DebugOutlineModifier.NewOptions.Trait] = [.lineWidth(lineWidth)]
+
+        traits += options.compactMap { optionTuple in
             let (_, trait, enabled) = optionTuple
             return enabled
                 ? trait
@@ -441,11 +430,6 @@ private struct PreviewContent {
         return traits
     }
 
-    let oldOptionsUnion: DebugOutlineModifier.OldOptions = oldOptions.reduce(into: .empty) { result, optionTuple in
-        if optionTuple.enabled {
-            result.formUnion(optionTuple.option)
-        }
-    }
     let traits = makeTraits()
 
     VStack {
@@ -471,13 +455,10 @@ private struct PreviewContent {
             .pickerStyle(.segmented)
         }
 
-        ForEach(oldOptions.enumerated(), id: \.offset) { index, optionTuple in
-            Toggle(optionTuple.label, isOn: $oldOptions[index].enabled)
+        ForEach(options.enumerated(), id: \.offset) { index, optionTuple in
+            Toggle(optionTuple.label, isOn: $options[index].enabled)
         }
-        Divider()
-        ForEach(newOptions.enumerated(), id: \.offset) { index, optionTuple in
-            Toggle(optionTuple.label, isOn: $newOptions[index].enabled)
-        }
+
         Slider(
             "Line Width",
             value: $lineWidth,
@@ -489,14 +470,14 @@ private struct PreviewContent {
     .padding(.not(.top))
 
     PreviewContent.star
-        .debugOutline(traits: [.lineWidth(lineWidth)] + traits, oldOptions: oldOptionsUnion)
+        .debugOutline(traits: traits)
         .padding(.horizontal)
 }
 
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
-        .debugOutline(.allGeometry, .outerInfo, oldOptions: .allGeometry)
+        .debugOutline(.allGeometry, .outerInfo)
         .safeAreaPadding(.init(
             top:      20,
             leading:  30,
@@ -524,11 +505,12 @@ private struct PreviewContent {
         .buttonStyle(.borderedProminent)
         .padding()
     }
-    .debugOutline(.allGeometry, oldOptions: .allGeometry)
+    .debugOutline(.allGeometry)
     .padding(.horizontal)
 }
 
 
+// TODO: likely merge with all options.
 #Preview("Small content", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var isOuterInfo: Bool = false
 
@@ -538,7 +520,7 @@ private struct PreviewContent {
     .padding()
 
     PreviewContent.smallText
-        .debugOutline(traits: [.allGeometry] + (isOuterInfo ? [.outerInfo] : []), oldOptions: .allGeometry)
+        .debugOutline(traits: [.allGeometry] + (isOuterInfo ? [.outerInfo] : []))
 }
 
 
@@ -594,7 +576,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOutline(.lineWidth(lineWidth), .allGeometry, .outerInfo, oldOptions: .allGeometry)
+        .debugOutline(.lineWidth(lineWidth), .allGeometry, .outerInfo)
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }

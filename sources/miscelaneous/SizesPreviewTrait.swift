@@ -42,5 +42,5 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 #Preview(traits: .iPhoneProSizeLayout) {
     ClearRectangle()
-        .debugOutline(oldOptions: .size)
+        .debugOutline(.size)
 }
