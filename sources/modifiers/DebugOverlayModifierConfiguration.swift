@@ -9,8 +9,6 @@ import SwiftUI
 
 extension DebugOverlayModifier {
 
-    // TODO: does it need to be sendable?
-    // TODO: move trait outside of configuration, might allow to make options interal
     public struct Configuration {
 
         var lineWidth: CGFloat = 5
@@ -38,7 +36,6 @@ extension DebugOverlayModifier {
 
 extension DebugOverlayModifier.Configuration {
 
-    // TODO: make sure these notes are preserved in other implementation of OptionSet: HeaderFooterPreviewOptions
     // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
     // and `PinnedScrollableViews`.
     struct InfoElements: OptionSet, Sendable {
@@ -48,8 +45,7 @@ extension DebugOverlayModifier.Configuration {
             self.rawValue = rawValue
         }
 
-        // TODO: make sure empty is also defined in HeaderFooterPreviewOptions as example.
-        static let empty: Self =          .init(rawValue: 0)
+        static let empty: Self =          .init(rawValue: .zero)
         // TODO: replace size with separate width/height
         static let size: Self =           .init(shiftedBy: 0)
         static let origin: Self =         .init(shiftedBy: 1)
