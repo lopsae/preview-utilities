@@ -199,8 +199,11 @@ public struct DebugOverlayModifier: ViewModifier {
                 .monospaced()
                 .foregroundStyle(.secondary)
                 .padding(boundedLineWidth * 1.5)
+                // Prevents info view from collapsing in small sizes.
                 .fixedSize()
-                .maxSizeFrame(alignment: innerAlignment.swiftAlignment)
+                // Centers the view based in the alignment even when the frame is smaller that the view.
+                .frame(size: geometry.size, alignment: innerAlignment.swiftAlignment)
+
             case .outer:
                 VStack(alignment: .leading, spacing: 2) {
                     infoTextGroup
@@ -330,11 +333,6 @@ private struct PreviewContent {
             .fill(.pink.gradient)
     }
 
-    static var smallText: some View {
-        Text("Preview text")
-            .monospaced()
-    }
-
 }
 
 
@@ -349,7 +347,8 @@ private struct PreviewContent {
 
 
 #Preview("Configuration", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var lineWidth: Double = 10
+    @Previewable @State var useSmallContent: Bool = false
+    @Previewable @State var lineWidth: Double = 5
     @Previewable @State var traitOptions: [(
         label: String,
         trait: DebugOverlayModifier.Configuration.Trait,
@@ -363,8 +362,8 @@ private struct PreviewContent {
     ]
 
     @Previewable @State var isInnerPosition: Bool = true
-    @Previewable @State var innerHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .leading
-    @Previewable @State var innerVerticalAlignment: DebugOverlayModifier.Configuration.VerticalAlignment = .top
+    @Previewable @State var innerHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .trailing
+    @Previewable @State var innerVerticalAlignment: DebugOverlayModifier.Configuration.VerticalAlignment = .center
 
     let makeTraits: () -> [DebugOverlayModifier.Configuration.Trait] = {
         var traits: [DebugOverlayModifier.Configuration.Trait] = [.lineWidth(lineWidth)]
@@ -419,13 +418,25 @@ private struct PreviewContent {
             in: 0...15,
             valueFormat: .arithmeticRoundedInteger)
         Text("Line Width: \(lineWidth, format: .fractionLength(2))")
-            .monospaced()
+            .font(.caption.monospaced())
+
+        Toggle("Use Small Content", isOn: $useSmallContent)
     }
     .padding(.not(.top))
 
-    PreviewContent.star
-        .debugOverlay(traits: traits)
-        .padding(.horizontal)
+    if useSmallContent {
+        Text("Preview text")
+            .foregroundStyle(.quaternary)
+            .monospaced()
+            .debugOverlay(traits: traits)
+            .safeAreaPadding(20)
+    } else {
+        PreviewContent.star
+            .debugOverlay(traits: traits)
+            .safeAreaPadding(.horizontal, 20)
+            .padding(.horizontal)
+    }
+
 }
 
 
@@ -461,20 +472,6 @@ private struct PreviewContent {
     }
     .debugOverlay(.allGeometry)
     .padding(.horizontal)
-}
-
-
-// TODO: likely merge with all options.
-#Preview("Small content", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var isOuterInfo: Bool = false
-
-    VStack {
-        Toggle("Outer Info", isOn: $isOuterInfo)
-    }
-    .padding()
-
-    PreviewContent.smallText
-        .debugOverlay(traits: [.allGeometry] + (isOuterInfo ? [.outerInfo] : []))
 }
 
 
