@@ -27,7 +27,7 @@ public struct DebugOutlineModifier: ViewModifier {
     let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
 
 
-    /// Creates a modifier with the given options.
+    /// Creates a modifier with the given options. 
     init(newOptions: NewOptions) {
         self.newOptions = newOptions
     }
