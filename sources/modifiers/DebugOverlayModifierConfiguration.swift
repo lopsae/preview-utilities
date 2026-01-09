@@ -46,12 +46,13 @@ extension DebugOverlayModifier.Configuration {
         }
 
         static let empty: Self =          .init(rawValue: .zero)
-        // TODO: replace size with separate width/height
-        static let size: Self =           .init(shiftedBy: 0)
-        static let origin: Self =         .init(shiftedBy: 1)
-        static let safeAreaInsets: Self = .init(shiftedBy: 2)
+        static let width: Self =          .init(shiftedBy: 0)
+        static let height: Self =         .init(shiftedBy: 1)
+        static let origin: Self =         .init(shiftedBy: 2)
+        static let safeAreaInsets: Self = .init(shiftedBy: 3)
 
-        static let allGeometry: Self = [.size, .origin, .safeAreaInsets]
+        static let size: Self = [.width, .height]
+        static let allGeometry: Self = [.width, .height, .origin, .safeAreaInsets]
     }
 
 }
@@ -161,9 +162,12 @@ extension DebugOverlayModifier.Configuration {
             .modifier(LineWidthModifier(lineWidth: lineWidth))
         }
 
-        static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
+        static let width: Trait          = .modifier(InfoElementsModifier(infoElements: .width))
+        static let height: Trait         = .modifier(InfoElementsModifier(infoElements: .height))
         static let origin: Trait         = .modifier(InfoElementsModifier(infoElements: .origin))
         static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
+
+        static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
         static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
         static var innerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .inner(.topLeading)))

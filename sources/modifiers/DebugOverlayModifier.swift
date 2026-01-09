@@ -163,18 +163,27 @@ public struct DebugOverlayModifier: ViewModifier {
                 let globalFrame = geometry.frame(in: .global)
                 let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
+                // Width, Height, or Size.
                 if configuration.infoElements.contains(.size) {
                     let formattedWidth = globalFrame.width.formatted(fractionLength)
                     let formattedHeight = globalFrame.height.formatted(fractionLength)
                     Text("size: \(formattedWidth), \(formattedHeight)")
+                } else if configuration.infoElements.contains(.width) {
+                    let formattedWidth = globalFrame.width.formatted(fractionLength)
+                    Text("width: \(formattedWidth)")
+                } else if configuration.infoElements.contains(.height) {
+                    let formattedHeight = globalFrame.height.formatted(fractionLength)
+                    Text("height: \(formattedHeight)")
                 }
 
+                // Origin.
                 if configuration.infoElements.contains(.origin) {
                     let formattedX = globalFrame.origin.x.formatted(fractionLength)
                     let formattedY = globalFrame.origin.y.formatted(fractionLength)
-                    Text("orig: \(formattedX), \(formattedY)")
+                    Text("origin: \(formattedX), \(formattedY)")
                 }
 
+                // SafeAreaInsets.
                 if configuration.infoElements.contains(.safeAreaInsets) {
                     Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
                         .multilineTextAlignment(configuration.infoPosition.textAlignment)
@@ -346,7 +355,8 @@ private struct PreviewContent {
         trait: DebugOverlayModifier.Configuration.Trait,
         enabled: Bool
     )] = [
-        ("Size",            .size,           true),
+        ("Width",           .width,          true),
+        ("Height",          .height,         false),
         ("Origin",          .origin,         false),
         ("SafeArea Insets", .safeAreaInsets, false),
         ("All Geometry",    .allGeometry,    false)
