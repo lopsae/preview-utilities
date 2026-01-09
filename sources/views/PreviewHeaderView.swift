@@ -121,7 +121,7 @@ private struct PreviewContent {
 
     Rectangle().fill(.red.tertiary)
         .frame(width: 100, height: fixedHeight)
-        .debugOutline(.hairline, .size)
+        .debugOverlay(.hairline, .size)
 
     Divider()
 
@@ -156,7 +156,7 @@ private struct PreviewContent {
         Rectangle()
             .fill(.red.opacity(0.1))
             .frame(height: topSafeAreaInset)
-            .debugOutline(.hairline, .size, .safeAreaInsets, .outerInfo)
+            .debugOverlay(.hairline, .size, .safeAreaInsets, .outerInfo)
             .padding(.horizontal, 8)
     }
 

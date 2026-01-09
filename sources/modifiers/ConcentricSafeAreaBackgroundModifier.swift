@@ -89,25 +89,25 @@ private struct PreviewContent {
 #Preview("Default", traits: PreviewContent.layout) {
     Text("Along top safe area")
         .maxWidthFrame()
-        .debugOutline()
+        .debugOverlay()
         .concentricSafeAreaBackground(fill: PreviewContent.backgroundFill)
-        .debugOutline()
+        .debugOverlay()
 
     Spacer()
 
     Text("Not adyacent to safe areas")
         .maxWidthFrame()
-        .debugOutline()
+        .debugOverlay()
         .concentricSafeAreaBackground(fill: PreviewContent.backgroundFill)
-        .debugOutline()
+        .debugOverlay()
 
     Spacer()
 
     Text("Along bottom safe area")
         .maxWidthFrame()
-        .debugOutline()
+        .debugOverlay()
         .concentricSafeAreaBackground(fill: PreviewContent.backgroundFill)
-        .debugOutline()
+        .debugOverlay()
 }
 
 
@@ -118,22 +118,22 @@ private struct PreviewContent {
             .font(.caption)
     }
     .maxWidthFrame()
-    .debugOutline()
+    .debugOverlay()
     .concentricSafeAreaBackground(
         fill: PreviewContent.backgroundFill,
         contentPaddingEdges: .not(.top))
-    .debugOutline()
+    .debugOverlay()
 
     Spacer()
 
     Text("Surrounded by safe areas")
         .maxWidthFrame()
-        .debugOutline()
+        .debugOverlay()
         .concentricSafeAreaBackground(
             fill: PreviewContent.backgroundFill,
             contentPaddingEdges: .vertical,
             backgroundPaddingEdges: .horizontal)
-        .debugOutline()
+        .debugOverlay()
         .safeAreaPadding(100)
 
     Spacer()
@@ -146,22 +146,22 @@ private struct PreviewContent {
             .font(.caption)
     }
     .maxWidthFrame()
-    .debugOutline()
+    .debugOverlay()
     .concentricSafeAreaBackground(
         fill: PreviewContent.backgroundFill,
         contentPaddingEdges: .not(.bottom))
-    .debugOutline()
+    .debugOverlay()
 }
 
 
 #Preview("Adyacent", traits: PreviewContent.layout) {
     Text("Adyacent content above")
         .maxWidthFrame()
-        .debugOutline()
+        .debugOverlay()
         .concentricSafeAreaBackground(
             fill: PreviewContent.backgroundFill,
             paddingEdges: .not(.bottom))
-        .debugOutline()
+        .debugOverlay()
 
     Text("Content with default paddings")
         .maxWidthFrame()
@@ -174,9 +174,9 @@ private struct PreviewContent {
     }
 
         .maxWidthFrame()
-        .debugOutline()
+        .debugOverlay()
         .concentricSafeAreaBackground(
             fill: PreviewContent.backgroundFill,
             paddingEdges: .not(.top))
-        .debugOutline()
+        .debugOverlay()
 }

@@ -237,7 +237,7 @@ extension View {
     /// Layers in front of this view a debug overlay using the default configuration.
     ///
     /// - Returns: A view with a debug overlay as foreground.
-    public func debugOutline() -> some View {
+    public func debugOverlay() -> some View {
         let configuration = DebugOverlayModifier.Configuration()
         return modifier(DebugOverlayModifier(configuration: configuration))
     }
@@ -260,7 +260,7 @@ extension View {
     /// Text("Hello")
     ///     .debugOutline(.size, .origin)
     /// ```
-    public func debugOutline(_ traits: DebugOverlayModifier.Configuration.Trait...) -> some View {
+    public func debugOverlay(_ traits: DebugOverlayModifier.Configuration.Trait...) -> some View {
         let configuration = DebugOverlayModifier.Configuration(traits: traits)
         return modifier(DebugOverlayModifier(configuration: configuration))
     }
@@ -272,7 +272,7 @@ extension View {
     ///   - traits: The traits to modify the default configuration.
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
-    public func debugOutline(
+    public func debugOverlay(
         traits: [DebugOverlayModifier.Configuration.Trait],
     ) -> some View {
         let configuration = DebugOverlayModifier.Configuration(traits: traits)
@@ -335,7 +335,7 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
-        .debugOutline()
+        .debugOverlay()
         .padding(.horizontal)
 }
 
@@ -415,14 +415,14 @@ private struct PreviewContent {
     .padding(.not(.top))
 
     PreviewContent.star
-        .debugOutline(traits: traits)
+        .debugOverlay(traits: traits)
         .padding(.horizontal)
 }
 
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
-        .debugOutline(.allGeometry, .outerInfo)
+        .debugOverlay(.allGeometry, .outerInfo)
         .safeAreaPadding(.init(
             top:      20,
             leading:  30,
@@ -450,7 +450,7 @@ private struct PreviewContent {
         .buttonStyle(.borderedProminent)
         .padding()
     }
-    .debugOutline(.allGeometry)
+    .debugOverlay(.allGeometry)
     .padding(.horizontal)
 }
 
@@ -465,7 +465,7 @@ private struct PreviewContent {
     .padding()
 
     PreviewContent.smallText
-        .debugOutline(traits: [.allGeometry] + (isOuterInfo ? [.outerInfo] : []))
+        .debugOverlay(traits: [.allGeometry] + (isOuterInfo ? [.outerInfo] : []))
 }
 
 
@@ -521,7 +521,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOutline(.lineWidth(lineWidth), .allGeometry, .outerInfo)
+        .debugOverlay(.lineWidth(lineWidth), .allGeometry, .outerInfo)
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }

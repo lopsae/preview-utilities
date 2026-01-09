@@ -146,7 +146,7 @@ extension View {
     }
     .maxWidthFrame()
     .minimumSafeAreaPadding(.bottom, minimumInset: minimumInset, printsUpdates: true)
-    .debugOutline(.safeAreaInsets)
+    .debugOverlay(.safeAreaInsets)
     .padding(.horizontal)
     .safeAreaInset(edge: .bottom, spacing: .zero) {
         Rectangle().fill(.red.tertiary)

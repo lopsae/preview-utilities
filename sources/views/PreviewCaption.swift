@@ -151,7 +151,7 @@ private struct PreviewContent {
 
     Rectangle().fill(.red.tertiary)
         .frame(width: 100, height: fixedHeight)
-        .debugOutline(.hairline, .size)
+        .debugOverlay(.hairline, .size)
 }
 
 #Preview("Paragraph", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {

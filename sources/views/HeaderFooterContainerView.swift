@@ -105,7 +105,7 @@ private struct PreviewContent {
         Rectangle()
             .fill(.teal.secondary)
             .frame(width: 200, height: isFixedContent ? 100 : .infinity)
-            .debugOutline(.hairline, .size)
+            .debugOverlay(.hairline, .size)
     }
 }
 
@@ -137,6 +137,6 @@ private struct PreviewContent {
         Rectangle()
             .fill(.teal.secondary)
             .frame(width: 200, height: contentHeight)
-            .debugOutline(.hairline, .size)
+            .debugOverlay(.hairline, .size)
     }
 }

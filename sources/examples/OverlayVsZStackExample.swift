@@ -76,7 +76,7 @@ import SwiftUI
                     .frame(size: geometry.size.add(width: sizeIncrease, height: sizeIncrease))
                     .offset(x: offset, y: offset)
             }
-            .debugOutline()
+            .debugOverlay()
         }
 
 }

@@ -94,7 +94,7 @@ private struct PreviewContent {
     Rectangle()
         .fill(.teal.secondary)
         .frame(width: 200, height: contentHeight)
-        .debugOutline(.hairline, .size)
+        .debugOverlay(.hairline, .size)
 }
 
 

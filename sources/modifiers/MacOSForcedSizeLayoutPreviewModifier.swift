@@ -99,7 +99,7 @@ private struct PreviewContent {
                 Rectangle().fill(.red.tertiary)
             }
             .padding()
-            .debugOutline(.size)
+            .debugOverlay(.size)
         }
     }
 
@@ -153,7 +153,7 @@ private struct PreviewContent {
         Rectangle().fill(.red.tertiary)
     }
     .padding()
-    .debugOutline(.size)
+    .debugOverlay(.size)
 }
 
 
