@@ -59,6 +59,34 @@ extension Picker {
     }
 
 
+    init<ValuesCollection, ElementContent>(
+        _ title: LocalizedStringKey,
+        selection: Binding<SelectionValue>,
+        selfIdCollection collection: ValuesCollection,
+        @ViewBuilder elementContent: @escaping (ValuesCollection.Element) -> ElementContent
+    ) where
+        ValuesCollection: RandomAccessCollection,
+        // Identifiable is preferred over SelfIdentifiable here. This way SelfIdentifiable is not
+        // required, and the compiner will detect if a type overrides the default `id` provided by
+        // SelfIdentifiable.
+        ValuesCollection.Element: Identifiable,
+        ValuesCollection.Element.ID == ValuesCollection.Element,
+        ElementContent: View,
+        Label == Text,
+        Content == ForEach<ValuesCollection, ValuesCollection.Element, ElementContent>
+    {
+        self.init(
+            title,
+            selection: selection,
+            content: {
+                ForEach(collection) { element in
+                    elementContent(element)
+                }
+            }
+        )
+    }
+
+
 }
 
 
@@ -79,12 +107,20 @@ private struct PreviewContent {
         var id: String { self.rawValue }
     }
 
+
+    enum SelfIdentifiedValues: String, SelfIdentifiable, CaseIterable {
+        case  grace, heidi, ivan, judy
+//        var id: String { self.rawValue }
+//        var id: Self { self }
+    }
+
 }
 
 
-#Preview("Collection", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Identifiable", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
     @Previewable @State var identifiedValue: PreviewContent.IdentifiedValues = .bob
+    @Previewable @State var selfIdentifiedValue: PreviewContent.SelfIdentifiedValues = .heidi
 
     VStack(alignment: .leading) {
         // TODO: Use Preview Caption
@@ -100,6 +136,7 @@ private struct PreviewContent {
             collection: PreviewContent.NonidentifiedValues.allCases,
             id: \.rawValue
         ) { value in
+            // Id is not self, tag is required for selection to work.
             Text(value.rawValue.capitalized).tag(value)
         }.pickerStyle(.segmented)
 
@@ -114,7 +151,23 @@ private struct PreviewContent {
             selection: $identifiedValue,
             collection: PreviewContent.IdentifiedValues.allCases
         ) { value in
+            // Id is not self, tag is required for selection to work.
             Text(value.rawValue.capitalized).tag(value)
+        }.pickerStyle(.segmented)
+
+        // TODO: Use Preview Caption
+        Text("Picker with a collection of **self-identifiable** elements.")
+            .font(.caption)
+            .padding(.top)
+        Text("Value: \(selfIdentifiedValue.rawValue)")
+            .monospaced()
+        Picker(
+            "SelfIdentifiable Picker",
+            selection: $selfIdentifiedValue,
+            selfIdCollection: PreviewContent.SelfIdentifiedValues.allCases,
+        ) { value in
+            // No tag needed!
+            Text(value.rawValue.capitalized)
         }.pickerStyle(.segmented)
     }
     .padding(.horizontal)
