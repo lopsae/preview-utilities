@@ -7,42 +7,28 @@
 import SwiftUI
 
 
-/// Adds a debug overlay that draws in an overlay of the modified view a dashed stroke inset in the
-/// view's border, a solid stroke outset, and rectangles to visualize any safe-areas around the
-/// view.
+// TODO: could rename to debugOverlay, more acurate name.
+
+/// Draws in an overlay of the content view a dashed stroke inset in the view border, a outset solid
+/// stroke, and rectangles to visualize any safe areas affecting the view. Can also be configured to
+/// display additional view information like size, origin, and the safe area insets.
 public struct DebugOutlineModifier: ViewModifier {
 
+    /// The line width can be 1 at a minimum, smaller values are ignored, so that there is always
+    /// a visual overlay even on zero sizes.
     private static let minLineWidth: CGFloat = 1
     private static let minReticuleLength: CGFloat = 2
 
-    let oldOptions: OldOptions
-
     let newOptions: NewOptions
 
+    // TODO: make also static
     let outerShapeStyle:     some ShapeStyle = .blue.tertiary
     let innerShapeStyle:     some ShapeStyle = .red.tertiary
     let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
 
 
-    // TODO: transitional initializer, remove!
-
-    /// Creates a modifier with a given line width and options.
-    ///
-    /// The line width can be 1 at a minimum, smaller values are ignored.
-    init(lineWidth: CGFloat = 5, oldOptions: OldOptions = []) {
-        self.oldOptions = oldOptions
-        self.newOptions = .init(traits: [.lineWidth(lineWidth)])
-    }
-
-
-    init() {
-        self.oldOptions = []
-        self.newOptions = .init()
-    }
-
-
-    init(newOptions: NewOptions, oldOptions: OldOptions = []) {
-        self.oldOptions = oldOptions
+    /// Creates a modifier with the given options.
+    init(newOptions: NewOptions) {
         self.newOptions = newOptions
     }
 
@@ -173,7 +159,7 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
-        if !newOptions.infoElements.isEmpty || !oldOptions.isEmpty {
+        if !newOptions.infoElements.isEmpty {
             let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
 
             let infoTextGroup = Group {
@@ -245,92 +231,54 @@ public struct DebugOutlineModifier: ViewModifier {
 }
 
 
-// MARK: - Options
-
-
-extension DebugOutlineModifier {
-
-    // TODO: make sure these notes are preserved in other implementation of OptionSet: HeaderFooterPreviewOptions
-    // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
-    // and `PinnedScrollableViews`.
-    public struct OldOptions: OptionSet, Sendable {
-        public let rawValue: Int
-
-        nonisolated public init(rawValue: Int) {
-            self.rawValue = rawValue
-        }
-
-        // TODO: make sure empty is also defined in HeaderFooterPreviewOptions as example.
-        public static let empty: Self =          .init(rawValue: 0)
-    }
-
-}
-
-
 // MARK: - View Extension
 
 
 extension View {
 
-    /// Adds a debug outline overlay to the view using the default options.
+    /// Layers in front of this view a debug overlay using the default configuration.
     ///
-    /// - Returns: The calling view with an overlay highlighing its frame.
+    /// - Returns: A view with a debug overlay as foreground.
     public func debugOutline() -> some View {
-        modifier(DebugOutlineModifier())
+        let options = DebugOutlineModifier.NewOptions()
+        return modifier(DebugOutlineModifier(newOptions: options))
     }
 
 
+    /// Layers in front of this view a debug overlay configured using the given traits.
+    ///
+    /// - Parameters:
+    ///   - traits: The traits to modify the default configuration.
+    ///
+    /// - Returns: A view with a configured debug overlay as foreground.
+    /// 
+    /// Example usage:
+    /// ```swift
+    /// // Hairline outline.
+    /// Text("Hello")
+    ///     .debugOutline(.hairline)
+    ///
+    /// // Outlines along size and origin info.
+    /// Text("Hello")
+    ///     .debugOutline(.size, .origin)
+    /// ```
     public func debugOutline(_ traits: DebugOutlineModifier.NewOptions.Trait...) -> some View {
         let options = DebugOutlineModifier.NewOptions(traits: traits)
         return modifier(DebugOutlineModifier(newOptions: options))
     }
 
 
-    /// Adds a debug outline overlay to the view.
+    /// Layers in front of this view a debug overlay configured using the given traits.
     ///
     /// - Parameters:
-    ///   - lineWidth: The width of the debug outline strokes. Default is 5, minimum is 1, smaller
-    ///       values are ignored.
-    ///   - options: Options to enable display of additional information, and other display configurations.
+    ///   - traits: The traits to modify the default configuration.
     ///
-    /// - Returns: The calling view with an overlay highlighing its frame, and additional information when enabled.
-    ///
-    /// Example usage:
-    /// ```swift
-    /// // Hairline outline.
-    /// Text("Hello")
-    ///     .debugOutline(lineWidth: 1)
-    ///
-    /// // Outlines along size and origin info.
-    /// Text("Hello")
-    ///     .debugOutline(options: .size, .origin)
-    /// ```
-//    public func debugOutline(
-//        lineWidth: CGFloat = 5,
-//        oldOptions: DebugOutlineModifier.OldOptions...
-//    ) -> some View {
-//        modifier(DebugOutlineModifier(lineWidth: lineWidth, oldOptions: oldOptions.union()))
-//    }
-
-
-
-    // TODO: remove oldOptions after transition is done
-//    public func debugOutline(
-//        _ traits: DebugOutlineModifier.NewOptions.Trait...,
-//        oldOptions: DebugOutlineModifier.OldOptions...
-//    ) -> some View {
-//        let options = DebugOutlineModifier.NewOptions(traits: traits)
-//        return modifier(DebugOutlineModifier(newOptions: options, oldOptions: oldOptions.union()))
-//    }
-
-
-    // TODO: remove oldOptions after transition is done
+    /// - Returns: A view with a configured debug overlay as foreground.
     public func debugOutline(
         traits: [DebugOutlineModifier.NewOptions.Trait],
-//        oldOptions: DebugOutlineModifier.OldOptions...
     ) -> some View {
         let options = DebugOutlineModifier.NewOptions(traits: traits)
-        return modifier(DebugOutlineModifier(newOptions: options, oldOptions: []))
+        return modifier(DebugOutlineModifier(newOptions: options))
     }
 
 }
