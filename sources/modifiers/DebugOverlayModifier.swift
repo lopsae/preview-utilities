@@ -204,16 +204,45 @@ public struct DebugOverlayModifier: ViewModifier {
                 // Centers the view based in the alignment even when the frame is smaller that the view.
                 .frame(size: geometry.size, alignment: innerAlignment.swiftAlignment)
 
-            case .outer:
-                VStack(alignment: .leading, spacing: 2) {
+            case .outer(let outerAlignment):
+                // TODO: Dry!
+                let yOffset: CGFloat = switch outerAlignment {
+                case .top:    -geometry.size.height
+                case .bottom: geometry.size.height
+                case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
+                    switch outerVerticalAlignment {
+                    case .above:
+                        -geometry.size.height
+                    case .top, .center, .bottom:
+                            .zero
+                    case .below:
+                        geometry.size.height
+                    }
+
+                }
+
+                let xOffset: CGFloat = switch outerAlignment {
+                case .leading:  -geometry.size.width
+                case .trailing: geometry.size.width
+                case .top, .bottom: .zero
+                }
+
+                // TODO: better name? textContainer? VStackAlignment?
+                VStack(alignment: outerAlignment.containerHorizontal.swiftAlignment, spacing: 2) {
                     infoTextGroup
                 }
                 .font(.caption)
                 .monospaced()
                 .foregroundStyle(.secondary)
-                .padding([.top, .leading], boundedLineWidth * 1.5)
+                // TODO: padding should be selective of alignment
+                .padding(boundedLineWidth * 1.5)
+                // Prevents info view from collapsing in small sizes.
                 .fixedSize()
-                .offset(y: geometry.size.height)
+                .border(.red)
+                // Centers the view based in the alignment even when the frame is smaller that the view.
+                .frame(size: geometry.size, alignment: outerAlignment.frameAlignment)
+                .border(.green)
+                .offset(x: xOffset, y: yOffset)
             }
         }
     }
@@ -333,6 +362,16 @@ private struct PreviewContent {
             .fill(.pink.gradient)
     }
 
+    enum OuterMayorAlignment: String, Identifiable, CaseIterable {
+        var id: Self { self }
+
+        case top
+        case leading
+        case bottom
+        case trailing
+
+    }
+
 }
 
 
@@ -346,7 +385,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Configuration", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Configuration", traits: .headerFooter(.fixed), PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var lineWidth: Double = 5
     @Previewable @State var traitOptions: [(
@@ -361,9 +400,13 @@ private struct PreviewContent {
         ("All Geometry",    .allGeometry,    false)
     ]
 
-    @Previewable @State var isInnerPosition: Bool = true
+    @Previewable @State var isInnerPosition: Bool = false
     @Previewable @State var innerHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .trailing
     @Previewable @State var innerVerticalAlignment: DebugOverlayModifier.Configuration.VerticalAlignment = .center
+
+    @Previewable @State var outerMayorAlignment: PreviewContent.OuterMayorAlignment = .leading
+    @Previewable @State var outerMinorHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .leading
+    @Previewable @State var outerMinorVerticalAlignment: DebugOverlayModifier.Configuration.OuterVerticalAlignment = .above
 
     let makeTraits: () -> [DebugOverlayModifier.Configuration.Trait] = {
         var traits: [DebugOverlayModifier.Configuration.Trait] = [.lineWidth(lineWidth)]
@@ -374,10 +417,21 @@ private struct PreviewContent {
                 : nil
         }
 
-        let positionTrait: DebugOverlayModifier.Configuration.Trait = if isInnerPosition {
-            .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
+        let positionTrait: DebugOverlayModifier.Configuration.Trait
+        if isInnerPosition {
+            positionTrait = .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
         } else {
-            .outerInfo
+            let outerAlignment: DebugOverlayModifier.Configuration.OuterAlignment = switch outerMayorAlignment {
+            case .top:
+                    .top(outerMinorHorizontalAlignment)
+            case .leading:
+                    .leading(outerMinorVerticalAlignment)
+            case .bottom:
+                    .bottom(outerMinorHorizontalAlignment)
+            case .trailing:
+                    .trailing(outerMinorVerticalAlignment)
+            }
+            positionTrait = .outerInfo(outerAlignment)
         }
         traits.append(positionTrait)
         return traits
@@ -395,17 +449,40 @@ private struct PreviewContent {
         if isInnerPosition {
             Picker("Horizontal Alignment", selection: $innerHorizontalAlignment) {
                 ForEach(DebugOverlayModifier.Configuration.HorizontalAlignment.allCases) { alignment in
+                    // TODO: make self identifiable to remove tag
                     Text(alignment.rawValue.capitalized).tag(alignment)
                 }
-            }
-            .pickerStyle(.segmented)
+            }.pickerStyle(.segmented)
 
-            Picker("Veertical Alignment", selection: $innerVerticalAlignment) {
+            Picker("Vertical Alignment", selection: $innerVerticalAlignment) {
                 ForEach(DebugOverlayModifier.Configuration.VerticalAlignment.allCases) { alignment in
+                    // TODO: make self identifiable to remove tag
                     Text(alignment.rawValue.capitalized).tag(alignment)
                 }
+            }.pickerStyle(.segmented)
+        } else {
+            Picker("Outer Mayor Alignment", selection: $outerMayorAlignment) {
+                ForEach(PreviewContent.OuterMayorAlignment.allCases) { outerMayorAlignment in
+                    Text(outerMayorAlignment.rawValue.capitalized)
+                }
+            }.pickerStyle(.segmented)
+
+            switch outerMayorAlignment {
+            case .top, .bottom:
+                Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment) {
+                    ForEach(DebugOverlayModifier.Configuration.HorizontalAlignment.allCases) { alignment in
+                        // TODO: make self identifiable to remove tag
+                        Text(alignment.rawValue.capitalized).tag(alignment)
+                    }
+                }.pickerStyle(.segmented)
+            case .leading, .trailing:
+                Picker("Vertical Minor Alignment", selection: $outerMinorVerticalAlignment) {
+                    ForEach(DebugOverlayModifier.Configuration.OuterVerticalAlignment.allCases) { alignment in
+                        // TODO: make self identifiable to remove tag
+                        Text(alignment.rawValue.capitalized).tag(alignment)
+                    }
+                }.pickerStyle(.segmented)
             }
-            .pickerStyle(.segmented)
         }
 
         ForEach(traitOptions.enumerated(), id: \.offset) { index, optionTuple in
@@ -425,15 +502,22 @@ private struct PreviewContent {
     .padding(.not(.top))
 
     if useSmallContent {
+        Rectangle().fill(.gray.tertiary)
+            .frame(width: 100)
+            .previewCaption("Spacer")
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
             .debugOverlay(traits: traits)
             .safeAreaPadding(20)
+        Rectangle().fill(.gray.tertiary)
+            .frame(width: 100)
+            .previewCaption("Spacer")
     } else {
         PreviewContent.star
             .debugOverlay(traits: traits)
-            .safeAreaPadding(.horizontal, 20)
+            .safeAreaPadding(.horizontal, 100)
+            .safeAreaPadding(.vertical, 40)
             .padding(.horizontal)
     }
 

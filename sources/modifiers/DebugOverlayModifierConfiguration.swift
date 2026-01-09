@@ -66,19 +66,27 @@ extension DebugOverlayModifier.Configuration {
     enum InfoPosition {
 
         case inner(InnerAlignment)
-        case outer // TODO: pending to add alignment options
+        case outer(OuterAlignment)
 
+        // TODO: might make more sense to have along the views, also for other textAlignment vars.
         var textAlignment: SwiftUI.TextAlignment {
             switch self {
-            case .inner(let InnerAlignment):
-                return InnerAlignment.horizontal.textAlignment
-            case .outer:
-                return .leading
+            case .inner(let innerAlignment):
+                return innerAlignment.horizontal.textAlignment
+            case .outer(let outerAlignment):
+                return outerAlignment.textAlignment
             }
         }
 
     }
 
+}
+
+
+// MARK: - InnerAlignment
+
+
+extension DebugOverlayModifier.Configuration {
 
     struct InnerAlignment {
         let horizontal: HorizontalAlignment
@@ -134,6 +142,104 @@ extension DebugOverlayModifier.Configuration {
 }
 
 
+extension DebugOverlayModifier.Configuration {
+
+    enum OuterAlignment {
+        case top(HorizontalAlignment)
+        case leading(OuterVerticalAlignment)
+        case bottom(HorizontalAlignment)
+        case trailing(OuterVerticalAlignment)
+
+        // TODO: might make more sense to have along the views, also for other textAlignment vars.
+        var textAlignment: SwiftUI.TextAlignment {
+            switch self {
+            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
+                horizontalAlignment.textAlignment
+            case .leading: .trailing
+            case .trailing: .leading
+            }
+        }
+
+        // TODO: might make more sense to have along the views.
+        // Alignment for the VStack containing the info view.
+        var containerHorizontal: HorizontalAlignment {
+            switch self {
+            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
+                horizontalAlignment
+            case .leading: .trailing
+            case .trailing: .leading
+            }
+        }
+
+        // TODO: Dry!
+        var frameAlignment: SwiftUI.Alignment {
+            switch self {
+            case .top(let horizontalAlignment):
+                return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: .bottom)
+            case .bottom(let horizontalAlignment):
+                return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: .top)
+            case .leading(let outerVerticalAlignment):
+                let vertical: SwiftUI.VerticalAlignment = switch outerVerticalAlignment {
+                case .above:
+                        .bottom
+                case .top:
+                        .top
+                case .center:
+                        .center
+                case .bottom:
+                        .bottom
+                case .below:
+                        .top
+                }
+                return .init(horizontal: .trailing, vertical: vertical)
+            case .trailing(let outerVerticalAlignment):
+                let vertical: SwiftUI.VerticalAlignment = switch outerVerticalAlignment {
+                case .above:
+                        .bottom
+                case .top:
+                        .top
+                case .center:
+                        .center
+                case .bottom:
+                        .bottom
+                case .below:
+                        .top
+                }
+                return .init(horizontal: .leading, vertical: vertical)
+            }
+        }
+
+        static var topLeading:     OuterAlignment { .top(.leading) }
+        static var topCenter:      OuterAlignment { .top(.center) }
+        static var topTrailing:    OuterAlignment { .top(.trailing) }
+
+        static var bottomLeading:  OuterAlignment { .bottom(.leading) }
+        static var bottomCenter:   OuterAlignment { .bottom(.center) }
+        static var bottomTrailing: OuterAlignment { .bottom(.trailing) }
+
+        static var leadingAbove:   OuterAlignment { .leading(.above) }
+        static var leadingTop:     OuterAlignment { .leading(.top) }
+        static var leadingCenter:  OuterAlignment { .leading(.center) }
+        static var leadingBottom:  OuterAlignment { .leading(.bottom) }
+        static var leadingUnder:   OuterAlignment { .leading(.below) }
+
+        static var trailingAbove:  OuterAlignment { .trailing(.above) }
+        static var trailingTop:    OuterAlignment { .trailing(.top) }
+        static var trailingCenter: OuterAlignment { .trailing(.center) }
+        static var trailingBottom: OuterAlignment { .trailing(.bottom) }
+        static var trailingBelow:  OuterAlignment { .trailing(.below) }
+
+    }
+
+
+    enum OuterVerticalAlignment: String, CaseIterable, Identifiable {
+        case above, top, center, bottom, below
+        var id: RawValue { self.rawValue }
+    }
+
+}
+
+
 // MARK: - Trait
 
 
@@ -170,13 +276,19 @@ extension DebugOverlayModifier.Configuration {
         static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
         static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
+        /// Default inner aligned position for the information caption: top-leading.
         static var innerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .inner(.topLeading)))
 
         static func innerInfo(_ innerAlingment: InnerAlignment) -> Trait {
             .modifier(InfoPositionModifier(infoPosition: .inner(innerAlingment)))
         }
 
-        static let outerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .outer))
+        /// Default outer aligned position for the information caption: top-leading.
+        static let outerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .outer(.topLeading)))
+
+        static func outerInfo(_ outerAlingment: OuterAlignment) -> Trait {
+            .modifier(InfoPositionModifier(infoPosition: .outer(outerAlingment)))
+        }
 
     }
 }
