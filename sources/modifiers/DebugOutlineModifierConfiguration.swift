@@ -10,8 +10,8 @@ import SwiftUI
 extension DebugOutlineModifier {
 
     // TODO: does it need to be sendable?
-    // TODO: move trait outside of options, might allow to make options interal
-    public struct NewOptions {
+    // TODO: move trait outside of configuration, might allow to make options interal
+    public struct Configuration {
 
         var lineWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
@@ -36,7 +36,7 @@ extension DebugOutlineModifier {
 // MARK: - InfoElements
 
 
-extension DebugOutlineModifier.NewOptions {
+extension DebugOutlineModifier.Configuration {
 
     // TODO: make sure these notes are preserved in other implementation of OptionSet: HeaderFooterPreviewOptions
     // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
@@ -64,7 +64,7 @@ extension DebugOutlineModifier.NewOptions {
 // MARK: - InfoPosition
 
 
-extension DebugOutlineModifier.NewOptions {
+extension DebugOutlineModifier.Configuration {
 
     enum InfoPosition {
 
@@ -140,20 +140,20 @@ extension DebugOutlineModifier.NewOptions {
 // MARK: - Trait
 
 
-extension DebugOutlineModifier.NewOptions {
+extension DebugOutlineModifier.Configuration {
 
-    /// Customizations that can be applied to a debug outline.
+    /// Customizations that can be applied to a debug overlay.
     public enum Trait {
         case modifier(any Modifier)
         case traits([Trait])
 
-        func apply(to options: inout DebugOutlineModifier.NewOptions) {
+        func apply(to configuration: inout DebugOutlineModifier.Configuration) {
             switch self {
             case .modifier(let modifier):
-                modifier.update(options: &options)
+                modifier.update(configuration: &configuration)
             case .traits(let traits):
                 for trait in traits {
-                    trait.apply(to: &options)
+                    trait.apply(to: &configuration)
                 }
             }
         }
@@ -185,36 +185,36 @@ extension DebugOutlineModifier.NewOptions {
 // MARK: - Modifiers
 
 
-extension DebugOutlineModifier.NewOptions {
+extension DebugOutlineModifier.Configuration {
 
     public protocol Modifier {
-        func update(options: inout DebugOutlineModifier.NewOptions)
+        func update(configuration: inout DebugOutlineModifier.Configuration)
     }
 
     struct HairlineModifier: Modifier {
-        func update(options: inout DebugOutlineModifier.NewOptions) {
-            options.lineWidth = 1
+        func update(configuration: inout DebugOutlineModifier.Configuration) {
+            configuration.lineWidth = 1
         }
     }
 
     struct LineWidthModifier: Modifier {
         let lineWidth: CGFloat
-        func update(options: inout DebugOutlineModifier.NewOptions) {
-            options.lineWidth = lineWidth
+        func update(configuration: inout DebugOutlineModifier.Configuration) {
+            configuration.lineWidth = lineWidth
         }
     }
 
     struct InfoElementsModifier: Modifier {
         let infoElements: InfoElements
-        func update(options: inout DebugOutlineModifier.NewOptions) {
-            options.infoElements.formUnion(infoElements)
+        func update(configuration: inout DebugOutlineModifier.Configuration) {
+            configuration.infoElements.formUnion(infoElements)
         }
     }
 
     struct InfoPositionModifier: Modifier {
         let infoPosition: InfoPosition
-        func update(options: inout DebugOutlineModifier.NewOptions) {
-            options.infoPosition = infoPosition
+        func update(configuration: inout DebugOutlineModifier.Configuration) {
+            configuration.infoPosition = infoPosition
         }
     }
 

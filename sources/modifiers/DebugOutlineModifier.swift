@@ -14,12 +14,12 @@ import SwiftUI
 /// display additional view information like size, origin, and the safe area insets.
 public struct DebugOutlineModifier: ViewModifier {
 
-    /// The line width can be 1 at a minimum, smaller values are ignored, so that there is always
-    /// a visual overlay even on zero sizes.
+    /// The line width is limited to minimum of 1 so that there is always a visual overlay even on
+    /// zero sizes. Smaller values are ignored.
     private static let minLineWidth: CGFloat = 1
     private static let minReticuleLength: CGFloat = 2
 
-    let newOptions: NewOptions
+    let configuration: Configuration
 
     // TODO: make also static
     let outerShapeStyle:     some ShapeStyle = .blue.tertiary
@@ -27,9 +27,9 @@ public struct DebugOutlineModifier: ViewModifier {
     let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
 
 
-    /// Creates a modifier with the given options. 
-    init(newOptions: NewOptions) {
-        self.newOptions = newOptions
+    /// Creates a modifier with the given configuration.
+    init(configuration: Configuration) {
+        self.configuration = configuration
     }
 
 
@@ -50,7 +50,7 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let size = geometry.size
-        let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
+        let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
 
         // When debugged view is smaller that `lineWidth*2` the safe areas are still drawn with a
         // thickness of `lineWidth*2` to remain visible, and offset to stay centered with the
@@ -103,7 +103,7 @@ public struct DebugOutlineModifier: ViewModifier {
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
         let correctedFrame = correctZeroRect(localFrame)
-        let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
+        let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
 
         Rectangle()
             .stroke(outerShapeStyle, lineWidth: boundedLineWidth * 2)
@@ -124,7 +124,7 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
-        let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
+        let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
         // When debugged view is smaller that `lineWidth*2` the lineWidth used is reduced allow
         // it to draw at smaller sizes, otherwise no inner stroke is drawn.
         let correctedLineWidth = min(geometry.size.min, boundedLineWidth * 2) / 2.0
@@ -142,7 +142,7 @@ public struct DebugOutlineModifier: ViewModifier {
     @ViewBuilder
     private func originReticuleRects(geometry: GeometryProxy) -> some View {
         let thickness: CGFloat = 1
-        let boundedLength = newOptions.lineWidth.clamped(to: Self.minReticuleLength...)
+        let boundedLength = configuration.lineWidth.clamped(to: Self.minReticuleLength...)
         // +thickness to correctly center the reticule, specially at very small sizes.
         let reticuleLength = (boundedLength * 2) + thickness
 
@@ -159,32 +159,32 @@ public struct DebugOutlineModifier: ViewModifier {
 
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
-        if !newOptions.infoElements.isEmpty {
-            let boundedLineWidth = newOptions.lineWidth.clamped(to: Self.minLineWidth...)
+        if !configuration.infoElements.isEmpty {
+            let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
 
             let infoTextGroup = Group {
                 let globalFrame = geometry.frame(in: .global)
                 let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
-                if newOptions.infoElements.contains(.size) {
+                if configuration.infoElements.contains(.size) {
                     let formattedWidth = globalFrame.width.formatted(fractionLength)
                     let formattedHeight = globalFrame.height.formatted(fractionLength)
                     Text("size: \(formattedWidth), \(formattedHeight)")
                 }
 
-                if newOptions.infoElements.contains(.origin) {
+                if configuration.infoElements.contains(.origin) {
                     let formattedX = globalFrame.origin.x.formatted(fractionLength)
                     let formattedY = globalFrame.origin.y.formatted(fractionLength)
                     Text("orig: \(formattedX), \(formattedY)")
                 }
 
-                if newOptions.infoElements.contains(.safeAreaInsets) {
+                if configuration.infoElements.contains(.safeAreaInsets) {
                     Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
-                        .multilineTextAlignment(newOptions.infoPosition.textAlignment)
+                        .multilineTextAlignment(configuration.infoPosition.textAlignment)
                 }
             } // Group
 
-            switch newOptions.infoPosition {
+            switch configuration.infoPosition {
             case .inner(let innerAlignment):
                 VStack(alignment: innerAlignment.horizontal.swiftAlignment, spacing: 2) {
                     infoTextGroup
@@ -240,8 +240,8 @@ extension View {
     ///
     /// - Returns: A view with a debug overlay as foreground.
     public func debugOutline() -> some View {
-        let options = DebugOutlineModifier.NewOptions()
-        return modifier(DebugOutlineModifier(newOptions: options))
+        let configuration = DebugOutlineModifier.Configuration()
+        return modifier(DebugOutlineModifier(configuration: configuration))
     }
 
 
@@ -262,9 +262,9 @@ extension View {
     /// Text("Hello")
     ///     .debugOutline(.size, .origin)
     /// ```
-    public func debugOutline(_ traits: DebugOutlineModifier.NewOptions.Trait...) -> some View {
-        let options = DebugOutlineModifier.NewOptions(traits: traits)
-        return modifier(DebugOutlineModifier(newOptions: options))
+    public func debugOutline(_ traits: DebugOutlineModifier.Configuration.Trait...) -> some View {
+        let configuration = DebugOutlineModifier.Configuration(traits: traits)
+        return modifier(DebugOutlineModifier(configuration: configuration))
     }
 
 
@@ -275,10 +275,10 @@ extension View {
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
     public func debugOutline(
-        traits: [DebugOutlineModifier.NewOptions.Trait],
+        traits: [DebugOutlineModifier.Configuration.Trait],
     ) -> some View {
-        let options = DebugOutlineModifier.NewOptions(traits: traits)
-        return modifier(DebugOutlineModifier(newOptions: options))
+        let configuration = DebugOutlineModifier.Configuration(traits: traits)
+        return modifier(DebugOutlineModifier(configuration: configuration))
     }
 
 }
@@ -342,11 +342,11 @@ private struct PreviewContent {
 }
 
 
-#Preview("Options", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Configuration", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var lineWidth: Double = 10
-    @Previewable @State var options: [(
+    @Previewable @State var traitOptions: [(
         label: String,
-        trait: DebugOutlineModifier.NewOptions.Trait,
+        trait: DebugOutlineModifier.Configuration.Trait,
         enabled: Bool
     )] = [
         ("Size",            .size,           true),
@@ -356,20 +356,19 @@ private struct PreviewContent {
     ]
 
     @Previewable @State var isInnerPosition: Bool = true
-    @Previewable @State var innerHorizontalAlignment: DebugOutlineModifier.NewOptions.HorizontalAlignment = .leading
-    @Previewable @State var innerVerticalAlignment: DebugOutlineModifier.NewOptions.VerticalAlignment = .top
+    @Previewable @State var innerHorizontalAlignment: DebugOutlineModifier.Configuration.HorizontalAlignment = .leading
+    @Previewable @State var innerVerticalAlignment: DebugOutlineModifier.Configuration.VerticalAlignment = .top
 
-    let makeTraits: () -> [DebugOutlineModifier.NewOptions.Trait] = {
-        var traits: [DebugOutlineModifier.NewOptions.Trait] = [.lineWidth(lineWidth)]
+    let makeTraits: () -> [DebugOutlineModifier.Configuration.Trait] = {
+        var traits: [DebugOutlineModifier.Configuration.Trait] = [.lineWidth(lineWidth)]
 
-        traits += options.compactMap { optionTuple in
-            let (_, trait, enabled) = optionTuple
-            return enabled
-                ? trait
+        traits += traitOptions.compactMap { traitTuple in
+            return traitTuple.enabled
+                ? traitTuple.trait
                 : nil
         }
 
-        let positionTrait: DebugOutlineModifier.NewOptions.Trait = if isInnerPosition {
+        let positionTrait: DebugOutlineModifier.Configuration.Trait = if isInnerPosition {
             .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
         } else {
             .outerInfo
@@ -389,22 +388,22 @@ private struct PreviewContent {
 
         if isInnerPosition {
             Picker("Horizontal Alignment", selection: $innerHorizontalAlignment) {
-                ForEach(DebugOutlineModifier.NewOptions.HorizontalAlignment.allCases) { alignment in
+                ForEach(DebugOutlineModifier.Configuration.HorizontalAlignment.allCases) { alignment in
                     Text(alignment.rawValue.capitalized).tag(alignment)
                 }
             }
             .pickerStyle(.segmented)
 
             Picker("Veertical Alignment", selection: $innerVerticalAlignment) {
-                ForEach(DebugOutlineModifier.NewOptions.VerticalAlignment.allCases) { alignment in
+                ForEach(DebugOutlineModifier.Configuration.VerticalAlignment.allCases) { alignment in
                     Text(alignment.rawValue.capitalized).tag(alignment)
                 }
             }
             .pickerStyle(.segmented)
         }
 
-        ForEach(options.enumerated(), id: \.offset) { index, optionTuple in
-            Toggle(optionTuple.label, isOn: $options[index].enabled)
+        ForEach(traitOptions.enumerated(), id: \.offset) { index, optionTuple in
+            Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
         }
 
         Slider(
