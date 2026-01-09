@@ -362,14 +362,8 @@ private struct PreviewContent {
             .fill(.pink.gradient)
     }
 
-    enum OuterMayorAlignment: String, Identifiable, CaseIterable {
-        var id: Self { self }
-
-        case top
-        case leading
-        case bottom
-        case trailing
-
+    enum OuterMayorAlignment: String, SelfIdentifiable, CaseIterable {
+        case top, leading, bottom, trailing
     }
 
 }
@@ -447,17 +441,16 @@ private struct PreviewContent {
         .pickerStyle(.segmented)
 
         if isInnerPosition {
+            // TODO: make some extensions of Picker to remove the foreach, maybe use selfIdentifiable, maybe use a formatter!
             Picker("Horizontal Alignment", selection: $innerHorizontalAlignment) {
                 ForEach(DebugOverlayModifier.Configuration.HorizontalAlignment.allCases) { alignment in
-                    // TODO: make self identifiable to remove tag
-                    Text(alignment.rawValue.capitalized).tag(alignment)
+                    Text(alignment.rawValue.capitalized)
                 }
             }.pickerStyle(.segmented)
 
             Picker("Vertical Alignment", selection: $innerVerticalAlignment) {
                 ForEach(DebugOverlayModifier.Configuration.VerticalAlignment.allCases) { alignment in
-                    // TODO: make self identifiable to remove tag
-                    Text(alignment.rawValue.capitalized).tag(alignment)
+                    Text(alignment.rawValue.capitalized)
                 }
             }.pickerStyle(.segmented)
         } else {
@@ -471,15 +464,13 @@ private struct PreviewContent {
             case .top, .bottom:
                 Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment) {
                     ForEach(DebugOverlayModifier.Configuration.HorizontalAlignment.allCases) { alignment in
-                        // TODO: make self identifiable to remove tag
-                        Text(alignment.rawValue.capitalized).tag(alignment)
+                        Text(alignment.rawValue.capitalized)
                     }
                 }.pickerStyle(.segmented)
             case .leading, .trailing:
                 Picker("Vertical Minor Alignment", selection: $outerMinorVerticalAlignment) {
                     ForEach(DebugOverlayModifier.Configuration.OuterVerticalAlignment.allCases) { alignment in
-                        // TODO: make self identifiable to remove tag
-                        Text(alignment.rawValue.capitalized).tag(alignment)
+                        Text(alignment.rawValue.capitalized)
                     }
                 }.pickerStyle(.segmented)
             }

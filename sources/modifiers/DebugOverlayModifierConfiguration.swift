@@ -97,15 +97,11 @@ extension DebugOverlayModifier.Configuration {
         var swiftAlignment: SwiftUI.Alignment {
             .init(horizontal: horizontal.swiftAlignment, vertical: vertical.swiftAlignment)
         }
-
     }
 
 
-    enum HorizontalAlignment: String, CaseIterable, Identifiable {
-
+    enum HorizontalAlignment: String, CaseIterable, SelfIdentifiable {
         case leading, center, trailing
-
-        var id: RawValue { self.rawValue }
 
         var swiftAlignment: SwiftUI.HorizontalAlignment {
             switch self {
@@ -125,10 +121,8 @@ extension DebugOverlayModifier.Configuration {
     }
 
 
-    enum VerticalAlignment: String, CaseIterable, Identifiable {
+    enum VerticalAlignment: String, CaseIterable, SelfIdentifiable {
         case top, center, bottom
-
-        var id: RawValue { self.rawValue }
 
         var swiftAlignment: SwiftUI.VerticalAlignment {
             switch self {
@@ -232,9 +226,8 @@ extension DebugOverlayModifier.Configuration {
     }
 
 
-    enum OuterVerticalAlignment: String, CaseIterable, Identifiable {
+    enum OuterVerticalAlignment: String, CaseIterable, SelfIdentifiable {
         case above, top, center, bottom, below
-        var id: RawValue { self.rawValue }
     }
 
 }
