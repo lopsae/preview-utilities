@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-extension DebugOutlineModifier {
+extension DebugOverlayModifier {
 
     // TODO: does it need to be sendable?
     // TODO: move trait outside of configuration, might allow to make options interal
@@ -36,7 +36,7 @@ extension DebugOutlineModifier {
 // MARK: - InfoElements
 
 
-extension DebugOutlineModifier.Configuration {
+extension DebugOverlayModifier.Configuration {
 
     // TODO: make sure these notes are preserved in other implementation of OptionSet: HeaderFooterPreviewOptions
     // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
@@ -64,7 +64,7 @@ extension DebugOutlineModifier.Configuration {
 // MARK: - InfoPosition
 
 
-extension DebugOutlineModifier.Configuration {
+extension DebugOverlayModifier.Configuration {
 
     enum InfoPosition {
 
@@ -140,14 +140,14 @@ extension DebugOutlineModifier.Configuration {
 // MARK: - Trait
 
 
-extension DebugOutlineModifier.Configuration {
+extension DebugOverlayModifier.Configuration {
 
     /// Customizations that can be applied to a debug overlay.
     public enum Trait {
         case modifier(any Modifier)
         case traits([Trait])
 
-        func apply(to configuration: inout DebugOutlineModifier.Configuration) {
+        func apply(to configuration: inout DebugOverlayModifier.Configuration) {
             switch self {
             case .modifier(let modifier):
                 modifier.update(configuration: &configuration)
@@ -185,35 +185,35 @@ extension DebugOutlineModifier.Configuration {
 // MARK: - Modifiers
 
 
-extension DebugOutlineModifier.Configuration {
+extension DebugOverlayModifier.Configuration {
 
     public protocol Modifier {
-        func update(configuration: inout DebugOutlineModifier.Configuration)
+        func update(configuration: inout DebugOverlayModifier.Configuration)
     }
 
     struct HairlineModifier: Modifier {
-        func update(configuration: inout DebugOutlineModifier.Configuration) {
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
             configuration.lineWidth = 1
         }
     }
 
     struct LineWidthModifier: Modifier {
         let lineWidth: CGFloat
-        func update(configuration: inout DebugOutlineModifier.Configuration) {
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
             configuration.lineWidth = lineWidth
         }
     }
 
     struct InfoElementsModifier: Modifier {
         let infoElements: InfoElements
-        func update(configuration: inout DebugOutlineModifier.Configuration) {
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
             configuration.infoElements.formUnion(infoElements)
         }
     }
 
     struct InfoPositionModifier: Modifier {
         let infoPosition: InfoPosition
-        func update(configuration: inout DebugOutlineModifier.Configuration) {
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
             configuration.infoPosition = infoPosition
         }
     }

@@ -7,12 +7,10 @@
 import SwiftUI
 
 
-// TODO: could rename to debugOverlay, more acurate name.
-
 /// Draws in an overlay of the content view a dashed stroke inset in the view border, a outset solid
 /// stroke, and rectangles to visualize any safe areas affecting the view. Can also be configured to
-/// display additional view information like size, origin, and the safe area insets.
-public struct DebugOutlineModifier: ViewModifier {
+/// display additional information like size, origin, and the safe area insets.
+public struct DebugOverlayModifier: ViewModifier {
 
     /// The line width is limited to minimum of 1 so that there is always a visual overlay even on
     /// zero sizes. Smaller values are ignored.
@@ -240,8 +238,8 @@ extension View {
     ///
     /// - Returns: A view with a debug overlay as foreground.
     public func debugOutline() -> some View {
-        let configuration = DebugOutlineModifier.Configuration()
-        return modifier(DebugOutlineModifier(configuration: configuration))
+        let configuration = DebugOverlayModifier.Configuration()
+        return modifier(DebugOverlayModifier(configuration: configuration))
     }
 
 
@@ -262,9 +260,9 @@ extension View {
     /// Text("Hello")
     ///     .debugOutline(.size, .origin)
     /// ```
-    public func debugOutline(_ traits: DebugOutlineModifier.Configuration.Trait...) -> some View {
-        let configuration = DebugOutlineModifier.Configuration(traits: traits)
-        return modifier(DebugOutlineModifier(configuration: configuration))
+    public func debugOutline(_ traits: DebugOverlayModifier.Configuration.Trait...) -> some View {
+        let configuration = DebugOverlayModifier.Configuration(traits: traits)
+        return modifier(DebugOverlayModifier(configuration: configuration))
     }
 
 
@@ -275,10 +273,10 @@ extension View {
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
     public func debugOutline(
-        traits: [DebugOutlineModifier.Configuration.Trait],
+        traits: [DebugOverlayModifier.Configuration.Trait],
     ) -> some View {
-        let configuration = DebugOutlineModifier.Configuration(traits: traits)
-        return modifier(DebugOutlineModifier(configuration: configuration))
+        let configuration = DebugOverlayModifier.Configuration(traits: traits)
+        return modifier(DebugOverlayModifier(configuration: configuration))
     }
 
 }
@@ -346,7 +344,7 @@ private struct PreviewContent {
     @Previewable @State var lineWidth: Double = 10
     @Previewable @State var traitOptions: [(
         label: String,
-        trait: DebugOutlineModifier.Configuration.Trait,
+        trait: DebugOverlayModifier.Configuration.Trait,
         enabled: Bool
     )] = [
         ("Size",            .size,           true),
@@ -356,11 +354,11 @@ private struct PreviewContent {
     ]
 
     @Previewable @State var isInnerPosition: Bool = true
-    @Previewable @State var innerHorizontalAlignment: DebugOutlineModifier.Configuration.HorizontalAlignment = .leading
-    @Previewable @State var innerVerticalAlignment: DebugOutlineModifier.Configuration.VerticalAlignment = .top
+    @Previewable @State var innerHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .leading
+    @Previewable @State var innerVerticalAlignment: DebugOverlayModifier.Configuration.VerticalAlignment = .top
 
-    let makeTraits: () -> [DebugOutlineModifier.Configuration.Trait] = {
-        var traits: [DebugOutlineModifier.Configuration.Trait] = [.lineWidth(lineWidth)]
+    let makeTraits: () -> [DebugOverlayModifier.Configuration.Trait] = {
+        var traits: [DebugOverlayModifier.Configuration.Trait] = [.lineWidth(lineWidth)]
 
         traits += traitOptions.compactMap { traitTuple in
             return traitTuple.enabled
@@ -368,7 +366,7 @@ private struct PreviewContent {
                 : nil
         }
 
-        let positionTrait: DebugOutlineModifier.Configuration.Trait = if isInnerPosition {
+        let positionTrait: DebugOverlayModifier.Configuration.Trait = if isInnerPosition {
             .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
         } else {
             .outerInfo
@@ -388,14 +386,14 @@ private struct PreviewContent {
 
         if isInnerPosition {
             Picker("Horizontal Alignment", selection: $innerHorizontalAlignment) {
-                ForEach(DebugOutlineModifier.Configuration.HorizontalAlignment.allCases) { alignment in
+                ForEach(DebugOverlayModifier.Configuration.HorizontalAlignment.allCases) { alignment in
                     Text(alignment.rawValue.capitalized).tag(alignment)
                 }
             }
             .pickerStyle(.segmented)
 
             Picker("Veertical Alignment", selection: $innerVerticalAlignment) {
-                ForEach(DebugOutlineModifier.Configuration.VerticalAlignment.allCases) { alignment in
+                ForEach(DebugOverlayModifier.Configuration.VerticalAlignment.allCases) { alignment in
                     Text(alignment.rawValue.capitalized).tag(alignment)
                 }
             }
