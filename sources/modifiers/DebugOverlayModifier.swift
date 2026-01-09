@@ -17,12 +17,11 @@ public struct DebugOverlayModifier: ViewModifier {
     private static let minLineWidth: CGFloat = 1
     private static let minReticuleLength: CGFloat = 2
 
-    let configuration: Configuration
+    private static let outerShapeStyle:     some ShapeStyle = .blue.tertiary
+    private static let innerShapeStyle:     some ShapeStyle = .red.tertiary
+    private static let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
 
-    // TODO: make also static
-    let outerShapeStyle:     some ShapeStyle = .blue.tertiary
-    let innerShapeStyle:     some ShapeStyle = .red.tertiary
-    let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
+    let configuration: Configuration
 
 
     /// Creates a modifier with the given configuration.
@@ -68,21 +67,21 @@ public struct DebugOverlayModifier: ViewModifier {
         // Top.
         if topInset != 0 {
             Rectangle()
-                .fill(safeAreasShapeStyle)
+                .fill(Self.safeAreasShapeStyle)
                 .frame(width: minWidth, height: topInset)
                 .offset(x: xOffset, y: -topInset)
         }
         // Leading.
         if leadingInset != 0 {
             Rectangle()
-                .fill(safeAreasShapeStyle)
+                .fill(Self.safeAreasShapeStyle)
                 .frame(width: leadingInset, height: minHeight)
                 .offset(x: -leadingInset, y: yOffset)
         }
         // Bottom.
         if bottomInset != 0 {
             Rectangle()
-                .fill(safeAreasShapeStyle)
+                .fill(Self.safeAreasShapeStyle)
                 .frame(width: minWidth, height: bottomInset)
                 .offset(x: xOffset, y: size.height)
         }
@@ -90,7 +89,7 @@ public struct DebugOverlayModifier: ViewModifier {
         // Trailing.
         if trailingInset != 0 {
             Rectangle()
-                .fill(safeAreasShapeStyle)
+                .fill(Self.safeAreasShapeStyle)
                 .frame(width: trailingInset, height: minHeight)
                 .offset(x: size.width, y: yOffset)
         }
@@ -104,7 +103,7 @@ public struct DebugOverlayModifier: ViewModifier {
         let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
 
         Rectangle()
-            .stroke(outerShapeStyle, lineWidth: boundedLineWidth * 2)
+            .stroke(Self.outerShapeStyle, lineWidth: boundedLineWidth * 2)
             .mask {
                 Path { path in
                     path.addRect(correctedFrame.inset(by: -boundedLineWidth))
@@ -133,7 +132,7 @@ public struct DebugOverlayModifier: ViewModifier {
         )
 
         Rectangle()
-            .strokeBorder(innerShapeStyle, style: strokeStyle)
+            .strokeBorder(Self.innerShapeStyle, style: strokeStyle)
     }
 
 
