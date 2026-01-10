@@ -13,6 +13,10 @@ extension Picker {
     // ElementID to Hashable given its struct definition. The constrains in this initializers are
     // not strictly necessary. Still, these are left here for completeness.
 
+    // For the initializers that use self-identified elements, an Identifiable constraint is
+    // preferred over SelfIdentifiable. With that constraint SelfIdentifiable is not required, and
+    // the compiler will detect if a type overrides the default `id` provided by SelfIdentifiable.
+
 
     /// Creates a picker that generates its label and creates the option views with the elements
     /// of a given collection identified through a key path.
@@ -74,10 +78,10 @@ extension Picker {
 
 
     /// Creates a picker that generates its label and creates the option views with the elements
-    /// of a given collection of possible selection values which type self-identifies.
+    /// of a given collection of possible selection values.
     ///
     /// The selection type and the elements of the collection are constrained to an `Identifiable`
-    /// which `ID` type is itself.
+    /// that self-identifies, that is, in which the `ID` type is itself.
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
     /// a given localized key.
@@ -88,9 +92,6 @@ extension Picker {
         @ViewBuilder elementContent: @escaping (SelectionValue) -> ElementContent
     ) where
         ValuesCollection: RandomAccessCollection,
-        // Identifiable is preferred over SelfIdentifiable here. This way SelfIdentifiable is not
-        // required, and the compiler will detect if a type overrides the default `id` provided by
-        // SelfIdentifiable.
         ValuesCollection.Element: Identifiable,
         ValuesCollection.Element == SelectionValue,
         ValuesCollection.Element.ID == SelectionValue,
@@ -104,6 +105,40 @@ extension Picker {
             content: {
                 ForEach(selectables) { element in
                     elementContent(element)
+                }
+            }
+        )
+    }
+
+
+    /// Creates a picker that generates its label and the option views with the formatted elements
+    /// of a given collection of possible selection values.
+    ///
+    /// The selection type and the elements of the collection are constrained to an `Identifiable`
+    /// that self-identifies, that is, in which the `ID` type is itself.
+    ///
+    /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
+    /// the picker label, and transforming the selection values through a format style for their
+    /// respective labels.
+    init<ValuesCollection>(
+        _ title: LocalizedStringKey,
+        selection: Binding<SelectionValue>,
+        selectables: ValuesCollection,
+        elementFormat: any FormatStyle<SelectionValue, String>
+    ) where
+        ValuesCollection: RandomAccessCollection,
+        ValuesCollection.Element: Identifiable,
+        ValuesCollection.Element == SelectionValue,
+        ValuesCollection.Element.ID == SelectionValue,
+        Label == Text,
+        Content == ForEach<ValuesCollection, SelectionValue, Text>
+    {
+        self.init(
+            title,
+            selection: selection,
+            content: {
+                ForEach(selectables) { element in
+                    Text(element, format: elementFormat)
                 }
             }
         )
@@ -193,3 +228,27 @@ private struct PreviewContent {
     }
     .padding(.horizontal)
 }
+
+
+#Preview("Formatted", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var values: PreviewContent.SelfIdentifiedValues = .heidi
+
+    VStack(alignment: .leading) {
+        // TODO: Use Preview Caption
+        Text("Picker with a collection of **self-identifiable** elements, using a format style.")
+            .font(.caption)
+        Text("Value: \(values.rawValue)")
+            .monospaced()
+        Picker(
+            "Formatted Picker",
+            selection: $values,
+            selectables: PreviewContent.SelfIdentifiedValues.allCases,
+            elementFormat: .rawValue()
+        ).pickerStyle(.segmented)
+    }
+    .padding(.horizontal)
+}
+
+
+
+
