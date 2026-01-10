@@ -249,10 +249,10 @@ extension Slider where Label : View {
 }
 
 
-// MARK: - Static Functions
+// MARK: - Convenience functions
 
 
-extension Slider /*where Label == Text, ValueLabel == Text*/ {
+extension Slider {
 
     static func captioned<Value>(
         _ title: LocalizedStringKey,
@@ -270,40 +270,53 @@ extension Slider /*where Label == Text, ValueLabel == Text*/ {
        ValueLabel == Text
     {
         let slider = Slider(
-            title,
-            value: value,
-            in: bounds,
+            title, value: value, in: bounds,
             currentValueFormat: currentValueFormat,
             boundsValueFormat: boundsValueFormat,
             onEditingChanged: onEditingChanged)
 
         #if os(iOS)
-
-        return VStack {
-            slider
-            Text("\(Text(title)): \(value.wrappedValue, format: currentValueFormat)")
-                .font(.caption.monospaced())
-        }
-
-        #elseif os(macOS)
-
-        return HStack {
-            slider
-            ZStack {
-                // Hidden view to keep the size of the largest value.
-                Text(bounds.upperBound, format: currentValueFormat)
-                    .font(.caption.monospaced())
-                    .hidden()
-                Text(value.wrappedValue, format: currentValueFormat)
+            return VStack {
+                slider
+                Text("\(Text(title)): \(value.wrappedValue, format: currentValueFormat)")
                     .font(.caption.monospaced())
             }
-        }
-
+        #elseif os(macOS)
+            return HStack {
+                slider
+                ZStack {
+                    // Hidden view to keep the size of the largest value.
+                    Text(bounds.upperBound, format: currentValueFormat)
+                        .font(.caption.monospaced())
+                        .hidden()
+                    Text(value.wrappedValue, format: currentValueFormat)
+                        .font(.caption.monospaced())
+                }
+            }
         #else
-
-        return slider
-
+            return slider
         #endif
+    }
+
+
+    static func captioned<Value>(
+        _ title: LocalizedStringKey,
+        value: Binding<Value>,
+        in bounds: ClosedRange<Value> = 0...1,
+        valueFormat: any FormatStyle<Value, String>,
+        onEditingChanged: @escaping (Bool) -> Void = { _ in }
+    ) -> some View
+    where
+        Value : BinaryFloatingPoint,
+        Value.Stride : BinaryFloatingPoint,
+        Label == Text,
+        ValueLabel == Text
+    {
+        Self.captioned(
+            title, value: value, in: bounds,
+            currentValueFormat: valueFormat,
+            boundsValueFormat: valueFormat,
+            onEditingChanged: onEditingChanged)
     }
 
 }
@@ -375,13 +388,13 @@ private struct PreviewContent {
 
 #Preview("Captioned", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var value: Double = 5
+    @Previewable @State var roundedValue: Double = 5
 
     VStack(alignment: .leading) {
         // TODO: use PreviewCaption.
-        Text("Slider using the `captioned` utility function.")
+        Text("Slider using the `captioned` utility function with **separate formats**.")
             .font(.caption)
-            .maxWidthFrame()
-            .padding(.bottom)
+            .maxWidthFrame(alignment: .leading)
 
         Slider.captioned(
             "Captioned",
@@ -389,6 +402,18 @@ private struct PreviewContent {
             in: 0...10,
             currentValueFormat: .fractionLength(2),
             boundsValueFormat: .arithmeticRoundedInteger)
+
+        // TODO: use PreviewCaption.
+        Text("Slider using the `captioned` utility function with a **single format**.")
+            .font(.caption)
+            .maxWidthFrame(alignment: .leading)
+            .padding(.top)
+
+        Slider.captioned(
+            "Rounded",
+            value: $roundedValue,
+            in: 0...10,
+            valueFormat: .arithmeticRoundedInteger)
     }
     .padding()
 }
