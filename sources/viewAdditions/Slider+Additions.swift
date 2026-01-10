@@ -96,7 +96,6 @@ extension Slider where Label : View {
         Label == Text,
         ValueLabel == Text
     {
-
         self.init(
             value: value,
             in: bounds,
@@ -250,6 +249,66 @@ extension Slider where Label : View {
 }
 
 
+// MARK: - Static Functions
+
+
+extension Slider /*where Label == Text, ValueLabel == Text*/ {
+
+    static func captioned<Value>(
+        _ title: LocalizedStringKey,
+        value: Binding<Value>,
+        in bounds: ClosedRange<Value> = 0...1,
+        step: Value.Stride = 1,
+        currentValueFormat: any FormatStyle<Value, String>,
+        boundsValueFormat: any FormatStyle<Value, String>,
+        onEditingChanged: @escaping (Bool) -> Void = { _ in }
+    ) -> some View
+    where
+       Value : BinaryFloatingPoint,
+       Value.Stride : BinaryFloatingPoint,
+       Label == Text,
+       ValueLabel == Text
+    {
+        let slider = Slider(
+            title,
+            value: value,
+            in: bounds,
+            currentValueFormat: currentValueFormat,
+            boundsValueFormat: boundsValueFormat,
+            onEditingChanged: onEditingChanged)
+
+        #if os(iOS)
+
+        return VStack {
+            slider
+            Text("\(Text(title)): \(value.wrappedValue, format: currentValueFormat)")
+                .font(.caption.monospaced())
+        }
+
+        #elseif os(macOS)
+
+        return HStack {
+            slider
+            ZStack {
+                // Hidden view to keep the size of the largest value.
+                Text(bounds.upperBound, format: currentValueFormat)
+                    .font(.caption.monospaced())
+                    .hidden()
+                Text(value.wrappedValue, format: currentValueFormat)
+                    .font(.caption.monospaced())
+            }
+        }
+
+        #else
+
+        return slider
+
+        #endif
+    }
+
+}
+
+
 // MARK: - Previews
 
 
@@ -309,6 +368,27 @@ private struct PreviewContent {
             value: $value,
             mapped: $mapped
         )
+    }
+    .padding()
+}
+
+
+#Preview("Captioned", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var value: Double = 5
+
+    VStack(alignment: .leading) {
+        // TODO: use PreviewCaption.
+        Text("Slider using the `captioned` utility function.")
+            .font(.caption)
+            .maxWidthFrame()
+            .padding(.bottom)
+
+        Slider.captioned(
+            "Captioned",
+            value: $value,
+            in: 0...10,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
     }
     .padding()
 }
