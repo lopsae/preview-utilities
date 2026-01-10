@@ -7,6 +7,7 @@
 import Foundation
 
 
+/// A structure that converts a string to its first character, optionally capitalized.
 struct FirstCharacterFormatStyle: FormatStyle {
 
     let capitalized: Bool

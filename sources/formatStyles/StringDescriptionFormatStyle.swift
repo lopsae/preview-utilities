@@ -6,7 +6,8 @@
 
 import Foundation
 
-/// FormatStyle that outputs the string description of the input.
+
+/// A structure that converts any instance to its string description.
 public struct StringDescriptionFormatStyle<Input>: FormatStyle {
 
     public init() { }
