@@ -111,8 +111,8 @@ extension Picker {
     }
 
 
-    /// Creates a picker that generates its label and the option views with the formatted elements
-    /// of a given collection of possible selection values.
+    /// Creates a picker that generates its label and option views with the formatted elements of a
+    /// given collection of possible selection values.
     ///
     /// The selection type and the elements of the collection are constrained to an `Identifiable`
     /// that self-identifies, that is, in which the `ID` type is itself.
@@ -145,7 +145,7 @@ extension Picker {
     }
 
 
-    /// Creates a picker that generates its label and the option views with the formatted cases of a
+    /// Creates a picker that generates its label and option views with the formatted cases of a
     /// `CaseIterable` selection value.
     ///
     /// The selection type is constrained to `CaseIterable` to retrieve the possible selection
@@ -172,6 +172,38 @@ extension Picker {
             content: {
                 ForEach(allCases) { element in
                     Text(element, format: caseFormat)
+                }
+            }
+        )
+    }
+
+
+    /// Creates a picker that generates its label and option views with the raw values of the cases
+    /// of a `CaseIterable` selection value.
+    ///
+    /// The selection type is constrained to `CaseIterable` to retrieve the possible selection
+    /// values, to a string `RawRepresentable` to generate its option views, and to an
+    /// `Identifiable` that self-identifies, that is, in which the `ID` type is itself.
+    ///
+    /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
+    /// the picker label, and raw values of all the cases of the selection value type.
+    init(
+        _ title: LocalizedStringKey,
+        selection: Binding<SelectionValue>
+    ) where
+        SelectionValue: RawRepresentable & CaseIterable & Identifiable & Sendable,
+        SelectionValue.ID == SelectionValue,
+        SelectionValue.RawValue: StringProtocol,
+        Label == Text,
+        Content == ForEach<SelectionValue.AllCases, SelectionValue, Text>
+    {
+        let allCases = SelectionValue.allCases
+        self.init(
+            title,
+            selection: selection,
+            content: {
+                ForEach(allCases) { element in
+                    Text(element.rawValue)
                 }
             }
         )
@@ -268,6 +300,7 @@ private struct PreviewContent {
     VStack(alignment: .leading) {
         // TODO: Use Preview Caption
         Text("Picker with a collection of **self-identifiable** elements, using a **format style**.")
+            .fixedSize(horizontal: false, vertical: true)
             .font(.caption)
         Text("Value: \(values.rawValue)")
             .monospaced()
@@ -280,6 +313,7 @@ private struct PreviewContent {
 
         // TODO: Use Preview Caption
         Text("Picker with a `CaseIterable` and **self-identifiable** selection value, using a **composite format style**.")
+            .fixedSize(horizontal: false, vertical: true)
             .font(.caption)
             .padding(.top)
         Text("Value: \(values.rawValue)")
@@ -289,6 +323,16 @@ private struct PreviewContent {
             selection: $values,
             caseFormat: .firstCharacter(capitalized: true, input: .rawValue())
         ).pickerStyle(.segmented)
+
+        // TODO: Use Preview Caption
+        Text("Picker with a `CaseIterable`, `RawRepresentable` and **self-identifiable** selection value **only**.")
+            .fixedSize(horizontal: false, vertical: true)
+            .font(.caption)
+            .padding(.top)
+        Text("Value: \(values.rawValue)")
+            .monospaced()
+        Picker("Formatted Picker", selection: $values)
+            .pickerStyle(.segmented)
     }
     .padding(.horizontal)
 }
