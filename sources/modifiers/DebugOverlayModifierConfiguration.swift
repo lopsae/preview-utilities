@@ -68,6 +68,17 @@ extension DebugOverlayModifier.Configuration {
         case inner(InnerAlignment)
         case outer(OuterAlignment)
 
+        enum Key: String, CaseIterable, SelfIdentifiable {
+            case inner, outer
+        }
+
+        var key: Key {
+            switch self {
+            case .inner: .inner
+            case .outer: .outer
+            }
+        }
+
         // TODO: might make more sense to have along the views, also for other textAlignment vars.
         var textAlignment: SwiftUI.TextAlignment {
             switch self {
@@ -143,6 +154,19 @@ extension DebugOverlayModifier.Configuration {
         case leading(OuterVerticalAlignment)
         case bottom(HorizontalAlignment)
         case trailing(OuterVerticalAlignment)
+
+        enum Key: String, CaseIterable, SelfIdentifiable {
+            case top, leading, bottom, trailing
+        }
+
+        var key: Key {
+            switch self {
+            case .top:      .top
+            case .leading:  .leading
+            case .bottom:   .bottom
+            case .trailing: .trailing
+            }
+        }
 
         // TODO: might make more sense to have along the views, also for other textAlignment vars.
         var textAlignment: SwiftUI.TextAlignment {

@@ -37,7 +37,7 @@ extension FormatStyle {
 extension FormatStyle {
 
     /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable`.
-    static func capitalizedRawValue<Value: RawRepresentable>() -> Self
+    static func rawValueCapitalized<Value: RawRepresentable>() -> Self
     where
         Value.RawValue: StringProtocol,
         Self == CompositeFormatStyle<RawValueFormatStyle<Value>, CapitalizedFormatStyle>

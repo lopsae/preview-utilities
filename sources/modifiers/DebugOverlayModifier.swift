@@ -362,10 +362,6 @@ private struct PreviewContent {
             .fill(.pink.gradient)
     }
 
-    enum OuterMayorAlignment: String, SelfIdentifiable, CaseIterable {
-        case top, leading, bottom, trailing
-    }
-
 }
 
 
@@ -394,11 +390,11 @@ private struct PreviewContent {
         ("All Geometry",    .allGeometry,    false)
     ]
 
-    @Previewable @State var isInnerPosition: Bool = false
+    @Previewable @State var positionKey: DebugOverlayModifier.Configuration.InfoPosition.Key = .outer
     @Previewable @State var innerHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .trailing
     @Previewable @State var innerVerticalAlignment: DebugOverlayModifier.Configuration.VerticalAlignment = .center
 
-    @Previewable @State var outerMayorAlignment: PreviewContent.OuterMayorAlignment = .leading
+    @Previewable @State var outerMayorAlignment: DebugOverlayModifier.Configuration.OuterAlignment.Key = .leading
     @Previewable @State var outerMinorHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .leading
     @Previewable @State var outerMinorVerticalAlignment: DebugOverlayModifier.Configuration.OuterVerticalAlignment = .above
 
@@ -412,18 +408,15 @@ private struct PreviewContent {
         }
 
         let positionTrait: DebugOverlayModifier.Configuration.Trait
-        if isInnerPosition {
+        switch positionKey {
+        case .inner:
             positionTrait = .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
-        } else {
+        case .outer:
             let outerAlignment: DebugOverlayModifier.Configuration.OuterAlignment = switch outerMayorAlignment {
-            case .top:
-                    .top(outerMinorHorizontalAlignment)
-            case .leading:
-                    .leading(outerMinorVerticalAlignment)
-            case .bottom:
-                    .bottom(outerMinorHorizontalAlignment)
-            case .trailing:
-                    .trailing(outerMinorVerticalAlignment)
+            case .top:      .top(     outerMinorHorizontalAlignment)
+            case .bottom:   .bottom(  outerMinorHorizontalAlignment)
+            case .leading:  .leading( outerMinorVerticalAlignment)
+            case .trailing: .trailing(outerMinorVerticalAlignment)
             }
             positionTrait = .outerInfo(outerAlignment)
         }
@@ -434,45 +427,27 @@ private struct PreviewContent {
     let traits = makeTraits()
 
     VStack {
-        Picker("Position", selection: $isInnerPosition) {
-            Text("Inner").tag(true)
-            Text("Outer").tag(false)
-        }
-        .pickerStyle(.segmented)
+        Picker("Position", selection: $positionKey, caseFormat: .rawValueCapitalized())
+            .pickerStyle(.segmented)
 
-        if isInnerPosition {
-            // TODO: make some extensions of Picker to remove the foreach, maybe use selfIdentifiable, maybe use a formatter!
-            Picker("Horizontal Alignment", selection: $innerHorizontalAlignment) {
-                ForEach(DebugOverlayModifier.Configuration.HorizontalAlignment.allCases) { alignment in
-                    Text(alignment.rawValue.capitalized)
-                }
-            }.pickerStyle(.segmented)
+        switch positionKey {
+        case .inner:
+            Picker("Horizontal Alignment", selection: $innerHorizontalAlignment, caseFormat: .rawValueCapitalized())
+                .pickerStyle(.segmented)
+            Picker("Vertical Alignment", selection: $innerVerticalAlignment, caseFormat: .rawValueCapitalized())
+                .pickerStyle(.segmented)
 
-            Picker("Vertical Alignment", selection: $innerVerticalAlignment) {
-                ForEach(DebugOverlayModifier.Configuration.VerticalAlignment.allCases) { alignment in
-                    Text(alignment.rawValue.capitalized)
-                }
-            }.pickerStyle(.segmented)
-        } else {
-            Picker("Outer Mayor Alignment", selection: $outerMayorAlignment) {
-                ForEach(PreviewContent.OuterMayorAlignment.allCases) { outerMayorAlignment in
-                    Text(outerMayorAlignment.rawValue.capitalized)
-                }
-            }.pickerStyle(.segmented)
+        case .outer:
+            Picker("Outer Mayor Alignment", selection: $outerMayorAlignment, caseFormat: .rawValueCapitalized())
+                .pickerStyle(.segmented)
 
             switch outerMayorAlignment {
             case .top, .bottom:
-                Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment) {
-                    ForEach(DebugOverlayModifier.Configuration.HorizontalAlignment.allCases) { alignment in
-                        Text(alignment.rawValue.capitalized)
-                    }
-                }.pickerStyle(.segmented)
+                Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment, caseFormat: .rawValueCapitalized())
+                    .pickerStyle(.segmented)
             case .leading, .trailing:
-                Picker("Vertical Minor Alignment", selection: $outerMinorVerticalAlignment) {
-                    ForEach(DebugOverlayModifier.Configuration.OuterVerticalAlignment.allCases) { alignment in
-                        Text(alignment.rawValue.capitalized)
-                    }
-                }.pickerStyle(.segmented)
+                Picker("Vertical Minor Alignment", selection: $outerMinorVerticalAlignment, caseFormat: .rawValueCapitalized())
+                    .pickerStyle(.segmented)
             }
         }
 
