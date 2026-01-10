@@ -6,16 +6,16 @@
 
 import SwiftUI
 
-
+// TODO: consider rename to FloatingAlignedContainer, FloatingAlignment
 struct AlignedFixedContainer<Content: View>: View {
 
-    let alignment: Alignment
+    let alignment: AlignedFixedContainerAlignment
     let spacing: CGFloat
     let content: Content
 
 
     init(
-        alignment: Alignment = .inner(.center),
+        alignment: AlignedFixedContainerAlignment = .inner(.center),
         spacing: CGFloat = .zero,
         @ViewBuilder content: @escaping () -> Content
     ) {
@@ -89,37 +89,33 @@ struct AlignedFixedContainer<Content: View>: View {
 }
 
 
-// MARK: - Alignment
+// MARK: - AlignedFixedContainerAlignment
 
 
-extension AlignedFixedContainer {
+enum AlignedFixedContainerAlignment {
 
-    enum Alignment {
+    case inner(InnerAlignment)
+    case outer(OuterAlignment)
 
-        case inner(InnerAlignment)
-        case outer(OuterAlignment)
+    enum Key: String, CaseIterable, SelfIdentifiable {
+        case inner, outer
+    }
 
-        enum Key: String, CaseIterable, SelfIdentifiable {
-            case inner, outer
+    var key: Key {
+        switch self {
+        case .inner: .inner
+        case .outer: .outer
         }
+    }
 
-        var key: Key {
-            switch self {
-            case .inner: .inner
-            case .outer: .outer
-            }
+    // TODO: might make more sense to have along the views, also for other textAlignment vars.
+    var textAlignment: SwiftUI.TextAlignment {
+        switch self {
+        case .inner(let innerAlignment):
+            return innerAlignment.horizontal.textAlignment
+        case .outer(let outerAlignment):
+            return outerAlignment.textAlignment
         }
-
-        // TODO: might make more sense to have along the views, also for other textAlignment vars.
-        var textAlignment: SwiftUI.TextAlignment {
-            switch self {
-            case .inner(let innerAlignment):
-                return innerAlignment.horizontal.textAlignment
-            case .outer(let outerAlignment):
-                return outerAlignment.textAlignment
-            }
-        }
-
     }
 
 }
@@ -128,7 +124,7 @@ extension AlignedFixedContainer {
 // MARK: - InnerAlignment
 
 
-extension AlignedFixedContainer {
+extension AlignedFixedContainerAlignment {
 
     struct InnerAlignment {
         let horizontal: HorizontalAlignment
@@ -183,7 +179,7 @@ extension AlignedFixedContainer {
 // MARK: - OuterAlignment
 
 
-extension AlignedFixedContainer {
+extension AlignedFixedContainerAlignment {
 
     enum OuterAlignment {
         case top(HorizontalAlignment)
@@ -297,7 +293,7 @@ extension AlignedFixedContainer {
 // MARK: - Previews
 
 
-#Preview {
+#Preview("Default") {
     Rectangle()
         .fill(.teal.tertiary)
     .frame(square: 100)
@@ -307,4 +303,108 @@ extension AlignedFixedContainer {
             Text("judge my vow")
         }
     }
+}
+
+
+#Preview("Alignments", traits: .fixedHeader, .iPhoneProSizeLayout) {
+    @Previewable @State var isLargeContent: Bool = true
+    @Previewable @State var spacing: Double = 5
+
+    @Previewable @State var alignmentKey: AlignedFixedContainerAlignment.Key = .outer
+    @Previewable @State var innerHorizontalAlignment: AlignedFixedContainerAlignment.HorizontalAlignment = .center
+    @Previewable @State var innerVerticalAlignment: AlignedFixedContainerAlignment.VerticalAlignment = .top
+
+    @Previewable @State var outerMayorAlignment: AlignedFixedContainerAlignment.OuterAlignment.Key = .top
+    @Previewable @State var outerMinorHorizontalAlignment: AlignedFixedContainerAlignment.HorizontalAlignment = .center
+    @Previewable @State var outerMinorVerticalAlignment: AlignedFixedContainerAlignment.OuterVerticalAlignment = .center
+
+    let makeAlignment: () -> AlignedFixedContainerAlignment = {
+        switch alignmentKey {
+        case .inner:
+            return .inner(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
+        case .outer:
+            let outerAlignment: AlignedFixedContainerAlignment.OuterAlignment = switch outerMayorAlignment {
+            case .top:      .top(     outerMinorHorizontalAlignment)
+            case .bottom:   .bottom(  outerMinorHorizontalAlignment)
+            case .leading:  .leading( outerMinorVerticalAlignment)
+            case .trailing: .trailing(outerMinorVerticalAlignment)
+            }
+            return .outer(outerAlignment)
+        }
+    }
+
+    let alignment = makeAlignment()
+
+    VStack {
+        Picker("Alignment", selection: $alignmentKey, caseFormat: .rawValueCapitalized())
+            .pickerStyle(.segmented)
+
+        switch alignmentKey {
+        case .inner:
+            Picker("Horizontal Alignment", selection: $innerHorizontalAlignment, caseFormat: .rawValueCapitalized())
+                .pickerStyle(.segmented)
+            Picker("Vertical Alignment", selection: $innerVerticalAlignment, caseFormat: .rawValueCapitalized())
+                .pickerStyle(.segmented)
+
+        case .outer:
+            Picker("Outer Mayor Alignment", selection: $outerMayorAlignment, caseFormat: .rawValueCapitalized())
+                .pickerStyle(.segmented)
+
+            switch outerMayorAlignment {
+            case .top, .bottom:
+                Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment, caseFormat: .rawValueCapitalized())
+                    .pickerStyle(.segmented)
+            case .leading, .trailing:
+                Picker("Vertical Minor Alignment", selection: $outerMinorVerticalAlignment, caseFormat: .rawValueCapitalized())
+                    .pickerStyle(.segmented)
+            }
+        }
+
+        Slider(
+            "Spacing",
+            value: $spacing,
+            in: 0...15,
+            valueFormat: .arithmeticRoundedInteger)
+        Text("Spacing: \(spacing, format: .fractionLength(2))")
+            .font(.caption.monospaced())
+
+        Toggle("Use Large Content", isOn: $isLargeContent)
+    }
+    .padding(.not(.top))
+
+    if isLargeContent {
+        Rectangle().fill(.gray.tertiary)
+            .frame(width: 50)
+            .previewCaption("Spacer")
+        StarShape(points: 4, concaveVertexRatio: 1)
+            .fill(.teal.gradient.secondary)
+            .background(.teal.quinary)
+            .frame(square: 200)
+            .overlay {
+                AlignedFixedContainer(alignment: alignment, spacing: spacing) {
+                    Text("Sphinx of black quartz")
+                    Text("judge my vow")
+                }
+            }
+        Rectangle().fill(.gray.tertiary)
+            .frame(width: 50)
+            .previewCaption("Spacer")
+    } else {
+        Rectangle().fill(.gray.tertiary)
+            .frame(width: 50)
+            .previewCaption("Spacer")
+        Text("Preview text")
+            .foregroundStyle(.quaternary)
+            .monospaced()
+            .overlay {
+                AlignedFixedContainer(alignment: alignment, spacing: spacing) {
+                    Text("Sphinx of black quartz")
+                    Text("judge my vow")
+                }
+            }
+        Rectangle().fill(.gray.tertiary)
+            .frame(width: 50)
+            .previewCaption("Spacer")
+    }
+
 }
