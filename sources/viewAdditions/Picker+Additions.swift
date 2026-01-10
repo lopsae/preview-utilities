@@ -235,7 +235,7 @@ private struct PreviewContent {
 
     VStack(alignment: .leading) {
         // TODO: Use Preview Caption
-        Text("Picker with a collection of **self-identifiable** elements, using a format style.")
+        Text("Picker with a collection of **self-identifiable** elements, using a **format style**.")
             .font(.caption)
         Text("Value: \(values.rawValue)")
             .monospaced()
@@ -244,6 +244,19 @@ private struct PreviewContent {
             selection: $values,
             selectables: PreviewContent.SelfIdentifiedValues.allCases,
             elementFormat: .rawValue()
+        ).pickerStyle(.segmented)
+
+        // TODO: Use Preview Caption
+        Text("Picker with a collection of **self-identifiable** elements, using a **composite format style**.")
+            .font(.caption)
+            .padding(.top)
+        Text("Value: \(values.rawValue)")
+            .monospaced()
+        Picker(
+            "Formatted Picker",
+            selection: $values,
+            selectables: PreviewContent.SelfIdentifiedValues.allCases,
+            elementFormat: .firstCharacter(capitalized: true, format: .rawValue())
         ).pickerStyle(.segmented)
     }
     .padding(.horizontal)

@@ -28,10 +28,31 @@ struct FirstCharacterFormatStyle: FormatStyle {
 
 extension FormatStyle where Self == FirstCharacterFormatStyle {
 
+    /// Returns a format style that outputs first character of a string.
     static var firstCharacter: FirstCharacterFormatStyle { .init() }
 
+    /// Returns a format style that outputs first character of a string, optionally capitalized.
     static func firstCharacter(capitalized: Bool) -> FirstCharacterFormatStyle {
         .init(capitalized: capitalized)
+    }
+
+}
+
+
+extension FormatStyle {
+
+    /// Returns a format style that uses the string output of another formatter and outputs the
+    /// first character, optionally capitalized.
+    static func firstCharacter<InputFormat: FormatStyle>(
+        capitalized: Bool = false,
+        format inputFormat: InputFormat
+    ) -> CompositeFormatStyle<InputFormat, FirstCharacterFormatStyle>
+    where
+        InputFormat.FormatOutput == String,
+        Self == CompositeFormatStyle<InputFormat, FirstCharacterFormatStyle>
+    {
+        let output = FirstCharacterFormatStyle(capitalized: capitalized)
+        return CompositeFormatStyle(input: inputFormat, output: output)
     }
 
 }
