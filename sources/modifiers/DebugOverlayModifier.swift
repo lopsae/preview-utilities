@@ -371,41 +371,82 @@ private struct PreviewContent {
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
         .debugOverlay()
+        .safeAreaPadding(.init(horizontal: 20, vertical: 30))
         .padding(.horizontal)
 }
 
 
 #Preview("Configuration", traits: .headerFooter(.fixed), PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
-    @Previewable @State var lineWidth: Double = 5
     @Previewable @State var traitOptions: [(
         label: String,
         trait: DebugOverlayModifier.Configuration.Trait,
         enabled: Bool
     )] = [
+        ("Hairline",        .hairline,       false),
         ("Width",           .width,          true),
         ("Height",          .height,         false),
         ("Origin",          .origin,         false),
         ("SafeArea Insets", .safeAreaInsets, false),
-        ("All Geometry",    .allGeometry,    false)
+        ("All Geometry",    .allGeometry,    false),
+        ("Outer Info"    ,  .outerInfo,      false)
     ]
 
-    @Previewable @State var positionKey: DebugOverlayModifier.Configuration.InfoPosition.Key = .outer
-    @Previewable @State var innerHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .trailing
-    @Previewable @State var innerVerticalAlignment: DebugOverlayModifier.Configuration.VerticalAlignment = .center
+    let traits = traitOptions.compactMap { traitTuple in
+        return traitTuple.enabled
+            ? traitTuple.trait
+            : nil
+    }
 
-    @Previewable @State var outerMayorAlignment: DebugOverlayModifier.Configuration.OuterAlignment.Key = .leading
-    @Previewable @State var outerMinorHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .leading
-    @Previewable @State var outerMinorVerticalAlignment: DebugOverlayModifier.Configuration.OuterVerticalAlignment = .above
+    VStack {
+        ForEach(traitOptions.enumerated(), id: \.offset) { index, optionTuple in
+            Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
+        }
+
+        Divider()
+
+        Toggle("Use Small Content", isOn: $useSmallContent)
+    }
+    .padding(.not(.top))
+
+    if useSmallContent {
+        Rectangle().fill(.gray.tertiary)
+            .frame(width: 100)
+            .previewCaption("Spacer")
+        Text("Preview text")
+            .foregroundStyle(.quaternary)
+            .monospaced()
+            .debugOverlay(traits: traits)
+            .safeAreaPadding(20)
+        Rectangle().fill(.gray.tertiary)
+            .frame(width: 100)
+            .previewCaption("Spacer")
+    } else {
+        PreviewContent.star
+            .debugOverlay(traits: traits)
+            .safeAreaPadding(.init(horizontal: 50, vertical: 80))
+            .padding(.horizontal)
+    }
+
+}
+
+
+#Preview("Alignments", traits: .headerFooter(.fixed), PreviewContent.layout) {
+    @Previewable @State var useSmallContent: Bool = false
+    @Previewable @State var lineWidth: Double = 5
+
+    @Previewable @State var positionKey: DebugOverlayModifier.Configuration.InfoPosition.Key = .outer
+    @Previewable @State var innerHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .center
+    @Previewable @State var innerVerticalAlignment: DebugOverlayModifier.Configuration.VerticalAlignment = .top
+
+    @Previewable @State var outerMayorAlignment: DebugOverlayModifier.Configuration.OuterAlignment.Key = .top
+    @Previewable @State var outerMinorHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .center
+    @Previewable @State var outerMinorVerticalAlignment: DebugOverlayModifier.Configuration.OuterVerticalAlignment = .center
+
+    let defaultTraits: [DebugOverlayModifier.Configuration.Trait] = [.allGeometry]
 
     let makeTraits: () -> [DebugOverlayModifier.Configuration.Trait] = {
-        var traits: [DebugOverlayModifier.Configuration.Trait] = [.lineWidth(lineWidth)]
-
-        traits += traitOptions.compactMap { traitTuple in
-            return traitTuple.enabled
-                ? traitTuple.trait
-                : nil
-        }
+        var traits: [DebugOverlayModifier.Configuration.Trait] = defaultTraits + [.lineWidth(lineWidth)]
 
         let positionTrait: DebugOverlayModifier.Configuration.Trait
         switch positionKey {
@@ -451,10 +492,6 @@ private struct PreviewContent {
             }
         }
 
-        ForEach(traitOptions.enumerated(), id: \.offset) { index, optionTuple in
-            Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
-        }
-
         Slider(
             "Line Width",
             value: $lineWidth,
@@ -482,8 +519,7 @@ private struct PreviewContent {
     } else {
         PreviewContent.star
             .debugOverlay(traits: traits)
-            .safeAreaPadding(.horizontal, 100)
-            .safeAreaPadding(.vertical, 40)
+            .safeAreaPadding(.init(horizontal: 120, vertical: 100))
             .padding(.horizontal)
     }
 
