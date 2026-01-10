@@ -145,6 +145,39 @@ extension Picker {
     }
 
 
+    /// Creates a picker that generates its label and the option views with the formatted cases of a
+    /// `CaseIterable` selection value.
+    ///
+    /// The selection type is constrained to `CaseIterable` to retrieve the possible selection
+    /// values, and to an `Identifiable` that self-identifies, that is, in which the `ID` type is
+    /// itself.
+    ///
+    /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
+    /// the picker label, and transforming the posible selection values through a format style for
+    /// their respective labels.
+    init(
+        _ title: LocalizedStringKey,
+        selection: Binding<SelectionValue>,
+        caseFormat: any FormatStyle<SelectionValue, String>
+    ) where
+        SelectionValue: CaseIterable & Identifiable & Sendable,
+        SelectionValue.ID == SelectionValue,
+        Label == Text,
+        Content == ForEach<SelectionValue.AllCases, SelectionValue, Text>
+    {
+        let allCases = SelectionValue.allCases
+        self.init(
+            title,
+            selection: selection,
+            content: {
+                ForEach(allCases) { element in
+                    Text(element, format: caseFormat)
+                }
+            }
+        )
+    }
+
+
 }
 
 
@@ -164,7 +197,6 @@ private struct PreviewContent {
         case  alice, bob, charlie, dave
         var id: String { self.rawValue }
     }
-
 
     enum SelfIdentifiedValues: String, SelfIdentifiable, CaseIterable {
         case  grace, heidi, ivan, judy
@@ -247,7 +279,7 @@ private struct PreviewContent {
         ).pickerStyle(.segmented)
 
         // TODO: Use Preview Caption
-        Text("Picker with a collection of **self-identifiable** elements, using a **composite format style**.")
+        Text("Picker with a `CaseIterable` and **self-identifiable** selection value, using a **composite format style**.")
             .font(.caption)
             .padding(.top)
         Text("Value: \(values.rawValue)")
@@ -255,8 +287,7 @@ private struct PreviewContent {
         Picker(
             "Formatted Picker",
             selection: $values,
-            selectables: PreviewContent.SelfIdentifiedValues.allCases,
-            elementFormat: .firstCharacter(capitalized: true, format: .rawValue())
+            caseFormat: .firstCharacter(capitalized: true, format: .rawValue())
         ).pickerStyle(.segmented)
     }
     .padding(.horizontal)

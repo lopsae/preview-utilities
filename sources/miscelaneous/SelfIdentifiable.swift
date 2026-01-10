@@ -20,6 +20,7 @@ public protocol SelfIdentifiable: Identifiable, Hashable {
 }
 
 
+nonisolated
 extension SelfIdentifiable {
 
     var id: Self { self }
