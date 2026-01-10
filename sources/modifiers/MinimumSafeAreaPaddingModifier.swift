@@ -7,6 +7,9 @@
 import SwiftUI
 
 
+// TODO: see if AlignmentID, defaultValueIn, and alignmentGuided can work in in this implementation.
+
+
 /// Experimental modifier to add a minimum safe area padding to an edge of a view.
 ///
 /// Adds safe area to the current padding up to `minimumInset`; if the view has a safe area of at
