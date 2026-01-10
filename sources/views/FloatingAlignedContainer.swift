@@ -105,17 +105,6 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
         return innerCases + outerCases
     }()
 
-    // TODO: might make more sense to have along the views, also for other textAlignment vars.
-    // TODO: text alignment may not be used anymore?
-    var textAlignment: SwiftUI.TextAlignment {
-        switch self {
-        case .inner(let innerAlignment):
-            return innerAlignment.horizontal.textAlignment
-        case .outer(let outerAlignment):
-            return outerAlignment.textAlignment
-        }
-    }
-
     var outerAlignment: OuterAlignment? {
         switch self {
         case .outer(let outerAlignment): outerAlignment
@@ -201,13 +190,6 @@ extension FloatingAlignment {
             }
         }
 
-        var textAlignment: SwiftUI.TextAlignment {
-            switch self {
-            case .leading:  .leading
-            case .center:   .center
-            case .trailing: .trailing
-            }
-        }
     }
 
 
@@ -274,16 +256,6 @@ extension FloatingAlignment {
             case .top:      .bottom
             case .leading:  .trailing
             case .bottom:   .top
-            case .trailing: .leading
-            }
-        }
-
-        // TODO: might make more sense to have along the views, also for other textAlignment vars.
-        var textAlignment: SwiftUI.TextAlignment {
-            switch self {
-            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
-                horizontalAlignment.textAlignment
-            case .leading: .trailing
             case .trailing: .leading
             }
         }
