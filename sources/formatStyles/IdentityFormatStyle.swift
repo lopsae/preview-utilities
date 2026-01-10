@@ -7,7 +7,7 @@
 import Foundation
 
 
-/// FormatStyle that outputs the exact value taken as input.
+/// A structure that performs an identity transformation converting an instance to itself.
 public struct IdentityFormatStyle<T>: FormatStyle {
 
     public init() { }
