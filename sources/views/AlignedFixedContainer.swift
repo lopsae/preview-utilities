@@ -10,13 +10,13 @@ import SwiftUI
 struct AlignedFixedContainer<Content: View>: View {
 
     let alignment: AlignedFixedContainerAlignment
-    let spacing: CGFloat
+    let spacing: CGFloat?
     let content: Content
 
 
     init(
         alignment: AlignedFixedContainerAlignment = .inner(.center),
-        spacing: CGFloat = .zero,
+        spacing: CGFloat? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.alignment = alignment
@@ -28,14 +28,13 @@ struct AlignedFixedContainer<Content: View>: View {
         GeometryReader { geometry in
             switch alignment {
             case .inner(let innerAlignment):
-                // TODO: zero spacing here? to allow caller to define their own spacing? or default to simplify?
-                VStack(alignment: innerAlignment.horizontal.swiftAlignment, spacing: 2) {
+                VStack(alignment: innerAlignment.horizontal.swiftAlignment) {
                     content
                 }
                 .font(.caption)
                 .monospaced()
                 .foregroundStyle(.secondary)
-                .padding(spacing)
+                .padding(.all, spacing)
                 // Prevents info view from collapsing in small sizes.
                 .fixedSize()
                 .border(.red)
@@ -66,22 +65,21 @@ struct AlignedFixedContainer<Content: View>: View {
                 case .top, .bottom: .zero
                 }
 
-                // TODO: zero spacing here? to allow caller to define their own spacing? or default to simplify?
                 // TODO: better name? textContainer? VStackAlignment?
-                VStack(alignment: outerAlignment.containerHorizontal.swiftAlignment, spacing: 2) {
+                VStack(alignment: outerAlignment.containerHorizontal.swiftAlignment) {
                     content
                 }
                 .font(.caption)
                 .monospaced()
                 .foregroundStyle(.secondary)
-                // TODO: padding should be selective of alignment
-                .padding(spacing)
+                .padding(.all, spacing)
                 // Prevents info view from collapsing in small sizes.
                 .fixedSize()
                 .border(.red)
                 // Centers the view based in the alignment even when the frame is smaller that the view.
                 .frame(size: geometry.size, alignment: outerAlignment.frameAlignment)
                 .border(.green)
+                // TODO: DRY! only difference between paths is the offset.
                 .offset(x: xOffset, y: yOffset)
             } // switch
         } // GeometryReader
@@ -109,6 +107,7 @@ enum AlignedFixedContainerAlignment {
     }
 
     // TODO: might make more sense to have along the views, also for other textAlignment vars.
+    // TODO: text alignment may not be used anymore?
     var textAlignment: SwiftUI.TextAlignment {
         switch self {
         case .inner(let innerAlignment):
@@ -140,6 +139,7 @@ extension AlignedFixedContainerAlignment {
     }
 
 
+    nonisolated
     enum HorizontalAlignment: String, CaseIterable, SelfIdentifiable {
         case leading, center, trailing
 
@@ -161,6 +161,7 @@ extension AlignedFixedContainerAlignment {
     }
 
 
+    nonisolated
     enum VerticalAlignment: String, CaseIterable, SelfIdentifiable {
         case top, center, bottom
 
@@ -181,7 +182,9 @@ extension AlignedFixedContainerAlignment {
 
 extension AlignedFixedContainerAlignment {
 
-    enum OuterAlignment {
+    nonisolated
+    enum OuterAlignment: CaseIterable, SelfIdentifiable {
+
         case top(HorizontalAlignment)
         case leading(OuterVerticalAlignment)
         case bottom(HorizontalAlignment)
@@ -189,6 +192,22 @@ extension AlignedFixedContainerAlignment {
 
         enum Key: String, CaseIterable, SelfIdentifiable {
             case top, leading, bottom, trailing
+
+            var swiftHorizontal: SwiftUI.HorizontalAlignment {
+                switch self {
+                case .top, .bottom: .center
+                case .leading:  .trailing
+                case .trailing: .leading
+                }
+            }
+
+            var swiftVertical: SwiftUI.VerticalAlignment {
+                switch self {
+                case .top: .bottom
+                case .leading: .top
+                case .bottom, .trailing: .center
+                }
+            }
         }
 
         var key: Key {
@@ -197,6 +216,15 @@ extension AlignedFixedContainerAlignment {
             case .leading:  .leading
             case .bottom:   .bottom
             case .trailing: .trailing
+            }
+        }
+
+        var oppositeKey: Key {
+            switch self.key {
+            case .top:      .bottom
+            case .leading:  .trailing
+            case .bottom:   .top
+            case .trailing: .leading
             }
         }
 
@@ -223,10 +251,17 @@ extension AlignedFixedContainerAlignment {
 
         // TODO: Dry!
         var frameAlignment: SwiftUI.Alignment {
+//            let horizontal: SwiftUI.HorizontalAlignment
+//            let vertical: SwiftUI.VerticalAlignment
+
             switch self {
-            case .top(let horizontalAlignment):
+            case .top(let horizontalAlignment)/*, .bottom(let horizontalAlignment)*/:
+//                horizontal = horizontalAlignment.swiftAlignment
+//                vertical = oppositeKey.swiftVertical
                 return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: .bottom)
             case .bottom(let horizontalAlignment):
+//                horizontal = horizontalAlignment.swiftAlignment
+//                vertical = .bottom
                 return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: .top)
             case .leading(let outerVerticalAlignment):
                 let vertical: SwiftUI.VerticalAlignment = switch outerVerticalAlignment {
@@ -278,6 +313,13 @@ extension AlignedFixedContainerAlignment {
         static var trailingCenter: OuterAlignment { .trailing(.center) }
         static var trailingBottom: OuterAlignment { .trailing(.bottom) }
         static var trailingBelow:  OuterAlignment { .trailing(.below) }
+
+        static let allCases: [Self] = [
+            topLeading, topCenter, topTrailing,
+            bottomTrailing, bottomCenter, bottomLeading,
+            leadingAbove, leadingTop, leadingCenter, leadingBottom, leadingUnder,
+            trailingAbove, trailingTop, trailingCenter, trailingBottom, trailingBelow
+        ]
 
     }
 
@@ -360,15 +402,12 @@ extension AlignedFixedContainerAlignment {
             }
         }
 
-        Slider(
-            "Spacing",
-            value: $spacing,
-            in: 0...15,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Spacing: \(spacing, format: .fractionLength(2))")
-            .font(.caption.monospaced())
+        Slider.captioned(
+            "Spacing", value: $spacing, in: 0...15,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
 
-        Toggle("Use Large Content", isOn: $isLargeContent)
+        Toggle("Large Content", isOn: $isLargeContent)
     }
     .padding(.not(.top))
 
@@ -405,6 +444,22 @@ extension AlignedFixedContainerAlignment {
         Rectangle().fill(.gray.tertiary)
             .frame(width: 50)
             .previewCaption("Spacer")
+    }
+
+}
+
+
+#Preview("All Alignments") {
+    Rectangle()
+    .fill(.teal.tertiary)
+    .frame(square: 200)
+    .overlay {
+        ForEach(AlignedFixedContainerAlignment.OuterAlignment.allCases) { alignment in
+            AlignedFixedContainer(alignment: .outer(alignment)) {
+                Image(systemName: "target")
+                    .font(.title)
+            }
+        }
     }
 
 }
