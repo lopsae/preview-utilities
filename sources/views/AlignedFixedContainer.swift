@@ -90,7 +90,8 @@ struct AlignedFixedContainer<Content: View>: View {
 // MARK: - AlignedFixedContainerAlignment
 
 
-enum AlignedFixedContainerAlignment {
+nonisolated
+enum AlignedFixedContainerAlignment: CaseIterable, SelfIdentifiable {
 
     case inner(InnerAlignment)
     case outer(OuterAlignment)
@@ -105,6 +106,16 @@ enum AlignedFixedContainerAlignment {
         case .outer: .outer
         }
     }
+
+    static let allCases: [AlignedFixedContainerAlignment] = {
+        let innerCases: [AlignedFixedContainerAlignment] = AlignedFixedContainerAlignment.InnerAlignment.allCases.map {
+            .inner($0)
+        }
+        let outerCases: [AlignedFixedContainerAlignment] = AlignedFixedContainerAlignment.OuterAlignment.allCases.map {
+            .outer($0)
+        }
+        return innerCases + outerCases
+    }()
 
     // TODO: might make more sense to have along the views, also for other textAlignment vars.
     // TODO: text alignment may not be used anymore?
@@ -125,17 +136,35 @@ enum AlignedFixedContainerAlignment {
 
 extension AlignedFixedContainerAlignment {
 
-    struct InnerAlignment {
+    nonisolated
+    struct InnerAlignment: CaseIterable, SelfIdentifiable {
+
         let horizontal: HorizontalAlignment
         let vertical: VerticalAlignment
-
-        // TODO: add other static properties
-        static var center: InnerAlignment { .init(horizontal: .center, vertical: .center) }
-        static var topLeading: InnerAlignment { .init(horizontal: .leading, vertical: .top) }
 
         var swiftAlignment: SwiftUI.Alignment {
             .init(horizontal: horizontal.swiftAlignment, vertical: vertical.swiftAlignment)
         }
+
+        // TODO: add other static properties
+        static let topLeading: InnerAlignment = .init(horizontal: .leading, vertical: .top)
+        static let topCenter:  InnerAlignment = .init(horizontal: .center, vertical: .top)
+        static let topTrailing: InnerAlignment = .init(horizontal: .trailing, vertical: .top)
+
+        static let centerLeading: InnerAlignment = .init(horizontal: .leading, vertical: .center)
+        static let center:  InnerAlignment = .init(horizontal: .center, vertical: .center)
+        static let centerTrailing: InnerAlignment = .init(horizontal: .trailing, vertical: .center)
+
+        static let bottomLeading: InnerAlignment = .init(horizontal: .leading, vertical: .bottom)
+        static let bottomCenter:  InnerAlignment = .init(horizontal: .center, vertical: .bottom)
+        static let bottomTrailing: InnerAlignment = .init(horizontal: .trailing, vertical: .bottom)
+
+        static let allCases: [AlignedFixedContainerAlignment.InnerAlignment] = [
+            .topLeading, .topCenter, .topTrailing,
+            .centerLeading, .center, .centerTrailing,
+            .bottomLeading, .bottomCenter, .bottomTrailing
+        ]
+
     }
 
 
@@ -454,10 +483,13 @@ extension AlignedFixedContainerAlignment {
     .fill(.teal.tertiary)
     .frame(square: 200)
     .overlay {
-        ForEach(AlignedFixedContainerAlignment.OuterAlignment.allCases) { alignment in
-            AlignedFixedContainer(alignment: .outer(alignment)) {
+        ForEach(AlignedFixedContainerAlignment.allCases) { alignment in
+            AlignedFixedContainer(alignment: alignment) {
+                // TODO: string formatting will eventually be moved here.
+                Text("black")
                 Image(systemName: "target")
-                    .font(.title)
+                Text("quartz")
+
             }
         }
     }
