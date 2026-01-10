@@ -56,19 +56,18 @@ struct StarShape: Shape {
 // MARK: Previews
 
 
-#Preview {
+#Preview(traits: .iPhoneProSizeLayout) {
     @Previewable @State var points: Double = 10
     @Previewable @State var vertexRatio: Double = 0.8
 
     VStack {
-        Slider("Points", value: $points, in: 1...20, valueFormat: .arithmeticRoundedInteger)
-        Text("Points: \(points, format: .arithmeticRoundedInteger)")
-            .font(.caption.monospaced())
-        Slider(
+        Slider.captioned(
+            "Points", value: $points, in: 1...20,
+            valueFormat: .arithmeticRoundedInteger)
+        Slider.captioned(
             "Vertex Ratio", value: $vertexRatio, in: 0...1,
-            currentValueFormat: .fractionLength(2), boundsValueFormat: .arithmeticRoundedInteger)
-        Text("Vertex Ratio: \(vertexRatio, format: .fractionLength(2))")
-            .font(.caption.monospaced())
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
     }.padding()
 
     StarShape(
