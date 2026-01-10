@@ -74,31 +74,35 @@ extension Picker {
 
 
     /// Creates a picker that generates its label and creates the option views with the elements
-    /// of a given collection of `Identifiable` elements which type self-identifies.
+    /// of a given collection of possible selection values which type self-identifies.
+    ///
+    /// The selection type and the elements of the collection are constrained to an `Identifiable`
+    /// which `ID` type is itself.
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
     /// a given localized key.
     init<ValuesCollection, ElementContent>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
-        selfIdCollection collection: ValuesCollection,
-        @ViewBuilder elementContent: @escaping (ValuesCollection.Element) -> ElementContent
+        selectables: ValuesCollection,
+        @ViewBuilder elementContent: @escaping (SelectionValue) -> ElementContent
     ) where
         ValuesCollection: RandomAccessCollection,
         // Identifiable is preferred over SelfIdentifiable here. This way SelfIdentifiable is not
         // required, and the compiler will detect if a type overrides the default `id` provided by
         // SelfIdentifiable.
         ValuesCollection.Element: Identifiable,
-        ValuesCollection.Element.ID == ValuesCollection.Element,
+        ValuesCollection.Element == SelectionValue,
+        ValuesCollection.Element.ID == SelectionValue,
         ElementContent: View,
         Label == Text,
-        Content == ForEach<ValuesCollection, ValuesCollection.Element, ElementContent>
+        Content == ForEach<ValuesCollection, SelectionValue, ElementContent>
     {
         self.init(
             title,
             selection: selection,
             content: {
-                ForEach(collection) { element in
+                ForEach(selectables) { element in
                     elementContent(element)
                 }
             }
@@ -181,7 +185,7 @@ private struct PreviewContent {
         Picker(
             "SelfIdentifiable Picker",
             selection: $selfIdentifiedValue,
-            selfIdCollection: PreviewContent.SelfIdentifiedValues.allCases,
+            selectables: PreviewContent.SelfIdentifiedValues.allCases,
         ) { value in
             // No tag needed!
             Text(value.rawValue.capitalized)
