@@ -6,16 +6,16 @@
 
 import SwiftUI
 
-// TODO: consider rename to FloatingAlignedContainer, FloatingAlignment
-struct AlignedFixedContainer<Content: View>: View {
 
-    let alignment: AlignedFixedContainerAlignment
+struct FloatingAlignedContainer<Content: View>: View {
+
+    let alignment: FloatingAlignment
     let spacing: CGFloat?
     let content: Content
 
 
     init(
-        alignment: AlignedFixedContainerAlignment = .inner(.center),
+        alignment: FloatingAlignment = .inner(.center),
         spacing: CGFloat? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) {
@@ -91,7 +91,7 @@ struct AlignedFixedContainer<Content: View>: View {
 
 
 nonisolated
-enum AlignedFixedContainerAlignment: CaseIterable, SelfIdentifiable {
+enum FloatingAlignment: CaseIterable, SelfIdentifiable {
 
     case inner(InnerAlignment)
     case outer(OuterAlignment)
@@ -107,11 +107,11 @@ enum AlignedFixedContainerAlignment: CaseIterable, SelfIdentifiable {
         }
     }
 
-    static let allCases: [AlignedFixedContainerAlignment] = {
-        let innerCases: [AlignedFixedContainerAlignment] = AlignedFixedContainerAlignment.InnerAlignment.allCases.map {
+    static let allCases: [FloatingAlignment] = {
+        let innerCases: [FloatingAlignment] = FloatingAlignment.InnerAlignment.allCases.map {
             .inner($0)
         }
-        let outerCases: [AlignedFixedContainerAlignment] = AlignedFixedContainerAlignment.OuterAlignment.allCases.map {
+        let outerCases: [FloatingAlignment] = FloatingAlignment.OuterAlignment.allCases.map {
             .outer($0)
         }
         return innerCases + outerCases
@@ -134,7 +134,7 @@ enum AlignedFixedContainerAlignment: CaseIterable, SelfIdentifiable {
 // MARK: - InnerAlignment
 
 
-extension AlignedFixedContainerAlignment {
+extension FloatingAlignment {
 
     nonisolated
     struct InnerAlignment: CaseIterable, SelfIdentifiable {
@@ -159,7 +159,7 @@ extension AlignedFixedContainerAlignment {
         static let bottomCenter:  InnerAlignment = .init(horizontal: .center, vertical: .bottom)
         static let bottomTrailing: InnerAlignment = .init(horizontal: .trailing, vertical: .bottom)
 
-        static let allCases: [AlignedFixedContainerAlignment.InnerAlignment] = [
+        static let allCases: [FloatingAlignment.InnerAlignment] = [
             .topLeading, .topCenter, .topTrailing,
             .centerLeading, .center, .centerTrailing,
             .bottomLeading, .bottomCenter, .bottomTrailing
@@ -209,7 +209,7 @@ extension AlignedFixedContainerAlignment {
 // MARK: - OuterAlignment
 
 
-extension AlignedFixedContainerAlignment {
+extension FloatingAlignment {
 
     nonisolated
     enum OuterAlignment: CaseIterable, SelfIdentifiable {
@@ -369,7 +369,7 @@ extension AlignedFixedContainerAlignment {
         .fill(.teal.tertiary)
     .frame(square: 100)
     .overlay {
-        AlignedFixedContainer {
+        FloatingAlignedContainer {
             Text("Sphinx of black quartz,")
             Text("judge my vow")
         }
@@ -381,20 +381,20 @@ extension AlignedFixedContainerAlignment {
     @Previewable @State var isLargeContent: Bool = true
     @Previewable @State var spacing: Double = 5
 
-    @Previewable @State var alignmentKey: AlignedFixedContainerAlignment.Key = .outer
-    @Previewable @State var innerHorizontalAlignment: AlignedFixedContainerAlignment.HorizontalAlignment = .center
-    @Previewable @State var innerVerticalAlignment: AlignedFixedContainerAlignment.VerticalAlignment = .top
+    @Previewable @State var alignmentKey: FloatingAlignment.Key = .outer
+    @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
+    @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
 
-    @Previewable @State var outerMayorAlignment: AlignedFixedContainerAlignment.OuterAlignment.Key = .top
-    @Previewable @State var outerMinorHorizontalAlignment: AlignedFixedContainerAlignment.HorizontalAlignment = .center
-    @Previewable @State var outerMinorVerticalAlignment: AlignedFixedContainerAlignment.OuterVerticalAlignment = .center
+    @Previewable @State var outerMayorAlignment: FloatingAlignment.OuterAlignment.Key = .top
+    @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
+    @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
 
-    let makeAlignment: () -> AlignedFixedContainerAlignment = {
+    let makeAlignment: () -> FloatingAlignment = {
         switch alignmentKey {
         case .inner:
             return .inner(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
         case .outer:
-            let outerAlignment: AlignedFixedContainerAlignment.OuterAlignment = switch outerMayorAlignment {
+            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMayorAlignment {
             case .top:      .top(     outerMinorHorizontalAlignment)
             case .bottom:   .bottom(  outerMinorHorizontalAlignment)
             case .leading:  .leading( outerMinorVerticalAlignment)
@@ -449,7 +449,7 @@ extension AlignedFixedContainerAlignment {
             .background(.teal.quinary)
             .frame(square: 200)
             .overlay {
-                AlignedFixedContainer(alignment: alignment, spacing: spacing) {
+                FloatingAlignedContainer(alignment: alignment, spacing: spacing) {
                     Text("Sphinx of black quartz")
                     Text("judge my vow")
                 }
@@ -465,7 +465,7 @@ extension AlignedFixedContainerAlignment {
             .foregroundStyle(.quaternary)
             .monospaced()
             .overlay {
-                AlignedFixedContainer(alignment: alignment, spacing: spacing) {
+                FloatingAlignedContainer(alignment: alignment, spacing: spacing) {
                     Text("Sphinx of black quartz")
                     Text("judge my vow")
                 }
@@ -483,8 +483,8 @@ extension AlignedFixedContainerAlignment {
     .fill(.teal.tertiary)
     .frame(square: 200)
     .overlay {
-        ForEach(AlignedFixedContainerAlignment.allCases) { alignment in
-            AlignedFixedContainer(alignment: alignment) {
+        ForEach(FloatingAlignment.allCases) { alignment in
+            FloatingAlignedContainer(alignment: alignment) {
                 // TODO: string formatting will eventually be moved here.
                 Text("black")
                 Image(systemName: "target")
