@@ -9,7 +9,17 @@ import SwiftUI
 
 extension Picker {
 
+    // ForEach makes an implicit constrain of ValuesCollection to RandomAccessCollection, and
+    // ElementID to Hashable given its struct definition. The constrains in this initializers are
+    // not strictly necessary. Still, these are left here for completeness.
 
+
+    /// Creates a picker that generates its label and creates the options views with the elements
+    /// of a given collection identified through a key path.
+    ///
+    /// This initializer creates a ``SwiftUI/Text`` view on your behalf, and treats the
+    /// localized key similar to ``SwiftUI/Text/init(_:tableName:bundle:comment:)``. See
+    /// ``SwiftUI/Text`` for more information about localizing strings.
     init<ValuesCollection, ElementContent, ElementID>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
@@ -35,6 +45,12 @@ extension Picker {
     }
 
 
+    /// Creates a picker that generates its label and creates the options views with the elements
+    /// of a given collection of `Identifiable` elements.
+    ///
+    /// This initializer creates a ``SwiftUI/Text`` view on your behalf, and treats the
+    /// localized key similar to ``SwiftUI/Text/init(_:tableName:bundle:comment:)``. See
+    /// ``SwiftUI/Text`` for more information about localizing strings.
     init<ValuesCollection, ElementContent>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
@@ -59,6 +75,12 @@ extension Picker {
     }
 
 
+    /// Creates a picker that generates its label and creates the options views with the elements
+    /// of a given collection of `Identifiable` elements which type self-identifies.
+    ///
+    /// This initializer creates a ``SwiftUI/Text`` view on your behalf, and treats the
+    /// localized key similar to ``SwiftUI/Text/init(_:tableName:bundle:comment:)``. See
+    /// ``SwiftUI/Text`` for more information about localizing strings.
     init<ValuesCollection, ElementContent>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
@@ -67,7 +89,7 @@ extension Picker {
     ) where
         ValuesCollection: RandomAccessCollection,
         // Identifiable is preferred over SelfIdentifiable here. This way SelfIdentifiable is not
-        // required, and the compiner will detect if a type overrides the default `id` provided by
+        // required, and the compiler will detect if a type overrides the default `id` provided by
         // SelfIdentifiable.
         ValuesCollection.Element: Identifiable,
         ValuesCollection.Element.ID == ValuesCollection.Element,
@@ -110,8 +132,6 @@ private struct PreviewContent {
 
     enum SelfIdentifiedValues: String, SelfIdentifiable, CaseIterable {
         case  grace, heidi, ivan, judy
-//        var id: String { self.rawValue }
-//        var id: Self { self }
     }
 
 }
