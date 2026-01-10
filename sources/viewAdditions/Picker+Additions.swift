@@ -287,7 +287,7 @@ private struct PreviewContent {
         Picker(
             "Formatted Picker",
             selection: $values,
-            caseFormat: .firstCharacter(capitalized: true, format: .rawValue())
+            caseFormat: .firstCharacter(capitalized: true, input: .rawValue())
         ).pickerStyle(.segmented)
     }
     .padding(.horizontal)

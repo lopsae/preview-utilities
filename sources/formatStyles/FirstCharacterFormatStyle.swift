@@ -45,14 +45,14 @@ extension FormatStyle {
     /// first character, optionally capitalized.
     static func firstCharacter<InputFormat: FormatStyle>(
         capitalized: Bool = false,
-        format inputFormat: InputFormat
-    ) -> CompositeFormatStyle<InputFormat, FirstCharacterFormatStyle>
+        input: InputFormat
+    ) -> Self
     where
         InputFormat.FormatOutput == String,
         Self == CompositeFormatStyle<InputFormat, FirstCharacterFormatStyle>
     {
         let output = FirstCharacterFormatStyle(capitalized: capitalized)
-        return CompositeFormatStyle(input: inputFormat, output: output)
+        return .init(input: input, output: output)
     }
 
 }
