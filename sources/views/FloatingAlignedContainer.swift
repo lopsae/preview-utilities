@@ -26,64 +26,52 @@ struct FloatingAlignedContainer<Content: View>: View {
 
     var body: some View {
         GeometryReader { geometry in
-            switch alignment {
-            case .inner(let innerAlignment):
-                VStack(alignment: innerAlignment.horizontal.swiftAlignment) {
-                    content
-                }
-                .font(.caption)
-                .monospaced()
-                .foregroundStyle(.secondary)
-                .padding(.all, spacing)
-                // Prevents info view from collapsing in small sizes.
-                .fixedSize()
-                .border(.red)
-                // Centers the view based in the alignment even when the frame is smaller that the view.
-                .frame(size: geometry.size, alignment: innerAlignment.swiftAlignment)
-                .border(.green)
+            let offset = calculateOffset(geometry: geometry)
 
-            case .outer(let outerAlignment):
-                // TODO: Dry!
-                let yOffset: CGFloat = switch outerAlignment {
-                case .top:    -geometry.size.height
-                case .bottom: geometry.size.height
-                case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
-                    switch outerVerticalAlignment {
-                    case .above:
-                        -geometry.size.height
-                    case .top, .center, .bottom:
-                            .zero
-                    case .below:
-                        geometry.size.height
-                    }
-
-                }
-
-                let xOffset: CGFloat = switch outerAlignment {
-                case .leading:  -geometry.size.width
-                case .trailing: geometry.size.width
-                case .top, .bottom: .zero
-                }
-
-                // TODO: better name? textContainer? VStackAlignment?
-                VStack(alignment: outerAlignment.containerHorizontal.swiftAlignment) {
-                    content
-                }
-                .font(.caption)
-                .monospaced()
-                .foregroundStyle(.secondary)
-                .padding(.all, spacing)
-                // Prevents info view from collapsing in small sizes.
-                .fixedSize()
-                .border(.red)
-                // Centers the view based in the alignment even when the frame is smaller that the view.
-                .frame(size: geometry.size, alignment: outerAlignment.frameAlignment)
-                .border(.green)
-                // TODO: DRY! only difference between paths is the offset.
-                .offset(x: xOffset, y: yOffset)
-            } // switch
+            VStack(alignment: alignment.containerHorizontal.swiftAlignment) {
+                content
+            }
+            .font(.caption)
+            .monospaced()
+            .foregroundStyle(.secondary)
+            .padding(.all, spacing)
+            // Prevents info view from collapsing in small sizes.
+            .fixedSize()
+            .border(.red)
+            // Centers the view based in the alignment even when the frame is smaller that the view.
+            .frame(size: geometry.size, alignment: alignment.frameAlignment)
+            .border(.green)
+            .offset(offset)
         } // GeometryReader
     }
+
+
+    private func calculateOffset(geometry: GeometryProxy) -> CGSize {
+        guard let outerAlignment = alignment.outerAlignment else { return .zero }
+
+        let widthOffset: CGFloat = switch outerAlignment {
+        case .leading:  -geometry.size.width
+        case .trailing: geometry.size.width
+        case .top, .bottom: .zero
+        }
+
+        let heightOffset: CGFloat = switch outerAlignment {
+        case .top:    -geometry.size.height
+        case .bottom: geometry.size.height
+        case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
+            switch outerVerticalAlignment {
+            case .above:
+                -geometry.size.height
+            case .top, .center, .bottom:
+                    .zero
+            case .below:
+                geometry.size.height
+            }
+        }
+
+        return .init(width: widthOffset, height: heightOffset)
+    }
+
 }
 
 
@@ -128,6 +116,32 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
         }
     }
 
+    var outerAlignment: OuterAlignment? {
+        switch self {
+        case .outer(let outerAlignment): outerAlignment
+        case .inner: nil
+        }
+    }
+
+
+    // TODO: might make more sense to have along the views.
+    // Alignment for the VStack containing the info view.
+    // TODO: should be the swift horizontal type
+    var containerHorizontal: HorizontalAlignment {
+        switch self {
+        case .inner(let innerAlignment): innerAlignment.containerHorizontal
+        case .outer(let outerAlignment): outerAlignment.containerHorizontal
+        }
+    }
+
+    // TODO: this also might need to move to the view itself
+    var frameAlignment: SwiftUI.Alignment {
+        switch self {
+        case .inner(let innerAlignment): innerAlignment.frameAlignment
+        case .outer(let outerAlignment): outerAlignment.frameAlignment
+        }
+    }
+
 }
 
 
@@ -145,6 +159,13 @@ extension FloatingAlignment {
         var swiftAlignment: SwiftUI.Alignment {
             .init(horizontal: horizontal.swiftAlignment, vertical: vertical.swiftAlignment)
         }
+
+        // TODO: might make more sense to have along the views.
+        // Alignment for the VStack containing the info view.
+        var containerHorizontal: HorizontalAlignment { horizontal }
+
+        // TODO: this also might need to move to the view itself
+        var frameAlignment: SwiftUI.Alignment { swiftAlignment }
 
         // TODO: add other static properties
         static let topLeading: InnerAlignment = .init(horizontal: .leading, vertical: .top)
@@ -225,16 +246,16 @@ extension FloatingAlignment {
             var swiftHorizontal: SwiftUI.HorizontalAlignment {
                 switch self {
                 case .top, .bottom: .center
-                case .leading:  .trailing
-                case .trailing: .leading
+                case .leading:  .leading
+                case .trailing: .trailing
                 }
             }
 
             var swiftVertical: SwiftUI.VerticalAlignment {
                 switch self {
-                case .top: .bottom
-                case .leading: .top
-                case .bottom, .trailing: .center
+                case .leading, .trailing: .center
+                case .top:    .top
+                case .bottom: .bottom
                 }
             }
         }
@@ -278,48 +299,20 @@ extension FloatingAlignment {
             }
         }
 
-        // TODO: Dry!
+        // TODO: this also might need to move to the view itself
         var frameAlignment: SwiftUI.Alignment {
-//            let horizontal: SwiftUI.HorizontalAlignment
-//            let vertical: SwiftUI.VerticalAlignment
-
             switch self {
-            case .top(let horizontalAlignment)/*, .bottom(let horizontalAlignment)*/:
-//                horizontal = horizontalAlignment.swiftAlignment
-//                vertical = oppositeKey.swiftVertical
-                return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: .bottom)
-            case .bottom(let horizontalAlignment):
-//                horizontal = horizontalAlignment.swiftAlignment
-//                vertical = .bottom
-                return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: .top)
-            case .leading(let outerVerticalAlignment):
+            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
+                return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: oppositeKey.swiftVertical)
+            case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
                 let vertical: SwiftUI.VerticalAlignment = switch outerVerticalAlignment {
-                case .above:
-                        .bottom
-                case .top:
-                        .top
-                case .center:
-                        .center
-                case .bottom:
-                        .bottom
-                case .below:
-                        .top
+                case .above: .bottom
+                case .top: .top
+                case .center: .center
+                case .bottom: .bottom
+                case .below: .top
                 }
-                return .init(horizontal: .trailing, vertical: vertical)
-            case .trailing(let outerVerticalAlignment):
-                let vertical: SwiftUI.VerticalAlignment = switch outerVerticalAlignment {
-                case .above:
-                        .bottom
-                case .top:
-                        .top
-                case .center:
-                        .center
-                case .bottom:
-                        .bottom
-                case .below:
-                        .top
-                }
-                return .init(horizontal: .leading, vertical: vertical)
+                return .init(horizontal: oppositeKey.swiftHorizontal, vertical: vertical)
             }
         }
 
@@ -463,6 +456,7 @@ extension FloatingAlignment {
             .previewCaption("Spacer")
         Text("Preview text")
             .foregroundStyle(.quaternary)
+            .background(.teal.quinary)
             .monospaced()
             .overlay {
                 FloatingAlignedContainer(alignment: alignment, spacing: spacing) {
