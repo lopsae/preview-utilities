@@ -384,6 +384,64 @@ private struct PreviewContent {
 }
 
 
+#Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var lineWidth: Double = 5
+    @Previewable @State var widthIndex: Double = 0.0
+    @Previewable @State var heightIndex: Double = 0.0
+    @Previewable @State var width: Double = 0.0
+    @Previewable @State var height: Double = 0.0
+
+    let values: [Double] = Array(
+        [
+            stride(from: 0.0, to: 2.0, by: 0.1),
+            stride(from: 2.0, to: 16.0, by: 1.0),
+            stride(from: 20.0, to: 101.0, by: 10.0)
+        ]
+        .joined()
+    )
+
+    VStack {
+        Slider(
+            "Line Width",
+            value: $lineWidth,
+            in: 0...15,
+            valueFormat: .arithmeticRoundedInteger)
+        Text("Line Width: \(lineWidth, format: .fractionLength(2))")
+            .monospaced()
+
+        Slider(
+            "Width",
+            collection: values,
+            value: $widthIndex,
+            mapped: $width,
+            currentMappedFormat: .fractionLength(1),
+            boundsMappedFormat: .fractionLength(1)
+        )
+        Slider(
+            "Height",
+            collection: values,
+            value: $heightIndex,
+            mapped: $height,
+            currentMappedFormat: .fractionLength(1),
+            boundsMappedFormat: .fractionLength(1)
+        )
+
+        Text("Size: \(width, format: .fractionLength(1)),\(height, format: .fractionLength(1))")
+            .monospaced()
+    }
+    .padding()
+
+    PreviewContent.star
+        .frame(
+            width: width,
+            height: height
+        )
+        .debugOverlay(.lineWidth(lineWidth), .allGeometry, .outerInfo)
+        .safeAreaPadding(.init(horizontal: 50, vertical: 30))
+        .border(.gray.tertiary)
+}
+
+
 #Preview("Alignments", traits: .headerFooter(.fixed), PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var lineWidth: Double = 5
@@ -514,59 +572,14 @@ private struct PreviewContent {
 }
 
 
-#Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var lineWidth: Double = 5
-    @Previewable @State var widthIndex: Double = 0.0
-    @Previewable @State var heightIndex: Double = 0.0
-    @Previewable @State var width: Double = 0.0
-    @Previewable @State var height: Double = 0.0
-
-    let values: [Double] = Array(
-        [
-            stride(from: 0.0, to: 2.0, by: 0.1),
-            stride(from: 2.0, to: 16.0, by: 1.0),
-            stride(from: 20.0, to: 101.0, by: 10.0)
-        ]
-        .joined()
-    )
-
-    VStack {
-        Slider(
-            "Line Width",
-            value: $lineWidth,
-            in: 0...15,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Line Width: \(lineWidth, format: .fractionLength(2))")
-            .monospaced()
-
-        Slider(
-            "Width",
-            collection: values,
-            value: $widthIndex,
-            mapped: $width,
-            currentMappedFormat: .fractionLength(1),
-            boundsMappedFormat: .fractionLength(1)
-        )
-        Slider(
-            "Height",
-            collection: values,
-            value: $heightIndex,
-            mapped: $height,
-            currentMappedFormat: .fractionLength(1),
-            boundsMappedFormat: .fractionLength(1)
-        )
-
-        Text("Size: \(width, format: .fractionLength(1)),\(height, format: .fractionLength(1))")
-            .monospaced()
-    }
-    .padding()
-
+#Preview("All Alignments", traits: PreviewContent.layout) {
+    let size: CGSize = .init(width: 300, height: 150)
     PreviewContent.star
-        .frame(
-            width: width,
-            height: height
-        )
-        .debugOverlay(.lineWidth(lineWidth), .allGeometry, .outerInfo)
-        .safeAreaPadding(.init(horizontal: 50, vertical: 30))
-        .border(.gray.tertiary)
+    .frame(size: size)
+    .overlay {
+        ForEach(FloatingAlignment.allCases) { alignment in
+            ClearRectangle()
+                .debugOverlay(.width, .infoAlignment(alignment))
+        }
+    }
 }

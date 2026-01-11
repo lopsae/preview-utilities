@@ -94,18 +94,22 @@ extension DebugOverlayModifier.Configuration {
         static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
         static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
+        static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
+            .modifier(InfoAlignmentModifier(alignment: alignment))
+        }
+
         /// Default inner aligned position for the information caption: top-leading.
-        static var innerInfo: Trait = .modifier(InfoAlignmentModifier(infoAlignment: .inner(.topLeading)))
+        static var innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .inner(.topLeading)))
 
         static func innerInfo(_ innerAlingment: FloatingAlignment.InnerAlignment) -> Trait {
-            .modifier(InfoAlignmentModifier(infoAlignment: .inner(innerAlingment)))
+            .modifier(InfoAlignmentModifier(alignment: .inner(innerAlingment)))
         }
 
         /// Default outer aligned position for the information caption: top-leading.
-        static let outerInfo: Trait = .modifier(InfoAlignmentModifier(infoAlignment: .outer(.topLeading)))
+        static let outerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .outer(.topLeading)))
 
         static func outerInfo(_ outerAlingment: FloatingAlignment.OuterAlignment) -> Trait {
-            .modifier(InfoAlignmentModifier(infoAlignment: .outer(outerAlingment)))
+            .modifier(InfoAlignmentModifier(alignment: .outer(outerAlingment)))
         }
 
     }
@@ -142,9 +146,9 @@ extension DebugOverlayModifier.Configuration {
     }
 
     struct InfoAlignmentModifier: Modifier {
-        let infoAlignment: FloatingAlignment
+        let alignment: FloatingAlignment
         func update(configuration: inout DebugOverlayModifier.Configuration) {
-            configuration.infoAlignment = infoAlignment
+            configuration.infoAlignment = alignment
         }
     }
 
