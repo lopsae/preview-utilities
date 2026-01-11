@@ -11,35 +11,31 @@ struct FloatingAlignedContainer<Content: View>: View {
 
     let alignment: FloatingAlignment
     let spacing: CGFloat?
-    let content: Content
+    let content: (SwiftUI.Alignment) -> Content
 
 
     init(
         alignment: FloatingAlignment = .inner(.center),
         spacing: CGFloat? = nil,
-        @ViewBuilder content: @escaping () -> Content
+        @ViewBuilder content: @escaping (SwiftUI.Alignment) -> Content
     ) {
         self.alignment = alignment
         self.spacing = spacing
-        self.content = content()
+        self.content = content
     }
+
 
     var body: some View {
         GeometryReader { geometry in
             let offset = calculateOffset(geometry: geometry)
 
-            VStack(alignment: alignment.containerHorizontal) {
-                content
+            VStack(alignment: alignment.contentAlignment.horizontal) {
+                content(alignment.contentAlignment)
             }
-            .font(.caption)
-            .monospaced()
-            .foregroundStyle(.secondary)
             .padding(.all, spacing)
-            // Prevents info view from collapsing in small sizes.
-            .fixedSize()
             .border(.red)
             // Centers the view based in the alignment even when the frame is smaller that the view.
-            .frame(size: geometry.size, alignment: alignment.frameAlignment)
+            .frame(size: geometry.size, alignment: alignment.contentAlignment)
             .border(.green)
             .offset(offset)
         } // GeometryReader
@@ -105,6 +101,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
         return innerCases + outerCases
     }()
 
+
     var outerAlignment: OuterAlignment? {
         switch self {
         case .outer(let outerAlignment): outerAlignment
@@ -113,21 +110,10 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
     }
 
 
-    // TODO: might make more sense to have along the views.
-    // Alignment for the VStack containing the info view.
-    // TODO: should be the swift horizontal type
-    var containerHorizontal: SwiftUI.HorizontalAlignment {
-        switch self {
-        case .inner(let innerAlignment): innerAlignment.horizontal.swiftAlignment
-        case .outer(let outerAlignment): outerAlignment.containerHorizontal
-        }
-    }
-
-    // TODO: this also might need to move to the view itself
-    var frameAlignment: SwiftUI.Alignment {
+    var contentAlignment: SwiftUI.Alignment {
         switch self {
         case .inner(let innerAlignment): innerAlignment.swiftAlignment
-        case .outer(let outerAlignment): outerAlignment.frameAlignment
+        case .outer(let outerAlignment): outerAlignment.contentAlignment
         }
     }
 
@@ -252,21 +238,8 @@ extension FloatingAlignment {
             }
         }
 
-        // TODO: might make more sense to have along the views.
-        // Alignment for the VStack containing the info view.
-        var containerHorizontal: SwiftUI.HorizontalAlignment {
-            switch self {
-            // Same as own horizontal, to hug leading/trailing.
-            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
-                horizontalAlignment.swiftAlignment
-            // Opposites horizontals, to hug leading/trailing from the outside.
-            case .leading:  .trailing
-            case .trailing: .leading
-            }
-        }
 
-        // TODO: this also might need to move to the view itself
-        var frameAlignment: SwiftUI.Alignment {
+        var contentAlignment: SwiftUI.Alignment {
             switch self {
             case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
                 // Same horizontal, opposie vertical, to hug the top/bottom.
@@ -285,6 +258,7 @@ extension FloatingAlignment {
                 return .init(horizontal: oppositeKey.swiftHorizontal, vertical: vertical)
             }
         }
+
 
         static var topLeading:     OuterAlignment { .top(.leading) }
         static var topCenter:      OuterAlignment { .top(.center) }
@@ -332,16 +306,20 @@ extension FloatingAlignment {
         .fill(.teal.tertiary)
     .frame(square: 100)
     .overlay {
-        FloatingAlignedContainer {
-            Text("Sphinx of black quartz,")
-            Text("judge my vow")
+        FloatingAlignedContainer { _ in
+            Group {
+                Text("Sphinx of black quartz,")
+                Text("judge my vow")
+            }
+            .fixedSize()
         }
     }
 }
 
 
 #Preview("Alignments", traits: .fixedHeader, .iPhoneProSizeLayout) {
-    @Previewable @State var isLargeContent: Bool = true
+    @Previewable @State var isLargeParent: Bool = true
+    @Previewable @State var isVerticalContent: Bool = true
     @Previewable @State var spacing: Double = 5
 
     @Previewable @State var alignmentKey: FloatingAlignment.Key = .outer
@@ -399,11 +377,33 @@ extension FloatingAlignment {
             currentValueFormat: .fractionLength(2),
             boundsValueFormat: .arithmeticRoundedInteger)
 
-        Toggle("Large Content", isOn: $isLargeContent)
+        Toggle("Large Parent", isOn: $isLargeParent)
+        Toggle("Vertical Content", isOn: $isVerticalContent)
     }
     .padding(.not(.top))
 
-    if isLargeContent {
+    let floatingContent = FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignment in
+        if isVerticalContent {
+            VStack(alignment: alignment.horizontal) {
+                Text("Sphinx of black quartz")
+                Text("judge my vow")
+            }
+            .foregroundStyle(.secondary)
+            .font(.caption.monospaced())
+            .fixedSize()
+        } else {
+            HStack(alignment: alignment.vertical) {
+                Rectangle().fill(.red)
+                    .frame(width: 20, height: 100)
+                Rectangle().fill(.red)
+                    .frame(width: 20, height: 50)
+                Rectangle().fill(.red)
+                    .frame(width: 20, height: 250)
+            }
+        }
+    }
+
+    if isLargeParent {
         Rectangle().fill(.gray.tertiary)
             .frame(width: 50)
             .previewCaption("Spacer")
@@ -412,10 +412,7 @@ extension FloatingAlignment {
             .background(.teal.quinary)
             .frame(square: 200)
             .overlay {
-                FloatingAlignedContainer(alignment: alignment, spacing: spacing) {
-                    Text("Sphinx of black quartz")
-                    Text("judge my vow")
-                }
+                floatingContent
             }
         Rectangle().fill(.gray.tertiary)
             .frame(width: 50)
@@ -429,10 +426,7 @@ extension FloatingAlignment {
             .background(.teal.quinary)
             .monospaced()
             .overlay {
-                FloatingAlignedContainer(alignment: alignment, spacing: spacing) {
-                    Text("Sphinx of black quartz")
-                    Text("judge my vow")
-                }
+                floatingContent
             }
         Rectangle().fill(.gray.tertiary)
             .frame(width: 50)
@@ -448,12 +442,10 @@ extension FloatingAlignment {
     .frame(square: 200)
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in
-            FloatingAlignedContainer(alignment: alignment) {
-                // TODO: string formatting will eventually be moved here.
+            FloatingAlignedContainer(alignment: alignment, spacing: 2) { _ in
                 Text("black")
                 Image(systemName: "target")
                 Text("quartz")
-
             }
         }
     }
