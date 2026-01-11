@@ -339,11 +339,25 @@ extension FloatingAlignment {
 }
 
 
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+    enum ContentOption: String, SelfIdentifiable, CaseIterable {
+        case text, vertical, multiline
+    }
+
+}
+
 
 // MARK: - Previews
 
 
-#Preview("Default") {
+#Preview("Default", traits: PreviewContent.layout) {
     Rectangle()
         .fill(.teal.tertiary)
     .frame(square: 100)
@@ -359,9 +373,9 @@ extension FloatingAlignment {
 }
 
 
-#Preview("Alignments", traits: .fixedHeader, .iPhoneProSizeLayout) {
+#Preview("Alignments", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var isLargeParent: Bool = true
-    @Previewable @State var isVerticalContent: Bool = true
+    @Previewable @State var contentOption: PreviewContent.ContentOption = .multiline
     @Previewable @State var spacing: Double = 5
 
     @Previewable @State var alignmentKey: FloatingAlignment.Key = .outer
@@ -420,12 +434,14 @@ extension FloatingAlignment {
             boundsValueFormat: .arithmeticRoundedInteger)
 
         Toggle("Large Parent", isOn: $isLargeParent)
-        Toggle("Vertical Content", isOn: $isVerticalContent)
+        Picker("Content", selection: $contentOption, caseFormat: .rawValueCapitalized())
+            .pickerStyle(.segmented)
     }
     .padding(.not(.top))
 
-    let floatingContent = FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignment, _ in
-        if isVerticalContent {
+    let floatingContent = FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignment, textAlignment in
+        switch contentOption {
+        case .text:
             VStack(alignment: alignment.horizontal) {
                 Text("Sphinx of black quartz")
                 Text("judge my vow")
@@ -433,7 +449,7 @@ extension FloatingAlignment {
             .foregroundStyle(.secondary)
             .font(.caption.monospaced())
             .fixedSize()
-        } else {
+        case .vertical:
             HStack(alignment: alignment.vertical) {
                 Rectangle().fill(.red)
                     .frame(width: 20, height: 100)
@@ -442,6 +458,15 @@ extension FloatingAlignment {
                 Rectangle().fill(.red)
                     .frame(width: 20, height: 250)
             }
+        case .multiline:
+            VStack(alignment: alignment.horizontal) {
+                Text("How happy is\nthe blameless vestal lot")
+                Text("the world forgetting,\nby the world forgot")
+            }
+            .foregroundStyle(.secondary)
+            .font(.caption.monospaced())
+            .multilineTextAlignment(textAlignment)
+            .fixedSize()
         }
     }
 
@@ -478,7 +503,7 @@ extension FloatingAlignment {
 }
 
 
-#Preview("All Alignments") {
+#Preview("All Alignments", traits: PreviewContent.layout) {
     Rectangle()
     .fill(.teal.tertiary)
     .frame(square: 200)
