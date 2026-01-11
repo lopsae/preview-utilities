@@ -11,7 +11,7 @@ extension DebugOverlayModifier {
 
     public struct Configuration {
 
-        var lineWidth: CGFloat = 5
+        var bordersWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
 
@@ -82,8 +82,8 @@ extension DebugOverlayModifier.Configuration {
 
         static let hairline: Trait = .modifier(HairlineModifier())
 
-        static func lineWidth(_ lineWidth: CGFloat) -> Trait {
-            .modifier(LineWidthModifier(lineWidth: lineWidth))
+        static func bordersWidth(_ bordersWidth: CGFloat) -> Trait {
+            .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
         }
 
         static let width: Trait          = .modifier(InfoElementsModifier(infoElements: .width))
@@ -127,14 +127,14 @@ extension DebugOverlayModifier.Configuration {
 
     struct HairlineModifier: Modifier {
         func update(configuration: inout DebugOverlayModifier.Configuration) {
-            configuration.lineWidth = 1
+            configuration.bordersWidth = 1
         }
     }
 
-    struct LineWidthModifier: Modifier {
-        let lineWidth: CGFloat
+    struct BordersWidthModifier: Modifier {
+        let bordersWidth: CGFloat
         func update(configuration: inout DebugOverlayModifier.Configuration) {
-            configuration.lineWidth = lineWidth
+            configuration.bordersWidth = bordersWidth
         }
     }
 

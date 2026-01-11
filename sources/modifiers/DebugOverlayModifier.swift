@@ -12,9 +12,9 @@ import SwiftUI
 /// insets.
 public struct DebugOverlayModifier: ViewModifier {
 
-    /// The line width is limited to minimum of 1 so that there is always a visual overlay even on
-    /// zero sizes. Smaller values are ignored.
-    private static let minLineWidth: CGFloat = 1
+    /// The borders width is limited to a minimum of 1 so that there is always a visual overlay even
+    /// on zero sizes. Smaller values are overridden with the minimum.
+    private static let minBordersWidth: CGFloat = 1
     private static let minReticuleLength: CGFloat = 2
 
     private static let outerShapeStyle:     some ShapeStyle = .blue.tertiary
@@ -47,17 +47,17 @@ public struct DebugOverlayModifier: ViewModifier {
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let size = geometry.size
-        let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
+        let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
-        // When debugged view is smaller that `lineWidth*2` the safe areas are still drawn with a
-        // thickness of `lineWidth*2` to remain visible, and offset to stay centered with the
+        // When content view is smaller that `bordersWidth*2` the safe areas are still drawn with a
+        // thickness of `bordersWidth*2` to remain visible, and offset to stay centered with the
         // origin.
-        let minimumRect = CGSize(square: boundedLineWidth * 2).centered(in: size)
+        let minimumRect = CGSize(square: boundedBordersWidth * 2).centered(in: size)
         let xOffset = min(0.0, minimumRect.origin.x)
         let yOffset = min(0.0, minimumRect.origin.y)
 
-        let minWidth  = max(boundedLineWidth * 2, size.width)
-        let minHeight = max(boundedLineWidth * 2, size.height)
+        let minWidth  = max(boundedBordersWidth * 2, size.width)
+        let minHeight = max(boundedBordersWidth * 2, size.height)
 
         let topInset      = geometry.safeAreaInsets.top
         let leadingInset  = geometry.safeAreaInsets.leading
@@ -100,13 +100,15 @@ public struct DebugOverlayModifier: ViewModifier {
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
         let correctedFrame = correctZeroRect(localFrame)
-        let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
+        let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
         Rectangle()
-            .stroke(Self.outerShapeStyle, lineWidth: boundedLineWidth * 2)
+            // Stroke draws over the view's boundary, half inside half outside.
+            // Drawn with double width and masked to remove the inner half.
+            .stroke(Self.outerShapeStyle, lineWidth: boundedBordersWidth * 2)
             .mask {
                 Path { path in
-                    path.addRect(correctedFrame.inset(by: -boundedLineWidth))
+                    path.addRect(correctedFrame.inset(by: -boundedBordersWidth))
                     path.addRect(correctedFrame)
                 }
                 .fill(style: .init(eoFill: true))
@@ -121,17 +123,19 @@ public struct DebugOverlayModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
-        let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
-        // When debugged view is smaller that `lineWidth*2` the lineWidth used is reduced allow
-        // it to draw at smaller sizes, otherwise no inner stroke is drawn.
-        let correctedLineWidth = min(geometry.size.min, boundedLineWidth * 2) / 2.0
+        let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
+        // When content view is smaller that `bordersWidth*2` the lineWidth used is reduced to
+        // allow drawing at smaller sizes, otherwise strokes smaller that half the half the side
+        // of the rectangle are NOT drawn.
+        let correctedLineWidth = min(geometry.size.min, boundedBordersWidth * 2) / 2.0
 
         let strokeStyle = StrokeStyle(
             lineWidth: correctedLineWidth,
-            dash: [boundedLineWidth * 3, boundedLineWidth * 2]
+            dash: [boundedBordersWidth * 3, boundedBordersWidth * 2]
         )
 
         Rectangle()
+            // Stroke border draws an inset stroke.
             .strokeBorder(Self.innerShapeStyle, style: strokeStyle)
     }
 
@@ -139,8 +143,8 @@ public struct DebugOverlayModifier: ViewModifier {
     @ViewBuilder
     private func originReticuleRects(geometry: GeometryProxy) -> some View {
         let thickness: CGFloat = 1
-        let boundedLength = configuration.lineWidth.clamped(to: Self.minReticuleLength...)
-        // +thickness to correctly center the reticule, specially at very small sizes.
+        let boundedLength = configuration.bordersWidth.clamped(to: Self.minReticuleLength...)
+        // `+ thickness` to correctly center the reticule, specially at very small sizes.
         let reticuleLength = (boundedLength * 2) + thickness
 
         Rectangle()
@@ -157,11 +161,11 @@ public struct DebugOverlayModifier: ViewModifier {
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
         if !configuration.infoElements.isEmpty {
-            let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
+            let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
             FloatingAlignedContainer(
                 alignment: configuration.infoAlignment,
-                spacing: boundedLineWidth * 1.5
+                spacing: boundedBordersWidth * 1.5
             ) { alignment, textAlignment in
                 Group {
                     let globalFrame = geometry.frame(in: .global)
@@ -385,7 +389,7 @@ private struct PreviewContent {
 
 
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var lineWidth: Double = 5
+    @Previewable @State var bordersWidth: Double = 5
     @Previewable @State var widthIndex: Double = 0.0
     @Previewable @State var heightIndex: Double = 0.0
     @Previewable @State var width: Double = 0.0
@@ -403,10 +407,10 @@ private struct PreviewContent {
     VStack {
         Slider(
             "Line Width",
-            value: $lineWidth,
+            value: $bordersWidth,
             in: 0...15,
             valueFormat: .arithmeticRoundedInteger)
-        Text("Line Width: \(lineWidth, format: .fractionLength(2))")
+        Text("Line Width: \(bordersWidth, format: .fractionLength(2))")
             .monospaced()
 
         Slider(
@@ -436,7 +440,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOverlay(.lineWidth(lineWidth), .allGeometry, .outerInfo)
+        .debugOverlay(.bordersWidth(bordersWidth), .allGeometry, .outerInfo)
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
@@ -444,7 +448,7 @@ private struct PreviewContent {
 
 #Preview("Alignments", traits: .headerFooter(.fixed), PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
-    @Previewable @State var lineWidth: Double = 5
+    @Previewable @State var bordersWidth: Double = 5
 
     @Previewable @State var positionKey: FloatingAlignment.Key = .outer
     @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
@@ -457,7 +461,7 @@ private struct PreviewContent {
     let defaultTraits: [DebugOverlayModifier.Configuration.Trait] = [.allGeometry]
 
     let makeTraits: () -> [DebugOverlayModifier.Configuration.Trait] = {
-        var traits: [DebugOverlayModifier.Configuration.Trait] = defaultTraits + [.lineWidth(lineWidth)]
+        var traits: [DebugOverlayModifier.Configuration.Trait] = defaultTraits + [.bordersWidth(bordersWidth)]
 
         let positionTrait: DebugOverlayModifier.Configuration.Trait
         switch positionKey {
@@ -503,12 +507,13 @@ private struct PreviewContent {
             }
         }
 
+        // TODO: use Slider.captioned
         Slider(
             "Line Width",
-            value: $lineWidth,
+            value: $bordersWidth,
             in: 0...15,
             valueFormat: .arithmeticRoundedInteger)
-        Text("Line Width: \(lineWidth, format: .fractionLength(2))")
+        Text("Line Width: \(bordersWidth, format: .fractionLength(2))")
             .font(.caption.monospaced())
 
         Toggle("Use Small Content", isOn: $useSmallContent)
