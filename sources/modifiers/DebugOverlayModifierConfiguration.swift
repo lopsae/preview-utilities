@@ -13,7 +13,7 @@ extension DebugOverlayModifier {
 
         var lineWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
-        var infoPosition: InfoPosition = .inner(.topLeading)
+        var infoAlignment: FloatingAlignment = .inner(.topLeading)
 
 
         init() { }
@@ -294,17 +294,17 @@ extension DebugOverlayModifier.Configuration {
         static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
         /// Default inner aligned position for the information caption: top-leading.
-        static var innerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .inner(.topLeading)))
+        static var innerInfo: Trait = .modifier(InfoAlignmentModifier(infoAlignment: .inner(.topLeading)))
 
-        static func innerInfo(_ innerAlingment: InnerAlignment) -> Trait {
-            .modifier(InfoPositionModifier(infoPosition: .inner(innerAlingment)))
+        static func innerInfo(_ innerAlingment: FloatingAlignment.InnerAlignment) -> Trait {
+            .modifier(InfoAlignmentModifier(infoAlignment: .inner(innerAlingment)))
         }
 
         /// Default outer aligned position for the information caption: top-leading.
-        static let outerInfo: Trait = .modifier(InfoPositionModifier(infoPosition: .outer(.topLeading)))
+        static let outerInfo: Trait = .modifier(InfoAlignmentModifier(infoAlignment: .outer(.topLeading)))
 
-        static func outerInfo(_ outerAlingment: OuterAlignment) -> Trait {
-            .modifier(InfoPositionModifier(infoPosition: .outer(outerAlingment)))
+        static func outerInfo(_ outerAlingment: FloatingAlignment.OuterAlignment) -> Trait {
+            .modifier(InfoAlignmentModifier(infoAlignment: .outer(outerAlingment)))
         }
 
     }
@@ -340,10 +340,10 @@ extension DebugOverlayModifier.Configuration {
         }
     }
 
-    struct InfoPositionModifier: Modifier {
-        let infoPosition: InfoPosition
+    struct InfoAlignmentModifier: Modifier {
+        let infoAlignment: FloatingAlignment
         func update(configuration: inout DebugOverlayModifier.Configuration) {
-            configuration.infoPosition = infoPosition
+            configuration.infoAlignment = infoAlignment
         }
     }
 

@@ -7,9 +7,9 @@
 import SwiftUI
 
 
-/// Draws in an overlay of the content view a dashed stroke inset in the view border, a outset solid
-/// stroke, and rectangles to visualize any safe areas affecting the view. Can also be configured to
-/// display additional information like size, origin, and the safe area insets.
+/// Draws in an overlay of the content view visual representations of the view's boundaries and safe
+/// areas. Optionally can also dsiplay additional information like size, origin, and the safe area
+/// insets.
 public struct DebugOverlayModifier: ViewModifier {
 
     /// The line width is limited to minimum of 1 so that there is always a visual overlay even on
@@ -159,92 +159,45 @@ public struct DebugOverlayModifier: ViewModifier {
         if !configuration.infoElements.isEmpty {
             let boundedLineWidth = configuration.lineWidth.clamped(to: Self.minLineWidth...)
 
-            let infoTextGroup = Group {
-                let globalFrame = geometry.frame(in: .global)
-                let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
+            FloatingAlignedContainer(
+                alignment: configuration.infoAlignment,
+                spacing: boundedLineWidth * 1.5
+            ) { alignment, textAlignment in
+                Group {
+                    let globalFrame = geometry.frame(in: .global)
+                    let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
-                // Width, Height, or Size.
-                if configuration.infoElements.contains(.size) {
-                    let formattedWidth = globalFrame.width.formatted(fractionLength)
-                    let formattedHeight = globalFrame.height.formatted(fractionLength)
-                    Text("size: \(formattedWidth), \(formattedHeight)")
-                } else if configuration.infoElements.contains(.width) {
-                    let formattedWidth = globalFrame.width.formatted(fractionLength)
-                    Text("width: \(formattedWidth)")
-                } else if configuration.infoElements.contains(.height) {
-                    let formattedHeight = globalFrame.height.formatted(fractionLength)
-                    Text("height: \(formattedHeight)")
-                }
-
-                // Origin.
-                if configuration.infoElements.contains(.origin) {
-                    let formattedX = globalFrame.origin.x.formatted(fractionLength)
-                    let formattedY = globalFrame.origin.y.formatted(fractionLength)
-                    Text("origin: \(formattedX), \(formattedY)")
-                }
-
-                // SafeAreaInsets.
-                if configuration.infoElements.contains(.safeAreaInsets) {
-                    Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
-                        .multilineTextAlignment(configuration.infoPosition.textAlignment)
-                }
-            } // Group
-
-            switch configuration.infoPosition {
-            case .inner(let innerAlignment):
-                VStack(alignment: innerAlignment.horizontal.swiftAlignment, spacing: 2) {
-                    infoTextGroup
-                }
-                .font(.caption)
-                .monospaced()
-                .foregroundStyle(.secondary)
-                .padding(boundedLineWidth * 1.5)
-                // Prevents info view from collapsing in small sizes.
-                .fixedSize()
-                // Centers the view based in the alignment even when the frame is smaller that the view.
-                .frame(size: geometry.size, alignment: innerAlignment.swiftAlignment)
-
-            case .outer(let outerAlignment):
-                // TODO: Dry!
-                let yOffset: CGFloat = switch outerAlignment {
-                case .top:    -geometry.size.height
-                case .bottom: geometry.size.height
-                case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
-                    switch outerVerticalAlignment {
-                    case .above:
-                        -geometry.size.height
-                    case .top, .center, .bottom:
-                            .zero
-                    case .below:
-                        geometry.size.height
+                    // Width, Height, or Size.
+                    if configuration.infoElements.contains(.size) {
+                        let formattedWidth = globalFrame.width.formatted(fractionLength)
+                        let formattedHeight = globalFrame.height.formatted(fractionLength)
+                        Text("size: \(formattedWidth), \(formattedHeight)")
+                    } else if configuration.infoElements.contains(.width) {
+                        let formattedWidth = globalFrame.width.formatted(fractionLength)
+                        Text("width: \(formattedWidth)")
+                    } else if configuration.infoElements.contains(.height) {
+                        let formattedHeight = globalFrame.height.formatted(fractionLength)
+                        Text("height: \(formattedHeight)")
                     }
 
-                }
+                    // Origin.
+                    if configuration.infoElements.contains(.origin) {
+                        let formattedX = globalFrame.origin.x.formatted(fractionLength)
+                        let formattedY = globalFrame.origin.y.formatted(fractionLength)
+                        Text("origin: \(formattedX), \(formattedY)")
+                    }
 
-                let xOffset: CGFloat = switch outerAlignment {
-                case .leading:  -geometry.size.width
-                case .trailing: geometry.size.width
-                case .top, .bottom: .zero
-                }
-
-                // TODO: better name? textContainer? VStackAlignment?
-                VStack(alignment: outerAlignment.containerHorizontal.swiftAlignment, spacing: 2) {
-                    infoTextGroup
-                }
-                .font(.caption)
-                .monospaced()
+                    // SafeAreaInsets.
+                    if configuration.infoElements.contains(.safeAreaInsets) {
+                        Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
+                            .multilineTextAlignment(textAlignment)
+                    }
+                } // Group
+                .font(.caption.monospaced())
                 .foregroundStyle(.secondary)
-                // TODO: padding should be selective of alignment
-                .padding(boundedLineWidth * 1.5)
-                // Prevents info view from collapsing in small sizes.
                 .fixedSize()
-                .border(.red)
-                // Centers the view based in the alignment even when the frame is smaller that the view.
-                .frame(size: geometry.size, alignment: outerAlignment.frameAlignment)
-                .border(.green)
-                .offset(x: xOffset, y: yOffset)
-            }
-        }
+            }// FloatingAlignedContainer
+        } // if
     }
 
 
@@ -435,13 +388,13 @@ private struct PreviewContent {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var lineWidth: Double = 5
 
-    @Previewable @State var positionKey: DebugOverlayModifier.Configuration.InfoPosition.Key = .outer
-    @Previewable @State var innerHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .center
-    @Previewable @State var innerVerticalAlignment: DebugOverlayModifier.Configuration.VerticalAlignment = .top
+    @Previewable @State var positionKey: FloatingAlignment.Key = .outer
+    @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
+    @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
 
-    @Previewable @State var outerMayorAlignment: DebugOverlayModifier.Configuration.OuterAlignment.Key = .top
-    @Previewable @State var outerMinorHorizontalAlignment: DebugOverlayModifier.Configuration.HorizontalAlignment = .center
-    @Previewable @State var outerMinorVerticalAlignment: DebugOverlayModifier.Configuration.OuterVerticalAlignment = .center
+    @Previewable @State var outerMayorAlignment: FloatingAlignment.OuterAlignment.Key = .top
+    @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
+    @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
 
     let defaultTraits: [DebugOverlayModifier.Configuration.Trait] = [.allGeometry]
 
@@ -453,7 +406,7 @@ private struct PreviewContent {
         case .inner:
             positionTrait = .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
         case .outer:
-            let outerAlignment: DebugOverlayModifier.Configuration.OuterAlignment = switch outerMayorAlignment {
+            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMayorAlignment {
             case .top:      .top(     outerMinorHorizontalAlignment)
             case .bottom:   .bottom(  outerMinorHorizontalAlignment)
             case .leading:  .leading( outerMinorVerticalAlignment)

@@ -169,6 +169,8 @@ extension View {
 
 extension View {
 
+
+    // TODO: rename to floatingCaption, since there is already a PreviewCaption view.
     /// Experimental labeling for interactive preview elements, specially rectangles.
     func previewCaption(_ key: LocalizedStringKey, _ options: PreviewCaptionOptions...) -> some View {
         self.overlay {
