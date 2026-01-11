@@ -388,64 +388,6 @@ private struct PreviewContent {
 }
 
 
-#Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var bordersWidth: Double = 5
-    @Previewable @State var widthIndex: Double = 0.0
-    @Previewable @State var heightIndex: Double = 0.0
-    @Previewable @State var width: Double = 0.0
-    @Previewable @State var height: Double = 0.0
-
-    let values: [Double] = Array(
-        [
-            stride(from: 0.0, to: 2.0, by: 0.1),
-            stride(from: 2.0, to: 16.0, by: 1.0),
-            stride(from: 20.0, to: 101.0, by: 10.0)
-        ]
-        .joined()
-    )
-
-    VStack {
-        Slider(
-            "Line Width",
-            value: $bordersWidth,
-            in: 0...15,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Line Width: \(bordersWidth, format: .fractionLength(2))")
-            .monospaced()
-
-        Slider(
-            "Width",
-            collection: values,
-            value: $widthIndex,
-            mapped: $width,
-            currentMappedFormat: .fractionLength(1),
-            boundsMappedFormat: .fractionLength(1)
-        )
-        Slider(
-            "Height",
-            collection: values,
-            value: $heightIndex,
-            mapped: $height,
-            currentMappedFormat: .fractionLength(1),
-            boundsMappedFormat: .fractionLength(1)
-        )
-
-        Text("Size: \(width, format: .fractionLength(1)),\(height, format: .fractionLength(1))")
-            .monospaced()
-    }
-    .padding()
-
-    PreviewContent.star
-        .frame(
-            width: width,
-            height: height
-        )
-        .debugOverlay(.bordersWidth(bordersWidth), .allGeometry, .outerInfo)
-        .safeAreaPadding(.init(horizontal: 50, vertical: 30))
-        .border(.gray.tertiary)
-}
-
-
 #Preview("Alignments", traits: .headerFooter(.fixed), PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var bordersWidth: Double = 5
@@ -507,14 +449,10 @@ private struct PreviewContent {
             }
         }
 
-        // TODO: use Slider.captioned
-        Slider(
-            "Line Width",
-            value: $bordersWidth,
-            in: 0...15,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Line Width: \(bordersWidth, format: .fractionLength(2))")
-            .font(.caption.monospaced())
+        Slider.captioned(
+            "Line Width", value: $bordersWidth, in: 0...15,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
 
         Toggle("Use Small Content", isOn: $useSmallContent)
     }
@@ -540,6 +478,57 @@ private struct PreviewContent {
     }
 
 }
+
+
+#Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var bordersWidth: Double = 5
+    @Previewable @State var widthIndex: Double = 0.0
+    @Previewable @State var heightIndex: Double = 0.0
+    @Previewable @State var width: Double = 0.0
+    @Previewable @State var height: Double = 0.0
+
+    let values: [Double] = Array(
+        [
+            stride(from: 0.0, to: 2.0, by: 0.1),
+            stride(from: 2.0, to: 16.0, by: 1.0),
+            stride(from: 20.0, to: 101.0, by: 10.0)
+        ]
+        .joined()
+    )
+
+    VStack {
+        Slider.captioned(
+            "Line Width", value: $bordersWidth, in: 0...15,
+            valueFormat: .arithmeticRoundedInteger)
+
+        Slider(
+            "Width", collection: values,
+            value: $widthIndex, mapped: $width,
+            currentMappedFormat: .fractionLength(1),
+            boundsMappedFormat: .fractionLength(1)
+        )
+        Slider(
+            "Height", collection: values,
+            value: $heightIndex, mapped: $height,
+            currentMappedFormat: .fractionLength(1),
+            boundsMappedFormat: .fractionLength(1)
+        )
+
+        Text("Size: \(width, format: .fractionLength(1)),\(height, format: .fractionLength(1))")
+            .monospaced()
+    }
+    .padding()
+
+    PreviewContent.star
+        .frame(
+            width: width,
+            height: height
+        )
+        .debugOverlay(.bordersWidth(bordersWidth), .allGeometry, .outerInfo)
+        .safeAreaPadding(.init(horizontal: 50, vertical: 30))
+        .border(.gray.tertiary)
+}
+
 
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
