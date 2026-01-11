@@ -11,13 +11,13 @@ struct FloatingAlignedContainer<Content: View>: View {
 
     let alignment: FloatingAlignment
     let spacing: CGFloat?
-    let content: (SwiftUI.Alignment) -> Content
+    let content: (SwiftUI.Alignment, SwiftUI.TextAlignment) -> Content
 
 
     init(
         alignment: FloatingAlignment = .inner(.center),
         spacing: CGFloat? = nil,
-        @ViewBuilder content: @escaping (SwiftUI.Alignment) -> Content
+        @ViewBuilder content: @escaping (SwiftUI.Alignment, SwiftUI.TextAlignment) -> Content
     ) {
         self.alignment = alignment
         self.spacing = spacing
@@ -30,7 +30,7 @@ struct FloatingAlignedContainer<Content: View>: View {
             let offset = calculateOffset(geometry: geometry)
 
             VStack(alignment: alignment.contentAlignment.horizontal) {
-                content(alignment.contentAlignment)
+                content(alignment.contentAlignment, alignment.textAlignment)
             }
             .padding(.all, spacing)
             .border(.red)
@@ -69,6 +69,20 @@ struct FloatingAlignedContainer<Content: View>: View {
     }
 
 }
+
+// TODO: make part of FloatingAlignment
+//extension FloatingAlignedContainer {
+
+//    struct ContentAlignments {
+//        let content: SwiftUI.Alignment
+//        let text: SwiftUI.TextAlignment
+//        init(floatingAlignment: FloatingAlignment) {
+//            content = floatingAlignment.contentAlignment
+//            text = floatingAlignment.textAlignment
+//        }
+//    }
+
+//}
 
 
 // MARK: - AlignedFixedContainerAlignment
@@ -117,6 +131,16 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
         }
     }
 
+
+    var textAlignment: SwiftUI.TextAlignment {
+        switch self {
+        case .inner(let innerAlignment):
+            return innerAlignment.horizontal.textAlignment
+        case .outer(let outerAlignment):
+            return outerAlignment.textAlignment
+        }
+    }
+
 }
 
 
@@ -161,6 +185,14 @@ extension FloatingAlignment {
         case leading, center, trailing
 
         var swiftAlignment: SwiftUI.HorizontalAlignment {
+            switch self {
+            case .leading:  .leading
+            case .center:   .center
+            case .trailing: .trailing
+            }
+        }
+
+        var textAlignment: SwiftUI.TextAlignment {
             switch self {
             case .leading:  .leading
             case .center:   .center
@@ -260,6 +292,16 @@ extension FloatingAlignment {
         }
 
 
+        var textAlignment: SwiftUI.TextAlignment {
+            switch self {
+            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
+                horizontalAlignment.textAlignment
+            case .leading: .trailing
+            case .trailing: .leading
+            }
+        }
+
+
         static var topLeading:     OuterAlignment { .top(.leading) }
         static var topCenter:      OuterAlignment { .top(.center) }
         static var topTrailing:    OuterAlignment { .top(.trailing) }
@@ -306,7 +348,7 @@ extension FloatingAlignment {
         .fill(.teal.tertiary)
     .frame(square: 100)
     .overlay {
-        FloatingAlignedContainer { _ in
+        FloatingAlignedContainer { _, _ in
             Group {
                 Text("Sphinx of black quartz,")
                 Text("judge my vow")
@@ -382,7 +424,7 @@ extension FloatingAlignment {
     }
     .padding(.not(.top))
 
-    let floatingContent = FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignment in
+    let floatingContent = FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignment, _ in
         if isVerticalContent {
             VStack(alignment: alignment.horizontal) {
                 Text("Sphinx of black quartz")
@@ -442,12 +484,11 @@ extension FloatingAlignment {
     .frame(square: 200)
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in
-            FloatingAlignedContainer(alignment: alignment, spacing: 2) { _ in
+            FloatingAlignedContainer(alignment: alignment, spacing: 2) { _, _ in
                 Text("black")
                 Image(systemName: "target")
                 Text("quartz")
             }
         }
     }
-
 }
