@@ -28,7 +28,7 @@ struct FloatingAlignedContainer<Content: View>: View {
         GeometryReader { geometry in
             let offset = calculateOffset(geometry: geometry)
 
-            VStack(alignment: alignment.containerHorizontal.swiftAlignment) {
+            VStack(alignment: alignment.containerHorizontal) {
                 content
             }
             .font(.caption)
@@ -116,9 +116,9 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
     // TODO: might make more sense to have along the views.
     // Alignment for the VStack containing the info view.
     // TODO: should be the swift horizontal type
-    var containerHorizontal: HorizontalAlignment {
+    var containerHorizontal: SwiftUI.HorizontalAlignment {
         switch self {
-        case .inner(let innerAlignment): innerAlignment.containerHorizontal
+        case .inner(let innerAlignment): innerAlignment.horizontal.swiftAlignment
         case .outer(let outerAlignment): outerAlignment.containerHorizontal
         }
     }
@@ -126,7 +126,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
     // TODO: this also might need to move to the view itself
     var frameAlignment: SwiftUI.Alignment {
         switch self {
-        case .inner(let innerAlignment): innerAlignment.frameAlignment
+        case .inner(let innerAlignment): innerAlignment.swiftAlignment
         case .outer(let outerAlignment): outerAlignment.frameAlignment
         }
     }
@@ -149,14 +149,6 @@ extension FloatingAlignment {
             .init(horizontal: horizontal.swiftAlignment, vertical: vertical.swiftAlignment)
         }
 
-        // TODO: might make more sense to have along the views.
-        // Alignment for the VStack containing the info view.
-        var containerHorizontal: HorizontalAlignment { horizontal }
-
-        // TODO: this also might need to move to the view itself
-        var frameAlignment: SwiftUI.Alignment { swiftAlignment }
-
-        // TODO: add other static properties
         static let topLeading: InnerAlignment = .init(horizontal: .leading, vertical: .top)
         static let topCenter:  InnerAlignment = .init(horizontal: .center, vertical: .top)
         static let topTrailing: InnerAlignment = .init(horizontal: .trailing, vertical: .top)
@@ -262,11 +254,13 @@ extension FloatingAlignment {
 
         // TODO: might make more sense to have along the views.
         // Alignment for the VStack containing the info view.
-        var containerHorizontal: HorizontalAlignment {
+        var containerHorizontal: SwiftUI.HorizontalAlignment {
             switch self {
+            // Same as own horizontal, to hug leading/trailing.
             case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
-                horizontalAlignment
-            case .leading: .trailing
+                horizontalAlignment.swiftAlignment
+            // Opposites horizontals, to hug leading/trailing from the outside.
+            case .leading:  .trailing
             case .trailing: .leading
             }
         }
@@ -275,15 +269,19 @@ extension FloatingAlignment {
         var frameAlignment: SwiftUI.Alignment {
             switch self {
             case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
+                // Same horizontal, opposie vertical, to hug the top/bottom.
                 return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: oppositeKey.swiftVertical)
             case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
                 let vertical: SwiftUI.VerticalAlignment = switch outerVerticalAlignment {
-                case .above: .bottom
-                case .top: .top
+                // Same vertical.
                 case .center: .center
+                case .top:    .top
                 case .bottom: .bottom
-                case .below: .top
+                // Opposite verticals, to hug top/bottom from the outside.
+                case .above: .bottom
+                case .below:  .top
                 }
+                // Oposite horizontal, to hug leading/trailing from the outside.
                 return .init(horizontal: oppositeKey.swiftHorizontal, vertical: vertical)
             }
         }
