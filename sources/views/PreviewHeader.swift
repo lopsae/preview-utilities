@@ -88,7 +88,7 @@ extension PreviewHeader {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
     @ViewBuilder
     static func bottomControls(@ViewBuilder content: () -> some View) -> some View {
@@ -130,7 +130,7 @@ private struct PreviewContent {
             "Fixed Height",
             value: $fixedHeight,
             in: 0...800,
-            valueFormat: .roundedIntegerToNearestOrEven)
+            valueFormat: .arithmeticRoundedInteger)
         Toggle("Flexible height", isOn: $isFlexible)
     }
 }
@@ -167,8 +167,8 @@ private struct PreviewContent {
             "Top SafeArea",
             value: $topSafeAreaInset,
             in: 0...100,
-            currentValueFormat: .roundedIntegerToNearestOrEven,
-            boundsValueFormat: .roundedIntegerToNearestOrEven
+            currentValueFormat: .arithmeticRoundedInteger,
+            boundsValueFormat: .arithmeticRoundedInteger
         )
         Text("Top SafeArea: \(topSafeAreaInset, format: .fractionLength(2))")
             .monospaced()

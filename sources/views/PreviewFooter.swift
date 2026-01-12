@@ -87,7 +87,7 @@ extension PreviewFooter {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
     @ViewBuilder
     static func topControls(@ViewBuilder content: () -> some View) -> some View {
@@ -120,7 +120,7 @@ private struct PreviewContent {
             "Fixed Height",
             value: $fixedHeight,
             in: 0...800,
-            valueFormat: .roundedIntegerToNearestOrEven)
+            valueFormat: .arithmeticRoundedInteger)
     }
 
     Divider()
@@ -150,7 +150,7 @@ private struct PreviewContent {
             "Bottom SafeArea",
             value: $bottomSafeAreaInset,
             in: 0...100,
-            valueFormat: .roundedIntegerToNearestOrEven)
+            valueFormat: .arithmeticRoundedInteger)
         Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .fractionLength(2))")
             .monospaced()
 
