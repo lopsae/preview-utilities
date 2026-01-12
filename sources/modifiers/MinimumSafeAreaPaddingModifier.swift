@@ -6,7 +6,6 @@
 
 import SwiftUI
 
-
 // TODO: see if AlignmentID, defaultValueIn, and alignmentGuided can work in in this implementation.
 
 
@@ -14,6 +13,19 @@ import SwiftUI
 ///
 /// Adds safe area to the current padding up to `minimumInset`; if the view has a safe area of at
 /// least `minimumInset` no padding is added.
+///
+/// This implementation kept running into the following issue:
+/// + In iOS, NOT using the device safe area (displaying the "clear from device safe area" view).
+/// + Increase Top Content height until the add'l safe-area and the device safe-area merge.
+/// + In some cases, the modifier will receive two updates to safeAreaInset, one with the merged
+///   safe-areas value, and one with only the add'l safe-area.
+/// + Depending on the order, the padding will display incorrectly, and does not update until
+///   the safe-area value updates.
+/// + In some cases, the value will oscinate between merged and add'l-only safe areas, and the
+///   preview will freeze.
+///
+/// Given these issues, it is not recommended to use this modifier. The code is kept as an
+/// interesting study.
 struct MinimumSafeAreaPaddingModifier: ViewModifier {
 
     /// Last tracked safe area inset reported by `onGeometryChange`. This value is updated only
@@ -46,6 +58,15 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
         let additionalInset = insetDifference.clamped(to: 0...)
 
         content
+        // Only drawing bottom padding.
+        .overlay {
+            GeometryReader { geometry in
+                Rectangle()
+                    .fill(.pink.tertiary)
+                    .frame(height: additionalInset)
+                    .offset(y: geometry.size.height)
+            }
+        }
         .safeAreaPadding(.init(edge), additionalInset)
         // TODO: reevaluate if keeping this approach for logging.
         .onGeometryChange(
@@ -104,29 +125,25 @@ extension View {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var topContentHeight: Double = 300
     @Previewable @State var addlSafeArea: Double = 60
-    @Previewable @State var useDeviceSafeArea: Bool = true
+    @Previewable @State var useDeviceSafeArea: Bool = false
 
     let minimumInset: Double = 80
 
     printOnce.view
 
     VStack {
-        Slider(
+        Slider.captioned(
             "Top Content Height",
             value: $topContentHeight,
             in: 200...1000,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Top Content Height: \(topContentHeight, format: .fractionLength(2))")
-            .monospaced()
-
-        Slider(
+            currentValueFormat: .arithmeticRoundedInteger,
+            boundsValueFormat: .fractionLength(2))
+        Slider.captioned(
             "Add'l SafeArea",
             value: $addlSafeArea,
             in: 0...100,
-            valueFormat: .arithmeticRoundedInteger)
-
-        Text("Add'l SafeArea: \(addlSafeArea, format: .fractionLength(2))")
-            .monospaced()
+            currentValueFormat: .arithmeticRoundedInteger,
+            boundsValueFormat: .fractionLength(2))
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)
     }
     .padding()
@@ -168,7 +185,6 @@ extension View {
 
 
 extension View {
-
 
     // TODO: rename to floatingCaption, since there is already a PreviewCaption view.
     /// Experimental labeling for interactive preview elements, specially rectangles.
