@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-struct PreviewFooterView: View {
+struct PreviewFooter: View {
 
     @State private var paddedHeight: CGFloat = 0.0
     @State private var fullHeight: CGFloat = 0.0
@@ -70,7 +70,7 @@ struct PreviewFooterView: View {
 // MARK: - Preview utilities
 
 
-extension PreviewFooterView {
+extension PreviewFooter {
 
     fileprivate func preview_printsUpdates(_ enable: Bool) -> Self {
         var mutableSelf = self
@@ -131,7 +131,7 @@ private struct PreviewContent {
 
     Divider()
 
-    PreviewFooterView(flexibleHeight: isFlexible)
+    PreviewFooter(flexibleHeight: isFlexible)
         .preview_printsUpdates(true)
 }
 
@@ -160,7 +160,7 @@ private struct PreviewContent {
 
     Divider()
 
-    PreviewFooterView(flexibleHeight: isFlexible)
+    PreviewFooter(flexibleHeight: isFlexible)
     .preview_printsUpdates(true)
     .safeAreaInset(edge: .bottom, spacing: 0) {
         Rectangle()

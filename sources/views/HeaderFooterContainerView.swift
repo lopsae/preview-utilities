@@ -21,7 +21,7 @@ public struct HeaderFooterContainerView<Content: View>: View {
 
     public var body: some View {
         VStack(spacing: .zero) {
-            PreviewHeaderView(flexibleHeight: !options.contains(.fixedHeader))
+            PreviewHeader(flexibleHeight: !options.contains(.fixedHeader))
 
             if options.contains(.showDividers) {
                 Divider()
@@ -33,7 +33,7 @@ public struct HeaderFooterContainerView<Content: View>: View {
                 Divider()
             }
 
-            PreviewFooterView(flexibleHeight: !options.contains(.fixedFooter))
+            PreviewFooter(flexibleHeight: !options.contains(.fixedFooter))
         } // VStack
     }
 

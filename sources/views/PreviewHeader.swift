@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-struct PreviewHeaderView: View {
+struct PreviewHeader: View {
 
     @State private var paddedHeight: CGFloat = .zero
     @State private var fullHeight: CGFloat = .zero
@@ -71,7 +71,7 @@ struct PreviewHeaderView: View {
 // MARK: - Preview utilities
 
 
-extension PreviewHeaderView {
+extension PreviewHeader {
 
     fileprivate func preview_printsUpdates(_ enable: Bool) -> Self {
         var mutableSelf = self
@@ -114,7 +114,7 @@ private struct PreviewContent {
 
     printOnce.view
 
-    PreviewHeaderView(flexibleHeight: isFlexible)
+    PreviewHeader(flexibleHeight: isFlexible)
         .preview_printsUpdates(true)
 
     Divider()
@@ -150,7 +150,7 @@ private struct PreviewContent {
         .concentricSafeAreaBackground(fill: .orange.tertiary, contentPaddingEdges: .not(.top))
     }
 
-    PreviewHeaderView(flexibleHeight: isFlexible)
+    PreviewHeader(flexibleHeight: isFlexible)
     .preview_printsUpdates(true)
     .safeAreaInset(edge: .top, spacing: .zero) {
         Rectangle()
