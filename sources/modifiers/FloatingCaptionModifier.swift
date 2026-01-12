@@ -61,7 +61,15 @@ extension View {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .iPhoneProSizeLayout) {
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
+
+}
+
+
+#Preview("Default", traits: PreviewContent.layout) {
     Rectangle()
         .fill(.purple.tertiary)
         .frame(width: 40, height: 200)
