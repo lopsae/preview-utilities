@@ -369,7 +369,7 @@ private struct PreviewContent {
     if useSmallContent {
         Rectangle().fill(.gray.tertiary)
             .frame(width: 100)
-            .previewCaption("Spacer")
+            .floatingCaption("Spacer")
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
@@ -377,7 +377,7 @@ private struct PreviewContent {
             .safeAreaPadding(20)
         Rectangle().fill(.gray.tertiary)
             .frame(width: 100)
-            .previewCaption("Spacer")
+            .floatingCaption("Spacer")
     } else {
         PreviewContent.star
             .debugOverlay(traits: traits)
@@ -461,7 +461,7 @@ private struct PreviewContent {
     if useSmallContent {
         Rectangle().fill(.gray.tertiary)
             .frame(width: 100)
-            .previewCaption("Spacer")
+            .floatingCaption("Spacer")
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
@@ -469,7 +469,7 @@ private struct PreviewContent {
             .safeAreaPadding(20)
         Rectangle().fill(.gray.tertiary)
             .frame(width: 100)
-            .previewCaption("Spacer")
+            .floatingCaption("Spacer")
     } else {
         PreviewContent.star
             .debugOverlay(traits: traits)

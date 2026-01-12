@@ -473,7 +473,7 @@ private struct PreviewContent {
     if isLargeParent {
         Rectangle().fill(.gray.tertiary)
             .frame(width: 50)
-            .previewCaption("Spacer")
+            .floatingCaption("Spacer")
         StarShape(points: 4, concaveVertexRatio: 1)
             .fill(.teal.gradient.secondary)
             .background(.teal.quinary)
@@ -483,11 +483,11 @@ private struct PreviewContent {
             }
         Rectangle().fill(.gray.tertiary)
             .frame(width: 50)
-            .previewCaption("Spacer")
+            .floatingCaption("Spacer")
     } else {
         Rectangle().fill(.gray.tertiary)
             .frame(width: 50)
-            .previewCaption("Spacer")
+            .floatingCaption("Spacer")
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .background(.teal.quinary)
@@ -497,7 +497,7 @@ private struct PreviewContent {
             }
         Rectangle().fill(.gray.tertiary)
             .frame(width: 50)
-            .previewCaption("Spacer")
+            .floatingCaption("Spacer")
     }
 
 }

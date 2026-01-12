@@ -6,8 +6,6 @@
 
 import SwiftUI
 
-// TODO: see if AlignmentID, defaultValueIn, and alignmentGuided can work in in this implementation.
-
 
 /// Experimental modifier to add a minimum safe area padding to an edge of a view.
 ///
@@ -152,12 +150,12 @@ extension View {
 
     Rectangle().fill(.green.tertiary)
         .frame(width: 120, height: topContentHeight)
-        .previewCaption("Top Content", .height, .border)
+        .floatingCaption("Top Content", .height, .border)
 
 
     Rectangle().fill(.gray.tertiary)
         .frame(width: 50)
-        .previewCaption("Spacer")
+        .floatingCaption("Spacer")
 
     VStack {
         Text("Padded Content")
@@ -166,12 +164,12 @@ extension View {
     }
     .maxWidthFrame()
     .minimumSafeAreaPadding(.bottom, minimumInset: minimumInset, printsUpdates: true)
-    .debugOverlay(.safeAreaInsets)
+    .debugOverlay(.safeAreaInsets, .outerInfo(.topLeading))
     .padding(.horizontal)
     .safeAreaInset(edge: .bottom, spacing: .zero) {
         Rectangle().fill(.red.tertiary)
             .frame(width: 150, height: addlSafeArea)
-            .previewCaption("Add'l SafeArea", .height, .border)
+            .floatingCaption("Add'l SafeArea", .height, .border)
     }
 
     if !useDeviceSafeArea {
@@ -186,9 +184,8 @@ extension View {
 
 extension View {
 
-    // TODO: rename to floatingCaption, since there is already a PreviewCaption view.
     /// Experimental labeling for interactive preview elements, specially rectangles.
-    func previewCaption(_ key: LocalizedStringKey, _ options: PreviewCaptionOptions...) -> some View {
+    func floatingCaption(_ key: LocalizedStringKey, _ options: PreviewCaptionOptions...) -> some View {
         self.overlay {
             GeometryReader { geometry in
                 ZStack(alignment: .bottom) {
@@ -218,3 +215,4 @@ enum PreviewCaptionOptions {
     case border
     case height
 }
+
