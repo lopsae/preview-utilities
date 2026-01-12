@@ -9,12 +9,7 @@ import SwiftUI
 
 struct PreviewFooter: View {
 
-    @State private var paddedHeight: CGFloat = 0.0
-    @State private var fullHeight: CGFloat = 0.0
-
     let flexibleHeight: Bool
-
-    fileprivate var printsUpdates: Bool = false
 
 
     init(flexibleHeight: Bool = true) {
@@ -23,59 +18,26 @@ struct PreviewFooter: View {
 
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack {
             if flexibleHeight {
                 Spacer()
             }
 
             Text("Footer")
-                .foregroundStyle(.tertiary)
-                // Double padding to separate one padding from background,
-                // which is padded once from views edge.
-                .padding(.top)
-                .padding(.top)
-                .minimumSafeAreaPadding(.bottom, minimumInset: textMinimumBottomSafeArea, printsUpdates: printsUpdates)
-                .maxWidthFrame()
+            Image(systemName: "shoeprints.fill")
         }  // VStack
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-                .fill(HeaderFooterContainerView.backgroundStyle)
-                // TODO: reevaluate if keeping this approach for logging.
-                .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
-                    if printsUpdates {
-                        print("update paddedHeight:\(newValue)")
-                    }
-                })
-                .padding()
-                .onGeometryChange(keyPath: \.size.height) { newHeight in
-                    if printsUpdates {
-                        print("update fullHeight:\(newHeight)")
-                    }
-                    fullHeight = newHeight
-                }
-                .ignoresSafeArea()
-        }  // background
-    }
-
-
-    // FIXME: also implement prevent small updates to this, keep it in integers
-    private var textMinimumBottomSafeArea: CGFloat {
-        let onePadding = (fullHeight - paddedHeight) / 2.0
-        return onePadding * 2.0
-    }
-
-}
-
-
-// MARK: - Preview utilities
-
-
-extension PreviewFooter {
-
-    fileprivate func preview_printsUpdates(_ enable: Bool) -> Self {
-        var mutableSelf = self
-        mutableSelf.printsUpdates = enable
-        return mutableSelf
+        .foregroundStyle(.tertiary)
+        .maxWidthFrame()
+        #if os(macOS)
+        // Keep bottom paddins, since macOS does not have a bottom safe area.
+        .concentricSafeAreaBackground(
+            fill: HeaderFooterContainerView.backgroundStyle)
+        #else
+        .concentricSafeAreaBackground(
+            fill: HeaderFooterContainerView.backgroundStyle,
+            contentPaddingEdges: .not(.bottom),
+            safeAreaPaddingEdges: .not(.bottom))
+        #endif
     }
 
 }
@@ -109,7 +71,7 @@ private struct PreviewContent {
 // FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset. Issue does not happen in header.
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
-    @Previewable @State var isFlexible: Bool = true
+    @Previewable @State var isFlexible: Bool = false
     @Previewable @State var fixedHeight: Double = 400
 
     printOnce.view
@@ -132,7 +94,6 @@ private struct PreviewContent {
     Divider()
 
     PreviewFooter(flexibleHeight: isFlexible)
-        .preview_printsUpdates(true)
 }
 
 
@@ -161,7 +122,6 @@ private struct PreviewContent {
     Divider()
 
     PreviewFooter(flexibleHeight: isFlexible)
-    .preview_printsUpdates(true)
     .safeAreaInset(edge: .bottom, spacing: 0) {
         Rectangle()
             .fill(.red.opacity(0.1))
