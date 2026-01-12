@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+// TODO: update docs after this gets used in HeaderFooter again
 /// Pads the modified content and draws behind it a `ConcentricRectangle` that extends into the
 /// content safe area.
 ///
@@ -21,16 +22,19 @@ struct ConcentricSafeAreaBackgroundModifier<S: ShapeStyle>: ViewModifier {
     /// edge.
     let contentPaddingEdges: Edge.Set
 
+    /// Set of edges where content is padded to separate from the edges of the view.
+    let safeAreaPaddingEdges: Edge.Set
+
     /// Set of edges where the `ConcentricRectangle` is padded from the edge of content, extending
     /// into the safeareas.
     let backgroundPaddingEdges: Edge.Set
 
     func body(content: Content) -> some View {
         content
-        // One padding always for content.
-        .padding()
-        // One padding from the background edge.
+        // Padding from the background edge (which is itself padded from the view's edge).
         .padding(contentPaddingEdges)
+        // Padding from the edge of the view.
+        .padding(safeAreaPaddingEdges)
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
                 .fill(fill)
@@ -47,11 +51,13 @@ extension View {
     func concentricSafeAreaBackground(
         fill: some ShapeStyle,
         contentPaddingEdges: Edge.Set = .all,
+        safeAreaPaddingEdges: Edge.Set = .all,
         backgroundPaddingEdges: Edge.Set = .all,
     ) -> some View {
         let backgroundModifier = ConcentricSafeAreaBackgroundModifier(
             fill: fill,
             contentPaddingEdges: contentPaddingEdges,
+            safeAreaPaddingEdges: safeAreaPaddingEdges,
             backgroundPaddingEdges: backgroundPaddingEdges
         )
         return modifier(backgroundModifier)
@@ -65,6 +71,7 @@ extension View {
         let backgroundModifier = ConcentricSafeAreaBackgroundModifier(
             fill: fill,
             contentPaddingEdges: paddingEdges,
+            safeAreaPaddingEdges: .all,
             backgroundPaddingEdges: paddingEdges
         )
         return modifier(backgroundModifier)
@@ -79,7 +86,7 @@ extension View {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
     static let backgroundFill: some ShapeStyle = .pink.tertiary
 
@@ -179,4 +186,35 @@ private struct PreviewContent {
             fill: PreviewContent.backgroundFill,
             paddingEdges: .not(.top))
         .debugOverlay()
+}
+
+
+#Preview("HeaderFooter", traits: PreviewContent.layout) {
+    VStack {
+        Text("Header")
+        Text("In iOS, since it does have a safe area, all content paddings are removed to allow the header to hug the top.")
+            .font(.caption)
+    }
+    .maxWidthFrame()
+    .debugOverlay()
+    .concentricSafeAreaBackground(
+        fill: PreviewContent.backgroundFill,
+        contentPaddingEdges: .not(.top),
+        safeAreaPaddingEdges: .not(.top))
+    .debugOverlay()
+
+    Spacer()
+
+    VStack {
+        Text("Footer")
+        Text("In iOS, since it does have a safe area, all content paddings are removed to allow the footer to hug the bottom.")
+            .font(.caption)
+    }
+    .maxWidthFrame()
+    .debugOverlay()
+    .concentricSafeAreaBackground(
+        fill: PreviewContent.backgroundFill,
+        contentPaddingEdges: .not(.bottom),
+        safeAreaPaddingEdges: .not(.bottom))
+    .debugOverlay()
 }
