@@ -16,7 +16,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 
     init(
         alignment: FloatingAlignment = .inner(.center),
-        spacing: CGFloat? = nil,
+        spacing: CGFloat? = .zero,
         @ViewBuilder content: @escaping (SwiftUI.Alignment, SwiftUI.TextAlignment) -> Content
     ) {
         self.alignment = alignment
@@ -345,7 +345,7 @@ extension FloatingAlignment {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
     enum ContentOption: String, SelfIdentifiable, CaseIterable {
         case text, vertical, multiline
