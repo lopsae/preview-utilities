@@ -68,28 +68,28 @@ private struct PreviewContent {
 }
 
 
-// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset. Issue does not happen in header.
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
-    @Previewable @State var isFlexible: Bool = false
+    @Previewable @State var isFlexible: Bool = true
     @Previewable @State var fixedHeight: Double = 400
 
     printOnce.view
 
     PreviewContent.topControls {
-        Toggle("Flexible height", isOn: $isFlexible)
-        Slider(
-            "Fixed Height",
+        Toggle("Flexible Height", isOn: $isFlexible)
+        Slider.captioned(
+            "Fixed Content Height",
             value: $fixedHeight,
             in: 0...800,
-            valueFormat: .arithmeticRoundedInteger)
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
     }
 
     Divider()
 
     Rectangle().fill(.red.tertiary)
-        .frame(width: 100, height: fixedHeight)
-        .debugOverlay(.hairline, .size)
+        .frame(width: 200, height: fixedHeight)
+        .floatingCaption("Fixed Content Height", .height, .border)
 
     Divider()
 
@@ -97,7 +97,6 @@ private struct PreviewContent {
 }
 
 
-// FIXME: in ios, when using flexible height, if the safeare inset goes under the minimum, a infinite update of currentSafeAreaInset is triggered. Does not happen in header.
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var bottomSafeAreaInset: Double = 60
@@ -107,16 +106,15 @@ private struct PreviewContent {
     printOnce.view
 
     PreviewContent.topControls {
-        Slider(
+        Slider.captioned(
             "Bottom SafeArea",
             value: $bottomSafeAreaInset,
             in: 0...100,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .fractionLength(2))")
-            .monospaced()
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
 
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)
-        Toggle("Flexible height", isOn: $isFlexible)
+        Toggle("Flexible Height", isOn: $isFlexible)
     }
 
     Divider()
@@ -124,10 +122,9 @@ private struct PreviewContent {
     PreviewFooter(flexibleHeight: isFlexible)
     .safeAreaInset(edge: .bottom, spacing: 0) {
         Rectangle()
-            .fill(.red.opacity(0.1))
+            .fill(.green.quaternary)
             .frame(width: 200, height: bottomSafeAreaInset)
-            .debugOverlay(.hairline, .size, .safeAreaInsets)
-            .padding(.horizontal, 8)
+            .floatingCaption("Bottom SafeArea", .height, .border)
     }
 
     if !useDeviceSafeArea {
@@ -137,6 +134,25 @@ private struct PreviewContent {
         .concentricSafeAreaBackground(fill: .orange.tertiary)
     }
 
+}
+
+
+#Preview("Comparison", traits: .zeroSpacing, PreviewContent.layout) {
+    PreviewContent.topControls {
+        Text(
+            "In situations where there is no safe-area, the footer will display touching the bottom " +
+            "of the view."
+        )
+        Text(
+            "There is no current way to add this conditional padding without introducing issues."
+        )
+    }
+    .font(.caption)
+    PreviewFooter(flexibleHeight: false)
+        .debugOverlay(.hairline)
+    Divider()
+    PreviewFooter(flexibleHeight: false)
+        .debugOverlay(.hairline)
 }
 
 
