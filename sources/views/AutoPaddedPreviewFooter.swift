@@ -191,3 +191,23 @@ private struct PreviewContent {
     }
 
 }
+
+
+#Preview("Comparison", traits: .zeroSpacing, PreviewContent.layout) {
+    PreviewContent.topControls {
+        Text(
+            "The main issue this implementation was solving is that in some platforms (like macOS) " +
+            "and some previews formats there is no safe area at the bottom, where `minSafeAreaPadding` " +
+            "would insert padding automatically to keep visual consistency."
+        )
+        Text(
+            "Otherwise, the _Footer_ label ends up touching the bottom of the view."
+        )
+    }
+    .font(.caption)
+    AutoPaddedPreviewFooter(flexibleHeight: false)
+        .debugOverlay(.hairline)
+    Divider()
+    AutoPaddedPreviewFooter(flexibleHeight: false)
+        .debugOverlay(.hairline)
+}
