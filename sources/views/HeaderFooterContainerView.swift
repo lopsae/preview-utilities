@@ -33,7 +33,8 @@ public struct HeaderFooterContainerView<Content: View>: View {
                 Divider()
             }
 
-            PreviewFooter(flexibleHeight: !options.contains(.fixedFooter))
+            // FIXME: bottom padding to be enabled by platform
+            PreviewFooter(enableBottomPadding: true, flexibleHeight: !options.contains(.fixedFooter))
         } // VStack
     }
 
