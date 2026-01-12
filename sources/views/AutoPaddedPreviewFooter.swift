@@ -125,19 +125,20 @@ private struct PreviewContent {
     printOnce.view
 
     PreviewContent.topControls {
-        Toggle("Flexible height", isOn: $isFlexible)
-        Slider(
-            "Fixed Height",
+        Toggle("Flexible Height", isOn: $isFlexible)
+        Slider.captioned(
+            "Fixed Content Height",
             value: $fixedHeight,
             in: 0...800,
-            valueFormat: .arithmeticRoundedInteger)
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
     }
 
     Divider()
 
     Rectangle().fill(.red.tertiary)
-        .frame(width: 100, height: fixedHeight)
-        .debugOverlay(.hairline, .size)
+        .frame(width: 200, height: fixedHeight)
+        .floatingCaption("Fixed Content Height", .height, .border)
 
     Divider()
 
@@ -159,16 +160,15 @@ private struct PreviewContent {
     printOnce.view
 
     PreviewContent.topControls {
-        Slider(
+        Slider.captioned(
             "Bottom SafeArea",
             value: $bottomSafeAreaInset,
             in: 0...100,
-            valueFormat: .arithmeticRoundedInteger)
-        Text("Bottom SafeArea: \(bottomSafeAreaInset, format: .fractionLength(2))")
-            .monospaced()
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
 
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)
-        Toggle("Flexible height", isOn: $isFlexible)
+        Toggle("Flexible Height", isOn: $isFlexible)
     }
 
     Divider()
@@ -177,10 +177,9 @@ private struct PreviewContent {
     .preview_printsUpdates(true)
     .safeAreaInset(edge: .bottom, spacing: 0) {
         Rectangle()
-            .fill(.red.opacity(0.1))
+            .fill(.green.quaternary)
             .frame(width: 200, height: bottomSafeAreaInset)
-            .debugOverlay(.hairline, .size, .safeAreaInsets)
-            .padding(.horizontal, 8)
+            .floatingCaption("Bottom SafeArea", .height, .border)
     }
 
     if !useDeviceSafeArea {
