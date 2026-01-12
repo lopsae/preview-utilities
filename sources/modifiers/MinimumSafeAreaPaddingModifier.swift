@@ -66,7 +66,6 @@ struct MinimumSafeAreaPaddingModifier: ViewModifier {
             }
         }
         .safeAreaPadding(.init(edge), additionalInset)
-        // TODO: reevaluate if keeping this approach for logging.
         .onGeometryChange(
             keyPath: edge.geometryProxySafeAreaInsetKeyPath,
             binding: $safeAreaInset.onSet { newValue in

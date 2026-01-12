@@ -7,6 +7,15 @@
 import SwiftUI
 
 
+/// Previous implementation of PreviewFooter that uses an experimental approach to automatically
+/// pad itself depending on the current safe-areas around the view.
+///
+/// This aproach involves using `GeometryReaders` to measure the current padding, and using that
+/// value as a minimal safe-area padding, which means, changes to the padding or safe area produce
+/// a view state change that could produce further changes to the padding or safe area. This is
+/// prone to infinite view update loops and this discouraged.
+///
+/// See ``MinimumSafeAreaPaddingModifier`` for more details on the found issues.
 struct AutoPaddedPreviewFooter: View {
 
     @State private var paddedHeight: CGFloat = 0.0
@@ -39,8 +48,7 @@ struct AutoPaddedPreviewFooter: View {
         }  // VStack
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-                .fill(HeaderFooterContainerView.backgroundStyle)
-                // TODO: reevaluate if keeping this approach for logging.
+                .fill(.purple.tertiary)
                 .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
                     if printsUpdates {
                         print("update paddedHeight:\(newValue)")
@@ -58,7 +66,6 @@ struct AutoPaddedPreviewFooter: View {
     }
 
 
-    // FIXME: also implement prevent small updates to this, keep it in integers
     private var textMinimumBottomSafeArea: CGFloat {
         let onePadding = (fullHeight - paddedHeight) / 2.0
         return onePadding * 2.0
@@ -106,7 +113,10 @@ private struct PreviewContent {
 }
 
 
-// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset. Issue does not happen in header.
+// When MinimumSafeAreaPaddingModifier used not-stabilized updates (using all updates to safe-areas)
+// this preview ran into issues:
+// + In iOS, when the fixed content pushes the footer out of the view boundaries:
+// + An infinite update to safeAreaInset occurrs, oscilating between very close double values.
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var isFlexible: Bool = true
@@ -136,7 +146,10 @@ private struct PreviewContent {
 }
 
 
-// FIXME: in ios, when using flexible height, if the safeare inset goes under the minimum, a infinite update of currentSafeAreaInset is triggered. Does not happen in header.
+// When MinimumSafeAreaPaddingModifier used not-stabilized updates (using all updates to safe-areas)
+// this preview ran into issues:
+// + In iOS, using flexible height, when the safe area inset goes under the minimum:
+// + An infinite update to safeAreaInset occurrs, oscilating between very close double values.
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var bottomSafeAreaInset: Double = 60
@@ -178,7 +191,3 @@ private struct PreviewContent {
     }
 
 }
-
-
-// FIXME: add similar previews with fixed size for Header view
-// FIXME: add similar previews with fixed size for HeaderFooter
