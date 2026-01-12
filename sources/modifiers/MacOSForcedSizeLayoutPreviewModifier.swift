@@ -182,8 +182,30 @@ private struct PreviewContent {
     @Previewable @State var isFixedHeight: Bool = true
 
     PreviewContent.TextWithFixedHeight(
-        caption: "`frame` overrides the `fixedLayout` entirely, and forces the view to size.",
+        caption: "`frame` overrides the `fixedLayout` preview trait entirely, and forces the view to size.",
         wordCount: $wordCount, isFixedHeight: $isFixedHeight
     )
     .frame(width: 400, height: 300)
+}
+
+
+#Preview("Example: with sized content", traits: .fixedLayout(width: 400, height: 300)) {
+    Text("In macOS, if root content defines its own size,\nit will override the `fixedLayout` preview trait.")
+
+    Rectangle()
+        .fill(.red.tertiary)
+        .frame(square: 100)
+        .floatingCaption("Fixed Size", .height)
+}
+
+
+#Preview("Example: top-most frame", traits: .fixedLayout(width: 400, height: 300)) {
+    Text("In macOS, at **top most frame** can keep the window size.")
+        .padding(.top)
+
+    Rectangle()
+        .fill(.red.tertiary)
+        .frame(square: 100)
+        .floatingCaption("Fixed Size", .height)
+        .frame(width: 400, height: 300)
 }
