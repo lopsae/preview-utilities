@@ -111,6 +111,39 @@ private struct PreviewContent {
 }
 
 
+#Preview("Paddings", traits: .zeroSpacing, PreviewContent.layout) {
+    PreviewContent.topControls {
+        Text(
+            "In iOS, when displayed against the preview frame, the footer should NOT use bottom " +
+            "bottom padding. In macOS, padding is added to prevent the footer text of touching " +
+            "the bottom of the window."
+        )
+        Text(
+            "There is no current way to add this conditional padding without introducing issues."
+        )
+    }
+    .font(.caption)
+
+    Divider()
+
+    Text("**Enabled** padding").font(.caption)
+    PreviewFooter(enableBottomPadding: true, flexibleHeight: false)
+        .debugOverlay(.hairline)
+
+    Divider()
+
+    Text("**Disabled** padding").font(.caption)
+    PreviewFooter(enableBottomPadding: false, flexibleHeight: false)
+        .debugOverlay(.hairline)
+
+    Divider()
+
+    Text("Platform padding: `\(PreviewContent.platformEnableBottomPadding.description)`").font(.caption)
+    PreviewFooter(enableBottomPadding: PreviewContent.platformEnableBottomPadding, flexibleHeight: false)
+        .debugOverlay(.hairline)
+}
+
+
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var bottomSafeAreaInset: Double = 60
@@ -152,39 +185,6 @@ private struct PreviewContent {
         .concentricSafeAreaBackground(fill: .orange.tertiary)
     }
 
-}
-
-
-#Preview("Comparison", traits: .zeroSpacing, PreviewContent.layout) {
-    PreviewContent.topControls {
-        Text(
-            "In iOS, when displayed against the preview frame, the footer should NOT use bottom " +
-            "bottom padding. In macOS, padding is added to prevent the footer text of touching " +
-            "the bottom of the window."
-        )
-        Text(
-            "There is no current way to add this conditional padding without introducing issues."
-        )
-    }
-    .font(.caption)
-
-    Divider()
-
-    Text("**Enabled** padding").font(.caption)
-    PreviewFooter(enableBottomPadding: true, flexibleHeight: false)
-        .debugOverlay(.hairline)
-
-    Divider()
-
-    Text("**Disabled** padding").font(.caption)
-    PreviewFooter(enableBottomPadding: false, flexibleHeight: false)
-        .debugOverlay(.hairline)
-
-    Divider()
-
-    Text("Platform padding: `\(PreviewContent.platformEnableBottomPadding.description)`").font(.caption)
-    PreviewFooter(enableBottomPadding: PreviewContent.platformEnableBottomPadding, flexibleHeight: false)
-        .debugOverlay(.hairline)
 }
 
 
