@@ -34,10 +34,8 @@ struct FloatingAlignedContainer<Content: View>: View {
                 content(alignment.contentAlignment, alignment.textAlignment)
             }
             .padding(.all, spacing)
-            .border(.red)
             // Centers the view based in the alignment even when the frame is smaller that the view.
             .frame(size: geometry.size, alignment: alignment.contentAlignment)
-            .border(.green)
             .offset(offset)
         } // GeometryReader
     }
