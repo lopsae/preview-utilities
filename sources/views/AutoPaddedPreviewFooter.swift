@@ -47,7 +47,7 @@ struct AutoPaddedPreviewFooter: View {
                 .maxWidthFrame()
         }  // VStack
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
                 .fill(.purple.tertiary)
                 .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
                     if printsUpdates {

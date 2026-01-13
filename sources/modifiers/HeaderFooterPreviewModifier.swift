@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-/// Wraps the preview content in a ``HeaderFooterContainerView``, displaying the preview with a
+/// Wraps the preview content in a ``HeaderFooterContainer``, displaying the preview with a
 /// header and footer that pushes the content away from the preview safe-areas.
 struct HeaderFooterPreviewModifier: PreviewModifier {
 
@@ -20,7 +20,7 @@ struct HeaderFooterPreviewModifier: PreviewModifier {
 
 
     func body(content: Content, context _: ()) -> some View {
-        HeaderFooterContainerView(options: options) {
+        HeaderFooterContainer(options: options) {
             content
         }
     }
@@ -30,27 +30,27 @@ struct HeaderFooterPreviewModifier: PreviewModifier {
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
-    /// Wraps the preview content in a ``HeaderFooterContainerView`` with flexible height for both
+    /// Wraps the preview content in a ``HeaderFooterContainer`` with flexible height for both
     /// header and footer.
     public static var headerFooter: PreviewTrait {
         .modifier(HeaderFooterPreviewModifier())
     }
 
 
-    /// Wraps the preview content in a ``HeaderFooterContainerView`` with the given options.
+    /// Wraps the preview content in a ``HeaderFooterContainer`` with the given options.
     public static func headerFooter(_ options: HeaderFooterPreviewOptions...) -> PreviewTrait {
         return .modifier(HeaderFooterPreviewModifier(options: options.union()))
     }
 
 
-    /// Wraps the preview content in a ``HeaderFooterContainerView`` with fixed height header and
+    /// Wraps the preview content in a ``HeaderFooterContainer`` with fixed height header and
     /// a flexible height footer.
     public static var fixedHeader: PreviewTrait {
         .modifier(HeaderFooterPreviewModifier(options: .fixedHeader))
     }
 
 
-    /// Wraps the preview content in a ``HeaderFooterContainerView`` with fixed height header and
+    /// Wraps the preview content in a ``HeaderFooterContainer`` with fixed height header and
     /// the given options.
     public static func fixedHeader(_ options: HeaderFooterPreviewOptions...) -> PreviewTrait {
         return .modifier(HeaderFooterPreviewModifier(

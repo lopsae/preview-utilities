@@ -36,7 +36,7 @@ struct ConcentricSafeAreaBackgroundModifier<S: ShapeStyle>: ViewModifier {
         // Padding from the edge of the view.
         .padding(safeAreaPaddingEdges)
         .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
                 .fill(fill)
                 .padding(backgroundPaddingEdges)
                 .ignoresSafeArea()

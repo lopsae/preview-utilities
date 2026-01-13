@@ -33,7 +33,7 @@ struct PreviewHeader: View {
         .foregroundStyle(.tertiary)
         .maxWidthFrame()
         .concentricSafeAreaBackground(
-            fill: HeaderFooterContainerView.backgroundStyle,
+            fill: HeaderFooterContainer.backgroundStyle,
             contentPaddingEdges: contentPaddingEdges,
             safeAreaPaddingEdges: .not(.top))
     }

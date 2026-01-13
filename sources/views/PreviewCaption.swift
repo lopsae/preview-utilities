@@ -8,7 +8,7 @@ import SwiftUI
 
 
 /// Caption with a background similar to the header and footer created by
-/// ``HeaderFooterContainerView``. Intended to provide additional detail along a preview.
+/// ``HeaderFooterContainer``. Intended to provide additional detail along a preview.
 public struct PreviewCaption: View {
 
     /// String for each text produced in the caption.
@@ -46,8 +46,8 @@ public struct PreviewCaption: View {
         }
         .padding()
         .background {
-            Rectangle().fill(HeaderFooterContainerView.backgroundStyle)
-                .roundedRectangleClip(cornerRadius: HeaderFooterContainerView.minimumConcentricRadius)
+            Rectangle().fill(HeaderFooterContainer.backgroundStyle)
+                .roundedRectangleClip(cornerRadius: HeaderFooterContainer.minimumConcentricRadius)
         }
         .padding(.horizontal)
     }

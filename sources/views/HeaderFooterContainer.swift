@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-public struct HeaderFooterContainerView<Content: View>: View {
+public struct HeaderFooterContainer<Content: View>: View {
 
     let options: HeaderFooterPreviewOptions
     let content: () -> Content
@@ -60,7 +60,7 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 }
 
 
-extension HeaderFooterContainerView where Content == Never {
+extension HeaderFooterContainer where Content == Never {
 
     // TODO: make 12 for ios, 8 for macOS
     static var minimumConcentricRadius: Double { 12 }
@@ -92,7 +92,7 @@ private struct PreviewContent {
     if isFooterFixed { options.formUnion(.fixedFooter) }
     if showsDividers { options.formUnion(.showDividers) }
 
-    return HeaderFooterContainerView(options: options) {
+    return HeaderFooterContainer(options: options) {
         VStack {
             Toggle("Fixed Header", isOn: $isHeaderFixed)
             Toggle("Fixed Footer", isOn: $isFooterFixed)
@@ -122,7 +122,7 @@ private struct PreviewContent {
     if isHeaderFixed { options.formUnion(.fixedHeader) }
     if isFooterFixed { options.formUnion(.fixedFooter) }
 
-    return HeaderFooterContainerView(options: options) {
+    return HeaderFooterContainer(options: options) {
         VStack {
             Toggle("Fixed Header", isOn: $isHeaderFixed)
             Toggle("Fixed Footer", isOn: $isFooterFixed)
