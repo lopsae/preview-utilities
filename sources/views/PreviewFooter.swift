@@ -78,12 +78,9 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var enableBottomPadding: Bool = PreviewContent.platformEnableBottomPadding
     @Previewable @State var isFlexible: Bool = true
     @Previewable @State var fixedHeight: Double = 400
-
-    printOnce.view
 
     PreviewContent.topControls {
         Toggle("Flexible Height", isOn: $isFlexible)
@@ -146,13 +143,10 @@ private struct PreviewContent {
 
 
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var bottomSafeAreaInset: Double = 60
     @Previewable @State var useDeviceSafeArea: Bool = false
     @Previewable @State var enableBottomPadding: Bool = PreviewContent.platformEnableBottomPadding
     @Previewable @State var isFlexible: Bool = true
-
-    printOnce.view
 
     PreviewContent.topControls {
         Slider.captioned(
