@@ -130,7 +130,7 @@ private struct PreviewContent {
                 "Content Height",
                 value: $contentHeight,
                 in: 0...800,
-                valueFormat: .roundedIntegerToNearestOrEven)
+                valueFormat: .arithmeticRoundedInteger)
                 .padding(.bottom)
         }.padding(.horizontal)
 
