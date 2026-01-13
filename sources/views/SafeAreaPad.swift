@@ -36,3 +36,30 @@ struct SafeAreaPad<S: ShapeStyle>: View {
     }
 
 }
+
+
+// MARK: - Previews
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+#Preview("Defaults", traits: PreviewContent.layout) {
+    SafeAreaPad()
+        .debugOverlay()
+
+    Spacer()
+
+    SafeAreaPad()
+        .debugOverlay()
+
+    Spacer()
+
+    SafeAreaPad()
+        .debugOverlay()
+}
