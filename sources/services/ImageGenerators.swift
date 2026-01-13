@@ -331,7 +331,7 @@ private struct ColorComponents: Sendable {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iphoneSize
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
 }
 

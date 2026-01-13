@@ -36,7 +36,7 @@ class PrintOnce {
 // MARK: - Previews
 
 
-#Preview(traits: .iphoneSize) {
+#Preview(traits: .iPhoneProSizeLayout) {
     @Previewable let printOnce = PrintOnce("⚛️ Preview start")
 
     // Only other way to print ahead, but this prints on every call to body.
