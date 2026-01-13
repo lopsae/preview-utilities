@@ -10,6 +10,7 @@ import SwiftUI
 struct FloatingAlignedContainer<Content: View>: View {
 
     let alignment: FloatingAlignment
+    // TODO: nil could be unnecessary here, if a view wants default padding they could define it in the content.
     let spacing: CGFloat?
     let content: (SwiftUI.Alignment, SwiftUI.TextAlignment) -> Content
 
@@ -85,7 +86,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 //}
 
 
-// MARK: - AlignedFixedContainerAlignment
+// MARK: - FloatingAlignment
 
 
 nonisolated
@@ -102,6 +103,15 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
         switch self {
         case .inner: .inner
         case .outer: .outer
+        }
+    }
+
+
+    var abbreviatedName: String {
+        let firstLetter = key.rawValue.first?.description ?? .init()
+        switch self {
+        case .inner(let innerAlignment): return firstLetter + innerAlignment.abbreviatedName
+        case .outer(let outerAlignment): return firstLetter + outerAlignment.abbreviatedName
         }
     }
 
@@ -155,6 +165,10 @@ extension FloatingAlignment {
         let horizontal: HorizontalAlignment
         let vertical: VerticalAlignment
 
+        var abbreviatedName: String {
+            return horizontal.abbreviatedName + vertical.abbreviatedName
+        }
+
         var swiftAlignment: SwiftUI.Alignment {
             .init(horizontal: horizontal.swiftAlignment, vertical: vertical.swiftAlignment)
         }
@@ -179,10 +193,21 @@ extension FloatingAlignment {
 
     }
 
+}
+
+
+// MARK: - HorizontalAlignment
+
+
+extension FloatingAlignment {
 
     nonisolated
     enum HorizontalAlignment: String, CaseIterable, SelfIdentifiable {
         case leading, center, trailing
+
+        var abbreviatedName: String {
+            rawValue.first?.description ?? .init()
+        }
 
         var swiftAlignment: SwiftUI.HorizontalAlignment {
             switch self {
@@ -202,10 +227,21 @@ extension FloatingAlignment {
 
     }
 
+}
+
+
+// MARK: - VerticalAlignment
+
+
+extension FloatingAlignment {
 
     nonisolated
     enum VerticalAlignment: String, CaseIterable, SelfIdentifiable {
         case top, center, bottom
+
+        var abbreviatedName: String {
+            rawValue.first?.description ?? .init()
+        }
 
         var swiftAlignment: SwiftUI.VerticalAlignment {
             switch self {
@@ -270,6 +306,18 @@ extension FloatingAlignment {
             }
         }
 
+        var abbreviatedName: String {
+            let mayorLetter = key.rawValue.first?.description ?? .init()
+            let minorLetter = switch self {
+            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
+                horizontalAlignment.abbreviatedName
+            case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
+                outerVerticalAlignment.abbreviatedName
+            }
+
+            return mayorLetter + minorLetter
+        }
+
 
         var contentAlignment: SwiftUI.Alignment {
             switch self {
@@ -331,9 +379,26 @@ extension FloatingAlignment {
 
     }
 
+}
 
+
+// MARK: - OuterVerticalAlignment
+
+
+extension FloatingAlignment {
+
+    nonisolated
     enum OuterVerticalAlignment: String, CaseIterable, SelfIdentifiable {
         case above, top, center, bottom, below
+
+        var abbreviatedName: String {
+            switch self {
+            case .above, .top, .center , .bottom:
+                return rawValue.first?.description ?? .init()
+            case .below:
+                return "bl"
+            }
+        }
     }
 
 }
@@ -506,13 +571,13 @@ private struct PreviewContent {
 #Preview("All Alignments", traits: PreviewContent.layout) {
     Rectangle()
     .fill(.teal.tertiary)
-    .frame(square: 200)
+    .frame(width: 200, height: 300)
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in
             FloatingAlignedContainer(alignment: alignment, spacing: 2) { _, _ in
-                Text("black")
+                Text("black\nquartz")
                 Image(systemName: "target")
-                Text("quartz")
+                Text(alignment.abbreviatedName)
             }
         }
     }
