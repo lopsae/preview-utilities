@@ -23,9 +23,9 @@ struct PreviewFooter: View {
         let paddingEdges: Edge.Set = enableBottomPadding
             ? .all
             : .not(.bottom)
-        VStack {
+        VStack(spacing: 0) {
             if flexibleHeight {
-                Spacer()
+                ClearRectangle()
             }
 
             Text("Footer")
@@ -42,7 +42,7 @@ struct PreviewFooter: View {
 }
 
 
-// MARK: - Previews
+// MARK: - PreviewContent
 
 
 @MainActor
@@ -50,7 +50,7 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
-    /// Representative of settings used in ``HeaderFooterPreviewModifier``, where the footer is
+    /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the footer is
     /// always displayed in a preview, and in iOS there is a bottom safe-area present.
     static var platformEnableBottomPadding: Bool {
         #if os(macOS)
@@ -70,11 +70,15 @@ private struct PreviewContent {
 
         Text("Flexible")
         .foregroundStyle(.secondary)
+        .font(.caption)
         .maxSizeFrame()
         .concentricSafeAreaBackground(fill: .orange, paddingEdges: .not(.top))
     }
 
 }
+
+
+// MARK: - Previews
 
 
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
@@ -114,12 +118,11 @@ private struct PreviewContent {
             "In iOS, when displayed against the preview frame, the footer should NOT use bottom " +
             "bottom padding. In macOS, padding is added to prevent the footer text of touching " +
             "the bottom of the window."
-        )
+        ).maxWidthFrame(alignment: .leading)
         Text(
-            "There is no current way to add this conditional padding without introducing issues."
-        )
+            "There is no known way to add this conditional padding automatically without introducing issues."
+        ).maxWidthFrame(alignment: .leading)
     }
-    .font(.caption)
 
     PreviewFooter(enableBottomPadding: true, flexibleHeight: false)
         .floatingCaption("**Enabled** padding", .alignment(.inner(.topLeading)), .padding(25))
