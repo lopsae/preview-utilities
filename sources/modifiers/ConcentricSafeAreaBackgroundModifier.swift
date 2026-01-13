@@ -25,8 +25,8 @@ struct ConcentricSafeAreaBackgroundModifier<S: ShapeStyle>: ViewModifier {
     /// Set of edges where content is padded to separate from the edges of the view.
     let safeAreaPaddingEdges: Edge.Set
 
-    /// Set of edges where the `ConcentricRectangle` is padded from the edge of content, extending
-    /// into the safeareas.
+    /// Set of edges where the background `ConcentricRectangle` is padded from the edge of content,
+    /// extending into the safe-areas.
     let backgroundPaddingEdges: Edge.Set
 
     func body(content: Content) -> some View {

@@ -21,7 +21,8 @@ public struct HeaderFooterContainerView<Content: View>: View {
 
     public var body: some View {
         VStack(spacing: .zero) {
-            PreviewHeader(flexibleHeight: !options.contains(.fixedHeader))
+            // FIXME: bottom padding to be enabled by platform
+            PreviewHeader(enableTopPadding: true, flexibleHeight: !options.contains(.fixedHeader))
 
             if options.contains(.showDividers) {
                 Divider()

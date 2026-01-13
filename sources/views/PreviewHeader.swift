@@ -9,80 +9,39 @@ import SwiftUI
 
 struct PreviewHeader: View {
 
-    @State private var paddedHeight: CGFloat = .zero
-    @State private var fullHeight: CGFloat = .zero
-
+    let enableTopPadding: Bool
     let flexibleHeight: Bool
 
-    fileprivate var printsUpdates: Bool = false
 
-
-    init(flexibleHeight: Bool = true) {
+    init(enableTopPadding: Bool, flexibleHeight: Bool = true) {
+        self.enableTopPadding = enableTopPadding
         self.flexibleHeight = flexibleHeight
     }
 
 
     var body: some View {
-        VStack(spacing: .zero) {
-
+        let contentPaddingEdges: Edge.Set = enableTopPadding
+            ? .all
+            : .not(.top)
+        VStack(spacing: 0) {
             Text("Header")
-                .foregroundStyle(.tertiary)
-                .minimumSafeAreaPadding(.top, minimumInset: textMinimumTopSafeArea, printsUpdates: printsUpdates)
-                // Double padding to separate one padding from background,
-                // which is padded once from views edge.
-                .padding(.bottom)
-                .padding(.bottom)
-                .maxWidthFrame()
 
             if flexibleHeight {
-                Spacer()
+                ClearRectangle()
             }
-
         }  // VStack
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainerView.minimumConcentricRadius)
-                .fill(HeaderFooterContainerView.backgroundStyle)
-                // TODO: reevaluate if keeping this approach for logging.
-                .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
-                    if printsUpdates {
-                        print("update paddedHeight:\(newValue)")
-                    }
-                })
-                .padding()
-                .onGeometryChange(keyPath: \.size.height) { newHeight in
-                    if printsUpdates {
-                        print("update fullHeight:\(newHeight)")
-                    }
-                    fullHeight = newHeight
-                }
-                .ignoresSafeArea()
-        }  // background
-    }
-
-
-    private var textMinimumTopSafeArea: CGFloat {
-        let onePadding = (fullHeight - paddedHeight) / 2.0
-        return onePadding * 2.0
+        .foregroundStyle(.tertiary)
+        .maxWidthFrame()
+        .concentricSafeAreaBackground(
+            fill: HeaderFooterContainerView.backgroundStyle,
+            contentPaddingEdges: contentPaddingEdges,
+            safeAreaPaddingEdges: .not(.top))
     }
 
 }
 
 
-// MARK: - Preview utilities
-
-
-extension PreviewHeader {
-
-    fileprivate func preview_printsUpdates(_ enable: Bool) -> Self {
-        var mutableSelf = self
-        mutableSelf.printsUpdates = enable
-        return mutableSelf
-    }
-
-}
-
-
-// MARK: - Previews
+// MARK: - PreviewContent
 
 
 @MainActor
@@ -90,10 +49,21 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
+    /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the header is
+    /// always displayed in a preview, and in iOS there is a bottom safe-area present.
+    static var platformEnableTopPadding: Bool {
+        #if os(macOS)
+        true
+        #else
+        false
+        #endif
+    }
+
     @ViewBuilder
     static func bottomControls(@ViewBuilder content: () -> some View) -> some View {
         Text("Flexible")
         .foregroundStyle(.secondary)
+        .font(.caption)
         .maxSizeFrame()
         .concentricSafeAreaBackground(fill: .orange, paddingEdges: .not(.bottom))
 
@@ -107,33 +77,39 @@ private struct PreviewContent {
 }
 
 
+// MARK: - Previews
+
+
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
+    @Previewable @State var enableTopPadding: Bool = PreviewContent.platformEnableTopPadding
     @Previewable @State var isFlexible: Bool = true
     @Previewable @State var fixedHeight: Double = 400
 
-    printOnce.view
-
-    PreviewHeader(flexibleHeight: isFlexible)
-        .preview_printsUpdates(true)
+    PreviewHeader(enableTopPadding: enableTopPadding, flexibleHeight: isFlexible)
 
     Divider()
 
     Rectangle().fill(.red.tertiary)
-        .frame(width: 100, height: fixedHeight)
-        .debugOverlay(.hairline, .size)
+        .frame(width: 150, height: fixedHeight)
+        .floatingCaption("Fixed Content Height", .height, .border)
 
     Divider()
 
     PreviewContent.bottomControls {
-        Slider(
+        Slider.captioned(
             "Fixed Height",
             value: $fixedHeight,
             in: 0...800,
-            valueFormat: .arithmeticRoundedInteger)
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
+
         Toggle("Flexible height", isOn: $isFlexible)
+        Toggle("Enable Top Padding", isOn: $enableTopPadding)
+        Text("Platform default: \(PreviewContent.platformEnableTopPadding.description)")
+            .font(.caption.monospaced())
     }
 }
+
 
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
@@ -142,7 +118,6 @@ private struct PreviewContent {
     @Previewable @State var isFlexible: Bool = true
 
     printOnce.view
-
     if !useDeviceSafeArea {
         Text("clear from device safe area")
         .font(.caption)
@@ -150,8 +125,7 @@ private struct PreviewContent {
         .concentricSafeAreaBackground(fill: .orange.tertiary, contentPaddingEdges: .not(.top))
     }
 
-    PreviewHeader(flexibleHeight: isFlexible)
-    .preview_printsUpdates(true)
+    PreviewHeader(enableTopPadding: true, flexibleHeight: isFlexible)
     .safeAreaInset(edge: .top, spacing: .zero) {
         Rectangle()
             .fill(.red.opacity(0.1))
