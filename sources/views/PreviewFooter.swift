@@ -116,8 +116,8 @@ private struct PreviewContent {
     PreviewContent.topControls {
         Text(
             "In iOS, when displayed against the preview frame, the footer should NOT use bottom " +
-            "bottom padding. In macOS, padding is added to prevent the footer text of touching " +
-            "the bottom of the window."
+            "padding. In macOS, padding is added to prevent the footer text from touching the " +
+            "bottom of the window."
         ).maxWidthFrame(alignment: .leading)
         Text(
             "There is no known way to add this conditional padding automatically without introducing issues."
@@ -128,13 +128,13 @@ private struct PreviewContent {
         .floatingCaption("**Enabled** padding", .alignment(.inner(.topLeading)), .padding(25))
         .debugOverlay(.bordersWidth(2))
 
-    Spacer()
+    ClearRectangle(height: 40)
 
     PreviewFooter(enableBottomPadding: false, flexibleHeight: false)
         .floatingCaption("**Disabled** padding", .alignment(.inner(.topLeading)), .padding(25))
         .debugOverlay(.bordersWidth(2))
 
-    Spacer()
+    ClearRectangle(height: 40)
 
     PreviewFooter(enableBottomPadding: PreviewContent.platformEnableBottomPadding, flexibleHeight: false)
         .floatingCaption(
@@ -172,11 +172,12 @@ private struct PreviewContent {
     .safeAreaInset(edge: .bottom, spacing: 0) {
         Rectangle()
             .fill(.green.quaternary)
-            .frame(width: 200, height: bottomSafeAreaInset)
-            .floatingCaption("Bottom SafeArea", .height, .border)
+            .frame(width: 100, height: bottomSafeAreaInset)
+            .floatingCaption("Bottom SafeArea", .height, .border, .alignment(.outer(.trailingCenter)))
     }
 
     if !useDeviceSafeArea {
+        Divider()
         Text("clear from device safe area")
         .font(.caption)
         .maxWidthFrame()
@@ -186,5 +187,4 @@ private struct PreviewContent {
 }
 
 
-// FIXME: add similar previews with fixed size for Header view
 // FIXME: add similar previews with fixed size for HeaderFooter
