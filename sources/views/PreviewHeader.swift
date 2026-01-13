@@ -111,6 +111,39 @@ private struct PreviewContent {
 }
 
 
+#Preview("Paddings", traits: .zeroSpacing, PreviewContent.layout) {
+    PreviewHeader(enableTopPadding: PreviewContent.platformEnableTopPadding, flexibleHeight: false)
+        .floatingCaption(
+            "Platform padding: **`\(PreviewContent.platformEnableTopPadding.description)`**",
+            .alignment(.inner(.bottomLeading)),
+            .padding(22))
+        .debugOverlay(.bordersWidth(2))
+
+    ClearRectangle(height: 40)
+
+    PreviewHeader(enableTopPadding: false, flexibleHeight: false)
+        .floatingCaption("**Disabled** padding", .alignment(.inner(.bottomLeading)), .padding(22))
+        .debugOverlay(.bordersWidth(2))
+
+    ClearRectangle(height: 40)
+
+    PreviewHeader(enableTopPadding: true, flexibleHeight: false)
+        .floatingCaption("**Enabled** padding", .alignment(.inner(.bottomLeading)), .padding(22))
+        .debugOverlay(.bordersWidth(2))
+
+    PreviewContent.bottomControls {
+        Text(
+            "In iOS, when displayed against the preview frame, the header should NOT use top " +
+            "padding. In macOS, padding is added to prevent the header text from touching the" +
+            "bottom of the window."
+        ).maxWidthFrame(alignment: .leading)
+        Text(
+            "There is no known way to add this conditional padding automatically without introducing issues."
+        ).maxWidthFrame(alignment: .leading)
+    }
+}
+
+
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var topSafeAreaInset: Double = 60
