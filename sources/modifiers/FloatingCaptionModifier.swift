@@ -19,8 +19,11 @@ struct FloatingCaptionModifier: ViewModifier {
         .overlay {
             GeometryReader { geometry in
                 let alignment = traits.alignment ?? .inner(.center)
+                let padding: CGFloat? = traits.containsCase(.padding)
+                    ? traits.padding // The trait can define nil for a default padding.
+                    : 2 // Default of 2 without trait.
                 FloatingAlignedContainer(alignment: alignment) { alignment, textAlignment in
-                    VStack(alignment: alignment.horizontal, spacing: .zero) {
+                    VStack(alignment: alignment.horizontal) {
                         Text(localizedKey)
                             .foregroundStyle(.secondary)
                             .font(.caption)
@@ -32,7 +35,7 @@ struct FloatingCaptionModifier: ViewModifier {
                                 .font(.caption.monospaced())
                         }
                     } // VStack
-                    .padding(2)
+                    .padding(.all, padding)
                     .fixedSize()
                 } // FloatingAlignedContainer
             } // GeometryReader
@@ -42,22 +45,27 @@ struct FloatingCaptionModifier: ViewModifier {
 }
 
 
+// MARK: - Trait
+
+
 extension FloatingCaptionModifier {
 
     enum Trait: CaseIdentifiable {
         case border
         case height
         case alignment(FloatingAlignment)
+        case padding(CGFloat? = nil)
 
         enum Case {
-            case border, height, alignment
+            case border, height, alignment, padding
         }
 
         var `case`: Case {
             switch self {
-            case .border: .border
-            case .height: .height
+            case .border:    .border
+            case .height:    .height
             case .alignment: .alignment
+            case .padding:   .padding
             }
         }
 
@@ -71,6 +79,15 @@ extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait
     var alignment: FloatingAlignment? {
         let caseInstance = lastCase(.alignment)
         if case .alignment(let alignment) = caseInstance {
+            return alignment
+        }
+        return nil
+    }
+
+
+    var padding: CGFloat? {
+        let caseInstance = lastCase(.padding)
+        if case .padding(let alignment) = caseInstance {
             return alignment
         }
         return nil
@@ -141,6 +158,14 @@ private struct PreviewContent {
         .fill(.indigo.tertiary)
         .frame(width: 200, height: 15)
         .floatingCaption("Short Rectangle", .height, .border)
+
+    Rectangle()
+        .fill(.indigo.tertiary)
+        .frame(width: 200, height: 100)
+        .floatingCaption("Default Padding\n(no trait)", .alignment(.inner(.centerLeading)))
+        .floatingCaption("Zero Padding", .alignment(.inner(.centerTrailing)), .padding(.zero))
+        .floatingCaption("10 Padding", .alignment(.inner(.bottomLeading)), .padding(10))
+        .floatingCaption("System Padding", .alignment(.inner(.bottomTrailing)), .padding())
 }
 
 
