@@ -145,43 +145,42 @@ private struct PreviewContent {
 
 
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
     @Previewable @State var topSafeAreaInset: Double = 60
     @Previewable @State var useDeviceSafeArea: Bool = false
+    @Previewable @State var enableTopPadding: Bool = PreviewContent.platformEnableTopPadding
     @Previewable @State var isFlexible: Bool = true
 
-    printOnce.view
     if !useDeviceSafeArea {
         Text("clear from device safe area")
-        .font(.caption)
-        .maxWidthFrame()
-        .concentricSafeAreaBackground(fill: .orange.tertiary, contentPaddingEdges: .not(.top))
+            .font(.caption)
+            .maxWidthFrame()
+            .concentricSafeAreaBackground(fill: .orange.tertiary, contentPaddingEdges: .not(.top))
+        Divider()
     }
 
-    PreviewHeader(enableTopPadding: true, flexibleHeight: isFlexible)
+    PreviewHeader(enableTopPadding: enableTopPadding, flexibleHeight: isFlexible)
     .safeAreaInset(edge: .top, spacing: .zero) {
         Rectangle()
-            .fill(.red.opacity(0.1))
-            .frame(height: topSafeAreaInset)
-            .debugOverlay(.hairline, .size, .safeAreaInsets, .outerInfo)
-            .padding(.horizontal, 8)
+            .fill(.green.quaternary)
+            .frame(width: 100, height: topSafeAreaInset)
+            .floatingCaption("Top SafeArea", .height, .border, .alignment(.outer(.trailingCenter)))
     }
 
     Divider()
 
     PreviewContent.bottomControls {
-        Slider(
+        Slider.captioned(
             "Top SafeArea",
             value: $topSafeAreaInset,
             in: 0...100,
-            currentValueFormat: .arithmeticRoundedInteger,
-            boundsValueFormat: .arithmeticRoundedInteger
-        )
-        Text("Top SafeArea: \(topSafeAreaInset, format: .fractionLength(2))")
-            .monospaced()
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
 
         Toggle("Use device safe area", isOn: $useDeviceSafeArea)
-        Toggle("Flexible height", isOn: $isFlexible)
+        Toggle("Flexible Height", isOn: $isFlexible)
+        Toggle("Enable Top Padding", isOn: $enableTopPadding)
+        Text("Platform default: \(PreviewContent.platformEnableTopPadding.description)")
+            .font(.caption.monospaced())
     }
 
 }
