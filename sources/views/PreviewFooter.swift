@@ -124,23 +124,24 @@ private struct PreviewContent {
     }
     .font(.caption)
 
-    Divider()
-
-    Text("**Enabled** padding").font(.caption)
     PreviewFooter(enableBottomPadding: true, flexibleHeight: false)
-        .debugOverlay(.hairline)
+        .floatingCaption("**Enabled** padding", .alignment(.inner(.topLeading)), .padding(25))
+        .debugOverlay(.bordersWidth(2))
 
-    Divider()
+    Spacer()
 
-    Text("**Disabled** padding").font(.caption)
     PreviewFooter(enableBottomPadding: false, flexibleHeight: false)
-        .debugOverlay(.hairline)
+        .floatingCaption("**Disabled** padding", .alignment(.inner(.topLeading)), .padding(25))
+        .debugOverlay(.bordersWidth(2))
 
-    Divider()
+    Spacer()
 
-    Text("Platform padding: `\(PreviewContent.platformEnableBottomPadding.description)`").font(.caption)
     PreviewFooter(enableBottomPadding: PreviewContent.platformEnableBottomPadding, flexibleHeight: false)
-        .debugOverlay(.hairline)
+        .floatingCaption(
+            "Platform padding: **`\(PreviewContent.platformEnableBottomPadding.description)`**",
+            .alignment(.inner(.topLeading)),
+            .padding(25))
+        .debugOverlay(.bordersWidth(2))
 }
 
 
