@@ -45,6 +45,8 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             }
             .overlay {
                 GeometryReader { geometry in
+                    let containerHeight = geometry.size.height
+                    let bottomSafeArea = geometry.safeAreaInsets.bottom
                     ZStack(alignment: .bottom) {
                         Text("centered, bottomSafeArea: \(geometry.safeAreaInsets.bottom, format: .fractionLength(2))")
                             .font(.caption)
@@ -52,11 +54,10 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                             .padding(2)
                             .alignmentGuide(.bottom) { dimentions in
                                 let defaultPadding = DefaultPaddings.vertical
-                                let bottomSafeArea = geometry.safeAreaInsets.bottom
 
                                 // Container height, removing the top padding. This is the area
                                 // where the label can be.
-                                let unpaddedContainerHeight = geometry.size.height - defaultPadding
+                                let unpaddedContainerHeight = containerHeight - defaultPadding
 
                                 let distanceFromBottom: CGFloat
                                 if bottomSafeArea > defaultPadding {
@@ -74,14 +75,15 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                                 return dimentions[.verticalCenter] + distanceFromBottom
                             }
 
-                        if geometry.safeAreaInsets.bottom > 0 {
+                        // Safearea indicator
+                        if bottomSafeArea > 0 {
                             Rectangle()
                                 .fill(.tertiary)
                                 .padding(.horizontal)
                                 .padding(.horizontal)
                                 .frame(maxWidth: .infinity, maxHeight: 1)
                                 .alignmentGuide(.bottom) { dimentions in
-                                    return dimentions[.bottom] + geometry.safeAreaInsets.bottom
+                                    return dimentions[.bottom] + bottomSafeArea
                                 }
                         }
 
@@ -90,7 +92,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                         ClearRectangle(height: 10)
                     }
                     .border(.red, width: 2)
-                    .alignmentGuide(.bottom) { $0[.bottom] - geometry.safeAreaInsets.bottom }
+                    .alignmentGuide(.bottom) { $0[.bottom] - bottomSafeArea }
                     .frame(size: geometry.size, alignment: .bottom)
                 } // GeometryReader
                 .border(.green, width: 2)
