@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+nonisolated
 enum DefaultPaddings {
 
     static let horizontal: CGFloat = 16
