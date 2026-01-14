@@ -36,6 +36,7 @@ public struct PreviewCaption: View {
 
 
     public var body: some View {
+        // TODO: use DefaultPaddings
         VStack(spacing: 8 ) {
             ForEach(textStrings.enumerated(), id: \.offset) { index, string in
                 let markdownString = (try? AttributedString(markdown: string)) ?? AttributedString("[markdown failed!] " + string)

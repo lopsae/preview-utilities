@@ -13,6 +13,8 @@ enum DefaultPaddings {
     static let horizontal: CGFloat = 16
     static let vertical: CGFloat = 16
 
+    static let both: CGFloat = 16
+
 }
 
 

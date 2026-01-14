@@ -36,7 +36,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             // Padding from edge of view, to match background padding.
             .padding(.all)
             // Padding from edge of background.
-            .padding(DefaultPaddings.vertical / 2)
+            .padding(DefaultPaddings.both / 2)
             .background {
                 ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
                 .fill(.orange.tertiary)
