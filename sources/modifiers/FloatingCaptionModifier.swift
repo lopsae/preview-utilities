@@ -178,11 +178,11 @@ private struct PreviewContent {
     Rectangle()
         .fill(.indigo.tertiary)
         .frame(width: 200, height: 100)
-        .floatingCaption("Default Padding\n(no trait)", .alignment(.inner(.centerLeading)))
-        .floatingCaption("Zero Padding", .alignment(.inner(.centerTrailing)), .padding(.zero))
-        .floatingCaption("10 Padding", .alignment(.inner(.bottomLeading)), .padding(10))
-        .floatingCaption("System Padding", .alignment(.inner(.bottomTrailing)), .padding())
-        .floatingCaption("External", .alignment(.outer(.bottomCenter)), .width, .height)
+        .floatingCaption("Default Padding\n(no trait)", .alignment(.innerLeading))
+        .floatingCaption("Zero Padding", .alignment(.innerTrailing), .padding(.zero))
+        .floatingCaption("10 Padding", .alignment(.innerBottomLeading), .padding(10))
+        .floatingCaption("System Padding", .alignment(.innerBottomTrailing), .padding())
+        .floatingCaption("External", .alignment(.outerBottom), .width, .height)
 }
 
 

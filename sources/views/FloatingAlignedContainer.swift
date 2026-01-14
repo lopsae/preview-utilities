@@ -55,12 +55,9 @@ struct FloatingAlignedContainer<Content: View>: View {
         case .bottom: geometry.size.height
         case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
             switch outerVerticalAlignment {
-            case .above:
-                -geometry.size.height
-            case .top, .center, .bottom:
-                    .zero
-            case .below:
-                geometry.size.height
+            case .top, .center, .bottom: .zero
+            case .above: -geometry.size.height
+            case .under: geometry.size.height
             }
         }
 
@@ -106,22 +103,13 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
 
 
     var abbreviatedName: String {
-        let firstLetter = key.rawValue.first?.description ?? .init()
-        switch self {
-        case .inner(let innerAlignment): return firstLetter + innerAlignment.abbreviatedName
-        case .outer(let outerAlignment): return firstLetter + outerAlignment.abbreviatedName
+        let firstLetter = key.rawValue.formatted(.firstCharacter)
+        let abbreviation = switch self {
+        case .inner(let innerAlignment): innerAlignment.abbreviatedName
+        case .outer(let outerAlignment): outerAlignment.abbreviatedName
         }
+        return firstLetter + abbreviation
     }
-
-    static let allCases: [FloatingAlignment] = {
-        let innerCases: [FloatingAlignment] = FloatingAlignment.InnerAlignment.allCases.map {
-            .inner($0)
-        }
-        let outerCases: [FloatingAlignment] = FloatingAlignment.OuterAlignment.allCases.map {
-            .outer($0)
-        }
-        return innerCases + outerCases
-    }()
 
 
     var outerAlignment: OuterAlignment? {
@@ -149,6 +137,59 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
         }
     }
 
+
+    // MARK: Shorthand properties
+    static let innerTopLeading:     Self = .inner(.topLeading)
+    static let innerTopCenter:      Self = .inner(.topCenter)
+    static let innerTopTrailing:    Self = .inner(.topTrailing)
+    static let innerTop:            Self = .innerTopCenter
+
+    static let innerLeadingCenter:  Self = .inner(.leadingCenter)
+    static let innerCenter:         Self = .inner(.center)
+    static let innerTrailingCenter: Self = .inner(.trailingCenter)
+    static let innerLeading:        Self = .innerLeadingCenter
+    static let innerTrailing:       Self = .innerTrailingCenter
+
+    static let innerBottomLeading:  Self = .inner(.bottomLeading)
+    static let innerBottomCenter:   Self = .inner(.bottomCenter)
+    static let innerBottomTrailing: Self = .inner(.bottomTrailing)
+    static let innerBottom:         Self = .innerBottomCenter
+
+    static let outerTopLeading:     Self = .outer(.topLeading)
+    static let outerTopCenter:      Self = .outer(.topCenter)
+    static let outerTopTrailing:    Self = .outer(.topTrailing)
+    static let outerTop:            Self = .outerTopCenter
+
+    static let outerBottomLeading:  Self = .outer(.bottomLeading)
+    static let outerBottomCenter:   Self = .outer(.bottomCenter)
+    static let outerBottomTrailing: Self = .outer(.bottomTrailing)
+    static let outerBottom:         Self = .outerBottomCenter
+
+    static let outerLeadingAbove:   Self = .outer(.leadingAbove)
+    static let outerLeadingTop:     Self = .outer(.leadingTop)
+    static let outerLeadingCenter:  Self = .outer(.leadingCenter)
+    static let outerLeadingBottom:  Self = .outer(.leadingBottom)
+    static let outerLeadingUnder:   Self = .outer(.leadingUnder)
+    static let outerLeading:        Self = .outerLeadingCenter
+
+    static let outerTrailingAbove:  Self = .outer(.trailingAbove)
+    static let outerTrailingTop:    Self = .outer(.trailingTop)
+    static let outerTrailingCenter: Self = .outer(.trailingCenter)
+    static let outerTrailingBottom: Self = .outer(.trailingBottom)
+    static let outerTrailingUnder:  Self = .outer(.trailingUnder)
+    static let outerTrailing:       Self = .outerTrailingCenter
+
+
+    static let allCases: [FloatingAlignment] = {
+        let innerCases: [FloatingAlignment] = FloatingAlignment.InnerAlignment.allCases.map {
+            .inner($0)
+        }
+        let outerCases: [FloatingAlignment] = FloatingAlignment.OuterAlignment.allCases.map {
+            .outer($0)
+        }
+        return innerCases + outerCases
+    }()
+
 }
 
 
@@ -171,21 +212,28 @@ extension FloatingAlignment {
             .init(horizontal: horizontal.swiftAlignment, vertical: vertical.swiftAlignment)
         }
 
-        static let topLeading: InnerAlignment = .init(horizontal: .leading, vertical: .top)
-        static let topCenter:  InnerAlignment = .init(horizontal: .center, vertical: .top)
-        static let topTrailing: InnerAlignment = .init(horizontal: .trailing, vertical: .top)
 
-        static let centerLeading: InnerAlignment = .init(horizontal: .leading, vertical: .center)
-        static let center:  InnerAlignment = .init(horizontal: .center, vertical: .center)
-        static let centerTrailing: InnerAlignment = .init(horizontal: .trailing, vertical: .center)
+        // MARK: Shorthand properties
+        static let topLeading:     Self = .init(horizontal: .leading,  vertical: .top)
+        static let topCenter:      Self = .init(horizontal: .center,   vertical: .top)
+        static let topTrailing:    Self = .init(horizontal: .trailing, vertical: .top)
+        static let top:            Self = .topCenter
 
-        static let bottomLeading: InnerAlignment = .init(horizontal: .leading, vertical: .bottom)
-        static let bottomCenter:  InnerAlignment = .init(horizontal: .center, vertical: .bottom)
-        static let bottomTrailing: InnerAlignment = .init(horizontal: .trailing, vertical: .bottom)
+        static let leadingCenter:  Self = .init(horizontal: .leading,  vertical: .center)
+        static let center:         Self = .init(horizontal: .center,   vertical: .center)
+        static let trailingCenter: Self = .init(horizontal: .trailing, vertical: .center)
+        static let leading:        Self = .leadingCenter
+        static let trailing:       Self = .trailingCenter
+
+        static let bottomLeading:  Self = .init(horizontal: .leading,  vertical: .bottom)
+        static let bottomCenter:   Self = .init(horizontal: .center,   vertical: .bottom)
+        static let bottomTrailing: Self = .init(horizontal: .trailing, vertical: .bottom)
+        static let bottom:         Self = .bottomCenter
+
 
         static let allCases: [FloatingAlignment.InnerAlignment] = [
             .topLeading, .topCenter, .topTrailing,
-            .centerLeading, .center, .centerTrailing,
+            .leadingCenter, .center, .trailingCenter,
             .bottomLeading, .bottomCenter, .bottomTrailing
         ]
 
@@ -204,7 +252,7 @@ extension FloatingAlignment {
         case leading, center, trailing
 
         var abbreviatedName: String {
-            rawValue.first?.description ?? .init()
+            rawValue.formatted(.firstCharacter)
         }
 
         var swiftAlignment: SwiftUI.HorizontalAlignment {
@@ -238,7 +286,7 @@ extension FloatingAlignment {
         case top, center, bottom
 
         var abbreviatedName: String {
-            rawValue.first?.description ?? .init()
+            rawValue.formatted(.firstCharacter)
         }
 
         var swiftAlignment: SwiftUI.VerticalAlignment {
@@ -330,7 +378,7 @@ extension FloatingAlignment {
                 case .bottom: .bottom
                 // Opposite verticals, to hug top/bottom from the outside.
                 case .above: .bottom
-                case .below:  .top
+                case .under: .top
                 }
                 // Oposite horizontal, to hug leading/trailing from the outside.
                 return .init(horizontal: oppositeKey.swiftHorizontal, vertical: vertical)
@@ -348,31 +396,37 @@ extension FloatingAlignment {
         }
 
 
-        static var topLeading:     OuterAlignment { .top(.leading) }
-        static var topCenter:      OuterAlignment { .top(.center) }
-        static var topTrailing:    OuterAlignment { .top(.trailing) }
+        // MARK: Shorthand properties
+        static let topLeading:     Self = .top(.leading)
+        static let topCenter:      Self = .top(.center)
+        static let topTrailing:    Self = .top(.trailing)
+        static let top:            Self = .topCenter
 
-        static var bottomLeading:  OuterAlignment { .bottom(.leading) }
-        static var bottomCenter:   OuterAlignment { .bottom(.center) }
-        static var bottomTrailing: OuterAlignment { .bottom(.trailing) }
+        static let bottomLeading:  Self = .bottom(.leading)
+        static let bottomCenter:   Self = .bottom(.center)
+        static let bottomTrailing: Self = .bottom(.trailing)
+        static let bottom:         Self = .bottomCenter
 
-        static var leadingAbove:   OuterAlignment { .leading(.above) }
-        static var leadingTop:     OuterAlignment { .leading(.top) }
-        static var leadingCenter:  OuterAlignment { .leading(.center) }
-        static var leadingBottom:  OuterAlignment { .leading(.bottom) }
-        static var leadingUnder:   OuterAlignment { .leading(.below) }
+        static let leadingAbove:   Self = .leading(.above)
+        static let leadingTop:     Self = .leading(.top)
+        static let leadingCenter:  Self = .leading(.center)
+        static let leadingBottom:  Self = .leading(.bottom)
+        static let leadingUnder:   Self = .leading(.under)
+        static let leading:        Self = .leadingCenter
 
-        static var trailingAbove:  OuterAlignment { .trailing(.above) }
-        static var trailingTop:    OuterAlignment { .trailing(.top) }
-        static var trailingCenter: OuterAlignment { .trailing(.center) }
-        static var trailingBottom: OuterAlignment { .trailing(.bottom) }
-        static var trailingBelow:  OuterAlignment { .trailing(.below) }
+        static let trailingAbove:  Self = .trailing(.above)
+        static let trailingTop:    Self = .trailing(.top)
+        static let trailingCenter: Self = .trailing(.center)
+        static let trailingBottom: Self = .trailing(.bottom)
+        static let trailingUnder:  Self = .trailing(.under)
+        static let trailing:       Self = .trailingCenter
+
 
         static let allCases: [Self] = [
             topLeading, topCenter, topTrailing,
             bottomTrailing, bottomCenter, bottomLeading,
             leadingAbove, leadingTop, leadingCenter, leadingBottom, leadingUnder,
-            trailingAbove, trailingTop, trailingCenter, trailingBottom, trailingBelow
+            trailingAbove, trailingTop, trailingCenter, trailingBottom, trailingUnder
         ]
 
     }
@@ -387,15 +441,10 @@ extension FloatingAlignment {
 
     nonisolated
     enum OuterVerticalAlignment: String, CaseIterable, SelfIdentifiable {
-        case above, top, center, bottom, below
+        case above, top, center, bottom, under
 
         var abbreviatedName: String {
-            switch self {
-            case .above, .top, .center , .bottom:
-                return rawValue.first?.description ?? .init()
-            case .below:
-                return "bl"
-            }
+            rawValue.formatted(.firstCharacter)
         }
     }
 
@@ -422,7 +471,7 @@ private struct PreviewContent {
 
 #Preview("Default", traits: PreviewContent.layout) {
     Rectangle()
-        .fill(.teal.tertiary)
+    .fill(.teal.gradient.secondary)
     .frame(square: 100)
     .overlay {
         FloatingAlignedContainer { _, _ in
@@ -436,7 +485,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Alignments", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Alignments", traits: .zeroSpacing, .headerFooter(.fixed), PreviewContent.layout) {
     @Previewable @State var isLargeParent: Bool = true
     @Previewable @State var contentOption: PreviewContent.ContentOption = .multiline
     @Previewable @State var spacing: Double = 5
@@ -445,7 +494,7 @@ private struct PreviewContent {
     @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
 
-    @Previewable @State var outerMayorAlignment: FloatingAlignment.OuterAlignment.Key = .top
+    @Previewable @State var outerMayorAlignment: FloatingAlignment.OuterAlignment.Key = .bottom
     @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
 
@@ -534,33 +583,25 @@ private struct PreviewContent {
     }
 
     if isLargeParent {
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 50)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
         StarShape(points: 4, concaveVertexRatio: 1)
             .fill(.teal.gradient.secondary)
-            .background(.teal.quinary)
+            .background(.teal.gradient.quinary)
             .frame(square: 200)
             .overlay {
                 floatingContent
             }
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 50)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
     } else {
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 50)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
         Text("Preview text")
             .foregroundStyle(.quaternary)
-            .background(.teal.quinary)
+            .background(.teal.gradient.quinary)
             .monospaced()
             .overlay {
                 floatingContent
             }
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 50)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
     }
 
 }
@@ -568,13 +609,15 @@ private struct PreviewContent {
 
 #Preview("All Alignments", traits: PreviewContent.layout) {
     Rectangle()
-    .fill(.teal.tertiary)
+        .fill(.teal.gradient.secondary)
     .frame(width: 200, height: 300)
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in
-            FloatingAlignedContainer(alignment: alignment, spacing: 2) { _, _ in
+            FloatingAlignedContainer(alignment: alignment, spacing: 2) { _, textAlignment in
                 Text("black\nquartz")
+                    .multilineTextAlignment(textAlignment)
                 Image(systemName: "target")
+                    .foregroundStyle(.tertiary)
                 Text(alignment.abbreviatedName)
             }
         }
