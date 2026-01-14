@@ -8,6 +8,7 @@ import Foundation
 
 
 /// A structure that converts any instance to its string description.
+nonisolated
 public struct StringDescriptionFormatStyle<Input>: FormatStyle {
 
     public init() { }
@@ -19,8 +20,10 @@ public struct StringDescriptionFormatStyle<Input>: FormatStyle {
 }
 
 
+
 extension FormatStyle where Self == StringDescriptionFormatStyle<Double> {
 
+    nonisolated
     public static var stringDescription: IdentityFormatStyle<Double> { .init() }
 
 }
@@ -28,6 +31,7 @@ extension FormatStyle where Self == StringDescriptionFormatStyle<Double> {
 
 extension FormatStyle where Self == StringDescriptionFormatStyle<Int> {
 
+    nonisolated
     public static var stringDescription: IdentityFormatStyle<Int> { .init() }
 
 }

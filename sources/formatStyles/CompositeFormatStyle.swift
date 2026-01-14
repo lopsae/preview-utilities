@@ -8,6 +8,7 @@ import Foundation
 
 
 /// A Structure that joins two format styles.
+nonisolated
 struct CompositeFormatStyle<InputFormat: FormatStyle, OutputFormat: FormatStyle>: FormatStyle
 where InputFormat.FormatOutput == OutputFormat.FormatInput {
 

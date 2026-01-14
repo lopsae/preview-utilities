@@ -8,6 +8,7 @@ import Foundation
 
 
 /// A structure that performs an identity transformation converting an instance to itself.
+nonisolated
 public struct IdentityFormatStyle<T>: FormatStyle {
 
     public init() { }
@@ -16,8 +17,10 @@ public struct IdentityFormatStyle<T>: FormatStyle {
 
 }
 
+
 extension FormatStyle where Self == IdentityFormatStyle<String> {
 
+    nonisolated
     public static var identity: IdentityFormatStyle<String> { .init() }
 
 }

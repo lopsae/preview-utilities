@@ -8,6 +8,7 @@ import Foundation
 
 
 /// A structure that converts a `RawRepresentable` to its raw value.
+nonisolated
 struct RawValueFormatStyle<Value: RawRepresentable>: FormatStyle
 where Value.RawValue: StringProtocol {
 
@@ -21,6 +22,7 @@ where Value.RawValue: StringProtocol {
 extension FormatStyle {
 
     /// Returns a format style that outputs the raw value of a `RawRepresentable`.
+    nonisolated
     static func rawValue<Value: RawRepresentable>() -> RawValueFormatStyle<Value>
     where
         Value.RawValue: StringProtocol,

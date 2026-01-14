@@ -8,6 +8,7 @@ import Foundation
 
 
 /// A structure that capitalizes a string.
+nonisolated
 struct CapitalizedFormatStyle: FormatStyle {
 
     func format(_ value: String) -> String {
@@ -21,6 +22,7 @@ extension FormatStyle {
 
     /// Returns a format style that uses the string output of another formatter and outputs the
     /// capitalized string.
+    nonisolated
     static func capitalized<InputFormat: FormatStyle>(
         input: InputFormat
     ) -> Self
@@ -34,9 +36,11 @@ extension FormatStyle {
 }
 
 
+nonisolated
 extension FormatStyle {
 
     /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable`.
+    nonisolated
     static func rawValueCapitalized<Value: RawRepresentable>() -> Self
     where
         Value.RawValue: StringProtocol,

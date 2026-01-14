@@ -8,6 +8,7 @@ import Foundation
 
 
 /// A structure that converts a string to its first character, optionally capitalized.
+nonisolated
 struct FirstCharacterFormatStyle: FormatStyle {
 
     let capitalized: Bool
@@ -17,7 +18,7 @@ struct FirstCharacterFormatStyle: FormatStyle {
     }
 
     func format(_ value: String) -> String {
-        let firstCharacted = value.first?.description ?? ""
+        let firstCharacted = value.first?.description ?? .init()
         return capitalized
             ? firstCharacted.capitalized
             : firstCharacted
@@ -29,9 +30,11 @@ struct FirstCharacterFormatStyle: FormatStyle {
 extension FormatStyle where Self == FirstCharacterFormatStyle {
 
     /// Returns a format style that outputs first character of a string.
+    nonisolated
     static var firstCharacter: FirstCharacterFormatStyle { .init() }
 
     /// Returns a format style that outputs first character of a string, optionally capitalized.
+    nonisolated
     static func firstCharacter(capitalized: Bool) -> FirstCharacterFormatStyle {
         .init(capitalized: capitalized)
     }
@@ -43,6 +46,7 @@ extension FormatStyle {
 
     /// Returns a format style that uses the string output of another formatter and outputs the
     /// first character, optionally capitalized.
+    nonisolated
     static func firstCharacter<InputFormat: FormatStyle>(
         capitalized: Bool = false,
         input: InputFormat
