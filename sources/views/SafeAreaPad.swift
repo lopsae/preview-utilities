@@ -123,10 +123,7 @@ private struct PreviewContent {
     )
     .padding()
 
-    Rectangle()
-        .fill(.gray.quaternary)
-        .frame(width: 100)
-        .floatingCaption("Spacer")
+    VisibleSpacer()
 
     SafeAreaPad()
     .safeAreaInset(edge: .bottom, spacing: 0) {
@@ -137,4 +134,18 @@ private struct PreviewContent {
     }
 
     Divider()
+}
+
+
+struct VisibleSpacer: View {
+
+    var body: some View {
+        Text("Spacer")
+        .foregroundStyle(.tertiary)
+        .font(.caption)
+        .padding(.horizontal, 8)
+        .frame(minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .background(.gray.quaternary)
+    }
+
 }
