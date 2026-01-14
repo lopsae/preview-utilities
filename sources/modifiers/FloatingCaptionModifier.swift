@@ -20,7 +20,7 @@ struct FloatingCaptionModifier: ViewModifier {
             GeometryReader { geometry in
                 let alignment = traits.alignment ?? .inner(.center)
                 let padding: CGFloat? = traits.containsCase(.padding)
-                    ? traits.padding // The trait can define nil for a default padding.
+                    ? traits.padding // The trait can specify nil for a default padding.
                     : 2 // Default of 2 without trait.
                 FloatingAlignedContainer(alignment: alignment) { alignment, textAlignment in
                     VStack(alignment: alignment.horizontal) {
@@ -29,11 +29,25 @@ struct FloatingCaptionModifier: ViewModifier {
                             .font(.caption)
                             .multilineTextAlignment(textAlignment)
 
-                        if traits.containsCase(.height) {
-                            Text("height: \(geometry.size.height, format: .fractionLength(2))")
-                                .foregroundStyle(.secondary)
-                                .font(.caption.monospaced())
-                        }
+                        // Width, Height, or Size.
+                        Group {
+                            // TODO: if traits is a Set, this could use set operations.
+                            let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
+                            if traits.containsCase(.width) && traits.containsCase(.height) {
+                                let formattedWidth = geometry.size.width.formatted(fractionLength)
+                                let formattedHeight = geometry.size.height.formatted(fractionLength)
+                                Text("size: \(formattedWidth), \(formattedHeight)")
+                            } else if traits.containsCase(.width) {
+                                let formattedWidth = geometry.size.width.formatted(fractionLength)
+                                Text("width: \(formattedWidth)")
+                            } else if traits.containsCase(.height) {
+                                let formattedHeight = geometry.size.height.formatted(fractionLength)
+                                Text("height: \(formattedHeight)")
+                            }
+                        } // Group
+                        .foregroundStyle(.secondary)
+                        .font(.caption.monospaced())
+
                     } // VStack
                     .padding(.all, padding)
                     .fixedSize()
@@ -52,17 +66,19 @@ extension FloatingCaptionModifier {
 
     enum Trait: CaseIdentifiable {
         case border
+        case width
         case height
         case alignment(FloatingAlignment)
         case padding(CGFloat? = nil)
 
         enum Case {
-            case border, height, alignment, padding
+            case border, width, height, alignment, padding
         }
 
         var `case`: Case {
             switch self {
             case .border:    .border
+            case .width:     .width
             case .height:    .height
             case .alignment: .alignment
             case .padding:   .padding
@@ -151,13 +167,13 @@ private struct PreviewContent {
 #Preview("Default", traits: PreviewContent.layout) {
     Rectangle()
         .fill(.indigo.tertiary)
-        .frame(width: 40, height: 200)
+        .frame(width: 40, height: 100)
         .floatingCaption("Tall Rectangle", .height)
 
     Rectangle()
         .fill(.indigo.tertiary)
         .frame(width: 200, height: 15)
-        .floatingCaption("Short Rectangle", .height, .border)
+        .floatingCaption("Short Rectangle", .width, .border)
 
     Rectangle()
         .fill(.indigo.tertiary)
@@ -166,6 +182,7 @@ private struct PreviewContent {
         .floatingCaption("Zero Padding", .alignment(.inner(.centerTrailing)), .padding(.zero))
         .floatingCaption("10 Padding", .alignment(.inner(.bottomLeading)), .padding(10))
         .floatingCaption("System Padding", .alignment(.inner(.bottomTrailing)), .padding())
+        .floatingCaption("External", .alignment(.outer(.bottomCenter)), .width, .height)
 }
 
 
