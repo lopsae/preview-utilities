@@ -9,13 +9,45 @@ import SwiftUI
 
 struct VisibleSpacer: View {
 
+    let axis: Axis
+
+
+    init(axis: Axis = .vertical) {
+        self.axis = axis
+    }
+
+
     var body: some View {
-        Text("Spacer")
-        .foregroundStyle(.tertiary)
-        .font(.caption)
-        .padding(.horizontal, 8)
-        .frame(minHeight: 0, maxHeight: .infinity, alignment: .center)
-        .background(.gray.quaternary)
+        let minWidth:  CGFloat?, maxWidth:  CGFloat?
+        let minHeight: CGFloat?, maxHeight: CGFloat?
+        let paddingEdges: Edge.Set
+        switch axis {
+        case .horizontal:
+            minWidth = 0
+            maxWidth = .infinity
+            minHeight = nil
+            maxHeight = nil
+            paddingEdges = .vertical
+        case .vertical:
+            minHeight = 0
+            maxHeight = .infinity
+            minWidth = nil
+            maxWidth = nil
+            paddingEdges = .horizontal
+        }
+
+        return Text("Spacer")
+            .foregroundStyle(.tertiary)
+            .font(.caption)
+            .fixedSize()
+            .padding(paddingEdges, 8)
+            .frame(
+                minWidth: minWidth,
+                maxWidth: maxWidth,
+                minHeight: minHeight,
+                maxHeight: maxHeight,
+                alignment: .center)
+            .background(.gray.quaternary)
     }
 
 }
@@ -27,17 +59,22 @@ struct VisibleSpacer: View {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
 }
 
 
-#Preview("Default", traits: .headerFooter(.showDividers), PreviewContent.layout) {
+#Preview("Default", traits: .zeroSpacing, .headerFooter(.showDividers), PreviewContent.layout) {
     VisibleSpacer()
+    Divider()
+    VisibleSpacer(axis: .horizontal)
+        .padding(.horizontal)
+    Divider()
+    VisibleSpacer(axis: .vertical)
 }
 
 
-#Preview("Sizing", traits: .zeroSpacing, .headerFooter(.showDividers), PreviewContent.layout) {
+#Preview("Vertical", traits: .zeroSpacing, .headerFooter(.showDividers), PreviewContent.layout) {
     @Previewable @State var fixedHeight: Double = 100
 
     Slider.captioned(
@@ -54,5 +91,27 @@ private struct PreviewContent {
         .floatingCaption("Fixed Content", .border, .height)
 
     VisibleSpacer()
+}
+
+
+#Preview("Horizontal", traits: .zeroSpacing, .headerFooter(.showDividers), PreviewContent.layout) {
+    @Previewable @State var fixedWidth: Double = 100
+
+    Slider.captioned(
+        "Fixed Content Width",
+        value: $fixedWidth,
+        in: 0...500,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+    .padding()
+
+    HStack(spacing: 0) {
+        Rectangle()
+            .fill(.mint.tertiary)
+            .frame(width: fixedWidth, height: 150)
+            .floatingCaption("Fixed Content", .border, .width)
+        VisibleSpacer(axis: .horizontal)
+    }
+    .padding(.horizontal)
 }
 
