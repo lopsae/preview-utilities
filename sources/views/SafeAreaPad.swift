@@ -25,16 +25,18 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             Divider()
         }
 
+        // This first Text sets the minimum height of the view, but it remains invisible.
+        // The height of the view is text.height + 2 default-paddings + 2 half-paddings
         Text("SafeAreaPad")
             .foregroundStyle(.quaternary)
             .font(.caption)
-            // This first Text sets the minimum size of the view, but it remains invisible.
+
             .hidden()
             .maxWidthFrame()
             // Padding from edge of view, to match background padding.
             .padding(.all)
             // Padding from edge of background.
-            .padding(8)
+            .padding(DefaultPaddings.vertical / 2)
             .background {
                 ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
                 .fill(.orange.tertiary)
@@ -48,12 +50,28 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                             .font(.caption)
                             .monospacedDigit()
                             .padding(2)
-                            .alignmentGuide(VerticalAlignment.bottom) { dimentions in
-                                let unpaddedContainerHeight = geometry.size.height - 16
-                                return dimentions[VerticalAlignment.center]
-                                    + (unpaddedContainerHeight / 2)
-                                    + max(geometry.safeAreaInsets.bottom, 16)
-                                    - (geometry.safeAreaInsets.bottom < 16 ? (16 - geometry.safeAreaInsets.bottom) / 2 : 0)
+                            .alignmentGuide(.bottom) { dimentions in
+                                let defaultPadding = DefaultPaddings.vertical
+                                let bottomSafeArea = geometry.safeAreaInsets.bottom
+
+                                // Container height, removing the top padding. This is the area
+                                // where the label can be.
+                                let unpaddedContainerHeight = geometry.size.height - defaultPadding
+
+                                let distanceFromBottom: CGFloat
+                                if bottomSafeArea > defaultPadding {
+                                    // Label is centered in available container area, and pushed up
+                                    // by the entire safeArea.
+                                    distanceFromBottom = bottomSafeArea + unpaddedContainerHeight / 2
+                                } else {
+                                    // Fraction of safe area bitting into the available container area.
+                                    let remainingPadding = defaultPadding - bottomSafeArea
+                                    let centerOfContainerHeight = (unpaddedContainerHeight - remainingPadding) / 2
+                                    // Label is always pushed up in this case by 1 padding.
+                                    distanceFromBottom = centerOfContainerHeight + defaultPadding
+                                }
+
+                                return dimentions[.verticalCenter] + distanceFromBottom
                             }
 
                         if geometry.safeAreaInsets.bottom > 0 {
@@ -62,7 +80,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                                 .padding(.horizontal)
                                 .padding(.horizontal)
                                 .frame(maxWidth: .infinity, maxHeight: 1)
-                                .alignmentGuide(VerticalAlignment.bottom) { dimentions in
+                                .alignmentGuide(.bottom) { dimentions in
                                     return dimentions[.bottom] + geometry.safeAreaInsets.bottom
                                 }
                         }
@@ -72,7 +90,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                         ClearRectangle(height: 10)
                     }
                     .border(.red, width: 2)
-                    .alignmentGuide(VerticalAlignment.bottom) { $0[.bottom] - geometry.safeAreaInsets.bottom }
+                    .alignmentGuide(.bottom) { $0[.bottom] - geometry.safeAreaInsets.bottom }
                     .frame(size: geometry.size, alignment: .bottom)
                 } // GeometryReader
                 .border(.green, width: 2)
@@ -109,7 +127,7 @@ private struct PreviewContent {
     VisibleSpacer()
 
     SafeAreaPad()
-        .debugOverlay(.bordersWidth(2))
+        .debugOverlay(.bordersWidth(2), .size)
 }
 
 
@@ -134,7 +152,7 @@ private struct PreviewContent {
         Rectangle()
             .fill(.green.quaternary)
             .frame(width: 100, height: bottomSafeAreaInset)
-            .floatingCaption("Bottom SafeArea", .height, .border, .alignment(.outer(.trailingCenter)))
+            .floatingCaption("Bottom SafeArea", .height, .border, .alignment(.outerTrailingCenter))
     }
 
     Divider()
