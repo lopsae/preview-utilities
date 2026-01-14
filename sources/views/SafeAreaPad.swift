@@ -49,8 +49,11 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                             .monospacedDigit()
                             .padding(2)
                             .alignmentGuide(VerticalAlignment.bottom) { dimentions in
-                                let minDistanceFromBottom: CGFloat = (geometry.size.height - dimentions.height) / 2
-                                return dimentions[.bottom] + max(minDistanceFromBottom, geometry.safeAreaInsets.bottom)
+                                let unpaddedContainerHeight = geometry.size.height - 16
+                                return dimentions[VerticalAlignment.center]
+                                    + (unpaddedContainerHeight / 2)
+                                    + max(geometry.safeAreaInsets.bottom, 16)
+                                    - (geometry.safeAreaInsets.bottom < 16 ? (16 - geometry.safeAreaInsets.bottom) / 2 : 0)
                             }
 
                         if geometry.safeAreaInsets.bottom > 0 {
@@ -68,10 +71,11 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                         // offset their position.
                         ClearRectangle(height: 10)
                     }
+                    .border(.red, width: 2)
                     .alignmentGuide(VerticalAlignment.bottom) { $0[.bottom] - geometry.safeAreaInsets.bottom }
-                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .bottom)
-                    .ignoresSafeArea(edges: .bottom)
+                    .frame(size: geometry.size, alignment: .bottom)
                 } // GeometryReader
+                .border(.green, width: 2)
             }
 
         if (bottomDivider) {
@@ -97,12 +101,12 @@ private struct PreviewContent {
     SafeAreaPad()
         .debugOverlay(.bordersWidth(2))
 
-    Spacer()
+    VisibleSpacer()
 
     SafeAreaPad()
         .debugOverlay(.bordersWidth(2))
 
-    Spacer()
+    VisibleSpacer()
 
     SafeAreaPad()
         .debugOverlay(.bordersWidth(2))
