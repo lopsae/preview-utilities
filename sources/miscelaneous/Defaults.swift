@@ -8,12 +8,9 @@ import SwiftUI
 
 
 nonisolated
-enum DefaultPaddings {
+enum Defaults {
 
-    static let horizontal: CGFloat = 16
-    static let vertical: CGFloat = 16
-
-    static let both: CGFloat = 16
+    static let padding: CGFloat = 16
 
 }
 

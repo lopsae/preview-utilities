@@ -43,7 +43,7 @@ struct VisibleSpacer: View {
             .foregroundStyle(.tertiary)
             .font(.caption)
             .fixedSize()
-            .padding(paddingEdges, DefaultPaddings.both / 2)
+            .padding(paddingEdges, Defaults.padding / 2)
             .frame(
                 minWidth: minWidth,
                 maxWidth: maxWidth,

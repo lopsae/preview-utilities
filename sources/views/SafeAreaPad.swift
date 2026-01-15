@@ -36,7 +36,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             // Padding from edge of view, to match background padding.
             .padding(.all)
             // Padding from edge of background.
-            .padding(DefaultPaddings.both / 2)
+            .padding(Defaults.padding / 2)
             .background {
                 ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
                 .fill(.orange.tertiary)
@@ -52,23 +52,23 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                             .font(.caption)
                             .monospacedDigit()
                             .alignmentGuide(.bottom) { dimentions in
-                                let defaultPadding = DefaultPaddings.vertical
+                                let padding = Defaults.padding
 
                                 // Container height, removing the top padding. This is the area
                                 // where the label can be.
-                                let unpaddedContainerHeight = containerHeight - defaultPadding
+                                let unpaddedContainerHeight = containerHeight - padding
 
                                 let distanceFromBottom: CGFloat
-                                if bottomSafeArea > defaultPadding {
+                                if bottomSafeArea > padding {
                                     // Label is centered in available container area, and pushed up
                                     // by the entire safeArea.
                                     distanceFromBottom = bottomSafeArea + unpaddedContainerHeight / 2
                                 } else {
                                     // Fraction of safe area bitting into the available container area.
-                                    let remainingPadding = defaultPadding - bottomSafeArea
+                                    let remainingPadding = padding - bottomSafeArea
                                     let centerOfContainerHeight = (unpaddedContainerHeight - remainingPadding) / 2
                                     // Label is always pushed up in this case by 1 padding.
-                                    distanceFromBottom = centerOfContainerHeight + defaultPadding
+                                    distanceFromBottom = centerOfContainerHeight + padding
                                 }
 
                                 return dimentions[.verticalCenter] + distanceFromBottom
