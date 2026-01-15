@@ -18,7 +18,7 @@ enum Defaults {
 #Preview("Paddings") {
     Rectangle()
     .fill(.cyan.gradient.secondary)
-    .frame(square: 200)
+    .frame(squareOf: 200)
     .overlay {
         GeometryReader { outerGeometry in
             Rectangle()

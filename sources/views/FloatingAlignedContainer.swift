@@ -472,7 +472,7 @@ private struct PreviewContent {
 #Preview("Default", traits: PreviewContent.layout) {
     Rectangle()
     .fill(.teal.gradient.secondary)
-    .frame(square: 100)
+    .frame(squareOf: 100)
     .overlay {
         FloatingAlignedContainer { _, _ in
             Group {
@@ -572,8 +572,8 @@ private struct PreviewContent {
             }
         case .multiline:
             VStack(alignment: alignment.horizontal) {
-                Text("How happy is\nthe blameless vestal lot")
-                Text("the world forgetting,\nby the world forgot")
+                Text("How happy is\nthe blameless vestal's lot!")
+                Text("The world forgetting,\nby the world forgot.")
             }
             .foregroundStyle(.secondary)
             .font(.caption.monospaced())
@@ -587,7 +587,7 @@ private struct PreviewContent {
         StarShape(points: 4, concaveVertexRatio: 1)
             .fill(.teal.gradient.secondary)
             .background(.teal.gradient.quinary)
-            .frame(square: 200)
+            .frame(squareOf: 200)
             .overlay {
                 floatingContent
             }

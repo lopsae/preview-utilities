@@ -17,7 +17,7 @@ import SwiftUI
 
     Rectangle()
         .strokeBorder(.red, lineWidth: 10)
-        .frame(square: 50)
+        .frame(squareOf: 50)
         .overlay(alignment: .topLeading) {
             VStack(alignment: .leading) {
                 Text("Lorem ipsum dolor sit ame,\nconsectetur adipiscing elit.")
@@ -39,7 +39,7 @@ import SwiftUI
     ZStack(alignment: .topLeading) {
         Rectangle()
             .strokeBorder(.red, lineWidth: 10)
-            .frame(square: 50)
+            .frame(squareOf: 50)
         VStack(alignment: .leading) {
             Text("Lorem ipsum dolor sit ame,\nconsectetur adipiscing elit.")
         }.fixedSize()
@@ -51,15 +51,16 @@ import SwiftUI
 
 #Preview("Overlay+GeometryReader alignment", traits: .headerFooter) {
     Text("""
-        GometryReader takes the size of its container, even if the content is bigger. Bigger
-        content is always aligned topLeading with no known way to modify it.
+        GeometryReader takes the size of its container, even if the content is bigger. Bigger
+        content is always alignedtopLeading with no possible way to modify it through
+        GeometryReader.
         """)
     .foregroundStyle(.secondary)
     .padding([.horizontal, .bottom])
 
     Rectangle()
         .fill(.red.opacity(0.3))
-        .frame(square: 60)
+        .frame(squareOf: 60)
         .overlay(alignment: .bottomTrailing) {
             // Geometry reader will remain the size of its container, even if content is bigger.
             GeometryReader { geometry in

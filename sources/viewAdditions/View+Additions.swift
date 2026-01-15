@@ -36,7 +36,7 @@ extension View {
     }
 
 
-    @available(*, deprecated, renamed: "frame(squareOf:)")
+    @available(*, deprecated, renamed: "frame(squareOf:alignment:)")
     @inlinable nonisolated
     public func frame(square side: CGFloat, alignment: Alignment = .center) -> some View {
         self.frame(width: side, height: side, alignment: alignment)

@@ -157,7 +157,7 @@ public class ImageGeneratorStore {
                 HStack(spacing: 8) {
                     Circle()
                         .fill(generationStatus?.statusColor ?? .gray)
-                        .frame(square: 12)
+                        .frame(squareOf: 12)
 
                     Text(generationStatus?.statusText ?? "Idle")
                         .font(.caption)
