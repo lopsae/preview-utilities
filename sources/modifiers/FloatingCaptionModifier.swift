@@ -24,8 +24,10 @@ struct FloatingCaptionModifier: ViewModifier {
                     : 2 // Default of 2 without trait.
                 FloatingAlignedContainer(alignment: alignment) { alignment, textAlignment in
                     VStack(alignment: alignment.horizontal) {
+                        let textStyle: any ShapeStyle = traits.captionStyle
+                            ?? .secondary
                         Text(localizedKey)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(textStyle)
                             .font(.caption)
                             .multilineTextAlignment(textAlignment)
 
@@ -37,15 +39,17 @@ struct FloatingCaptionModifier: ViewModifier {
                                 let formattedWidth = geometry.size.width.formatted(fractionLength)
                                 let formattedHeight = geometry.size.height.formatted(fractionLength)
                                 Text("size: \(formattedWidth), \(formattedHeight)")
+                                    .foregroundStyle(textStyle)
                             } else if traits.containsCase(.width) {
                                 let formattedWidth = geometry.size.width.formatted(fractionLength)
                                 Text("width: \(formattedWidth)")
+                                    .foregroundStyle(textStyle)
                             } else if traits.containsCase(.height) {
                                 let formattedHeight = geometry.size.height.formatted(fractionLength)
                                 Text("height: \(formattedHeight)")
+                                    .foregroundStyle(textStyle)
                             }
                         } // Group
-                        .foregroundStyle(.secondary)
                         .font(.caption.monospaced())
 
                     } // VStack
@@ -64,24 +68,32 @@ struct FloatingCaptionModifier: ViewModifier {
 
 extension FloatingCaptionModifier {
 
+    // This trait implementation is an experimental configuration object solely based on an
+    // enumeration, in contrast with a structure containing all properties like
+    // `DebugOverlayModifier.Configuration`.
     enum Trait: CaseIdentifiable {
         case border
         case width
         case height
+        case captionStyle(any ShapeStyle)
         case alignment(FloatingAlignment)
         case padding(CGFloat? = nil)
 
         enum Case {
-            case border, width, height, alignment, padding
+            case border, width, height
+            case captionStyle, alignment, padding
         }
 
+        // Since the enum have associated values, each enum needs to be indentified by a value-less
+        // parallel enum.
         var `case`: Case {
             switch self {
-            case .border:    .border
-            case .width:     .width
-            case .height:    .height
-            case .alignment: .alignment
-            case .padding:   .padding
+            case .border:       .border
+            case .width:        .width
+            case .height:       .height
+            case .captionStyle: .captionStyle
+            case .alignment:    .alignment
+            case .padding:      .padding
             }
         }
 
@@ -94,7 +106,19 @@ extension FloatingCaptionModifier {
 }
 
 
+// For case with an associated value, there needs to be a helper function to extract the last
+// value of that case. This means that traits of a given type cannot be additive or build on top
+// of each other.
 extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait {
+
+    var captionStyle: (any ShapeStyle)? {
+        let caseInstance = lastCase(.captionStyle)
+        if case .captionStyle(let captionStyle) = caseInstance {
+            return captionStyle
+        }
+        return nil
+    }
+
 
     var alignment: FloatingAlignment? {
         let caseInstance = lastCase(.alignment)
@@ -195,7 +219,9 @@ private struct PreviewContent {
     Rectangle()
         .fill(.indigo.gradient.tertiary)
         .frame(square: 100)
-        .floatingCaption("External",       .alignment(.outerBottom), .width, .height)
+        .floatingCaption(
+            "External", .captionStyle(.indigo.secondary),
+            .width, .height, .alignment(.outerBottom))
 }
 
 
