@@ -50,7 +50,9 @@ struct VisibleSpacer: View {
                 minHeight: minHeight,
                 maxHeight: maxHeight,
                 alignment: .center)
-            .background(.gray.quaternary)
+            .background(
+                .gray.quaternary,
+                in: RoundedRectangle(cornerRadius: Defaults.padding / 4))
     }
 
 }
