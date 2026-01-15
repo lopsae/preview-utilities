@@ -177,9 +177,10 @@ private struct PreviewContent {
             traits: .height, .alignment(.outerTrailing))
     }
 
-    if !useDeviceSafeArea {
-        SafeAreaPad(topDivider: true)
-    }
+    // FIXME: re add safeAreaPad
+//    if !useDeviceSafeArea {
+//        SafeAreaPad(topDivider: true)
+//    }
 
 }
 

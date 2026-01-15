@@ -9,92 +9,108 @@ import SwiftUI
 
 struct SafeAreaPad<S: ShapeStyle>: View {
 
-    let topDivider: Bool
-    let bottomDivider: Bool
+    let edge: VerticalEdge
+    let showDivider: Bool
     let backgroundFill: S
 
 
-    init(topDivider: Bool = false, bottomDivider: Bool = false, fill: S = .orange.tertiary) {
-        self.topDivider = topDivider
-        self.bottomDivider = bottomDivider
+    init(edge: VerticalEdge, showDivider: Bool = false, fill: S = .orange.tertiary) {
+        self.edge = edge
+        self.showDivider = showDivider
         self.backgroundFill = fill
     }
 
     var body: some View {
-        if (topDivider) {
+        if showDivider && edge == .bottom {
             Divider()
         }
 
-        // This first Text sets the minimum height of the view, but it remains invisible.
-        // The height of the view is text.height + 2 default-paddings + 2 half-paddings
-        Text("SafeAreaPad")
-            .foregroundStyle(.quaternary)
-            .font(.caption)
+        sizingViewWithBackground
+        .overlay {
+            GeometryReader { geometry in
+                let containerHeight = geometry.size.height
+                let safeArea = geometry.safeAreaInsets[edge: edge]
+                let guidedAlignment: VerticalAlignment = switch edge {
+                case .top:    .top
+                case .bottom: .bottom
+                }
+                let alignment: Alignment = .init(horizontal: .center, vertical: guidedAlignment)
 
-            .hidden()
-            .maxWidthFrame()
-            // Padding from edge of view, to match background padding.
-            .padding(.all)
-            // Padding from edge of background.
-            .padding(Defaults.padding / 2)
-            .background {
-                ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
-                .fill(.orange.tertiary)
-                .padding(.all)
-                .ignoresSafeArea()
-            }
-            .overlay {
-                GeometryReader { geometry in
-                    let containerHeight = geometry.size.height
-                    let bottomSafeArea = geometry.safeAreaInsets.bottom
-                    ZStack(alignment: .bottom) {
-                        Text("centered, bottomSafeArea: \(geometry.safeAreaInsets.bottom, format: .fractionLength(2))")
-                            .font(.caption)
-                            .monospacedDigit()
-                            .alignmentGuide(.bottom) { dimentions in
-                                let padding = Defaults.padding
+                ZStack(alignment: alignment) {
+                    Text("centered, safeArea: \(safeArea, format: .fractionLength(2))")
+                    .font(.caption)
+                    .monospacedDigit()
+                    .alignmentGuide(guidedAlignment) { dimentions in
+                        let padding = Defaults.padding
 
-                                // Container height, removing the top padding. This is the area
-                                // where the label can be.
-                                let unpaddedContainerHeight = containerHeight - padding
+                        // Container height, removing the top padding. This is the area
+                        // where the label can be.
+                        let unpaddedContainerHeight = containerHeight - padding
 
-                                let distanceFromBottom: CGFloat
-                                if bottomSafeArea > padding {
-                                    // Label is centered in available container area, and pushed up
-                                    // by the entire safeArea.
-                                    distanceFromBottom = bottomSafeArea + unpaddedContainerHeight / 2
-                                } else {
-                                    // Fraction of safe area bitting into the available container area.
-                                    let remainingPadding = padding - bottomSafeArea
-                                    let centerOfContainerHeight = (unpaddedContainerHeight - remainingPadding) / 2
-                                    // Label is always pushed up in this case by 1 padding.
-                                    distanceFromBottom = centerOfContainerHeight + padding
-                                }
-
-                                return dimentions[.verticalCenter] + distanceFromBottom
-                            }
-
-                        // Safearea indicator
-                        if bottomSafeArea > 0 {
-                            safeAreaIndicator
-                            .alignmentGuide(.bottom) { dimentions in
-                                return dimentions[.bottom] + bottomSafeArea
-                            }
+                        let distanceFromBottom: CGFloat
+                        if safeArea > padding {
+                            // Label is centered in available container area, and pushed up
+                            // by the entire safeArea.
+                            distanceFromBottom = safeArea + unpaddedContainerHeight / 2
+                        } else {
+                            // Fraction of safe area bitting into the available container area.
+                            let remainingPadding = padding - safeArea
+                            let centerOfContainerHeight = (unpaddedContainerHeight - remainingPadding) / 2
+                            // Label is always pushed up in this case by 1 padding.
+                            distanceFromBottom = centerOfContainerHeight + padding
                         }
 
-                        // This retangle remains aligned to the bottom, allowing the other views to
-                        // offset their position.
-                        ClearRectangle(height: 10)
+                        return dimentions[.verticalCenter] + distanceFromBottom
                     }
-//                    .border(.red, width: 2)
-                    .alignmentGuide(.bottom) { $0[.bottom] - bottomSafeArea }
-                    .frame(size: geometry.size, alignment: .bottom)
-                } // GeometryReader
-//                .border(.green, width: 2)
-            }
 
-        if (bottomDivider) {
+                    // Safearea indicator
+                    if safeArea > 0 {
+                        safeAreaIndicator
+                        .alignmentGuide(guidedAlignment) { dimentions in
+                            return dimentions[guidedAlignment] + safeArea
+                        }
+                    }
+
+                    // This retangle is required to stay true-bottom aligned to allow the other
+                    // views to offset their position.
+                    ClearRectangle(height: 10)
+                }
+//                    .border(.red, width: 2)
+                // TODO: convenience func: .alignmenGuide(alignment, offset: value)
+                .alignmentGuide(guidedAlignment) { $0[guidedAlignment] - safeArea }
+                .frame(size: geometry.size, alignment: alignment)
+            } // GeometryReader
+//                .border(.green, width: 2)
+        } // overlay
+
+        if showDivider && edge == .top {
             Divider()
+        }
+    }
+
+
+
+    /// Base view that determines the overall size of the view and includes the background extending
+    /// into the safe areas. This base view contains a text to determine its height, but the text
+    /// remains hidden.
+    ///
+    /// The height of this view is always: text.height + 2 *defaultpPaddings + 2*halfPaddings
+    @ViewBuilder
+    private var sizingViewWithBackground: some View {
+        Text("SafeAreaPad")
+        .font(.caption)
+        .hidden()
+        .maxWidthFrame()
+        // Padding from edge of view, to match background padding.
+        .padding(.all)
+        // Padding from edge of background.
+        .padding(Defaults.padding / 2)
+        .background {
+            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
+            .fill(.orange.tertiary)
+            // Padding from edge of view, to match background padding.
+            .padding(.all)
+            .ignoresSafeArea()
         }
     }
 
@@ -132,18 +148,20 @@ private struct PreviewContent {
 
 
 #Preview("Defaults", traits: .zeroSpacing, PreviewContent.layout) {
-    SafeAreaPad()
+    SafeAreaPad(edge: .top)
     VisibleSpacer()
-    SafeAreaPad()
+    SafeAreaPad(edge: .top)
     VisibleSpacer()
-    SafeAreaPad()
+    SafeAreaPad(edge: .bottom)
+    VisibleSpacer()
+    SafeAreaPad(edge: .bottom)
 }
 
 
 #Preview("Bottom SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var bottomSafeAreaInset: Double = 60
 
-    SafeAreaPad()
+    SafeAreaPad(edge: .top)
 
     Slider.captioned(
         "Bottom SafeArea",
@@ -156,7 +174,7 @@ private struct PreviewContent {
 
     VisibleSpacer()
 
-    SafeAreaPad()
+    SafeAreaPad(edge: .bottom)
     .safeAreaInset(edge: .bottom, spacing: 0) {
         CaptionRectangle(
             "Bottom SafeArea", fill: .green.gradient.quaternary,
