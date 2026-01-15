@@ -44,7 +44,7 @@ extension View {
 }
 
 nonisolated
-struct InsettableAlignment<AlignmentType: DirectionalAlignment> {
+struct InsettableAlignment<AlignmentType> {
 
     let baseAlignment: AlignmentType
     let insetDirection: InsetDirection
@@ -69,6 +69,7 @@ struct InsettableAlignment<AlignmentType: DirectionalAlignment> {
 
 }
 
+
 extension InsettableAlignment where AlignmentType == VerticalAlignment {
 
     static var top:    Self = .init(baseAlignment: .top,    insetDirection: .negative)
@@ -76,20 +77,11 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
 
 }
 
-// TODO: is protocol this actually needed?
-protocol DirectionalAlignment: Sendable {
 
-    var key: AlignmentKey { get }
+// MARK: - Previews
 
 
-}
-
-extension VerticalAlignment: DirectionalAlignment {}
-
-extension HorizontalAlignment: DirectionalAlignment {}
-
-
-#Preview("Inset/Outset") {
+#Preview("Vertical Inset/Outset", traits: .iPhoneProSizeForcedLayout) {
     HStack(alignment: .top){
         Rectangle()
             .fill(.red.secondary)
