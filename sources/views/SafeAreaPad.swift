@@ -158,10 +158,10 @@ private struct PreviewContent {
 
     SafeAreaPad()
     .safeAreaInset(edge: .bottom, spacing: 0) {
-        Rectangle()
-            .fill(.green.quaternary)
-            .frame(width: 100, height: bottomSafeAreaInset)
-            .floatingCaption("Bottom SafeArea", .height, .border, .alignment(.outerTrailingCenter))
+        CaptionRectangle(
+            "Bottom SafeArea", fill: .green.gradient.quaternary,
+            width: 100, height: bottomSafeAreaInset,
+            traits: .height, .alignment(.outerTrailing))
     }
 
     Text("Device Edge")

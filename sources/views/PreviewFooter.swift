@@ -102,9 +102,10 @@ private struct PreviewContent {
 
     Divider()
 
-    Rectangle().fill(.red.tertiary)
-        .frame(width: 150, height: fixedHeight)
-        .floatingCaption("Fixed Content Height", .height, .border)
+    CaptionRectangle(
+        "Fixed Content", fill: .red.gradient.tertiary,
+        width: 150, height: fixedHeight,
+        traits: .height)
 
     Divider()
 
@@ -170,10 +171,10 @@ private struct PreviewContent {
 
     PreviewFooter(enableBottomPadding: enableBottomPadding, flexibleHeight: isFlexible)
     .safeAreaInset(edge: .bottom, spacing: 0) {
-        Rectangle()
-            .fill(.green.quaternary)
-            .frame(width: 100, height: bottomSafeAreaInset)
-            .floatingCaption("Bottom SafeArea", .height, .border, .alignment(.outer(.trailingCenter)))
+        CaptionRectangle(
+            "Bottom SafeArea", fill: .green.gradient.quaternary,
+            width: 100, height: bottomSafeAreaInset,
+            traits: .height, .alignment(.outerTrailing))
     }
 
     if !useDeviceSafeArea {

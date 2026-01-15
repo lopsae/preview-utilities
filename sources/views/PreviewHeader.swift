@@ -89,9 +89,10 @@ private struct PreviewContent {
 
     Divider()
 
-    Rectangle().fill(.red.tertiary)
-        .frame(width: 150, height: fixedHeight)
-        .floatingCaption("Fixed Content Height", .height, .border)
+    CaptionRectangle(
+        "Fixed Content", fill: .red.gradient.tertiary,
+        width: 150, height: fixedHeight,
+        traits: .height)
 
     Divider()
 
@@ -160,10 +161,10 @@ private struct PreviewContent {
 
     PreviewHeader(enableTopPadding: enableTopPadding, flexibleHeight: isFlexible)
     .safeAreaInset(edge: .top, spacing: .zero) {
-        Rectangle()
-            .fill(.green.quaternary)
-            .frame(width: 100, height: topSafeAreaInset)
-            .floatingCaption("Top SafeArea", .height, .border, .alignment(.outer(.trailingCenter)))
+        CaptionRectangle(
+            "Top SafeArea", fill: .green.gradient.quaternary,
+            width: 100, height: topSafeAreaInset,
+            traits: .height, .alignment(.outerTrailing))
     }
 
     Divider()
