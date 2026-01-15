@@ -7,6 +7,9 @@
 import SwiftUI
 
 
+// MARK: Frame Extensions
+
+
 extension View {
 
     @inlinable nonisolated
@@ -38,12 +41,49 @@ extension View {
         self.frame(width: size.width, height: size.height, alignment: alignment)
     }
 
+}
+
+
+// MARK: AlignmentGuides Extensions
+
+
+extension View {
+
+    @inlinable nonisolated
+    public func alignmentGuide(_ alignment: VerticalAlignment, offset: CGFloat) -> some View {
+        self.alignmentGuide(alignment) { dimentions in
+            dimentions[alignment] + offset
+        }
+    }
+
+
+    @inlinable nonisolated
+    public func alignmentGuide(_ alignment: HorizontalAlignment, offset: CGFloat) -> some View {
+        self.alignmentGuide(alignment) { dimentions in
+            dimentions[alignment] + offset
+        }
+    }
+
+}
+
+
+// MARK: Rectangles Extensions
+
+
+extension View {
 
     @inlinable nonisolated
     public func roundedRectangleClip(cornerRadius: CGFloat) -> some View {
         clipShape(RoundedRectangle(cornerRadius: cornerRadius))
     }
 
+}
+
+
+// MARK: GeometryChange Extensions
+
+
+extension View {
 
     /// Adds an action to be performed when a geometry proxy value changes.
     ///
@@ -56,7 +96,7 @@ extension View {
         keyPath: KeyPath<GeometryProxy, Property> & Sendable,
         action: @escaping (_ newValue: Property) -> Void
     ) -> some View
-        where Property : Equatable & Sendable
+    where Property : Equatable & Sendable
     {
         self.onGeometryChange(for: Property.self, of: { $0[keyPath: keyPath] }, action: action)
     }
@@ -94,8 +134,8 @@ extension View {
         action: @escaping (_ newValue: Result) -> Void
     ) -> some View
     where
-        Property : Equatable & Sendable,
-        Result: Equatable & Sendable
+    Property : Equatable & Sendable,
+    Result: Equatable & Sendable
     {
         self.onGeometryChange(for: Result.self, of: { geometryProxy in
             let value = geometryProxy[keyPath: keyPath]
@@ -116,8 +156,8 @@ extension View {
         transform: @Sendable @escaping (Property) -> Result
     ) -> some View
     where
-        Property : Equatable & Sendable,
-        Result: Equatable & Sendable
+    Property : Equatable & Sendable,
+    Result: Equatable & Sendable
     {
         self.onGeometryChange(
             keyPath: keyPath,
@@ -133,7 +173,7 @@ extension View {
         of transform: @escaping @Sendable (GeometryProxy) -> T,
         binding: Binding<T>
     ) -> some View
-        where T : Equatable & Sendable
+    where T : Equatable & Sendable
     {
         self.onGeometryChange(
             for: T.self,
@@ -142,6 +182,13 @@ extension View {
         )
     }
 
+}
+
+
+// MARK: ScrollView Extensions
+
+
+extension View {
 
     @inlinable public func contentMargins(
         _ insets: EdgeInsets,

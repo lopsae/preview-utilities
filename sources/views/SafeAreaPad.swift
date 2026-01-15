@@ -66,9 +66,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                     // Safearea indicator
                     if safeArea > 0 {
                         safeAreaIndicator
-                        .alignmentGuide(guidedAlignment) { dimentions in
-                            return dimentions[guidedAlignment] + safeArea
-                        }
+                        .alignmentGuide(guidedAlignment, offset: safeArea)
                     }
 
                     // This retangle is required to stay true-bottom aligned to allow the other
@@ -76,8 +74,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                     ClearRectangle(height: 10)
                 }
 //                    .border(.red, width: 2)
-                // TODO: convenience func: .alignmenGuide(alignment, offset: value)
-                .alignmentGuide(guidedAlignment) { $0[guidedAlignment] - safeArea }
+                .alignmentGuide(guidedAlignment, offset: -safeArea)
                 .frame(size: geometry.size, alignment: alignment)
             } // GeometryReader
 //                .border(.green, width: 2)
