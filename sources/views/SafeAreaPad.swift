@@ -51,7 +51,6 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                         Text("centered, bottomSafeArea: \(geometry.safeAreaInsets.bottom, format: .fractionLength(2))")
                             .font(.caption)
                             .monospacedDigit()
-                            .padding(2)
                             .alignmentGuide(.bottom) { dimentions in
                                 let defaultPadding = DefaultPaddings.vertical
 
@@ -77,30 +76,45 @@ struct SafeAreaPad<S: ShapeStyle>: View {
 
                         // Safearea indicator
                         if bottomSafeArea > 0 {
-                            Rectangle()
-                                .fill(.tertiary)
-                                .padding(.horizontal)
-                                .padding(.horizontal)
-                                .frame(maxWidth: .infinity, maxHeight: 1)
-                                .alignmentGuide(.bottom) { dimentions in
-                                    return dimentions[.bottom] + bottomSafeArea
-                                }
+                            safeAreaIndicator
+                            .alignmentGuide(.bottom) { dimentions in
+                                return dimentions[.bottom] + bottomSafeArea
+                            }
                         }
 
                         // This retangle remains aligned to the bottom, allowing the other views to
                         // offset their position.
                         ClearRectangle(height: 10)
                     }
-                    .border(.red, width: 2)
+//                    .border(.red, width: 2)
                     .alignmentGuide(.bottom) { $0[.bottom] - bottomSafeArea }
                     .frame(size: geometry.size, alignment: .bottom)
                 } // GeometryReader
-                .border(.green, width: 2)
+//                .border(.green, width: 2)
             }
 
         if (bottomDivider) {
             Divider()
         }
+    }
+
+
+    @ViewBuilder
+    private var safeAreaIndicator: some View {
+        let lineWidth: CGFloat = 1
+        GeometryReader { geometry in
+            let strokeStyle = StrokeStyle(
+                lineWidth: lineWidth, lineCap: .round, dash: [lineWidth * 5, lineWidth * 5])
+            Path { path in
+                path.move(to: CGPoint(x: 0, y: lineWidth / 2))
+                path.addLine(to: CGPoint(x: geometry.size.width, y: lineWidth / 2))
+            }
+            .stroke(.tertiary, style: strokeStyle)
+
+        }
+        .frame(height: lineWidth)
+        .padding(.horizontal)
+        .padding(.horizontal)
     }
 
 }
@@ -117,19 +131,12 @@ private struct PreviewContent {
 }
 
 
-#Preview("Defaults", traits: PreviewContent.layout) {
+#Preview("Defaults", traits: .zeroSpacing, PreviewContent.layout) {
     SafeAreaPad()
-        .debugOverlay(.bordersWidth(2))
-
     VisibleSpacer()
-
     SafeAreaPad()
-        .debugOverlay(.bordersWidth(2))
-
     VisibleSpacer()
-
     SafeAreaPad()
-        .debugOverlay(.bordersWidth(2), .size)
 }
 
 
@@ -157,5 +164,16 @@ private struct PreviewContent {
             .floatingCaption("Bottom SafeArea", .height, .border, .alignment(.outerTrailingCenter))
     }
 
-    Divider()
+    Text("Device Edge")
+        .font(.caption)
+        .foregroundStyle(.tertiary)
+        .padding(.top, 8)
+        .maxWidthFrame()
+        .background {
+            let padding: CGFloat = 12
+            UnevenRoundedRectangle(topLeadingRadius: 4, bottomLeadingRadius: .infinity, bottomTrailingRadius: .infinity, topTrailingRadius: 4, style: .continuous)
+                .fill(.quaternary)
+                .padding(.init(top: 0, leading: padding, bottom: padding, trailing: padding))
+                .ignoresSafeArea()
+        }
 }
