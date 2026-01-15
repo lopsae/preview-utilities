@@ -31,6 +31,13 @@ extension View {
 
 
     @inlinable nonisolated
+    public func frame(squareOf length: CGFloat, alignment: Alignment = .center) -> some View {
+        self.frame(width: length, height: length, alignment: alignment)
+    }
+
+
+    @available(*, deprecated, renamed: "frame(squareOf:)")
+    @inlinable nonisolated
     public func frame(square side: CGFloat, alignment: Alignment = .center) -> some View {
         self.frame(width: side, height: side, alignment: alignment)
     }
