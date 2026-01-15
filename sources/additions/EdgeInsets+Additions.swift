@@ -58,7 +58,22 @@ extension EdgeInsets {
         case .leading:  leading
         case .bottom:   bottom
         case .trailing: trailing
-        @unknown default: fatalError()
+        }
+    }
+
+
+    subscript(edge edge: VerticalEdge) -> CGFloat {
+        switch edge {
+        case .top:    top
+        case .bottom: bottom
+        }
+    }
+
+
+    subscript(edge edge: HorizontalEdge) -> CGFloat {
+        switch edge {
+        case .leading:  leading
+        case .trailing: trailing
         }
     }
 
