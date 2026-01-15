@@ -30,17 +30,19 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             GeometryReader { geometry in
                 let containerHeight = geometry.size.height
                 let safeArea = geometry.safeAreaInsets[edge: edge]
-                let guidedAlignment: VerticalAlignment = switch edge {
+                let guidedAlignment: InsettableAlignment = switch edge {
                 case .top:    .top
                 case .bottom: .bottom
                 }
-                let alignment: Alignment = .init(horizontal: .center, vertical: guidedAlignment)
+                let alignment: Alignment = .init(
+                    horizontal: .center,
+                    vertical: guidedAlignment.baseAlignment)
 
                 ZStack(alignment: alignment) {
                     Text("centered, safeArea: \(safeArea, format: .fractionLength(2))")
                     .font(.caption)
                     .monospacedDigit()
-                    .alignmentGuide(guidedAlignment) { dimentions in
+                    .alignmentGuide(guidedAlignment.baseAlignment) { dimentions in
                         let padding = Defaults.padding
 
                         // Container height, removing the top padding. This is the area
@@ -66,18 +68,17 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                     // Safearea indicator
                     if safeArea > 0 {
                         safeAreaIndicator
-                        .alignmentGuide(guidedAlignment, offset: safeArea)
+                        .alignmentGuide(guidedAlignment, insetBy: safeArea)
                     }
 
                     // This retangle is required to stay true-bottom aligned to allow the other
                     // views to offset their position.
-                    ClearRectangle(height: 10)
-                }
-//                    .border(.red, width: 2)
-                .alignmentGuide(guidedAlignment, offset: -safeArea)
+                    ClearRectangle(height: 10, fill: .red.secondary)
+                } // ZStack
+                .alignmentGuide(guidedAlignment, outsetBy: safeArea)
                 .frame(size: geometry.size, alignment: alignment)
+                .border(.teal)
             } // GeometryReader
-//                .border(.green, width: 2)
         } // overlay
 
         if showDivider && edge == .top {
