@@ -85,6 +85,10 @@ extension FloatingCaptionModifier {
             }
         }
 
+
+        static let zeroPadding:    Self = .padding(.zero)
+        static let systemPadding: Self = .padding(nil)
+
     }
 
 }
@@ -103,8 +107,8 @@ extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait
 
     var padding: CGFloat? {
         let caseInstance = lastCase(.padding)
-        if case .padding(let alignment) = caseInstance {
-            return alignment
+        if case .padding(let padding) = caseInstance {
+            return padding
         }
         return nil
     }
@@ -171,29 +175,33 @@ private struct PreviewContent {
 
 #Preview("Default", traits: PreviewContent.layout) {
     Rectangle()
-        .fill(.indigo.tertiary)
+        .fill(.indigo.gradient.tertiary)
         .frame(width: 40, height: 100)
         .floatingCaption("Tall Rectangle", .height)
 
     Rectangle()
-        .fill(.indigo.tertiary)
+        .fill(.indigo.gradient.tertiary)
         .frame(width: 200, height: 15)
         .floatingCaption("Short Rectangle", .width, .border)
 
     Rectangle()
-        .fill(.indigo.tertiary)
+        .fill(.indigo.gradient.tertiary)
         .frame(width: 200, height: 100)
         .floatingCaption("Default Padding\n(no trait)", .alignment(.innerLeading))
-        .floatingCaption("Zero Padding", .alignment(.innerTrailing), .padding(.zero))
-        .floatingCaption("10 Padding", .alignment(.innerBottomLeading), .padding(10))
-        .floatingCaption("System Padding", .alignment(.innerBottomTrailing), .padding())
-        .floatingCaption("External", .alignment(.outerBottom), .width, .height)
+        .floatingCaption("Zero Padding",   .alignment(.innerTrailing),       .zeroPadding)
+        .floatingCaption("10 Padding",     .alignment(.innerBottomLeading),  .padding(10))
+        .floatingCaption("System Padding", .alignment(.innerBottomTrailing), .systemPadding)
+
+    Rectangle()
+        .fill(.indigo.gradient.tertiary)
+        .frame(square: 100)
+        .floatingCaption("External",       .alignment(.outerBottom), .width, .height)
 }
 
 
 #Preview("Alignments", traits: PreviewContent.layout) {
     Rectangle()
-    .fill(.indigo.tertiary)
+    .fill(.indigo.gradient.tertiary)
     .frame(square: 200)
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in

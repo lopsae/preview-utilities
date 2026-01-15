@@ -90,7 +90,7 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
-            .floatingCaption("Manual Align", .alignment(.outerBottomLeading), .padding(0))
+            .floatingCaption("Manual Align", .alignment(.outerBottomLeading), .zeroPadding)
             // Negative value substracts to the top aligment pushing it farther from the view,
             // view appears pushed innwardly, thus insetting the view.
             .alignmentGuide(.top, offsetBy: -40)
@@ -98,13 +98,13 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
-            .floatingCaption("Inset Align", .alignment(.outerBottomLeading), .padding(0))
+            .floatingCaption("Inset Align", .alignment(.outerBottomLeading), .zeroPadding)
             .alignmentGuide(.top, insetBy: 20)
 
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
-            .floatingCaption("Outset Align", .alignment(.outerBottomLeading), .padding(0))
+            .floatingCaption("Outset Align", .alignment(.outerBottomLeading), .zeroPadding)
             .alignmentGuide(.top, outsetBy: 20)
 
         Rectangle()
@@ -125,7 +125,7 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
-            .floatingCaption("Manual Align", .alignment(.outerTopLeading), .padding(0))
+            .floatingCaption("Manual Align", .alignment(.outerTopLeading), .zeroPadding)
             // Positive value adds to the bottom aligment pushing it farther from the view,
             // view appears pushed innwardly, thus insetting the view.
             .alignmentGuide(.bottom, offsetBy: 40)
@@ -133,13 +133,13 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
-            .floatingCaption("Inset Align", .alignment(.outerTopLeading), .padding(0))
+            .floatingCaption("Inset Align", .alignment(.outerTopLeading), .zeroPadding)
             .alignmentGuide(.bottom, insetBy: 20)
 
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
-            .floatingCaption("Outset Align", .alignment(.outerTopLeading), .padding(0))
+            .floatingCaption("Outset Align", .alignment(.outerTopLeading), .zeroPadding)
             .alignmentGuide(.bottom, outsetBy: 20)
 
         Rectangle()
