@@ -89,34 +89,65 @@ extension VerticalAlignment: DirectionalAlignment {}
 extension HorizontalAlignment: DirectionalAlignment {}
 
 
-#Preview("AlignmentGuides") {
-    HStack(alignment: .bottom){
+#Preview("Inset/Outset") {
+    HStack(alignment: .top){
+        Rectangle()
+            .fill(.red.secondary)
+            .frame(width: 20, height: 100)
+
         Rectangle()
             .fill(.gray)
+            .frame(width: 20, height: 50)
+            .floatingCaption("Manual Align", .alignment(.outerBottomLeading), .padding(0))
+            // Negative value substracts to the top aligment pushing it farther from the view,
+            // view appears pushed innwardly, thus insetting the view.
+            .alignmentGuide(.top, offsetBy: -40)
+
+        Rectangle()
+            .fill(.gray)
+            .frame(width: 20, height: 50)
+            .floatingCaption("Inset Align", .alignment(.outerBottomLeading), .padding(0))
+            .alignmentGuide(.top, insetBy: 20)
+
+        Rectangle()
+            .fill(.gray)
+            .frame(width: 20, height: 50)
+            .floatingCaption("Outset Align", .alignment(.outerBottomLeading), .padding(0))
+            .alignmentGuide(.top, outsetBy: 20)
+
+        Rectangle()
+            .fill(.red.secondary)
+            .frame(height: 5)
+            .floatingCaption("Original Top", .alignment(.outerBottomTrailing))
+    }
+    .border(.green.secondary)
+    // TODO: floatingCaption could have a trait for caption, border (or both) color.
+    .floatingCaption("Top Aligned", .alignment(.outerTopTrailing))
+    .padding()
+
+    HStack(alignment: .bottom){
+        Rectangle()
+            .fill(.red.secondary)
             .frame(width: 20, height: 100)
 
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
             .floatingCaption("Manual Align", .alignment(.outerTopLeading), .padding(0))
-        // Positive value adds to the bottom aligment pushing it farther,
-        // view appears pushed innwardly, thus insetting the view.
+            // Positive value adds to the bottom aligment pushing it farther from the view,
+            // view appears pushed innwardly, thus insetting the view.
             .alignmentGuide(.bottom, offsetBy: 40)
 
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
             .floatingCaption("Inset Align", .alignment(.outerTopLeading), .padding(0))
-        // Positive value adds to the bottom aligment pushing it farther,
-        // view appears pushed innwardly, thus insetting the view.
             .alignmentGuide(.bottom, insetBy: 20)
 
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
             .floatingCaption("Outset Align", .alignment(.outerTopLeading), .padding(0))
-        // Positive value adds to the bottom aligment pushing it farther,
-        // view appears pushed innwardly, thus insetting the view.
             .alignmentGuide(.bottom, outsetBy: 20)
 
         Rectangle()
