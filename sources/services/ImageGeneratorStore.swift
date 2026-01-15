@@ -117,7 +117,7 @@ public class ImageGeneratorStore {
 
 #Preview("Storage", traits: .fixedHeader) {
     @Previewable @State var items: [String] = ["One", "Two", "Three", "Four"]
-    @Previewable @State var imageGenerator = ImageGeneratorStore(size: .init(square: 100))
+    @Previewable @State var imageGenerator = ImageGeneratorStore(size: .square(of: 100))
 
     VStack {
         ForEach(items.enumerated(), id: \.offset) { index, item in

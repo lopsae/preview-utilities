@@ -10,14 +10,14 @@ import CoreGraphics
 extension CGSize {
 
     @inlinable nonisolated
-    public init(square side: CGFloat) {
-        self.init(width: side, height: side)
+    public init(squareOf length: CGFloat) {
+        self.init(width: length, height: length)
     }
 
 
     @inlinable nonisolated
-    public static func square(of side: CGFloat) -> Self {
-        return .init(square: side)
+    public static func square(of length: CGFloat) -> Self {
+        return .init(squareOf: length)
     }
 
 

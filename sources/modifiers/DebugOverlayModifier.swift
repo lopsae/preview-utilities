@@ -52,7 +52,7 @@ public struct DebugOverlayModifier: ViewModifier {
         // When content view is smaller that `bordersWidth*2` the safe areas are still drawn with a
         // thickness of `bordersWidth*2` to remain visible, and offset to stay centered with the
         // origin.
-        let minimumRect = CGSize(square: boundedBordersWidth * 2).centered(in: size)
+        let minimumRect = CGSize(squareOf: boundedBordersWidth * 2).centered(in: size)
         let xOffset = min(0.0, minimumRect.origin.x)
         let yOffset = min(0.0, minimumRect.origin.y)
 
@@ -524,7 +524,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOverlay(.bordersWidth(bordersWidth), .allGeometry, .outerInfo)
+        .debugOverlay(.bordersWidth(bordersWidth), .allGeometry, .outerInfo(.bottomLeading))
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
