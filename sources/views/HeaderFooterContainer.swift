@@ -9,11 +9,18 @@ import SwiftUI
 
 public struct HeaderFooterContainer<Content: View>: View {
 
+    let enableEdgePadding: Bool
     let options: HeaderFooterPreviewOptions
     let content: () -> Content
 
 
-    init(options: HeaderFooterPreviewOptions = [], @ViewBuilder content: @escaping () -> Content) {
+    // Enable edge padding is enabled by default assuming that when this view is used directly, it
+    // is used in an environment without large safe areas. There are not many examples of this use
+    // tho. Also, SafeAreaPad may now provide a better alternative in those cases.
+    // To use standalone, the header needs modified padding, otherwise it sticks too close to the
+    // edge. An enum of possible configuration (iOS, macOS, standalone) could be used.
+    init(enableEdgePadding: Bool = true, options: HeaderFooterPreviewOptions = [], @ViewBuilder content: @escaping () -> Content) {
+        self.enableEdgePadding = enableEdgePadding
         self.content = content
         self.options = options
     }
@@ -21,27 +28,32 @@ public struct HeaderFooterContainer<Content: View>: View {
 
     public var body: some View {
         VStack(spacing: .zero) {
-            // FIXME: bottom padding to be enabled by platform
-            PreviewHeader(enableTopPadding: true, flexibleHeight: !options.contains(.fixedHeader))
+            PreviewHeader(enableTopPadding: enableEdgePadding, flexibleHeight: !options.contains(.fixedHeader))
 
             if options.contains(.showDividers) {
-                Divider()
+                DashedDivider()
+                .padding(.horizontal)
             }
 
-            content()
+            VStack {
+                content()
+            }
+            // TODO: this padding to be disabled with an option
+            .padding(.horizontal)
 
             if options.contains(.showDividers) {
-                Divider()
+                DashedDivider()
+                .padding(.horizontal)
             }
 
-            // FIXME: bottom padding to be enabled by platform
-            PreviewFooter(enableBottomPadding: true, flexibleHeight: !options.contains(.fixedFooter))
+            PreviewFooter(enableBottomPadding: enableEdgePadding, flexibleHeight: !options.contains(.fixedFooter))
         } // VStack
     }
 
 }
 
 
+// TODO: rename to HeaderFooterContainerOptions or Traits
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
 public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
@@ -78,67 +90,103 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
 
+    /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the header and
+    /// footer is always displayed in a preview where in iOS there is a top and bottom safe-area.
+    static var platformEnableEdgePadding: Bool {
+        #if os(macOS)
+        true
+        #else
+        false
+        #endif
+    }
+
 }
 
 
-#Preview("Default", traits: PreviewContent.layout) {
+#Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var isHeaderFixed: Bool = false
     @Previewable @State var isFooterFixed: Bool = false
     @Previewable @State var showsDividers: Bool = false
-    @Previewable @State var isFixedContent: Bool = false
+    @Previewable @State var useDeviceSafeArea: Bool = true
+    @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
 
-    var options: HeaderFooterPreviewOptions = []
-    if isHeaderFixed { options.formUnion(.fixedHeader) }
-    if isFooterFixed { options.formUnion(.fixedFooter) }
-    if showsDividers { options.formUnion(.showDividers) }
+    let makeOptions: () -> HeaderFooterPreviewOptions = {
+        var options: HeaderFooterPreviewOptions = []
+        if isHeaderFixed { options.formUnion(.fixedHeader) }
+        if isFooterFixed { options.formUnion(.fixedFooter) }
+        if showsDividers { options.formUnion(.showDividers) }
+        return options
+    }
 
-    return HeaderFooterContainer(options: options) {
-        VStack {
-            Toggle("Fixed Header", isOn: $isHeaderFixed)
-            Toggle("Fixed Footer", isOn: $isFooterFixed)
-            Toggle("Show Dividers", isOn: $showsDividers)
-            Divider()
-            Toggle("Fixed Content", isOn: $isFixedContent)
-                .padding(.bottom)
-        }.padding(.horizontal)
+    let options = makeOptions()
 
+    if !useDeviceSafeArea {
+        SafeAreaPad(edge: .top, showDivider: true)
+    }
+
+    HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
+        Toggle("Fixed Header", isOn: $isHeaderFixed)
+        Toggle("Fixed Footer", isOn: $isFooterFixed)
+        Toggle("Show Dividers", isOn: $showsDividers)
         Divider()
+        Toggle("Use Device SafeArea", isOn: $useDeviceSafeArea)
+        Toggle("Enable Edge Padding", isOn: $enableEdgePadding)
+        Text("Platform default: \(PreviewContent.platformEnableEdgePadding.description)")
+            .font(.caption.monospaced())
+    }
 
-        Rectangle()
-            .fill(.teal.secondary)
-            .frame(width: 200, height: isFixedContent ? 100 : .infinity)
-            .debugOverlay(.hairline, .size)
+    if !useDeviceSafeArea {
+        SafeAreaPad(edge: .bottom, showDivider: true)
     }
 }
 
 
-// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset. Issue does not happen in header.
-#Preview("Content Height", traits: PreviewContent.layout) {
+#Preview("Content Height", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var isHeaderFixed: Bool = false
     @Previewable @State var isFooterFixed: Bool = false
-    @Previewable @State var contentHeight: Double = 200
+    @Previewable @State var useDeviceSafeArea: Bool = true
+    @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
+    @Previewable @State var fixedHeight: Double = 200
 
-    var options: HeaderFooterPreviewOptions = []
-    if isHeaderFixed { options.formUnion(.fixedHeader) }
-    if isFooterFixed { options.formUnion(.fixedFooter) }
+    let makeOptions: () -> HeaderFooterPreviewOptions = {
+        var options: HeaderFooterPreviewOptions = [.showDividers]
+        if isHeaderFixed { options.formUnion(.fixedHeader) }
+        if isFooterFixed { options.formUnion(.fixedFooter) }
+        return options
+    }
 
-    return HeaderFooterContainer(options: options) {
+    let options = makeOptions()
+
+    if !useDeviceSafeArea {
+        SafeAreaPad(edge: .top, showDivider: true)
+    }
+
+    HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
         VStack {
             Toggle("Fixed Header", isOn: $isHeaderFixed)
             Toggle("Fixed Footer", isOn: $isFooterFixed)
-            Slider(
-                "Content Height",
-                value: $contentHeight,
+            Slider.captioned(
+                "Fixed Content Height",
+                value: $fixedHeight,
                 in: 0...800,
-                valueFormat: .arithmeticRoundedInteger)
+                currentValueFormat: .fractionLength(2),
+                boundsValueFormat: .arithmeticRoundedInteger)
                 .padding(.bottom)
-        }.padding(.horizontal)
+            Divider()
+            Toggle("Use Device SafeArea", isOn: $useDeviceSafeArea)
+            Toggle("Enable Edge Padding", isOn: $enableEdgePadding)
+            Text("Platform default: \(PreviewContent.platformEnableEdgePadding.description)")
+                .font(.caption.monospaced())
+        }
+        .padding(.vertical)
 
-        Divider()
+        CaptionRectangle(
+            "Fixed Content", color: .red,
+            width: 150, height: fixedHeight,
+            traits: .height)
+    }
 
-        Rectangle()
-            .fill(.teal.secondary)
-            .frame(width: 200, height: contentHeight)
-            .debugOverlay(.hairline, .size)
+    if !useDeviceSafeArea {
+        SafeAreaPad(edge: .bottom, showDivider: true)
     }
 }

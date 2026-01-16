@@ -50,7 +50,7 @@ private struct PreviewContent {
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
     /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the header is
-    /// always displayed in a preview, and in iOS there is a bottom safe-area present.
+    /// always displayed in a preview where in iOS there is a top and bottom safe-area.
     static var platformEnableTopPadding: Bool {
         #if os(macOS)
         true

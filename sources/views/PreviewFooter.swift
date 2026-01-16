@@ -51,7 +51,7 @@ private struct PreviewContent {
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
     /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the footer is
-    /// always displayed in a preview, and in iOS there is a bottom safe-area present.
+    /// always displayed in a preview where in iOS there is a top and bottom safe-area.
     static var platformEnableBottomPadding: Bool {
         #if os(macOS)
         true
@@ -183,6 +183,3 @@ private struct PreviewContent {
     }
 
 }
-
-
-// FIXME: add fixed height content to HeaderFooter
