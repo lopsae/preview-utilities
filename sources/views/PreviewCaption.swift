@@ -111,7 +111,7 @@ private struct PreviewContent {
     )
 
     Rectangle().fill(.red.tertiary)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
@@ -123,7 +123,7 @@ private struct PreviewContent {
     )
 
     Rectangle().fill(.red.tertiary)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
@@ -165,7 +165,7 @@ private struct PreviewContent {
     )
 
     Rectangle().fill(.red.tertiary)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
@@ -173,7 +173,7 @@ private struct PreviewContent {
     PreviewCaption()
 
     Rectangle().fill(.red.tertiary)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
