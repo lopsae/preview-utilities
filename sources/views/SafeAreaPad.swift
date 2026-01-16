@@ -48,19 +48,18 @@ struct SafeAreaPad<S: ShapeStyle>: View {
 
                     // Safearea indicator.
                     if safeArea > 0 {
-                        safeAreaIndicator
+                        safeAreaIndicator(safeArea: safeArea)
                         .alignmentGuide(guidedAlignment, insetBy: safeArea)
                     }
 
                     // This retangle is required to stay true-bottom aligned to allow the other
                     // views to offset their position. Its actual position is at the edge of the
                     // safe area.
-                    ClearRectangle(height: 10, fill: .red.secondary)
+                    ClearRectangle(height: 10)
                 } // ZStack
                 // The ZStack is positioned at the edge of the safeArea to then inset the internal views.
                 .alignmentGuide(guidedAlignment, outsetBy: safeArea)
                 .frame(size: geometry.size, alignment: alignment)
-                .border(.teal)
             } // GeometryReader
         } // overlay
 
@@ -120,24 +119,79 @@ struct SafeAreaPad<S: ShapeStyle>: View {
 
 
     @ViewBuilder
-    private var safeAreaIndicator: some View {
-        let lineWidth: CGFloat = 1
-        GeometryReader { geometry in
-            let strokeStyle = StrokeStyle(
-                lineWidth: lineWidth, lineCap: .round, dash: [lineWidth * 5, lineWidth * 5])
-            Path { path in
-                path.move(to: CGPoint(x: 0, y: lineWidth / 2))
-                path.addLine(to: CGPoint(x: geometry.size.width, y: lineWidth / 2))
-            }
-            .stroke(.tertiary, style: strokeStyle)
-
+    private func safeAreaIndicator(safeArea: CGFloat) -> some View {
+        let alignment: HorizontalAlignment = switch edge {
+        case .top:    .leading
+        case .bottom: .trailing
         }
-        .frame(height: lineWidth)
+        VStack(alignment: alignment, spacing: 0) {
+            let divider = DashedDivider(lineWidth: 1)
+            let text = Text(safeArea, format: .fractionLength(2))
+                .font(.caption.monospaced())
+                .foregroundStyle(.tertiary)
+
+            switch edge {
+            case .top:
+                divider
+                text
+            case .bottom:
+                text
+                divider
+            }
+        }
         .padding(.horizontal)
         .padding(.horizontal)
     }
 
 }
+
+
+struct DashedDivider: View {
+
+    let lineWidth: CGFloat
+
+
+    init(lineWidth: CGFloat = 1) {
+        self.lineWidth = lineWidth
+    }
+
+
+    struct HorizontalLine: Shape {
+        let lineWidth: CGFloat
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            path.moveTo(x: .zero, y: lineWidth / 2)
+            path.addLineTo(x: rect.width, y: lineWidth / 2)
+            return path
+        }
+    }
+
+
+    var body: some View {
+        let strokeStyle = StrokeStyle(
+            lineWidth: lineWidth, lineCap: .round,
+            dash: [lineWidth * 5, lineWidth * 6])
+        HorizontalLine(lineWidth: lineWidth)
+            .stroke(.tertiary, style: strokeStyle)
+            .frame(height: lineWidth)
+    }
+}
+
+
+extension Path {
+
+    @inlinable nonisolated
+    mutating func moveTo(x: CGFloat, y: CGFloat) {
+        self.move(to: .init(x: x, y: y))
+    }
+
+    @inlinable nonisolated
+    mutating func addLineTo(x: CGFloat, y: CGFloat) {
+        self.addLine(to: .init(x: x, y: y))
+    }
+
+}
+
 
 
 // MARK: - Previews
@@ -211,7 +265,7 @@ private struct PreviewContent {
         CaptionRectangle(
             "Bottom SafeArea", fill: .green.gradient.quaternary,
             width: 100, height: safeAreaInset,
-            traits: .height, .alignment(.outerTrailing))
+            traits: .height, .alignment(.outerLeading))
     }
 
     Text("Device Edge")
