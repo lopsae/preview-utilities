@@ -13,6 +13,17 @@ struct HeaderFooterPreviewModifier: PreviewModifier {
 
     let options: HeaderFooterPreviewOptions
 
+    /// Edge padding configuration for the current platform. The preview of iOS always have a
+    /// significant top and bottom safearea, so header and footer labels can stick closer to the
+    /// view edge. For macOS, the padding is enabled since previews have only a top safe area.
+    static let platformEnableEdgePadding: Bool = {
+        #if os(macOS)
+        true
+        #else
+        false
+        #endif
+    }()
+
 
     init(options: HeaderFooterPreviewOptions = []) {
         self.options = options
@@ -20,7 +31,7 @@ struct HeaderFooterPreviewModifier: PreviewModifier {
 
 
     func body(content: Content, context _: ()) -> some View {
-        HeaderFooterContainer(options: options) {
+        HeaderFooterContainer(enableEdgePadding: Self.platformEnableEdgePadding, options: options) {
             content
         }
     }
@@ -69,42 +80,38 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
+    @ViewBuilder
+    static func fixedHeightControlAndContent(_ heightBinding: Binding<Double>) -> some View {
+        Slider.captioned(
+            "Content Height",
+            value: heightBinding,
+            in: 0...1000,
+            valueFormat: .arithmeticRoundedInteger)
+
+        StarShape(points: 4, concaveVertexRatio: 0.5)
+            .fill(.yellow)
+            .frame(height: heightBinding.wrappedValue)
+            .floatingCaption(
+                "Content", .colorStyle(.yellow),
+                .alignment(.topTrailing), .height)
+    }
+
 }
 
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
-    StarShape(points: 4, concaveVertexRatio: 0.5)
-        .fill(.yellow)
-}
-
-
-// FIXME: in ios when fixed height content pushes the footer out of the view boundaries, triggers an infinite update to currentSafeAreaInset. Issue does not happen in header.
-#Preview("Content Height", traits: .headerFooter, PreviewContent.layout) {
-    @Previewable @State var contentHeight: Double = 200
-
-    Slider(
-        "Content Height",
-        value: $contentHeight,
-        in: 0...800,
-        valueFormat: .arithmeticRoundedInteger)
-    .padding([.horizontal, .bottom])
-
-    Divider()
-
-    Rectangle()
-        .fill(.teal.secondary)
-        .frame(width: 200, height: contentHeight)
-        .debugOverlay(.hairline, .size)
+    @Previewable @State var fixedHeight: Double = 200
+    PreviewContent.fixedHeightControlAndContent($fixedHeight)
 }
 
 
 #Preview("Fixed header", traits: .fixedHeader, PreviewContent.layout) {
-    StarShape(points: 4, concaveVertexRatio: 0.5)
-        .fill(.yellow)
+    @Previewable @State var fixedHeight: Double = 200
+    PreviewContent.fixedHeightControlAndContent($fixedHeight)
 }
 
 
 #Preview("Multiple traits", traits: .headerFooter(.fixed, .showDividers), PreviewContent.layout) {
-    StarShape(points: 4, concaveVertexRatio: 0.5)
-        .fill(.yellow)
+    @Previewable @State var fixedHeight: Double = 200
+    PreviewContent.fixedHeightControlAndContent($fixedHeight)
 }
