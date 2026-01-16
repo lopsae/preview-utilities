@@ -254,7 +254,7 @@ private struct PreviewContent {
 
     Rectangle()
         .fill(.indigo.gradient.tertiary)
-        .frame(square: 100)
+        .frame(squareOf: 100)
         .floatingCaption(
             "External", .size, .alignment(.outerBottom),
             .captionStyle(.indigo), .borderStyle(.indigo.tertiary))
@@ -264,7 +264,7 @@ private struct PreviewContent {
 #Preview("Alignments", traits: PreviewContent.layout) {
     Rectangle()
     .fill(.indigo.gradient.tertiary)
-    .frame(square: 200)
+    .frame(squareOf: 200)
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in
             ClearRectangle()
