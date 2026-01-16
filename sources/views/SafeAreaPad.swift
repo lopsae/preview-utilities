@@ -163,13 +163,41 @@ private struct PreviewContent {
 
 
 #Preview("Bottom SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var bottomSafeAreaInset: Double = 60
+    @Previewable @State var safeAreaInset: Double = 60
+
+    Text("Device Edge")
+        .font(.caption)
+        .foregroundStyle(.tertiary)
+        .padding(.bottom, 8)
+        .maxWidthFrame()
+        .background {
+            let padding: CGFloat = 12
+            let minorRadius: CGFloat = 4
+            let mayorRadius: CGFloat = 55
+            UnevenRoundedRectangle(
+                topLeadingRadius: mayorRadius,
+                bottomLeadingRadius: minorRadius,
+                bottomTrailingRadius: minorRadius,
+                topTrailingRadius: mayorRadius
+            )
+            .fill(.gray.quaternary)
+            .padding(.init(top: padding, leading: padding, bottom: 0, trailing: padding))
+            .ignoresSafeArea()
+        }
 
     SafeAreaPad(edge: .top)
+        .safeAreaInset(edge: .top, spacing: 0) {
+            CaptionRectangle(
+                "Top SafeArea", fill: .green.gradient.quaternary,
+                width: 100, height: safeAreaInset,
+                traits: .height, .alignment(.outerTrailing))
+        }
+
+    VisibleSpacer()
 
     Slider.captioned(
-        "Bottom SafeArea",
-        value: $bottomSafeAreaInset,
+        "SafeArea",
+        value: $safeAreaInset,
         in: 0...100,
         currentValueFormat: .fractionLength(2),
         boundsValueFormat: .arithmeticRoundedInteger
@@ -182,7 +210,7 @@ private struct PreviewContent {
     .safeAreaInset(edge: .bottom, spacing: 0) {
         CaptionRectangle(
             "Bottom SafeArea", fill: .green.gradient.quaternary,
-            width: 100, height: bottomSafeAreaInset,
+            width: 100, height: safeAreaInset,
             traits: .height, .alignment(.outerTrailing))
     }
 
@@ -193,9 +221,17 @@ private struct PreviewContent {
         .maxWidthFrame()
         .background {
             let padding: CGFloat = 12
-            UnevenRoundedRectangle(topLeadingRadius: 4, bottomLeadingRadius: .infinity, bottomTrailingRadius: .infinity, topTrailingRadius: 4, style: .continuous)
-                .fill(.quaternary)
-                .padding(.init(top: 0, leading: padding, bottom: padding, trailing: padding))
-                .ignoresSafeArea()
+            let minorRadius: CGFloat = 4
+            // There not enough bottom space so shoot it up!
+            let mayorRadius: CGFloat = .infinity
+            UnevenRoundedRectangle(
+                topLeadingRadius: minorRadius,
+                bottomLeadingRadius: mayorRadius,
+                bottomTrailingRadius: mayorRadius,
+                topTrailingRadius: minorRadius
+            )
+            .fill(.gray.quaternary)
+            .padding(.init(top: 0, leading: padding, bottom: padding, trailing: padding))
+            .ignoresSafeArea()
         }
 }
