@@ -6,8 +6,16 @@
 
 extension OptionSet where RawValue: FixedWidthInteger {
 
-    init(shiftedBy: Int) {
-        self.init(rawValue: 1 << shiftedBy)
-    }
+        nonisolated
+        init(shiftedBy shift: RawValue) {
+            let one = RawValue(1)
+            self.init(rawValue: one << shift)
+        }
+
+        nonisolated
+        init(allUpTo upToShift: RawValue) {
+            let one = RawValue(1)
+            self.init(rawValue: (one << upToShift) - one)
+        }
 
 }

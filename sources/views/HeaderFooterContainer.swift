@@ -19,7 +19,11 @@ public struct HeaderFooterContainer<Content: View>: View {
     // tho. Also, SafeAreaPad may now provide a better alternative in those cases.
     // To use standalone, the header needs modified padding, otherwise it sticks too close to the
     // edge. An enum of possible configuration (iOS, macOS, standalone) could be used.
-    init(enableEdgePadding: Bool = true, options: HeaderFooterPreviewOptions = [], @ViewBuilder content: @escaping () -> Content) {
+    init(
+        enableEdgePadding: Bool = true,
+        options: HeaderFooterPreviewOptions = .default,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
         self.enableEdgePadding = enableEdgePadding
         self.content = content
         self.options = options
@@ -28,22 +32,25 @@ public struct HeaderFooterContainer<Content: View>: View {
 
     public var body: some View {
         VStack(spacing: .zero) {
+            let contentPadding: CGFloat? = options.contains(.padContent)
+                ? nil // Default padding.
+                : .zero
+
             PreviewHeader(enableTopPadding: enableEdgePadding, flexibleHeight: !options.contains(.fixedHeader))
 
             if options.contains(.showDividers) {
                 DashedDivider()
-                .padding(.horizontal)
+                .padding(.horizontal, contentPadding)
             }
 
             VStack {
                 content()
             }
-            // TODO: this padding to be disabled with an option
-            .padding(.horizontal)
+            .padding(.horizontal, contentPadding)
 
             if options.contains(.showDividers) {
                 DashedDivider()
-                .padding(.horizontal)
+                .padding(.horizontal, contentPadding)
             }
 
             PreviewFooter(enableBottomPadding: enableEdgePadding, flexibleHeight: !options.contains(.fixedFooter))
@@ -51,6 +58,22 @@ public struct HeaderFooterContainer<Content: View>: View {
     }
 
 }
+
+
+// MARK: - Defaults
+
+
+extension HeaderFooterContainer where Content == Never {
+
+    // TODO: make 12 for ios, 8 for macOS
+    static var minimumConcentricRadius: Double { 12 }
+
+    static var backgroundStyle: some ShapeStyle { .gray.tertiary }
+
+}
+
+
+// MARK: - Options
 
 
 // TODO: rename to HeaderFooterContainerOptions or Traits
@@ -63,22 +86,56 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
         self.rawValue = rawValue
     }
 
-    public static let empty: Self =        .init(rawValue: .zero)
-    public static let fixedHeader: Self  = .init(shiftedBy: 0)
-    public static let fixedFooter: Self  = .init(shiftedBy: 1)
+    public static let empty:        Self = .init(rawValue: .zero)
+    public static let fixedHeader:  Self = .init(shiftedBy: 0)
+    public static let fixedFooter:  Self = .init(shiftedBy: 1)
     public static let showDividers: Self = .init(shiftedBy: 2)
+    public static let padContent:   Self = .init(shiftedBy: 3)
+    public static let all:          Self = .init(allUpTo:   4)
+
+    public static let `default`: Self = .padContent
 
     public static let fixed: Self = [.fixedHeader, .fixedFooter]
 }
 
 
-extension HeaderFooterContainer where Content == Never {
+// MARK: - Trait
 
-    // TODO: make 12 for ios, 8 for macOS
-    static var minimumConcentricRadius: Double { 12 }
 
-    static var backgroundStyle: some ShapeStyle { .gray.tertiary }
+// TODO: can a OptionSetOperationTrait be abstracted into a protocol?
+public enum HeaderFooterContainerTrait {
+    case union(HeaderFooterPreviewOptions)
+    case remove(HeaderFooterPreviewOptions)
 
+    func apply(to options: HeaderFooterPreviewOptions) -> HeaderFooterPreviewOptions {
+        switch self {
+        case .union(let traitOptions):
+            return options.union(traitOptions)
+        case .remove(let traitOptions):
+            let inverse = traitOptions.symmetricDifference(.all)
+            return options.intersection(inverse)
+        }
+    }
+
+
+    public static let fixedHeader:  Self = .union(.fixedHeader)
+    public static let fixedFooter:  Self = .union(.fixedFooter)
+    public static let showDividers: Self = .union(.showDividers)
+    public static let padContent:   Self = .union(.padContent)
+
+    public static let fixed:        Self = .union(.fixed)
+
+    public static let noPadding: Self = .remove(.padContent)
+
+}
+
+
+extension Sequence where Element == HeaderFooterContainerTrait {
+    func apply(to options: HeaderFooterPreviewOptions) -> HeaderFooterPreviewOptions {
+        return self.reduce(options) { options, trait in
+            trait.apply(to: options)
+        }
+    }
 }
 
 
@@ -111,7 +168,7 @@ private struct PreviewContent {
     @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
 
     let makeOptions: () -> HeaderFooterPreviewOptions = {
-        var options: HeaderFooterPreviewOptions = []
+        var options: HeaderFooterPreviewOptions = .default
         if isHeaderFixed { options.formUnion(.fixedHeader) }
         if isFooterFixed { options.formUnion(.fixedFooter) }
         if showsDividers { options.formUnion(.showDividers) }
@@ -149,7 +206,7 @@ private struct PreviewContent {
     @Previewable @State var fixedHeight: Double = 200
 
     let makeOptions: () -> HeaderFooterPreviewOptions = {
-        var options: HeaderFooterPreviewOptions = [.showDividers]
+        var options: HeaderFooterPreviewOptions = [.default, .showDividers]
         if isHeaderFixed { options.formUnion(.fixedHeader) }
         if isFooterFixed { options.formUnion(.fixedFooter) }
         return options

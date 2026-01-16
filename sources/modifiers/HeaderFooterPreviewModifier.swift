@@ -25,8 +25,8 @@ struct HeaderFooterPreviewModifier: PreviewModifier {
     }()
 
 
-    init(options: HeaderFooterPreviewOptions = []) {
-        self.options = options
+    init(traits: [HeaderFooterContainerTrait] = []) {
+        self.options = traits.apply(to: .default)
     }
 
 
@@ -48,24 +48,24 @@ extension PreviewTrait where T == Preview.ViewTraits {
     }
 
 
-    /// Wraps the preview content in a ``HeaderFooterContainer`` with the given options.
-    public static func headerFooter(_ options: HeaderFooterPreviewOptions...) -> PreviewTrait {
-        return .modifier(HeaderFooterPreviewModifier(options: options.union()))
+    /// Wraps the preview content in a ``HeaderFooterContainer`` with the given traits.
+    public static func headerFooter(_ traits: HeaderFooterContainerTrait...) -> PreviewTrait {
+        return .modifier(HeaderFooterPreviewModifier(traits: traits))
     }
 
 
     /// Wraps the preview content in a ``HeaderFooterContainer`` with fixed height header and
     /// a flexible height footer.
     public static var fixedHeader: PreviewTrait {
-        .modifier(HeaderFooterPreviewModifier(options: .fixedHeader))
+        .modifier(HeaderFooterPreviewModifier(traits: [.fixedHeader]))
     }
 
 
     /// Wraps the preview content in a ``HeaderFooterContainer`` with fixed height header and
-    /// the given options.
-    public static func fixedHeader(_ options: HeaderFooterPreviewOptions...) -> PreviewTrait {
+    /// the given traits.
+    public static func fixedHeader(_ traits: HeaderFooterContainerTrait...) -> PreviewTrait {
         return .modifier(HeaderFooterPreviewModifier(
-            options: options.union().union(.fixedHeader)
+            traits: [.fixedHeader] + traits
         ))
     }
 
@@ -78,7 +78,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
     @ViewBuilder
     static func fixedHeightControlAndContent(_ heightBinding: Binding<Double>) -> some View {
@@ -111,7 +111,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Multiple traits", traits: .headerFooter(.fixed, .showDividers), PreviewContent.layout) {
+#Preview("Multiple traits", traits: .headerFooter(.fixedFooter, .showDividers, .noPadding), PreviewContent.layout) {
     @Previewable @State var fixedHeight: Double = 200
     PreviewContent.fixedHeightControlAndContent($fixedHeight)
 }
