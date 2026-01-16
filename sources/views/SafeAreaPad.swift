@@ -22,7 +22,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
 
     var body: some View {
         if showDivider && edge == .bottom {
-            Divider()
+            DashedDivider()
         }
 
         sizingViewWithBackground.overlay {
@@ -64,7 +64,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
         } // overlay
 
         if showDivider && edge == .top {
-            Divider()
+            DashedDivider()
         }
     }
 
