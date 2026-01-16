@@ -9,17 +9,25 @@ import SwiftUI
 extension View {
 
     @inlinable nonisolated
-    public func alignmentGuide(_ alignment: VerticalAlignment, offsetBy offset: CGFloat) -> some View {
+    public func alignmentGuide(
+        _ alignment: VerticalAlignment,
+        moveTo target: VerticalAlignment? = nil,
+        offsetBy offset: CGFloat = .zero
+    ) -> some View {
         self.alignmentGuide(alignment) { dimentions in
-            dimentions[alignment] + offset
+            dimentions[target ?? alignment] + offset
         }
     }
 
 
     @inlinable nonisolated
-    public func alignmentGuide(_ alignment: HorizontalAlignment, offsetBy offset: CGFloat) -> some View {
+    public func alignmentGuide(
+        _ alignment: HorizontalAlignment,
+        moveTo target: HorizontalAlignment? = nil,
+        offsetBy offset: CGFloat = .zero
+    ) -> some View {
         self.alignmentGuide(alignment) { dimentions in
-            dimentions[alignment] + offset
+            dimentions[target ?? alignment] + offset
         }
     }
 
@@ -35,10 +43,21 @@ extension View {
     nonisolated
     func alignmentGuide(
         _ alignment: InsettableAlignment<VerticalAlignment>,
+        moveTo target: VerticalAlignment? = nil,
+        insetBy inset: CGFloat
+    ) -> some View {
+        let signedInset = inset * alignment.insetDirection.multiplier
+        return self.alignmentGuide(alignment.baseAlignment, moveTo: target, offsetBy: signedInset)
+    }
+
+    nonisolated
+    func alignmentGuide(
+        _ alignment: InsettableAlignment<VerticalAlignment>,
+        moveTo target: VerticalAlignment? = nil,
         outsetBy outset: CGFloat
     ) -> some View {
         let signedOutset = outset * alignment.insetDirection.inverse.multiplier
-        return self.alignmentGuide(alignment.baseAlignment, offsetBy: signedOutset)
+        return self.alignmentGuide(alignment.baseAlignment, moveTo: target, offsetBy: signedOutset)
     }
 
 }
@@ -104,13 +123,21 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
-            .floatingCaption("Outset Align", .alignment(.outerBottomLeading), .zeroPadding)
-            .alignmentGuide(.top, outsetBy: 20)
+            .floatingCaption("Inset Align to Center", .alignment(.outerBottomLeading), .zeroPadding)
+            .alignmentGuide(.top, moveTo: .center, insetBy: 20)
 
         Rectangle()
             .fill(.red.secondary)
             .frame(height: 5)
-            .floatingCaption("Original Top", .alignment(.outerBottomTrailing))
+            .floatingCaption(
+                "Original Top", .alignment(.outerBottomTrailing),
+                .captionStyle(.red))
+
+        Rectangle()
+            .fill(.gray)
+            .frame(width: 20, height: 50)
+            .floatingCaption("Outset Align", .alignment(.outerBottomTrailing))
+            .alignmentGuide(.top, outsetBy: 20)
     }
     .floatingCaption("Top Aligned", .alignment(.outerTopTrailing), .colorStyle(.green))
     .padding()
@@ -137,13 +164,21 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
         Rectangle()
             .fill(.gray)
             .frame(width: 20, height: 50)
-            .floatingCaption("Outset Align", .alignment(.outerTopLeading), .zeroPadding)
-            .alignmentGuide(.bottom, outsetBy: 20)
+            .floatingCaption("Inset Align to Center", .alignment(.outerTopLeading), .zeroPadding)
+            .alignmentGuide(.bottom, moveTo: .center, insetBy: 20)
 
         Rectangle()
             .fill(.red.secondary)
             .frame(height: 5)
-            .floatingCaption("Original Bottom", .alignment(.outerTopTrailing))
+            .floatingCaption(
+                "Original Bottom", .alignment(.outerTopTrailing),
+                .captionStyle(.red))
+
+        Rectangle()
+            .fill(.gray)
+            .frame(width: 20, height: 50)
+            .floatingCaption("Outset Align", .alignment(.outerTopTrailing))
+            .alignmentGuide(.bottom, outsetBy: 20)
     }
     .floatingCaption("Bottom Aligned", .alignment(.outerTopTrailing), .colorStyle(.green))
     .padding()
