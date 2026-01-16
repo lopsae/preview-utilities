@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-/// Experimental labeling for interactive preview elements, specially rectangles.
+/// Experimental labeling for interactive preview elements.
 struct FloatingCaptionModifier: ViewModifier {
 
     let localizedKey: LocalizedStringKey
@@ -20,22 +20,19 @@ struct FloatingCaptionModifier: ViewModifier {
     }
 
     func body(content: Content) -> some View {
-
-        content
-        .border(.quaternary, width: flatTraits.containsCase(.border) ? 1 : .zero)
-        .overlay {
+        content.overlay {
             GeometryReader { geometry in
                 let alignment = flatTraits.alignment ?? .inner(.center)
                 let padding: CGFloat? = flatTraits.containsCase(.padding)
-                    ? flatTraits.padding // The trait can specify nil for a default padding.
-                    : 2 // Default of 2 without trait.
+                    ? flatTraits.padding // The trait can specify a nil value for a default padding.
+                    : 2 // Default without trait.
                 FloatingAlignedContainer(alignment: alignment) { alignment, textAlignment in
                     VStack(alignment: alignment.horizontal) {
                         let textStyle: any ShapeStyle = flatTraits.captionStyle
                             ?? .secondary
                         Text(localizedKey)
-                            .foregroundStyle(textStyle)
                             .font(.caption)
+                            .foregroundStyle(textStyle)
                             .multilineTextAlignment(textAlignment)
 
                         // Width, Height, or Size.
@@ -46,23 +43,27 @@ struct FloatingCaptionModifier: ViewModifier {
                                 let formattedWidth = geometry.size.width.formatted(fractionLength)
                                 let formattedHeight = geometry.size.height.formatted(fractionLength)
                                 Text("size: \(formattedWidth), \(formattedHeight)")
-                                    .foregroundStyle(textStyle)
                             } else if flatTraits.containsCase(.width) {
                                 let formattedWidth = geometry.size.width.formatted(fractionLength)
                                 Text("width: \(formattedWidth)")
-                                    .foregroundStyle(textStyle)
                             } else if flatTraits.containsCase(.height) {
                                 let formattedHeight = geometry.size.height.formatted(fractionLength)
                                 Text("height: \(formattedHeight)")
-                                    .foregroundStyle(textStyle)
                             }
                         } // Group
                         .font(.caption.monospaced())
+                        .foregroundStyle(AnyShapeStyle(textStyle))
 
                     } // VStack
                     .padding(.all, padding)
                     .fixedSize()
                 } // FloatingAlignedContainer
+
+                // Border.
+                if let borderStyle = flatTraits.borderStyle {
+                    Rectangle()
+                    .strokeBorder(AnyShapeStyle(borderStyle), lineWidth: 1)
+                }
             } // GeometryReader
         } // overlay
     }
@@ -79,17 +80,17 @@ extension FloatingCaptionModifier {
     // enumeration, in contrast with a structure containing all properties like
     // `DebugOverlayModifier.Configuration`.
     enum Trait: CaseIdentifiable {
-        case border
         case width
         case height
         case captionStyle(any ShapeStyle)
+        case borderStyle(any ShapeStyle)
         case alignment(FloatingAlignment)
         case padding(CGFloat? = nil)
         case traits([Trait])
 
         enum Case {
-            case border, width, height
-            case captionStyle, alignment, padding
+            case width, height
+            case captionStyle, borderStyle, alignment, padding
             case traits
         }
 
@@ -97,16 +98,18 @@ extension FloatingCaptionModifier {
         // parallel enum.
         var `case`: Case {
             switch self {
-            case .border:       .border
             case .width:        .width
             case .height:       .height
             case .captionStyle: .captionStyle
+            case .borderStyle:  .borderStyle
             case .alignment:    .alignment
             case .padding:      .padding
             case .traits:       .traits
             }
         }
 
+
+        static let border: Self = .borderStyle(.quaternary)
 
         static let size: Self = .traits([.width, .height])
 
@@ -141,6 +144,15 @@ extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait
     }
 
 
+    var borderStyle: (any ShapeStyle)? {
+        let caseInstance = lastCase(.borderStyle)
+        if case .borderStyle(let borderStyle) = caseInstance {
+            return borderStyle
+        }
+        return nil
+    }
+
+
     var alignment: FloatingAlignment? {
         let caseInstance = lastCase(.alignment)
         if case .alignment(let alignment) = caseInstance {
@@ -159,6 +171,9 @@ extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait
     }
 
 }
+
+
+// MARK: - View Extension
 
 
 extension View {
@@ -241,8 +256,8 @@ private struct PreviewContent {
         .fill(.indigo.gradient.tertiary)
         .frame(square: 100)
         .floatingCaption(
-            "External", .captionStyle(.indigo.secondary),
-            .size, .alignment(.outerBottom))
+            "External", .size, .alignment(.outerBottom),
+            .captionStyle(.indigo), .borderStyle(.indigo.tertiary))
 }
 
 
