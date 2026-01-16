@@ -41,9 +41,9 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                         containerHeight: geometry.size.height,
                         safeArea: safeArea)
 
-                    Text("centered, safeArea: \(safeArea, format: .fractionLength(2))")
+                    Text("Device SafeArea")
                     .font(.caption)
-                    .monospacedDigit()
+                    .foregroundStyle(.tertiary)
                     .alignmentGuide(guidedAlignment, moveTo: .center, insetBy: alignmentInset)
 
                     // Safearea indicator.
