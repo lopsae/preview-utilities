@@ -337,12 +337,12 @@ private struct PreviewContent {
     @Previewable @State var value: Double = 10
     @Previewable @State var mapped: String = "Not-Assigned"
 
-    VStack(alignment: .leading) {
-        // TODO: Use Preview Caption
-        Text("Slider with the natoPhoneticAlphabet collection, current formatted with identity, and bounds formatted with capitalized first character.")
-            .font(.caption)
-            .padding(.bottom)
+    PreviewCaption("""
+        Slider with the `natoPhoneticAlphabet` collection, current formatted with identity, and
+        bounds formatted with capitalized first character.
+        """)
 
+    VStack(alignment: .leading) {
         Text("Value:  \(value, format: .fractionLength(2))")
             .monospaced()
         Text("Mapped: \(mapped)")
@@ -365,11 +365,11 @@ private struct PreviewContent {
     @Previewable @State var value: Double = 10
     @Previewable @State var mapped: String = "Not-Assigned"
 
-    VStack(alignment: .leading) {
-        Text("Slider with the natoPhoneticAlphabet collection, no formats used.")
-            .font(.caption)
-            .padding(.bottom)
+    PreviewCaption("""
+        Slider with the `natoPhoneticAlphabet` collection, no formats used.
+        """)
 
+    VStack(alignment: .leading) {
         Text("Value:  \(value, format: .fractionLength(2))")
             .monospaced()
         Text("Mapped: \(mapped)")
@@ -390,25 +390,22 @@ private struct PreviewContent {
     @Previewable @State var value: Double = 5
     @Previewable @State var roundedValue: Double = 5
 
+    PreviewCaption("""
+        Slider using the `captioned` utility function with **separate formats**.
+        """)
     VStack(alignment: .leading) {
-        // TODO: use PreviewCaption.
-        Text("Slider using the `captioned` utility function with **separate formats**.")
-            .font(.caption)
-            .maxWidthFrame(alignment: .leading)
-
         Slider.captioned(
             "Captioned",
             value: $value,
             in: 0...10,
             currentValueFormat: .fractionLength(2),
             boundsValueFormat: .arithmeticRoundedInteger)
+    }.padding()
 
-        // TODO: use PreviewCaption.
-        Text("Slider using the `captioned` utility function with a **single format**.")
-            .font(.caption)
-            .maxWidthFrame(alignment: .leading)
-            .padding(.top)
-
+    PreviewCaption("""
+        Slider using the `captioned` utility function with a **single format**.
+        """)
+    VStack(alignment: .leading) {
         Slider.captioned(
             "Rounded",
             value: $roundedValue,

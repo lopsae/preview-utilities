@@ -116,6 +116,7 @@ private struct PreviewContent {
         multiline string.
         However   internal   spacing   between   words   is   preserved.
         """)
+    .debugOverlay()
 
     PreviewContent.mockContent
 }
