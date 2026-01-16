@@ -255,9 +255,9 @@ private struct PreviewContent {
         .fill(.indigo.gradient.tertiary)
         .frame(width: 200, height: 100)
         .floatingCaption("Default Padding\n(no trait)", .alignment(.innerLeading))
-        .floatingCaption("Zero Padding",   .alignment(.innerTrailing),       .zeroPadding)
-        .floatingCaption("10 Padding",     .alignment(.innerBottomLeading),  .padding(10))
-        .floatingCaption("System Padding", .alignment(.innerBottomTrailing), .systemPadding)
+        .floatingCaption("Zero Padding",   .alignment(.trailing),       .zeroPadding)
+        .floatingCaption("10 Padding",     .alignment(.bottomLeading),  .padding(10))
+        .floatingCaption("System Padding", .alignment(.bottomTrailing), .systemPadding)
 
     Rectangle()
         .fill(.indigo.gradient.tertiary)

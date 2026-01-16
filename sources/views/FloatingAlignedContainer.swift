@@ -139,44 +139,74 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
 
 
     // MARK: Shorthand properties
+
+
+    // Inner Top
     static let innerTopLeading:     Self = .inner(.topLeading)
     static let innerTopCenter:      Self = .inner(.topCenter)
     static let innerTopTrailing:    Self = .inner(.topTrailing)
+    // Aliases.
     static let innerTop:            Self = .innerTopCenter
+    static let topLeading:          Self = .innerTopLeading
+    static let top:                 Self = .innerTopCenter
+    static let topTrailing:         Self = .innerTopTrailing
 
+    // Inner Center
     static let innerLeadingCenter:  Self = .inner(.leadingCenter)
     static let innerCenter:         Self = .inner(.center)
     static let innerTrailingCenter: Self = .inner(.trailingCenter)
+    // Aliases.
     static let innerLeading:        Self = .innerLeadingCenter
     static let innerTrailing:       Self = .innerTrailingCenter
+    static let leading:             Self = .innerLeadingCenter
+    static let center:              Self = .innerCenter
+    static let trailing:            Self = .innerTrailingCenter
 
+
+    // Inner Bottom
     static let innerBottomLeading:  Self = .inner(.bottomLeading)
     static let innerBottomCenter:   Self = .inner(.bottomCenter)
     static let innerBottomTrailing: Self = .inner(.bottomTrailing)
+    // Aliases.
     static let innerBottom:         Self = .innerBottomCenter
+    static let bottomLeading:       Self = .innerBottomLeading
+    static let bottom:              Self = .innerBottomCenter
+    static let bottomTrailing:      Self = .innerBottomTrailing
 
+
+    // Outer Top Mayor
     static let outerTopLeading:     Self = .outer(.topLeading)
     static let outerTopCenter:      Self = .outer(.topCenter)
     static let outerTopTrailing:    Self = .outer(.topTrailing)
+    // Aliases.
     static let outerTop:            Self = .outerTopCenter
 
+
+    // Outer Bottom Mayor
     static let outerBottomLeading:  Self = .outer(.bottomLeading)
     static let outerBottomCenter:   Self = .outer(.bottomCenter)
     static let outerBottomTrailing: Self = .outer(.bottomTrailing)
+    // Aliases.
     static let outerBottom:         Self = .outerBottomCenter
 
+
+    // Outer Leading Mayor
     static let outerLeadingAbove:   Self = .outer(.leadingAbove)
     static let outerLeadingTop:     Self = .outer(.leadingTop)
     static let outerLeadingCenter:  Self = .outer(.leadingCenter)
     static let outerLeadingBottom:  Self = .outer(.leadingBottom)
     static let outerLeadingUnder:   Self = .outer(.leadingUnder)
+    // Aliases.
     static let outerLeading:        Self = .outerLeadingCenter
 
+
+    // Outer Trailing Mayor
     static let outerTrailingAbove:  Self = .outer(.trailingAbove)
     static let outerTrailingTop:    Self = .outer(.trailingTop)
     static let outerTrailingCenter: Self = .outer(.trailingCenter)
     static let outerTrailingBottom: Self = .outer(.trailingBottom)
     static let outerTrailingUnder:  Self = .outer(.trailingUnder)
+    // Aliases.
     static let outerTrailing:       Self = .outerTrailingCenter
 
 

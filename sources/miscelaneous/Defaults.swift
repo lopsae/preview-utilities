@@ -30,10 +30,10 @@ enum Defaults {
                     ClearRectangle()
                     .floatingCaption(
                         "Vertical: `\(verticalPadding, format: .fractionLength(2))`",
-                        .alignment(.innerTop))
+                        .alignment(.top))
                     .floatingCaption(
                         "Horizontal:\n`\(horizontalPadding, format: .fractionLength(2))`",
-                        .alignment(.innerTrailing))
+                        .alignment(.trailing))
                 }
             }
             .padding()
