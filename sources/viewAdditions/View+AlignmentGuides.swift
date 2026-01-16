@@ -85,7 +85,7 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
     HStack(alignment: .top){
         Rectangle()
             .fill(.red.secondary)
-            .frame(width: 20, height: 100)
+            .frame(width: 20, height: 120)
 
         Rectangle()
             .fill(.gray)
@@ -112,15 +112,13 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
             .frame(height: 5)
             .floatingCaption("Original Top", .alignment(.outerBottomTrailing))
     }
-    .border(.green.secondary)
-    // TODO: floatingCaption could have a trait for caption, border (or both) color.
-    .floatingCaption("Top Aligned", .alignment(.outerTopTrailing))
+    .floatingCaption("Top Aligned", .alignment(.outerTopTrailing), .colorStyle(.green))
     .padding()
 
     HStack(alignment: .bottom){
         Rectangle()
             .fill(.red.secondary)
-            .frame(width: 20, height: 100)
+            .frame(width: 20, height: 120)
 
         Rectangle()
             .fill(.gray)
@@ -147,9 +145,7 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
             .frame(height: 5)
             .floatingCaption("Original Bottom", .alignment(.outerTopTrailing))
     }
-    .border(.green.secondary)
-    // TODO: floatingCaption could have a trait for caption, border (or both) color.
-    .floatingCaption("Bottom Aligned", .alignment(.outerTopTrailing))
+    .floatingCaption("Bottom Aligned", .alignment(.outerTopTrailing), .colorStyle(.green))
     .padding()
 
     ZStack(alignment: .bottom) {

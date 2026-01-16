@@ -110,11 +110,18 @@ extension FloatingCaptionModifier {
 
 
         static let border: Self = .borderStyle(.quaternary)
-
         static let size: Self = .traits([.width, .height])
 
         static let zeroPadding:   Self = .padding(.zero)
         static let systemPadding: Self = .padding(nil)
+
+        static func style(_ style: some ShapeStyle) -> Self {
+            .traits([.captionStyle(style), .borderStyle(style)])
+        }
+
+        static func colorStyle(_ color: Color) -> Self {
+            .traits([.captionStyle(color), .borderStyle(color.secondary)])
+        }
 
     }
 
