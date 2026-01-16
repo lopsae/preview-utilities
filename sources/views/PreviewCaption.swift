@@ -11,54 +11,43 @@ import SwiftUI
 /// ``HeaderFooterContainer``. Intended to provide additional detail along a preview.
 public struct PreviewCaption: View {
 
-    /// String for each text produced in the caption.
-    let textStrings: [String]
+    /// Strings for each paragraph.
+    let strings: [String]
 
-    /// Creates a preview caption with a given sequence of strings joined together.
+    /// Creates a preview caption with the given string.
     ///
-    /// All the strings are joined into a single string: any whitespace present at the edgesof two
-    /// strings is preserved; if no whitespace is present between two strings a single space is
-    /// added between them.
-    init(_ strings: String...) {
-        guard !strings.isEmpty else {
-            self.textStrings = [String()]
-            return
-        }
-
-        let joinedString = Self.joinStrings(strings)
-        self.textStrings = [joinedString]
+    /// The string is parsed as markdown and new lines are replaced with spaces, allowing to easily
+    /// use multiline string literals.
+    init(_ string: String) {
+        self.strings = [string]
     }
 
 
-    private init(textStrings: [String]) {
-        self.textStrings = textStrings
+    private init(strings: [String]) {
+        self.strings = strings
     }
 
 
     public var body: some View {
-        // TODO: use DefaultPaddings
-        VStack(spacing: 8 ) {
-            ForEach(textStrings.enumerated(), id: \.offset) { index, string in
-                let markdownString = (try? AttributedString(markdown: string)) ?? AttributedString("[markdown failed!] " + string)
+        VStack(spacing: Defaults.padding * 2 / 3 ) {
+            ForEach(strings.enumerated(), id: \.offset) { index, string in
+                // Markdown initializer without options removes new lines from the resulting string.
+                let markdownString = (try? AttributedString(markdown: string))
+                    ?? AttributedString("[markdown failed!] " + string)
                 Text(markdownString)
                     .fixedSize(horizontal: false, vertical: true)
                     .maxWidthFrame(alignment: .leading)
             }
         }
-        .padding()
-        .background {
-            Rectangle().fill(HeaderFooterContainer.backgroundStyle)
-                .roundedRectangleClip(cornerRadius: HeaderFooterContainer.minimumConcentricRadius)
-        }
-        .padding(.horizontal)
+        .concentricSafeAreaBackground(
+            fill: HeaderFooterContainer.backgroundStyle,
+            paddingEdges: .horizontal)
     }
 
 
-    /// Creates a new preview caption appending a paragraph with a given sequence of strings joined
-    /// together.
-    func paragraph(_ strings: String...) -> Self {
-        let joinedString = Self.joinStrings(strings)
-        return .init(textStrings: textStrings + [joinedString])
+    /// Creates a new preview caption appending a paragraph.
+    func paragraph(_ string: String) -> Self {
+        return .init(strings: strings + [string])
     }
 
 
@@ -95,6 +84,11 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
+    static let mockContent: some View = CaptionRectangle(
+        "Preview\nContent",
+        fill: .red.tertiary, stroke: .red.secondary,
+        width: 100, height: 100)
+
 }
 
 
@@ -102,89 +96,83 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .regularSpacing, .headerFooter, PreviewContent.layout) {
-    PreviewCaption(
-        "**Caption** for a preview",
-        "that can have text defined",
-        "in _multiple lines_ with ",
-        "`Markdown support`.",
-        "Lorem ipsum"
-    )
+    PreviewCaption("""
+        **Caption** for a preview that can have text defined
+        in _multiple lines_ with `Markdown support`.
+        """)
+    .paragraph("Along with additional paragraphs: \(String.natoPhoneticAlphabet.joined(separator: " "))")
 
-    Rectangle().fill(.red.tertiary)
-        .frame(squareOf: 100)
+    PreviewContent.mockContent
 }
 
 
 #Preview("Spacing", traits:  .regularSpacing, .headerFooter, PreviewContent.layout) {
-    PreviewCaption(
-        "**Inserts", "spaces**", "between", "parameters.",
-        "\nNewlines are ignored.",
-        "Existing", "  space", "  is  ", "**persisted**."
-    )
+    PreviewCaption("""
+        Markdown parsing replaces newlines
+        with
+        spaces
+        in
+        a
+        multiline string.
+        However   internal   spacing   between   words   is   preserved.
+        """)
 
-    Rectangle().fill(.red.tertiary)
-        .frame(squareOf: 100)
+    PreviewContent.mockContent
 }
 
 
-// FIXME: in IOS, content freezes when fixed height grows enough to push the footer out of layout, likely caused by PreviewFooter issues.
-// FIXME: this still seems to be happening after possible fix in minSafeAreaPadding, add printing capability to test.
-// TODO: this should have enough text to push out of the given size layout, to show that large text is respected.
-#Preview("LoremIpsum", traits:  .regularSpacing, .headerFooter(.fixed), PreviewContent.layout) {
+#Preview("LoremIpsum", traits:  .regularSpacing, .headerFooter, PreviewContent.layout) {
     @Previewable @State var wordCount: Double = 50
     @Previewable @State var fixedHeight: Double = 200
 
     PreviewCaption(Strings.loremIpsum(words: wordCount.arithmeticRoundedInt))
 
     VStack {
-        Slider(
+        Slider.captioned(
             "Word Count",
-            value: $wordCount,
-            in: 0...100,
+            value: $wordCount, in: 0...200,
             valueFormat: .arithmeticRoundedInteger)
-        Slider(
+        Slider.captioned(
             "Fixed Height",
-            value: $fixedHeight,
-            in: 0...800,
-            valueFormat: .arithmeticRoundedInteger)
+            value: $fixedHeight, in: 0...800,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
     }
     .padding()
 
-    Rectangle().fill(.red.tertiary)
-        .frame(width: 100, height: fixedHeight)
-        .debugOverlay(.hairline, .size)
+    CaptionRectangle(
+        "Fixed Content", fill: .red.gradient.tertiary, stroke: .red.secondary,
+        width: 150, height: fixedHeight, traits: .height)
 }
 
-#Preview("Paragraph", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {
+#Preview("Caption", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {
     PreviewCaption(
-        "**Paragraphs**"
+        "Modifier functions like `.font(.caption)` can be used to modify the internal `Text`s."
     ).paragraph(
-        "To display text in different **paragraphs**"
-    ).paragraph(
-        "Use the _paragraph function_."
+        "Including the text of any additional paragraphs."
     )
+    .font(.caption)
+    .foregroundStyle(.brown)
 
-    Rectangle().fill(.red.tertiary)
-        .frame(squareOf: 100)
+    PreviewContent.mockContent
 }
 
 
-#Preview("Empty", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {
-    PreviewCaption()
+#Preview("NoHeaderFooter", traits:  .regularSpacing, PreviewContent.layout) {
+    PreviewCaption("This is a preview caption without the header/footer preview trait.")
+        .paragraph("If this becomes a common use, options for edge padding should be considered.")
 
-    Rectangle().fill(.red.tertiary)
-        .frame(squareOf: 100)
+    PreviewContent.mockContent
+    VisibleSpacer()
 }
 
 
 #Preview("Text.fixedSize Issue", traits: .regularSpacing, .fixedHeader, .iPhoneProSizeLayout) {
-    PreviewCaption(
-        "Without forced layout, using `Text.fixedSize` causes layout issues in macOS previews",
-        "any time there is other views with flexible height."
-    ).paragraph(
-        "This issues does not ocurr in iOS."
-    )
+    PreviewCaption("""
+        Without forced layout, using `Text.fixedSize` causes layout issues in macOS previews
+        any time there is other views with flexible height.
+        """
+    ).paragraph("This issues does not ocurr in iOS.")
 
-    Rectangle().fill(.red.tertiary)
-        .frame(width: 100)
+    VisibleSpacer()
 }
