@@ -47,7 +47,7 @@ struct PreviewHeader: View {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
     /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the header is
     /// always displayed in a preview, and in iOS there is a bottom safe-area present.
@@ -87,14 +87,14 @@ private struct PreviewContent {
 
     PreviewHeader(enableTopPadding: enableTopPadding, flexibleHeight: isFlexible)
 
-    Divider()
+    DashedDivider()
 
     CaptionRectangle(
-        "Fixed Content", fill: .red.gradient.tertiary,
+        "Fixed Content", color: .red,
         width: 150, height: fixedHeight,
         traits: .height)
 
-    Divider()
+    DashedDivider()
 
     PreviewContent.bottomControls {
         Slider.captioned(
@@ -120,27 +120,28 @@ private struct PreviewContent {
             .padding(22))
         .debugOverlay(.bordersWidth(2))
 
-    ClearRectangle(height: 40)
+    VisibleSpacer()
 
     PreviewHeader(enableTopPadding: false, flexibleHeight: false)
         .floatingCaption("**Disabled** padding", .alignment(.inner(.bottomLeading)), .padding(22))
         .debugOverlay(.bordersWidth(2))
 
-    ClearRectangle(height: 40)
+    VisibleSpacer()
 
     PreviewHeader(enableTopPadding: true, flexibleHeight: false)
         .floatingCaption("**Enabled** padding", .alignment(.inner(.bottomLeading)), .padding(22))
         .debugOverlay(.bordersWidth(2))
+
+    VisibleSpacer()
 
     PreviewContent.bottomControls {
         Text(
             "In iOS, when displayed against the preview frame, the header should NOT use top " +
             "padding. In macOS, padding is added to prevent the header text from touching the" +
             "bottom of the window."
-        ).maxWidthFrame(alignment: .leading)
-        Text(
-            "There is no known way to add this conditional padding automatically without introducing issues."
-        ).maxWidthFrame(alignment: .leading)
+        )
+        .fixedSize(horizontal: false, vertical: true)
+        .maxWidthFrame(alignment: .leading)
     }
 }
 
@@ -152,11 +153,7 @@ private struct PreviewContent {
     @Previewable @State var isFlexible: Bool = true
 
     if !useDeviceSafeArea {
-        Text("clear from device safe area")
-            .font(.caption)
-            .maxWidthFrame()
-            .concentricSafeAreaBackground(fill: .orange.tertiary, contentPaddingEdges: .not(.top))
-        Divider()
+        SafeAreaPad(edge: .top, showDivider: true)
     }
 
     PreviewHeader(enableTopPadding: enableTopPadding, flexibleHeight: isFlexible)

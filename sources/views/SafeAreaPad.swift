@@ -168,7 +168,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Bottom SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
+#Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
     @Previewable @State var safeAreaInset: Double = 60
 
     Text("Device Edge")

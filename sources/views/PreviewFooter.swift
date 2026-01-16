@@ -48,7 +48,7 @@ struct PreviewFooter: View {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
     /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the footer is
     /// always displayed in a preview, and in iOS there is a bottom safe-area present.
@@ -100,14 +100,14 @@ private struct PreviewContent {
             boundsValueFormat: .arithmeticRoundedInteger)
     }
 
-    Divider()
+    DashedDivider()
 
     CaptionRectangle(
-        "Fixed Content", fill: .red.gradient.tertiary,
+        "Fixed Content", color: .red,
         width: 150, height: fixedHeight,
         traits: .height)
 
-    Divider()
+    DashedDivider()
 
     PreviewFooter(enableBottomPadding: enableBottomPadding, flexibleHeight: isFlexible)
 }
@@ -119,23 +119,24 @@ private struct PreviewContent {
             "In iOS, when displayed against the preview frame, the footer should NOT use bottom " +
             "padding. In macOS, padding is added to prevent the footer text from touching the " +
             "bottom of the window."
-        ).maxWidthFrame(alignment: .leading)
-        Text(
-            "There is no known way to add this conditional padding automatically without introducing issues."
-        ).maxWidthFrame(alignment: .leading)
+        )
+        .fixedSize(horizontal: false, vertical: true)
+        .maxWidthFrame(alignment: .leading)
     }
+
+    VisibleSpacer()
 
     PreviewFooter(enableBottomPadding: true, flexibleHeight: false)
         .floatingCaption("**Enabled** padding", .alignment(.inner(.topLeading)), .padding(25))
         .debugOverlay(.bordersWidth(2))
 
-    ClearRectangle(height: 40)
+    VisibleSpacer()
 
     PreviewFooter(enableBottomPadding: false, flexibleHeight: false)
         .floatingCaption("**Disabled** padding", .alignment(.inner(.topLeading)), .padding(25))
         .debugOverlay(.bordersWidth(2))
 
-    ClearRectangle(height: 40)
+    VisibleSpacer()
 
     PreviewFooter(enableBottomPadding: PreviewContent.platformEnableBottomPadding, flexibleHeight: false)
         .floatingCaption(
@@ -167,7 +168,7 @@ private struct PreviewContent {
             .font(.caption.monospaced())
     }
 
-    Divider()
+    DashedDivider()
 
     PreviewFooter(enableBottomPadding: enableBottomPadding, flexibleHeight: isFlexible)
     .safeAreaInset(edge: .bottom, spacing: 0) {
@@ -177,12 +178,11 @@ private struct PreviewContent {
             traits: .height, .alignment(.outerTrailing))
     }
 
-    // FIXME: re add safeAreaPad
-//    if !useDeviceSafeArea {
-//        SafeAreaPad(topDivider: true)
-//    }
+    if !useDeviceSafeArea {
+        SafeAreaPad(edge: .bottom, showDivider: true)
+    }
 
 }
 
 
-// FIXME: add similar previews with fixed size for HeaderFooter
+// FIXME: add fixed height content to HeaderFooter
