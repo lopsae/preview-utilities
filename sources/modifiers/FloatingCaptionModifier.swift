@@ -11,20 +11,27 @@ import SwiftUI
 struct FloatingCaptionModifier: ViewModifier {
 
     let localizedKey: LocalizedStringKey
-    let traits: [Trait]
+    let flatTraits: [Trait]
+
+
+    init(localizedKey: LocalizedStringKey, traits: [Trait]) {
+        self.localizedKey = localizedKey
+        self.flatTraits = traits.flattenTraits()
+    }
 
     func body(content: Content) -> some View {
+
         content
-        .border(.quaternary, width: traits.containsCase(.border) ? 1 : .zero)
+        .border(.quaternary, width: flatTraits.containsCase(.border) ? 1 : .zero)
         .overlay {
             GeometryReader { geometry in
-                let alignment = traits.alignment ?? .inner(.center)
-                let padding: CGFloat? = traits.containsCase(.padding)
-                    ? traits.padding // The trait can specify nil for a default padding.
+                let alignment = flatTraits.alignment ?? .inner(.center)
+                let padding: CGFloat? = flatTraits.containsCase(.padding)
+                    ? flatTraits.padding // The trait can specify nil for a default padding.
                     : 2 // Default of 2 without trait.
                 FloatingAlignedContainer(alignment: alignment) { alignment, textAlignment in
                     VStack(alignment: alignment.horizontal) {
-                        let textStyle: any ShapeStyle = traits.captionStyle
+                        let textStyle: any ShapeStyle = flatTraits.captionStyle
                             ?? .secondary
                         Text(localizedKey)
                             .foregroundStyle(textStyle)
@@ -35,16 +42,16 @@ struct FloatingCaptionModifier: ViewModifier {
                         Group {
                             // TODO: if traits is a Set, this could use set operations.
                             let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
-                            if traits.containsCase(.width) && traits.containsCase(.height) {
+                            if flatTraits.containsCase(.width) && flatTraits.containsCase(.height) {
                                 let formattedWidth = geometry.size.width.formatted(fractionLength)
                                 let formattedHeight = geometry.size.height.formatted(fractionLength)
                                 Text("size: \(formattedWidth), \(formattedHeight)")
                                     .foregroundStyle(textStyle)
-                            } else if traits.containsCase(.width) {
+                            } else if flatTraits.containsCase(.width) {
                                 let formattedWidth = geometry.size.width.formatted(fractionLength)
                                 Text("width: \(formattedWidth)")
                                     .foregroundStyle(textStyle)
-                            } else if traits.containsCase(.height) {
+                            } else if flatTraits.containsCase(.height) {
                                 let formattedHeight = geometry.size.height.formatted(fractionLength)
                                 Text("height: \(formattedHeight)")
                                     .foregroundStyle(textStyle)
@@ -78,10 +85,12 @@ extension FloatingCaptionModifier {
         case captionStyle(any ShapeStyle)
         case alignment(FloatingAlignment)
         case padding(CGFloat? = nil)
+        case traits([Trait])
 
         enum Case {
             case border, width, height
             case captionStyle, alignment, padding
+            case traits
         }
 
         // Since the enum have associated values, each enum needs to be indentified by a value-less
@@ -94,11 +103,14 @@ extension FloatingCaptionModifier {
             case .captionStyle: .captionStyle
             case .alignment:    .alignment
             case .padding:      .padding
+            case .traits:       .traits
             }
         }
 
 
-        static let zeroPadding:    Self = .padding(.zero)
+        static let size: Self = .traits([.width, .height])
+
+        static let zeroPadding:   Self = .padding(.zero)
         static let systemPadding: Self = .padding(nil)
 
     }
@@ -110,6 +122,15 @@ extension FloatingCaptionModifier {
 // value of that case. This means that traits of a given type cannot be additive or build on top
 // of each other.
 extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait {
+
+    func flattenTraits() -> [Element] {
+        return self.flatMap { trait in
+            guard case .traits(let traits) = trait else {
+                return [trait]
+            }
+            return traits.flattenTraits()
+        }
+    }
 
     var captionStyle: (any ShapeStyle)? {
         let caseInstance = lastCase(.captionStyle)
@@ -221,7 +242,7 @@ private struct PreviewContent {
         .frame(square: 100)
         .floatingCaption(
             "External", .captionStyle(.indigo.secondary),
-            .width, .height, .alignment(.outerBottom))
+            .size, .alignment(.outerBottom))
 }
 
 
