@@ -25,10 +25,8 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             Divider()
         }
 
-        sizingViewWithBackground
-        .overlay {
+        sizingViewWithBackground.overlay {
             GeometryReader { geometry in
-                let containerHeight = geometry.size.height
                 let safeArea = geometry.safeAreaInsets[edge: edge]
                 let guidedAlignment: InsettableAlignment = switch edge {
                 case .top:    .top
@@ -39,42 +37,27 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                     vertical: guidedAlignment.baseAlignment)
 
                 ZStack(alignment: alignment) {
+                    let alignmentInset = textAlignmentInset(
+                        containerHeight: geometry.size.height,
+                        safeArea: safeArea)
+
                     Text("centered, safeArea: \(safeArea, format: .fractionLength(2))")
                     .font(.caption)
                     .monospacedDigit()
-                    .alignmentGuide(guidedAlignment.baseAlignment) { dimentions in
-                        let padding = Defaults.padding
+                    .alignmentGuide(guidedAlignment, moveTo: .center, insetBy: alignmentInset)
 
-                        // Container height, removing the top padding. This is the area
-                        // where the label can be.
-                        let unpaddedContainerHeight = containerHeight - padding
-
-                        let distanceFromBottom: CGFloat
-                        if safeArea > padding {
-                            // Label is centered in available container area, and pushed up
-                            // by the entire safeArea.
-                            distanceFromBottom = safeArea + unpaddedContainerHeight / 2
-                        } else {
-                            // Fraction of safe area bitting into the available container area.
-                            let remainingPadding = padding - safeArea
-                            let centerOfContainerHeight = (unpaddedContainerHeight - remainingPadding) / 2
-                            // Label is always pushed up in this case by 1 padding.
-                            distanceFromBottom = centerOfContainerHeight + padding
-                        }
-
-                        return dimentions[.verticalCenter] + distanceFromBottom
-                    }
-
-                    // Safearea indicator
+                    // Safearea indicator.
                     if safeArea > 0 {
                         safeAreaIndicator
                         .alignmentGuide(guidedAlignment, insetBy: safeArea)
                     }
 
                     // This retangle is required to stay true-bottom aligned to allow the other
-                    // views to offset their position.
+                    // views to offset their position. Its actual position is at the edge of the
+                    // safe area.
                     ClearRectangle(height: 10, fill: .red.secondary)
                 } // ZStack
+                // The ZStack is positioned at the edge of the safeArea to then inset the internal views.
                 .alignmentGuide(guidedAlignment, outsetBy: safeArea)
                 .frame(size: geometry.size, alignment: alignment)
                 .border(.teal)
@@ -113,6 +96,29 @@ struct SafeAreaPad<S: ShapeStyle>: View {
     }
 
 
+    private func textAlignmentInset(containerHeight: CGFloat, safeArea: CGFloat) -> CGFloat {
+        let padding = Defaults.padding
+
+        // Container height, removing the top padding. This is the area
+        // where the label can be.
+        let unpaddedContainerHeight = containerHeight - padding
+
+        let alignmentInset: CGFloat
+        if safeArea > padding {
+            // Label is centered in available container area, and pushed up
+            // by the entire safeArea.
+            alignmentInset = safeArea + unpaddedContainerHeight / 2
+        } else {
+            // Fraction of safe area bitting into the available container area.
+            let remainingPadding = padding - safeArea
+            let centerOfContainerHeight = (unpaddedContainerHeight - remainingPadding) / 2
+            // Label is always pushed up in this case by 1 padding.
+            alignmentInset = centerOfContainerHeight + padding
+        }
+        return alignmentInset
+    }
+
+
     @ViewBuilder
     private var safeAreaIndicator: some View {
         let lineWidth: CGFloat = 1
@@ -148,9 +154,9 @@ private struct PreviewContent {
 #Preview("Defaults", traits: .zeroSpacing, PreviewContent.layout) {
     SafeAreaPad(edge: .top)
     VisibleSpacer()
-    SafeAreaPad(edge: .top)
+    SafeAreaPad(edge: .top, showDivider: true)
     VisibleSpacer()
-    SafeAreaPad(edge: .bottom)
+    SafeAreaPad(edge: .bottom, showDivider: true)
     VisibleSpacer()
     SafeAreaPad(edge: .bottom)
 }
