@@ -79,6 +79,7 @@ extension HeaderFooterContainer where Content == Never {
 // TODO: rename to HeaderFooterContainerOptions or Traits
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
+@dynamicMemberLookup
 public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
     public let rawValue: Int
 
@@ -86,12 +87,43 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
         self.rawValue = rawValue
     }
 
+    enum Shift: Int {
+        case fixedHeaderShift = 0,
+             fixedFooterShift,
+             showDividersShift,
+             padContentShift
+
+        static var fixedHeader:  Self { .fixedHeaderShift }
+        static var fixedFooter:  Self { .fixedFooterShift }
+        static var showDividers: Self { .showDividersShift }
+        static var padContent:   Self { .padContentShift }
+    }
+
+    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> Bool {
+        get {
+            let optionShift = Shift.self[keyPath: keyPath]
+            let option = Self.init(shiftedBy: optionShift.rawValue)
+            return self.contains(option)
+        }
+        mutating set {
+            let optionShift = Shift.self[keyPath: keyPath]
+            let option = Self.init(shiftedBy: optionShift.rawValue)
+            if newValue {
+                self.formUnion(option)
+            } else {
+                let inverse = option.symmetricDifference(.all)
+                self.formIntersection(inverse)
+            }
+        }
+    }
+
+    // TODO: add initializer with the Shift type itself
     public static let empty:        Self = .init(rawValue: .zero)
-    public static let fixedHeader:  Self = .init(shiftedBy: 0)
-    public static let fixedFooter:  Self = .init(shiftedBy: 1)
-    public static let showDividers: Self = .init(shiftedBy: 2)
-    public static let padContent:   Self = .init(shiftedBy: 3)
-    public static let all:          Self = .init(allUpTo:   4)
+    public static let fixedHeader:  Self = .init(shiftedBy: Shift.fixedHeader.rawValue)
+    public static let fixedFooter:  Self = .init(shiftedBy: Shift.fixedFooterShift.rawValue)
+    public static let showDividers: Self = .init(shiftedBy: Shift.showDividersShift.rawValue)
+    public static let padContent:   Self = .init(shiftedBy: Shift.padContentShift.rawValue)
+    public static let all:          Self = .init(allUpTo:   4) // TODO: can be automated?
 
     public static let `default`: Self = .padContent
 
@@ -145,7 +177,7 @@ extension Sequence where Element == HeaderFooterContainerTrait {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 600)
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
     /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the header and
     /// footer is always displayed in a preview where in iOS there is a top and bottom safe-area.
@@ -161,30 +193,19 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var isHeaderFixed: Bool = false
-    @Previewable @State var isFooterFixed: Bool = false
-    @Previewable @State var showsDividers: Bool = false
+    @Previewable @State var options: HeaderFooterPreviewOptions = .default
     @Previewable @State var useDeviceSafeArea: Bool = true
     @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
-
-    let makeOptions: () -> HeaderFooterPreviewOptions = {
-        var options: HeaderFooterPreviewOptions = .default
-        if isHeaderFixed { options.formUnion(.fixedHeader) }
-        if isFooterFixed { options.formUnion(.fixedFooter) }
-        if showsDividers { options.formUnion(.showDividers) }
-        return options
-    }
-
-    let options = makeOptions()
 
     if !useDeviceSafeArea {
         SafeAreaPad(edge: .top, showDivider: true)
     }
 
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
-        Toggle("Fixed Header", isOn: $isHeaderFixed)
-        Toggle("Fixed Footer", isOn: $isFooterFixed)
-        Toggle("Show Dividers", isOn: $showsDividers)
+        Toggle("Fixed Header",  isOn: $options.fixedHeader)
+        Toggle("Fixed Footer",  isOn: $options.fixedFooter)
+        Toggle("Show Dividers", isOn: $options.showDividers)
+        Toggle("Pad Content",   isOn: $options.padContent)
         Divider()
         Toggle("Use Device SafeArea", isOn: $useDeviceSafeArea)
         Toggle("Enable Edge Padding", isOn: $enableEdgePadding)
@@ -199,20 +220,10 @@ private struct PreviewContent {
 
 
 #Preview("Content Height", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var isHeaderFixed: Bool = false
-    @Previewable @State var isFooterFixed: Bool = false
+    @Previewable @State var options: HeaderFooterPreviewOptions = .default
     @Previewable @State var useDeviceSafeArea: Bool = true
     @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
     @Previewable @State var fixedHeight: Double = 200
-
-    let makeOptions: () -> HeaderFooterPreviewOptions = {
-        var options: HeaderFooterPreviewOptions = [.default, .showDividers]
-        if isHeaderFixed { options.formUnion(.fixedHeader) }
-        if isFooterFixed { options.formUnion(.fixedFooter) }
-        return options
-    }
-
-    let options = makeOptions()
 
     if !useDeviceSafeArea {
         SafeAreaPad(edge: .top, showDivider: true)
@@ -220,8 +231,10 @@ private struct PreviewContent {
 
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
         VStack {
-            Toggle("Fixed Header", isOn: $isHeaderFixed)
-            Toggle("Fixed Footer", isOn: $isFooterFixed)
+            Toggle("Fixed Header",  isOn: $options.fixedHeader)
+            Toggle("Fixed Footer",  isOn: $options.fixedFooter)
+            Toggle("Show Dividers", isOn: $options.showDividers)
+            Toggle("Pad Content",   isOn: $options.padContent)
             Slider.captioned(
                 "Fixed Content Height",
                 value: $fixedHeight,
