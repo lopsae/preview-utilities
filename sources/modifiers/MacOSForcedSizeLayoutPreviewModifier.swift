@@ -194,7 +194,7 @@ private struct PreviewContent {
 
     Rectangle()
         .fill(.red.tertiary)
-        .frame(square: 100)
+        .frame(squareOf: 100)
         .floatingCaption("Fixed Size", .height)
 }
 
@@ -205,7 +205,7 @@ private struct PreviewContent {
 
     Rectangle()
         .fill(.red.tertiary)
-        .frame(square: 100)
+        .frame(squareOf: 100)
         .floatingCaption("Fixed Size", .height)
         .frame(width: 400, height: 300)
 }

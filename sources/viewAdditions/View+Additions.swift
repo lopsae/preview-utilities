@@ -36,6 +36,7 @@ extension View {
     }
 
 
+    // TODO: delete after external users update, no package uses anymore.
     @available(*, deprecated, renamed: "frame(squareOf:alignment:)")
     @inlinable nonisolated
     public func frame(square side: CGFloat, alignment: Alignment = .center) -> some View {
