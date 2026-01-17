@@ -79,7 +79,7 @@ extension FloatingCaptionModifier {
     // This trait implementation is an experimental configuration object solely based on an
     // enumeration, in contrast with a structure containing all properties like
     // `DebugOverlayModifier.Configuration`.
-    enum Trait: CaseIdentifiable {
+    enum Trait: IdentifiableCase {
         case width
         case height
         case captionStyle(any ShapeStyle)
@@ -197,17 +197,17 @@ extension View {
 }
 
 
-// MARK: - Experimental CaseIdentifiable
+// MARK: - Experimental IdentifiableCase
 
 
 nonisolated
-protocol CaseIdentifiable {
+protocol IdentifiableCase {
     associatedtype Case: Hashable
     var `case`: Case { get }
 }
 
 
-extension Sequence where Element: CaseIdentifiable {
+extension Sequence where Element: IdentifiableCase {
 
     func containsCase(_ case: Element.Case) -> Bool {
         contains { $0.case == `case` }
@@ -219,7 +219,7 @@ extension Sequence where Element: CaseIdentifiable {
 
 }
 
-extension BidirectionalCollection where Element: CaseIdentifiable {
+extension BidirectionalCollection where Element: IdentifiableCase {
 
     func lastCase(_ case: Element.Case) -> Element? {
         last { $0.case == `case` }
