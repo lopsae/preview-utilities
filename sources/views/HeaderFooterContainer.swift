@@ -76,10 +76,29 @@ extension HeaderFooterContainer where Content == Never {
 // MARK: - Options
 
 
+nonisolated
+protocol ShiftIdentifiable: OptionSet {
+    associatedtype Shift: Hashable
+}
+
+extension ShiftIdentifiable
+where
+    Shift: RawRepresentable,
+    Shift.RawValue == Self.RawValue,
+    Self.RawValue: FixedWidthInteger
+{
+
+    init(shift: Shift) {
+        self.init(shiftedBy: shift.rawValue)
+    }
+
+}
+
+
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
 @dynamicMemberLookup
-public struct HeaderFooterContainerOptions: OptionSet, Sendable {
+public struct HeaderFooterContainerOptions: OptionSet, ShiftIdentifiable, Sendable {
     public let rawValue: Int
 
     public init(rawValue: Int) {
@@ -92,6 +111,8 @@ public struct HeaderFooterContainerOptions: OptionSet, Sendable {
              showDividersShift,
              padContentShift
 
+        // This static properties are required for KeyPath. Sadly, keypath cannot access enums
+        // cases.
         static var fixedHeader:  Self { .fixedHeaderShift }
         static var fixedFooter:  Self { .fixedFooterShift }
         static var showDividers: Self { .showDividersShift }
@@ -115,12 +136,12 @@ public struct HeaderFooterContainerOptions: OptionSet, Sendable {
         }
     }
 
-    // TODO: add initializer with the Shift type itself
+
     public static let empty:        Self = .init(rawValue: .zero)
-    public static let fixedHeader:  Self = .init(shiftedBy: Shift.fixedHeader.rawValue)
-    public static let fixedFooter:  Self = .init(shiftedBy: Shift.fixedFooterShift.rawValue)
-    public static let showDividers: Self = .init(shiftedBy: Shift.showDividersShift.rawValue)
-    public static let padContent:   Self = .init(shiftedBy: Shift.padContentShift.rawValue)
+    public static let fixedHeader:  Self = .init(shift: .fixedHeader)
+    public static let fixedFooter:  Self = .init(shift: .fixedFooter)
+    public static let showDividers: Self = .init(shift: .showDividers)
+    public static let padContent:   Self = .init(shift: .padContent)
 
     public static let `default`: Self = .padContent
 
