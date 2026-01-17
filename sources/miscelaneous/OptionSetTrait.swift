@@ -13,13 +13,6 @@ protocol OptionSetTrait {
 }
 
 
-// TODO: This is no longer needed for substraction. Still needed?
-nonisolated
-protocol OptionSetWithAll: OptionSet {
-    static var all: Self { get }
-}
-
-
 nonisolated
 enum OptionSetTraitOperation<Option: OptionSet> {
     case union(Option)

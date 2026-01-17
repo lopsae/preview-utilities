@@ -79,7 +79,7 @@ extension HeaderFooterContainer where Content == Never {
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
 @dynamicMemberLookup
-public struct HeaderFooterContainerOptions: OptionSet, OptionSetWithAll, Sendable {
+public struct HeaderFooterContainerOptions: OptionSet, Sendable {
     public let rawValue: Int
 
     public init(rawValue: Int) {
@@ -110,8 +110,7 @@ public struct HeaderFooterContainerOptions: OptionSet, OptionSetWithAll, Sendabl
             if newValue {
                 self.formUnion(option)
             } else {
-                let inverse = option.symmetricDifference(.all)
-                self.formIntersection(inverse)
+                self.subtract(option)
             }
         }
     }
@@ -122,7 +121,6 @@ public struct HeaderFooterContainerOptions: OptionSet, OptionSetWithAll, Sendabl
     public static let fixedFooter:  Self = .init(shiftedBy: Shift.fixedFooterShift.rawValue)
     public static let showDividers: Self = .init(shiftedBy: Shift.showDividersShift.rawValue)
     public static let padContent:   Self = .init(shiftedBy: Shift.padContentShift.rawValue)
-    public static let all:          Self = .init(allUpTo:   4) // TODO: can be automated?
 
     public static let `default`: Self = .padContent
 
