@@ -8,13 +8,13 @@ import SwiftUI
 
 
 nonisolated
-protocol ShiftIdentifiable: OptionSet {
+protocol IdentifiableShift: OptionSet {
     associatedtype Shift: RawRepresentable /*& ShiftKeypathProviding*/
     where Shift.RawValue == Self.RawValue/*, Shift.Option == Self*/
 }
 
 
-extension ShiftIdentifiable
+extension IdentifiableShift
 where
     Self.RawValue: FixedWidthInteger,
     Self.Element == Self
@@ -56,14 +56,14 @@ protocol ShiftKeypathProviding {
 
 extension Binding
 where
-    Value: ShiftIdentifiable,
+    Value: IdentifiableShift,
     Value.Shift: ShiftKeypathProviding,
     Value.Shift.Option == Value,
     Value.RawValue: FixedWidthInteger,
     Value.Element == Value
 {
     func binding(for shift: Value.Shift) -> Binding<Bool> {
-        // Implemented by ShiftIdentifiable
+        // Implemented by IdentifiableShift
         self[dynamicMember: shift.keyPath]
     }
 }
