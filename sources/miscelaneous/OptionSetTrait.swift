@@ -6,13 +6,14 @@
 
 nonisolated
 protocol OptionSetTrait {
-    associatedtype Option: OptionSetWithAll
+    associatedtype Option: OptionSet
     var operation: OptionSetTraitOperation<Option> { get }
 
     init(operation: OptionSetTraitOperation<Option>)
 }
 
 
+// TODO: This is no longer needed for substraction. Still needed?
 nonisolated
 protocol OptionSetWithAll: OptionSet {
     static var all: Self { get }
@@ -20,9 +21,9 @@ protocol OptionSetWithAll: OptionSet {
 
 
 nonisolated
-enum OptionSetTraitOperation<Option: OptionSetWithAll> {
+enum OptionSetTraitOperation<Option: OptionSet> {
     case union(Option)
-    case remove(Option)
+    case subtract(Option)
 }
 
 
@@ -33,17 +34,16 @@ extension OptionSetTrait {
         Self.init(operation: .union(option))
     }
 
-    static func remove(_ option: Option) -> Self {
-        Self.init(operation: .remove(option))
+    static func subtract(_ option: Option) -> Self {
+        Self.init(operation: .subtract(option))
     }
 
     func apply(to options: Option) -> Option {
         switch operation {
-        case .union(let traitOptions):
-            return options.union(traitOptions)
-        case .remove(let traitOptions):
-            let inverse = traitOptions.symmetricDifference(.all)
-            return options.intersection(inverse)
+        case .union(let traitOption):
+            return options.union(traitOption)
+        case .subtract(let traitOption):
+            return options.subtracting(traitOption)
         }
     }
 

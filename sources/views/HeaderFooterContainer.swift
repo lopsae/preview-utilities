@@ -143,7 +143,7 @@ public struct HeaderFooterContainerTrait: OptionSetTrait {
 
     public static let fixed:        Self = .union(.fixed)
 
-    public static let noPadding: Self = .remove(.padContent)
+    public static let noPadding: Self = .subtract(.padContent)
 }
 
 
