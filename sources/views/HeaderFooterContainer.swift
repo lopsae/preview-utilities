@@ -131,16 +131,6 @@ public struct HeaderFooterContainerOptions:
 }
 
 
-extension Binding where Value == HeaderFooterContainerOptions {
-
-    func displayProperty(for shift: HeaderFooterContainerOptions.Shift) -> BindingDisplayProperty<Bool> {
-        let display = self.wrappedValue.displayProperty(for: shift)
-        return .init(property: display, binding: self[shift: shift])
-    }
-
-}
-
-
 // MARK: - Trait
 
 
