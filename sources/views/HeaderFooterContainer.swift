@@ -86,7 +86,7 @@ public struct HeaderFooterContainerOptions: OptionSet, IdentifiableShift, Sendab
         self.rawValue = rawValue
     }
 
-    enum Shift: Int, CaseIterable, SelfIdentifiable, ShiftKeypathProviding {
+    enum Shift: Int, CaseIterable, SelfIdentifiable, ShiftKeypathProvider {
         case fixedHeaderShift = 0,
              fixedFooterShift,
              showDividersShift,
@@ -178,6 +178,8 @@ private struct PreviewContent {
 
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
 
+        // TODO: also document that dynamiclookup allows direct access like this.
+        Text("Show Dividers: \(options.showDividers.description)")
         ForEach(HeaderFooterContainerOptions.Shift.allCases) { shift in
             // TODO: add examples to document these two uses
 //            Toggle(shift.displayName, isOn: $options[dynamicMember: shift.keyPath])

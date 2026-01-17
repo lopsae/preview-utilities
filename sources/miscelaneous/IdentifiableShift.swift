@@ -9,8 +9,10 @@ import SwiftUI
 
 nonisolated
 protocol IdentifiableShift: OptionSet {
-    associatedtype Shift: RawRepresentable /*& ShiftKeypathProviding*/
-    where Shift.RawValue == Self.RawValue/*, Shift.Option == Self*/
+    associatedtype Shift: RawRepresentable
+    where Shift.RawValue == Self.RawValue
+
+    init(shift: Shift)
 }
 
 
@@ -24,9 +26,16 @@ where
         self.init(shiftedBy: shift.rawValue)
     }
 
+}
 
-    // TODO: this might not need FixedWidthInteger RawValue.
-    // Provides implementation for @dynamicMemberLookup.
+
+
+extension IdentifiableShift
+where
+    Self.Element == Self
+{
+
+    // Provides an implementation for @dynamicMemberLookup.
     subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> Bool {
         get {
             let shift = Shift.self[keyPath: keyPath]
@@ -48,7 +57,7 @@ where
 
 
 nonisolated
-protocol ShiftKeypathProviding {
+protocol ShiftKeypathProvider {
     associatedtype Option: OptionSet
     var keyPath: WritableKeyPath<Option, Bool> { get }
 }
@@ -57,10 +66,8 @@ protocol ShiftKeypathProviding {
 extension Binding
 where
     Value: IdentifiableShift,
-    Value.Shift: ShiftKeypathProviding,
-    Value.Shift.Option == Value,
-    Value.RawValue: FixedWidthInteger,
-    Value.Element == Value
+    Value.Shift: ShiftKeypathProvider,
+    Value.Shift.Option == Value
 {
     func binding(for shift: Value.Shift) -> Binding<Bool> {
         // Implemented by IdentifiableShift
