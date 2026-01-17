@@ -10,7 +10,7 @@ import SwiftUI
 public struct HeaderFooterContainer<Content: View>: View {
 
     let enableEdgePadding: Bool
-    let options: HeaderFooterPreviewOptions
+    let options: HeaderFooterContainerOptions
     let content: () -> Content
 
 
@@ -21,7 +21,7 @@ public struct HeaderFooterContainer<Content: View>: View {
     // edge. An enum of possible configuration (iOS, macOS, standalone) could be used.
     init(
         enableEdgePadding: Bool = true,
-        options: HeaderFooterPreviewOptions = .default,
+        options: HeaderFooterContainerOptions = .default,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.enableEdgePadding = enableEdgePadding
@@ -76,11 +76,10 @@ extension HeaderFooterContainer where Content == Never {
 // MARK: - Options
 
 
-// TODO: rename to HeaderFooterContainerOptions or Traits
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
 @dynamicMemberLookup
-public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
+public struct HeaderFooterContainerOptions: OptionSet, Sendable {
     public let rawValue: Int
 
     public init(rawValue: Int) {
@@ -136,10 +135,10 @@ public struct HeaderFooterPreviewOptions: OptionSet, Sendable {
 
 // TODO: can a OptionSetOperationTrait be abstracted into a protocol?
 public enum HeaderFooterContainerTrait {
-    case union(HeaderFooterPreviewOptions)
-    case remove(HeaderFooterPreviewOptions)
+    case union(HeaderFooterContainerOptions)
+    case remove(HeaderFooterContainerOptions)
 
-    func apply(to options: HeaderFooterPreviewOptions) -> HeaderFooterPreviewOptions {
+    func apply(to options: HeaderFooterContainerOptions) -> HeaderFooterContainerOptions {
         switch self {
         case .union(let traitOptions):
             return options.union(traitOptions)
@@ -163,7 +162,7 @@ public enum HeaderFooterContainerTrait {
 
 
 extension Sequence where Element == HeaderFooterContainerTrait {
-    func apply(to options: HeaderFooterPreviewOptions) -> HeaderFooterPreviewOptions {
+    func apply(to options: HeaderFooterContainerOptions) -> HeaderFooterContainerOptions {
         return self.reduce(options) { options, trait in
             trait.apply(to: options)
         }
@@ -193,7 +192,7 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var options: HeaderFooterPreviewOptions = .default
+    @Previewable @State var options: HeaderFooterContainerOptions = .default
     @Previewable @State var useDeviceSafeArea: Bool = true
     @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
 
@@ -220,7 +219,7 @@ private struct PreviewContent {
 
 
 #Preview("Content Height", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var options: HeaderFooterPreviewOptions = .default
+    @Previewable @State var options: HeaderFooterContainerOptions = .default
     @Previewable @State var useDeviceSafeArea: Bool = true
     @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
     @Previewable @State var fixedHeight: Double = 200

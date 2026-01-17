@@ -11,7 +11,7 @@ import SwiftUI
 /// header and footer that pushes the content away from the preview safe-areas.
 struct HeaderFooterPreviewModifier: PreviewModifier {
 
-    let options: HeaderFooterPreviewOptions
+    let options: HeaderFooterContainerOptions
 
     /// Edge padding configuration for the current platform. The preview of iOS always have a
     /// significant top and bottom safearea, so header and footer labels can stick closer to the
