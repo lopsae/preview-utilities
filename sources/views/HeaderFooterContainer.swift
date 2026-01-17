@@ -86,7 +86,7 @@ public struct HeaderFooterContainerOptions: OptionSet, ShiftIdentifiable, Sendab
         self.rawValue = rawValue
     }
 
-    enum Shift: Int {
+    enum Shift: Int, CaseIterable, SelfIdentifiable, ShiftKeypathProviding {
         case fixedHeaderShift = 0,
              fixedFooterShift,
              showDividersShift,
@@ -97,6 +97,24 @@ public struct HeaderFooterContainerOptions: OptionSet, ShiftIdentifiable, Sendab
         static var fixedFooter:  Self { .fixedFooterShift }
         static var showDividers: Self { .showDividersShift }
         static var padContent:   Self { .padContentShift }
+
+        var displayName: String {
+            switch self {
+            case .fixedHeaderShift:  "fixed header"
+            case .fixedFooterShift:  "fixed footer"
+            case .showDividersShift: "show dividers"
+            case .padContentShift:   "pad content"
+            }
+        }
+
+        var keyPath: WritableKeyPath<HeaderFooterContainerOptions, Bool> {
+            switch self {
+            case .fixedHeaderShift:  \.fixedHeader
+            case .fixedFooterShift:  \.fixedFooter
+            case .showDividersShift: \.showDividers
+            case .padContentShift:   \.padContent
+            }
+        }
     }
 
     public static let empty:        Self = .init(rawValue: .zero)
@@ -159,10 +177,18 @@ private struct PreviewContent {
     }
 
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
-        Toggle("Fixed Header",  isOn: $options.fixedHeader)
-        Toggle("Fixed Footer",  isOn: $options.fixedFooter)
-        Toggle("Show Dividers", isOn: $options.showDividers)
-        Toggle("Pad Content",   isOn: $options.padContent)
+
+        ForEach(HeaderFooterContainerOptions.Shift.allCases) { shift in
+            // TODO: add examples to document these two uses
+//            Toggle(shift.displayName, isOn: $options[dynamicMember: shift.keyPath])
+            Toggle(shift.displayName.capitalized, isOn: $options.binding(for: shift))
+        }
+
+        // TODO: add example to document direct access through dynamic lookup.
+//        Toggle("Fixed Header",  isOn: $options.fixedHeader)
+//        Toggle("Fixed Footer",  isOn: $options.fixedFooter)
+//        Toggle("Show Dividers", isOn: $options.showDividers)
+//        Toggle("Pad Content",   isOn: $options.padContent)
         Divider()
         Toggle("Use Device SafeArea", isOn: $useDeviceSafeArea)
         Toggle("Enable Edge Padding", isOn: $enableEdgePadding)
