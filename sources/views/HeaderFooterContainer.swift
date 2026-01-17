@@ -87,7 +87,7 @@ public struct HeaderFooterContainerOptions:
         self.rawValue = rawValue
     }
 
-    enum Shift: Int, CaseIterable, SelfIdentifiable {
+    enum Shift: Int, CaseIterable, SelfIdentifiable, DisplayKeyProvider {
         case fixedHeaderShift = 0,
              fixedFooterShift,
              showDividersShift,
@@ -128,20 +128,6 @@ public struct HeaderFooterContainerOptions:
     public static let `default`: Self = .padContent
 
     public static let fixed: Self = [.fixedHeader, .fixedFooter]
-}
-
-
-extension HeaderFooterContainerOptions {
-
-    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> DisplayProperty<Bool> {
-        let shift = Shift.self[keyPath: keyPath]
-        return displayProperty(for: shift)
-    }
-
-    func displayProperty(for shift: Shift) -> DisplayProperty<Bool> {
-        return DisplayProperty(displayKey: shift.displayKey, value: self[shift: shift])
-    }
-
 }
 
 

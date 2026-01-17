@@ -18,8 +18,7 @@ protocol IdentifiableShift: OptionSet {
 
 extension IdentifiableShift
 where
-    Self.RawValue: FixedWidthInteger,
-    Self.Element == Self
+    Self.RawValue: FixedWidthInteger
 {
 
     init(shift: Shift) {
@@ -32,6 +31,8 @@ where
 
 extension IdentifiableShift
 where
+    // Required for `contains` functions to be inherited along most of OptionSet functionality.
+    // This equivalency is expected in `OptionSet`s, tho not required.
     Self.Element == Self
 {
 
@@ -84,6 +85,25 @@ extension IdentifiableShiftWithDynamicMemberLookup where Element == Self {
             let shift = Shift.self[keyPath: keyPath]
             self[shift: shift] = newValue
         }
+    }
+
+}
+
+
+extension IdentifiableShift where Element == Self, Element.Shift: DisplayKeyProvider {
+
+    func displayProperty(for shift: Shift) -> DisplayProperty<Bool> {
+        return DisplayProperty(displayKey: shift.displayKey, value: self[shift: shift])
+    }
+
+}
+
+
+extension IdentifiableShiftWithDynamicMemberLookup where Element == Self, Element.Shift: DisplayKeyProvider {
+
+    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> DisplayProperty<Bool> {
+        let shift = Shift.self[keyPath: keyPath]
+        return displayProperty(for: shift)
     }
 
 }

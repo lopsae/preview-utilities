@@ -12,6 +12,7 @@ struct DisplayProperty<Value> {
     let value: Value
 }
 
+
 struct BindingDisplayProperty<Value> {
     let displayKey: LocalizedStringKey
     let value: Value
@@ -22,6 +23,11 @@ struct BindingDisplayProperty<Value> {
         self.value = property.value
         self.binding = binding
     }
+}
+
+
+protocol DisplayKeyProvider {
+    var displayKey: LocalizedStringKey { get }
 }
 
 
