@@ -79,7 +79,7 @@ extension HeaderFooterContainer where Content == Never {
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
 @dynamicMemberLookup
-public struct HeaderFooterContainerOptions: OptionSet, Sendable {
+public struct HeaderFooterContainerOptions: OptionSet, OptionSetWithAll, Sendable {
     public let rawValue: Int
 
     public init(rawValue: Int) {
@@ -133,13 +133,48 @@ public struct HeaderFooterContainerOptions: OptionSet, Sendable {
 // MARK: - Trait
 
 
-// TODO: can a OptionSetOperationTrait be abstracted into a protocol?
-public enum HeaderFooterContainerTrait {
-    case union(HeaderFooterContainerOptions)
-    case remove(HeaderFooterContainerOptions)
+public struct HeaderFooterContainerTrait: OptionSetTrait {
+    let operation: OptionSetTraitOperation<HeaderFooterContainerOptions>
 
-    func apply(to options: HeaderFooterContainerOptions) -> HeaderFooterContainerOptions {
-        switch self {
+    public static let fixedHeader:  Self = .union(.fixedFooter)
+    public static let fixedFooter:  Self = .union(.fixedFooter)
+    public static let showDividers: Self = .union(.showDividers)
+    public static let padContent:   Self = .union(.padContent)
+
+    public static let fixed:        Self = .union(.fixed)
+
+    public static let noPadding: Self = .remove(.padContent)
+}
+
+
+nonisolated
+protocol OptionSetWithAll: OptionSet {
+    static var all: Self { get }
+}
+
+
+nonisolated
+protocol OptionSetTrait {
+    associatedtype Option: OptionSetWithAll
+    var operation: OptionSetTraitOperation<Option> { get }
+
+    init(operation: OptionSetTraitOperation<Option>)
+}
+
+
+nonisolated
+extension OptionSetTrait {
+
+    static func union(_ option: Option) -> Self {
+        Self.init(operation: .union(option))
+    }
+
+    static func remove(_ option: Option) -> Self {
+        Self.init(operation: .remove(option))
+    }
+
+    func apply(to options: Option) -> Option {
+        switch operation {
         case .union(let traitOptions):
             return options.union(traitOptions)
         case .remove(let traitOptions):
@@ -148,21 +183,18 @@ public enum HeaderFooterContainerTrait {
         }
     }
 
-
-    public static let fixedHeader:  Self = .union(.fixedHeader)
-    public static let fixedFooter:  Self = .union(.fixedFooter)
-    public static let showDividers: Self = .union(.showDividers)
-    public static let padContent:   Self = .union(.padContent)
-
-    public static let fixed:        Self = .union(.fixed)
-
-    public static let noPadding: Self = .remove(.padContent)
-
 }
 
 
-extension Sequence where Element == HeaderFooterContainerTrait {
-    func apply(to options: HeaderFooterContainerOptions) -> HeaderFooterContainerOptions {
+nonisolated
+enum OptionSetTraitOperation<Option: OptionSetWithAll> {
+    case union(Option)
+    case remove(Option)
+}
+
+
+extension Sequence where Element: OptionSetTrait {
+    func apply(to options: Element.Option) -> Element.Option {
         return self.reduce(options) { options, trait in
             trait.apply(to: options)
         }
