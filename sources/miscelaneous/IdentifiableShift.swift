@@ -109,6 +109,7 @@ where
     Element.Shift: DisplayKeyProvider
 {
 
+    // TODO: can this be made writable, to generate a DisplayPropertyBinding?
     subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> DisplayProperty<Bool> {
         let shift = Shift.self[keyPath: keyPath]
         return displayProperty(for: shift)
@@ -132,7 +133,6 @@ where
 }
 
 
-
 // MARK: - PreviewContent
 
 
@@ -141,71 +141,134 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
-    struct Firings: OptionSet {
+    @ViewBuilder
+    static func captioned(
+        _ captionKey: LocalizedStringKey,
+        @ViewBuilder content: () -> some View
+    ) -> some View {
+        VStack(alignment: .leading) {
+            Text(captionKey).font(.caption)
+            content()
+        }
+        .maxWidthFrame(alignment: .leading)
+        .padding(.bottom, 5)
+    }
+
+    struct Firings: OptionSet, IdentifiableShiftWithDynamicMemberLookup {
         let rawValue: Int
 
-        
+        enum Shift: Int, CaseIterable, SelfIdentifiable, DisplayKeyProvider {
+            case _greenware = 0, _bisque, _glaze
+
+            // These properties define the available `KeyPath<Shift.Type, Shift>` and thus the
+            // actual names of the dynamic members available in the OptionSet.
+            // Sadly, keypath cannot read the cases directly.
+            static var boneDry: Self { ._greenware } // Different name from enum.
+            static var bisque:  Self { ._bisque }
+            static var glaze:   Self { ._glaze }
+
+            // TODO: a diferent set of static vars returning LocalizationKey could be defined to produce a separate dynamic member for DisplayProperties
+
+            // Implementation for DisplayKeyProvider, allows the OptionSet to produce DisplayProperties.
+            var displayKey: LocalizedStringKey {
+                switch self {
+                case ._greenware: "Bone Dry"
+                case ._bisque:    "Bisque"
+                case ._glaze:     "Glaze"
+                }
+            }
+
+            // Not required, but can be used to use [dynamicMember:] subscript directly.
+            // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
+            var keyPath: KeyPath<Self.Type, Self> {
+                switch self {
+                case ._greenware: \.boneDry
+                case ._bisque:    \.bisque
+                case ._glaze:    \.glaze
+                }
+            }
+
+            // Not required, but can be used to use Binding[dynamicMember:] subscript directly.
+            // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
+            var bindingKeyPath: WritableKeyPath<Firings, Bool> {
+                switch self {
+                case ._greenware: \.boneDry
+                case ._bisque:    \.bisque
+                case ._glaze:     \.glaze
+                }
+            }
+        }
+
+        // TODO: are the static properties even needed?
+        static let glaze: Self = .init(shift: .glaze)
     }
 
 }
 
 
-//public struct HeaderFooterContainerOptions:
-//    OptionSet, IdentifiableShiftWithDynamicMemberLookup, Sendable
-//{
-//    public let rawValue: Int
-//
-//    public init(rawValue: Int) {
-//        self.rawValue = rawValue
-//    }
-//
-//    enum Shift: Int, CaseIterable, SelfIdentifiable, DisplayKeyProvider {
-//        case fixedHeaderShift = 0,
-//             fixedFooterShift,
-//             showDividersShift,
-//             padContentShift
-//
-//        // These properties are required for KeyPath. Sadly, keypath cannot access enums cases.
-//        static var fixedHeader:  Self { .fixedHeaderShift }
-//        static var fixedFooter:  Self { .fixedFooterShift }
-//        static var showDividers: Self { .showDividersShift }
-//        static var padContent:   Self { .padContentShift }
-//
-//        var displayKey: LocalizedStringKey {
-//            switch self {
-//            case .fixedHeaderShift:  "Fixed Header"
-//            case .fixedFooterShift:  "Fixed Footer"
-//            case .showDividersShift: "Show Dividers"
-//            case .padContentShift:   "Pad Content"
-//            }
-//        }
-//
-//        // Can be used for direct access to [dynamicMember:] subscript.
-//        var keyPath: WritableKeyPath<HeaderFooterContainerOptions, Bool> {
-//            switch self {
-//            case .fixedHeaderShift:  \.fixedHeader
-//            case .fixedFooterShift:  \.fixedFooter
-//            case .showDividersShift: \.showDividers
-//            case .padContentShift:   \.padContent
-//            }
-//        }
-//    }
-//
-//    public static let empty:        Self = .init(rawValue: .zero)
-//    public static let fixedHeader:  Self = .init(shift: .fixedHeader)
-//    public static let fixedFooter:  Self = .init(shift: .fixedFooter)
-//    public static let showDividers: Self = .init(shift: .showDividers)
-//    public static let padContent:   Self = .init(shift: .padContent)
-//
-//    public static let `default`: Self = .padContent
-//
-//    public static let fixed: Self = [.fixedHeader, .fixedFooter]
-//}
-
-
 // MARK: - Previews
 
 
-//#Preview("Example", traits: .headerFooter, PreviewContent.layout) {
-//
-//}
+#Preview("Example", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var options: PreviewContent.Firings = [
+        // Option sets can be initialized with a Shift
+        .init(shift: .boneDry),
+        // Or with the usual static property, when defined.
+        .glaze
+    ]
+    PreviewContent.captioned("Using `[shift:]` subscript.") {
+        Text("Bone Dry: \(options[shift: .boneDry].description)")
+    }
+    PreviewContent.captioned("Using `Bool` Dynamic Member.") {
+        // Needs to be casted since dynamic member is overloaded twice: returns Boo or DisplayProperty.
+        let bisqueBool: Bool = options.bisque
+        Text("Bisque: \(bisqueBool.description)")
+    }
+    PreviewContent.captioned("Using `.contains(_:)`, the usual way.") {
+        Text("Glazed: \(options.contains(.glaze).description)")
+    }
+
+    DashedDivider()
+
+    PreviewContent.captioned("Using `displayProperty(for:)`.") {
+        Text(property: options.displayProperty(for: .boneDry))
+    }
+    PreviewContent.captioned("Using `DisplayProperty` Dynamic Member.") {
+        Text(property: options.bisque)
+    }
+    PreviewContent.captioned("Using `[dynamicMember:]` directly.") {
+        let keyPath = PreviewContent.Firings.Shift.glaze.keyPath
+        Text(property: options[dynamicMember: keyPath])
+    }
+
+    DashedDivider()
+
+    PreviewContent.captioned("Toggles iterating through `Shift` cases.") {
+        ForEach(PreviewContent.Firings.Shift.allCases) { shift in
+            Toggle(shift.displayKey, isOn: $options.binding(for: shift))
+        }
+    }
+
+    DashedDivider()
+
+    PreviewContent.captioned("Toggle using `Binding` inherited dynamic member.") {
+        let shift = PreviewContent.Firings.Shift.boneDry
+        Toggle(shift.displayKey, isOn: $options.boneDry)
+    }
+    PreviewContent.captioned("Toggle using `Binding` inherited subscript.") {
+        let shift = PreviewContent.Firings.Shift.bisque
+        Toggle(shift.displayKey, isOn: $options[shift: shift])
+    }
+    PreviewContent.captioned("Toggle using `Binding` inherited `[dynamicMember:]`.") {
+        let shift = PreviewContent.Firings.Shift.glaze
+        Toggle(shift.displayKey, isOn: $options[dynamicMember: shift.bindingKeyPath])
+    }
+
+    DashedDivider()
+
+    PreviewContent.captioned("Toggle using `BindingDisplayProperty`.") {
+        let shift = PreviewContent.Firings.Shift.boneDry
+        Toggle(property: $options.displayProperty(for: .boneDry))
+    }
+
+}
