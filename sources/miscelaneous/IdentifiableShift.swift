@@ -9,7 +9,7 @@ import SwiftUI
 
 nonisolated
 protocol IdentifiableShift: OptionSet {
-    associatedtype Shift: RawRepresentable
+    associatedtype Shift: RawRepresentable & Hashable
     where Shift.RawValue == Self.RawValue
 
     init(shift: Shift)
@@ -35,15 +35,12 @@ where
     Self.Element == Self
 {
 
-    // Provides an implementation for @dynamicMemberLookup.
-    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> Bool {
+    subscript(shift shift: Shift) -> Bool {
         get {
-            let shift = Shift.self[keyPath: keyPath]
             let option = Self.init(shift: shift)
             return self.contains(option)
         }
         mutating set {
-            let shift = Shift.self[keyPath: keyPath]
             let option = Self.init(shift: shift)
             if newValue {
                 self.formUnion(option)
@@ -56,21 +53,37 @@ where
 }
 
 
-nonisolated
-protocol ShiftKeypathProvider {
-    associatedtype Option: OptionSet
-    var keyPath: WritableKeyPath<Option, Bool> { get }
-}
-
-
 extension Binding
 where
     Value: IdentifiableShift,
-    Value.Shift: ShiftKeypathProvider,
-    Value.Shift.Option == Value
+    Value.Element == Value
 {
     func binding(for shift: Value.Shift) -> Binding<Bool> {
-        // Implemented by IdentifiableShift
-        self[dynamicMember: shift.keyPath]
+        self[shift: shift]
     }
+}
+
+
+@dynamicMemberLookup
+nonisolated
+protocol IdentifiableShiftWithDynamicMemberLookup: IdentifiableShift {
+
+    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> Bool { get mutating set }
+
+}
+
+
+extension IdentifiableShiftWithDynamicMemberLookup where Element == Self {
+
+    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> Bool {
+        get {
+            let shift = Shift.self[keyPath: keyPath]
+            return self[shift: shift]
+        }
+        mutating set {
+            let shift = Shift.self[keyPath: keyPath]
+            self[shift: shift] = newValue
+        }
+    }
+
 }

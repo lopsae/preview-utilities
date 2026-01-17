@@ -78,15 +78,16 @@ extension HeaderFooterContainer where Content == Never {
 
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
-@dynamicMemberLookup
-public struct HeaderFooterContainerOptions: OptionSet, IdentifiableShift, Sendable {
+public struct HeaderFooterContainerOptions:
+    OptionSet, IdentifiableShiftWithDynamicMemberLookup, Sendable
+{
     public let rawValue: Int
 
     public init(rawValue: Int) {
         self.rawValue = rawValue
     }
 
-    enum Shift: Int, CaseIterable, SelfIdentifiable, ShiftKeypathProvider {
+    enum Shift: Int, CaseIterable, SelfIdentifiable {
         case fixedHeaderShift = 0,
              fixedFooterShift,
              showDividersShift,
@@ -180,10 +181,12 @@ private struct PreviewContent {
 
         // TODO: also document that dynamiclookup allows direct access like this.
         Text("Show Dividers: \(options.showDividers.description)")
+        Text("Show Dividers: \(options[shift: .showDividers].description)")
         ForEach(HeaderFooterContainerOptions.Shift.allCases) { shift in
             // TODO: add examples to document these two uses
 //            Toggle(shift.displayName, isOn: $options[dynamicMember: shift.keyPath])
             Toggle(shift.displayName.capitalized, isOn: $options.binding(for: shift))
+//            Toggle(shift.displayName.capitalized, isOn: $options[shift: shift])
         }
 
         // TODO: add example to document direct access through dynamic lookup.
@@ -216,10 +219,10 @@ private struct PreviewContent {
 
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
         VStack {
-            Toggle("Fixed Header",  isOn: $options.fixedHeader)
-            Toggle("Fixed Footer",  isOn: $options.fixedFooter)
-            Toggle("Show Dividers", isOn: $options.showDividers)
-            Toggle("Pad Content",   isOn: $options.padContent)
+//            Toggle("Fixed Header",  isOn: $options.fixedHeader)
+//            Toggle("Fixed Footer",  isOn: $options.fixedFooter)
+//            Toggle("Show Dividers", isOn: $options.showDividers)
+//            Toggle("Pad Content",   isOn: $options.padContent)
             Slider.captioned(
                 "Fixed Content Height",
                 value: $fixedHeight,
