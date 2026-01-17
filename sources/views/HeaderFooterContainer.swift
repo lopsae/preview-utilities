@@ -92,31 +92,12 @@ public struct HeaderFooterContainerOptions: OptionSet, ShiftIdentifiable, Sendab
              showDividersShift,
              padContentShift
 
-        // This static properties are required for KeyPath. Sadly, keypath cannot access enums
-        // cases.
+        // These properties are required for KeyPath. Sadly, keypath cannot access enums cases.
         static var fixedHeader:  Self { .fixedHeaderShift }
         static var fixedFooter:  Self { .fixedFooterShift }
         static var showDividers: Self { .showDividersShift }
         static var padContent:   Self { .padContentShift }
     }
-
-    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> Bool {
-        get {
-            let optionShift = Shift.self[keyPath: keyPath]
-            let option = Self.init(shiftedBy: optionShift.rawValue)
-            return self.contains(option)
-        }
-        mutating set {
-            let optionShift = Shift.self[keyPath: keyPath]
-            let option = Self.init(shiftedBy: optionShift.rawValue)
-            if newValue {
-                self.formUnion(option)
-            } else {
-                self.subtract(option)
-            }
-        }
-    }
-
 
     public static let empty:        Self = .init(rawValue: .zero)
     public static let fixedHeader:  Self = .init(shift: .fixedHeader)
