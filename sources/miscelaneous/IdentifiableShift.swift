@@ -151,6 +151,7 @@ private struct PreviewContent {
             content()
         }
         .maxWidthFrame(alignment: .leading)
+        .padding(.horizontal)
         .padding(.bottom, 5)
     }
 
@@ -209,7 +210,7 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Example", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Example", traits: .scrollViewWrap, PreviewContent.layout) {
     @Previewable @State var options: PreviewContent.Firings = [
         // Option sets can be initialized with a Shift
         .init(shift: .boneDry),
@@ -267,8 +268,13 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.captioned("Toggle using `BindingDisplayProperty`.") {
-        let shift = PreviewContent.Firings.Shift.boneDry
         Toggle(property: $options.displayProperty(for: .boneDry))
+    }
+    PreviewContent.captioned("TODO: Binding dynamic property.") {
+        Toggle(property: $options.displayProperty(for: .bisque))
+    }
+    PreviewContent.captioned("TODO: Binding dynamic subscript.") {
+        Toggle(property: $options.displayProperty(for: .glaze))
     }
 
 }
