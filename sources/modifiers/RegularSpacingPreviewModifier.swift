@@ -7,10 +7,11 @@
 import SwiftUI
 
 
+// TODO: this trait may no longer be needed, since HeaderFooter now defaults to regular spacing.
+
 /// Wraps the preview content in a `VStack` with regular spacing.
 ///
-/// Useful when using traits like `.headerFooter` which by default set the enclosing `VStack`
-/// spacing to zero.
+/// Useful when using traits that enclose with a default spacing of zero.
 struct RegularSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
@@ -58,14 +59,14 @@ extension PreviewTrait where T == Preview.ViewTraits {
 #Preview("Default", traits: .regularSpacing) {
     Rectangle()
         .fill(.teal)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Rectangle()
         .fill(.orange)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Divider()
     Rectangle()
         .fill(.yellow)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
@@ -83,14 +84,14 @@ extension PreviewTrait where T == Preview.ViewTraits {
 #Preview("RegularSpacing + HeaderFooter", traits: .debugRegularSpacing, .headerFooter(.showDividers)) {
     Rectangle()
         .fill(.teal)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Rectangle()
         .fill(.orange)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Divider()
     Rectangle()
         .fill(.yellow)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
@@ -109,12 +110,12 @@ extension PreviewTrait where T == Preview.ViewTraits {
 #Preview("HeaderFooter + RegularSpacing", traits: .headerFooter(.showDividers), .debugRegularSpacing) {
     Rectangle()
         .fill(.teal)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Rectangle()
         .fill(.orange)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Divider()
     Rectangle()
         .fill(.yellow)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }

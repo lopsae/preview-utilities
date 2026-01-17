@@ -57,14 +57,14 @@ extension PreviewTrait where T == Preview.ViewTraits {
 #Preview("Default", traits: .zeroSpacing) {
     Rectangle()
         .fill(.teal)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Rectangle()
         .fill(.orange)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Divider()
     Rectangle()
         .fill(.yellow)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
@@ -75,16 +75,16 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
     Rectangle()
         .fill(.teal)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Rectangle()
         .fill(.orange)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 
     Divider()
 
     Rectangle()
         .fill(.yellow)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
@@ -102,14 +102,14 @@ extension PreviewTrait where T == Preview.ViewTraits {
 #Preview("ZeroSpacing + HeaderFooter", traits: .debugZeroSpacing, .headerFooter(.showDividers)) {
     Rectangle()
         .fill(.teal)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Rectangle()
         .fill(.orange)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Divider()
     Rectangle()
         .fill(.yellow)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
 
 
@@ -127,12 +127,12 @@ extension PreviewTrait where T == Preview.ViewTraits {
 #Preview("HeaderFooter + ZeroSpacing", traits: .headerFooter(.showDividers), .debugZeroSpacing) {
     Rectangle()
         .fill(.teal)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Rectangle()
         .fill(.orange)
-        .frame(square: 100)
+        .frame(squareOf: 100)
     Divider()
     Rectangle()
         .fill(.yellow)
-        .frame(square: 100)
+        .frame(squareOf: 100)
 }
