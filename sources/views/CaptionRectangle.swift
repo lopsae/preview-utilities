@@ -50,6 +50,20 @@ struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
 
     init(
         _ localizationKey: LocalizedStringKey,
+        fill: Fill = .gray.gradient.tertiary,
+        stroke: Stroke = .tertiary,
+        size: CGSize,
+        traits: FloatingCaptionModifier.Trait...
+    ) {
+        self.init(
+            localizationKey, fill: fill, stroke: stroke,
+            width: size.width, height: size.height,
+            traits: traits)
+    }
+
+
+    init(
+        _ localizationKey: LocalizedStringKey,
         color: Color,
         width: CGFloat? = nil,
         height: CGFloat? = nil,
@@ -62,6 +76,23 @@ struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
             fill: AnyShapeStyle(color.gradient.tertiary),
             stroke: AnyShapeStyle(color.secondary),
             width: width, height: height, traits: traits)
+    }
+
+
+    init(
+        _ localizationKey: LocalizedStringKey,
+        color: Color,
+        size: CGSize,
+        traits: FloatingCaptionModifier.Trait...
+    )
+        where Fill == AnyShapeStyle, Stroke == AnyShapeStyle
+    {
+        self.init(
+            localizationKey,
+            fill: AnyShapeStyle(color.gradient.tertiary),
+            stroke: AnyShapeStyle(color.secondary),
+            width: size.width, height: size.height,
+            traits: traits)
     }
 
 

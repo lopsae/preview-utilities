@@ -55,3 +55,21 @@ extension Toggle {
 
 }
 
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .headerFooter, .iPhoneProSizeForcedLayout) {
+    @Previewable @State var boolean: Bool = true
+
+    let property = DisplayProperty(displayKey: "Display Boolean", value: boolean)
+    let bindingProperty = BindingDisplayProperty(property: property, binding: $boolean)
+
+    Text(property: property)
+    Toggle(property: bindingProperty)
+
+    CaptionRectangle(
+        "Content", color: boolean ? .teal : .indigo,
+        size: .square(of: 100))
+}
+
