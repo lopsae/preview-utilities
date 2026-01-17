@@ -328,7 +328,7 @@ extension Slider {
 @MainActor
 private struct PreviewContent {
 
-     static let layout: PreviewTrait<Preview.ViewTraits> = .fixedLayout(width: 400, height: 400)
+     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
 }
 

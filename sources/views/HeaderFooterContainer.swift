@@ -99,15 +99,16 @@ public struct HeaderFooterContainerOptions:
         static var showDividers: Self { .showDividersShift }
         static var padContent:   Self { .padContentShift }
 
-        var displayName: String {
+        var displayKey: LocalizedStringKey {
             switch self {
-            case .fixedHeaderShift:  "fixed header"
-            case .fixedFooterShift:  "fixed footer"
-            case .showDividersShift: "show dividers"
-            case .padContentShift:   "pad content"
+            case .fixedHeaderShift:  "Fixed Header"
+            case .fixedFooterShift:  "Fixed Footer"
+            case .showDividersShift: "Show Dividers"
+            case .padContentShift:   "Pad Content"
             }
         }
 
+        // Can be used for direct access to [dynamicMember:] subscript.
         var keyPath: WritableKeyPath<HeaderFooterContainerOptions, Bool> {
             switch self {
             case .fixedHeaderShift:  \.fixedHeader
@@ -127,6 +128,48 @@ public struct HeaderFooterContainerOptions:
     public static let `default`: Self = .padContent
 
     public static let fixed: Self = [.fixedHeader, .fixedFooter]
+}
+
+
+extension HeaderFooterContainerOptions {
+
+    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> DisplayProperty<Bool> {
+        let shift = Shift.self[keyPath: keyPath]
+        return displayProperty(for: shift)
+    }
+
+    func displayProperty(for shift: Shift) -> DisplayProperty<Bool> {
+        return DisplayProperty(displayKey: shift.displayKey, value: self[shift: shift])
+    }
+
+}
+
+
+struct DisplayProperty<Value> {
+    let displayKey: LocalizedStringKey
+    let value: Value
+}
+
+struct BindingDisplayProperty<Value> {
+    let displayKey: LocalizedStringKey
+    let value: Value
+    let binding: Binding<Value>
+
+    init(property: DisplayProperty<Value>, binding: Binding<Value>) {
+        self.displayKey = property.displayKey
+        self.value = property.value
+        self.binding = binding
+    }
+}
+
+
+extension Binding where Value == HeaderFooterContainerOptions {
+
+    func displayProperty(for shift: HeaderFooterContainerOptions.Shift) -> BindingDisplayProperty<Bool> {
+        let display = self.wrappedValue.displayProperty(for: shift)
+        return .init(property: display, binding: self[shift: shift])
+    }
+
 }
 
 
@@ -180,14 +223,19 @@ private struct PreviewContent {
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
 
         // TODO: also document that dynamiclookup allows direct access like this.
+        Text(property: options.showDividers)
+        Text(property: options.displayProperty(for: .showDividers))
         Text("Show Dividers: \(options.showDividers.description)")
         Text("Show Dividers: \(options[shift: .showDividers].description)")
         ForEach(HeaderFooterContainerOptions.Shift.allCases) { shift in
             // TODO: add examples to document these two uses
 //            Toggle(shift.displayName, isOn: $options[dynamicMember: shift.keyPath])
-            Toggle(shift.displayName.capitalized, isOn: $options.binding(for: shift))
+            Toggle(shift.displayKey, isOn: $options.binding(for: shift))
 //            Toggle(shift.displayName.capitalized, isOn: $options[shift: shift])
         }
+
+        Divider()
+        Toggle(property: $options.displayProperty(for: .showDividers))
 
         // TODO: add example to document direct access through dynamic lookup.
 //        Toggle("Fixed Header",  isOn: $options.fixedHeader)
@@ -204,6 +252,34 @@ private struct PreviewContent {
     if !useDeviceSafeArea {
         SafeAreaPad(edge: .bottom, showDivider: true)
     }
+}
+
+
+extension Text {
+
+    init<Value>(
+        property: DisplayProperty<Value>
+    ) {
+        let text = Text(property.displayKey)
+        let valueString = String(describing: property.value)
+        self.init("\(text): \(valueString)")
+    }
+
+}
+
+
+extension Toggle {
+
+    init(property: BindingDisplayProperty<Bool>) where Label == Text {
+        self.init(property.displayKey, isOn: property.binding)
+    }
+
+}
+
+
+struct NeverFormatStyle<Value>: FormatStyle {
+    private init() {}
+    func format(_ value: Value) -> String { fatalError() }
 }
 
 
