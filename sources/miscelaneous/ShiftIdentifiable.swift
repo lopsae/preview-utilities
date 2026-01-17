@@ -6,16 +6,11 @@
 
 nonisolated
 protocol ShiftIdentifiable: OptionSet {
-    associatedtype Shift: Hashable
+    associatedtype Shift: RawRepresentable where Shift.RawValue == Self.RawValue
 }
 
 
-extension ShiftIdentifiable
-where
-    Shift: RawRepresentable,
-    Shift.RawValue == Self.RawValue,
-    Self.RawValue: FixedWidthInteger
-{
+extension ShiftIdentifiable where Self.RawValue: FixedWidthInteger {
 
     init(shift: Shift) {
         self.init(shiftedBy: shift.rawValue)
