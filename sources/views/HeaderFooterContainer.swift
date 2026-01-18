@@ -88,33 +88,40 @@ public struct HeaderFooterContainerOptions:
     }
 
     enum Shift: Int, CaseIterable, SelfIdentifiable, DisplayKeyProvider {
-        case fixedHeaderShift = 0,
-             fixedFooterShift,
-             showDividersShift,
-             padContentShift
+        case fixedHeader = 0,
+             fixedFooter,
+             showDividers,
+             padContent
 
         // These properties are required for KeyPath. Sadly, keypath cannot access enums cases.
-        static var fixedHeader:  Self { .fixedHeaderShift }
-        static var fixedFooter:  Self { .fixedFooterShift }
-        static var showDividers: Self { .showDividersShift }
-        static var padContent:   Self { .padContentShift }
+        static var fixedHeaderValue:  ValueKey<Self> { .key(.fixedHeader) }
+        static var fixedFooterValue:  ValueKey<Self> { .key(.fixedFooter) }
+        static var showDividersValue: ValueKey<Self> { .key(.showDividers) }
+        static var padContentValue:   ValueKey<Self> { .key(.padContent) }
 
         var displayKey: LocalizedStringKey {
             switch self {
-            case .fixedHeaderShift:  "Fixed Header"
-            case .fixedFooterShift:  "Fixed Footer"
-            case .showDividersShift: "Show Dividers"
-            case .padContentShift:   "Pad Content"
+            case .fixedHeader:  "Fixed Header"
+            case .fixedFooter:  "Fixed Footer"
+            case .showDividers: "Show Dividers"
+            case .padContent:   "Pad Content"
             }
         }
+//        static var boneDryDisplay: DisplayKey<Self> { DisplayKey(key: .boneDry) }
+//        static var bisqueDisplay:  DisplayKey<Self> { DisplayKey(key: .bisque) }
+//        static var glazeDisplay:   DisplayKey<Self> { DisplayKey(key: .glaze) }
+//        static var fixedHeader:  Self { .fixedHeaderShift }
+//        static var fixedFooter:  Self { .fixedFooterShift }
+//        static var showDividers: Self { .showDividersShift }
+//        static var padContent:   Self { .padContentShift }
 
         // Can be used for direct access to [dynamicMember:] subscript.
         var keyPath: WritableKeyPath<HeaderFooterContainerOptions, Bool> {
             switch self {
-            case .fixedHeaderShift:  \.fixedHeader
-            case .fixedFooterShift:  \.fixedFooter
-            case .showDividersShift: \.showDividers
-            case .padContentShift:   \.padContent
+            case .fixedHeader:  \.fixedHeaderValue
+            case .fixedFooter:  \.fixedFooterValue
+            case .showDividers: \.showDividersValue
+            case .padContent:   \.padContentValue
             }
         }
     }
@@ -181,9 +188,9 @@ private struct PreviewContent {
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
 
         // TODO: also document that dynamiclookup allows direct access like this.
-        Text(property: options.showDividers)
+//        Text(property: options.showDividers)
         Text(property: options.displayProperty(for: .showDividers))
-        Text("Show Dividers: \(options.showDividers.description)")
+        Text("Show Dividers: \(options.showDividersValue.description)")
         Text("Show Dividers: \(options[shift: .showDividers].description)")
         ForEach(HeaderFooterContainerOptions.Shift.allCases) { shift in
             // TODO: add examples to document these two uses
@@ -193,7 +200,8 @@ private struct PreviewContent {
         }
 
         Divider()
-        Toggle(property: $options.displayProperty(for: .showDividers))
+//        Toggle(property: $options.displayProperty(for: .showDividers))
+//        Toggle(property: $options.showDividers)
 
         // TODO: add example to document direct access through dynamic lookup.
 //        Toggle("Fixed Header",  isOn: $options.fixedHeader)

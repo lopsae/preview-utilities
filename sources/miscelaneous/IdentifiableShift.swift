@@ -65,25 +65,45 @@ where
 }
 
 
+/// `IdentifialbleShift` that also implements `@dynamicMemberLookup`.
+///
+/// The defined `[dynamicMember:]` subscript depends on static computed properties in `Shift` that
+/// return a `ValueKey<Shift>`. Usually a wrapper for each of the cases:
+///
+/// ```
+/// enum Shift {
+///     case first
+///     static var firstValue: ValueKey<Shift> { .key(.first) }
+/// }
+/// ```
 @dynamicMemberLookup
 nonisolated
 protocol IdentifiableShiftWithDynamicMemberLookup: IdentifiableShift {
 
-    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> Bool { get mutating set }
+    subscript(dynamicMember keyPath: KeyPath<Shift.Type, ValueKey<Shift>>) -> Bool { get mutating set }
 
 }
 
 
+/// Type for properties in `IdentifiableShift.Shift` that are used to define dynamic members for
+/// each `OptionSet` component value.
+struct ValueKey<Key> {
+    let key: Key
+    static func key(_ key: Key) -> Self { .init(key: key) }
+}
+
+
+/// Default implementation for dynamic members to get or set value of each `OptionSet` component.
 extension IdentifiableShiftWithDynamicMemberLookup where Element == Self {
 
-    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> Bool {
+    subscript(dynamicMember keyPath: KeyPath<Shift.Type, ValueKey<Shift>>) -> Bool {
         get {
-            let shift = Shift.self[keyPath: keyPath]
-            return self[shift: shift]
+            let valueKey = Shift.self[keyPath: keyPath]
+            return self[shift: valueKey.key]
         }
         mutating set {
-            let shift = Shift.self[keyPath: keyPath]
-            self[shift: shift] = newValue
+            let valueKey = Shift.self[keyPath: keyPath]
+            self[shift: valueKey.key] = newValue
         }
     }
 
@@ -110,9 +130,9 @@ where
 {
 
     // TODO: can this be made writable, to generate a DisplayPropertyBinding?
-    subscript(dynamicMember keyPath: KeyPath<Shift.Type, Shift>) -> DisplayProperty<Bool> {
-        let shift = Shift.self[keyPath: keyPath]
-        return displayProperty(for: shift)
+    subscript(dynamicMember keyPath: KeyPath<Shift.Type, DisplayKey<Shift>>) -> DisplayProperty<Bool> {
+        let displayKey = Shift.self[keyPath: keyPath]
+        return displayProperty(for: displayKey.key)
     }
 
 }
@@ -146,7 +166,7 @@ private struct PreviewContent {
         _ captionKey: LocalizedStringKey,
         @ViewBuilder content: () -> some View
     ) -> some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 2) {
             Text(captionKey).font(.caption)
             content()
         }
@@ -155,52 +175,73 @@ private struct PreviewContent {
         .padding(.bottom, 5)
     }
 
+
+    // MARK: Example OptionSet
+
+
     struct Firings: OptionSet, IdentifiableShiftWithDynamicMemberLookup {
         let rawValue: Int
 
         enum Shift: Int, CaseIterable, SelfIdentifiable, DisplayKeyProvider {
-            case _greenware = 0, _bisque, _glaze
+            case greenware = 0, bisque, glaze
 
-            // These properties define the available `KeyPath<Shift.Type, Shift>` and thus the
-            // actual names of the dynamic members available in the OptionSet.
-            // Sadly, keypath cannot read the cases directly.
-            static var boneDry: Self { ._greenware } // Different name from enum.
-            static var bisque:  Self { ._bisque }
-            static var glaze:   Self { ._glaze }
-
-            // TODO: a diferent set of static vars returning LocalizationKey could be defined to produce a separate dynamic member for DisplayProperties
+            // These properties define the available `KeyPath<Shift.Type, ValueKey<Shift>>` and thus
+            // the actual names of the dynamic members to retrieve the value.
+            // Sadly, keypath cannot read the cases directly, in which case these would be unnecessary.
+            static var greenwareValue: ValueKey<Self> { .key(.greenware) }
+            static var bisqueValue:    ValueKey<Self> { .key(.bisque) }
+            static var glazeValue:     ValueKey<Self> { .key(.glaze) }
 
             // Implementation for DisplayKeyProvider, allows the OptionSet to produce DisplayProperties.
             var displayKey: LocalizedStringKey {
                 switch self {
-                case ._greenware: "Bone Dry"
-                case ._bisque:    "Bisque"
-                case ._glaze:     "Glaze"
+                case .greenware: "Greenware"
+                case .bisque:    "Bisque"
+                case .glaze:     "Glaze"
+                }
+            }
+            // These properties define the available `KeyPath<Shift.Type, DisplayKey<Shift>>` and
+            // thus the actual names of the dynamic members to retrieve a DisplayProperty.
+            // If none are added, a DisplayProperty can still be produced using
+            // `optionSet.displayProperty(for:)`.
+            static var greenwareDisplay: DisplayKey<Self> { .key(.greenware) }
+            static var bisqueDisplay:    DisplayKey<Self> { .key(.bisque) }
+            static var glazeDisplay:     DisplayKey<Self> { .key(.glaze) }
+
+            // Not required, but can be used to use [dynamicMember:] subscript directly to retrieve
+            // the value for a component.
+            var keyPath: KeyPath<Self.Type, ValueKey<Self>> {
+                switch self {
+                case .greenware: \.greenwareValue
+                case .bisque:    \.bisqueValue
+                case .glaze:     \.glazeValue
                 }
             }
 
-            // Not required, but can be used to use [dynamicMember:] subscript directly.
-            // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
-            var keyPath: KeyPath<Self.Type, Self> {
+            // Not required, but can be used to use [dynamicMember:] subscript directly to retrieve
+            // a DisplayProperty for a component.
+            var displayKeyPath: KeyPath<Self.Type, DisplayKey<Self>> {
                 switch self {
-                case ._greenware: \.boneDry
-                case ._bisque:    \.bisque
-                case ._glaze:    \.glaze
+                case .greenware: \.greenwareDisplay
+                case .bisque:    \.bisqueDisplay
+                case .glaze:     \.glazeDisplay
                 }
             }
 
-            // Not required, but can be used to use Binding[dynamicMember:] subscript directly.
+            // Not required, but can be used to use Binding[dynamicMember:] subscript directly to
+            // retrieve a binding the value of a component.
             // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
-            var bindingKeyPath: WritableKeyPath<Firings, Bool> {
+            var bindingValueKeyPath: WritableKeyPath<Firings, Bool> {
                 switch self {
-                case ._greenware: \.boneDry
-                case ._bisque:    \.bisque
-                case ._glaze:     \.glaze
+                case .greenware: \.greenwareValue
+                case .bisque:    \.bisqueValue
+                case .glaze:     \.glazeValue
                 }
             }
         }
 
-        // TODO: are the static properties even needed?
+        // The usual static properties to define each OptionSet component are not required, although
+        // these are still useful.
         static let glaze: Self = .init(shift: .glaze)
     }
 
@@ -212,18 +253,14 @@ private struct PreviewContent {
 
 #Preview("Example", traits: .scrollViewWrap, PreviewContent.layout) {
     @Previewable @State var options: PreviewContent.Firings = [
-        // Option sets can be initialized with a Shift
-        .init(shift: .boneDry),
-        // Or with the usual static property, when defined.
-        .glaze
+        .init(shift: .greenware), // Option sets can be initialized with a Shift
+        .glaze // Or with the usual static property, when defined.
     ]
     PreviewContent.captioned("Using `[shift:]` subscript.") {
-        Text("Bone Dry: \(options[shift: .boneDry].description)")
+        Text("Greenware: \(options[shift: .greenware].description)")
     }
-    PreviewContent.captioned("Using `Bool` Dynamic Member.") {
-        // Needs to be casted since dynamic member is overloaded twice: returns Boo or DisplayProperty.
-        let bisqueBool: Bool = options.bisque
-        Text("Bisque: \(bisqueBool.description)")
+    PreviewContent.captioned("Using value dynamic member.") {
+        Text("Bisque: \(options.bisqueValue.description)")
     }
     PreviewContent.captioned("Using `.contains(_:)`, the usual way.") {
         Text("Glazed: \(options.contains(.glaze).description)")
@@ -232,14 +269,14 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.captioned("Using `displayProperty(for:)`.") {
-        Text(property: options.displayProperty(for: .boneDry))
+        Text(property: options.displayProperty(for: .greenware))
     }
-    PreviewContent.captioned("Using `DisplayProperty` Dynamic Member.") {
-        Text(property: options.bisque)
+    PreviewContent.captioned("Using `DisplayProperty` dynamic member.") {
+        Text(property: options.greenwareDisplay)
     }
     PreviewContent.captioned("Using `[dynamicMember:]` directly.") {
-        let keyPath = PreviewContent.Firings.Shift.glaze.keyPath
-        Text(property: options[dynamicMember: keyPath])
+        let displayKeyPath = PreviewContent.Firings.Shift.glaze.displayKeyPath
+        Text(property: options[dynamicMember: displayKeyPath])
     }
 
     DashedDivider()
@@ -252,23 +289,23 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    PreviewContent.captioned("Toggle using `Binding` inherited dynamic member.") {
-        let shift = PreviewContent.Firings.Shift.boneDry
-        Toggle(shift.displayKey, isOn: $options.boneDry)
+    PreviewContent.captioned("Toggle using `Binding` inherited value dynamic member.") {
+        let shift = PreviewContent.Firings.Shift.greenware
+        Toggle(shift.displayKey, isOn: $options.greenwareValue)
     }
-    PreviewContent.captioned("Toggle using `Binding` inherited subscript.") {
+    PreviewContent.captioned("Toggle using `Binding[shift:]` inherited subscript.") {
         let shift = PreviewContent.Firings.Shift.bisque
         Toggle(shift.displayKey, isOn: $options[shift: shift])
     }
-    PreviewContent.captioned("Toggle using `Binding` inherited `[dynamicMember:]`.") {
+    PreviewContent.captioned("Toggle using `Binding[dynamicMember:]` inherited subscript.") {
         let shift = PreviewContent.Firings.Shift.glaze
-        Toggle(shift.displayKey, isOn: $options[dynamicMember: shift.bindingKeyPath])
+        Toggle(shift.displayKey, isOn: $options[dynamicMember: shift.bindingValueKeyPath])
     }
 
     DashedDivider()
 
     PreviewContent.captioned("Toggle using `BindingDisplayProperty`.") {
-        Toggle(property: $options.displayProperty(for: .boneDry))
+        Toggle(property: $options.displayProperty(for: .greenware))
     }
     PreviewContent.captioned("TODO: Binding dynamic property.") {
         Toggle(property: $options.displayProperty(for: .bisque))

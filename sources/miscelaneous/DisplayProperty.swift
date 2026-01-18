@@ -31,6 +31,13 @@ protocol DisplayKeyProvider {
 }
 
 
+// Used to define functions with a specific return type for dynamic member lookup.
+struct DisplayKey<Key> {
+    let key: Key
+    static func key(_ key: Key) -> Self { .init(key: key) }
+}
+
+
 // MARK: - Views Extensions
 
 
