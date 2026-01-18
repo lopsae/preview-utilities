@@ -121,7 +121,7 @@ public struct HeaderFooterContainerOptions:
 public struct HeaderFooterContainerTrait: OptionSetTrait {
     let operation: OptionSetTraitOperation<HeaderFooterContainerOptions>
 
-    public static let fixedHeader:  Self = .union(.fixedFooter)
+    public static let fixedHeader:  Self = .union(.fixedHeader)
     public static let fixedFooter:  Self = .union(.fixedFooter)
     public static let showDividers: Self = .union(.showDividers)
     public static let padContent:   Self = .union(.padContent)
