@@ -79,7 +79,7 @@ extension HeaderFooterContainer where Content == Never {
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
 public struct HeaderFooterContainerOptions:
-    OptionSet, IdentifiableShiftWithDynamicMemberLookup, Sendable
+    OptionSet, IdentifiableShift, Sendable
 {
     public let rawValue: Int
 
@@ -93,35 +93,12 @@ public struct HeaderFooterContainerOptions:
              showDividers,
              padContent
 
-        // These properties are required for KeyPath. Sadly, keypath cannot access enums cases.
-        static var fixedHeaderValue:  ValueKey<Self> { .key(.fixedHeader) }
-        static var fixedFooterValue:  ValueKey<Self> { .key(.fixedFooter) }
-        static var showDividersValue: ValueKey<Self> { .key(.showDividers) }
-        static var padContentValue:   ValueKey<Self> { .key(.padContent) }
-
         var displayKey: LocalizedStringKey {
             switch self {
             case .fixedHeader:  "Fixed Header"
             case .fixedFooter:  "Fixed Footer"
             case .showDividers: "Show Dividers"
             case .padContent:   "Pad Content"
-            }
-        }
-//        static var boneDryDisplay: DisplayKey<Self> { DisplayKey(key: .boneDry) }
-//        static var bisqueDisplay:  DisplayKey<Self> { DisplayKey(key: .bisque) }
-//        static var glazeDisplay:   DisplayKey<Self> { DisplayKey(key: .glaze) }
-//        static var fixedHeader:  Self { .fixedHeaderShift }
-//        static var fixedFooter:  Self { .fixedFooterShift }
-//        static var showDividers: Self { .showDividersShift }
-//        static var padContent:   Self { .padContentShift }
-
-        // Can be used for direct access to [dynamicMember:] subscript.
-        var keyPath: WritableKeyPath<HeaderFooterContainerOptions, Bool> {
-            switch self {
-            case .fixedHeader:  \.fixedHeaderValue
-            case .fixedFooter:  \.fixedFooterValue
-            case .showDividers: \.showDividersValue
-            case .padContent:   \.padContentValue
             }
         }
     }
@@ -180,77 +157,29 @@ private struct PreviewContent {
     @Previewable @State var options: HeaderFooterContainerOptions = .default
     @Previewable @State var useDeviceSafeArea: Bool = true
     @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
+    @Previewable @State var fixedHeight: Double = 100
 
     if !useDeviceSafeArea {
         SafeAreaPad(edge: .top, showDivider: true)
     }
 
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
-
-        // TODO: also document that dynamiclookup allows direct access like this.
-//        Text(property: options.showDividers)
-        Text(property: options.displayProperty(for: .showDividers))
-        Text("Show Dividers: \(options.showDividersValue.description)")
-        Text("Show Dividers: \(options[shift: .showDividers].description)")
         ForEach(HeaderFooterContainerOptions.Shift.allCases) { shift in
-            // TODO: add examples to document these two uses
-//            Toggle(shift.displayName, isOn: $options[dynamicMember: shift.keyPath])
-            Toggle(shift.displayKey, isOn: $options.binding(for: shift))
-//            Toggle(shift.displayName.capitalized, isOn: $options[shift: shift])
+            Toggle(property: $options.displayProperty(for: shift))
         }
 
         Divider()
-//        Toggle(property: $options.displayProperty(for: .showDividers))
-//        Toggle(property: $options.showDividers)
 
-        // TODO: add example to document direct access through dynamic lookup.
-//        Toggle("Fixed Header",  isOn: $options.fixedHeader)
-//        Toggle("Fixed Footer",  isOn: $options.fixedFooter)
-//        Toggle("Show Dividers", isOn: $options.showDividers)
-//        Toggle("Pad Content",   isOn: $options.padContent)
-        Divider()
         Toggle("Use Device SafeArea", isOn: $useDeviceSafeArea)
         Toggle("Enable Edge Padding", isOn: $enableEdgePadding)
         Text("Platform default: \(PreviewContent.platformEnableEdgePadding.description)")
             .font(.caption.monospaced())
-    }
-
-    if !useDeviceSafeArea {
-        SafeAreaPad(edge: .bottom, showDivider: true)
-    }
-}
-
-
-#Preview("Content Height", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var options: HeaderFooterContainerOptions = .default
-    @Previewable @State var useDeviceSafeArea: Bool = true
-    @Previewable @State var enableEdgePadding: Bool = PreviewContent.platformEnableEdgePadding
-    @Previewable @State var fixedHeight: Double = 200
-
-    if !useDeviceSafeArea {
-        SafeAreaPad(edge: .top, showDivider: true)
-    }
-
-    HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
-        VStack {
-//            Toggle("Fixed Header",  isOn: $options.fixedHeader)
-//            Toggle("Fixed Footer",  isOn: $options.fixedFooter)
-//            Toggle("Show Dividers", isOn: $options.showDividers)
-//            Toggle("Pad Content",   isOn: $options.padContent)
-            Slider.captioned(
-                "Fixed Content Height",
-                value: $fixedHeight,
-                in: 0...800,
-                currentValueFormat: .fractionLength(2),
-                boundsValueFormat: .arithmeticRoundedInteger)
-                .padding(.bottom)
-            Divider()
-            Toggle("Use Device SafeArea", isOn: $useDeviceSafeArea)
-            Toggle("Enable Edge Padding", isOn: $enableEdgePadding)
-            Text("Platform default: \(PreviewContent.platformEnableEdgePadding.description)")
-                .font(.caption.monospaced())
-        }
-        .padding(.vertical)
+        Slider.captioned(
+            "Fixed Content Height",
+            value: $fixedHeight,
+            in: 0...800,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
 
         CaptionRectangle(
             "Fixed Content", color: .red,
