@@ -9,20 +9,7 @@ import SwiftUI
 
 struct DisplayProperty<Value> {
     let displayKey: LocalizedStringKey
-    let value: Value
-}
-
-
-struct BindingDisplayProperty<Value> {
-    let displayKey: LocalizedStringKey
-    let value: Value
-    let binding: Binding<Value>
-
-    init(property: DisplayProperty<Value>, binding: Binding<Value>) {
-        self.displayKey = property.displayKey
-        self.value = property.value
-        self.binding = binding
-    }
+    var value: Value
 }
 
 
@@ -56,8 +43,8 @@ extension Text {
 
 extension Toggle {
 
-    init(property: BindingDisplayProperty<Bool>) where Label == Text {
-        self.init(property.displayKey, isOn: property.binding)
+    init(property: Binding<DisplayProperty<Bool>>) where Label == Text {
+        self.init(property.wrappedValue.displayKey, isOn: property.value)
     }
 
 }
@@ -67,16 +54,13 @@ extension Toggle {
 
 
 #Preview("Default", traits: .headerFooter, .iPhoneProSizeForcedLayout) {
-    @Previewable @State var boolean: Bool = true
-
-    let property = DisplayProperty(displayKey: "Display Boolean", value: boolean)
-    let bindingProperty = BindingDisplayProperty(property: property, binding: $boolean)
+    @Previewable @State var property = DisplayProperty(displayKey: "Display Boolean", value: true)
 
     Text(property: property)
-    Toggle(property: bindingProperty)
+    Toggle(property: $property)
 
     CaptionRectangle(
-        "Content", color: boolean ? .teal : .indigo,
+        "Content", color: property.value ? .teal : .indigo,
         size: .square(of: 100))
 }
 

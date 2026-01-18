@@ -116,8 +116,17 @@ where
     Element.Shift: DisplayKeyProvider
 {
 
+    subscript(displayFor shift: Shift) -> DisplayProperty<Bool> {
+        get {
+            .init(displayKey: shift.displayKey, value: self[shift: shift])
+        }
+        mutating set {
+            self[shift: shift] = newValue.value
+        }
+    }
+
     func displayProperty(for shift: Shift) -> DisplayProperty<Bool> {
-        return DisplayProperty(displayKey: shift.displayKey, value: self[shift: shift])
+        return self[displayFor: shift]
     }
 
 }
@@ -129,10 +138,16 @@ where
     Element.Shift: DisplayKeyProvider
 {
 
-    // TODO: can this be made writable, to generate a DisplayPropertyBinding?
     subscript(dynamicMember keyPath: KeyPath<Shift.Type, DisplayKey<Shift>>) -> DisplayProperty<Bool> {
-        let displayKey = Shift.self[keyPath: keyPath]
-        return displayProperty(for: displayKey.key)
+        get {
+            let displayKey = Shift.self[keyPath: keyPath]
+            return self[displayFor: displayKey.key]
+        }
+        mutating set {
+            let displayKey = Shift.self[keyPath: keyPath]
+            self[shift: displayKey.key] = newValue.value
+        }
+
     }
 
 }
@@ -145,9 +160,8 @@ where
     Value.Shift: DisplayKeyProvider
 {
 
-    func displayProperty(for shift: Value.Shift) -> BindingDisplayProperty<Bool> {
-        let property = self.wrappedValue.displayProperty(for: shift)
-        return .init(property: property, binding: self[shift: shift])
+    func displayProperty(for shift: Value.Shift) -> Binding<DisplayProperty<Bool>> {
+        self[displayFor: shift]
     }
 
 }
@@ -229,13 +243,24 @@ private struct PreviewContent {
             }
 
             // Not required, but can be used to use Binding[dynamicMember:] subscript directly to
-            // retrieve a binding the value of a component.
+            // retrieve a binding to the value of a component.
             // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
             var bindingValueKeyPath: WritableKeyPath<Firings, Bool> {
                 switch self {
                 case .greenware: \.greenwareValue
                 case .bisque:    \.bisqueValue
                 case .glaze:     \.glazeValue
+                }
+            }
+
+            // Not required, but can be used to use Binding[dynamicMember:] subscript directly to
+            // retrieve a binding to the DisplayProperty of a component.
+            // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
+            var bindingDisplayKeyPath: WritableKeyPath<Firings, DisplayProperty<Bool>> {
+                switch self {
+                case .greenware: \.greenwareDisplay
+                case .bisque:    \.bisqueDisplay
+                case .glaze:     \.glazeDisplay
                 }
             }
         }
@@ -289,29 +314,30 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    PreviewContent.captioned("Toggle using `Binding` inherited value dynamic member.") {
+    PreviewContent.captioned("Using `Binding` inherited value dynamic member.") {
         let shift = PreviewContent.Firings.Shift.greenware
         Toggle(shift.displayKey, isOn: $options.greenwareValue)
     }
-    PreviewContent.captioned("Toggle using `Binding[shift:]` inherited subscript.") {
+    PreviewContent.captioned("Using `Binding[shift:]` inherited subscript.") {
         let shift = PreviewContent.Firings.Shift.bisque
         Toggle(shift.displayKey, isOn: $options[shift: shift])
     }
-    PreviewContent.captioned("Toggle using `Binding[dynamicMember:]` inherited subscript.") {
+    PreviewContent.captioned("Using `Binding[dynamicMember:]` inherited subscript.") {
         let shift = PreviewContent.Firings.Shift.glaze
         Toggle(shift.displayKey, isOn: $options[dynamicMember: shift.bindingValueKeyPath])
     }
 
     DashedDivider()
 
-    PreviewContent.captioned("Toggle using `BindingDisplayProperty`.") {
+    PreviewContent.captioned("Using `Binding.displayProperty(for:)`.") {
         Toggle(property: $options.displayProperty(for: .greenware))
     }
-    PreviewContent.captioned("TODO: Binding dynamic property.") {
-        Toggle(property: $options.displayProperty(for: .bisque))
+    PreviewContent.captioned("Using `Binding` dynamic property.") {
+        Toggle(property: $options.bisqueDisplay)
     }
-    PreviewContent.captioned("TODO: Binding dynamic subscript.") {
-        Toggle(property: $options.displayProperty(for: .glaze))
+    PreviewContent.captioned("Using `Binding[dynamicMember:]` inherited subscript.") {
+        let bindingDisplayKeyPath = PreviewContent.Firings.Shift.glaze.bindingDisplayKeyPath
+        Toggle(property: $options[dynamicMember: bindingDisplayKeyPath])
     }
 
 }
