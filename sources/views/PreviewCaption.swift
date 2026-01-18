@@ -41,7 +41,12 @@ public struct PreviewCaption: View {
         }
         .concentricSafeAreaBackground(
             fill: HeaderFooterContainer.backgroundStyle,
-            paddingEdges: .horizontal)
+            paddingEdges: [])
+
+            // Settings for possible standalone top.
+//            contentPaddingEdges: .all,
+//            safeAreaPaddingEdges: .not(.top),
+//            backgroundPaddingEdges: .all)
     }
 
 
@@ -84,10 +89,11 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
-    static let mockContent: some View = CaptionRectangle(
-        "Preview\nContent",
-        fill: .red.tertiary, stroke: .red.secondary,
-        width: 100, height: 100)
+    static func fixedHeightContent(height: CGFloat = 100) -> some View {
+        CaptionRectangle(
+            "Preview\nContent", color: .red,
+            width: 100, height: height)
+    }
 
 }
 
@@ -102,7 +108,7 @@ private struct PreviewContent {
         """)
     .paragraph("Along with additional paragraphs: \(String.natoPhoneticAlphabet.joined(separator: " "))")
 
-    PreviewContent.mockContent
+    PreviewContent.fixedHeightContent()
 }
 
 
@@ -118,7 +124,7 @@ private struct PreviewContent {
         """)
     .debugOverlay()
 
-    PreviewContent.mockContent
+    PreviewContent.fixedHeightContent()
 }
 
 
@@ -141,9 +147,7 @@ private struct PreviewContent {
     }
     .padding()
 
-    CaptionRectangle(
-        "Fixed Content", fill: .red.gradient.tertiary, stroke: .red.secondary,
-        width: 150, height: fixedHeight, traits: .height)
+    PreviewContent.fixedHeightContent(height: fixedHeight)
 }
 
 #Preview("Caption", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {
@@ -155,15 +159,15 @@ private struct PreviewContent {
     .font(.caption)
     .foregroundStyle(.brown)
 
-    PreviewContent.mockContent
+    PreviewContent.fixedHeightContent()
 }
 
 
-#Preview("NoHeaderFooter", traits:  .regularSpacing, PreviewContent.layout) {
+#Preview("Standalone", traits:  .regularSpacing, PreviewContent.layout) {
     PreviewCaption("This is a preview caption without the header/footer preview trait.")
         .paragraph("If this becomes a common use, options for edge padding should be considered.")
 
-    PreviewContent.mockContent
+    PreviewContent.fixedHeightContent()
     VisibleSpacer()
 }
 
