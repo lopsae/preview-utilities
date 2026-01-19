@@ -243,13 +243,9 @@ private struct PreviewContent {
     @Previewable @State var selfIdentifiedValue: PreviewContent.SelfIdentifiedValues = .heidi
 
     VStack(alignment: .leading) {
-        // TODO: Use Preview Caption
-        Text("Picker with a collection of **non-identifiable** elements.")
-            .font(.caption)
-
+        PreviewCaption("Picker with a collection of **non-identifiable** elements.")
         Text("Value: \(nonIdentifiedValue.rawValue)")
             .monospaced()
-
         Picker(
             "NonIdentifiable Picker",
             selection: $nonIdentifiedValue,
@@ -260,10 +256,9 @@ private struct PreviewContent {
             Text(value.rawValue.capitalized).tag(value)
         }.pickerStyle(.segmented)
 
-        // TODO: Use Preview Caption?
-        Text("Picker with a collection of **identifiable** elements.")
-            .font(.caption)
-            .padding(.top)
+        DashedDivider()
+
+        PreviewCaption("Picker with a collection of **identifiable** elements.")
         Text("Value: \(identifiedValue.rawValue)")
             .monospaced()
         Picker(
@@ -275,10 +270,9 @@ private struct PreviewContent {
             Text(value.rawValue.capitalized).tag(value)
         }.pickerStyle(.segmented)
 
-        // TODO: Use Preview Caption
-        Text("Picker with a collection of **self-identifiable** elements.")
-            .font(.caption)
-            .padding(.top)
+        DashedDivider()
+
+        PreviewCaption("Picker with a collection of **self-identifiable** elements.")
         Text("Value: \(selfIdentifiedValue.rawValue)")
             .monospaced()
         Picker(
@@ -289,8 +283,7 @@ private struct PreviewContent {
             // No tag needed!
             Text(value.rawValue.capitalized)
         }.pickerStyle(.segmented)
-    }
-    .padding(.horizontal)
+    } // VStack
 }
 
 
@@ -298,10 +291,7 @@ private struct PreviewContent {
     @Previewable @State var values: PreviewContent.SelfIdentifiedValues = .heidi
 
     VStack(alignment: .leading) {
-        // TODO: Use Preview Caption
-        Text("Picker with a collection of **self-identifiable** elements, using a **format style**.")
-            .fixedSize(horizontal: false, vertical: true)
-            .font(.caption)
+        PreviewCaption("Picker with a collection of **self-identifiable** elements, using a **format style**.")
         Text("Value: \(values.rawValue)")
             .monospaced()
         Picker(
@@ -311,11 +301,9 @@ private struct PreviewContent {
             elementFormat: .rawValue()
         ).pickerStyle(.segmented)
 
-        // TODO: Use Preview Caption
-        Text("Picker with a `CaseIterable` and **self-identifiable** selection value, using a **composite format style**.")
-            .fixedSize(horizontal: false, vertical: true)
-            .font(.caption)
-            .padding(.top)
+        DashedDivider()
+
+        PreviewCaption("Picker with a `CaseIterable` and **self-identifiable** selection value, using a **composite format style**.")
         Text("Value: \(values.rawValue)")
             .monospaced()
         Picker(
@@ -324,17 +312,14 @@ private struct PreviewContent {
             caseFormat: .firstCharacter(capitalized: true, input: .rawValue())
         ).pickerStyle(.segmented)
 
-        // TODO: Use Preview Caption
-        Text("Picker with a `CaseIterable`, `RawRepresentable` and **self-identifiable** selection value **only**.")
-            .fixedSize(horizontal: false, vertical: true)
-            .font(.caption)
-            .padding(.top)
+        DashedDivider()
+
+        PreviewCaption("Picker with a `CaseIterable`, `RawRepresentable` and **self-identifiable** selection value **only**.")
         Text("Value: \(values.rawValue)")
             .monospaced()
         Picker("Formatted Picker", selection: $values)
             .pickerStyle(.segmented)
-    }
-    .padding(.horizontal)
+    } // VStack
 }
 
 
