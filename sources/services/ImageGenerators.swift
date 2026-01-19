@@ -39,6 +39,33 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
 }
 
 
+/// This is a copy of ``ImageGeneratorProtocol`` with one difference: `generateImage` is specified
+/// WITHOUT `nonisolated`.
+///
+/// In this protocol `generateImage` uses the package default isolation: MainActor. When this
+/// protocol is used (both as a generic or an existential type) with the ``NonisolatedImageGenerator``
+/// implementation, the `generateImage` function will behave diferently.
+///
+/// This issue seems to arise from *existential types* when storing the generator as an
+/// `any protocol` or using a generic. The protocol boxing of the generator implementation seems to
+/// change the isolation context where `generateImage` is called, hence modifying the isolation that
+/// is inherited by ``NonisolatedImageGenerator``.
+///
+/// The protocol boxing for this type will use the package default isolation, which then will be
+/// inherited by ``NonisolatedImageGenerator/generateImage(with:)``, making the image generation
+/// to always happen on `MainActor`.
+///
+///  See the `Nonisolated/Isolated` preview for an example of this issue.
+private protocol IsolatedImageGeneratorProtocol: Sendable, Identifiable {
+    var id: UUID { get }
+    var size: CGSize { get }
+
+    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
+    func makeCopy() -> Self
+}
+
+
+
 nonisolated enum ImageGeneratorDefaults {
 
     static let sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)
@@ -97,7 +124,9 @@ public final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
 /// Nonisolated ImageGenerator with a `nonisolated generateImage` function that will inherit the
 /// isolation context of the caller.
 nonisolated
-public final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
+public final class NonisolatedImageGenerator:
+    ImageGeneratorProtocol, IsolatedImageGeneratorProtocol, Sendable
+{
 
     public let id: UUID = UUID()
 
@@ -118,11 +147,8 @@ public final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
     /// Generates an image asyncronously, this function inherits the isolation context of the
     /// caller.
     ///
-    /// If `nonisolated` is removed from ``ImageGeneratorProtocol/generateImage(with:)`` this
-    /// implementation shows a modified behavior, since protocol boxing will override the isolation
-    /// context inheritance and use the package's defaul isolation instead. Also removing
-    /// `nonisolated` here would also change this implementation behavior when used directly
-    /// (without protocol boxing), in this case the function uses the package's default isolation.
+    /// See notes in `IsolatedImageGeneratorProtocol` about how existential types and protocol
+    /// boxing can change the behaviour of this implementation.
     nonisolated
     public func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
@@ -377,7 +403,7 @@ extension PreviewContent {
                             }
                         } else {
                             // Call using cooperative thread pool.
-                            Task.detached {// [capturedGenerator] in
+                            Task.detached {
                                 print("In Detached: start from: \(ThreadInfo().displayName)")
                                 return await generator.generateImage(with: string)
                             }
@@ -401,6 +427,9 @@ extension PreviewContent {
     }
 
 }
+
+
+// MARK: - Generic Previews
 
 
 #Preview("Concurrent", traits: .fixedHeader, PreviewContent.layout) {
@@ -445,6 +474,145 @@ extension PreviewContent {
 }
 
 
+// MARK: - ProtocolComparisonPreview
+
+
+extension PreviewContent {
+
+    ///
+    struct ProtocolComparisonPreview<
+        Generator: ImageGeneratorProtocol,
+        IsolatedGenerator: IsolatedImageGeneratorProtocol
+    >: View
+    {
+
+        @State var usesMainActor: Bool = true
+        @State var nonisolatedGenerator: Generator
+        @State var isolatedGenerator: IsolatedGenerator
+        @State var nonisolatedImage: Image?
+        @State var isolatedImage: Image?
+
+        let nonisolatedString: String
+        let isolatedString: String
+
+        init(
+            nonisolatedString: String,
+            isolatedString: String,
+            nonisolatedGenerator: Generator,
+            isolatedGenerator: IsolatedGenerator
+        ) {
+            self.nonisolatedString = nonisolatedString
+            self.isolatedString = isolatedString
+            self.nonisolatedGenerator = nonisolatedGenerator
+            self.isolatedGenerator = isolatedGenerator
+        }
+
+        var body: some View {
+            VStack {
+                HStack {
+                    // NonIsolated Image
+                    Group {
+                        if let nonisolatedImage {
+                            nonisolatedImage.resizable()
+                        } else {
+                            Rectangle().fill(.secondary)
+                        }
+                    }
+                    .frame(size: nonisolatedGenerator.size)
+                    .roundedRectangleClip(cornerRadius: 8)
+                    .task {
+                        let imageTask = if usesMainActor {
+                            // Call from inherited MainActor isolation.
+                            Task {
+                                print("Nonisolated: In Task: Generating from: \(ThreadInfo().displayName)")
+                                return await nonisolatedGenerator.generateImage(with: nonisolatedString)
+                            }
+                        } else {
+                            // Call using cooperative thread pool.
+                            Task.detached {
+                                print("Nonisolated: In Detached: start from: \(ThreadInfo().displayName)")
+                                return await nonisolatedGenerator.generateImage(with: nonisolatedString)
+                            }
+                        }
+                        let image = await imageTask.value.image
+                        nonisolatedImage = image
+                    }
+                    .id(nonisolatedGenerator.id.hash(with: nonisolatedString))
+
+                    // Isolated Image
+                    Group {
+                        if let isolatedImage {
+                            isolatedImage.resizable()
+                        } else {
+                            Rectangle().fill(.secondary)
+                        }
+                    }
+                    .frame(size: isolatedGenerator.size)
+                    .roundedRectangleClip(cornerRadius: 8)
+                    .task {
+                        let imageTask = if usesMainActor {
+                            // Call from inherited MainActor isolation.
+                            Task {
+                                print("Isolated: In Task: Generating from: \(ThreadInfo().displayName)")
+                                return await isolatedGenerator.generateImage(with: isolatedString)
+                            }
+                        } else {
+                            // Call using cooperative thread pool.
+                            Task.detached {
+                                print("Isolated: In Detached: start from: \(ThreadInfo().displayName)")
+                                return await isolatedGenerator.generateImage(with: isolatedString)
+                            }
+                        }
+                        let image = await imageTask.value.image
+                        isolatedImage = image
+                    }
+                    .id(isolatedGenerator.id.hash(with: isolatedString))
+
+                }
+
+            } // VStack
+            .onChange(of: usesMainActor) {
+                // Reset image generator and stored images.
+                print("Resetting Generator")
+                nonisolatedGenerator = nonisolatedGenerator.makeCopy()
+                isolatedGenerator = isolatedGenerator.makeCopy()
+                nonisolatedImage = nil
+                isolatedImage = nil
+            }
+
+            Toggle("Call from Main Actor", isOn: $usesMainActor)
+                .padding()
+        }
+    }
+
+}
+
+
+// MARK: - Comparison Preview
+
+
+#Preview("Nonisolated/Isolated", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var printOnce = PrintOnce("✴️ Comparison preview started")
+
+    PreviewCaption("""
+        The same implementation of `NonisolatedImageGenerator` behaves differently depending on the
+        protocol used to box it.
+        """)
+    .paragraph("""
+        The isolated protocol always is called in `MainActor`, which is the package default isolation.
+        """)
+
+    printOnce.print()
+    let size: CGSize = .square(of: 100)
+    let sleepRange: ClosedRange<Duration> = .seconds(0.5) ... .seconds(1)
+    PreviewContent.ProtocolComparisonPreview(
+        nonisolatedString: "Nonisolated",
+        isolatedString: "Isolated",
+        nonisolatedGenerator: NonisolatedImageGenerator(size: size, sleepRange: sleepRange),
+        isolatedGenerator: NonisolatedImageGenerator(size: size, sleepRange: sleepRange))
+}
+
+
 // MARK: - TypeErasedPreview
 
 
@@ -461,28 +629,11 @@ extension PreviewContent {
     /// This implementation shows the same behaviour as `GenericGeneratorPreview`, but it is left
     /// for completeness.
     ///
-    /// TODO: mave a different preview to showcase this issue.
+    /// To see an example of the issues found see the `Nonisolated/Isolated` preview for a working
+    /// example.
     ///
-    /// To see the issues mentioned in this previews remove `nonisolated` from the
-    /// ``ImageGeneratorProtocol/generateImage(with:)`` specification. Previously,
-    /// ``ImageGeneratorProtocol`` did not specify a `nonisolated generateImage`, which surfaced the
-    /// protocol boxing issues.
-    ///
-    /// This issue seems to arise from *existential types* when storing the generator as an
-    /// `any protocol`. The protocol boxing of the generator implementation seems to change the isolation
-    /// context where `generateImage` is called, hence modifying the isolation when the function
-    /// inherits the isolation context from the caller. This behaviour can be seen specifically
-    /// with ``NonisolatedImageGenerator`` which is setup to inherit the isolation context.
-    ///
-    /// Modifying the package's settings to a nonisolated default isolation will modify the
-    /// isolation the protocol boxing provides seemingly to `nonisolated`, in which case the context
-    /// inheritance works as expected again since the protocol boxing would inherit the context.
-    ///
-    /// - SeeAlso: [The Swift Programing Language - Protocols as Types][protocols-as-types]
-    /// - SeeAlso: [The Swift Programing Language - Boxed Protocol Types][boxed-protocol-types]
-    ///
-    /// [protocols-as-types]:   https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
-    /// [boxed-protocol-types]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
+    /// Previously ``ImageGeneratorProtocol`` did not specify a `nonisolated generateImage`, which
+    /// surfaced the protocol boxing issues.
     struct TypeErasedPreview: View {
         @State var usesMainActor: Bool = true
         @State var image: Image? = nil
@@ -538,12 +689,18 @@ extension PreviewContent {
 }
 
 
+// MARK: - TypeErased Previews
+
+
 #Preview("ConcurrentErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
 
     PreviewCaption("""
         Generation always happens in the cooperative thread pool, since `@concurrent` does not 
         depend on isolation context inheritance.
+        """)
+    .paragraph("""
+        This has he same behaviour as its preview counterpart using generics.
         """)
 
     printOnce.print()
@@ -557,17 +714,14 @@ extension PreviewContent {
 }
 
 
-// NEXT: see if an additional nonisolated protocol can be created to showcase the protocol boxing issues.
 #Preview("NonisolatedErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ NonisoltedErasure preview started")
 
     PreviewCaption("""
-        Protocol boxing overrides the original caller context to the default isolation. Given that
-        nonisolated inherits the caller context, all generation occurs in Main.
+        Generation happens in the inherited isolation context of he caller.
         """)
     .paragraph("""
-        **Note**: This issue can only be seen if `nonisolated` is removed from
-        `ImageGeneratorProtocol/generateImage(with:)`. Otherwise this works as expected.
+        This has he same behaviour as its preview counterpart using generics.
         """)
 
     printOnce.print()
@@ -585,8 +739,10 @@ extension PreviewContent {
     @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
 
     PreviewCaption("""
-        Image generation is isolated to Main, in this case the protocol boxing override does not
-        modify the generation context.
+        Image generation is isolated to `MainActor`, irregardless of calling isolation context.
+        """)
+    .paragraph("""
+        This has he same behaviour as its preview counterpart using generics.
         """)
 
     printOnce.print()
