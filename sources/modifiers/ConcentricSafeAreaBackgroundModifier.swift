@@ -7,9 +7,12 @@
 import SwiftUI
 
 
-// TODO: update docs after this gets used in HeaderFooter again
 /// Pads the modified content and draws behind it a `ConcentricRectangle` that extends into the
 /// content safe area.
+///
+/// The background is padded once to allow the background to contour around the device edges. The
+/// content is padded twice to separate from the views edge and from the padded background. All
+/// these paddings can be controled separately thought the view's properties.
 ///
 /// Used to contain preview elements with the same visual style as the header and footer produced by
 /// `HeaderFooterPreviewModifier`.
