@@ -152,7 +152,8 @@ extension View {
     }
 
 
-    // TODO: deprecate? since keypath sendability was figured out
+    // TODO: remove deprecations after other projects update, before release.
+    @available(*, deprecated, message:"Use instead: onGeometryChange(keyPath:binding:transform:)")
     @inlinable
     public func onGeometryChange<T>(
         of transform: @escaping @Sendable (GeometryProxy) -> T,
