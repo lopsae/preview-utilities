@@ -8,6 +8,7 @@ import SwiftUI
 
 
 #Preview("Example: .overlay", traits: .headerFooter) {
+    // TODO: use PreviewCaption
     Text("""
         Overlay allows its content to overflow around the owner view, without modifying the owner
         position or size.
@@ -29,6 +30,7 @@ import SwiftUI
 
 
 #Preview("Example: ZStack", traits: .headerFooter) {
+    // TODO: use PreviewCaption
     Text("""
         ZStack of the same elements, where the ZStack grows to accomodate the size of all contained
         elements
@@ -50,6 +52,7 @@ import SwiftUI
 
 
 #Preview("Overlay+GeometryReader alignment", traits: .headerFooter) {
+    // TODO: use PreviewCaption
     Text("""
         GeometryReader takes the size of its container, even if the content is bigger. Bigger
         content is always alignedtopLeading with no possible way to modify it through
@@ -68,13 +71,13 @@ import SwiftUI
                 // Bigger content is always aligned to topLeading, with no ways to modify it.
                 Rectangle()
                     .stroke(.orange, lineWidth: 5)
-                    .frame(size: geometry.size.add(width: sizeIncrease, height: sizeIncrease))
+                    .frame(size: geometry.size.adding(width: sizeIncrease, height: sizeIncrease))
 
                 // However offset can still reposition the display of the contained view.
                 let offset: CGFloat = -sizeIncrease / 2
                 Rectangle()
                     .stroke(.purple, lineWidth: 5)
-                    .frame(size: geometry.size.add(width: sizeIncrease, height: sizeIncrease))
+                    .frame(size: geometry.size.adding(width: sizeIncrease, height: sizeIncrease))
                     .offset(x: offset, y: offset)
             }
             .debugOverlay()

@@ -12,7 +12,7 @@ extension CGRect {
 
     // TODO: rename to setting
     @inlinable nonisolated
-    public func set(
+    public func setting(
         x newX: CGFloat? = nil,
         y newY: CGFloat? = nil,
         width newWidth: CGFloat? = nil,
@@ -24,6 +24,19 @@ extension CGRect {
         if let newWidth  { mutableRect.size.width  = newWidth }
         if let newHeight { mutableRect.size.height = newHeight }
         return mutableRect
+    }
+
+
+    // TODO: remove deprecations after other projects update, before release.
+    @available(*, deprecated, renamed: "setting")
+    @inlinable nonisolated
+    public func set(
+        x newX: CGFloat? = nil,
+        y newY: CGFloat? = nil,
+        width newWidth: CGFloat? = nil,
+        height newHeight: CGFloat? = nil
+    ) -> Self {
+        setting(x: newX, y: newY, width: newWidth, height: newHeight)
     }
 
 

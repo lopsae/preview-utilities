@@ -31,10 +31,18 @@ extension CGSize {
         return mutableSize
     }
 
-    // TODO: rename to adding
+
+    @inlinable nonisolated
+    public func adding(width: CGFloat = .zero, height: CGFloat = .zero) -> Self {
+        return .init(width: self.width + width, height: self.height + height)
+    }
+
+
+    // TODO: remove deprecations after other projects update, before release.
+    @available(*, deprecated, renamed: "adding")
     @inlinable nonisolated
     public func add(width: CGFloat = .zero, height: CGFloat = .zero) -> Self {
-        return .init(width: self.width + width, height: self.height + height)
+        self.adding(width: width, height: height)
     }
 
 
