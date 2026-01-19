@@ -8,79 +8,63 @@ import SwiftUI
 
 
 #Preview("Example: .overlay", traits: .headerFooter) {
-    // TODO: use PreviewCaption
-    Text("""
-        Overlay allows its content to overflow around the owner view, without modifying the owner
+    PreviewCaption("""
+        `overlay` allows its content to overflow around the owner view, without modifying the owner
         position or size.
         """)
-    .foregroundStyle(.secondary)
-    .padding([.horizontal, .bottom])
 
-    Rectangle()
-        .strokeBorder(.red, lineWidth: 10)
-        .frame(squareOf: 50)
-        .overlay(alignment: .topLeading) {
-            VStack(alignment: .leading) {
-                Text("Lorem ipsum dolor sit ame,\nconsectetur adipiscing elit.")
-            }.fixedSize()
-        }
-        .border(.orange, width: 4)
-
+    CaptionRectangle("Parent\nContent", color: .blue, size: .square(of: 150), traits: .size)
+    .overlay(alignment: .bottomTrailing) {
+        Text("Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.")
+        .fixedSize()
+        .floatingCaption("`overlay` content",
+            .style(.brown), .alignment(.outerTopTrailing))
+    }
+    .debugOverlay(.size, .infoAlignment(.outerBottomLeading))
 }
 
 
 #Preview("Example: ZStack", traits: .headerFooter) {
-    // TODO: use PreviewCaption
-    Text("""
-        ZStack of the same elements, where the ZStack grows to accomodate the size of all contained
-        elements
+    PreviewCaption("""
+        `ZStack` of the same elements, which grows to accomodate the size of all contained elements.
         """)
-    .foregroundStyle(.secondary)
-    .padding([.horizontal, .bottom])
 
-    ZStack(alignment: .topLeading) {
-        Rectangle()
-            .strokeBorder(.red, lineWidth: 10)
-            .frame(squareOf: 50)
-        VStack(alignment: .leading) {
-            Text("Lorem ipsum dolor sit ame,\nconsectetur adipiscing elit.")
-        }.fixedSize()
+    ZStack(alignment: .bottomTrailing) {
+        CaptionRectangle("Parent\nContent", color: .blue, size: .square(of: 150), traits: .size)
+        Text("Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit.")
+            .fixedSize()
+            .floatingCaption("`overlay` content",
+                .style(.brown), .alignment(.outerTopTrailing))
     }
-    .border(.orange, width: 4)
-
+    .debugOverlay(.size, .infoAlignment(.outerBottomLeading))
 }
 
 
-#Preview("Overlay+GeometryReader alignment", traits: .headerFooter) {
-    // TODO: use PreviewCaption
-    Text("""
-        GeometryReader takes the size of its container, even if the content is bigger. Bigger
-        content is always alignedtopLeading with no possible way to modify it through
-        GeometryReader.
+#Preview("Overlay+GeometryReader alignment", traits: .headerFooter(.fixed)) {
+    PreviewCaption("""
+        `GeometryReader` takes the size of its container, even if the content is bigger. Bigger
+        content is always aligned `topLeading` with no possible way to modify it through
+        `GeometryReader` api's.
         """)
-    .foregroundStyle(.secondary)
-    .padding([.horizontal, .bottom])
 
-    Rectangle()
-        .fill(.red.opacity(0.3))
-        .frame(squareOf: 60)
-        .overlay(alignment: .bottomTrailing) {
-            // Geometry reader will remain the size of its container, even if content is bigger.
-            GeometryReader { geometry in
-                let sizeIncrease: CGFloat = 40
-                // Bigger content is always aligned to topLeading, with no ways to modify it.
-                Rectangle()
-                    .stroke(.orange, lineWidth: 5)
-                    .frame(size: geometry.size.adding(width: sizeIncrease, height: sizeIncrease))
+    VisibleSpacer()
 
-                // However offset can still reposition the display of the contained view.
-                let offset: CGFloat = -sizeIncrease / 2
-                Rectangle()
-                    .stroke(.purple, lineWidth: 5)
-                    .frame(size: geometry.size.adding(width: sizeIncrease, height: sizeIncrease))
-                    .offset(x: offset, y: offset)
-            }
-            .debugOverlay()
-        }
+    CaptionRectangle("Parent\nContent", color: .blue, size: .square(of: 150), traits: .size)
+    .overlay(alignment: .bottomTrailing) {
+        // Geometry reader will remain the size of its container, even if content is bigger.
+        GeometryReader { geometry in
+            ClearRectangle(size: geometry.size.multiplying(by: 1.5))
+            .floatingCaption("Large content\nin `GeometryReader`",
+                .style(.orange), .alignment(.outerBottomTrailing), .size)
+        } // GeometryReader
+        .floatingCaption("`GeometryReader`",
+            .style(.brown), .alignment(.outerTopTrailing), .size)
+    }
+    .debugOverlay(.size, .infoAlignment(.outerBottom))
+
+    VisibleSpacer()
 
 }
+
+
+// TODO: add example repositioning with a Frame using geometry size.

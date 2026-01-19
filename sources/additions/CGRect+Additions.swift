@@ -10,7 +10,6 @@ import SwiftUI
 
 extension CGRect {
 
-    // TODO: rename to setting
     @inlinable nonisolated
     public func setting(
         x newX: CGFloat? = nil,
