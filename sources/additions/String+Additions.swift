@@ -7,25 +7,21 @@
 extension String {
 
     // TODO: move to Strings
-    public static let alphabet: [String] = [
-        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-        "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
-    ]
-
-
-    // TODO: move to Strings
-    public static let natoPhoneticAlphabet: [String] = [
-        "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india",
-        "juliett", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo",
-        "sierra", "tango", "uniform", "victor", "whiskey", "x-ray", "yankee", "zulu"
-    ]
-
-
-    // TODO: move to Strings
-    public static let sphinxOfBlackQuartz: String = "sphinx of black quartz, judge my vow"
-
-
     // TODO: remove deprecations after other projects update, before release.
+    @available(*, deprecated, renamed: "Strings.alphabet")
+    public static let alphabet: [String] = Strings.alphabet
+
+
+    // TODO: move to Strings
+    @available(*, deprecated, renamed: "Strings.natoPhoneticAlphabet")
+    public static let natoPhoneticAlphabet: [String] = Strings.natoPhoneticAlphabet
+
+
+    // TODO: move to Strings
+    @available(*, deprecated, renamed: "Strings.sphinxOfBlackQuartz")
+    public static let sphinxOfBlackQuartz: String = Strings.sphinxOfBlackQuartz
+
+
     @available(*, deprecated, renamed: "Strings.loremIpsum")
     public static let loremIpsum: String = Strings.loremIpsum
 
@@ -34,6 +30,21 @@ extension String {
 
 /// Container of convenience strings and utilities.
 enum Strings {
+
+    public static let alphabet: [String] = [
+        "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+        "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+    ]
+
+
+    public static let natoPhoneticAlphabet: [String] = [
+        "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india",
+        "juliett", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo",
+        "sierra", "tango", "uniform", "victor", "whiskey", "x-ray", "yankee", "zulu"
+    ]
+
+
+    public static let sphinxOfBlackQuartz: String = "sphinx of black quartz, judge my vow"
 
     /// Returns a _Lorem ipsum_ string as found in its [wikipedia article][lorem-ipsum].
     ///
