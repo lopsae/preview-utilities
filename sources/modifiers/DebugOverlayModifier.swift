@@ -327,9 +327,8 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
-        .debugOverlay()
-        .safeAreaPadding(.init(horizontal: 20, vertical: 30))
-        .padding(.horizontal)
+    .debugOverlay()
+    .safeAreaPadding(.init(horizontal: 20, vertical: 30))
 }
 
 
@@ -360,11 +359,12 @@ private struct PreviewContent {
             Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
         }
 
-        Divider()
+        DashedDivider()
 
         Toggle("Use Small Content", isOn: $useSmallContent)
     }
-    .padding(.not(.top))
+
+    DashedDivider()
 
     if useSmallContent {
         Rectangle().fill(.gray.tertiary)
@@ -382,7 +382,6 @@ private struct PreviewContent {
         PreviewContent.star
             .debugOverlay(traits: traits)
             .safeAreaPadding(.init(horizontal: 50, vertical: 80))
-            .padding(.horizontal)
     }
 
 }
@@ -456,25 +455,21 @@ private struct PreviewContent {
 
         Toggle("Use Small Content", isOn: $useSmallContent)
     }
-    .padding(.not(.top))
+
+    DashedDivider()
 
     if useSmallContent {
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 100)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
             .debugOverlay(traits: traits)
             .safeAreaPadding(20)
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 100)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
     } else {
         PreviewContent.star
-            .debugOverlay(traits: traits)
-            .safeAreaPadding(.init(horizontal: 120, vertical: 100))
-            .padding(.horizontal)
+        .debugOverlay(traits: traits)
+        .safeAreaPadding(.init(horizontal: 120, vertical: 100))
     }
 
 }
@@ -517,7 +512,6 @@ private struct PreviewContent {
         Text("Size: \(width, format: .fractionLength(1)),\(height, format: .fractionLength(1))")
             .monospaced()
     }
-    .padding()
 
     PreviewContent.star
         .frame(
@@ -541,7 +535,7 @@ private struct PreviewContent {
             trailing: 50
         ))
         .border(.gray.tertiary)
-        .padding()
+        .padding(.vertical)
 }
 
 
@@ -550,7 +544,6 @@ private struct PreviewContent {
 
     Text("Counter: \(counter)")
         .monospaced()
-        .padding(.not(.top))
 
     ZStack(alignment: .topLeading) {
         PreviewContent.star
@@ -562,7 +555,6 @@ private struct PreviewContent {
         .padding()
     }
     .debugOverlay(.allGeometry)
-    .padding(.horizontal)
 }
 
 
