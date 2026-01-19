@@ -9,7 +9,7 @@ import CoreGraphics
 
 extension CGPoint {
 
-    /// Returns the a `CGPoint` with each of the component of `self` multiplied by `multiplier`.
+    /// Returns a `CGPoint` with each component of `self` multiplied by `multiplier`.
     @inlinable nonisolated
     func multiplying(by multiplier: CGFloat) -> Self {
         .init(

@@ -46,6 +46,28 @@ extension CGSize {
     }
 
 
+    /// Returns a `CGSize` with each component of `self` multiplied by `multiplier`.
+    @inlinable nonisolated
+    func multiplying(by multiplier: CGFloat) -> Self {
+        .init(
+            width: self.width * multiplier,
+            height: self.height * multiplier
+        )
+    }
+
+
+    /// Returns the Hadamart product of `self` and `multiplier`.
+    ///
+    /// https://en.wikipedia.org/wiki/Hadamard_product_(matrices)
+    @inlinable nonisolated
+    func hadamart(bySize multiplier: CGSize) -> Self {
+        .init(
+            width: self.width * multiplier.width,
+            height: self.height * multiplier.height
+        )
+    }
+
+
     /// Returns the lesser of the size components.
     @inlinable nonisolated
     public var min: CGFloat {
