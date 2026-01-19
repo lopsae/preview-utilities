@@ -159,10 +159,10 @@ extension Slider where Label : View {
         boundsMappedFormat: any FormatStyle<MapCollection.Element, String>,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
-        Value: BinaryFloatingPoint,
+        Value: BinaryFloatingPoint & Sendable,
         Value.Stride : BinaryFloatingPoint,
-        MapCollection: BidirectionalCollection,
-        MapCollection.Element: Equatable,
+        MapCollection: BidirectionalCollection & Sendable,
+        MapCollection.Element: Equatable & Sendable,
         MapCollection.Index == Int,
         Label == Text,
         ValueLabel == Text
@@ -207,10 +207,10 @@ extension Slider where Label : View {
         mapped: Binding<MapCollection.Element>,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
-        Value: BinaryFloatingPoint,
+        Value: BinaryFloatingPoint & Sendable,
         Value.Stride : BinaryFloatingPoint,
-        MapCollection: BidirectionalCollection,
-        MapCollection.Element: StringProtocol,
+        MapCollection: BidirectionalCollection & Sendable,
+        MapCollection.Element: StringProtocol & Sendable,
         MapCollection.Index == Int,
         Label == Text,
         ValueLabel == Text

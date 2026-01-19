@@ -6,7 +6,7 @@
 
 nonisolated
 protocol OptionSetTrait {
-    associatedtype Option: OptionSet
+    associatedtype Option: OptionSet & Sendable
     var operation: OptionSetTraitOperation<Option> { get }
 
     init(operation: OptionSetTraitOperation<Option>)
@@ -14,7 +14,7 @@ protocol OptionSetTrait {
 
 
 nonisolated
-enum OptionSetTraitOperation<Option: OptionSet> {
+enum OptionSetTraitOperation<Option: OptionSet & Sendable>: Sendable {
     case union(Option)
     case subtract(Option)
 }

@@ -64,7 +64,7 @@ extension DebugOverlayModifier.Configuration {
 extension DebugOverlayModifier.Configuration {
 
     /// Customizations that can be applied to a debug overlay.
-    public enum Trait {
+    public enum Trait: Sendable {
         case modifier(any Modifier)
         case traits([Trait])
 
@@ -99,7 +99,7 @@ extension DebugOverlayModifier.Configuration {
         }
 
         /// Default inner aligned position for the information caption: top-leading.
-        static var innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .inner(.topLeading)))
+        static let innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .inner(.topLeading)))
 
         static func innerInfo(_ innerAlingment: FloatingAlignment.InnerAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: .inner(innerAlingment)))
@@ -121,7 +121,7 @@ extension DebugOverlayModifier.Configuration {
 
 extension DebugOverlayModifier.Configuration {
 
-    public protocol Modifier {
+    public protocol Modifier: Sendable {
         func update(configuration: inout DebugOverlayModifier.Configuration)
     }
 

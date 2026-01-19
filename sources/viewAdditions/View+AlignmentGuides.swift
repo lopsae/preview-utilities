@@ -63,7 +63,7 @@ extension View {
 }
 
 nonisolated
-struct InsettableAlignment<AlignmentType> {
+struct InsettableAlignment<AlignmentType: Sendable> {
 
     let baseAlignment: AlignmentType
     let insetDirection: InsetDirection
@@ -91,8 +91,8 @@ struct InsettableAlignment<AlignmentType> {
 
 extension InsettableAlignment where AlignmentType == VerticalAlignment {
 
-    static var top:    Self = .init(baseAlignment: .top,    insetDirection: .negative)
-    static var bottom: Self = .init(baseAlignment: .bottom, insetDirection: .positive)
+    static let top:    Self = .init(baseAlignment: .top,    insetDirection: .negative)
+    static let bottom: Self = .init(baseAlignment: .bottom, insetDirection: .positive)
 
 }
 

@@ -16,6 +16,7 @@ protocol IdentifiableShift: OptionSet {
 }
 
 
+nonisolated
 extension IdentifiableShift
 where
     Self.RawValue: FixedWidthInteger

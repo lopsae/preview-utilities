@@ -78,9 +78,8 @@ extension HeaderFooterContainer where Content == Never {
 
 // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds` and
 // `PinnedScrollableViews`.
-public struct HeaderFooterContainerOptions:
-    OptionSet, IdentifiableShift, Sendable
-{
+nonisolated
+public struct HeaderFooterContainerOptions: OptionSet, IdentifiableShift, Sendable {
     public let rawValue: Int
 
     public init(rawValue: Int) {
@@ -118,7 +117,7 @@ public struct HeaderFooterContainerOptions:
 // MARK: - Trait
 
 
-public struct HeaderFooterContainerTrait: OptionSetTrait {
+public struct HeaderFooterContainerTrait: OptionSetTrait, Sendable {
     let operation: OptionSetTraitOperation<HeaderFooterContainerOptions>
 
     public static let fixedHeader:  Self = .union(.fixedHeader)
