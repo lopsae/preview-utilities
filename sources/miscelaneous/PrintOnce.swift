@@ -36,6 +36,11 @@ class PrintOnce {
         print()
     }
 
+
+    static var previewStarted: PrintOnce {
+        .init("✴️ Preview started")
+    }
+
 }
 
 
@@ -43,7 +48,7 @@ class PrintOnce {
 
 
 #Preview(traits: .iPhoneProSizeLayout) {
-    @Previewable let printOnce = PrintOnce("⚛️ Preview started")
+    @Previewable let printOnce: PrintOnce = .previewStarted
 
     // Only other way to print ahead, but this prints on every call to body.
     let _ = print("⚠️ Before printOnce")
