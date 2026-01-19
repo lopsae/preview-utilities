@@ -49,11 +49,12 @@ struct AutoPaddedPreviewFooter: View {
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
                 .fill(.purple.tertiary)
-                .onGeometryChange(of: \.size.height, binding: $paddedHeight.onSet { newValue in
+                .onGeometryChange(keyPath: \.size.height) { newValue in
                     if printsUpdates {
                         print("update paddedHeight:\(newValue)")
                     }
-                })
+                    paddedHeight = newValue
+                }
                 .padding()
                 .onGeometryChange(keyPath: \.size.height) { newHeight in
                     if printsUpdates {
