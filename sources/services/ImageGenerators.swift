@@ -435,9 +435,14 @@ extension PreviewContent {
 #Preview("Concurrent", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ Concurrent preview started")
 
+    PreviewCaption("""
+        Generation always happens in the cooperative thread pool, since `@concurrent` does not 
+        depend on isolation context inheritance.
+        """)
+
     printOnce.print()
     PreviewContent.GenericGeneratorPreview(
-        strings: ["One", "Two", "Three", "Four", "Five"],
+        strings: ["One", "Two", "Three", "Four"],
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
@@ -445,13 +450,16 @@ extension PreviewContent {
     )
 }
 
-// TODO: when protocol nonisolated is removed, this preview always calls on main
 #Preview("Nonisolated", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ Nonisolated preview started")
 
+    PreviewCaption("""
+        Generation happens in the inherited isolation context of he caller.
+        """)
+
     printOnce.print()
     PreviewContent.GenericGeneratorPreview(
-        strings: ["Uno", "Dos", "Tres", "Cuatro", "Cinco"],
+        strings: ["Uno", "Dos", "Tres", "Cuatro"],
         generator: NonisolatedImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
@@ -463,9 +471,13 @@ extension PreviewContent {
 #Preview("MainActor", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ MainActor preview started")
 
+    PreviewCaption("""
+        Image generation is isolated to `MainActor`, irregardless of calling isolation context.
+        """)
+
     printOnce.print()
     PreviewContent.GenericGeneratorPreview(
-        strings: ["Un", "Deux", "Trois", "Quatre", "Cinq"],
+        strings: ["Un", "Deux", "Trois", "Quatre"],
         generator: MainActorImageGenerator(
             size: .square(of: 100),
             sleepRange: .seconds(0.5) ... .seconds(1)
@@ -486,7 +498,7 @@ extension PreviewContent {
     >: View
     {
 
-        @State var usesMainActor: Bool = true
+        @State var usesMainActor: Bool = false
         @State var nonisolatedGenerator: Generator
         @State var isolatedGenerator: IsolatedGenerator
         @State var nonisolatedImage: Image?
@@ -616,7 +628,6 @@ extension PreviewContent {
 // MARK: - TypeErasedPreview
 
 
-// TODO: remove preview prints
 extension PreviewContent {
 
     /// Preview that stores the image generator in a type erased `any ImageGeneratorProtocol`
