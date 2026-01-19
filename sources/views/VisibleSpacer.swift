@@ -7,9 +7,6 @@
 import SwiftUI
 
 
-// TODO: do a search for "Spacer" and replace with VisibleSpacer
-
-
 struct VisibleSpacer: View {
 
     let axis: Axis

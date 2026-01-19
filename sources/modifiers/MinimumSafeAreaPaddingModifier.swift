@@ -151,10 +151,7 @@ extension View {
         .frame(width: 120, height: topContentHeight)
         .floatingCaption("Top Content", .height, .border)
 
-
-    Rectangle().fill(.gray.tertiary)
-        .frame(width: 50)
-        .floatingCaption("Spacer")
+    VisibleSpacer()
 
     VStack {
         Text("Padded Content")

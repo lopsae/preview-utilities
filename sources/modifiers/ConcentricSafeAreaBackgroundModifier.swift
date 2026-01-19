@@ -100,7 +100,7 @@ private struct PreviewContent {
         .concentricSafeAreaBackground(fill: PreviewContent.backgroundFill)
         .debugOverlay()
 
-    Spacer()
+    VisibleSpacer()
 
     Text("Not adyacent to safe areas")
         .maxWidthFrame()
@@ -108,7 +108,7 @@ private struct PreviewContent {
         .concentricSafeAreaBackground(fill: PreviewContent.backgroundFill)
         .debugOverlay()
 
-    Spacer()
+    VisibleSpacer()
 
     Text("Along bottom safe area")
         .maxWidthFrame()
@@ -131,7 +131,7 @@ private struct PreviewContent {
         contentPaddingEdges: .not(.top))
     .debugOverlay()
 
-    Spacer()
+    VisibleSpacer()
 
     Text("Surrounded by safe areas")
         .maxWidthFrame()
@@ -143,7 +143,7 @@ private struct PreviewContent {
         .debugOverlay()
         .safeAreaPadding(100)
 
-    Spacer()
+    VisibleSpacer()
 
     VStack {
         Text("Along bottom safe area")
@@ -203,7 +203,7 @@ private struct PreviewContent {
         safeAreaPaddingEdges: .not(.top))
     .debugOverlay()
 
-    Spacer()
+    VisibleSpacer()
 
     VStack {
         Text("Footer")
