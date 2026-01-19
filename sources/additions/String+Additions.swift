@@ -6,18 +6,15 @@
 
 extension String {
 
-    // TODO: move to Strings
     // TODO: remove deprecations after other projects update, before release.
     @available(*, deprecated, renamed: "Strings.alphabet")
     public static let alphabet: [String] = Strings.alphabet
 
 
-    // TODO: move to Strings
     @available(*, deprecated, renamed: "Strings.natoPhoneticAlphabet")
     public static let natoPhoneticAlphabet: [String] = Strings.natoPhoneticAlphabet
 
 
-    // TODO: move to Strings
     @available(*, deprecated, renamed: "Strings.sphinxOfBlackQuartz")
     public static let sphinxOfBlackQuartz: String = Strings.sphinxOfBlackQuartz
 
