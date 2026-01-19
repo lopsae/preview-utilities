@@ -118,11 +118,11 @@ private struct PreviewContent {
 // + In iOS, when the fixed content pushes the footer out of the view boundaries:
 // + An infinite update to safeAreaInset occurrs, oscilating between very close double values.
 #Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
+    @Previewable @State var printOnce: PrintOnce = .previewStarted
     @Previewable @State var isFlexible: Bool = true
     @Previewable @State var fixedHeight: Double = 400
 
-    printOnce.view
+    printOnce.print()
 
     PreviewContent.topControls {
         Toggle("Flexible Height", isOn: $isFlexible)
@@ -152,12 +152,12 @@ private struct PreviewContent {
 // + In iOS, using flexible height, when the safe area inset goes under the minimum:
 // + An infinite update to safeAreaInset occurrs, oscilating between very close double values.
 #Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
-    @Previewable @State var printOnce: PrintOnce = .init("✴️ Preview start")
+    @Previewable @State var printOnce: PrintOnce = .previewStarted
     @Previewable @State var bottomSafeAreaInset: Double = 60
     @Previewable @State var useDeviceSafeArea: Bool = false
     @Previewable @State var isFlexible: Bool = true
 
-    printOnce.view
+    printOnce.print()
 
     PreviewContent.topControls {
         Slider.captioned(
