@@ -30,7 +30,8 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
     ///
     /// [protocols-as-types]:   https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
     /// [boxed-protocol-types]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
-    nonisolated func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
+    nonisolated
+    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
 
     /// Creates a copy of the generator with the same settings but a different ``id``.
     func makeCopy() -> Self
@@ -124,7 +125,6 @@ public final class NonisolatedImageGenerator: ImageGeneratorProtocol, Sendable {
     /// (without protocol boxing), in this case the function uses the package's default isolation.
     nonisolated
     public func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
-        print("generateImage from: \(ThreadInfo().displayName)")
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -168,7 +168,8 @@ public final class MainActorImageGenerator: ImageGeneratorProtocol, Sendable {
 
 /// Collection of static non-isolated-non-sending functions to be used by image generators from any
 /// isolation context. 
-nonisolated final class ImageGeneratorUtils {
+nonisolated
+final class ImageGeneratorUtils {
 
     /// Generates an image using the callers isolation context, optionally sleeps for a random
     /// duration within the given duration range.
@@ -325,7 +326,7 @@ private struct ColorComponents: Sendable {
 }
 
 
-// MARK: - Previews
+// MARK: - PreviewContent
 
 
 @MainActor
@@ -336,13 +337,13 @@ private struct PreviewContent {
 }
 
 
-// MARK: - GeneratorPreview
+// MARK: - GenericGeneratorPreview
 
 
 extension PreviewContent {
 
-    /// Preview that stores the image generator using a generic of ``ImageGeneratorProtocol``.
-    struct GeneratorPreview<Generator: ImageGeneratorProtocol>: View {
+    /// View that stores the image generator using a generic of ``ImageGeneratorProtocol``.
+    struct GenericGeneratorPreview<Generator: ImageGeneratorProtocol>: View {
 
         @State var usesMainActor: Bool = true
         @State var images: [Int: Image] = [:]
@@ -403,7 +404,10 @@ extension PreviewContent {
 
 
 #Preview("Concurrent", traits: .fixedHeader, PreviewContent.layout) {
-    PreviewContent.GeneratorPreview(
+    @Previewable @State var printOnce = PrintOnce("✴️ Concurrent preview started")
+
+    printOnce.print()
+    PreviewContent.GenericGeneratorPreview(
         strings: ["One", "Two", "Three", "Four", "Five"],
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
@@ -412,9 +416,12 @@ extension PreviewContent {
     )
 }
 
-
+// TODO: when protocol nonisolated is removed, this preview always calls on main
 #Preview("Nonisolated", traits: .fixedHeader, PreviewContent.layout) {
-    PreviewContent.GeneratorPreview(
+    @Previewable @State var printOnce = PrintOnce("✴️ Nonisolated preview started")
+
+    printOnce.print()
+    PreviewContent.GenericGeneratorPreview(
         strings: ["Uno", "Dos", "Tres", "Cuatro", "Cinco"],
         generator: NonisolatedImageGenerator(
             size: .square(of: 100),
@@ -425,7 +432,10 @@ extension PreviewContent {
 
 
 #Preview("MainActor", traits: .fixedHeader, PreviewContent.layout) {
-    PreviewContent.GeneratorPreview(
+    @Previewable @State var printOnce = PrintOnce("✴️ MainActor preview started")
+
+    printOnce.print()
+    PreviewContent.GenericGeneratorPreview(
         strings: ["Un", "Deux", "Trois", "Quatre", "Cinq"],
         generator: MainActorImageGenerator(
             size: .square(of: 100),
@@ -441,8 +451,17 @@ extension PreviewContent {
 // TODO: remove preview prints
 extension PreviewContent {
 
-    /// Preview that stores the image generator in a type erasd `any ImageGeneratorProtocol`
-    /// property, which can modify the isolation behaviour of the image generator.
+    /// Preview that stores the image generator in a type erased `any ImageGeneratorProtocol`
+    /// property.
+    ///
+    /// This was the initial implementation where the issues with existential types and protocol
+    /// boxing where first found. After implementing the generic implementation it was found that
+    /// the boxing issues happens with generics too.
+    ///
+    /// This implementation shows the same behaviour as `GenericGeneratorPreview`, but it is left
+    /// for completeness.
+    ///
+    /// TODO: mave a different preview to showcase this issue.
     ///
     /// To see the issues mentioned in this previews remove `nonisolated` from the
     /// ``ImageGeneratorProtocol/generateImage(with:)`` specification. Previously,
@@ -520,11 +539,14 @@ extension PreviewContent {
 
 
 #Preview("ConcurrentErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
+
     PreviewCaption("""
         Generation always happens in the cooperative thread pool, since `@concurrent` does not 
         depend on isolation context inheritance.
         """)
 
+    printOnce.print()
     PreviewContent.TypeErasedPreview(
         string: "Concurrent",
         generator: ConcurrentImageGenerator(
@@ -535,8 +557,10 @@ extension PreviewContent {
 }
 
 
-// TODO: see if an additional nonisolated protocol can be created to showcase the protocol boxing issues.
+// NEXT: see if an additional nonisolated protocol can be created to showcase the protocol boxing issues.
 #Preview("NonisolatedErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var printOnce = PrintOnce("✴️ NonisoltedErasure preview started")
+
     PreviewCaption("""
         Protocol boxing overrides the original caller context to the default isolation. Given that
         nonisolated inherits the caller context, all generation occurs in Main.
@@ -546,6 +570,7 @@ extension PreviewContent {
         `ImageGeneratorProtocol/generateImage(with:)`. Otherwise this works as expected.
         """)
 
+    printOnce.print()
     PreviewContent.TypeErasedPreview(
         string: "NonIsolated",
         generator: NonisolatedImageGenerator(
@@ -557,11 +582,14 @@ extension PreviewContent {
 
 
 #Preview("MainActorErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
+
     PreviewCaption("""
         Image generation is isolated to Main, in this case the protocol boxing override does not
         modify the generation context.
         """)
 
+    printOnce.print()
     PreviewContent.TypeErasedPreview(
         string: "MainActor",
         generator: MainActorImageGenerator(
