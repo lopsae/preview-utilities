@@ -22,12 +22,18 @@ class PrintOnce {
     }
 
     /// Prints `message` the only the first time it is called, always returns `EmptyView`.
-    var view: EmptyView {
+    func print() -> EmptyView {
         if !hasPrinted {
             hasPrinted = true
-            print(message)
+            Swift.print(message)
         }
         return EmptyView()
+    }
+
+    // TODO: remove after updated in dependant projects, before release.
+    @available(*, deprecated, renamed: "print()")
+    var view: EmptyView {
+        print()
     }
 
 }
@@ -37,11 +43,11 @@ class PrintOnce {
 
 
 #Preview(traits: .iPhoneProSizeLayout) {
-    @Previewable let printOnce = PrintOnce("⚛️ Preview start")
+    @Previewable let printOnce = PrintOnce("⚛️ Preview started")
 
     // Only other way to print ahead, but this prints on every call to body.
     let _ = print("⚠️ Before printOnce")
-    printOnce.view
+    printOnce.print()
 
     Text("printOnce.hasPrinted: \(printOnce.hasPrinted.description)")
         .monospaced()
