@@ -10,7 +10,7 @@ extension Comparable {
     ///
     /// - Parameter range: Closed range to clamp `self` to.
     /// - Returns: The clamped value of `self`.
-    @inlinable
+    @inlinable nonisolated
     public func clamped(to range: ClosedRange<Self>) -> Self {
         let clampedValue = Swift.max(range.lowerBound, Swift.min(self, range.upperBound))
         return clampedValue
@@ -21,7 +21,7 @@ extension Comparable {
     ///
     /// - Parameter range: Partial range to clamp `self` to.
     /// - Returns: The clamped value of `self`.
-    @inlinable
+    @inlinable  nonisolated
     public func clamped(to range: PartialRangeFrom<Self>) -> Self {
         let clampedValue = Swift.max(range.lowerBound, self)
         return clampedValue
