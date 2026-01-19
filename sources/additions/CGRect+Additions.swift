@@ -30,7 +30,7 @@ extension CGRect {
     @inlinable nonisolated
     public var center: CGPoint {
         size.toPoint
-            .times(by: 0.5)
+            .multiplying(by: 0.5)
             .offset(by: origin)
     }
 

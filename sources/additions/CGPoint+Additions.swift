@@ -9,11 +9,9 @@ import CoreGraphics
 
 extension CGPoint {
 
-    // TODO: consider renaming times to multiplying
-
     /// Returns the a `CGPoint` with each of the component of `self` multiplied by `multiplier`.
     @inlinable nonisolated
-    func times(by multiplier: CGFloat) -> Self {
+    func multiplying(by multiplier: CGFloat) -> Self {
         .init(
             x: self.x * multiplier,
             y: self.y * multiplier
@@ -25,7 +23,7 @@ extension CGPoint {
     ///
     /// https://en.wikipedia.org/wiki/Hadamard_product_(matrices)
     @inlinable nonisolated
-    func times(by multiplier: Self) -> Self {
+    func hadamart(by multiplier: Self) -> Self {
         .init(
             x: self.x * multiplier.x,
             y: self.y * multiplier.y
@@ -37,11 +35,31 @@ extension CGPoint {
     ///
     /// https://en.wikipedia.org/wiki/Hadamard_product_(matrices)
     @inlinable nonisolated
-    func times(size multiplier: CGSize) -> Self {
+    func hadamart(bySize multiplier: CGSize) -> Self {
         .init(
             x: self.x * multiplier.width,
             y: self.y * multiplier.height
         )
+    }
+
+
+    // TODO: remove deprecations after other projects update, before release.
+    @available(*, deprecated, renamed: "multiplying(by:)")
+    @inlinable nonisolated
+    func times(by multiplier: CGFloat) -> Self {
+        self.multiplying(by: multiplier)
+    }
+
+    @available(*, deprecated, renamed: "hadamart(by:)")
+    @inlinable nonisolated
+    func times(by multiplier: Self) -> Self {
+        self.hadamart(by: multiplier)
+    }
+
+    @available(*, deprecated, renamed: "hadamart(bySize:)")
+    @inlinable nonisolated
+    func times(size multiplier: CGSize) -> Self {
+        self.hadamart(bySize: multiplier)
     }
 
 
