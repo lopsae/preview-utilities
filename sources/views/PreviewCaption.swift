@@ -106,7 +106,7 @@ private struct PreviewContent {
         **Caption** for a preview that can have text defined
         in _multiple lines_ with `Markdown support`.
         """)
-    .paragraph("Along with additional paragraphs: \(String.natoPhoneticAlphabet.joined(separator: " "))")
+    .paragraph("Along with additional paragraphs: \(Strings.loremIpsum(words: 30)).")
 
     PreviewContent.fixedHeightContent()
 }
