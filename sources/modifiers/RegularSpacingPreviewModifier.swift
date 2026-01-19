@@ -40,7 +40,9 @@ private struct DebugRegularSpacingPreviewModifier: PreviewModifier {
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
+    // TODO: remove deprecations after other projects update, before release.
     /// Wraps the preview content in a `VStack` with regular spacing.
+    @available(*, deprecated)
     public static var regularSpacing: PreviewTrait {
         .modifier(RegularSpacingPreviewModifier())
     }
