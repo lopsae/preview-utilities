@@ -30,7 +30,7 @@ class PrintOnce {
         return EmptyView()
     }
 
-    // TODO: remove after updated in dependant projects, before release.
+    // TODO: remove deprecations after other projects update, before release.
     @available(*, deprecated, renamed: "print()")
     var view: EmptyView {
         print()

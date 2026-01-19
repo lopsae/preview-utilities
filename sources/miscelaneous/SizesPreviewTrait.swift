@@ -28,7 +28,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
     }
 
 
-    // TODO: deprecate
+    // TODO: remove deprecations after other projects update, before release.
     @available(*, deprecated, renamed: "iPhoneProSizeLayout")
     public static var iphoneSize: PreviewTrait {
         return .fixedLayout(size: iPhoneProSize)

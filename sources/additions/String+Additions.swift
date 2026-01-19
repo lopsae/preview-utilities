@@ -6,12 +6,14 @@
 
 extension String {
 
+    // TODO: move to Strings
     public static let alphabet: [String] = [
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
         "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     ]
 
 
+    // TODO: move to Strings
     public static let natoPhoneticAlphabet: [String] = [
         "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india",
         "juliett", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo",
@@ -19,10 +21,11 @@ extension String {
     ]
 
 
+    // TODO: move to Strings
     public static let sphinxOfBlackQuartz: String = "sphinx of black quartz, judge my vow"
 
 
-    // TODO: deprecate
+    // TODO: remove deprecations after other projects update, before release.
     @available(*, deprecated, renamed: "Strings.loremIpsum")
     public static let loremIpsum: String = Strings.loremIpsum
 
