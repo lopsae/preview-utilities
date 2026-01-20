@@ -101,7 +101,7 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .regularSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
         **Caption** for a preview that can have text defined
         in _multiple lines_ with `Markdown support`.
@@ -112,7 +112,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Spacing", traits:  .regularSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("Spacing", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
         Markdown parsing replaces newlines
         with
@@ -128,7 +128,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("LoremIpsum", traits:  .regularSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("LoremIpsum", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var wordCount: Double = 50
     @Previewable @State var fixedHeight: Double = 200
 
@@ -150,7 +150,7 @@ private struct PreviewContent {
     PreviewContent.fixedHeightContent(height: fixedHeight)
 }
 
-#Preview("Caption", traits:  .regularSpacing, .fixedHeader, PreviewContent.layout) {
+#Preview("Caption", traits: .fixedHeader, PreviewContent.layout) {
     PreviewCaption(
         "Modifier functions like `.font(.caption)` can be used to modify the internal `Text`s."
     ).paragraph(
@@ -163,7 +163,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Standalone", traits:  .regularSpacing, PreviewContent.layout) {
+#Preview("Standalone", traits: PreviewContent.layout) {
     PreviewCaption("This is a preview caption without the header/footer preview trait.")
         .paragraph("If this becomes a common use, options for edge padding should be considered.")
 
@@ -172,7 +172,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Text.fixedSize Issue", traits: .regularSpacing, .fixedHeader, .iPhoneProSizeLayout) {
+#Preview("Text.fixedSize Issue", traits: .fixedHeader, .iPhoneProSizeLayout) {
     PreviewCaption("""
         Without forced layout, using `Text.fixedSize` causes layout issues in macOS previews
         any time there is other views with flexible height.

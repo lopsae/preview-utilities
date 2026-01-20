@@ -61,7 +61,7 @@ public struct ThreadInfo: Sendable {
 }
 
 
-#Preview(traits: .regularSpacing, .headerFooter) {
+#Preview(traits: .headerFooter) {
     @Previewable @State var appearThreadInfo: ThreadInfo? = nil
     @Previewable @State var taskThreadInfo: ThreadInfo? = nil
     @Previewable @State var innerTaskThreadInfo: ThreadInfo? = nil

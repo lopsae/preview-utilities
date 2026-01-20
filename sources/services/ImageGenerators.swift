@@ -603,7 +603,7 @@ extension PreviewContent {
 // MARK: - Comparison Preview
 
 
-#Preview("Nonisolated/Isolated", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+#Preview("Nonisolated/Isolated", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ Comparison preview started")
 
     PreviewCaption("""
@@ -703,7 +703,7 @@ extension PreviewContent {
 // MARK: - TypeErased Previews
 
 
-#Preview("ConcurrentErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+#Preview("ConcurrentErasure", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
 
     PreviewCaption("""
@@ -725,7 +725,7 @@ extension PreviewContent {
 }
 
 
-#Preview("NonisolatedErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+#Preview("NonisolatedErasure", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ NonisoltedErasure preview started")
 
     PreviewCaption("""
@@ -746,7 +746,7 @@ extension PreviewContent {
 }
 
 
-#Preview("MainActorErasure", traits: .regularSpacing, .fixedHeader, PreviewContent.layout) {
+#Preview("MainActorErasure", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
 
     PreviewCaption("""

@@ -29,9 +29,11 @@ private struct DebugRegularSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
         VStack {
-            Text("RegularSpacing Top")
+            CaptionRectangle("RegularSpacing Top", color: .gray,
+                 width: 150, height: 40)
             content
-            Text("RegularSpacing Bottom")
+            CaptionRectangle("RegularSpacing Bottom", color: .gray,
+                 width: 150, height: 40)
         }
     }
 
@@ -58,7 +60,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .regularSpacing) {
+#Preview("Default", traits: .debugRegularSpacing) {
     Rectangle()
         .fill(.teal)
         .frame(squareOf: 100)

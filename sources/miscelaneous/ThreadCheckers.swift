@@ -27,7 +27,7 @@ final class NonisolatedThreadChecker: Sendable {
 // MARK: - Previews
 
 
-#Preview("Nonisolated", traits: .regularSpacing, .headerFooter) {
+#Preview("Nonisolated", traits: .headerFooter) {
     @Previewable @State var taskThreadInfo: ThreadInfo? = nil
     @Previewable @State var taskConcurrentThreadInfo: ThreadInfo? = nil
     @Previewable @State var taskNonisolatedThreadInfo: ThreadInfo? = nil
@@ -89,7 +89,6 @@ final class NonisolatedThreadChecker: Sendable {
             Text(detachedDefaultIsolationThreadInfo?.numberLeadingDisplayName ?? "…")
         }
     } // Grid
-    .padding(.horizontal)
     .task {
         let checker = NonisolatedThreadChecker()
         taskThreadInfo = ThreadInfo()

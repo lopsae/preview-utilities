@@ -25,9 +25,11 @@ private struct DebugZeroSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
         VStack(spacing: .zero) {
-            Text("ZeroSpacing Top")
+            CaptionRectangle("ZeroSpacing Top", color: .gray,
+                 width: 150, height: 40)
             content
-            Text("ZeroSpacing Bottom")
+            CaptionRectangle("ZeroSpacing Top", color: .gray,
+                 width: 150, height: 40)
         }
     }
 
