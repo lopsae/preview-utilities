@@ -23,6 +23,6 @@ public protocol SelfIdentifiable: Identifiable, Hashable {
 nonisolated
 extension SelfIdentifiable {
 
-    var id: Self { self }
+    public var id: Self { self }
 
 }

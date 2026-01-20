@@ -26,7 +26,7 @@ extension String {
 
 
 /// Container of convenience strings and utilities.
-enum Strings {
+public enum Strings {
 
     public static let alphabet: [String] = [
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",

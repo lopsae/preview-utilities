@@ -80,35 +80,35 @@ extension DebugOverlayModifier.Configuration {
         }
 
 
-        static let hairline: Trait = .modifier(HairlineModifier())
+        public static let hairline: Trait = .modifier(HairlineModifier())
 
-        static func bordersWidth(_ bordersWidth: CGFloat) -> Trait {
+        public static func bordersWidth(_ bordersWidth: CGFloat) -> Trait {
             .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
         }
 
-        static let width: Trait          = .modifier(InfoElementsModifier(infoElements: .width))
-        static let height: Trait         = .modifier(InfoElementsModifier(infoElements: .height))
-        static let origin: Trait         = .modifier(InfoElementsModifier(infoElements: .origin))
-        static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
+        public static let width: Trait          = .modifier(InfoElementsModifier(infoElements: .width))
+        public static let height: Trait         = .modifier(InfoElementsModifier(infoElements: .height))
+        public static let origin: Trait         = .modifier(InfoElementsModifier(infoElements: .origin))
+        public static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
 
-        static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
-        static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
+        public static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
+        public static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
-        static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
+        public static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: alignment))
         }
 
         /// Default inner aligned position for the information caption: top-leading.
-        static let innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .inner(.topLeading)))
+        public static let innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .inner(.topLeading)))
 
-        static func innerInfo(_ innerAlingment: FloatingAlignment.InnerAlignment) -> Trait {
+        public static func innerInfo(_ innerAlingment: FloatingAlignment.InnerAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: .inner(innerAlingment)))
         }
 
         /// Default outer aligned position for the information caption: top-leading.
-        static let outerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .outer(.topLeading)))
+        public static let outerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .outer(.topLeading)))
 
-        static func outerInfo(_ outerAlingment: FloatingAlignment.OuterAlignment) -> Trait {
+        public static func outerInfo(_ outerAlingment: FloatingAlignment.OuterAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: .outer(outerAlingment)))
         }
 
