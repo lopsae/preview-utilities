@@ -26,14 +26,14 @@ struct FloatingCaptionModifier: ViewModifier {
                 let padding: CGFloat? = flatTraits.containsCase(.padding)
                     ? flatTraits.padding // The trait can specify a nil value for a default padding.
                     : 2 // Default without trait.
-                FloatingAlignedContainer(alignment: alignment) { alignment, textAlignment in
-                    VStack(alignment: alignment.horizontal) {
+                FloatingAlignedContainer(alignment: alignment) { alignments in
+                    VStack(alignment: alignments.content.horizontal) {
                         let textStyle: any ShapeStyle = flatTraits.captionStyle
                             ?? .secondary
                         Text(localizedKey)
                             .font(.caption)
                             .foregroundStyle(textStyle)
-                            .multilineTextAlignment(textAlignment)
+                            .multilineTextAlignment(alignments.text)
 
                         // Width, Height, or Size.
                         Group {

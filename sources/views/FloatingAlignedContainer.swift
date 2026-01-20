@@ -12,13 +12,13 @@ struct FloatingAlignedContainer<Content: View>: View {
     let alignment: FloatingAlignment
     // TODO: nil could be unnecessary here, if a view wants default padding they could define it in the content.
     let spacing: CGFloat?
-    let content: (SwiftUI.Alignment, SwiftUI.TextAlignment) -> Content
+    let content: (FloatingAlignment.ContentAlignments) -> Content
 
 
     init(
         alignment: FloatingAlignment = .inner(.center),
         spacing: CGFloat? = .zero,
-        @ViewBuilder content: @escaping (SwiftUI.Alignment, SwiftUI.TextAlignment) -> Content
+        @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
     ) {
         self.alignment = alignment
         self.spacing = spacing
@@ -30,12 +30,13 @@ struct FloatingAlignedContainer<Content: View>: View {
         GeometryReader { geometry in
             let offset = calculateOffset(geometry: geometry)
 
-            VStack(alignment: alignment.contentAlignment.horizontal) {
-                content(alignment.contentAlignment, alignment.textAlignment)
+            VStack(alignment: alignment.forContent.horizontal) {
+                let contentAlignments = FloatingAlignment.ContentAlignments(floatingAlignment: alignment)
+                content(contentAlignments)
             }
             .padding(.all, spacing)
             // Centers the view based in the alignment even when the frame is smaller that the view.
-            .frame(size: geometry.size, alignment: alignment.contentAlignment)
+            .frame(size: geometry.size, alignment: alignment.forContent)
             .offset(offset)
         } // GeometryReader
     }
@@ -65,20 +66,6 @@ struct FloatingAlignedContainer<Content: View>: View {
     }
 
 }
-
-// TODO: make part of FloatingAlignment
-//extension FloatingAlignedContainer {
-
-//    struct ContentAlignments {
-//        let content: SwiftUI.Alignment
-//        let text: SwiftUI.TextAlignment
-//        init(floatingAlignment: FloatingAlignment) {
-//            content = floatingAlignment.contentAlignment
-//            text = floatingAlignment.textAlignment
-//        }
-//    }
-
-//}
 
 
 // MARK: - FloatingAlignment
@@ -120,7 +107,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
     }
 
 
-    var contentAlignment: SwiftUI.Alignment {
+    var forContent: SwiftUI.Alignment {
         switch self {
         case .inner(let innerAlignment): innerAlignment.swiftAlignment
         case .outer(let outerAlignment): outerAlignment.contentAlignment
@@ -128,13 +115,18 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable {
     }
 
 
-    var textAlignment: SwiftUI.TextAlignment {
+    var forText: SwiftUI.TextAlignment {
         switch self {
         case .inner(let innerAlignment):
             return innerAlignment.horizontal.textAlignment
         case .outer(let outerAlignment):
             return outerAlignment.textAlignment
         }
+    }
+
+
+    var contentAlignments: ContentAlignments {
+        .init(floatingAlignment: self)
     }
 
 
@@ -481,6 +473,30 @@ extension FloatingAlignment {
 }
 
 
+extension FloatingAlignment {
+
+    /// Container of alignments that can be applied to content that is aligned using a
+    /// `FloatingAlignment`.
+    ///
+    /// Use the contained `content` and `text` alignments to align content to the appropiate edge
+    /// that the content will be touching.
+    ///
+    /// I.e.: For content aligned to ``FloatingAlignment/outerTrailing``, the ``SwiftUI/HorizontalAlignment/leading``
+    /// and ``SwiftUI/TextAlignment/leading`` will be passed for the content to align itself towards
+    /// the trailing edge from the outside.
+    nonisolated
+    struct ContentAlignments {
+        let content: SwiftUI.Alignment
+        let text: SwiftUI.TextAlignment
+        init(floatingAlignment: FloatingAlignment) {
+            content = floatingAlignment.forContent
+            text = floatingAlignment.forText
+        }
+    }
+
+}
+
+
 // MARK: - PreviewContent
 
 
@@ -504,7 +520,7 @@ private struct PreviewContent {
     .fill(.teal.gradient.secondary)
     .frame(squareOf: 100)
     .overlay {
-        FloatingAlignedContainer { _, _ in
+        FloatingAlignedContainer { _ in
             Group {
                 Text("Sphinx of black quartz,")
                 Text("judge my vow")
@@ -581,10 +597,10 @@ private struct PreviewContent {
     }
     .padding(.not(.top))
 
-    let floatingContent = FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignment, textAlignment in
+    let floatingContent = FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignments in
         switch contentOption {
         case .text:
-            VStack(alignment: alignment.horizontal) {
+            VStack(alignment: alignments.content.horizontal) {
                 Text("Sphinx of black quartz")
                 Text("judge my vow")
             }
@@ -592,7 +608,7 @@ private struct PreviewContent {
             .font(.caption.monospaced())
             .fixedSize()
         case .vertical:
-            HStack(alignment: alignment.vertical) {
+            HStack(alignment: alignments.content.vertical) {
                 Rectangle().fill(.red)
                     .frame(width: 20, height: 100)
                 Rectangle().fill(.red)
@@ -601,13 +617,13 @@ private struct PreviewContent {
                     .frame(width: 20, height: 250)
             }
         case .multiline:
-            VStack(alignment: alignment.horizontal) {
+            VStack(alignment: alignments.content.horizontal) {
                 Text("How happy is\nthe blameless vestal's lot!")
                 Text("The world forgetting,\nby the world forgot.")
             }
             .foregroundStyle(.secondary)
             .font(.caption.monospaced())
-            .multilineTextAlignment(textAlignment)
+            .multilineTextAlignment(alignments.text)
             .fixedSize()
         }
     }
@@ -643,9 +659,9 @@ private struct PreviewContent {
     .frame(width: 200, height: 300)
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in
-            FloatingAlignedContainer(alignment: alignment, spacing: 2) { _, textAlignment in
+            FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
                 Text("black\nquartz")
-                    .multilineTextAlignment(textAlignment)
+                    .multilineTextAlignment(alignments.text)
                 Image(systemName: "target")
                     .foregroundStyle(.tertiary)
                 Text(alignment.abbreviatedName)

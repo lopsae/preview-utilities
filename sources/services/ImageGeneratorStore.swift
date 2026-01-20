@@ -16,7 +16,8 @@ public class ImageGeneratorStore {
     public private(set) var images: [String: Image] = [:]
 
 
-    // TODO: make init that only receives size and uses isolateedImageGenerator
+    // TODO: make init that only receives size and uses isolateedImageGenerator, which is the desired default case for consumer of the package.
+    // TODO: update to use generics.
     public init(size: CGSize, generator: (any ImageGeneratorProtocol)? = nil) {
         if let generator {
             self.generator = generator

@@ -166,7 +166,7 @@ public struct DebugOverlayModifier: ViewModifier {
             FloatingAlignedContainer(
                 alignment: configuration.infoAlignment,
                 spacing: boundedBordersWidth * 1.5
-            ) { alignment, textAlignment in
+            ) { alignments in
                 Group {
                     let globalFrame = geometry.frame(in: .global)
                     let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
@@ -194,7 +194,7 @@ public struct DebugOverlayModifier: ViewModifier {
                     // SafeAreaInsets.
                     if configuration.infoElements.contains(.safeAreaInsets) {
                         Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
-                            .multilineTextAlignment(textAlignment)
+                            .multilineTextAlignment(alignments.text)
                     }
                 } // Group
                 .font(.caption.monospaced())
