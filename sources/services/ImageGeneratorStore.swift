@@ -14,8 +14,19 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
 
     let generator: Generator
 
+    /// Stores the current status of the image generation for each text.
     public private(set) var status: [String: GenerationStatus] = [:]
+
+    /// Stores the internal task generating the image.
+    ///
+    /// Only one task per text is kept at any time. This task can be cancelled both directly or
+    /// through the cancelation of the task context calling ``generateImage(with:)``.
+    /// Since cancelation can happen even after the image generation is done, it is possible to have
+    /// a cancelled task for an image that has successfully generated and stored. The
+    /// source-of-truth for the success of an image generation is if the image exists in ``images``.
     public private(set) var tasks:  [String: ImageTask] = [:]
+
+    /// Stores the generated images for each text.
     public private(set) var images: [String: Image] = [:]
 
 
@@ -32,7 +43,28 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
     public var size: CGSize { generator.size }
 
 
+    @discardableResult
+    /// Syncronously returns an image if it has already been generated or stored. Otherwise starts
+    /// or restarts the internal image generation task and returns `nil`.
+    public func startGeneration(with text: String) -> Image? {
+        if let image = images[text] {
+            return image
+        }
+        retrieveOrGenerateTask(for: text, requestThreadInfo: ThreadInfo())
+        return nil
+    }
+
+
+    // TODO: could also throw a cancelation error.
     @concurrent @discardableResult
+    /// Asyncronously generates and returns an image. If the image is already generated and stored
+    /// it will be returned immediately. Otherwise, starts or restarts the internal image generation
+    /// task.
+    ///
+    /// When called from a task context, this function will detect task cancelation and will cancel
+    /// the internal image generation task and return nil. Since internally only a single image
+    /// generation task is kept for each text, cancelling the task will impact every other image
+    /// request by returning `nil`.
     public func generateImage(with text: String) async -> Image? {
         // The point of truth for an image generation success is if it is alredy stored.
         // There is a chance that a generation task is cancelled, but it still finishes storing
@@ -44,7 +76,7 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
         // Task needs to be created in the storage isolation, so that only one task per text exists.
         let requestThreadInfo = ThreadInfo()
         let task = await retrieveOrGenerateTask(for: text, requestThreadInfo: requestThreadInfo)
-        
+
         // Propagate task cancelation into the generationTask.
         return await withTaskCancellationHandler {
             await task.value
@@ -57,6 +89,7 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
     }
 
 
+    @discardableResult
     private func retrieveOrGenerateTask(for text: String, requestThreadInfo: ThreadInfo) -> ImageTask {
         if let existingTask = tasks[text], !existingTask.isCancelled {
             return existingTask
@@ -116,12 +149,28 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
             requestThreadInfo: requestThreadInfo)
     }
 
+}
 
-    public enum GenerationStatus {
+
+// MARK: - GenerationStatus
+
+
+extension ImageGeneratorStore {
+
+    public enum GenerationStatus: IdentifiableCase {
 
         case requested(threadInfo: ThreadInfo)
         case stored(threadInfo: ThreadInfo, requestThreadInfo: ThreadInfo, generationThreadInfo: ThreadInfo)
         case cancelled(threadInfo: ThreadInfo, requestThreadInfo: ThreadInfo)
+
+        public enum Case: String { case requested, stored, cancelled }
+        var `case`: Case {
+            switch self {
+            case .requested: .requested
+            case .stored:    .stored
+            case .cancelled: .cancelled
+            }
+        }
 
         public var statusColor: Color {
             switch self {
@@ -195,7 +244,6 @@ private struct PreviewContent {
         var image: Image?
         var size: CGSize
         var cancelable: Bool
-//        var task: Task<Void, Never>? // ImageGeneratorStore.ImageTask?
         var cancelClosure: () -> Void
         var restartClosure: () -> Void
 
@@ -234,7 +282,7 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var tasks: [String: Task<Void, Never>] = [:]
+    @Previewable @State var externalTasks: [String: Task<Void, Never>] = [:]
     @Previewable @State var imageGenerator = ImageGeneratorStore(
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
@@ -250,24 +298,26 @@ private struct PreviewContent {
                 PreviewContent.ImageWithButtons(
                     image: imageGenerator.images[item],
                     size: imageGenerator.size,
-                    cancelable: tasks.keys.contains(item)
+                    cancelable: externalTasks[item] != nil
                 ) {
-                    if let task = tasks[item] {
+                    if let task = externalTasks[item] {
                         task.cancel()
-                        tasks[item] = nil
+                        externalTasks[item] = nil
                     }
                 } restartClosure: {
+                    // Start the external task.
                     let task = Task {
                         _ = await imageGenerator.generateImage(with: item)
                     }
-                    tasks[item] = task
+                    externalTasks[item] = task
                 }
             } // HStack
             .onAppear {
+                // Start the external task.
                 let task = Task {
                     _ = await imageGenerator.generateImage(with: item)
                 }
-                tasks[item] = task
+                externalTasks[item] = task
             }
         }
     } // VStack
@@ -278,6 +328,7 @@ private struct PreviewContent {
         GridRow {
             Text("Item").bold()
             Text("Status").bold()
+            Text("Internal Task").bold()
         }
 
         Divider()
@@ -298,8 +349,28 @@ private struct PreviewContent {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .maxWidthFrame(alignment: .leading)
+                } // HStack
+
+                switch generationStatus?.case {
+                case .requested:
+                    Button("Cancel", systemImage: "xmark") {
+                        if let task = imageGenerator.tasks[item] {
+                            task.cancel()
+                        }
+                    }
+                    .tint(.red)
+                case .cancelled:
+                    Button("Restart", systemImage: "arrow.clockwise") {
+                        imageGenerator.startGeneration(with: item)
+                    }
+                    .tint(.green)
+                case .stored:
+                    Label("Done", systemImage: "checkmark")
+                        .foregroundStyle(.green)
+                case .none:
+                    Label("No Task", systemImage: "questionmark")
                 }
-            }
+            } // Grid Row
         }
     } // Grid
     .maxWidthFrame()
