@@ -19,6 +19,18 @@ final class NonisolatedThreadChecker: Sendable {
     nonisolated
     func nonisolatedThreadInfo() async -> ThreadInfo { .init() }
 
+    // Since the class is nonisolated, this function behaves the same as `nonisolatedThreadInfo`.
+    func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
+
+}
+
+
+/// Sendable object that uses the default project isolation context, which is configured to
+/// `MainActor`.
+final class DefaultIsolationThreadChecker: Sendable {
+
+    /// Given that the class uses the default `MainActor` isolation, this function will always be
+    /// called in `MainActor`, irregardless of the parent isolation context.
     func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
 
 }
@@ -101,6 +113,63 @@ final class NonisolatedThreadChecker: Sendable {
             await _detachedThreadInfo.setOnMain(ThreadInfo())
             await $detachedConcurrentThreadInfo.setOnMain(await checker.concurrentThreadInfo())
             await $detachedNonisolatedThreadInfo.setOnMain(await checker.nonisolatedThreadInfo())
+            await $detachedDefaultIsolationThreadInfo.setOnMain(await checker.defaultIsolationThreadInfo())
+        }
+    }
+
+}
+
+
+#Preview("DefaultIsolation", traits: .headerFooter) {
+    @Previewable @State var taskThreadInfo: ThreadInfo? = nil
+    @Previewable @State var taskDefaultIsolationThreadInfo: ThreadInfo? = nil
+
+    @Previewable @State var detachedThreadInfo: ThreadInfo? = nil
+    @Previewable @State var detachedDefaultIsolationThreadInfo: ThreadInfo? = nil
+
+    Grid(alignment: .leading, horizontalSpacing: 20) {
+        GridRow {
+            Text("In Task").bold()
+            Text("Thread").bold().maxWidthFrame(alignment: .leading)
+        }
+
+        Divider().gridCellUnsizedAxes(.horizontal)
+
+        GridRow {
+            Text("Parent")
+            Text(taskThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Default Isolation")
+            Text(taskDefaultIsolationThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+
+        Divider().gridCellUnsizedAxes(.horizontal)
+
+        GridRow {
+            Text("In Detached").bold()
+            Text("Thread").bold().maxWidthFrame(alignment: .leading)
+        }
+
+        Divider().gridCellUnsizedAxes(.horizontal)
+
+        GridRow {
+            Text("Parent")
+            Text(detachedThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+        GridRow {
+            Text("Default Isolation")
+            Text(detachedDefaultIsolationThreadInfo?.numberLeadingDisplayName ?? "…")
+        }
+    } // Grid
+    .task {
+        let checker = DefaultIsolationThreadChecker()
+        taskThreadInfo = ThreadInfo()
+        taskDefaultIsolationThreadInfo = await checker.defaultIsolationThreadInfo()
+        Task.detached {
+            try? await Task.sleep(for: .seconds(2))
+            // Experimental way to assign a state in main.
+            await $detachedThreadInfo.setOnMain(ThreadInfo())
             await $detachedDefaultIsolationThreadInfo.setOnMain(await checker.defaultIsolationThreadInfo())
         }
     }
