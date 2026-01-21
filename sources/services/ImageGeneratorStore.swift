@@ -31,7 +31,7 @@ public class ImageGeneratorStore {
 
 
     @concurrent @discardableResult
-    public func generateImage(with text: String) async -> Image {
+    public func generateImage(with text: String) async -> Image? {
         if let image = await images[text] {
             return image
         }
@@ -40,13 +40,19 @@ public class ImageGeneratorStore {
 
         let generateTuple = await generator.generateImage(with: text)
 
-        let storageThreadInfo = ThreadInfo()
-        await storeImage(
-            generateTuple.image, text: text,
-            threadInfo: storageThreadInfo,
-            requestThreadInfo: requestThreadInfo,
-            generationThreadInfo: generateTuple.threadInfo
-        )
+        if let image = generateTuple.image {
+            await storeImage(
+                image, text: text,
+                storageThreadInfo: ThreadInfo(),
+                requestThreadInfo: requestThreadInfo,
+                generationThreadInfo: generateTuple.threadInfo)
+        } else {
+            // Image generation was cancelled.
+            await storeImageCancelation(
+                text: text,
+                requestThreadInfo: requestThreadInfo,
+                cancelationThreadInfo: generateTuple.threadInfo)
+        }
 
         return generateTuple.image
     }
@@ -60,15 +66,26 @@ public class ImageGeneratorStore {
     private func storeImage(
         _ image: Image,
         text: String,
-        threadInfo: ThreadInfo,
+        storageThreadInfo: ThreadInfo,
         requestThreadInfo: ThreadInfo,
         generationThreadInfo: ThreadInfo
     ) {
         images[text] = image
         status[text] = .stored(
-            threadInfo: threadInfo,
+            threadInfo: storageThreadInfo,
             requestThreadInfo: requestThreadInfo,
             generationThreadInfo: generationThreadInfo)
+    }
+
+
+    private func storeImageCancelation(
+        text: String,
+        requestThreadInfo: ThreadInfo,
+        cancelationThreadInfo: ThreadInfo
+    ) {
+        status[text] = .cancelled(
+            threadInfo: cancelationThreadInfo,
+            requestThreadInfo: requestThreadInfo)
     }
 
 
@@ -76,11 +93,13 @@ public class ImageGeneratorStore {
 
         case requested(threadInfo: ThreadInfo)
         case stored(threadInfo: ThreadInfo, requestThreadInfo: ThreadInfo, generationThreadInfo: ThreadInfo)
+        case cancelled(threadInfo: ThreadInfo, requestThreadInfo: ThreadInfo)
 
         public var statusColor: Color {
             switch self {
             case .requested: .orange
             case .stored:    .green
+            case .cancelled: .red
             }
         }
 
@@ -94,6 +113,8 @@ public class ImageGeneratorStore {
                 generationThreadInfo: generationThreadInfo
             ):
                 "Stored in \(nilDefault: threadInfo.number) ← gen:\(nilDefault: generationThreadInfo.number) ← req:\(nilDefault: requestThreadInfo.number)"
+            case let .cancelled(threadInfo, requestThreadInfo):
+                "Cancelled in \(nilDefault: threadInfo.number) ← req:\(nilDefault: requestThreadInfo.number)"
             }
         }
 
@@ -108,6 +129,8 @@ public class ImageGeneratorStore {
                 generationThreadInfo: generationThreadInfo
             ):
                 "s:\(nilDefault: threadInfo.number) ← g:\(nilDefault: generationThreadInfo.number) ← r:\(nilDefault: requestThreadInfo.number)"
+            case let .cancelled(threadInfo, requestThreadInfo):
+                "c:\(nilDefault: threadInfo.number) ← r:\(nilDefault: requestThreadInfo.number)"
             }
         }
 
@@ -122,6 +145,8 @@ public class ImageGeneratorStore {
                 generationThreadInfo: generationThreadInfo
             ):
                 "\(threadInfo.number, default: "?"):\(generationThreadInfo.number, default: "?"):\(requestThreadInfo.number, default: "?")"
+            case let .cancelled(threadInfo, requestThreadInfo):
+                "x:\(threadInfo.number, default: "?"):\(requestThreadInfo.number, default: "?")"
             }
         }
 
@@ -131,22 +156,57 @@ public class ImageGeneratorStore {
 
 
 #Preview("Storage", traits: .fixedHeader) {
-    @Previewable @State var items: [String] = ["One", "Two", "Three", "Four"]
-    @Previewable @State var imageGenerator = ImageGeneratorStore(size: .square(of: 100))
+    @Previewable @State var tasks: [String: Task<Void, Never>] = [:]
+    @Previewable @State var imageGenerator = ImageGeneratorStore(
+        size: .square(of: 100),
+        generator: ConcurrentImageGenerator(
+            size: .square(of: 100),
+            sleepRange: .seconds(5) ... .seconds(7)))
+
+    let items: [String] = ["One", "Two", "Three", "Four"]
 
     VStack {
         ForEach(items.enumerated(), id: \.offset) { index, item in
-            Group {
-                if let image = imageGenerator.images[item] {
-                    image.resizable()
-                } else {
-                    Rectangle().fill(.secondary)
+            HStack {
+                Group {
+                    if let image = imageGenerator.images[item] {
+                        image.resizable()
+                    } else {
+                        Rectangle().fill(.secondary)
+                    }
+                }
+                .frame(size: imageGenerator.size)
+                .roundedRectangleClip(cornerRadius: 8)
+
+                if imageGenerator.images[item] == nil {
+                    Group {
+                        if let task = tasks[item] {
+                            Button("Cancel", systemImage: "xmark") {
+                                guard !task.isCancelled else { return }
+                                task.cancel()
+                                tasks[item] = nil
+                            }
+                            .tint(.red)
+                        } else {
+                            Button("Restart", systemImage: "arrow.clockwise") {
+                                let task = Task {
+                                    _ = await imageGenerator.generateImage(with: item)
+                                }
+                                tasks[item] = task
+                            }
+                            .tint(.green)
+                        }
+                    }
+                    .labelStyle(.iconOnly)
+                    .buttonBorderShape(.circle)
+                    .buttonStyle(.borderedProminent)
                 }
             }
-            .frame(size: imageGenerator.size)
-            .roundedRectangleClip(cornerRadius: 8)
-            .task {
-                await imageGenerator.generateImage(with: item)
+            .onAppear {
+                let task = Task {
+                    _ = await imageGenerator.generateImage(with: item)
+                }
+                tasks[item] = task
             }
         }
     } // VStack

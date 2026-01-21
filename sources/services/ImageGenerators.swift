@@ -31,7 +31,7 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
     /// [protocols-as-types]:   https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
     /// [boxed-protocol-types]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
     nonisolated
-    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
+    func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo)
 
     /// Creates a copy of the generator with the same settings but a different ``id``.
     func makeCopy() -> Self
@@ -60,7 +60,7 @@ private protocol IsolatedImageGeneratorProtocol: Sendable, Identifiable {
     var id: UUID { get }
     var size: CGSize { get }
 
-    func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo)
+    func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo)
     func makeCopy() -> Self
 }
 
@@ -111,7 +111,7 @@ public final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
     /// context of the caller, since the package uses the `NonisolatedNonsendingByDefault` upcoming
     /// feature.
     @concurrent
-    public func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
+    public func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -150,7 +150,7 @@ public final class NonisolatedImageGenerator:
     /// See notes in `IsolatedImageGeneratorProtocol` about how existential types and protocol
     /// boxing can change the behaviour of this implementation.
     nonisolated
-    public func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
+    public func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo) {
         return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -182,7 +182,7 @@ public final class MainActorImageGenerator: ImageGeneratorProtocol, Sendable {
 
     /// Generates an image asyncronously, this function is isolated to MainActor.
     @MainActor
-    public func generateImage(with text: String) async -> (image: Image, threadInfo: ThreadInfo) {
+    public func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo) {
             return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
@@ -205,12 +205,20 @@ final class ImageGeneratorUtils {
     /// marked `nonisolated(nonsending)` for explicitness.
     nonisolated(nonsending)
     static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
-    async -> (image: Image, threadInfo: ThreadInfo) {
+    async -> (image: Image?, threadInfo: ThreadInfo) {
         // Simulate async work.
         if let sleepRange {
             let sleepDuration = sleepRange.randomDuration()
             // TODO: if canceled an additional status could be recorded
-            try? await Task.sleep(for: sleepDuration)
+            // TODO: is this being canceled upon fast scrolling?
+            do {
+                try await Task.sleep(for: sleepDuration)
+            } catch is CancellationError {
+                return (nil, ThreadInfo())
+            } catch {
+                print("Unexpected error during image generation: \(error.localizedDescription)")
+                return (nil, ThreadInfo())
+            }
         }
 
         let threadInfo = ThreadInfo()
