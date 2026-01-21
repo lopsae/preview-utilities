@@ -89,27 +89,30 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
             return existingTask
         }
 
-        let task = Task { @concurrent in
-            let generateTuple = await generator.generateImage(with: text)
-
-            let storageThreadInfo = ThreadInfo()
-
-            // TODO: allow generateImage to throw a cancelable error.
-            if let image = generateTuple.image {
-                await storeImage(
-                    image, text: text,
-                    storageThreadInfo: storageThreadInfo,
-                    requestThreadInfo: requestThreadInfo,
-                    generationThreadInfo: generateTuple.threadInfo)
-            } else {
-                // Image generation was cancelled.
+        let task = Task<Image?, Never>.init { @concurrent in
+            let generationTuple: ImageGeneratorProtocol.GenerationTuple
+            do {
+                generationTuple = try await generator.generateImage(with: text)
+            } catch ImageGeneratorError.cancelled(let cancelationThreadInfo) {
                 await storeImageCancelation(
                     text: text,
                     requestThreadInfo: requestThreadInfo,
-                    cancelationThreadInfo: generateTuple.threadInfo)
+                    cancelationThreadInfo: cancelationThreadInfo)
+                return nil
+            } catch {
+                // `generateImage` only throws ImageGeneratorError.
+                // `do throws(ImageGeneratorError)` results in a warning...
+                fatalError()
             }
 
-            return generateTuple.image
+            let storageThreadInfo = ThreadInfo()
+            await storeImage(
+                generationTuple.image, text: text,
+                storageThreadInfo: storageThreadInfo,
+                requestThreadInfo: requestThreadInfo,
+                generationThreadInfo: generationTuple.threadInfo)
+
+            return generationTuple.image
         }
 
         tasks[text] = task

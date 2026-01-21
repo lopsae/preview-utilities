@@ -11,6 +11,8 @@ import SwiftUI
 /// Protocol for all image generators.
 public protocol ImageGeneratorProtocol: Sendable, Identifiable {
 
+    typealias GenerationTuple = (image: Image, threadInfo: ThreadInfo)
+
     /// Unique identifier of the generator.
     var id: UUID { get }
 
@@ -31,11 +33,30 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
     /// [protocols-as-types]:   https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
     /// [boxed-protocol-types]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
     nonisolated
-    func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo)
+    func generateImage(with text: String)
+    async throws(ImageGeneratorError)
+    -> GenerationTuple
 
-    /// Creates a copy of the generator with the same settings but a different ``id``.
+    /// Creates a copy of the generator with the same settings and a new ``id``.
     func makeCopy() -> Self
 
+}
+
+
+nonisolated enum ImageGeneratorDefaults {
+
+    static let sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)
+
+}
+
+
+public enum ImageGeneratorError: Error {
+    case cancelled(ThreadInfo)
+    var threadInfo: ThreadInfo {
+        switch self {
+        case .cancelled(let threadInfo): threadInfo
+        }
+    }
 }
 
 
@@ -60,16 +81,11 @@ private protocol IsolatedImageGeneratorProtocol: Sendable, Identifiable {
     var id: UUID { get }
     var size: CGSize { get }
 
-    func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo)
+    func generateImage(with text: String)
+    async throws(ImageGeneratorError)
+    -> (image: Image, threadInfo: ThreadInfo)
+
     func makeCopy() -> Self
-}
-
-
-
-nonisolated enum ImageGeneratorDefaults {
-
-    static let sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)
-
 }
 
 
@@ -111,8 +127,11 @@ public final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
     /// context of the caller, since the package uses the `NonisolatedNonsendingByDefault` upcoming
     /// feature.
     @concurrent
-    public func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo) {
-        return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
+    public func generateImage(with text: String)
+        async throws(ImageGeneratorError)
+        -> GenerationTuple
+    {
+        return try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -150,8 +169,11 @@ public final class NonisolatedImageGenerator:
     /// See notes in `IsolatedImageGeneratorProtocol` about how existential types and protocol
     /// boxing can change the behaviour of this implementation.
     nonisolated
-    public func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo) {
-        return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
+    public func generateImage(with text: String)
+        async throws(ImageGeneratorError)
+        -> GenerationTuple
+    {
+        return try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -182,8 +204,11 @@ public final class MainActorImageGenerator: ImageGeneratorProtocol, Sendable {
 
     /// Generates an image asyncronously, this function is isolated to MainActor.
     @MainActor
-    public func generateImage(with text: String) async -> (image: Image?, threadInfo: ThreadInfo) {
-            return await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
+    public func generateImage(with text: String)
+        async throws(ImageGeneratorError)
+        -> GenerationTuple
+    {
+            return try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -205,19 +230,18 @@ final class ImageGeneratorUtils {
     /// marked `nonisolated(nonsending)` for explicitness.
     nonisolated(nonsending)
     static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
-    async -> (image: Image?, threadInfo: ThreadInfo) {
+    async throws(ImageGeneratorError)
+    -> ImageGeneratorProtocol.GenerationTuple {
         // Simulate async work.
         if let sleepRange {
             let sleepDuration = sleepRange.randomDuration()
-            // TODO: if canceled an additional status could be recorded
-            // TODO: is this being canceled upon fast scrolling?
             do {
                 try await Task.sleep(for: sleepDuration)
             } catch is CancellationError {
-                return (nil, ThreadInfo())
+                throw .cancelled(ThreadInfo())
             } catch {
                 print("Unexpected error during image generation: \(error.localizedDescription)")
-                return (nil, ThreadInfo())
+                throw .cancelled(ThreadInfo())
             }
         }
 
@@ -407,16 +431,16 @@ extension PreviewContent {
                             // Call from inherited MainActor isolation.
                             Task {
                                 print("In Task: Generating from: \(ThreadInfo().displayName)")
-                                return await generator.generateImage(with: string)
+                                return try? await generator.generateImage(with: string)
                             }
                         } else {
                             // Call using cooperative thread pool.
                             Task.detached {
                                 print("In Detached: start from: \(ThreadInfo().displayName)")
-                                return await generator.generateImage(with: string)
+                                return try? await generator.generateImage(with: string)
                             }
                         }
-                        let image = await imageTask.value.image
+                        let image = await imageTask.value?.image
                         images[index] = image
                     }
                     .id(generator.id.hash(with: index))
@@ -430,7 +454,6 @@ extension PreviewContent {
             }
 
             Toggle("Call from Main Actor", isOn: $usesMainActor)
-                .padding()
         }
     }
 
@@ -545,16 +568,16 @@ extension PreviewContent {
                             // Call from inherited MainActor isolation.
                             Task {
                                 print("Nonisolated: In Task: Generating from: \(ThreadInfo().displayName)")
-                                return await nonisolatedGenerator.generateImage(with: nonisolatedString)
+                                return try? await nonisolatedGenerator.generateImage(with: nonisolatedString)
                             }
                         } else {
                             // Call using cooperative thread pool.
                             Task.detached {
                                 print("Nonisolated: In Detached: start from: \(ThreadInfo().displayName)")
-                                return await nonisolatedGenerator.generateImage(with: nonisolatedString)
+                                return try? await nonisolatedGenerator.generateImage(with: nonisolatedString)
                             }
                         }
-                        let image = await imageTask.value.image
+                        let image = await imageTask.value?.image
                         nonisolatedImage = image
                     }
                     .id(nonisolatedGenerator.id.hash(with: nonisolatedString))
@@ -574,16 +597,16 @@ extension PreviewContent {
                             // Call from inherited MainActor isolation.
                             Task {
                                 print("Isolated: In Task: Generating from: \(ThreadInfo().displayName)")
-                                return await isolatedGenerator.generateImage(with: isolatedString)
+                                return try? await isolatedGenerator.generateImage(with: isolatedString)
                             }
                         } else {
                             // Call using cooperative thread pool.
                             Task.detached {
                                 print("Isolated: In Detached: start from: \(ThreadInfo().displayName)")
-                                return await isolatedGenerator.generateImage(with: isolatedString)
+                                return try? await isolatedGenerator.generateImage(with: isolatedString)
                             }
                         }
-                        let image = await imageTask.value.image
+                        let image = await imageTask.value?.image
                         isolatedImage = image
                     }
                     .id(isolatedGenerator.id.hash(with: isolatedString))
@@ -627,7 +650,7 @@ extension PreviewContent {
     let sleepRange: ClosedRange<Duration> = .seconds(0.5) ... .seconds(1)
     PreviewContent.ProtocolComparisonPreview(
         nonisolatedString: "Nonisolated",
-        isolatedString: "Isolated",
+        isolatedString: "Default\nIsolation",
         nonisolatedGenerator: NonisolatedImageGenerator(size: size, sleepRange: sleepRange),
         isolatedGenerator: NonisolatedImageGenerator(size: size, sleepRange: sleepRange))
 }
@@ -680,22 +703,21 @@ extension PreviewContent {
                     // Call from inherited the MainActor isolation.
                     Task {
                         print("In Task: Generating from: \(ThreadInfo().displayName)")
-                        return await generator.generateImage(with: string)
+                        return try? await generator.generateImage(with: string)
                     }
                 } else {
                     // Call using cooperative thread pool.
                     Task.detached {
                         print("In Detached: Generating from: \(ThreadInfo().displayName)")
-                        return await generator.generateImage(with: string)
+                        return try? await generator.generateImage(with: string)
                     }
                 }
-                let generatedImage = await imageTask.value.image
+                let generatedImage = await imageTask.value?.image
                 image = generatedImage
             }
             .id(generator.id.hash(with: string))
 
             Toggle("Call from Main Actor", isOn: $usesMainActor)
-            .padding(.horizontal)
             .onChange(of: usesMainActor) {
                 // Reset image generator and stored images.
                 print("Resetting Generator")
