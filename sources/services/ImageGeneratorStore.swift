@@ -183,7 +183,57 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
 }
 
 
-#Preview("Storage", traits: .fixedHeader) {
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+    struct ImageWithButtons: View {
+        var image: Image?
+        var size: CGSize
+        var cancelable: Bool
+//        var task: Task<Void, Never>? // ImageGeneratorStore.ImageTask?
+        var cancelClosure: () -> Void
+        var restartClosure: () -> Void
+
+        var body: some View {
+            Group {
+                if let image {
+                    image.resizable()
+                } else {
+                    Rectangle().fill(.secondary)
+                    .overlay {
+                        Group {
+                            if cancelable {
+                                Button("Cancel", systemImage: "xmark", action: cancelClosure)
+                                .tint(.red)
+                            } else {
+                                Button("Restart", systemImage: "arrow.clockwise", action: restartClosure)
+                                .tint(.green)
+                            }
+                        }
+                        .labelStyle(.iconOnly)
+                        .buttonBorderShape(.circle)
+                        .buttonStyle(.borderedProminent)
+                    }
+                }
+            } // Group
+            .frame(size: size)
+            .roundedRectangleClip(cornerRadius: 8)
+        }
+
+    }
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var tasks: [String: Task<Void, Never>] = [:]
     @Previewable @State var imageGenerator = ImageGeneratorStore(
         generator: ConcurrentImageGenerator(
@@ -197,41 +247,23 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
     VStack {
         ForEach(items.enumerated(), id: \.offset) { index, item in
             HStack {
-                Group {
-                    if let image = imageGenerator.images[item] {
-                        image.resizable()
-                    } else {
-                        Rectangle().fill(.secondary)
-                        .overlay {
-                            Group {
-                                if let task = tasks[item] {
-                                    Button("Cancel", systemImage: "xmark") {
-                                        guard !task.isCancelled else { return }
-                                        task.cancel()
-                                        tasks[item] = nil
-                                    }
-                                    .tint(.red)
-                                } else {
-                                    Button("Restart", systemImage: "arrow.clockwise") {
-                                        let task = Task {
-                                            _ = await imageGenerator.generateImage(with: item)
-                                        }
-                                        tasks[item] = task
-                                    }
-                                    .tint(.green)
-                                }
-                            }
-                            .labelStyle(.iconOnly)
-                            .buttonBorderShape(.circle)
-                            .buttonStyle(.borderedProminent)
-                        }
+                PreviewContent.ImageWithButtons(
+                    image: imageGenerator.images[item],
+                    size: imageGenerator.size,
+                    cancelable: tasks.keys.contains(item)
+                ) {
+                    if let task = tasks[item] {
+                        task.cancel()
+                        tasks[item] = nil
                     }
-                } // Group
-                .frame(size: imageGenerator.size)
-                .roundedRectangleClip(cornerRadius: 8)
+                } restartClosure: {
+                    let task = Task {
+                        _ = await imageGenerator.generateImage(with: item)
+                    }
+                    tasks[item] = task
+                }
             } // HStack
             .onAppear {
-                
                 let task = Task {
                     _ = await imageGenerator.generateImage(with: item)
                 }
@@ -274,3 +306,6 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
     .maxWidthFrame()
     .padding()
 }
+
+
+// TODO: a preview with a large LazyHStack may be useful here to show task cancelation propagation.
