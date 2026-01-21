@@ -202,36 +202,36 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
                         image.resizable()
                     } else {
                         Rectangle().fill(.secondary)
-                    }
-                }
-                .frame(size: imageGenerator.size)
-                .roundedRectangleClip(cornerRadius: 8)
-
-                if imageGenerator.images[item] == nil {
-                    Group {
-                        if let task = tasks[item] {
-                            Button("Cancel", systemImage: "xmark") {
-                                guard !task.isCancelled else { return }
-                                task.cancel()
-                                tasks[item] = nil
-                            }
-                            .tint(.red)
-                        } else {
-                            Button("Restart", systemImage: "arrow.clockwise") {
-                                let task = Task {
-                                    _ = await imageGenerator.generateImage(with: item)
+                        .overlay {
+                            Group {
+                                if let task = tasks[item] {
+                                    Button("Cancel", systemImage: "xmark") {
+                                        guard !task.isCancelled else { return }
+                                        task.cancel()
+                                        tasks[item] = nil
+                                    }
+                                    .tint(.red)
+                                } else {
+                                    Button("Restart", systemImage: "arrow.clockwise") {
+                                        let task = Task {
+                                            _ = await imageGenerator.generateImage(with: item)
+                                        }
+                                        tasks[item] = task
+                                    }
+                                    .tint(.green)
                                 }
-                                tasks[item] = task
                             }
-                            .tint(.green)
+                            .labelStyle(.iconOnly)
+                            .buttonBorderShape(.circle)
+                            .buttonStyle(.borderedProminent)
                         }
                     }
-                    .labelStyle(.iconOnly)
-                    .buttonBorderShape(.circle)
-                    .buttonStyle(.borderedProminent)
-                }
-            }
+                } // Group
+                .frame(size: imageGenerator.size)
+                .roundedRectangleClip(cornerRadius: 8)
+            } // HStack
             .onAppear {
+                
                 let task = Task {
                     _ = await imageGenerator.generateImage(with: item)
                 }
