@@ -10,9 +10,12 @@ import SwiftUI
 @MainActor @Observable
 public class ImageGeneratorStore {
 
+    public typealias ImageTask = Task<Image?, Never>
+
     let generator: any ImageGeneratorProtocol
 
     public private(set) var status: [String: GenerationStatus] = [:]
+    public private(set) var tasks:  [String: ImageTask] = [:]
     public private(set) var images: [String: Image] = [:]
 
 
@@ -32,34 +35,60 @@ public class ImageGeneratorStore {
 
     @concurrent @discardableResult
     public func generateImage(with text: String) async -> Image? {
+        // The point of truth for an image generation success is if it is alredy stored.
+        // There is a chance that a generation task is cancelled, but it still finishes storing
+        // the image.
         if let image = await images[text] {
             return image
         }
+
+        // Task needs to be created in the storage isolation, so that only one task per text exists.
         let requestThreadInfo = ThreadInfo()
-        await markAsRequested(text: text, threadInfo: requestThreadInfo)
-
-        let generateTuple = await generator.generateImage(with: text)
-
-        if let image = generateTuple.image {
-            await storeImage(
-                image, text: text,
-                storageThreadInfo: ThreadInfo(),
-                requestThreadInfo: requestThreadInfo,
-                generationThreadInfo: generateTuple.threadInfo)
-        } else {
-            // Image generation was cancelled.
-            await storeImageCancelation(
-                text: text,
-                requestThreadInfo: requestThreadInfo,
-                cancelationThreadInfo: generateTuple.threadInfo)
+        let task = await retrieveOrGenerateTask(for: text, requestThreadInfo: requestThreadInfo)
+        
+        // Propagate task cancelation into the generationTask.
+        return await withTaskCancellationHandler {
+            await task.value
+        } onCancel: {
+            // There is a chance this tasks gets cancelled multiple times, or after the task has
+            // finished generation and is awaiting to store the image. In that case the stored task
+            // may show as cancelled, but the image will be stored. This is considered valid.
+            task.cancel()
         }
-
-        return generateTuple.image
     }
 
 
-    private func markAsRequested(text: String, threadInfo: ThreadInfo) {
-        status[text] = .requested(threadInfo: threadInfo)
+    private func retrieveOrGenerateTask(for text: String, requestThreadInfo: ThreadInfo) -> ImageTask {
+        if let existingTask = tasks[text], !existingTask.isCancelled {
+            return existingTask
+        }
+
+        let task = Task { @concurrent in
+            let generateTuple = await generator.generateImage(with: text)
+
+            let storageThreadInfo = ThreadInfo()
+
+            // TODO: allow generateImage to throw a cancelable error.
+            if let image = generateTuple.image {
+                await storeImage(
+                    image, text: text,
+                    storageThreadInfo: storageThreadInfo,
+                    requestThreadInfo: requestThreadInfo,
+                    generationThreadInfo: generateTuple.threadInfo)
+            } else {
+                // Image generation was cancelled.
+                await storeImageCancelation(
+                    text: text,
+                    requestThreadInfo: requestThreadInfo,
+                    cancelationThreadInfo: generateTuple.threadInfo)
+            }
+
+            return generateTuple.image
+        }
+
+        tasks[text] = task
+        status[text] = .requested(threadInfo: requestThreadInfo)
+        return task
     }
 
 
