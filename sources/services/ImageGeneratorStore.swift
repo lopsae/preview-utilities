@@ -271,7 +271,6 @@ private struct PreviewContent {
             }
         }
     } // VStack
-    .padding(.bottom)
 
     Divider()
 
@@ -304,7 +303,6 @@ private struct PreviewContent {
         }
     } // Grid
     .maxWidthFrame()
-    .padding()
 }
 
 
