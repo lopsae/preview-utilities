@@ -66,14 +66,11 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
     /// generation task is kept for each text, cancelling the task will impact every other image
     /// request by returning `nil`.
     public func generateImage(with text: String) async -> Image? {
-        // The point of truth for an image generation success is if it is alredy stored.
-        // There is a chance that a generation task is cancelled, but it still finishes storing
-        // the image.
         if let image = await images[text] {
             return image
         }
 
-        // Task needs to be created in the storage isolation, so that only one task per text exists.
+        // Task needs to be created in the class own isolation, so that only one task per text exists.
         let requestThreadInfo = ThreadInfo()
         let task = await retrieveOrGenerateTask(for: text, requestThreadInfo: requestThreadInfo)
 
@@ -81,9 +78,6 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
         return await withTaskCancellationHandler {
             await task.value
         } onCancel: {
-            // There is a chance this tasks gets cancelled multiple times, or after the task has
-            // finished generation and is awaiting to store the image. In that case the stored task
-            // may show as cancelled, but the image will be stored. This is considered valid.
             task.cancel()
         }
     }
