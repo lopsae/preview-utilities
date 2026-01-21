@@ -8,25 +8,24 @@ import SwiftUI
 
 
 @MainActor @Observable
-public class ImageGeneratorStore {
+public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
 
     public typealias ImageTask = Task<Image?, Never>
 
-    let generator: any ImageGeneratorProtocol
+    let generator: Generator
 
     public private(set) var status: [String: GenerationStatus] = [:]
     public private(set) var tasks:  [String: ImageTask] = [:]
     public private(set) var images: [String: Image] = [:]
 
 
-    // TODO: make init that only receives size and uses isolateedImageGenerator, which is the desired default case for consumer of the package.
-    // TODO: update to use generics.
-    public init(size: CGSize, generator: (any ImageGeneratorProtocol)? = nil) {
-        if let generator {
-            self.generator = generator
-        } else {
-            self.generator = ConcurrentImageGenerator(size: size)
-        }
+    public init(generator: Generator) {
+        self.generator = generator
+    }
+
+
+    public convenience init(size: CGSize) where Generator == ConcurrentImageGenerator {
+        self.init(generator: ConcurrentImageGenerator(size: size))
     }
 
 
@@ -187,10 +186,11 @@ public class ImageGeneratorStore {
 #Preview("Storage", traits: .fixedHeader) {
     @Previewable @State var tasks: [String: Task<Void, Never>] = [:]
     @Previewable @State var imageGenerator = ImageGeneratorStore(
-        size: .square(of: 100),
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(5) ... .seconds(7)))
+            sleepRange: .seconds(5) ... .seconds(7)
+        )
+    )
 
     let items: [String] = ["One", "Two", "Three", "Four"]
 
