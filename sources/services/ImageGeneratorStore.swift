@@ -111,6 +111,20 @@ public class ImageGeneratorStore {
             }
         }
 
+
+        public var minimalStatusText: String {
+            switch self {
+            case let .requested(threadInfo):
+                "\(threadInfo.number, default: "?")"
+            case let .stored(
+                threadInfo,
+                requestThreadInfo: requestThreadInfo,
+                generationThreadInfo: generationThreadInfo
+            ):
+                "\(threadInfo.number, default: "?"):\(generationThreadInfo.number, default: "?"):\(requestThreadInfo.number, default: "?")"
+            }
+        }
+
     }
 
 }
