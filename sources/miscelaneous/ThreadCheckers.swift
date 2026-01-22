@@ -127,9 +127,21 @@ public final class DefaultIsolationThreadChecker: Sendable {
 #Preview("DefaultIsolation", traits: .headerFooter) {
     @Previewable @State var taskThreadInfo: ThreadInfo? = nil
     @Previewable @State var taskDefaultIsolationThreadInfo: ThreadInfo? = nil
-
     @Previewable @State var detachedThreadInfo: ThreadInfo? = nil
     @Previewable @State var detachedDefaultIsolationThreadInfo: ThreadInfo? = nil
+
+    PreviewCaption("""
+        PreviewUtilities is configured with a `MainActor` default isolation. Irregardless of the
+        calling isolation context, the _Default Isolation_ rows should always read `1 Main`.
+        """)
+    .paragraph("""
+        This preview can be copied to other projects to double check that the behavior remains 
+        exactly the same.
+        """)
+    .paragraph("""
+        Even when imported to projects with a different default isolation, the package configuration
+        is respected.
+        """)
 
     Grid(alignment: .leading, horizontalSpacing: 20) {
         GridRow {
