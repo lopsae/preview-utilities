@@ -27,20 +27,7 @@ public final class NonisolatedThreadChecker: Sendable {
 }
 
 
-/// Sendable object that uses the default project isolation context, which is configured to
-/// `MainActor`.
-public final class DefaultIsolationThreadChecker: Sendable {
-
-    public init() {}
-
-    /// Given that the class uses the default `MainActor` isolation, this function will always be
-    /// called in `MainActor`, irregardless of the parent isolation context.
-    public func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
-
-}
-
-
-// MARK: - Previews
+// MARK: - Nonisolated Preview
 
 
 #Preview("Nonisolated", traits: .headerFooter) {
@@ -122,6 +109,23 @@ public final class DefaultIsolationThreadChecker: Sendable {
     }
 
 }
+
+
+// MARK: - DefaultIsolationThreadChecker
+
+
+/// Sendable object that uses the default project isolation context, which is configured to
+/// `MainActor`.
+public final class DefaultIsolationThreadChecker: Sendable {
+
+    public init() {}
+
+    /// Given that the class uses the default `MainActor` isolation, this function will always be
+    /// called in `MainActor`, irregardless of the parent isolation context.
+    public func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
+
+}
+
 
 
 #Preview("DefaultIsolation", traits: .headerFooter) {
