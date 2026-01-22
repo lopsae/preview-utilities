@@ -374,4 +374,89 @@ private struct PreviewContent {
 }
 
 
-// TODO: a preview with a large LazyHStack may be useful here to show task cancelation propagation.
+#Preview("LazyHStack", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var printOnce: PrintOnce = .previewStarted
+    @Previewable @State var scrollPosition = ScrollPosition()
+    @Previewable @State var imageGenerator = ImageGeneratorStore(
+        generator: ConcurrentImageGenerator(
+            size: .square(of: 100),
+            sleepRange: .seconds(5) ... .seconds(7)
+        )
+    )
+
+    printOnce.print()
+
+    let strings = Strings.natoPhoneticAlphabet
+
+    ScrollView(.horizontal) {
+        LazyHStack(spacing: 20) {
+            ForEach(strings, id:\.self) { string in
+                Group {
+                    if let image = imageGenerator.images[string] {
+                        image.resizable()
+                    } else {
+                        Rectangle().fill(.secondary)
+                    }
+                } // Group
+                .frame(size: imageGenerator.size)
+                .roundedRectangleClip(cornerRadius: 8)
+                .task {
+                    print("Generating image: \(string)")
+                    await imageGenerator.generateImage(with: string)
+                }
+
+            } // ForEach
+
+        } // LazyHStack
+        .scrollTargetLayout()
+    } // ScrollView
+    .scrollPosition($scrollPosition)
+    .frame(height: 120)
+
+    HStack {
+        let indices: [Int] = [
+            strings.startIndex,
+            strings.endIndex * 1/4,
+            strings.endIndex * 3/4,
+            strings.beforeEndIndex
+        ]
+        ForEach(indices, id: \.self) { index in
+            let string  = strings[index]
+            Button(string.formatted(.firstCharacterCapitalized)) {
+                withAnimation {
+                    scrollPosition.scrollTo(id: string)
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .monospaced()
+        }
+    } // HStack
+    .maxWidthFrame()
+
+    let columns: Int = 3
+    LazyVGrid(
+        columns: Array(
+            repeating: .init(.flexible()),
+            count: columns
+        ),
+        alignment: .leading,
+        spacing: 4.0
+    ) {
+
+        ForEach(strings.columnMajorReordered(columns: columns), id: \.self) { item in
+            let generationStatus = imageGenerator.status[item]
+            HStack {
+                Text(item.formatted(.firstCharacter(capitalized: true)))
+                    .frame(width: 15, alignment: .leading)
+                Circle()
+                    .fill(generationStatus?.statusColor ?? .gray)
+                    .frame(squareOf: 15)
+
+                Text(generationStatus?.minimalStatusText ?? "Idle")
+                    .font(.caption.monospaced())
+                    .lineLimit(1)
+                    .maxWidthFrame(alignment: .leading)
+            }
+        } // ForEach
+    } // LazyVGrid
+}
