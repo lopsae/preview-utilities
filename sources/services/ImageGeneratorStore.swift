@@ -403,6 +403,9 @@ private struct PreviewContent {
                 .task {
                     print("Generating image: \(string)")
                     await imageGenerator.generateImage(with: string)
+                    if Task.isCancelled {
+                        print("Task cancelled: \(string)")
+                    }
                 }
 
             } // ForEach
