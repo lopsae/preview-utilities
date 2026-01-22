@@ -33,6 +33,10 @@ extension FormatStyle where Self == FirstCharacterFormatStyle {
     nonisolated
     static var firstCharacter: FirstCharacterFormatStyle { .init() }
 
+    /// Returns a format style that outputs first character of a string, capitalized.
+    nonisolated
+    static var firstCharacterCapitalized: FirstCharacterFormatStyle { .init(capitalized: true) }
+
     /// Returns a format style that outputs first character of a string, optionally capitalized.
     nonisolated
     static func firstCharacter(capitalized: Bool) -> FirstCharacterFormatStyle {
