@@ -11,27 +11,27 @@ import SwiftUI
 /// async function, and an async function with the default isolation; to inspect the thread running
 /// in each function.
 nonisolated
-final class NonisolatedThreadChecker: Sendable {
+public final class NonisolatedThreadChecker: Sendable {
 
     @concurrent
-    func concurrentThreadInfo() async -> ThreadInfo { .init() }
+    public func concurrentThreadInfo() async -> ThreadInfo { .init() }
 
     nonisolated
-    func nonisolatedThreadInfo() async -> ThreadInfo { .init() }
+    public func nonisolatedThreadInfo() async -> ThreadInfo { .init() }
 
     // Since the class is nonisolated, this function behaves the same as `nonisolatedThreadInfo`.
-    func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
+    public func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
 
 }
 
 
 /// Sendable object that uses the default project isolation context, which is configured to
 /// `MainActor`.
-final class DefaultIsolationThreadChecker: Sendable {
+public final class DefaultIsolationThreadChecker: Sendable {
 
     /// Given that the class uses the default `MainActor` isolation, this function will always be
     /// called in `MainActor`, irregardless of the parent isolation context.
-    func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
+    public func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
 
 }
 
