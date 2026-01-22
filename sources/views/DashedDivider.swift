@@ -7,12 +7,12 @@
 import SwiftUI
 
 
-struct DashedDivider: View {
+public struct DashedDivider: View {
 
     let lineWidth: CGFloat
 
 
-    init(lineWidth: CGFloat = 1) {
+    public init(lineWidth: CGFloat = 1) {
         self.lineWidth = lineWidth
     }
 
@@ -28,7 +28,7 @@ struct DashedDivider: View {
     }
 
 
-    var body: some View {
+    public var body: some View {
         let strokeStyle = StrokeStyle(
             lineWidth: lineWidth, lineCap: .round,
             dash: [lineWidth * 5, lineWidth * 6])
