@@ -12,10 +12,10 @@ import SwiftUI
 nonisolated
 public struct ThreadInfo: Sendable {
 
-    let number: Int?
+    public let number: Int?
 
 
-    init() {
+    public init() {
         let threadDescription = Thread.current.description
         let match = threadDescription.firstMatch {
             Regex {
@@ -32,12 +32,14 @@ public struct ThreadInfo: Sendable {
     }
 
 
-    var isMain: Bool { number == 1 }
-    var isBackground: Bool { number != nil && number != 1 }
+    public var isMain: Bool { number == 1 }
+    public var isBackground: Bool { number != nil && number != 1 }
 
 
-    /// Returns the name and number of the thread for display, E.g.: `Main 1` or `Background 7`.
-    var displayName: String {
+    /// Returns the name and number of the thread for display.
+    ///
+    /// E.g.: `Main 1` or `Background 7`.
+    public var displayName: String {
         guard let number else {
             return "Unknown"
         }
@@ -47,9 +49,10 @@ public struct ThreadInfo: Sendable {
     }
 
 
-    /// Returns the number and name of the thread for display, with the number first, E.g.: `1 Main`
-    /// or `7 Background`.
-    var numberLeadingDisplayName: String {
+    /// Returns the number and name of the thread for display, with the number first.
+    ///
+    /// E.g.: `1 Main` or `7 Background`.
+    public var numberLeadingDisplayName: String {
         guard let number else {
             return "Unknown"
         }

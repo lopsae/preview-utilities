@@ -13,6 +13,8 @@ import SwiftUI
 nonisolated
 public final class NonisolatedThreadChecker: Sendable {
 
+    public init() {}
+
     @concurrent
     public func concurrentThreadInfo() async -> ThreadInfo { .init() }
 
@@ -28,6 +30,8 @@ public final class NonisolatedThreadChecker: Sendable {
 /// Sendable object that uses the default project isolation context, which is configured to
 /// `MainActor`.
 public final class DefaultIsolationThreadChecker: Sendable {
+
+    public init() {}
 
     /// Given that the class uses the default `MainActor` isolation, this function will always be
     /// called in `MainActor`, irregardless of the parent isolation context.
