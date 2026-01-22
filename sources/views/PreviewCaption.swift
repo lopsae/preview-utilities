@@ -18,7 +18,7 @@ public struct PreviewCaption: View {
     ///
     /// The string is parsed as markdown and new lines are replaced with spaces, allowing to easily
     /// use multiline string literals.
-    init(_ string: String) {
+    public init(_ string: String) {
         self.strings = [string]
     }
 
@@ -51,7 +51,7 @@ public struct PreviewCaption: View {
 
 
     /// Creates a new preview caption appending a paragraph.
-    func paragraph(_ string: String) -> Self {
+    public func paragraph(_ string: String) -> Self {
         return .init(strings: strings + [string])
     }
 
