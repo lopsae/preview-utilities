@@ -43,9 +43,11 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
 }
 
 
-nonisolated enum ImageGeneratorDefaults {
+nonisolated
+public enum ImageGeneratorDefaults {
 
-    static let sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)
+    public static let sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)
+    public static let zero: ClosedRange<Duration> = .seconds(0) ... .seconds(0)
 
 }
 
@@ -107,7 +109,7 @@ public final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
     public let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
+    public init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
         self.size = size
         self.sleepRange = sleepRange
     }
@@ -151,7 +153,7 @@ public final class NonisolatedImageGenerator:
     public let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
+    public init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
         self.size = size
         self.sleepRange = sleepRange
     }
@@ -190,7 +192,7 @@ public final class MainActorImageGenerator: ImageGeneratorProtocol, Sendable {
     public let size: CGSize
     let sleepRange: ClosedRange<Duration>
 
-    init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
+    public init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {
         self.size = size
         self.sleepRange = sleepRange
     }
