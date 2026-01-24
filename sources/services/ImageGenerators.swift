@@ -107,6 +107,7 @@ public final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
     public let id: UUID = UUID()
 
     public let size: CGSize
+    // TODO: sleep ranges could be optional for no wait.
     let sleepRange: ClosedRange<Duration>
 
     public init(size: CGSize, sleepRange: ClosedRange<Duration> = ImageGeneratorDefaults.sleepRange) {

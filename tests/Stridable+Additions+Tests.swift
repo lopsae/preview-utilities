@@ -19,6 +19,8 @@ struct StridableAdditionTests {
 
 
     @Test func clamp() async throws {
+        // TODO: remove castedClamp function.
+        #expect(1.clamped(to: 4..<7) == 4)
         #expect(castedClamp(1, to: 4..<7) == 4)
         #expect(castedClamp(4, to: 4..<7) == 4)
         #expect(castedClamp(5, to: 4..<7) == 5)
