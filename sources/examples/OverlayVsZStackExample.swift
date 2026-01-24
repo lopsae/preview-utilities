@@ -40,7 +40,7 @@ import SwiftUI
 }
 
 
-#Preview("Overlay+GeometryReader alignment", traits: .headerFooter(.fixed)) {
+#Preview("Overlay+GeometryReader alignment", traits: .fixedHeaderFooter) {
     PreviewCaption("""
         `GeometryReader` takes the size of its container, even if the content is bigger. Bigger
         content is always aligned `topLeading` with no possible way to modify it through

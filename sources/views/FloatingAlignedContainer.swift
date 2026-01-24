@@ -531,7 +531,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Alignments", traits: .zeroSpacing, .headerFooter(.fixed), PreviewContent.layout) {
+#Preview("Alignments", traits: .zeroSpacing, .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var isLargeParent: Bool = true
     @Previewable @State var contentOption: PreviewContent.ContentOption = .multiline
     @Previewable @State var spacing: Double = 5

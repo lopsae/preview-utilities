@@ -40,7 +40,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
-#Preview("HeaderFooter", traits: .scrollViewWrap, .headerFooter(.fixed, .showDividers)) {
+#Preview("HeaderFooter", traits: .scrollViewWrap, .fixedHeaderFooter(.showDividers)) {
     ForEach(0..<10) { index in
         Text(Strings.loremIpsum)
         CaptionRectangle("Fixed Content", color: .brown, size: .square(of: 100))

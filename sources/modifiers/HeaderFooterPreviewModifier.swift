@@ -69,6 +69,21 @@ extension PreviewTrait where T == Preview.ViewTraits {
         ))
     }
 
+
+    /// Wraps the preview content in a ``HeaderFooterContainer`` with fixed height header and footer.
+    public static var fixedHeaderFooter: PreviewTrait {
+        .modifier(HeaderFooterPreviewModifier(traits: [.fixed]))
+    }
+
+
+    /// Wraps the preview content in a ``HeaderFooterContainer`` with fixed height header and
+    /// footer, and the given traits.
+    public static func fixedHeaderFooter(_ traits: HeaderFooterContainerTrait...) -> PreviewTrait {
+        return .modifier(HeaderFooterPreviewModifier(
+            traits: [.fixed] + traits
+        ))
+    }
+
 }
 
 

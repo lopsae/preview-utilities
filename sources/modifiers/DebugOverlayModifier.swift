@@ -332,7 +332,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Configuration", traits: .headerFooter(.fixed), PreviewContent.layout) {
+#Preview("Configuration", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var traitOptions: [(
         label: String,
@@ -387,7 +387,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Alignments", traits: .headerFooter(.fixed), PreviewContent.layout) {
+#Preview("Alignments", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var bordersWidth: Double = 5
 
