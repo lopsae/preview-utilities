@@ -32,16 +32,7 @@ extension View {
     }
 
     nonisolated
-    func alignmentGuide(
-        _ alignment: InsettableAlignment<VerticalAlignment>,
-        insetBy inset: CGFloat
-    ) -> some View {
-        let signedInset = inset * alignment.insetDirection.multiplier
-        return self.alignmentGuide(alignment.baseAlignment, offsetBy: signedInset)
-    }
-
-    nonisolated
-    func alignmentGuide(
+    public func alignmentGuide(
         _ alignment: InsettableAlignment<VerticalAlignment>,
         moveTo target: VerticalAlignment? = nil,
         insetBy inset: CGFloat
@@ -51,7 +42,7 @@ extension View {
     }
 
     nonisolated
-    func alignmentGuide(
+    public func alignmentGuide(
         _ alignment: InsettableAlignment<VerticalAlignment>,
         moveTo target: VerticalAlignment? = nil,
         outsetBy outset: CGFloat
@@ -63,7 +54,7 @@ extension View {
 }
 
 nonisolated
-struct InsettableAlignment<AlignmentType: Sendable> {
+public struct InsettableAlignment<AlignmentType: Sendable> {
 
     let baseAlignment: AlignmentType
     let insetDirection: InsetDirection
@@ -91,8 +82,8 @@ struct InsettableAlignment<AlignmentType: Sendable> {
 
 extension InsettableAlignment where AlignmentType == VerticalAlignment {
 
-    static let top:    Self = .init(baseAlignment: .top,    insetDirection: .negative)
-    static let bottom: Self = .init(baseAlignment: .bottom, insetDirection: .positive)
+    public static let top:    Self = .init(baseAlignment: .top,    insetDirection: .negative)
+    public static let bottom: Self = .init(baseAlignment: .bottom, insetDirection: .positive)
 
 }
 
