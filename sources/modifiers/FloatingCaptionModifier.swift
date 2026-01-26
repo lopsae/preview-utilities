@@ -7,19 +7,20 @@
 import SwiftUI
 
 
-/// Experimental labeling for interactive preview elements.
-struct FloatingCaptionModifier: ViewModifier {
+/// Draws in an overlay of the content view a floating caption text. Optionally can display
+/// additional information like width and height of the content view.
+public struct FloatingCaptionModifier: ViewModifier {
 
     let localizedKey: LocalizedStringKey
     let flatTraits: [Trait]
 
 
-    init(localizedKey: LocalizedStringKey, traits: [Trait]) {
+    public init(localizedKey: LocalizedStringKey, traits: [Trait]) {
         self.localizedKey = localizedKey
         self.flatTraits = traits.flattenTraits()
     }
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content.overlay {
             GeometryReader { geometry in
                 let alignment = flatTraits.alignment ?? .inner(.center)
@@ -79,7 +80,7 @@ extension FloatingCaptionModifier {
     // This trait implementation is an experimental configuration object solely based on an
     // enumeration, in contrast with a structure containing all properties like
     // `DebugOverlayModifier.Configuration`.
-    enum Trait: IdentifiableCase {
+    public enum Trait: IdentifiableCase {
         case width
         case height
         case captionStyle(any ShapeStyle)
@@ -109,17 +110,17 @@ extension FloatingCaptionModifier {
         }
 
 
-        static let border: Self = .borderStyle(.quaternary)
-        static let size: Self = .traits([.width, .height])
+        public static let border: Self = .borderStyle(.quaternary)
+        public static let size: Self = .traits([.width, .height])
 
-        static let zeroPadding:   Self = .padding(.zero)
-        static let systemPadding: Self = .padding(nil)
+        public static let zeroPadding:   Self = .padding(.zero)
+        public static let systemPadding: Self = .padding(nil)
 
-        static func style(_ style: some ShapeStyle) -> Self {
+        public static func style(_ style: some ShapeStyle) -> Self {
             .traits([.captionStyle(style), .borderStyle(style)])
         }
 
-        static func colorStyle(_ color: Color) -> Self {
+        public static func colorStyle(_ color: Color) -> Self {
             .traits([.captionStyle(color), .borderStyle(color.secondary)])
         }
 

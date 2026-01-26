@@ -7,8 +7,8 @@
 import SwiftUI
 
 
-// Rectangle configured with stroke, fill, fixed size, and floating caption.
-struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
+/// Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.
+public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     let localizationKey: LocalizedStringKey
     let fill: Fill
     let stroke: Stroke
@@ -17,7 +17,7 @@ struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     let traits: [FloatingCaptionModifier.Trait]
 
 
-    init(
+    public init(
         _ localizationKey: LocalizedStringKey,
         fill: Fill = .gray.gradient.tertiary,
         stroke: Stroke = .tertiary,
@@ -34,7 +34,7 @@ struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
 
 
-    init(
+    public init(
         _ localizationKey: LocalizedStringKey,
         fill: Fill = .gray.gradient.tertiary,
         stroke: Stroke = .tertiary,
@@ -48,7 +48,7 @@ struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
 
 
-    init(
+    public init(
         _ localizationKey: LocalizedStringKey,
         fill: Fill = .gray.gradient.tertiary,
         stroke: Stroke = .tertiary,
@@ -62,7 +62,7 @@ struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
 
 
-    init(
+    public init(
         _ localizationKey: LocalizedStringKey,
         color: Color,
         width: CGFloat? = nil,
@@ -79,7 +79,7 @@ struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
 
 
-    init(
+    public init(
         _ localizationKey: LocalizedStringKey,
         color: Color,
         size: CGSize,
@@ -96,7 +96,7 @@ struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
 
 
-    var body: some View {
+    public var body: some View {
         RoundedRectangle(cornerRadius: Defaults.padding / 3)
             .fill(fill)
             .stroke(stroke)

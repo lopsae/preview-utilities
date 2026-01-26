@@ -8,8 +8,7 @@ import SwiftUI
 
 
 /// Draws in an overlay of the content view visual representations of the view's boundaries and safe
-/// areas. Optionally can also dsiplay additional information like size, origin, and the safe area
-/// insets.
+/// areas. Optionally can display additional information like size, origin, and the safe area insets.
 public struct DebugOverlayModifier: ViewModifier {
 
     /// The borders width is limited to a minimum of 1 so that there is always a visual overlay even
