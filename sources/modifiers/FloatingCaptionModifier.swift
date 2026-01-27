@@ -186,12 +186,12 @@ extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait
 
 extension View {
 
-    func floatingCaption(_ key: LocalizedStringKey, _ traits: FloatingCaptionModifier.Trait...) -> some View {
+    public func floatingCaption(_ key: LocalizedStringKey, _ traits: FloatingCaptionModifier.Trait...) -> some View {
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
 
 
-    func floatingCaption(_ key: LocalizedStringKey, traits: [FloatingCaptionModifier.Trait]) -> some View {
+    public func floatingCaption(_ key: LocalizedStringKey, traits: [FloatingCaptionModifier.Trait]) -> some View {
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
 
