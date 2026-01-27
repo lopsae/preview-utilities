@@ -7,17 +7,17 @@
 import SwiftUI
 
 
-struct VisibleSpacer: View {
+public struct VisibleSpacer: View {
 
     let axis: Axis
 
 
-    init(axis: Axis = .vertical) {
+    public init(axis: Axis = .vertical) {
         self.axis = axis
     }
 
 
-    var body: some View {
+    public var body: some View {
         let minWidth:  CGFloat?, maxWidth:  CGFloat?
         let minHeight: CGFloat?, maxHeight: CGFloat?
         let paddingEdges: Edge.Set
