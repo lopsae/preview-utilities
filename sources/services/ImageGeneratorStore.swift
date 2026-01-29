@@ -161,7 +161,7 @@ extension ImageGeneratorStore {
         case cancelled(threadInfo: ThreadInfo, requestThreadInfo: ThreadInfo)
 
         public enum Case: String { case requested, stored, cancelled }
-        var `case`: Case {
+        public var `case`: Case {
             switch self {
             case .requested: .requested
             case .stored:    .stored

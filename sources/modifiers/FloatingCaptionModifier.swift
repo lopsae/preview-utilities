@@ -89,7 +89,7 @@ extension FloatingCaptionModifier {
         case padding(CGFloat? = nil)
         case traits([Trait])
 
-        enum Case {
+        public enum Case {
             case width, height
             case captionStyle, borderStyle, alignment, padding
             case traits
@@ -97,7 +97,7 @@ extension FloatingCaptionModifier {
 
         // Since the enum have associated values, each enum needs to be indentified by a value-less
         // parallel enum.
-        var `case`: Case {
+        public var `case`: Case {
             switch self {
             case .width:        .width
             case .height:       .height
