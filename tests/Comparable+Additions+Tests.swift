@@ -34,6 +34,13 @@ struct ComparableAdditionTests {
         #expect(Int(7).clamped(to: 5...) == 7)
     }
 
+
+    @Test func clampPartialRangeThrough() async throws {
+        #expect(Int(2).clamped(to: ...5) == 2)
+        #expect(Int(5).clamped(to: ...5) == 5)
+        #expect(Int(7).clamped(to: ...5) == 5)
+    }
+
 }
 
 
