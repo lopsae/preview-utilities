@@ -26,14 +26,17 @@ extension String {
 
 
 /// Container of convenience strings and utilities.
+nonisolated
 public enum Strings {
 
+    nonisolated
     public static let alphabet: [String] = [
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
         "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
     ]
 
 
+    nonisolated
     public static let natoPhoneticAlphabet: [String] = [
         "alfa", "bravo", "charlie", "delta", "echo", "foxtrot", "golf", "hotel", "india",
         "juliett", "kilo", "lima", "mike", "november", "oscar", "papa", "quebec", "romeo",
@@ -41,6 +44,7 @@ public enum Strings {
     ]
 
 
+    nonisolated
     public static let sphinxOfBlackQuartz: String = "sphinx of black quartz, judge my vow"
 
     /// Returns a _Lorem ipsum_ string as found in its [wikipedia article][lorem-ipsum].
@@ -48,6 +52,7 @@ public enum Strings {
     /// Contains 69 words.
     ///
     /// [lorem-ipsum]: https://en.wikipedia.org/wiki/Lorem_ipsum
+    nonisolated
     public static let loremIpsum: String =
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt "
         + "ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation "
@@ -57,8 +62,11 @@ public enum Strings {
         + "est laborum."
 
 
+    nonisolated
     public static let loremIpsumWords = Strings.loremIpsum.split(separator: .whitespace)
 
+
+    nonisolated
     public static func loremIpsum(words: Int) -> String {
         // TODO: could this be done by joining together whole loremIpsum words, and then appending a range?
         guard words > 0 else { return "" }
