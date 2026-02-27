@@ -9,8 +9,11 @@ import SwiftUI
 
 /// Experimental observable object to print a log message during the first request of views.
 ///
-/// Call `print()` within body to print `mesage` the first time it is called. This is currently
-/// the best know way to print a message consistently at the begining of a preview.
+/// Call `print()` within a view body to print `mesage` the first time it is called. This is
+/// currently the best know way to print a message consistently at the begining of a preview.
+///
+/// Internally `Swift.print` is used, instead of `Logger`, since logger sadly does not get
+/// displayed in Xcode console for previews.
 @Observable
 public class PrintOnce {
 
