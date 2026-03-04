@@ -13,16 +13,15 @@ struct CollectionAdditionsTests {
 
     @Test func indexed() {
         let array: [String] = ["zero", "one", "two", "three", "four"]
+        let indexedArray = array.indexed()
 
         // Tuples do not conform to `Equatable` automatically,
         // each has to be compared directly against another tuple.
-        let expectedIndexed = [(0, "zero"), (1, "one"), (2, "two"), (3, "three"), (4, "four")]
-        #expect(array.count == expectedIndexed.count)
+        let expectedTuples = [(0, "zero"), (1, "one"), (2, "two"), (3, "three"), (4, "four")]
+        #expect(array.count == expectedTuples.count)
 
-        // TODO: use zip?
-        for enumeratedTuple in array.indexed().enumerated() {
-            let (offset, indexedTuple) = enumeratedTuple
-            #expect(indexedTuple == expectedIndexed[offset])
+        for (indexedTuple, expectedTuple) in zip(indexedArray, expectedTuples) {
+            #expect(indexedTuple == expectedTuple)
         }
     }
 
@@ -30,10 +29,11 @@ struct CollectionAdditionsTests {
     /// Uses an array slice, since that will have offset indices.
     @Test func indexedWithSlice() {
         let slice = Strings.natoPhoneticAlphabet[5..<10]
+        let indexedSlice = slice.indexed()
 
         // Tuples do not conform to `Equatable` automatically,
         // each has to be compared directly against another tuple.
-        let expectedIndexed = [
+        let expectedTuples = [
             (5, "foxtrot"),
             (6, "golf"),
             (7, "hotel"),
@@ -41,12 +41,10 @@ struct CollectionAdditionsTests {
             (9, "juliett")
         ]
 
-        #expect(slice.count == expectedIndexed.count)
+        #expect(slice.count == expectedTuples.count)
 
-        // TODO: use zip?
-        for enumeratedTuple in slice.indexed().enumerated() {
-            let (offset, indexedTuple) = enumeratedTuple
-            #expect(indexedTuple == expectedIndexed[offset])
+        for (indexedTuple, expectedTuple) in zip(indexedSlice, expectedTuples) {
+            #expect(indexedTuple == expectedTuple)
         }
     }
 
