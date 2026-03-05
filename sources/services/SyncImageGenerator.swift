@@ -8,6 +8,10 @@ import CryptoKit
 import SwiftUI
 
 
+/// Synchronous image generator. Can be instantiated to produce any number of images of a given
+/// size, or used statically to produce the same images.
+///
+/// This generator uses no async api, so it can be run in any isolation context.
 struct SyncImageGenerator {
 
     /// Size of the generated images.
@@ -21,16 +25,30 @@ struct SyncImageGenerator {
     }
 
 
-    static func generateImage(with text: String, caption: String? = nil, size: CGSize) -> Image {
+    static func generateImage(
+        with text: String,
+        caption: String? = nil,
+        size: CGSize,
+        border: Bool = false
+    ) -> Image {
         let components = colorComponentsFromString(text)
-        let image = Self.buildImage(text: text, size: size, caption: caption, components: components)
+        let borderComponents = border ? colorComponentsFromString("\(text)-border") : nil
+        let image = Self.buildImage(
+            size: size, text: text, caption: caption,
+            components: components,
+            borderComponents: borderComponents)
         return image
     }
 
 
-    // TODO: test also in mac
     #if canImport(AppKit)
-    private static func buildImage(text: String, size: CGSize, caption: String? = nil, components: ColorComponents) -> Image {
+    private static func buildImage(
+        size: CGSize,
+        text: String,
+        caption: String? = nil,
+        components: ColorComponents,
+        borderComponents: ColorComponents? = nil
+    ) -> Image {
         let nsImage = NSImage(size: size, flipped: true) { nsRect in
             // Background.
             let backgroundColor = NSColor(
@@ -40,6 +58,21 @@ struct SyncImageGenerator {
                 alpha: 1.0)
             backgroundColor.setFill()
             nsRect.fill()
+
+            // Border.
+            if let borderComponents {
+                let strokeColor = NSColor(
+                    hue: borderComponents.hue,
+                    saturation: borderComponents.saturation,
+                    brightness: borderComponents.brightness,
+                    alpha: 1.0)
+                strokeColor.setStroke()
+                let strokeWidth: CGFloat = 5.0
+                let borderRect = nsRect.inset(by: strokeWidth / 2)
+                let borderPath = NSBezierPath(rect: borderRect)
+                borderPath.lineWidth = strokeWidth
+                borderPath.stroke()
+            }
 
             // Shadow.
             let shadow = NSShadow()
@@ -58,7 +91,11 @@ struct SyncImageGenerator {
 
 
     #if canImport(UIKit)
-    static func buildImage(text: String, size: CGSize, caption: String? = nil, components: ColorComponents) -> Image {
+    static func buildImage(
+        size: CGSize, text: String, caption: String? = nil,
+        components: ColorComponents,
+        borderComponents: ColorComponents? = nil
+    ) -> Image {
         let format = UIGraphicsImageRendererFormat()
         let renderer = UIGraphicsImageRenderer(size: size, format: format)
         let uiImage = renderer.image { context in
@@ -72,6 +109,20 @@ struct SyncImageGenerator {
             context.fill(size.rect())
 
             let cgContext = context.cgContext
+
+            // Border.
+            if let borderComponents {
+                let strokeColor = UIColor(
+                    hue: borderComponents.hue,
+                    saturation: borderComponents.saturation,
+                    brightness: borderComponents.brightness,
+                    alpha: 1.0)
+                strokeColor.setStroke()
+                let strokeWidth: CGFloat = 5.0
+                let borderRect = size.rect().inset(by: strokeWidth / 2)
+                cgContext.stroke(borderRect, width: strokeWidth)
+                cgContext.drawPath(using: .stroke)
+            }
 
             // Shadow.
             cgContext.setShadow(
@@ -89,7 +140,7 @@ struct SyncImageGenerator {
 
 
     /// Draws the given strings. This function is expected to be called within a call to
-    /// `UIGraphicsImageRenderer/image`.
+    /// `UIGraphicsImageRenderer/image` in iOS, or `NSImage(size:flipped:drawingHandle:)` in macOS.
     private static func drawStrings(text: String, size: CGSize, caption: String? = nil) {
         #if canImport(AppKit)
         typealias PlatformFont = NSFont
@@ -136,9 +187,9 @@ struct SyncImageGenerator {
         let hash = persistentHash(for: string)
 
         let hue: Double = (hash % 360).asDouble / 360.0
-        // In the range: 0.6 - 1.0.
+        // Saturation in the range of: 0.6 - 1.0.
         let saturation: Double = 0.6 + (hash % 40).asDouble / 100.0
-        // In the range: 0.5 - 0.8.
+        // Brightness in the range: 0.5 - 0.8.
         let brightness: Double = 0.5 + (hash % 30).asDouble / 100.0
 
         return .init(hue: hue, saturation: saturation, brightness: brightness)
@@ -201,8 +252,20 @@ private struct PreviewContent {
         size: .square(of: 200))
     SyncImageGenerator.generateImage(
         with: "100", caption: "Regular",
-        size: .square(of: 100))
+        size: .square(of: 100), border: true)
     SyncImageGenerator.generateImage(
         with: "50", caption: "Small",
-        size: .square(of: 50))
+        size: .square(of: 50), border: true)
+}
+
+
+#Preview("Resized", traits: .fixedHeader, PreviewContent.layout) {
+    SyncImageGenerator.generateImage(
+        with: "EnormousOne", caption: "500x500",
+        size: .square(of: 500), border: true)
+    .resizable()
+    SyncImageGenerator.generateImage(
+        with: "EnormousTwo", caption: "500x500",
+        size: .square(of: 500), border: true)
+    .resizable()
 }
