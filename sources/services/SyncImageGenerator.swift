@@ -275,8 +275,19 @@ private struct PreviewContent {
 
 
 #Preview("ScaledToFit/Fill", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    @Previewable @State var imageHeight: Double = 100
+    @Previewable @State var imageHeight: Double = 150
     @Previewable @State var fitOrFill: String = "fit"
+    @Previewable let image = SyncImageGenerator.generateImage(
+        with: "Huge", caption: "500x300",
+        size: .init(width: 500, height: 300),
+        border: true)
+
+    PreviewCaption("""
+        Showcases the different behaviours of a resizable image configured to **fit** or to **fill**
+        its available space.
+        """)
+    .paragraph("**Fit** will respect both axis.")
+    .paragraph("**Fill** will break one of the axis, pushing elements outward.")
 
     Slider.captioned("Image Height", value: $imageHeight, in: 0...800, valueFormat: .fractionLength(2))
     Picker(
@@ -289,18 +300,13 @@ private struct PreviewContent {
 
     VisibleSpacer()
     VStack {
-        let resizableImage = SyncImageGenerator.generateImage(
-            with: "Huge", caption: "500x300",
-            size: .init(width: 500, height: 300),
-            border: true
-        ).resizable()
-
+        Text.caption("Top")
         switch fitOrFill {
-        case "fit": resizableImage.scaledToFit()
-        case "fill": resizableImage.scaledToFill()
+        case "fit": image.resizable().scaledToFit()
+        case "fill": image.resizable().scaledToFill()
         default: Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
         }
-        Text("Title")
+        Text.caption("Bottom")
     }
     .frame(height: imageHeight)
     .debugOverlay(.size, .infoAlignment(.outerBottomTrailing))
