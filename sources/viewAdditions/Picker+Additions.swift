@@ -18,6 +18,12 @@ extension Picker {
     // the compiler will detect if a type overrides the default `id` provided by SelfIdentifiable.
 
 
+    // MARK: Collection of Values + ID KeyPath + ViewBuilder
+    // + Selection Value
+    // + Collection of possible values
+    // + ID KeyPath
+    // + ViewBuilder for each element.
+
     /// Creates a picker that generates its label and creates the option views with the elements
     /// of a given collection identified through a key path.
     ///
@@ -48,6 +54,12 @@ extension Picker {
     }
 
 
+    // MARK: Collection of Values + ID KeyPath + ViewBuilder
+    // + Selection Value
+    // + Collection of Identifiable values
+    // + ID KeyPath
+    // + ViewBuilder for each element.
+
     /// Creates a picker that generates its label and creates the option views with the elements
     /// of a given collection of `Identifiable` elements.
     ///
@@ -76,6 +88,11 @@ extension Picker {
         )
     }
 
+
+    // MARK: Self-Identifiables Collection + ViewBuilder
+    // + Selection Value
+    // + Collection of Self-Identifiable values
+    // + ViewBuilder for each element.
 
     /// Creates a picker that generates its label and creates the option views with the elements
     /// of a given collection of possible selection values.
@@ -111,6 +128,49 @@ extension Picker {
     }
 
 
+    // MARK: Collection of Values + ID KeyPath + Element Format
+    // + Selection Value
+    // + Collection of possible values
+    // + ID KeyPath
+    // + Formatter for producing Texts
+
+    /// Creates a picker that generates its label and option views with the formatted elements of a
+    /// given collection identified through a key path.
+    ///
+    /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
+    /// the picker label, and transforming the selection values through a format style for their
+    /// respective labels.
+    init<ValuesCollection, ElementID>(
+        _ title: LocalizedStringKey,
+        selection: Binding<SelectionValue>,
+        collection: ValuesCollection,
+        id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
+        elementFormat: any FormatStyle<SelectionValue, String>
+    ) where
+        ValuesCollection: RandomAccessCollection,
+        ValuesCollection.Element == SelectionValue,
+        ElementID: Hashable,
+        Label == Text,
+        Content == ForEach<ValuesCollection, ElementID, TaggedText<SelectionValue>>
+    {
+        self.init(
+            title,
+            selection: selection,
+            content: {
+                ForEach(collection, id: idKeyPath) { element in
+                    let string = elementFormat.format(element)
+                    TaggedText(verbatim: string, tag: element)
+                }
+            }
+        )
+    }
+
+
+    // MARK: Self-Identifiables Collection + Element Format
+    // + Selection Value
+    // + Collection of Self-Identifiable values
+    // + Formatter for producing Texts
+
     /// Creates a picker that generates its label and option views with the formatted elements of a
     /// given collection of possible selection values.
     ///
@@ -145,6 +205,10 @@ extension Picker {
     }
 
 
+    // MARK: Case-Self-Identifiables Value + Case Formatter
+    // + Selection Value that Self-Identifies and is Case Iterable.
+    // + Formatter for producing Texts
+
     /// Creates a picker that generates its label and option views with the formatted cases of a
     /// `CaseIterable` selection value.
     ///
@@ -177,6 +241,9 @@ extension Picker {
         )
     }
 
+
+    // MARK: Only Case-Self-Identifiables Value
+    // + Selection Value that Self-Identifies and is Case Iterable.
 
     /// Creates a picker that generates its label and option views with the raw values of the cases
     /// of a `CaseIterable` selection value.
@@ -237,6 +304,29 @@ private struct PreviewContent {
 }
 
 
+
+// FUTURE: if used elsewhere consider moving to its own file and add previews to ascertain it works.
+
+/// Text with a tag.
+///
+/// Used to provide a concrete type to type constraints in extended inits. In cases where views
+/// produced by a `ForEach` need to be tagged, this type can be used to provide a concrete type in
+/// type constraints. The usual `.tag` modifier cannot be used since it returns an opaque `some View`.
+struct TaggedText<Tag: Hashable>: View {
+    let string: String
+    let tag: Tag
+
+    init(verbatim: String, tag: Tag) {
+        self.string = verbatim
+        self.tag = tag
+    }
+
+    var body: some View {
+        Text(verbatim: string).tag(tag)
+    }
+}
+
+
 #Preview("Identifiable", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
     @Previewable @State var identifiedValue: PreviewContent.IdentifiedValues = .bob
@@ -288,6 +378,24 @@ private struct PreviewContent {
 
 
 #Preview("Formatted", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
+
+    VStack(alignment: .leading) {
+        PreviewCaption("Picker with a collection of **non-identifiable** elements, using a **format style**.")
+        Text("Value: \(nonIdentifiedValue.rawValue)")
+            .monospaced()
+        Picker(
+            "NonIdentifiable Picker",
+            selection: $nonIdentifiedValue,
+            collection: PreviewContent.NonidentifiedValues.allCases,
+            id: \.rawValue,
+            elementFormat: .rawValue()
+        ).pickerStyle(.segmented)
+    }
+}
+
+
+#Preview("Formatted+SelfId", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var values: PreviewContent.SelfIdentifiedValues = .heidi
 
     VStack(alignment: .leading) {
