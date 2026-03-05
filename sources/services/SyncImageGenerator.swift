@@ -259,13 +259,51 @@ private struct PreviewContent {
 }
 
 
-#Preview("Resized", traits: .fixedHeader, PreviewContent.layout) {
-    SyncImageGenerator.generateImage(
-        with: "EnormousOne", caption: "500x500",
-        size: .square(of: 500), border: true)
-    .resizable()
-    SyncImageGenerator.generateImage(
-        with: "EnormousTwo", caption: "500x500",
-        size: .square(of: 500), border: true)
-    .resizable()
+#Preview("Alphabet", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable let imageGenerator = SyncImageGenerator(size: .square(of: 80))
+
+    LazyVGrid(
+        columns: [.adaptive(minimum: 70, maximum: 80, spacing: 2)],
+        alignment: .center,
+        spacing: 2
+    ) {
+        ForEach(Strings.natoPhoneticAlphabet, id: \.self) { string in
+            imageGenerator.generateImage(with: string)
+        }
+    }
+}
+
+
+#Preview("ScaledToFit/Fill", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable @State var imageHeight: Double = 100
+    @Previewable @State var fitOrFill: String = "fit"
+
+    Slider.captioned("Image Height", value: $imageHeight, in: 0...800, valueFormat: .fractionLength(2))
+    Picker(
+        "Formatted Picker",
+        selection: $fitOrFill,
+        collection: ["fit", "fill"],
+        id: \.self,
+        elementFormat: .capitalized
+    ).pickerStyle(.segmented)
+
+    VisibleSpacer()
+    VStack {
+        let resizableImage = SyncImageGenerator.generateImage(
+            with: "Huge", caption: "500x300",
+            size: .init(width: 500, height: 300),
+            border: true
+        ).resizable()
+
+        switch fitOrFill {
+        case "fit": resizableImage.scaledToFit()
+        case "fill": resizableImage.scaledToFill()
+        default: Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
+        }
+        Text("Title")
+    }
+    .frame(height: imageHeight)
+    .debugOverlay(.size, .infoAlignment(.outerBottomTrailing))
+
+    VisibleSpacer()
 }
