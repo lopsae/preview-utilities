@@ -389,7 +389,7 @@ struct TaggedText<Tag: Hashable>: View {
             selection: $nonIdentifiedValue,
             collection: PreviewContent.NonidentifiedValues.allCases,
             id: \.rawValue,
-            elementFormat: .rawValue()
+            elementFormat: .rawValueCapitalized()
         ).pickerStyle(.segmented)
     }
 }

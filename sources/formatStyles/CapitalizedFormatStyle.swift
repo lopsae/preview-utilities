@@ -18,6 +18,15 @@ struct CapitalizedFormatStyle: FormatStyle {
 }
 
 
+extension FormatStyle where Self == CapitalizedFormatStyle {
+
+    /// Returns a format style that outputs a capitalized string.
+    nonisolated
+    static var capitalized: Self { .init() }
+
+}
+
+
 extension FormatStyle {
 
     /// Returns a format style that uses the string output of another formatter and outputs the
