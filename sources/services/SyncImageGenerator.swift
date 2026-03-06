@@ -275,7 +275,7 @@ private struct PreviewContent {
 
 
 #Preview("ScaledToFit/Fill", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    @Previewable @State var imageHeight: Double = 150
+    @Previewable @State var fixedHeight: Double = 150
     @Previewable @State var fitOrFill: String = "fit"
     @Previewable let image = SyncImageGenerator.generateImage(
         with: "Huge", caption: "500x300",
@@ -283,15 +283,15 @@ private struct PreviewContent {
         border: true)
 
     PreviewCaption("""
-        Showcases the different behaviours of a resizable image configured to **fit** or to **fill**
+        Shows the different behaviours of a resizable image configured to **fit** or to **fill**
         its available space.
         """)
     .paragraph("**Fit** will respect both axis.")
-    .paragraph("**Fill** will break one of the axis, pushing elements outward.")
+    .paragraph("**Fill** will break one of the axis and may pushing elements outward.")
 
-    Slider.captioned("Image Height", value: $imageHeight, in: 0...800, valueFormat: .fractionLength(2))
+    Slider.captioned("Fixed Height", value: $fixedHeight, in: 0...800, valueFormat: .fractionLength(2))
     Picker(
-        "Formatted Picker",
+        "Fit or Fill",
         selection: $fitOrFill,
         collection: ["fit", "fill"],
         id: \.self,
@@ -308,8 +308,43 @@ private struct PreviewContent {
         }
         Text.caption("Bottom")
     }
-    .frame(height: imageHeight)
+    .frame(height: fixedHeight)
     .debugOverlay(.size, .infoAlignment(.outerBottomTrailing))
+
+    VisibleSpacer()
+}
+
+
+#Preview("AdaptiveFill", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable @State var fixedHeight: Double = 150
+    @Previewable let image = SyncImageGenerator.generateImage(
+        with: "Huge", caption: "500x300",
+        size: .init(width: 500, height: 300),
+        border: true)
+
+    PreviewCaption("""
+        When `.scaledToFill` is used, the image will take more space that available in one of the
+        axis. To respect and align the image in the available space a `GeometryReader` and `.frame` can
+        be used.
+        """)
+
+    Slider.captioned("Fixed Height", value: $fixedHeight, in: 0...800, valueFormat: .fractionLength(2))
+
+    VisibleSpacer()
+    VStack {
+        Text.caption("Top")
+        GeometryReader { geometry in
+            image
+                .resizable()
+                .scaledToFill()
+                .opacity(0.5)
+                .frame(size: geometry.size, alignment: .bottom)
+        }
+        .floatingCaption("GeometryReader", .alignment(.bottomTrailing), .style(.blue))
+        Text.caption("Bottom")
+    }
+    .frame(height: fixedHeight)
+    .floatingCaption("VStack with Fixed Height", .size, .alignment(.outerBottomTrailing), .style(.red))
 
     VisibleSpacer()
 }
