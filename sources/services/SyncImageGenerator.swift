@@ -324,8 +324,8 @@ private struct PreviewContent {
 
     PreviewCaption("""
         When `.scaledToFill` is used, the image will take more space that available in one of the
-        axis. To respect and align the image in the available space a `GeometryReader` and `.frame` can
-        be used.
+        axis. To respect and align the image in the available space a `overlay` or `background` be 
+        used.
         """)
 
     Slider.captioned("Fixed Height", value: $fixedHeight, in: 0...800, valueFormat: .fractionLength(2))
@@ -333,14 +333,16 @@ private struct PreviewContent {
     VisibleSpacer()
     VStack {
         Text.caption("Top")
-        GeometryReader { geometry in
+        ClearRectangle()
+        .hidden()
+        .allowsHitTesting(false)
+        .overlay(alignment: .top) {
             image
                 .resizable()
                 .scaledToFill()
                 .opacity(0.5)
-                .frame(size: geometry.size, alignment: .bottom)
         }
-        .floatingCaption("GeometryReader", .alignment(.bottomTrailing), .style(.blue))
+        .floatingCaption("Overlay", .alignment(.bottomTrailing), .style(.blue))
         Text.caption("Bottom")
     }
     .frame(height: fixedHeight)
@@ -348,3 +350,38 @@ private struct PreviewContent {
 
     VisibleSpacer()
 }
+
+
+/// Experimental view that expands to the available space and display the given content aligned
+/// within its frame. The view retains its occupied size even when the content is larger.
+///
+/// The content is internally added to an `overlay`, which uses an implicit `ZStack`. Providing
+/// more that one view will stack them on top of each other, the last view that you list appears at
+/// the front of the stack.
+///
+/// This for a behaviour that `.frame` seems unable to support: using a `.frame` with `.infinity`
+/// for width and height will occupy all available space and behave the same while the content is
+/// smaller that the available space. However, if the content is larger, then the size of the frame
+/// will expand to the size of the content. This view contrains the content to the available size.
+struct ConstrainedFill<Content>: View where Content : View {
+    let alignment: Alignment
+    let content: () -> Content
+
+    init(
+        alignment: Alignment = .center,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.alignment = alignment
+        self.content = content
+    }
+
+    var body: some View {
+        Rectangle()
+        .hidden()
+        .allowsHitTesting(false)
+        .overlay(alignment: alignment) {
+            EmptyView()
+        }
+    }
+}
+
