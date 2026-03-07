@@ -20,8 +20,8 @@ struct SyncImageGenerator {
     /// Synchronosly generates an image with a given strings.
     ///
     /// Images generated with the same `text` always have the same background color.
-    func generateImage(with text: String, caption: String? = nil) -> Image {
-        return Self.generateImage(with: text, caption: caption, size: size)
+    func generateImage(with text: String, caption: String? = nil, border: Bool = false) -> Image {
+        return Self.generateImage(with: text, caption: caption, size: size, border: border)
     }
 
 
@@ -263,12 +263,20 @@ private struct PreviewContent {
     @Previewable let imageGenerator = SyncImageGenerator(size: .square(of: 80))
 
     LazyVGrid(
-        columns: [.adaptive(minimum: 70, maximum: 80, spacing: 2)],
+        columns: [.adaptive(minimum: 75, maximum: 90, spacing: 4)],
         alignment: .center,
-        spacing: 2
+        spacing: 4
     ) {
         ForEach(Strings.natoPhoneticAlphabet, id: \.self) { string in
-            imageGenerator.generateImage(with: string)
+            ConstrainedFill(alignment: .center) {
+                imageGenerator.generateImage(with: string, border: true)
+                .resizable()
+                .scaledToFill()
+            }
+            .aspectRatio(1, contentMode: .fill)
+            .roundedRectangleClip(cornerRadius: 8)
+
+
         }
     }
 }
