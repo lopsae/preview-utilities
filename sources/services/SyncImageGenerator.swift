@@ -315,7 +315,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("AdaptiveFill", traits: .fixedHeaderFooter, PreviewContent.layout) {
+#Preview("ConstrainedFill", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var fixedHeight: Double = 150
     @Previewable let image = SyncImageGenerator.generateImage(
         with: "Huge", caption: "500x300",
@@ -333,16 +333,13 @@ private struct PreviewContent {
     VisibleSpacer()
     VStack {
         Text.caption("Top")
-        ClearRectangle()
-        .hidden()
-        .allowsHitTesting(false)
-        .overlay(alignment: .top) {
+        ConstrainedFill(alignment: .bottom) {
             image
-                .resizable()
-                .scaledToFill()
-                .opacity(0.5)
+            .resizable()
+            .scaledToFill()
+            .opacity(0.5)
         }
-        .floatingCaption("Overlay", .alignment(.bottomTrailing), .style(.blue))
+        .floatingCaption("ConstrainedFill", .size, .alignment(.bottomTrailing), .style(.blue))
         Text.caption("Bottom")
     }
     .frame(height: fixedHeight)
@@ -380,7 +377,7 @@ struct ConstrainedFill<Content>: View where Content : View {
         .hidden()
         .allowsHitTesting(false)
         .overlay(alignment: alignment) {
-            EmptyView()
+            content()
         }
     }
 }
