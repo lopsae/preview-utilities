@@ -31,11 +31,11 @@ struct SyncImageGenerator {
         size: CGSize,
         border: Bool = false
     ) -> Image {
-        let components = colorComponentsFromString(text)
-        let borderComponents = border ? colorComponentsFromString("\(text)-border") : nil
+        let backgroundComponents = colorComponentsForBackground(text)
+        let borderComponents = border ? colorComponentsForBorder(text) : nil
         let image = Self.buildImage(
             size: size, text: text, caption: caption,
-            components: components,
+            components: backgroundComponents,
             borderComponents: borderComponents)
         return image
     }
@@ -182,15 +182,31 @@ struct SyncImageGenerator {
     }
 
 
-    /// Generates deterministic color components for the given `string`.
-    private static func colorComponentsFromString(_ string: String) -> ColorComponents {
+    /// Generates deterministic color components for the given `string` for the image background.
+    private static func colorComponentsForBackground(_ string: String) -> ColorComponents {
         let hash = persistentHash(for: string)
 
-        let hue: Double = (hash % 360).asDouble / 360.0
+        // Hue.
+        let hue = hueComponent(hash: hash, offset: 0)
         // Saturation in the range of: 0.6 - 1.0.
-        let saturation: Double = 0.6 + (hash % 40).asDouble / 100.0
-        // Brightness in the range: 0.5 - 0.8.
-        let brightness: Double = 0.5 + (hash % 30).asDouble / 100.0
+        let saturation = colorComponent(hash: hash, offset: 60, delta: 40)
+        // Brightness in the range: 0.55 - 0.9.
+        let brightness = colorComponent(hash: hash, offset: 55, delta: 35)
+
+        return .init(hue: hue, saturation: saturation, brightness: brightness)
+    }
+
+
+    /// Generates deterministic color components for the given `string` for the image border.
+    private static func colorComponentsForBorder(_ string: String) -> ColorComponents {
+        let hash = persistentHash(for: string)
+
+        // Hue with an offset of 1/6 of a circle.
+        let hue = hueComponent(hash: hash, offset: 60)
+        // Saturation in the range of: 0.6 - 1.0.
+        let saturation = colorComponent(hash: hash, offset: 60, delta: 40)
+        // Brightness in the range: 0.35 - 0.7.
+        let brightness = colorComponent(hash: hash, offset: 35, delta: 35)
 
         return .init(hue: hue, saturation: saturation, brightness: brightness)
     }
@@ -206,6 +222,21 @@ struct SyncImageGenerator {
         }
 
         return intValue
+    }
+
+
+    /// Calculates the hue component based in a 360 modulo.Offset should be in the range `[0, 360)`.
+    /// Returned component value is in the range `[0, 1)`.
+    private static func hueComponent(hash: Int, offset: Int) -> Double {
+        let hueAngle = (hash + offset) % 360
+        return hueAngle.asDouble / 360.0
+    }
+
+
+    /// Caculates a color component with an offset and delta in the range `[0, 100]`
+    /// Returned component value is in the range `[offset/100, (offset+delta)/100)`.
+    private static func colorComponent(hash: Int, offset: Int, delta: Int) -> Double {
+        return (offset + (hash % delta)).asDouble / 100.0
     }
 
 }
