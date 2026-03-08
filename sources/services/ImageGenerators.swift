@@ -8,6 +8,9 @@ import CryptoKit
 import SwiftUI
 
 
+// MARK: - Protocols
+
+
 /// Protocol for all image generators.
 public protocol ImageGeneratorProtocol: Sendable, Identifiable {
 
@@ -248,141 +251,16 @@ final class ImageGeneratorUtils {
         }
 
         let threadInfo = ThreadInfo()
-        let components = colorComponentsFromString(text)
 
-        let image = buildImage(text: text, size: size, caption: threadInfo.displayName, components: components)
+        let image = SyncImageGenerator.generateImage(
+            with: text,
+            caption: threadInfo.displayName,
+            size: size,
+            border: true)
+
         return (image: image, threadInfo: threadInfo)
     }
 
-
-    #if canImport(AppKit)
-    private static func buildImage(text: String, size: CGSize, caption: String, components: ColorComponents) -> Image {
-        let nsImage = NSImage(size: size, flipped: true) { nsRect in
-            // Background.
-            let backgroundColor = NSColor(
-                hue: components.hue,
-                saturation: components.saturation,
-                brightness: components.brightness,
-                alpha: 1.0)
-            backgroundColor.setFill()
-            nsRect.fill()
-
-            // Shadow.
-            let shadow = NSShadow()
-            shadow.shadowOffset = CGSize(width: 1, height: -3)
-            shadow.shadowBlurRadius = 3
-            shadow.shadowColor = NSColor.black.withAlphaComponent(0.5)
-            shadow.set()
-
-            self.drawStrings(text: text, size: size, caption: caption)
-            return true
-        }
-
-        return Image(nsImage: nsImage)
-    }
-    #endif
-
-
-    #if canImport(UIKit)
-    private static func buildImage(text: String, size: CGSize, caption: String, components: ColorComponents) -> Image {
-        let format = UIGraphicsImageRendererFormat()
-        let renderer = UIGraphicsImageRenderer(size: size, format: format)
-        let uiImage = renderer.image { context in
-            // Background.
-            let backgroundColor = UIColor(
-                hue: components.hue,
-                saturation: components.saturation,
-                brightness: components.brightness,
-                alpha: 1.0)
-            backgroundColor.setFill()
-            context.fill(size.rect())
-
-            let cgContext = context.cgContext
-
-            // Shadow.
-            cgContext.setShadow(
-                offset: CGSize(width: 1, height: 3),
-                blur: 3,
-                color: UIColor.black.withAlphaComponent(0.5).cgColor
-            )
-
-            drawStrings(text: text, size: size, caption: caption)
-        }
-
-        return Image(uiImage: uiImage)
-    }
-    #endif
-
-
-    private static func drawStrings(text: String, size: CGSize, caption: String) {
-        #if canImport(AppKit)
-        typealias PlatformFont = NSFont
-        typealias PlatformColor = NSColor
-        #elseif canImport(UIKit)
-        typealias PlatformFont = UIFont
-        typealias PlatformColor = UIColor
-        #endif
-
-        let textAttrString = NSAttributedString(string: text, attributes: [
-            .font: PlatformFont.preferredFont(forTextStyle: .headline),
-            .foregroundColor: PlatformColor.white,
-            .paragraphStyle: NSParagraphStyle.make {
-                $0.alignment = .center
-            }
-        ])
-        let textSize = textAttrString.size()
-        let textRect = textSize.centered(in: size)
-
-        let captionAttrString = NSAttributedString(string: caption, attributes: [
-            .font:  PlatformFont.preferredFont(forTextStyle: .caption1),
-            .foregroundColor: PlatformColor.white,
-            .paragraphStyle: NSParagraphStyle.make {
-                $0.alignment = .center
-            }
-        ])
-        let captionSize = captionAttrString.size()
-        var captionRect = captionSize.centered(in: size)
-        let captionSpacing: CGFloat = .zero
-        captionRect.origin.y = textRect.maxY + captionSpacing
-
-        textAttrString.draw(in: textRect)
-        captionAttrString.draw(in: captionRect)
-    }
-
-
-    /// Generates deterministic color components for the given `string`.
-    private static func colorComponentsFromString(_ string: String) -> ColorComponents {
-        let hash = persistentHash(for: string)
-
-        let hue: Double = (hash % 360).asDouble / 360.0
-        // In the range: 0.6 - 1.0.
-        let saturation: Double = 0.6 + (hash % 40).asDouble / 100.0
-        // In the range: 0.5 - 0.8.
-        let brightness: Double = 0.5 + (hash % 30).asDouble / 100.0
-
-        return .init(hue: hue, saturation: saturation, brightness: brightness)
-    }
-
-
-    private static func persistentHash(for input: String) -> Int {
-        guard let inputData = input.data(using: .utf8)
-        else { return .zero }
-
-        let hashed: SHA256Digest = SHA256.hash(data: inputData)
-        let intValue: Int = hashed.reduce(0) { partialResult, int8 in
-            partialResult + Int(int8)
-        }
-
-        return intValue
-    }
-
-}
-
-
-private struct ColorComponents: Sendable {
-    let hue: CGFloat
-    let saturation: CGFloat
-    let brightness: CGFloat
 }
 
 

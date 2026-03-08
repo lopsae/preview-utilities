@@ -12,6 +12,7 @@ import SwiftUI
 /// size, or used statically to produce the same images.
 ///
 /// This generator uses no async api, so it can be run in any isolation context.
+nonisolated
 struct SyncImageGenerator {
 
     /// Size of the generated images.
