@@ -9,7 +9,7 @@ import SwiftUI
 
 extension GridItem {
 
-    static func adaptive(
+    public static func adaptive(
         minimum: CGFloat,
         maximum: CGFloat = .infinity,
         spacing: CGFloat? = nil,
