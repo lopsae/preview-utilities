@@ -7,20 +7,25 @@
 import SwiftUI
 
 
-/// View that expands to the available space and displays the given content aligned within its
-/// frame. The view uses only the available space even when the content is larger, it does not
-/// expand. Content larger that the available space will overflow outside of the view in accordance
-/// with the given alignment.
+/// View that expands to the available space and displays the given content constrained and aligned
+/// to the available space. The view uses only the available space even when the content is larger.
 ///
-/// The content is internally added to an `overlay`, which uses an implicit `ZStack`. Providing
-/// more that one view will stack them on top of each other, the last view that you list appears at
-/// the front of the stack.
+/// Content larger that the available space will overflow outside of the view while still respecting
+/// the given alignment. Each view in the content is constrained individually, even if one view
+/// overflows over the available space, all other views will resize themselves to the available
+/// space.
+///
+/// Views in content are placed in an implicit `ZStack`. Providing more that one view will stack
+/// them on top of each other, the last view provided appears at the front of the stack.
+///
+/// Internally, each view in content is individually constrained to a `frame` sized to the available
+/// space.
 ///
 /// This view provides a behaviour that `.frame` is unable to support: using a `.frame` that expands
 /// to occupy all available space (with `.infinity` for width and height) will behave the same while
 /// the content is smaller that the available space. However, if the content is larger, then the
-/// size of the frame will expand to the size of the content. This view ALWAYS contrains the content
-/// to the available size.
+/// size of the frame will expand to the size of the content. This view **always** contrains the content
+/// to the available space.
 public struct ConstrainedFill<Content>: View where Content : View {
     let alignment: Alignment
     let content: () -> Content
@@ -34,11 +39,11 @@ public struct ConstrainedFill<Content>: View where Content : View {
     }
 
     public var body: some View {
-        Rectangle()
-        .hidden()
-        .allowsHitTesting(false)
-        .overlay(alignment: alignment) {
-            content()
+        GeometryReader { proxy in
+            Group {
+                content()
+            }
+            .frame(size: proxy.size, alignment: alignment)
         }
     }
 }
@@ -92,6 +97,24 @@ private struct PreviewContent {
     VisibleSpacer()
 }
 
+
+#Preview("Alignments", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    VisibleSpacer()
+    HStack {
+        VisibleSpacer(axis: .horizontal)
+        ConstrainedFill(alignment: .top) {
+            CaptionRectangle(
+                "Fixed Size", color: .red, size: .init(squareOf: 300),
+                traits: .size, .alignment(.topLeading))
+            CaptionRectangle("Rectangle", color: .green)
+            Text(Strings.sphinxOfBlackQuartz)
+        }
+        .floatingCaption("ContrainedFill", .colorStyle(.blue), .alignment(.outerBottomTrailing))
+
+        VisibleSpacer(axis: .horizontal)
+    }
+    VisibleSpacer()
+}
 
 
 #Preview("Example-ScaledToFit/Fill", traits: .fixedHeaderFooter, PreviewContent.layout) {
