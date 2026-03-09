@@ -6,7 +6,13 @@
 
 extension Sequence {
 
-    // TODO: note in documentation that per `Dictionary(uniqueKeysWithValues`, passing a duplicate key results in a runtime error.
+    /// Produces a dictionary mapping each elements of the sequence to a key and their corresponding
+    /// value.
+    ///
+    /// The mapped keys must not produce duplicates.
+    ///
+    /// Uses `Dictionary(uniqueKeysWithValues:)` internally, which will produce a runtime error if
+    /// given duplicate keys.
     @inlinable public func dictionaryMap<Key: Hashable, Value>(
         key keyTransform: (Element) -> Key,
         value valueTransform: (Element) -> Value
@@ -16,6 +22,13 @@ extension Sequence {
     }
 
 
+    /// Produces a dictionary mapping each elements of the sequence to a key, and using the given
+    /// value for all keys.
+    ///
+    /// The mapped keys must not produce duplicates.
+    ///
+    /// Uses `Dictionary(uniqueKeysWithValues:)` internally, which will produce a runtime error if
+    /// given duplicate keys.
     @inlinable public func dictionaryMap<Key: Hashable, Value>(
         key keyTransform: (Element) -> Key,
         value: Value
@@ -29,7 +42,13 @@ extension Sequence {
 
 extension Sequence where Element: Hashable {
 
-    // TODO: note in documentation that per `Dictionary(uniqueKeysWithValues`, passing a duplicate key results in a runtime error.
+    /// Produces a dictionary using the elements of the sequence as keys, and mapping each key to
+    /// a corresponding value.
+    ///
+    /// The sequence must not have duplicate elements.
+    ///
+    /// Uses `Dictionary(uniqueKeysWithValues:)` internally, which will produce a runtime error if
+    /// given duplicate keys.
     @inlinable public func dictionaryMap<Value>(
         value valueTransform: (Element) -> Value
     ) -> [Element: Value] {
@@ -38,6 +57,13 @@ extension Sequence where Element: Hashable {
     }
 
 
+    /// Produces a dictionary using the elements of the sequence as keys, and using the given value
+    /// for all keys.
+    ///
+    /// The sequence must not have duplicate elements.
+    ///
+    /// Uses `Dictionary(uniqueKeysWithValues:)` internally, which will produce a runtime error if
+    /// given duplicate keys.
     @inlinable public func dictionaryMap<Value>(
         value: Value
     ) -> [Element: Value] {
