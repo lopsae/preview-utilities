@@ -21,7 +21,7 @@ import SwiftUI
 /// the content is smaller that the available space. However, if the content is larger, then the
 /// size of the frame will expand to the size of the content. This view ALWAYS contrains the content
 /// to the available size.
-struct ConstrainedFill<Content>: View where Content : View {
+public struct ConstrainedFill<Content>: View where Content : View {
     let alignment: Alignment
     let content: () -> Content
 
@@ -33,7 +33,7 @@ struct ConstrainedFill<Content>: View where Content : View {
         self.content = content
     }
 
-    var body: some View {
+    public var body: some View {
         Rectangle()
         .hidden()
         .allowsHitTesting(false)
