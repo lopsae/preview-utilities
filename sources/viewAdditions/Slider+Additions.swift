@@ -407,6 +407,5 @@ private struct PreviewContent {
         value: $roundedValue,
         in: 0...10,
         valueFormat: .arithmeticRoundedInteger)
-    Text("Actual: \(roundedValue)")
-        .font(.caption)
+    Text.caption("Actual: \(roundedValue)")
 }

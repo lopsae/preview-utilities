@@ -182,7 +182,7 @@ private struct PreviewContent {
         @ViewBuilder content: () -> some View
     ) -> some View {
         VStack(alignment: .leading, spacing: 2) {
-            Text(captionKey).font(.caption)
+            Text.caption(captionKey)
             content()
         }
         .maxWidthFrame(alignment: .leading)

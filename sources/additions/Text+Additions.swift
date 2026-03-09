@@ -9,7 +9,6 @@ import SwiftUI
 
 extension Text {
 
-    //TODO: look for `(.caption` to replace.
     public static func caption(_ key: LocalizedStringKey) -> Self {
         Self(key).font(.caption)
     }
