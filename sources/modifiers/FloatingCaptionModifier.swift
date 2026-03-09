@@ -24,6 +24,7 @@ public struct FloatingCaptionModifier: ViewModifier {
         content.overlay {
             GeometryReader { geometry in
                 let alignment = flatTraits.alignment ?? .inner(.center)
+                // TODO: for intenral alignments, padding should also consider the border width, when border is present!
                 let padding: CGFloat? = flatTraits.containsCase(.padding)
                     ? flatTraits.padding // The trait can specify a nil value for a default padding.
                     : 2 // Default without trait.
@@ -62,8 +63,9 @@ public struct FloatingCaptionModifier: ViewModifier {
 
                 // Border.
                 if let borderStyle = flatTraits.borderStyle {
+                    let borderWidth = flatTraits.borderWidth ?? 1
                     Rectangle()
-                    .strokeBorder(AnyShapeStyle(borderStyle), lineWidth: 1)
+                    .strokeBorder(AnyShapeStyle(borderStyle), lineWidth: borderWidth)
                 }
             } // GeometryReader
         } // overlay
@@ -85,13 +87,15 @@ extension FloatingCaptionModifier {
         case height
         case captionStyle(any ShapeStyle)
         case borderStyle(any ShapeStyle)
+        case borderWidth(CGFloat)
         case alignment(FloatingAlignment)
         case padding(CGFloat? = nil)
         case traits([Trait])
 
         public enum Case {
             case width, height
-            case captionStyle, borderStyle, alignment, padding
+            case captionStyle, borderStyle, borderWidth
+            case alignment, padding
             case traits
         }
 
@@ -103,6 +107,7 @@ extension FloatingCaptionModifier {
             case .height:       .height
             case .captionStyle: .captionStyle
             case .borderStyle:  .borderStyle
+            case .borderWidth:  .borderWidth
             case .alignment:    .alignment
             case .padding:      .padding
             case .traits:       .traits
@@ -156,6 +161,15 @@ extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait
         let caseInstance = lastCase(.borderStyle)
         if case .borderStyle(let borderStyle) = caseInstance {
             return borderStyle
+        }
+        return nil
+    }
+
+
+    var borderWidth: CGFloat? {
+        let caseInstance = lastCase(.borderWidth)
+        if case .borderWidth(let borderWidth) = caseInstance {
+            return borderWidth
         }
         return nil
     }
@@ -233,7 +247,8 @@ private struct PreviewContent {
         .frame(squareOf: 100)
         .floatingCaption(
             "External", .size, .alignment(.outerBottom),
-            .captionStyle(.indigo), .borderStyle(.indigo.tertiary))
+            .captionStyle(.indigo), .borderStyle(.indigo.tertiary),
+            .borderWidth(3))
 }
 
 
