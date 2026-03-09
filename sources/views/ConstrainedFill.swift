@@ -25,7 +25,7 @@ public struct ConstrainedFill<Content>: View where Content : View {
     let alignment: Alignment
     let content: () -> Content
 
-    init(
+    public init(
         alignment: Alignment = .center,
         @ViewBuilder content: @escaping () -> Content
     ) {
