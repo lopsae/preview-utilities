@@ -81,7 +81,9 @@ private struct PreviewContent {
             .scaledToFill()
             .opacity(0.7)
         }
-        .floatingCaption("ConstrainedFill", .size, .alignment(.bottomTrailing), .style(.blue))
+        .floatingCaption(
+            "ConstrainedFill", .size, .alignment(.bottomTrailing),
+            .style(.blue), .borderWidth(3), .padding(5))
         Text.caption("Bottom")
     }
     .frame(height: fixedHeight)
