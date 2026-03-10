@@ -98,11 +98,63 @@ private struct PreviewContent {
 }
 
 
+// TODO: Move to own file.
+enum SwiftHorizontalAlignment: String, SelfIdentifiable, CaseIterable {
+
+    case leading, center, traling
+
+    var alignment: HorizontalAlignment {
+        switch self {
+        case .leading: .leading
+        case .center:  .center
+        case .traling: .trailing
+        }
+    }
+
+}
+
+
+enum SwiftVerticalAlignment: String, SelfIdentifiable, CaseIterable {
+
+    case top, center, bottom
+    case firstTextBaseline, lastTextBaseline
+
+    var alignment: VerticalAlignment {
+        switch self {
+        case .top:    .top
+        case .center: .center
+        case .bottom: .bottom
+        case .firstTextBaseline: .firstTextBaseline
+        case .lastTextBaseline:  .lastTextBaseline
+        }
+    }
+
+}
+
+
 #Preview("Alignments", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable @State var horizontalAlignment: SwiftHorizontalAlignment = .center
+    @Previewable @State var verticalAlignment: SwiftVerticalAlignment = .center
+
+    Picker(
+        "Horizontal",
+        selection: $horizontalAlignment,
+        caseFormat: .rawValueCapitalized()
+    ).pickerStyle(.segmented)
+
+    Picker(
+        "Vertical",
+        selection: $verticalAlignment,
+        caseFormat: .rawValueCapitalized()
+    ).pickerStyle(.segmented)
+
     VisibleSpacer()
     HStack {
         VisibleSpacer(axis: .horizontal)
-        ConstrainedFill(alignment: .top) {
+        let alignment: Alignment = .init(
+            horizontal: horizontalAlignment.alignment,
+            vertical: verticalAlignment.alignment)
+        ConstrainedFill(alignment: alignment) {
             CaptionRectangle(
                 "Fixed Size", color: .red, size: .init(squareOf: 300),
                 traits: .size, .alignment(.topLeading))
