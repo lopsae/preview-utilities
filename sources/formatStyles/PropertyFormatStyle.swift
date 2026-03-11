@@ -50,7 +50,7 @@ struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
 nonisolated
 extension FormatStyle {
 
-    /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable`.
+    /// Returns a format style that outputs a string property from the input object.
     nonisolated
     static func property<Input>(
         _ property: KeyPath<Input, String> & Sendable
@@ -86,7 +86,6 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable let dummy = PreviewContent.Dummy()
-
     Text("Property: `\(dummy, format: .property(\.value))`")
     Text("Dynamic Property: `\(dummy, format: .property(\.dynamicValue))`")
 }
