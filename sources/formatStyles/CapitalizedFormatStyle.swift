@@ -29,7 +29,6 @@ extension FormatStyle where Self == CapitalizedFormatStyle {
 
 extension FormatStyle {
 
-    // TODO: add to preview
     /// Returns a format style that uses the string output of another formatter and outputs the
     /// capitalized string.
     nonisolated
@@ -88,11 +87,12 @@ private struct PreviewContent {
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
     nonisolated
-    struct Dummy: RawRepresentable {
+    struct Dummy: RawRepresentable, CustomStringConvertible {
         let value = "instance property"
         let rawValue = "instance raw value"
         init?(rawValue: String) {}
         init() {}
+        var description: String { "string description" }
     }
 
 }
@@ -106,5 +106,6 @@ private struct PreviewContent {
     Text("String: `\("lorem ipsum", format: .capitalized)`")
     Text("Raw Value: `\(dummy, format: .rawValueCapitalized())`")
     Text("Property: `\(dummy, format: .capitalized(property: \.value))`")
+    Text("Format Input: `\(dummy, format: .capitalized(input: .description()))`")
 }
 
