@@ -4,7 +4,7 @@
 //
 
 
-import Foundation
+import SwiftUI
 
 
 /// A structure that capitalizes a string.
@@ -64,7 +64,7 @@ extension FormatStyle {
 nonisolated
 extension FormatStyle {
 
-    /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable`.
+    /// Returns a format style that outputs a capitalized string property from the input object.
     nonisolated
     static func capitalized<Input>(
         property: KeyPath<Input, String> & Sendable
@@ -76,3 +76,34 @@ extension FormatStyle {
     }
 
 }
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+    nonisolated
+    struct Dummy: RawRepresentable {
+        let value = "instance property"
+        let rawValue = "instance raw value"
+        init?(rawValue: String) {}
+        init() {}
+    }
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable let dummy = PreviewContent.Dummy()
+    Text("String: `\("lorem ipsum", format: .capitalized)`")
+    Text("Raw Value: `\(dummy, format: .rawValueCapitalized())`")
+    Text("Property: `\(dummy, format: .capitalized(property: \.value))`")
+}
+
