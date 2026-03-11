@@ -9,8 +9,12 @@ import SwiftUI
 
 /// A Structure that joins two format styles.
 nonisolated
-struct CompositeFormatStyle<InputFormat: FormatStyle, OutputFormat: FormatStyle>: FormatStyle
-where InputFormat.FormatOutput == OutputFormat.FormatInput {
+struct CompositeFormatStyle<InputFormat, OutputFormat>: FormatStyle, Sendable
+where
+    InputFormat: FormatStyle & Sendable,
+    OutputFormat: FormatStyle & Sendable,
+    InputFormat.FormatOutput == OutputFormat.FormatInput
+{
 
     let input: InputFormat
     let output: OutputFormat
