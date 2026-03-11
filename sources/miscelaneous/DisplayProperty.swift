@@ -7,12 +7,18 @@
 import SwiftUI
 
 
+/// Experimental struct that contains a value and a localized string key to display along the value.
+/// Can be received by views to display properties names and their value in a standarized format.
+///
+/// See the preview in this file for an example of a `bool` stored in a `DisplayProperty`, which
+/// be directly displayed in a `Text`.
 struct DisplayProperty<Value> {
     let displayKey: LocalizedStringKey
     var value: Value
 }
 
 
+/// Experimental protocol for an instance to provide its own `DisplayProperty`.
 protocol DisplayKeyProvider {
     var displayKey: LocalizedStringKey { get }
 }

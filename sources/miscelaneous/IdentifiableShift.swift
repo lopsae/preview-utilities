@@ -7,6 +7,15 @@
 import SwiftUI
 
 
+/// Experimental protocol for `OptionSet`s that defines `Shift` a type that can be used to
+/// instantiate `OptionSet` instances representing an specific option.
+///
+/// The intentended use for the `Shift` type is to contain the shift of each specific option
+/// contained in the `OptionSet`. This shift can the be used to instantiate option set instances, or
+/// to perform set operations using only the shift value.
+///
+/// See the example previews in this file for a example implementation of an `OptionSet` using
+/// `IdentifiableShift`.
 nonisolated
 protocol IdentifiableShift: OptionSet {
     associatedtype Shift: RawRepresentable & Hashable
