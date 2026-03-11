@@ -58,3 +58,30 @@ extension FormatStyle {
     }
 
 }
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+    struct Dummy {
+        let value = "instance property"
+        var dynamicValue: String { "dynamic property" }
+    }
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable let dummy = PreviewContent.Dummy()
+
+    Text("Property: `\(dummy, format: .property(\.value))`")
+    Text("Dynamic Property: `\(dummy, format: .property(\.dynamicValue))`")
+}
