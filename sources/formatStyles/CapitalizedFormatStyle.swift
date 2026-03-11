@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A structure that capitalizes a string.
 nonisolated
-struct CapitalizedFormatStyle: FormatStyle {
+struct CapitalizedFormatStyle: FormatStyle, Sendable {
 
     func format(_ value: String) -> String {
         return value.capitalized
@@ -29,6 +29,7 @@ extension FormatStyle where Self == CapitalizedFormatStyle {
 
 extension FormatStyle {
 
+    // TODO: add to preview
     /// Returns a format style that uses the string output of another formatter and outputs the
     /// capitalized string.
     nonisolated
