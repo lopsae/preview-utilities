@@ -100,20 +100,20 @@ private struct PreviewContent {
 
 #Preview("Alignments", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var horizontalAlignment: HorizontalAlignmentEnum = .center
-    @Previewable @State var verticalAlignment: VerticalAlignmentEnum = .center
+    @Previewable @State var verticalAlignment: VerticalAlignmentEnum = .bottom
 
     Picker(
         "Horizontal",
         selection: $horizontalAlignment,
         selectables: HorizontalAlignmentEnum.allCases,
-        elementContent: { Text($0.displayName.capitalized) }
+        elementFormat: .capitalized(property: \.displayName)
     ).pickerStyle(.segmented)
 
     Picker(
         "Vertical",
         selection: $verticalAlignment,
         selectables: VerticalAlignmentEnum.allCases,
-        elementContent: { Text($0.displayName.capitalized) }
+        elementFormat: .capitalized(property: \.displayName)
     ).pickerStyle(.segmented)
 
     VisibleSpacer()
@@ -126,10 +126,10 @@ private struct PreviewContent {
             CaptionRectangle(
                 "Fixed Size", color: .red, size: .init(squareOf: 300),
                 traits: .size, .alignment(.topLeading))
-            CaptionRectangle("Rectangle", color: .green)
+            CaptionRectangle("Flexible\nRectangle", color: .green)
             Text(Strings.sphinxOfBlackQuartz)
         }
-        .floatingCaption("ContrainedFill", .colorStyle(.blue), .alignment(.outerBottomTrailing))
+        .floatingCaption("ConstrainedFill", .colorStyle(.blue), .alignment(.outerBottomTrailing))
 
         VisibleSpacer(axis: .horizontal)
     }
