@@ -70,3 +70,60 @@ enum VerticalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
     }
 
 }
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("AlignmentsEnums", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable @State var horizontalAlignment: HorizontalAlignmentEnum = .center
+    @Previewable @State var verticalAlignment: VerticalAlignmentEnum = .center
+
+    Picker(
+        "Horizontal",
+        selection: $horizontalAlignment,
+        selectables: HorizontalAlignmentEnum.allCases,
+        elementContent: { Text($0.displayName.capitalized) }
+    ).pickerStyle(.segmented)
+
+    VStack(alignment: horizontalAlignment.alignment) {
+        Text("Lorem ipsum dolor")
+        CaptionRectangle(
+            "Fixed Size", color: .indigo, size: .init(width: 200, height: 50),
+            traits: .size, .alignment(.topLeading))
+        Text("Text with\nmultiple\nlines")
+    }
+    .floatingCaption("VStack", .colorStyle(.indigo), .alignment(.outerBottomTrailing))
+
+    DashedDivider()
+        .padding(.vertical)
+
+    Picker(
+        "Vertical",
+        selection: $verticalAlignment,
+        selectables: VerticalAlignmentEnum.allCases,
+        elementContent: { Text($0.displayName.capitalized) }
+    ).pickerStyle(.segmented)
+
+    HStack(alignment: verticalAlignment.alignment) {
+        Text("Lorem ipsum dolor")
+        CaptionRectangle(
+            "Fixed Size", color: .purple, size: .init(width: 100, height: 150),
+            traits: .size, .alignment(.top))
+        Text("Text with\nmultiple\nlines")
+    }
+    .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
+
+    VisibleSpacer()
+}
