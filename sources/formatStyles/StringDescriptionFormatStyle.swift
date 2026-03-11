@@ -34,24 +34,6 @@ extension FormatStyle {
 }
 
 
-
-// TODO: These dont seem to be used anywhere. Mark as deprecated?
-extension FormatStyle where Self == StringDescriptionFormatStyle<Double> {
-
-    nonisolated
-    public static var stringDescription: IdentityFormatStyle<Double> { .init() }
-
-}
-
-
-extension FormatStyle where Self == StringDescriptionFormatStyle<Int> {
-
-    nonisolated
-    public static var stringDescription: IdentityFormatStyle<Int> { .init() }
-
-}
-
-
 // MARK: - PreviewContent
 
 
