@@ -7,6 +7,10 @@
 import SwiftUI
 
 
+// TODO: add an example of KeyPath conformance to Sendable. The conformance is automatic, but the type
+// has to be marked `& Sendable`. See examples here and in the `onGeometryChange<Property>(keyPath:` extension.
+
+
 /// A format style that returns a string property referenced by a key path.
 ///
 /// - Note: This formatter retrieves a string property for an input object using a key path. Since
@@ -14,14 +18,14 @@ import SwiftUI
 /// a serialization round-trip of this type does is not possible. Encoding stores a dummy value.
 /// Decoding will always fail with a `DecodingError.dataCorrupted` error.
 nonisolated
-struct PropertyFormatStyle<Input>: FormatStyle {
-    let property: KeyPath<Input, String>
+struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
+    let property: KeyPath<Input, String> & Sendable
 
     func format(_ value: Input) -> String {
         return value[keyPath: property]
     }
 
-    init(_ property: KeyPath<Input, String>) {
+    init(_ property: KeyPath<Input, String> & Sendable) {
         self.property = property
     }
 
@@ -49,7 +53,7 @@ extension FormatStyle {
     /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable`.
     nonisolated
     static func property<Input>(
-        _ property: KeyPath<Input, String>
+        _ property: KeyPath<Input, String> & Sendable
     ) -> Self
     where
         Self == PropertyFormatStyle<Input>
@@ -68,6 +72,7 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
+    nonisolated
     struct Dummy {
         let value = "instance property"
         var dynamicValue: String { "dynamic property" }

@@ -67,7 +67,7 @@ extension FormatStyle {
     /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable`.
     nonisolated
     static func capitalized<Input>(
-        property: KeyPath<Input, String>
+        property: KeyPath<Input, String> & Sendable
     ) -> Self
     where
         Self == CompositeFormatStyle<PropertyFormatStyle<Input>, CapitalizedFormatStyle>
