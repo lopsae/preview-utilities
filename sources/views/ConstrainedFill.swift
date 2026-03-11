@@ -111,6 +111,9 @@ enum SwiftHorizontalAlignment: String, SelfIdentifiable, CaseIterable {
         }
     }
 
+    // TODO: could use display property?
+    var displayName: String { rawValue }
+
 }
 
 
@@ -129,6 +132,15 @@ enum SwiftVerticalAlignment: String, SelfIdentifiable, CaseIterable {
         }
     }
 
+    // TODO: could use display property?
+    var displayName: String {
+        switch self {
+        case .top, .center, .bottom: rawValue
+        case .firstTextBaseline: "first text baseline"
+        case .lastTextBaseline:  "last text baseline"
+        }
+    }
+
 }
 
 
@@ -139,13 +151,15 @@ enum SwiftVerticalAlignment: String, SelfIdentifiable, CaseIterable {
     Picker(
         "Horizontal",
         selection: $horizontalAlignment,
-        caseFormat: .rawValueCapitalized()
+        selectables: SwiftHorizontalAlignment.allCases,
+        elementContent: { Text($0.displayName.capitalized) }
     ).pickerStyle(.segmented)
 
     Picker(
         "Vertical",
         selection: $verticalAlignment,
-        caseFormat: .rawValueCapitalized()
+        selectables: SwiftVerticalAlignment.allCases,
+        elementContent: { Text($0.displayName.capitalized) }
     ).pickerStyle(.segmented)
 
     VisibleSpacer()
