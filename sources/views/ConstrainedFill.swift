@@ -99,10 +99,14 @@ private struct PreviewContent {
 
 
 // TODO: Move to own file.
-enum SwiftHorizontalAlignment: String, SelfIdentifiable, CaseIterable {
+/// Enumeration of the alignment instances available in ``SwiftUICore/HorizontalAlignment``.
+///
+/// Allows previews and other consumers to list the alignment options available.
+enum HorizontalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
 
     case leading, center, traling
 
+    /// Returns the corresponding ``SwiftUI/HorizontalAlignment``.
     var alignment: HorizontalAlignment {
         switch self {
         case .leading: .leading
@@ -116,13 +120,17 @@ enum SwiftHorizontalAlignment: String, SelfIdentifiable, CaseIterable {
 
 }
 
-
-enum SwiftVerticalAlignment: String, SelfIdentifiable, CaseIterable {
+// TODO: Move to own file.
+/// Enumeration of the alignment instances available in ``SwiftUI/VerticalAlignment``.
+///
+/// Allows previews and other consumers to list the alignment options available.
+enum VerticalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
 
     case top, center, bottom
     case firstTextBaseline, lastTextBaseline
 
-    var alignment: VerticalAlignment {
+    /// Returns the corresponding ``SwiftUI/VerticalAlignment``.
+    var alignment: SwiftUI.VerticalAlignment {
         switch self {
         case .top:    .top
         case .center: .center
@@ -145,20 +153,20 @@ enum SwiftVerticalAlignment: String, SelfIdentifiable, CaseIterable {
 
 
 #Preview("Alignments", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    @Previewable @State var horizontalAlignment: SwiftHorizontalAlignment = .center
-    @Previewable @State var verticalAlignment: SwiftVerticalAlignment = .center
+    @Previewable @State var horizontalAlignment: HorizontalAlignmentEnum = .center
+    @Previewable @State var verticalAlignment: VerticalAlignmentEnum = .center
 
     Picker(
         "Horizontal",
         selection: $horizontalAlignment,
-        selectables: SwiftHorizontalAlignment.allCases,
+        selectables: HorizontalAlignmentEnum.allCases,
         elementContent: { Text($0.displayName.capitalized) }
     ).pickerStyle(.segmented)
 
     Picker(
         "Vertical",
         selection: $verticalAlignment,
-        selectables: SwiftVerticalAlignment.allCases,
+        selectables: VerticalAlignmentEnum.allCases,
         elementContent: { Text($0.displayName.capitalized) }
     ).pickerStyle(.segmented)
 
