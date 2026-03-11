@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A structure that converts any instance to its string description.
 nonisolated
-public struct StringDescriptionFormatStyle<Input>: FormatStyle {
+public struct StringDescriptionFormatStyle<Input>: FormatStyle, Sendable {
 
     public init() { }
 
@@ -55,7 +55,7 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable let dummy = PreviewContent.Dummy()
-//    Text("Integer: `\(987, format: .stringDescription)`")
-//    Text("Double: `\(1.2345, format: .stringDescription)`")
+    Text("Integer: `\(987, format: .description())`")
+    Text("Double: `\(1.2345, format: .description())`")
     Text("Custom: `\(dummy, format: .description())`")
 }
