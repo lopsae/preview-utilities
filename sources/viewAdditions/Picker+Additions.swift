@@ -57,7 +57,6 @@ extension Picker {
     // MARK: Collection of Values + ID KeyPath + ViewBuilder
     // + Selection Value
     // + Collection of Identifiable values
-    // + ID KeyPath
     // + ViewBuilder for each element.
 
     /// Creates a picker that generates its label and creates the option views with the elements
