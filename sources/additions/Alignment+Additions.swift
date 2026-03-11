@@ -22,6 +22,7 @@ extension HorizontalAlignment {
 /// Enumeration of the alignment instances available in ``SwiftUICore/HorizontalAlignment``.
 ///
 /// Allows previews and other consumers to list the alignment options available.
+nonisolated
 enum HorizontalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
 
     case leading, center, traling
@@ -35,7 +36,6 @@ enum HorizontalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
         }
     }
 
-    // TODO: could use display property?
     var displayName: String { rawValue }
 
 }
@@ -44,6 +44,7 @@ enum HorizontalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
 /// Enumeration of the alignment instances available in ``SwiftUI/VerticalAlignment``.
 ///
 /// Allows previews and other consumers to list the alignment options available.
+nonisolated
 enum VerticalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
 
     case top, center, bottom
@@ -60,7 +61,6 @@ enum VerticalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
         }
     }
 
-    // TODO: could use display property?
     var displayName: String {
         switch self {
         case .top, .center, .bottom: rawValue
@@ -94,7 +94,7 @@ private struct PreviewContent {
         "Horizontal",
         selection: $horizontalAlignment,
         selectables: HorizontalAlignmentEnum.allCases,
-        elementContent: { Text($0.displayName.capitalized) }
+        elementFormat: .capitalized(property: \.displayName)
     ).pickerStyle(.segmented)
 
     VStack(alignment: horizontalAlignment.alignment) {
@@ -113,7 +113,7 @@ private struct PreviewContent {
         "Vertical",
         selection: $verticalAlignment,
         selectables: VerticalAlignmentEnum.allCases,
-        elementContent: { Text($0.displayName.capitalized) }
+        elementFormat: .capitalized(property: \.displayName)
     ).pickerStyle(.segmented)
 
     HStack(alignment: verticalAlignment.alignment) {
