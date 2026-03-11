@@ -7,7 +7,8 @@
 import Foundation
 
 
-/// A structure that performs an identity transformation converting an instance to itself.
+/// A structure that performs an identity transformation, always returns the input as output with no
+/// modifications.
 nonisolated
 public struct IdentityFormatStyle<T>: FormatStyle {
 
