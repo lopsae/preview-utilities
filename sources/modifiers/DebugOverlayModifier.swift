@@ -170,6 +170,10 @@ public struct DebugOverlayModifier: ViewModifier {
                     let globalFrame = geometry.frame(in: .global)
                     let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
+                    if let caption = configuration.caption {
+                        Text(caption).font(.caption)
+                    }
+
                     // Width, Height, or Size.
                     if configuration.infoElements.contains(.size) {
                         let formattedWidth = globalFrame.width.formatted(fractionLength)
@@ -338,13 +342,14 @@ private struct PreviewContent {
         trait: DebugOverlayModifier.Configuration.Trait,
         enabled: Bool
     )] = [
-        ("Hairline",        .hairline,       false),
-        ("Width",           .width,          true),
-        ("Height",          .height,         false),
-        ("Origin",          .origin,         false),
-        ("SafeArea Insets", .safeAreaInsets, false),
-        ("All Geometry",    .allGeometry,    false),
-        ("Outer Info"    ,  .outerInfo,      false)
+        ("Caption",         .caption("Caption\nwith `formatting`"), false),
+        ("Hairline",        .hairline,                              false),
+        ("Width",           .width,                                 true),
+        ("Height",          .height,                                false),
+        ("Origin",          .origin,                                false),
+        ("SafeArea Insets", .safeAreaInsets,                        false),
+        ("All Geometry",    .allGeometry,                           false),
+        ("Outer Info"    ,  .outerInfo,                             false)
     ]
 
     let traits = traitOptions.compactMap { traitTuple in

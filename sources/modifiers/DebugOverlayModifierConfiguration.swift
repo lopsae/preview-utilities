@@ -11,6 +11,7 @@ extension DebugOverlayModifier {
 
     public struct Configuration {
 
+        var caption: LocalizedStringKey? = nil
         var bordersWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
@@ -35,6 +36,9 @@ extension DebugOverlayModifier {
 
 
 extension DebugOverlayModifier.Configuration {
+
+
+    // TODO: could use IdentifibleShift
 
     // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
     // and `PinnedScrollableViews`.
@@ -94,6 +98,10 @@ extension DebugOverlayModifier.Configuration {
         public static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
         public static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
+        public static func caption(_ key: LocalizedStringKey) -> Trait {
+            .modifier(CaptionModifier(caption: key))
+        }
+
         public static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: alignment))
         }
@@ -123,6 +131,13 @@ extension DebugOverlayModifier.Configuration {
 
     public protocol Modifier: Sendable {
         func update(configuration: inout DebugOverlayModifier.Configuration)
+    }
+
+    struct CaptionModifier: Modifier {
+        let caption: LocalizedStringKey
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.caption = caption
+        }
     }
 
     struct HairlineModifier: Modifier {
