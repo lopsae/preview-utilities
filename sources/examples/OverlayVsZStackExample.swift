@@ -69,5 +69,29 @@ import SwiftUI
 }
 
 
-// TODO: add example repositioning with a Frame using geometry size, in order to provide alignment
-// for overflowing content. In contrast with the above preview.
+#Preview("GeometryReader+Frame alignment", traits: .fixedHeaderFooter) {
+    PreviewCaption("""
+        `GeometryReader` takes the size of its container, even if the content is bigger. Using a
+        to wrap the `GeometryReader` content can provide alignment support.
+        """)
+
+    VisibleSpacer()
+
+    CaptionRectangle("Parent Content", color: .blue, size: .square(of: 150), traits: .size)
+    // The overlay alignment is irrelevant, since the content will always take the available space.
+    .overlay(alignment: .bottom) {
+        GeometryReader { geometry in
+            ClearRectangle(size: geometry.size.multiplying(by: 1.5), fill: .orange.quinary)
+            .floatingCaption("Large content\nin `GeometryReader`",
+                .style(.orange), .alignment(.outerBottomTrailing), .size
+            )
+            .frame(size: geometry.size, alignment: .top)
+
+        } // GeometryReader
+        .floatingCaption("`GeometryReader`",
+            .style(.brown), .alignment(.outerTopTrailing), .size)
+    }
+    .debugOverlay(.caption("overlay"), .size, .infoAlignment(.outerBottomTrailing))
+
+    VisibleSpacer()
+}
