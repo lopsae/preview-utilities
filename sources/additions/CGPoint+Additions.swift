@@ -43,26 +43,6 @@ extension CGPoint {
     }
 
 
-    // TODO: remove deprecations after other projects update, before release.
-    @available(*, deprecated, renamed: "multiplying(by:)")
-    @inlinable nonisolated
-    func times(by multiplier: CGFloat) -> Self {
-        self.multiplying(by: multiplier)
-    }
-
-    @available(*, deprecated, renamed: "hadamart(by:)")
-    @inlinable nonisolated
-    func times(by multiplier: Self) -> Self {
-        self.hadamart(by: multiplier)
-    }
-
-    @available(*, deprecated, renamed: "hadamart(bySize:)")
-    @inlinable nonisolated
-    func times(size multiplier: CGSize) -> Self {
-        self.hadamart(bySize: multiplier)
-    }
-
-
     /// Returns `self` offset by the given components.
     @inlinable nonisolated
     func offset(x: CGFloat = .zero, y: CGFloat = .zero) -> Self {

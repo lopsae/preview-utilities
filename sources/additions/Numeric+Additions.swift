@@ -65,6 +65,9 @@ extension Numeric where Self : BinaryFloatingPoint {
 
 extension Double {
 
+    // Must be marked as `deprecated` in order to show a warning when used. If marked as
+    // `unavailable` the parent `BinaryFloatingPoint` extension implementation is used instead, and
+    // no warning is shown.
     @available(*, deprecated, message: "Value is already Double, this call is unnecessary")
     @inlinable nonisolated
     public var asDouble: Double { self }

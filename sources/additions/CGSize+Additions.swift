@@ -38,14 +38,6 @@ extension CGSize {
     }
 
 
-    // TODO: remove deprecations after other projects update, before release.
-    @available(*, deprecated, renamed: "adding")
-    @inlinable nonisolated
-    public func add(width: CGFloat = .zero, height: CGFloat = .zero) -> Self {
-        self.adding(width: width, height: height)
-    }
-
-
     /// Returns a `CGSize` with each component of `self` multiplied by `multiplier`.
     @inlinable nonisolated
     func multiplying(by multiplier: CGFloat) -> Self {

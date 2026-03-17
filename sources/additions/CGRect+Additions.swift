@@ -26,19 +26,6 @@ extension CGRect {
     }
 
 
-    // TODO: remove deprecations after other projects update, before release.
-    @available(*, deprecated, renamed: "setting")
-    @inlinable nonisolated
-    public func set(
-        x newX: CGFloat? = nil,
-        y newY: CGFloat? = nil,
-        width newWidth: CGFloat? = nil,
-        height newHeight: CGFloat? = nil
-    ) -> Self {
-        setting(x: newX, y: newY, width: newWidth, height: newHeight)
-    }
-
-
     @inlinable nonisolated
     public var center: CGPoint {
         size.toPoint

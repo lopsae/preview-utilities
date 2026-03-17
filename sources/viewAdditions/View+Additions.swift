@@ -36,14 +36,6 @@ extension View {
     }
 
 
-    // TODO: remove deprecations after other projects update, before release.
-    @available(*, deprecated, renamed: "frame(squareOf:alignment:)")
-    @inlinable nonisolated
-    public func frame(square side: CGFloat, alignment: Alignment = .center) -> some View {
-        self.frame(width: side, height: side, alignment: alignment)
-    }
-
-
     @inlinable nonisolated
     public func frame(size: CGSize, alignment: Alignment = .center) -> some View {
         self.frame(width: size.width, height: size.height, alignment: alignment)
@@ -147,23 +139,6 @@ extension View {
         self.onGeometryChange(
             keyPath: keyPath,
             transform: transform,
-            action: { binding.wrappedValue = $0 }
-        )
-    }
-
-
-    // TODO: remove deprecations after other projects update, before release.
-    @available(*, deprecated, message:"Use instead: onGeometryChange(keyPath:binding:transform:)")
-    @inlinable
-    public func onGeometryChange<T>(
-        of transform: @escaping @Sendable (GeometryProxy) -> T,
-        binding: Binding<T>
-    ) -> some View
-    where T : Equatable & Sendable
-    {
-        self.onGeometryChange(
-            for: T.self,
-            of: transform,
             action: { binding.wrappedValue = $0 }
         )
     }

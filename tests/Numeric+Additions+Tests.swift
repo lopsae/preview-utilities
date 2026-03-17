@@ -24,8 +24,8 @@ struct NumericAdditionTests {
 
     @Test func asDouble() async throws {
         // Marked as deprecated.
-        // Double(55.7).asDouble
-        // Float64(55.5).asDouble
+        // _ = Double(55.7).asDouble
+        // _ = Float64(55.5).asDouble
 
         #expect(Float(55.5).asDouble == 55.5)
         #expect(Float16(55.5).asDouble == 55.5)

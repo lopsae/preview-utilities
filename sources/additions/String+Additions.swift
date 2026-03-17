@@ -4,27 +4,6 @@
 //
 
 
-extension String {
-
-    // TODO: remove deprecations after other projects update, before release.
-    @available(*, deprecated, renamed: "Strings.alphabet")
-    public static let alphabet: [String] = Strings.alphabet
-
-
-    @available(*, deprecated, renamed: "Strings.natoPhoneticAlphabet")
-    public static let natoPhoneticAlphabet: [String] = Strings.natoPhoneticAlphabet
-
-
-    @available(*, deprecated, renamed: "Strings.sphinxOfBlackQuartz")
-    public static let sphinxOfBlackQuartz: String = Strings.sphinxOfBlackQuartz
-
-
-    @available(*, deprecated, renamed: "Strings.loremIpsum")
-    public static let loremIpsum: String = Strings.loremIpsum
-
-}
-
-
 /// Container of convenience strings and utilities.
 nonisolated
 public enum Strings {

@@ -14,12 +14,6 @@ extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
         .number.rounded(rule: .toNearestOrEven, increment: 1)
     }
 
-    @available(*, deprecated, renamed: "arithmeticRoundedInteger")
-    @inlinable
-    public static var roundedIntegerToNearestOrEven: FloatingPointFormatStyle<Double> {
-        .number.rounded(rule: .toNearestOrEven, increment: 1)
-    }
-
     @inlinable
     public static func fractionLength(_ length: Int) -> FloatingPointFormatStyle<Double> {
         .number.precision(.fractionLength(length))
