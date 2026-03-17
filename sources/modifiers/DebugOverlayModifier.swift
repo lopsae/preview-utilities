@@ -170,8 +170,11 @@ public struct DebugOverlayModifier: ViewModifier {
                     let globalFrame = geometry.frame(in: .global)
                     let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
+                    // Caption.
                     if let caption = configuration.caption {
-                        Text(caption).font(.caption)
+                        Text(caption)
+                        .font(.caption)
+                        .multilineTextAlignment(alignments.text)
                     }
 
                     // Width, Height, or Size.
@@ -197,7 +200,7 @@ public struct DebugOverlayModifier: ViewModifier {
                     // SafeAreaInsets.
                     if configuration.infoElements.contains(.safeAreaInsets) {
                         Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
-                            .multilineTextAlignment(alignments.text)
+                        .multilineTextAlignment(alignments.text)
                     }
                 } // Group
                 .font(.caption.monospaced())
@@ -403,7 +406,10 @@ private struct PreviewContent {
     @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
 
-    let defaultTraits: [DebugOverlayModifier.Configuration.Trait] = [.allGeometry]
+    let defaultTraits: [DebugOverlayModifier.Configuration.Trait] = [
+        .allGeometry,
+        .caption("Caption\nwith `formatting`")
+    ]
 
     let makeTraits: () -> [DebugOverlayModifier.Configuration.Trait] = {
         var traits: [DebugOverlayModifier.Configuration.Trait] = defaultTraits + [.bordersWidth(bordersWidth)]
@@ -473,7 +479,7 @@ private struct PreviewContent {
     } else {
         PreviewContent.star
         .debugOverlay(traits: traits)
-        .safeAreaPadding(.init(horizontal: 120, vertical: 100))
+        .safeAreaPadding(.init(horizontal: 100, vertical: 120))
     }
 
 }
