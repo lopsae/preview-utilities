@@ -94,11 +94,6 @@ private protocol IsolatedImageGeneratorProtocol: Sendable, Identifiable {
 }
 
 
-// TODO: add some tests for the following cases:
-// + nonisolated class with async function running in inherited main and background threads
-// + default isolated class with async function running in default main and concurrent threads, called from main and background threads
-
-
 // MARK: - ConcurrentImageGenerator
 
 

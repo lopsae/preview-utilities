@@ -24,7 +24,7 @@ public struct FloatingCaptionModifier: ViewModifier {
         content.overlay {
             GeometryReader { geometry in
                 let alignment = flatTraits.alignment ?? .inner(.center)
-                // TODO: for intenral alignments, padding should also consider the border width, when border is present!
+                // TODO: for internal alignments, padding should also consider the border width, when border is present!
                 let padding: CGFloat? = flatTraits.containsCase(.padding)
                     ? flatTraits.padding // The trait can specify a nil value for a default padding.
                     : 2 // Default without trait.
@@ -39,7 +39,7 @@ public struct FloatingCaptionModifier: ViewModifier {
 
                         // Width, Height, or Size.
                         Group {
-                            // TODO: if traits is a Set, this could use set operations.
+                            // FUTURE: if traits is a Set, this could use set operations.
                             let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
                             if flatTraits.containsCase(.width) && flatTraits.containsCase(.height) {
                                 let formattedWidth = geometry.size.width.formatted(fractionLength)
