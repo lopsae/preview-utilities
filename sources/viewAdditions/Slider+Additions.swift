@@ -171,11 +171,8 @@ extension Slider where Label : View {
             fatalError("Fatal error: Empty collection.")
         }
 
-        let mapBinding = Binding<Value> {
-            value.wrappedValue
-        } set: { newValue in
+        let mapBinding = value.afterSet { newValue in
             let rounded = newValue.rounded(.toNearestOrEven)
-            value.wrappedValue = newValue
             mapped.wrappedValue = collection[rounded.asInt]
         }
 
@@ -219,13 +216,9 @@ extension Slider where Label : View {
             fatalError("Fatal error: Empty collection.")
         }
 
-        // TODO: dry, repeated in other constructors
-        let mapBinding = Binding<Value> {
-            value.wrappedValue
-        } set: { newValue in
-            let roundedValue = newValue.rounded(.toNearestOrEven)
-            value.wrappedValue = newValue
-            mapped.wrappedValue = collection[roundedValue.asInt]
+        let mapBinding = value.afterSet { newValue in
+            let rounded = newValue.rounded(.toNearestOrEven)
+            mapped.wrappedValue = collection[rounded.asInt]
         }
 
         self.init(
