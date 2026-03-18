@@ -91,29 +91,6 @@ private struct PreviewContent {
     @Previewable @State var guidepointToggle: Bool = false
 
     PreviewCaption("""
-        Buttons using the `.iconOnly` style will change its size depending on the image being used.
-        """)
-
-    HStack {
-        Button("Minus", systemImage: "minus", action: {})
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
-
-        Button("Circle", systemImage: circleToggle ? "circle.fill" : "circle", action: { circleToggle.toggle() })
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
-
-        Button("Vertical", systemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal", action: { guidepointToggle.toggle() })
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
-
-        Button("Plus", systemImage: "plus", action: {})
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
-    }
-
-
-    PreviewCaption("""
         Buttons using the `constrainedSystemImage` initializer have a constrained size, irregardless
         of the image used.
         """)
@@ -123,11 +100,17 @@ private struct PreviewContent {
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-        Button("Circle", constrainedSystemImage: circleToggle ? "circle.fill" : "circle", action: { circleToggle.toggle() })
+        Button(
+            "Circle",
+            constrainedSystemImage: circleToggle ? "circle.fill" : "circle"
+        ) { circleToggle.toggle() }
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-        Button("Vertical", constrainedSystemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal", action: { guidepointToggle.toggle() })
+        Button(
+            "Vertical",
+            constrainedSystemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
+        ) { guidepointToggle.toggle() }
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
@@ -136,11 +119,101 @@ private struct PreviewContent {
             .labelStyle(.iconOnly)
     }
 
-    // TODO: put in separate preview
-    Text.caption("Constrained")
-    Button("Label", constrainedSystemImage: "guidepoint.horizontal", action: {})
-        .buttonStyle(.borderedProminent)
-    Button("Label", systemImage: "guidepoint.horizontal", action: {})
-        .buttonStyle(.borderedProminent)
-    Text.caption("Regular")
+    PreviewCaption("""
+        Buttons using the `.iconOnly` style will change its size depending on the image being used.
+        """)
+
+    HStack {
+        Button("Minus", systemImage: "minus", action: {})
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
+        Button(
+            "Circle",
+            systemImage: circleToggle ? "circle.fill" : "circle"
+        ) { circleToggle.toggle() }
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
+        Button(
+            "Vertical",
+            systemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
+        ) { guidepointToggle.toggle() }
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
+        Button("Plus", systemImage: "plus", action: {})
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+    }
+}
+
+
+#Preview("Comparison", traits: .headerFooter, PreviewContent.layout) {
+    PreviewCaption("""
+        For wide images, the label may appear closer to the image that when using regular stock
+        button initializers.
+        """)
+
+    HStack {
+        VStack {
+            Text.caption("Constrained")
+            Button("Label", constrainedSystemImage: "guidepoint.horizontal", action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Label", systemImage: "guidepoint.horizontal", action: {})
+                .buttonStyle(.borderedProminent)
+            Text.caption("Regular")
+        }
+
+        VStack {
+            Text.caption("Constrained")
+            Button("Label", constrainedSystemImage: "guidepoint.vertical", action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Label", systemImage: "guidepoint.vertical", action: {})
+                .buttonStyle(.borderedProminent)
+            Text.caption("Regular")
+        }
+
+        VStack {
+            Text.caption("Constrained")
+            Button("Label", constrainedSystemImage: "circle", action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Label", systemImage: "circle", action: {})
+                .buttonStyle(.borderedProminent)
+            Text.caption("Regular")
+        }
+    }
+
+    PreviewCaption("""
+        Font modifiers still work as expected.
+        """)
+
+    HStack {
+        VStack {
+            Text.caption("Constrained")
+            Button("Caption", constrainedSystemImage: "circle", action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Caption", systemImage: "circle", action: {})
+                .buttonStyle(.borderedProminent)
+            Text.caption("Regular")
+        }.font(.caption)
+
+        VStack {
+            Text.caption("Constrained")
+            Button("Body", constrainedSystemImage: "circle", action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Body", systemImage: "circle", action: {})
+                .buttonStyle(.borderedProminent)
+            Text.caption("Regular")
+        }
+
+        VStack {
+            Text.caption("Constrained")
+            Button("Title", constrainedSystemImage: "circle", action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Title", systemImage: "circle", action: {})
+                .buttonStyle(.borderedProminent)
+            Text.caption("Regular")
+        }.font(.title)
+    }
 }
