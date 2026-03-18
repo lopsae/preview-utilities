@@ -9,19 +9,34 @@ import SwiftUI
 
 extension Button {
 
+
+    /// Creates a button that generates its label from a localized string key
+    /// and system image name constrained in size.
+    ///
+    /// The size of the button will remain consistent irregardless of the image used.
+    ///
+    /// Different system images have different sizes, which can impact the size of the button. This
+    /// is specially noticeable when using the `.iconOnly` label style. The label for the button
+    /// constrains the space the image uses to the space occupied by a hidden `Text` containing
+    /// only the string `M`. The image is not resized, it is centered over its available space.
+    /// Large images may appear closer to the label compared to when using the stock button
+    /// initializers.
+    ///
+    /// This initializer creates a ``Label`` view on your behalf, and treats the localized key
+    /// similar to ``Text/init(_:tableName:bundle:comment:)``.
     init(
         _ titleKey: LocalizedStringKey,
-        sizedSystemImage systemImage: String,
+        constrainedSystemImage systemImage: String,
         action: @escaping () -> Void
     )
-        where Label == SwiftUI.Label<Text, HiddenOverlay<Text, Image>>
+        where Label == SwiftUI.Label<Text, HiddenParentOverlay<Text, Image>>
     {
         self.init(action: action) {
             SwiftUI.Label {
                 Text(titleKey)
             } icon: {
-                HiddenOverlay {
-                    Text("M")
+                HiddenParentOverlay {
+                    Text(verbatim: "M")
                 } content: {
                     Image(systemName: systemImage)
                 }
@@ -32,7 +47,18 @@ extension Button {
 }
 
 
-struct HiddenOverlay<Parent: View, Content: View>: View {
+/// Experimental view that displays the given content overlaid a parent view that is hidden.
+///
+/// The parent content is hidden visually and for accessibility, even so for layout it uses the same
+/// space it would use if visible.
+///
+/// The parent content determines the space that will be used. The overlaid content is centered in
+/// this space. Overlaid content larger that the parent content does not modify the size occupied by
+/// the parent content, the overlaid content just overflows.
+///
+/// This has the practical result of displaying the overlaid content centered in the space occupied
+/// by the parent view, irregardless of the size of the overlaid content.
+struct HiddenParentOverlay<Parent: View, Content: View>: View {
     @ViewBuilder let parent: Parent
     @ViewBuilder let content: Content
     var body: some View {
@@ -88,31 +114,31 @@ private struct PreviewContent {
 
 
     PreviewCaption("""
-        Buttons using the `sizedSystemImage` initializer have a constrained size, irregardless
+        Buttons using the `constrainedSystemImage` initializer have a constrained size, irregardless
         of the image used.
         """)
 
     HStack {
-        Button("Minus", sizedSystemImage: "minus", action: {})
+        Button("Minus", constrainedSystemImage: "minus", action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-        Button("Circle", sizedSystemImage: circleToggle ? "circle.fill" : "circle", action: { circleToggle.toggle() })
+        Button("Circle", constrainedSystemImage: circleToggle ? "circle.fill" : "circle", action: { circleToggle.toggle() })
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-        Button("Vertical", sizedSystemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal", action: { guidepointToggle.toggle() })
+        Button("Vertical", constrainedSystemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal", action: { guidepointToggle.toggle() })
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-        Button("Plus", sizedSystemImage: "plus", action: {})
+        Button("Plus", constrainedSystemImage: "plus", action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
     }
 
     // TODO: put in separate preview
     Text.caption("Constrained")
-    Button("Label", sizedSystemImage: "guidepoint.horizontal", action: {})
+    Button("Label", constrainedSystemImage: "guidepoint.horizontal", action: {})
         .buttonStyle(.borderedProminent)
     Button("Label", systemImage: "guidepoint.horizontal", action: {})
         .buttonStyle(.borderedProminent)
