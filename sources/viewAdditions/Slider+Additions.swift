@@ -278,6 +278,9 @@ extension Slider {
             return HStack {
                 slider
                 ZStack {
+                    // TODO: use both upperBound and lowerBound as minimum size.
+                    // TODO: make a utility text that handles this. Could be used here and in HistoricValue.
+                    // TODO: also bring PlaceholderText from external project.
                     // Hidden view to keep the size of the largest value.
                     Text(bounds.upperBound, format: currentValueFormat)
                         .font(.caption.monospaced())
