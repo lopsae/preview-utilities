@@ -24,7 +24,7 @@ extension Button {
     ///
     /// This initializer creates a ``Label`` view on your behalf, and treats the localized key
     /// similar to ``Text/init(_:tableName:bundle:comment:)``.
-    init(
+    public init(
         _ titleKey: LocalizedStringKey,
         constrainedSystemImage systemImage: String,
         action: @escaping () -> Void
@@ -58,10 +58,10 @@ extension Button {
 ///
 /// This has the practical result of displaying the overlaid content centered in the space occupied
 /// by the parent view, irregardless of the size of the overlaid content.
-struct HiddenParentOverlay<Parent: View, Content: View>: View {
+public struct HiddenParentOverlay<Parent: View, Content: View>: View {
     @ViewBuilder let parent: Parent
     @ViewBuilder let content: Content
-    var body: some View {
+    public var body: some View {
         parent
             .hidden()
             .accessibilityHidden(true)
