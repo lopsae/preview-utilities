@@ -7,10 +7,12 @@
 import SwiftUI
 
 
+/// Container of default values.
 nonisolated
-enum Defaults {
+public enum Defaults {
 
-    static let padding: CGFloat = 16
+    /// Default padding applied with the `.padding()` modifier.
+    public static let padding: CGFloat = 16
 
 }
 
