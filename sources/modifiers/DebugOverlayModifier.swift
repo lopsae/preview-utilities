@@ -159,7 +159,7 @@ public struct DebugOverlayModifier: ViewModifier {
 
     @ViewBuilder
     private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
-        if !configuration.infoElements.isEmpty {
+        if configuration.containsInfoCaptionElements {
             let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
             FloatingAlignedContainer(

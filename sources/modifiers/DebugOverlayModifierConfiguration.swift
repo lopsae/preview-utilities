@@ -27,6 +27,12 @@ extension DebugOverlayModifier {
             }
         }
 
+
+        /// Returns `true` if configured to display any geometry information or caption.
+        var containsInfoCaptionElements: Bool {
+            !infoElements.isEmpty || caption != nil
+        }
+
     }
 
 }
