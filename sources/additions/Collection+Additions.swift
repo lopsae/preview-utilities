@@ -10,10 +10,11 @@ import Foundation
 extension Collection {
 
     public func indexed() -> Zip2Sequence<Indices, Self> {
+        // TODO: map to (index:element:)?
         zip(indices, self)
     }
 
-    public func index(offsetBy offset: Int) -> Index {
+    public func index(startOffsetBy offset: Int) -> Index {
         index(startIndex, offsetBy: offset)
     }
 
@@ -62,7 +63,7 @@ extension Collection {
         for row in 0..<rows {
             for col in 0..<columns {
                 let indexDistance = col * rows + row
-                let index = self.index(offsetBy: indexDistance)
+                let index = self.index(startOffsetBy: indexDistance)
                 if self.indices.contains(index) {
                     result.append(self[index])
                 }
