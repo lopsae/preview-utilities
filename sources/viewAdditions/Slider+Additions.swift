@@ -247,7 +247,7 @@ extension Slider where Label : View {
 
 extension Slider {
 
-    static func captioned<Value>(
+    public static func captioned<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
         in bounds: ClosedRange<Value> = 0...1,
@@ -295,7 +295,7 @@ extension Slider {
     }
 
 
-    static func captioned<Value>(
+    public static func captioned<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
         in bounds: ClosedRange<Value> = 0...1,
