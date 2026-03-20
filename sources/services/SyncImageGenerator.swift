@@ -13,20 +13,20 @@ import SwiftUI
 ///
 /// This generator uses no async api, so it can be run in any isolation context.
 nonisolated
-struct SyncImageGenerator {
+public struct SyncImageGenerator {
 
     /// Size of the generated images.
-    let size: CGSize
+    public let size: CGSize
 
     /// Synchronosly generates an image with a given strings.
     ///
     /// Images generated with the same `text` always have the same background color.
-    func generateImage(with text: String, caption: String? = nil, border: Bool = false) -> Image {
+    public func generateImage(with text: String, caption: String? = nil, border: Bool = false) -> Image {
         return Self.generateImage(with: text, caption: caption, size: size, border: border)
     }
 
 
-    static func generateImage(
+    public static func generateImage(
         with text: String,
         caption: String? = nil,
         size: CGSize,
