@@ -9,11 +9,6 @@ import Foundation
 
 extension Collection {
 
-    public func indexed() -> Zip2Sequence<Indices, Self> {
-        // TODO: map to (index:element:)?
-        zip(indices, self)
-    }
-
     public func index(startOffsetBy offset: Int) -> Index {
         index(startIndex, offsetBy: offset)
     }
