@@ -8,20 +8,20 @@
 ///
 /// To create an instance of `IndexedCollection`, call `indexed()` on a collection.
 nonisolated
-struct IndexedCollection<Base: Collection>: Collection {
+public struct IndexedCollection<Base: Collection>: Collection {
 
-    typealias Element = (index: Base.Index, element: Base.Element)
+    public typealias Element = (index: Base.Index, element: Base.Element)
 
     let base: Base
 
-    var startIndex: Base.Index { base.startIndex }
-    var endIndex: Base.Index { base.endIndex }
+    public var startIndex: Base.Index { base.startIndex }
+    public var endIndex: Base.Index { base.endIndex }
 
-    func index(after i: Base.Index) -> Base.Index {
+    public func index(after i: Base.Index) -> Base.Index {
         base.index(after: i)
     }
 
-    subscript(position: Base.Index) -> Element {
+    public subscript(position: Base.Index) -> Element {
         return (index: position, element: base[position])
     }
 
@@ -30,7 +30,7 @@ struct IndexedCollection<Base: Collection>: Collection {
 
 extension IndexedCollection: BidirectionalCollection where Base: BidirectionalCollection {
 
-    func index(before i: Base.Index) -> Base.Index {
+    public func index(before i: Base.Index) -> Base.Index {
         base.index(before: i)
     }
 
@@ -45,7 +45,8 @@ extension IndexedCollection: RandomAccessCollection where Base: RandomAccessColl
 
 extension Collection {
 
-    func indexed() -> IndexedCollection<Self> {
+    nonisolated
+    public func indexed() -> IndexedCollection<Self> {
         IndexedCollection(base: self)
     }
 
