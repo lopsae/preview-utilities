@@ -11,41 +11,44 @@ import Testing
 
 struct CollectionAdditionsTests {
 
-    @Test func indexed() {
+    @Test func offsetAndDistanceFromStart() {
         let array: [String] = ["zero", "one", "two", "three", "four"]
-        let indexedArray = array.indexed()
 
-        // Tuples do not conform to `Equatable` automatically,
-        // each has to be compared directly against another tuple.
-        let expectedTuples = [(0, "zero"), (1, "one"), (2, "two"), (3, "three"), (4, "four")]
-        #expect(array.count == expectedTuples.count)
+        let indexOffsetByZero = array.index(startOffsetBy: 0)
+        let indexOffsetByTwo  = array.index(startOffsetBy: 2)
+        let indexOffsetByFour = array.index(startOffsetBy: 4)
+        let indexOffsetByTen  = array.index(startOffsetBy: 10)
 
-        for (indexedTuple, expectedTuple) in zip(indexedArray, expectedTuples) {
-            #expect(indexedTuple == expectedTuple)
-        }
+        #expect(indexOffsetByZero == 0)
+        #expect(indexOffsetByTwo  == 2)
+        #expect(indexOffsetByFour == 4)
+        #expect(indexOffsetByTen  == 10)
+
+        #expect(array.distance(fromStartTo: indexOffsetByZero) == 0)
+        #expect(array.distance(fromStartTo: indexOffsetByTwo)  == 2)
+        #expect(array.distance(fromStartTo: indexOffsetByFour) == 4)
+        #expect(array.distance(fromStartTo: indexOffsetByTen)  == 10)
     }
 
 
-    /// Uses an array slice, since that will have offset indices.
-    @Test func indexedWithSlice() {
+    /// Uses an array slice with offset indices.
+    @Test func offsetAndDistanceFromStartWithSlice() {
         let slice = Strings.natoPhoneticAlphabet[5..<10]
-        let indexedSlice = slice.indexed()
 
-        // Tuples do not conform to `Equatable` automatically,
-        // each has to be compared directly against another tuple.
-        let expectedTuples = [
-            (5, "foxtrot"),
-            (6, "golf"),
-            (7, "hotel"),
-            (8, "india"),
-            (9, "juliett")
-        ]
+        let indexOffsetByZero = slice.index(startOffsetBy: 0)
+        let indexOffsetByTwo  = slice.index(startOffsetBy: 2)
+        let indexOffsetByFour = slice.index(startOffsetBy: 4)
+        let indexOffsetByTen  = slice.index(startOffsetBy: 10)
 
-        #expect(slice.count == expectedTuples.count)
+        #expect(indexOffsetByZero == 5)
+        #expect(indexOffsetByTwo  == 7)
+        #expect(indexOffsetByFour == 9)
+        #expect(indexOffsetByTen  == 15)
 
-        for (indexedTuple, expectedTuple) in zip(indexedSlice, expectedTuples) {
-            #expect(indexedTuple == expectedTuple)
-        }
+        #expect(slice.distance(fromStartTo: indexOffsetByZero) == 0)
+        #expect(slice.distance(fromStartTo: indexOffsetByTwo)  == 2)
+        #expect(slice.distance(fromStartTo: indexOffsetByFour) == 4)
+        #expect(slice.distance(fromStartTo: indexOffsetByTen)  == 10)
     }
 
 }

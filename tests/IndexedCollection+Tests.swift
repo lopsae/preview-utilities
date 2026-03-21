@@ -34,7 +34,7 @@ struct IndexedCollectionTests {
     }
 
 
-    /// Uses an array slice, since that will have offset indices.
+    /// Uses an array slice with offset indices.
     @Test func indexedWithSlice() {
         let slice = Strings.natoPhoneticAlphabet[5..<10]
         let indexedSlice = slice.indexed()
