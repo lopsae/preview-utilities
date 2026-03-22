@@ -35,10 +35,72 @@ where Result: Sendable, Content: View
         Group {
             if let result {
                 content(result)
+            } else {
+                // A view is needed here for a view to exist in some cases to hold the task.
+                // For example: inside stacks, `EmptyView` are removed, and the task never runs.
+                // TODO: this can be the default, but another view could be provided instead?
+                // TODO: add a preview showing that providing an EmptyView in a stack prevents the task from running.
+                ClearRectangle(size: .zero)
             }
         }
         .task {
+            print("taskView.body.task")
             result = await taskBody()
         }
     }
+}
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+    let imageSize: CGSize = .square(of: 150)
+    ZStack {
+        CaptionRectangle("Placeholder", color: .gray, size: imageSize)
+            .overlay {
+                TaskView {
+                    let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(0.5) ... .seconds(1.5))
+                    // TODO: use function that produces uiImage.
+                    print("in task")
+                    return try! await generator.generateImage(with: "Task Image").image
+                } content: { image in
+                    image
+                }
+            }
+
+
+
+    }
+
+}
+
+
+// TODO: why does it not seem to work when used in a zstack?
+#Preview("ZStack", traits: .headerFooter, PreviewContent.layout) {
+    let imageSize: CGSize = .square(of: 150)
+    ZStack {
+        CaptionRectangle("Placeholder", color: .gray, size: imageSize)
+
+        TaskView {
+            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(0.5) ... .seconds(1.5))
+            // TODO: use function that produces uiImage.
+            print("in task")
+            return try! await generator.generateImage(with: "Task Image").image
+        } content: { image in
+            image
+        }
+    }
+
 }
