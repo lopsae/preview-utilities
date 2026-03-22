@@ -18,6 +18,7 @@ struct TaskView<Result, AwaitContent, ResultContent>: View
 where Result: Sendable, AwaitContent: View, ResultContent: View
 {
     let taskBody: () async -> Result
+    // TODO: rename to pending/complete
     let awaitContent: () -> AwaitContent
     let resultContent: (Result) -> ResultContent
 
@@ -69,51 +70,35 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
-    let imageSize: CGSize = .square(of: 150)
-    ZStack {
-        CaptionRectangle("Placeholder", color: .gray, size: imageSize)
-            .overlay {
-                TaskView {
-                    let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(0.5) ... .seconds(1.5))
-                    // TODO: use function that produces uiImage.
-                    return try! await generator.generateImage(with: "Task Image").image
-                } await: {
-                    ClearRectangle(size: .zero)
-                } result: { image in
-                    image
-                }
-            }
-
-
-
-    }
-
-}
-
-
 // TODO: why does it not seem to work when used in a zstack?
-#Preview("ZStack", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var taskState: String = "Idle"
+
     let imageSize: CGSize = .square(of: 150)
     ZStack {
         CaptionRectangle("Placeholder", color: .gray, size: imageSize)
 
         TaskView {
-            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(0.5) ... .seconds(1.5))
+            taskState = "Generating"
+            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1) ... .seconds(1.5))
             // TODO: use function that produces uiImage.
-            print("in task")
-            return try! await generator.generateImage(with: "Task Image").image
+            let image = try! await generator.generateImage(with: "Task Image").image
+            taskState = "Done"
+            return image
         } await: {
             ClearRectangle(size: .zero)
         } result: { image in
             image
         }
     }
+    Text(taskState)
 }
 
 
 // TODO: use padding spacing.
-#Preview("EmptyView", traits: .headerFooter, PreviewContent.layout) {
+#Preview("ZStackWithEmptyView", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var taskState: String = "Idle"
+
     PreviewCaption("""
         Some views like `ZStack` do a special treatment of `EmptyView`s removing them from the view
         hierachy.
@@ -127,14 +112,45 @@ private struct PreviewContent {
         CaptionRectangle("Placeholder", color: .gray, size: imageSize)
 
         TaskView {
-            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(0.5) ... .seconds(1.5))
+            taskState = "Generating"
+            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1) ... .seconds(1.5))
             // TODO: use function that produces uiImage.
-            print("in task")
-            return try! await generator.generateImage(with: "Task Image").image
+            let image = try! await generator.generateImage(with: "Task Image").image
+            taskState = "Done"
+            return image
         } await: {
             EmptyView()
         } result: { image in
             image
         }
     }
+    Text(taskState)
+}
+
+
+#Preview("OverlayWithEmpty", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var taskState: String = "Idle"
+
+    // TODO: add preview caption.
+
+    let imageSize: CGSize = .square(of: 150)
+    ZStack {
+        CaptionRectangle("Placeholder", color: .gray, size: imageSize)
+        .overlay {
+            TaskView {
+                taskState = "Generating"
+                let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1) ... .seconds(1.5))
+                // TODO: use function that produces uiImage.
+                let image = try! await generator.generateImage(with: "Task Image").image
+                taskState = "Done"
+                return image
+            } await: {
+                EmptyView()
+            } result: { image in
+                image
+            }
+        }
+    }
+    Text(taskState)
+
 }
