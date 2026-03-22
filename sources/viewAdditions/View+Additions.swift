@@ -13,6 +13,11 @@ import SwiftUI
 extension View {
 
     @inlinable nonisolated
+    public func minSizeFrame(alignment: Alignment = .center) -> some View {
+        self.frame(minWidth: .zero, minHeight: .zero)
+    }
+
+    @inlinable nonisolated
     public func maxWidthFrame(alignment: Alignment = .center) -> some View {
         self.frame(maxWidth: .infinity, alignment: alignment)
     }
