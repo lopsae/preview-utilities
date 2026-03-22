@@ -21,7 +21,7 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Example: .frame", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Eg:MinFrame", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var contentLength: Double = 150
     @Previewable @State var minFrameLength: Double = 100
     @Previewable @State var fixedFrameLength: Double = 200

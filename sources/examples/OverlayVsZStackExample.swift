@@ -21,7 +21,7 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Example: .overlay", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Eg:Overlay", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
         `overlay` allows its content to overflow around the owner view, without modifying the owner
         position or size and providing alignment options.
@@ -39,7 +39,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Example: ZStack", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Eg:ZStack", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
         `ZStack` of the same elements, which grows to accomodate the size of all contained elements.
         """)
