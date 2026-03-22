@@ -10,6 +10,10 @@ import SwiftUI
 /// View that expands to the available space and displays the given content constrained and aligned
 /// to the available space. The view uses only the available space even when the content is larger.
 ///
+/// - Note: This view was initially provided to allow a layout arrangement that can be achieved
+///   using `.minFrameSize`. It is left here in case further uses are found. This view may be
+///   deleted in the future.
+///
 /// Content larger that the available space will overflow outside of the view while still respecting
 /// the given alignment. Each view in the content is constrained individually, even if one view
 /// overflows over the available space, all other views will resize themselves to the available
@@ -137,7 +141,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Example-ScaledToFit/Fill", traits: .fixedHeaderFooter, PreviewContent.layout) {
+#Preview("Eg:ScaledToFit/Fill", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var fixedHeight: Double = 150
     @Previewable @State var fitOrFill: String = "fit"
     @Previewable let image = SyncImageGenerator.generateImage(
@@ -146,13 +150,18 @@ private struct PreviewContent {
         border: true)
 
     PreviewCaption("""
-        Shows the different behaviours of a resizable image configured to **fit** or to **fill**
+        Different behaviours of a resizable image configured to **fit** or to **fill**
         its available space.
         """)
     .paragraph("**Fit** will respect both axis.")
-    .paragraph("**Fill** will break one of the axis and may pushing elements outward.")
+    .paragraph("**Fill** will break one of the axis and may push elements outward.")
 
-    Slider.captioned("Fixed Height", value: $fixedHeight, in: 0...800, valueFormat: .fractionLength(2))
+    Slider.captioned(
+        "Fixed Height",
+        value: $fixedHeight,
+        in: 0...800,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
     Picker(
         "Fit or Fill",
         selection: $fitOrFill,
@@ -169,6 +178,38 @@ private struct PreviewContent {
         case "fill": image.resizable().scaledToFill().opacity(0.7)
         default: Image(systemName: "exclamationmark.triangle.fill").foregroundColor(.red)
         }
+        Text.caption("Bottom")
+    }
+    .frame(height: fixedHeight)
+    .floatingCaption("VStack with Fixed Height", .size, .alignment(.outerBottomTrailing), .style(.red))
+
+    VisibleSpacer()
+}
+
+
+#Preview("Eg:minSizeFrame", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable @State var fixedHeight: Double = 150
+    @Previewable let image = SyncImageGenerator.generateImage(
+        with: "Huge", caption: "500x300",
+        size: .init(width: 500, height: 300),
+        border: true)
+
+    PreviewCaption("""
+        Turns out a `.minSizeFrame` is enough to make a resizable image comply with the available
+        space.
+        """)
+
+    Slider.captioned(
+        "Fixed Height",
+        value: $fixedHeight,
+        in: 0...800,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+
+    VisibleSpacer()
+    VStack {
+        Text.caption("Top")
+        image.resizable().scaledToFill().opacity(0.7).minSizeFrame()
         Text.caption("Bottom")
     }
     .frame(height: fixedHeight)
