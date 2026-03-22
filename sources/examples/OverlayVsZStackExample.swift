@@ -7,7 +7,21 @@
 import SwiftUI
 
 
-#Preview("Example: .overlay", traits: .headerFooter) {
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Example: .overlay", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
         `overlay` allows its content to overflow around the owner view, without modifying the owner
         position or size and providing alignment options.
@@ -25,7 +39,7 @@ import SwiftUI
 }
 
 
-#Preview("Example: ZStack", traits: .headerFooter) {
+#Preview("Example: ZStack", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
         `ZStack` of the same elements, which grows to accomodate the size of all contained elements.
         """)
