@@ -24,7 +24,20 @@ public struct SyncImageGenerator {
     /// Size of the generated images.
     public let size: CGSize
 
-    /// Synchronosly generates an image with a given strings.
+
+    /// Synchronously generates a platform image with the given strings.
+    ///
+    /// Images generated with the same `text` always have the same background color.
+    public func generatePlatformImage(
+        with text: String,
+        caption: String? = nil,
+        border: Bool = false
+    ) -> PlatformImage {
+        return Self.generatePlatformImage(with: text, caption: caption, size: size, border: border)
+    }
+
+
+    /// Synchronously generates an image with the given strings.
     ///
     /// Images generated with the same `text` always have the same background color.
     public func generateImage(
@@ -36,32 +49,9 @@ public struct SyncImageGenerator {
     }
 
 
-    public func generatePlatformImage(
-        with text: String,
-        caption: String? = nil,
-        border: Bool = false
-    ) -> PlatformImage {
-        return Self.generatePlatformImage(with: text, caption: caption, size: size, border: border)
-    }
-
-
-    public static func generateImage(
-        with text: String,
-        caption: String? = nil,
-        size: CGSize,
-        border: Bool = false
-    ) -> Image {
-        let backgroundComponents = colorComponentsForBackground(text)
-        let borderComponents = border ? colorComponentsForBorder(text) : nil
-        let platformImage = Self.buildPlatformImage(
-            size: size, text: text, caption: caption,
-            components: backgroundComponents,
-            borderComponents: borderComponents)
-
-        return Image(platformImage: platformImage)
-    }
-
-
+    /// Synchronously generates a platform image with the given strings and size.
+    ///
+    /// Images generated with the same `text` always have the same background color.
     public static func generatePlatformImage(
         with text: String,
         caption: String? = nil,
@@ -77,6 +67,25 @@ public struct SyncImageGenerator {
         return image
     }
 
+
+    /// Synchronously generates an image with the given strings and size.
+    ///
+    /// Images generated with the same `text` always have the same background color.
+    public static func generateImage(
+        with text: String,
+        caption: String? = nil,
+        size: CGSize,
+        border: Bool = false
+    ) -> Image {
+        let platformImage = generatePlatformImage(with: text, caption: caption, size: size, border: border)
+        return Image(platformImage: platformImage)
+    }
+
+
+    // MARK: Platform functions
+
+
+    /// Platform specific function to build a platform image with the given configuration.
 
     #if canImport(AppKit)
     private static func buildPlatformImage(
@@ -174,6 +183,9 @@ public struct SyncImageGenerator {
         return uiImage
     }
     #endif
+
+
+    // MARK: Drawing functions
 
 
     /// Draws the given strings. This function is expected to be called within a call to
@@ -279,9 +291,12 @@ public struct SyncImageGenerator {
 }
 
 
+// MARK: - ColorComponents
+
+
 extension SyncImageGenerator {
 
-    struct ColorComponents/*: Sendable*/ {
+    struct ColorComponents {
         let hue: CGFloat
         let saturation: CGFloat
         let brightness: CGFloat
