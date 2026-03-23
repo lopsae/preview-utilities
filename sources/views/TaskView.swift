@@ -99,7 +99,7 @@ private struct PreviewContent {
 
         TaskView {
             taskState = "Generating"
-            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1) ... .seconds(1.5))
+            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1...1.5))
             // TODO: use function that produces uiImage.
             let image = try! await generator.generateImage(with: "Task Image").image
             taskState = "Done"
@@ -118,7 +118,7 @@ private struct PreviewContent {
     let imageSize: CGSize = .square(of: 150)
     TaskView {
         taskState = "Generating"
-        let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1) ... .seconds(1.5))
+        let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1...1.5))
         // TODO: use function that produces uiImage.
         let image = try! await generator.generateImage(with: "Task Image").image
         taskState = "Done"
@@ -136,11 +136,11 @@ private struct PreviewContent {
     @Previewable @State var taskState: String = "Idle"
 
     PreviewCaption("""
-        Some views like `ZStack` do a special treatment of `EmptyView`s removing them from the view
-        hierachy.
+        **Using `EmptyView` as the pending content may remove the view and its attached task.**
         """)
     .paragraph("""
-        In these cases the `.task` is also removed and never executes.
+        Some views like `ZStack` do a special treatment of `EmptyView`s removing them from the view
+        hierachy. In these cases the `.task` is also removed and never executes.
         """)
 
     let imageSize: CGSize = .square(of: 150)
@@ -149,7 +149,7 @@ private struct PreviewContent {
 
         TaskView {
             taskState = "Generating"
-            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1) ... .seconds(1.5))
+            let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1...1.5))
             // TODO: use function that produces uiImage.
             let image = try! await generator.generateImage(with: "Task Image").image
             taskState = "Done"
@@ -178,7 +178,7 @@ private struct PreviewContent {
         .overlay {
             TaskView {
                 taskState = "Generating"
-                let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1) ... .seconds(1.5))
+                let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1...1.5))
                 // TODO: use function that produces uiImage.
                 let image = try! await generator.generateImage(with: "Task Image").image
                 taskState = "Done"

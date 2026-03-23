@@ -11,6 +11,11 @@ import Testing
 
 struct DurationAdditionsTests {
 
+    @Test func secondsRange() async throws {
+        #expect(ClosedRange<Duration>.seconds(0...0) == Duration.seconds(0)...Duration.seconds(0))
+        #expect(ClosedRange<Duration>.seconds(1...5) == Duration.seconds(1)...Duration.seconds(5))
+    }
+
     @Test func randomDuration() async throws {
         let iterations: Int = 1000
         // Whole seconds

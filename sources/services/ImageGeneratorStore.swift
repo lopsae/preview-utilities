@@ -285,7 +285,7 @@ private struct PreviewContent {
     @Previewable @State var imageGenerator = ImageGeneratorStore(
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(5) ... .seconds(7)
+            sleepRange: .seconds(5...7)
         )
     )
 
@@ -382,7 +382,7 @@ private struct PreviewContent {
     @Previewable @State var imageGenerator = ImageGeneratorStore(
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(5) ... .seconds(7)
+            sleepRange: .seconds(5...7)
         )
     )
 

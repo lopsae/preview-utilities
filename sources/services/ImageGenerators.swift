@@ -66,9 +66,7 @@ public protocol ImageGeneratorProtocol: Sendable, Identifiable {
 nonisolated
 public enum ImageGeneratorDefaults {
 
-    // TODO: make ClosedRange extension .seconds(Double...Double)
-    public static let sleepRange: ClosedRange<Duration> = .seconds(2) ... .seconds(5)
-    public static let zero: ClosedRange<Duration> = .seconds(0) ... .seconds(0)
+    public static let sleepRange: ClosedRange<Duration> = .seconds(2...5)
 
 }
 
@@ -423,7 +421,7 @@ extension PreviewContent {
         strings: ["One", "Two", "Three", "Four"],
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(0.5) ... .seconds(1)
+            sleepRange: .seconds(0.5...1)
         )
     )
 }
@@ -443,7 +441,7 @@ extension PreviewContent {
         strings: ["Uno", "Dos", "Tres", "Cuatro"],
         generator: NonisolatedImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(0.5) ... .seconds(1)
+            sleepRange: .seconds(0.5...1)
         )
     )
 }
@@ -464,7 +462,7 @@ extension PreviewContent {
         strings: ["Un", "Deux", "Trois", "Quatre"],
         generator: MainActorImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(0.5) ... .seconds(1)
+            sleepRange: .seconds(0.5...1)
         )
     )
 }
@@ -601,7 +599,7 @@ extension PreviewContent {
 
     printOnce.print()
     let size: CGSize = .square(of: 100)
-    let sleepRange: ClosedRange<Duration> = .seconds(0.5) ... .seconds(1)
+    let sleepRange: ClosedRange<Duration> = .seconds(0.5...1)
     PreviewContent.ProtocolComparisonPreview(
         nonisolatedString:      "Nonisolated",
         defaultIsolationString: "Default\nIsolation",
@@ -706,7 +704,7 @@ extension PreviewContent {
         string: "Concurrent",
         generator: ConcurrentImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(0.5) ... .seconds(1)
+            sleepRange: .seconds(0.5...1)
         )
     )
 }
@@ -730,7 +728,7 @@ extension PreviewContent {
         string: "NonIsolated",
         generator: NonisolatedImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(0.5) ... .seconds(1)
+            sleepRange: .seconds(0.5...1)
         )
     )
 }
@@ -754,7 +752,7 @@ extension PreviewContent {
         string: "MainActor",
         generator: MainActorImageGenerator(
             size: .square(of: 100),
-            sleepRange: .seconds(0.5) ... .seconds(1)
+            sleepRange: .seconds(0.5...1)
         )
     )
 }

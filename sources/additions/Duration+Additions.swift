@@ -39,4 +39,10 @@ extension ClosedRange where Bound == Duration {
         Duration.random(in: self)
     }
 
+
+    @inlinable nonisolated
+    static func seconds(_ closedRange: ClosedRange<Double>) -> Self {
+        return Duration.seconds(closedRange.lowerBound) ... Duration.seconds(closedRange.upperBound)
+    }
+
 }
