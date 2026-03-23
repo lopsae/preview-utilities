@@ -11,9 +11,15 @@ import SwiftUI
 /// Synchronous image generator. Can be instantiated to produce any number of images of a given
 /// size, or used statically to produce the same images.
 ///
-/// This generator uses no async api, so it can be run in any isolation context.
+/// This generator only provides synchronous api to run in any isolation context.
 nonisolated
 public struct SyncImageGenerator {
+
+    #if canImport(AppKit)
+    public typealias PlatformImage = NSImage
+    #elseif canImport(UIKit)
+    public typealias PlatformImage = UIImage
+    #endif
 
     /// Size of the generated images.
     public let size: CGSize
@@ -21,8 +27,21 @@ public struct SyncImageGenerator {
     /// Synchronosly generates an image with a given strings.
     ///
     /// Images generated with the same `text` always have the same background color.
-    public func generateImage(with text: String, caption: String? = nil, border: Bool = false) -> Image {
+    public func generateImage(
+        with text: String,
+        caption: String? = nil,
+        border: Bool = false
+    ) -> Image {
         return Self.generateImage(with: text, caption: caption, size: size, border: border)
+    }
+
+
+    public func generatePlatformImage(
+        with text: String,
+        caption: String? = nil,
+        border: Bool = false
+    ) -> PlatformImage {
+        return Self.generatePlatformImage(with: text, caption: caption, size: size, border: border)
     }
 
 
@@ -34,7 +53,24 @@ public struct SyncImageGenerator {
     ) -> Image {
         let backgroundComponents = colorComponentsForBackground(text)
         let borderComponents = border ? colorComponentsForBorder(text) : nil
-        let image = Self.buildImage(
+        let platformImage = Self.buildPlatformImage(
+            size: size, text: text, caption: caption,
+            components: backgroundComponents,
+            borderComponents: borderComponents)
+
+        return Image(platformImage: platformImage)
+    }
+
+
+    public static func generatePlatformImage(
+        with text: String,
+        caption: String? = nil,
+        size: CGSize,
+        border: Bool = false
+    ) -> PlatformImage {
+        let backgroundComponents = colorComponentsForBackground(text)
+        let borderComponents = border ? colorComponentsForBorder(text) : nil
+        let image = Self.buildPlatformImage(
             size: size, text: text, caption: caption,
             components: backgroundComponents,
             borderComponents: borderComponents)
@@ -43,13 +79,13 @@ public struct SyncImageGenerator {
 
 
     #if canImport(AppKit)
-    private static func buildImage(
+    private static func buildPlatformImage(
         size: CGSize,
         text: String,
         caption: String? = nil,
         components: ColorComponents,
         borderComponents: ColorComponents? = nil
-    ) -> Image {
+    ) -> NSImage {
         let nsImage = NSImage(size: size, flipped: true) { nsRect in
             // Background.
             let backgroundColor = NSColor(
@@ -86,17 +122,17 @@ public struct SyncImageGenerator {
             return true
         }
 
-        return Image(nsImage: nsImage)
+        return nsImage
     }
     #endif
 
 
     #if canImport(UIKit)
-    static func buildImage(
+    static func buildPlatformImage(
         size: CGSize, text: String, caption: String? = nil,
         components: ColorComponents,
         borderComponents: ColorComponents? = nil
-    ) -> Image {
+    ) -> UIImage {
         let format = UIGraphicsImageRendererFormat()
         let renderer = UIGraphicsImageRenderer(size: size, format: format)
         let uiImage = renderer.image { context in
@@ -135,7 +171,7 @@ public struct SyncImageGenerator {
             drawStrings(text: text, size: size, caption: caption)
         }
 
-        return Image(uiImage: uiImage)
+        return uiImage
     }
     #endif
 
@@ -278,6 +314,19 @@ private struct PreviewContent {
 }
 
 
+#Preview("Platform", traits: .fixedHeader, PreviewContent.layout) {
+    // TODO: use stackBelow modifier
+    let imageGenerator = SyncImageGenerator(size: .square(of: 100))
+    let instanceImage = imageGenerator.generatePlatformImage(with: "Instance")
+    Image(platformImage: instanceImage)
+    Text(type(of: instanceImage).description())
+
+    let staticImage = SyncImageGenerator.generatePlatformImage(with: "Static", size: .square(of: 100))
+    Image(platformImage: staticImage)
+    Text(type(of: staticImage).description())
+}
+
+
 #Preview("Static", traits: .fixedHeader, PreviewContent.layout) {
     SyncImageGenerator.generateImage(
         with: "200", caption: "Large",
@@ -311,4 +360,24 @@ private struct PreviewContent {
 
         }
     }
+}
+
+// TODO: move to addition.
+extension Image {
+
+    #if canImport(AppKit)
+    public typealias PlatformImage = NSImage
+    #elseif canImport(UIKit)
+    public typealias PlatformImage = UIImage
+    #endif
+
+    nonisolated
+    init(platformImage: PlatformImage) {
+        #if canImport(AppKit)
+        self.init(nsImage: platformImage)
+        #elseif canImport(UIKit)
+        self.init(uiImage: platformImage)
+        #endif
+    }
+
 }
