@@ -25,11 +25,9 @@ private struct DebugZeroSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
         VStack(spacing: .zero) {
-            CaptionRectangle("ZeroSpacing Top", color: .gray,
-                 width: 150, height: 40)
+            CaptionRectangle("ZeroSpacing Above", color: .gray, width: 150, height: 40)
             content
-            CaptionRectangle("ZeroSpacing Top", color: .gray,
-                 width: 150, height: 40)
+            CaptionRectangle("ZeroSpacing Below", color: .gray, width: 150, height: 40)
         }
     }
 
@@ -53,20 +51,34 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    struct Items: View {
+        var body: some View {
+            CaptionRectangle("First", color: .teal, size: .square(of: 100))
+            CaptionRectangle("Second", color: .orange, size: .square(of: 100))
+            DashedDivider()
+            CaptionRectangle("Third", color: .yellow, size: .square(of: 100))
+        }
+    }
+
+}
+
+
 // MARK: - Previews
 
 
 #Preview("Default", traits: .zeroSpacing) {
-    Rectangle()
-        .fill(.teal)
-        .frame(squareOf: 100)
-    Rectangle()
-        .fill(.orange)
-        .frame(squareOf: 100)
-    Divider()
-    Rectangle()
-        .fill(.yellow)
-        .frame(squareOf: 100)
+    PreviewContent.Items()
+}
+
+
+#Preview("DebugDefault", traits: .debugZeroSpacing) {
+    PreviewContent.Items()
 }
 
 
@@ -74,19 +86,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
     Text("By default, a preview wraps its content in a VStack with default spacing.")
         .multilineTextAlignment(.center)
         .padding(.horizontal)
-
-    Rectangle()
-        .fill(.teal)
-        .frame(squareOf: 100)
-    Rectangle()
-        .fill(.orange)
-        .frame(squareOf: 100)
-
-    Divider()
-
-    Rectangle()
-        .fill(.yellow)
-        .frame(squareOf: 100)
+    PreviewContent.Items()
 }
 
 
@@ -100,18 +100,10 @@ extension PreviewTrait where T == Preview.ViewTraits {
 /// }
 /// ```
 ///
-/// Although visually identical, this order is preferred.
+/// This order is preferred. The opposite order will produce a preview with the spacing defined
+/// by `.headerFooter`.
 #Preview("ZeroSpacing + HeaderFooter", traits: .debugZeroSpacing, .headerFooter(.showDividers)) {
-    Rectangle()
-        .fill(.teal)
-        .frame(squareOf: 100)
-    Rectangle()
-        .fill(.orange)
-        .frame(squareOf: 100)
-    Divider()
-    Rectangle()
-        .fill(.yellow)
-        .frame(squareOf: 100)
+    PreviewContent.Items()
 }
 
 
@@ -125,16 +117,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 /// }
 /// ```
 ///
-/// Although visually identical, the oposite order is preferred.
+/// In this case the spacing between items is defined by `.headerFooter`.
 #Preview("HeaderFooter + ZeroSpacing", traits: .headerFooter(.showDividers), .debugZeroSpacing) {
-    Rectangle()
-        .fill(.teal)
-        .frame(squareOf: 100)
-    Rectangle()
-        .fill(.orange)
-        .frame(squareOf: 100)
-    Divider()
-    Rectangle()
-        .fill(.yellow)
-        .frame(squareOf: 100)
+    PreviewContent.Items()
 }
