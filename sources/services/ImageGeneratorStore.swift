@@ -90,7 +90,7 @@ public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
         }
 
         let task = Task<Image?, Never>.init { @concurrent in
-            let generationTuple: ImageGeneratorProtocol.GenerationTuple
+            let generationTuple: ImageGeneratorProtocol.ImageTuple
             do {
                 generationTuple = try await generator.generateImage(with: text)
             } catch ImageGeneratorError.cancelled(let cancelationThreadInfo) {

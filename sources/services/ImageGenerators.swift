@@ -11,34 +11,51 @@ import SwiftUI
 // MARK: - Protocols
 
 
-/// Protocol for all image generators.
+/// Protocol for all image generators. Provides functions to generate images along the thread
+/// information where the image was generated.
+///
+/// The generation functions MUST be defined in the protocol as `nonisolated` for the different
+/// implementations to work as expected. Removing `nonisolated` will change the behavior of
+/// ``NonisolatedImageGenerator`` since protocol boxing (even when using generics) seems to
+/// override the callers isolation context to the package's default.
+///
+/// - SeeAlso: [The Swift Programing Language - Protocols as Types][protocols-as-types]
+/// - SeeAlso: [The Swift Programing Language - Boxed Protocol Types][boxed-protocol-types]
+///
+/// [protocols-as-types]:   https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
+/// [boxed-protocol-types]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
 public protocol ImageGeneratorProtocol: Sendable, Identifiable {
 
-    typealias GenerationTuple = (image: Image, threadInfo: ThreadInfo)
+    #if canImport(AppKit)
+    typealias PlatformImage = NSImage
+    #elseif canImport(UIKit)
+    typealias PlatformImage = UIImage
+    #endif
 
+    typealias ImageTuple = (image: Image, threadInfo: ThreadInfo)
+    typealias PlatformImageTuple = (platformImage: PlatformImage, threadInfo: ThreadInfo)
+
+    // TODO: copy and ID are not really necessary, figure out how to externalize that to the preview and remove from here.
     /// Unique identifier of the generator.
     var id: UUID { get }
 
     /// Size of the generated images.
     var size: CGSize { get }
 
+    /// Generates a platform image with a given string, returns the image and the ``ThreadInfo``
+    /// where the image was generated.
+    nonisolated
+    func generatePlatformImage(with text: String)
+    async throws(ImageGeneratorError)
+    -> PlatformImageTuple
+
     /// Generates an image with a given string, returns the image and the ``ThreadInfo`` where the
     /// image was generated.
-    ///
-    /// This function MUST be defined in the protocol as `nonisolated` for the different
-    /// implementations to work as expected. Removing `nonisolated` will change the behavior of
-    /// ``NonisolatedImageGenerator`` since protocol boxing (even when using generics) seems to
-    /// override the callers isolation context to the package's default.
-    ///
-    /// - SeeAlso: [The Swift Programing Language - Protocols as Types][protocols-as-types]
-    /// - SeeAlso: [The Swift Programing Language - Boxed Protocol Types][boxed-protocol-types]
-    ///
-    /// [protocols-as-types]:   https://docs.swift.org/swift-book/documentation/the-swift-programming-language/protocols/#Protocols-as-Types
-    /// [boxed-protocol-types]: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/opaquetypes/#Boxed-Protocol-Types
     nonisolated
     func generateImage(with text: String)
     async throws(ImageGeneratorError)
-    -> GenerationTuple
+    -> ImageTuple
+
 
     /// Creates a copy of the generator with the same settings and a new ``id``.
     func makeCopy() -> Self
@@ -65,6 +82,7 @@ public enum ImageGeneratorError: Error {
 }
 
 
+// TODO: rename to DefaultIsolationImageGeneratorProtocol.
 /// This is a copy of ``ImageGeneratorProtocol`` with one difference: `generateImage` is specified
 /// WITHOUT `nonisolated`.
 ///
@@ -118,19 +136,31 @@ public final class ConcurrentImageGenerator: ImageGeneratorProtocol, Sendable {
     }
 
 
+    // The generation functions MUST use `@concurrent` to always use the cooperative thread pool.
+    //
+    // Replacing `@concurrent` with `nonisolated` will cause this function to inherit the isolation
+    // context of the caller, since the package uses the `NonisolatedNonsendingByDefault` upcoming
+    // feature.
+
+
+    /// Generates a platform image concurrently, this function always runs in the cooperative thread
+    /// pool.
+    @concurrent
+    public func generatePlatformImage(with text: String)
+        async throws(ImageGeneratorError)
+        -> PlatformImageTuple
+    {
+        try await ImageGeneratorUtils.generatePlatformImage(text: text, size: size, sleepRange: sleepRange)
+    }
+
+
     /// Generates an image concurrently, this function always runs in the cooperative thread pool.
-    ///
-    /// This function must use `@concurrent` to use the cooperative thread pool.
-    ///
-    /// Replacing `@concurrent` with `nonisolated` will cause this function to inherit the isolation
-    /// context of the caller, since the package uses the `NonisolatedNonsendingByDefault` upcoming
-    /// feature.
     @concurrent
     public func generateImage(with text: String)
         async throws(ImageGeneratorError)
-        -> GenerationTuple
+        -> ImageTuple
     {
-        return try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
+        try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -162,6 +192,20 @@ public final class NonisolatedImageGenerator:
     }
 
 
+    /// Generates a platform image asyncronously, this function inherits the isolation context of
+    /// the caller.
+    ///
+    /// See notes in `IsolatedImageGeneratorProtocol` about how existential types and protocol
+    /// boxing can change the behaviour of this implementation.
+    nonisolated
+    public func generatePlatformImage(with text: String)
+        async throws(ImageGeneratorError)
+        -> PlatformImageTuple
+    {
+        try await ImageGeneratorUtils.generatePlatformImage(text: text, size: size, sleepRange: sleepRange)
+    }
+
+
     /// Generates an image asyncronously, this function inherits the isolation context of the
     /// caller.
     ///
@@ -170,9 +214,9 @@ public final class NonisolatedImageGenerator:
     nonisolated
     public func generateImage(with text: String)
         async throws(ImageGeneratorError)
-        -> GenerationTuple
+        -> ImageTuple
     {
-        return try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
+        try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -201,13 +245,23 @@ public final class MainActorImageGenerator: ImageGeneratorProtocol, Sendable {
     }
 
 
+    /// Generates a platform image asyncronously, this function is isolated to MainActor.
+    @MainActor
+    public func generatePlatformImage(with text: String)
+        async throws(ImageGeneratorError)
+        -> PlatformImageTuple
+    {
+        try await ImageGeneratorUtils.generatePlatformImage(text: text, size: size, sleepRange: sleepRange)
+    }
+
+
     /// Generates an image asyncronously, this function is isolated to MainActor.
     @MainActor
     public func generateImage(with text: String)
         async throws(ImageGeneratorError)
-        -> GenerationTuple
+        -> ImageTuple
     {
-            return try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
+        try await ImageGeneratorUtils.generateImage(text: text, size: size, sleepRange: sleepRange)
     }
 
 }
@@ -221,16 +275,16 @@ public final class MainActorImageGenerator: ImageGeneratorProtocol, Sendable {
 nonisolated
 final class ImageGeneratorUtils {
 
-    /// Generates an image using the callers isolation context, optionally sleeps for a random
-    /// duration within the given duration range.
+    /// Generates a platform image using the callers isolation context, optionally sleeps for a
+    /// random duration within the given duration range.
     ///
     /// - Note:
     /// The package settings enable `NonisolatedNonsendingByDefault`, irregardless this function is
     /// marked `nonisolated(nonsending)` for explicitness.
     nonisolated(nonsending)
-    static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
+    static func generatePlatformImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
     async throws(ImageGeneratorError)
-    -> ImageGeneratorProtocol.GenerationTuple {
+    -> ImageGeneratorProtocol.PlatformImageTuple {
         // Simulate async work.
         if let sleepRange {
             let sleepDuration = sleepRange.randomDuration()
@@ -246,13 +300,28 @@ final class ImageGeneratorUtils {
 
         let threadInfo = ThreadInfo()
 
-        let image = SyncImageGenerator.generateImage(
+        let platformImage = SyncImageGenerator.generatePlatformImage(
             with: text,
             caption: threadInfo.displayName,
             size: size,
             border: true)
 
-        return (image: image, threadInfo: threadInfo)
+        return (platformImage: platformImage, threadInfo: threadInfo)
+    }
+
+    /// Generates an image using the callers isolation context, optionally sleeps for a random
+    /// duration within the given duration range.
+    ///
+    /// - Note:
+    /// The package settings enable `NonisolatedNonsendingByDefault`, irregardless this function is
+    /// marked `nonisolated(nonsending)` for explicitness.
+    nonisolated(nonsending)
+    static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
+    async throws(ImageGeneratorError)
+    -> ImageGeneratorProtocol.ImageTuple {
+        let platformTuple = try await generatePlatformImage(text: text, size: size, sleepRange: sleepRange)
+        let image = Image(platformImage: platformTuple.platformImage)
+        return (image: image, threadInfo: platformTuple.threadInfo)
     }
 
 }
@@ -341,6 +410,9 @@ extension PreviewContent {
     @Previewable @State var printOnce = PrintOnce("✴️ Concurrent preview started")
 
     PreviewCaption("""
+        Using `ConcurrentImageGenerator` through a generic-typed container. 
+        """)
+    .paragraph("""
         Generation always happens in the cooperative thread pool, since `@concurrent` does not 
         depend on isolation context inheritance.
         """)
@@ -359,6 +431,9 @@ extension PreviewContent {
     @Previewable @State var printOnce = PrintOnce("✴️ Nonisolated preview started")
 
     PreviewCaption("""
+        Using `NonisolatedImageGenerator` through a generic-typed container. 
+        """)
+    .paragraph("""
         Generation happens in the inherited isolation context of he caller.
         """)
 
@@ -377,6 +452,9 @@ extension PreviewContent {
     @Previewable @State var printOnce = PrintOnce("✴️ MainActor preview started")
 
     PreviewCaption("""
+        Using `MainActorImageGenerator` through a generic-typed container. 
+        """)
+    .paragraph("""
         Image generation is isolated to `MainActor`, irregardless of calling isolation context.
         """)
 
@@ -403,6 +481,7 @@ extension PreviewContent {
     >: View
     {
 
+        // TODO: remove toggle and display instead two columns of images.
         @State var usesMainActor: Bool = false
         @State var nonisolatedGenerator: Generator
         @State var isolatedGenerator: IsolatedGenerator
@@ -505,7 +584,7 @@ extension PreviewContent {
 }
 
 
-// MARK: - Comparison Preview
+// MARK: - Nonisolated/Isolated Preview
 
 
 #Preview("Nonisolated/Isolated", traits: .fixedHeader, PreviewContent.layout) {
@@ -611,6 +690,9 @@ extension PreviewContent {
     @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
 
     PreviewCaption("""
+        Using `ConcurrentImageGenerator` through a type-erased container. 
+        """)
+    .paragraph("""
         Generation always happens in the cooperative thread pool, since `@concurrent` does not 
         depend on isolation context inheritance.
         """)
@@ -633,6 +715,9 @@ extension PreviewContent {
     @Previewable @State var printOnce = PrintOnce("✴️ NonisoltedErasure preview started")
 
     PreviewCaption("""
+        Using `NonisolatedImageGenerator` through a type-erased container. 
+        """)
+    .paragraph("""
         Generation happens in the inherited isolation context of he caller.
         """)
     .paragraph("""
@@ -654,6 +739,9 @@ extension PreviewContent {
     @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
 
     PreviewCaption("""
+        Using `MainActorImageGenerator` through a type-erased container. 
+        """)
+    .paragraph("""
         Image generation is isolated to `MainActor`, irregardless of calling isolation context.
         """)
     .paragraph("""
