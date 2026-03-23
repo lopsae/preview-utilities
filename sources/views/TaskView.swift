@@ -95,15 +95,15 @@ private struct PreviewContent {
 }
 
 
-// TODO: use padding spacing.
-#Preview("ZStackWithEmptyView", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("EmptyView+ZStack", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
     @Previewable @State var taskState: String = "Idle"
 
     PreviewCaption("""
         Some views like `ZStack` do a special treatment of `EmptyView`s removing them from the view
         hierachy.
-        """
-    ).paragraph("""
+        """)
+    // TODO: search for paragraph an use this style
+    .paragraph("""
         In these cases the `.task` is also removed and never executes.
         """)
 
@@ -128,10 +128,13 @@ private struct PreviewContent {
 }
 
 
-#Preview("OverlayWithEmpty", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("EmptyView+Overlay", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
     @Previewable @State var taskState: String = "Idle"
 
-    // TODO: add preview caption.
+    PreviewCaption("""
+        In other cases like using `.overlay` the `EmptyView` is not removed, and the task works
+        normaly.
+        """)
 
     let imageSize: CGSize = .square(of: 150)
     ZStack {
@@ -152,5 +155,4 @@ private struct PreviewContent {
         }
     }
     Text(taskState)
-
 }
