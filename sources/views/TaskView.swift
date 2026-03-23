@@ -102,7 +102,6 @@ private struct PreviewContent {
         Some views like `ZStack` do a special treatment of `EmptyView`s removing them from the view
         hierachy.
         """)
-    // TODO: search for paragraph an use this style
     .paragraph("""
         In these cases the `.task` is also removed and never executes.
         """)

@@ -151,11 +151,8 @@ private struct PreviewContent {
 }
 
 #Preview("Caption", traits: .fixedHeader, PreviewContent.layout) {
-    PreviewCaption(
-        "Modifier functions like `.font(.caption)` can be used to modify the internal `Text`s."
-    ).paragraph(
-        "Including the text of any additional paragraphs."
-    )
+    PreviewCaption("Modifier functions like `.font(.caption)` can be used to modify the internal `Text`s.")
+        .paragraph("Including the text of any additional paragraphs.")
     .font(.caption)
     .foregroundStyle(.brown)
 
@@ -176,8 +173,8 @@ private struct PreviewContent {
     PreviewCaption("""
         Without forced layout, using `Text.fixedSize` causes layout issues in macOS previews
         any time there is other views with flexible height.
-        """
-    ).paragraph("This issues does not ocurr in iOS.")
+        """)
+    .paragraph("This issues does not ocurr in iOS.")
 
     VisibleSpacer()
 }

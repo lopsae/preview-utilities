@@ -29,8 +29,8 @@ private struct PreviewContent {
     PreviewCaption("""
         A `.frame` with a minimum size will grow larger along the content, but no larger than
         the size provided by a fixed frame.
-        """
-    ).paragraph("""
+        """)
+    .paragraph("""
         Notice that the frame with a minimum will keep the size of its content, unless pushed
         into a smaller size by the fixed frame.
         """)
@@ -73,8 +73,8 @@ private struct PreviewContent {
     PreviewCaption("""
         A `.frame` with a minimum & maximum size will expand to its maximum, the size of the
         content is practically ignored.
-        """
-    ).paragraph("""
+        """)
+    .paragraph("""
         Notice that the frame with a maximum will not grow larger that the size provided by an
         external frame.
         """)
