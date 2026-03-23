@@ -90,8 +90,8 @@ private struct PreviewContent {
 }
 
 
-/// Traits get applied in order. In this case `content` is wrapped first in `zeroSpacing` and
-/// then in `headerFooter`:
+/// Traits get applied in order. In this case `content` is wrapped first in `.zeroSpacing` and
+/// then in `.headerFooter`:
 /// ```
 /// HeaderFooter {
 ///     ZeroSpacing {
@@ -107,8 +107,8 @@ private struct PreviewContent {
 }
 
 
-/// Traits get applied in order. In this case `content` is wrapped first in `headerFooter` and
-/// then in `zeroSpacing`:
+/// Traits get applied in order. In this case `content` is wrapped first in `.headerFooter` and
+/// then in `.zeroSpacing`:
 /// ```
 /// ZeroSpacing {
 ///     HeaderFooter {
