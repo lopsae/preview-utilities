@@ -314,16 +314,20 @@ private struct PreviewContent {
 }
 
 
-#Preview("Platform", traits: .fixedHeader, PreviewContent.layout) {
-    // TODO: use stackBelow modifier
+#Preview("Platform", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
     let imageGenerator = SyncImageGenerator(size: .square(of: 100))
     let instanceImage = imageGenerator.generatePlatformImage(with: "Instance")
     Image(platformImage: instanceImage)
-    Text(type(of: instanceImage).description())
+    .stackBelow {
+        Text(type(of: instanceImage).description())
+    }
+
 
     let staticImage = SyncImageGenerator.generatePlatformImage(with: "Static", size: .square(of: 100))
     Image(platformImage: staticImage)
-    Text(type(of: staticImage).description())
+    .stackBelow {
+        Text(type(of: staticImage).description())
+    }
 }
 
 
