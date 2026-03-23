@@ -10,47 +10,44 @@ import SwiftUI
 // TODO: test if task body is able to modify state in its own view isolation, that is, to set state
 // of the enclosing view!
 
-/// Experimental view that performs a task when it appears and displays the given content
-/// when the task produces a result.
+/// Experimental view that starts a task when it appears, and displays the given content with the
+/// task result when the task completes.
 ///
 /// If the view is removed, the task is cancelled.
-struct TaskView<Result, AwaitContent, ResultContent>: View
-where Result: Sendable, AwaitContent: View, ResultContent: View
+struct TaskView<Result, PendingContent, CompleteContent>: View
+where Result: Sendable, PendingContent: View, CompleteContent: View
 {
-    let taskBody: () async -> Result
-    // TODO: rename to pending/complete
-    let awaitContent: () -> AwaitContent
-    let resultContent: (Result) -> ResultContent
+    let taskAction: () async -> Result
+    let pendingContent: () -> PendingContent
+    let completeContent: (Result) -> CompleteContent
 
     @State var result: Result?
 
+    // TODO: initializer with default pendingView. Use ClearRectangle(size: .zero)
     init(
         // TODO: since this is a view, should this be isolated to main actor?
         @_inheritActorContext taskBody: @Sendable @escaping @isolated(any) () async -> Result,
-        @ViewBuilder await awaitContent: @escaping () -> AwaitContent,
-        @ViewBuilder result resultContent: @escaping (Result) -> ResultContent
+        @ViewBuilder pending pendingContent: @escaping () -> PendingContent,
+        @ViewBuilder complete completeContent: @escaping (Result) -> CompleteContent
     ) {
-        self.taskBody = taskBody
-        self.awaitContent = awaitContent
-        self.resultContent = resultContent
+        self.taskAction = taskBody
+        self.pendingContent = pendingContent
+        self.completeContent = completeContent
     }
 
     var body: some View {
         Group {
             if let result {
-                resultContent(result)
+                completeContent(result)
             } else {
-                // A view is needed here for a view to exist in some cases to hold the task.
-                // For example: inside stacks, `EmptyView` are removed, and the task never runs.
-                // TODO: this can be the default, but another view could be provided instead?
-                // TODO: add a preview showing that providing an EmptyView in a stack prevents the task from running.
-//                ClearRectangle(size: .zero)
-                awaitContent()
+                // Using `EmptyView` as the pending content has unexpected side effects when
+                // contained in views like ZStack, which seem to discard `EmptyView`s.
+                // See example previews.
+                pendingContent()
             }
         }
         .task {
-            print("taskView.body.task")
-            result = await taskBody()
+            result = await taskAction()
         }
     }
 }
@@ -70,8 +67,7 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-// TODO: why does it not seem to work when used in a zstack?
-#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Default", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
     @Previewable @State var taskState: String = "Idle"
 
     let imageSize: CGSize = .square(of: 150)
@@ -85,9 +81,9 @@ private struct PreviewContent {
             let image = try! await generator.generateImage(with: "Task Image").image
             taskState = "Done"
             return image
-        } await: {
+        } pending: {
             ClearRectangle(size: .zero)
-        } result: { image in
+        } complete: { image in
             image
         }
     }
@@ -117,9 +113,9 @@ private struct PreviewContent {
             let image = try! await generator.generateImage(with: "Task Image").image
             taskState = "Done"
             return image
-        } await: {
+        } pending: {
             EmptyView()
-        } result: { image in
+        } complete: { image in
             image
         }
     }
@@ -146,9 +142,9 @@ private struct PreviewContent {
                 let image = try! await generator.generateImage(with: "Task Image").image
                 taskState = "Done"
                 return image
-            } await: {
+            } pending: {
                 EmptyView()
-            } result: { image in
+            } complete: { image in
                 image
             }
         }
