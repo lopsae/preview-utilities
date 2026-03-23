@@ -7,13 +7,11 @@
 import SwiftUI
 
 
-// TODO: test if task body is able to modify state in its own view isolation, that is, to set state
-// of the enclosing view!
-
 /// Experimental view that starts a task when it appears, and displays the given content with the
 /// task result when the task completes.
 ///
 /// If the view is removed, the task is cancelled.
+@MainActor
 struct TaskView<Result, PendingContent, CompleteContent>: View
 where Result: Sendable, PendingContent: View, CompleteContent: View
 {
@@ -25,8 +23,7 @@ where Result: Sendable, PendingContent: View, CompleteContent: View
 
     // TODO: initializer with default pendingView. Use ClearRectangle(size: .zero)
     init(
-        // TODO: since this is a view, should this be isolated to main actor?
-        @_inheritActorContext taskBody: @Sendable @escaping @isolated(any) () async -> Result,
+        taskBody: @escaping () async -> Result,
         @ViewBuilder pending pendingContent: @escaping () -> PendingContent,
         @ViewBuilder complete completeContent: @escaping (Result) -> CompleteContent
     ) {
@@ -51,6 +48,16 @@ where Result: Sendable, PendingContent: View, CompleteContent: View
         }
     }
 }
+
+
+// MARK: Convenience initializers
+
+
+//extension TaskView {
+//
+//    init()
+//
+//}
 
 
 // MARK: - PreviewContent
