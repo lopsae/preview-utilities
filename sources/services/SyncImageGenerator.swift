@@ -361,23 +361,3 @@ private struct PreviewContent {
         }
     }
 }
-
-// TODO: move to addition.
-extension Image {
-
-    #if canImport(AppKit)
-    public typealias PlatformImage = NSImage
-    #elseif canImport(UIKit)
-    public typealias PlatformImage = UIImage
-    #endif
-
-    nonisolated
-    init(platformImage: PlatformImage) {
-        #if canImport(AppKit)
-        self.init(nsImage: platformImage)
-        #elseif canImport(UIKit)
-        self.init(uiImage: platformImage)
-        #endif
-    }
-
-}
