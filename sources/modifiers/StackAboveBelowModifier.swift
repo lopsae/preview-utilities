@@ -43,3 +43,30 @@ extension View {
     }
 
 }
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    CaptionRectangle("Parent", color: .brown, size: .square(of: 100))
+    .stackAbove {
+        Text("Stacked above (default)")
+    }
+
+    CaptionRectangle("Parent", color: .brown, size: .square(of: 100))
+        .stackAbove(spacing: .zero) {
+        Text("Stacked above (zero)")
+    }
+}
