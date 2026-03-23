@@ -7,27 +7,30 @@
 import SwiftUI
 
 
-/// Experimental view that starts a task when it appears, and displays the given content with the
-/// task result when the task completes.
+/// Experimental view that starts a task when it appears, and displays the given content using the
+/// task result when the it completes.
 ///
 /// If the view is removed, the task is cancelled.
 @MainActor
 struct TaskView<Result, PendingContent, CompleteContent>: View
 where Result: Sendable, PendingContent: View, CompleteContent: View
 {
-    let taskAction: () async -> Result
+    let operation: () async -> Result
     let pendingContent: () -> PendingContent
     let completeContent: (Result) -> CompleteContent
 
     @State var result: Result?
 
-    // TODO: initializer with default pendingView. Use ClearRectangle(size: .zero)
+
+    /// Creates a view that starts a task with the given operation, while the task is running
+    /// `pendingContent` is displayed, and when the task completes the content is replaced with
+    /// `completeContent`.
     init(
-        taskBody: @escaping () async -> Result,
+        operation: @escaping () async -> Result,
         @ViewBuilder pending pendingContent: @escaping () -> PendingContent,
         @ViewBuilder complete completeContent: @escaping (Result) -> CompleteContent
     ) {
-        self.taskAction = taskBody
+        self.operation = operation
         self.pendingContent = pendingContent
         self.completeContent = completeContent
     }
@@ -44,7 +47,7 @@ where Result: Sendable, PendingContent: View, CompleteContent: View
             }
         }
         .task {
-            result = await taskAction()
+            result = await operation()
         }
     }
 }
@@ -53,11 +56,24 @@ where Result: Sendable, PendingContent: View, CompleteContent: View
 // MARK: Convenience initializers
 
 
-//extension TaskView {
-//
-//    init()
-//
-//}
+extension TaskView {
+
+    /// Creates a view that starts a task with the given operation, while the task is running a
+    /// clear rectangle of size zero is displayed, and when the task completes the content is
+    /// replaced with `completeContent`.
+    init(
+        operation: @escaping () async -> Result,
+        @ViewBuilder complete completeContent: @escaping (Result) -> CompleteContent
+    )
+    where PendingContent == ClearRectangle<Color>
+    {
+        self.init(
+            operation: operation,
+            pending: { ClearRectangle(size: .zero) },
+            complete: completeContent)
+    }
+
+}
 
 
 // MARK: - PreviewContent
@@ -88,11 +104,29 @@ private struct PreviewContent {
             let image = try! await generator.generateImage(with: "Task Image").image
             taskState = "Done"
             return image
-        } pending: {
-            ClearRectangle(size: .zero)
         } complete: { image in
             image
         }
+    }
+    Text(taskState)
+}
+
+
+#Preview("Pending", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var taskState: String = "Idle"
+
+    let imageSize: CGSize = .square(of: 150)
+    TaskView {
+        taskState = "Generating"
+        let generator = ConcurrentImageGenerator(size: imageSize, sleepRange: .seconds(1) ... .seconds(1.5))
+        // TODO: use function that produces uiImage.
+        let image = try! await generator.generateImage(with: "Task Image").image
+        taskState = "Done"
+        return image
+    } pending: {
+        CaptionRectangle("Pending", color: .green, size: imageSize)
+    } complete: { image in
+        image
     }
     Text(taskState)
 }
