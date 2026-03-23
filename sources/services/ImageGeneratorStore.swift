@@ -7,6 +7,8 @@
 import SwiftUI
 
 
+// TODO: Update to store PlatformImage instead of Images? If not, note in documentation.
+
 @MainActor @Observable
 public class ImageGeneratorStore<Generator: ImageGeneratorProtocol> {
 
