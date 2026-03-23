@@ -62,7 +62,7 @@ struct StackBelowModifier<BelowContent: View>: ViewModifier {
 
 extension View {
 
-    func stackAbove<Content: View>(
+    public func stackAbove<Content: View>(
         spacing: CGFloat? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View {
@@ -71,7 +71,7 @@ extension View {
     }
 
 
-    func stackBelow<Content: View>(
+    public func stackBelow<Content: View>(
         spacing: CGFloat? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View {
