@@ -7,39 +7,39 @@
 import SwiftUI
 
 
-/// Experimental view that starts a task when it appears, and displays the given content using the
-/// task result when the it completes.
+/// Experimental view that starts a task when it appears and when the task completes displays the
+/// given content using the result.
 ///
 /// The task is scheduled using the `.task` view modifier, if the view is removed while the task is
 /// still executing, the task is cancelled.
 @MainActor
-public struct TaskView<Result, PendingContent, CompleteContent>: View
-where Result: Sendable, PendingContent: View, CompleteContent: View
+public struct TaskView<Result, PendingContent, CompletedContent>: View
+where Result: Sendable, PendingContent: View, CompletedContent: View
 {
     let operation: () async -> Result
     let pendingContent: () -> PendingContent
-    let completeContent: (Result) -> CompleteContent
+    let completedContent: (Result) -> CompletedContent
 
     @State var result: Result?
 
 
     /// Creates a view that starts a task with the given operation, while the task is running
     /// `pendingContent` is displayed, and when the task completes the content is replaced with
-    /// `completeContent`.
+    /// `completedContent`.
     public init(
         operation: @escaping () async -> Result,
         @ViewBuilder pending pendingContent: @escaping () -> PendingContent,
-        @ViewBuilder complete completeContent: @escaping (Result) -> CompleteContent
+        @ViewBuilder completed completedContent: @escaping (Result) -> CompletedContent
     ) {
         self.operation = operation
         self.pendingContent = pendingContent
-        self.completeContent = completeContent
+        self.completedContent = completedContent
     }
 
     public var body: some View {
         Group {
             if let result {
-                completeContent(result)
+                completedContent(result)
             } else {
                 // Using `EmptyView` as the pending content has unexpected side effects when
                 // contained in views like ZStack, which seem to discard `EmptyView`s.
@@ -61,17 +61,17 @@ extension TaskView {
 
     /// Creates a view that starts a task with the given operation, while the task is running a
     /// clear rectangle of size zero is displayed, and when the task completes the content is
-    /// replaced with `completeContent`.
+    /// replaced with `completedContent`.
     public init(
         operation: @escaping () async -> Result,
-        @ViewBuilder complete completeContent: @escaping (Result) -> CompleteContent
+        @ViewBuilder complete completedContent: @escaping (Result) -> CompletedContent
     )
     where PendingContent == ClearRectangle<Color>
     {
         self.init(
             operation: operation,
             pending: { ClearRectangle(size: .zero) },
-            complete: completeContent)
+            completed: completedContent)
     }
 
 }
@@ -128,7 +128,7 @@ private struct PreviewContent {
         return platformImage
     } pending: {
         CaptionRectangle("Pending\nContent", color: .green, size: imageSize)
-    } complete: { platformImage in
+    } completed: { platformImage in
         Image(platformImage: platformImage)
     }
 }
@@ -159,7 +159,7 @@ private struct PreviewContent {
             return platformImage
         } pending: {
             EmptyView()
-        } complete: { platformImage in
+        } completed: { platformImage in
             Image(platformImage: platformImage)
         }
     }
@@ -188,7 +188,7 @@ private struct PreviewContent {
                 return platformImage
             } pending: {
                 EmptyView()
-            } complete: { platformImage in
+            } completed: { platformImage in
                 Image(platformImage: platformImage)
             }
         }
