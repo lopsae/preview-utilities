@@ -7,15 +7,13 @@
 import SwiftUI
 
 
-extension Binding {
+extension Binding where Value: Sendable {
 
-    // TODO: double check isolation, this could be non-isolated like afterSet.
-
-    /// Returns a binding that wrapps the caller and performs `action` on every set.
+    /// Returns a binding that wrapps the caller and performs `action` before every set.
     ///
     /// `action` is performed before relaying the new value to the wrapped binding.
-    @MainActor
-    func onSet(action: @escaping (Value) -> ()) -> Self {
+    nonisolated
+    func onSet(action: @Sendable @escaping (Value) -> ()) -> Self {
         return .init {
             self.wrappedValue
         } set: { newValue in
@@ -24,11 +22,10 @@ extension Binding {
         }
     }
 
-}
 
-
-extension Binding where Value: Sendable {
-
+    /// Returns a binding that wrapps the caller and performs `action` after every set.
+    ///
+    /// `action` is performed after relaying the new value to the wrapped binding.
     nonisolated
     func afterSet(action: @Sendable @escaping (Value) -> ()) -> Self {
         return .init {
