@@ -13,7 +13,7 @@ import SwiftUI
 /// The task is scheduled using the `.task` view modifier, if the view is removed while the task is
 /// still executing, the task is cancelled.
 @MainActor
-struct TaskView<Result, PendingContent, CompleteContent>: View
+public struct TaskView<Result, PendingContent, CompleteContent>: View
 where Result: Sendable, PendingContent: View, CompleteContent: View
 {
     let operation: () async -> Result
@@ -26,7 +26,7 @@ where Result: Sendable, PendingContent: View, CompleteContent: View
     /// Creates a view that starts a task with the given operation, while the task is running
     /// `pendingContent` is displayed, and when the task completes the content is replaced with
     /// `completeContent`.
-    init(
+    public init(
         operation: @escaping () async -> Result,
         @ViewBuilder pending pendingContent: @escaping () -> PendingContent,
         @ViewBuilder complete completeContent: @escaping (Result) -> CompleteContent
@@ -36,7 +36,7 @@ where Result: Sendable, PendingContent: View, CompleteContent: View
         self.completeContent = completeContent
     }
 
-    var body: some View {
+    public var body: some View {
         Group {
             if let result {
                 completeContent(result)
@@ -62,7 +62,7 @@ extension TaskView {
     /// Creates a view that starts a task with the given operation, while the task is running a
     /// clear rectangle of size zero is displayed, and when the task completes the content is
     /// replaced with `completeContent`.
-    init(
+    public init(
         operation: @escaping () async -> Result,
         @ViewBuilder complete completeContent: @escaping (Result) -> CompleteContent
     )
