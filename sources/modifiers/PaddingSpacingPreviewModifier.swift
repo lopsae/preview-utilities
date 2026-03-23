@@ -7,8 +7,6 @@
 import SwiftUI
 
 
-// TODO: this trait may no longer be needed, since HeaderFooter now defaults to regular spacing.
-
 /// Wraps the preview content in a `VStack` with regular spacing equal to the default padding.
 struct PaddingSpacingPreviewModifier: PreviewModifier {
 
