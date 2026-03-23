@@ -141,7 +141,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Eg:ScaledToFit/Fill", traits: .fixedHeaderFooter, PreviewContent.layout) {
+#Preview("Eg: ScaledToFit/Fill", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var fixedHeight: Double = 150
     @Previewable @State var fitOrFill: String = "fit"
     @Previewable let image = SyncImageGenerator.generateImage(
@@ -187,7 +187,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Eg:minSizeFrame", traits: .fixedHeaderFooter, PreviewContent.layout) {
+#Preview("Eg: minSizeFrame", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var fixedHeight: Double = 150
     @Previewable let image = SyncImageGenerator.generateImage(
         with: "Huge", caption: "500x300",

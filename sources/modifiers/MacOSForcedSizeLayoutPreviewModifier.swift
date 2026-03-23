@@ -16,9 +16,9 @@ import SwiftUI
 /// used. This trait simply wraps the content to a given frame size, forcing the content to use that
 /// size.
 ///
-/// This modifier was built to fix issues with multiline `Text` views using `fixedSize`, which in
+/// This modifier was built to fix issues with multiline `Text` views using `.fixedSize()`, which in
 /// macOS cause issues with other flexible views. In general this modifier is not necessary unless
-/// `Text` with `fixedSize` can influence the size of the preview, for example, when using
+/// `Text` using `.()fixedSize` can influence the size of the preview, for example, when using
 /// ``PreviewCaption``.
 ///
 /// See example previews for more details.
@@ -141,7 +141,7 @@ private struct PreviewContent {
 // MARK: - Examples
 
 
-#Preview("Example: Basic", traits: .fixedLayout(width: 400, height: 300)) {
+#Preview("Eg: Basic", traits: .fixedLayout(width: 400, height: 300)) {
     VStack {
         Text("Using a `Text` with `fixedLayout` in a macOS preview causes the preview height to explode.")
 
@@ -157,7 +157,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Example: fixedHeight false", traits: .fixedLayout(width: 400, height: 300)) {
+#Preview("Eg: fixedHeight false", traits: .fixedLayout(width: 400, height: 300)) {
     @Previewable @State var wordCount: Double = 20
     @Previewable @State var isFixedHeight: Bool = false
 
@@ -167,7 +167,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Example: fixedHeight true", traits: .fixedLayout(width: 400, height: 300)) {
+#Preview("Eg: fixedHeight true", traits: .fixedLayout(width: 400, height: 300)) {
     @Previewable @State var wordCount: Double = 20
     @Previewable @State var isFixedHeight: Bool = true
 
@@ -177,7 +177,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Example: with frame", traits: .fixedLayout(width: 400, height: 300)) {
+#Preview("Eg: with frame", traits: .fixedLayout(width: 400, height: 300)) {
     @Previewable @State var wordCount: Double = 20
     @Previewable @State var isFixedHeight: Bool = true
 
@@ -189,7 +189,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Example: with sized content", traits: .fixedLayout(width: 400, height: 300)) {
+#Preview("Eg: with sized content", traits: .fixedLayout(width: 400, height: 300)) {
     Text("In macOS, if root content defines its own size,\nit will override the `fixedLayout` preview trait.")
 
     Rectangle()
@@ -199,7 +199,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Example: top-most frame", traits: .fixedLayout(width: 400, height: 300)) {
+#Preview("Eg: top-most frame", traits: .fixedLayout(width: 400, height: 300)) {
     Text("In macOS, at **top most frame** can keep the window size.")
         .padding(.top)
 
