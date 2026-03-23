@@ -64,7 +64,7 @@ extension TaskView {
     /// replaced with `completedContent`.
     public init(
         operation: @escaping () async -> Result,
-        @ViewBuilder complete completedContent: @escaping (Result) -> CompletedContent
+        @ViewBuilder completed completedContent: @escaping (Result) -> CompletedContent
     )
     where PendingContent == ClearRectangle<Color>
     {
@@ -106,7 +106,7 @@ private struct PreviewContent {
             let platformImage = try! await generator.generatePlatformImage(with: "Task Image").platformImage
             taskState = "Done"
             return platformImage
-        } complete: { platformImage in
+        } completed: { platformImage in
             Image(platformImage: platformImage)
         }
         .debugOverlay(.caption("TaskView"), .size, .infoAlignment(.outerBottomTrailing))
