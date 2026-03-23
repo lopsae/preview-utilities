@@ -7,18 +7,28 @@
 import SwiftUI
 
 
-struct StackAbove<AboveContent: View>: ViewModifier {
+struct StackAboveModifier<AboveContent: View>: ViewModifier {
+
     let spacing: CGFloat?
     let aboveContent: () -> AboveContent
-//    init(spacing: Double) {
-//        self.spacing = spacing
-//    }
+
+
+    init(
+        spacing: CGFloat?,
+        @ViewBuilder content: @escaping () -> AboveContent
+    ) {
+        self.spacing = spacing
+        self.aboveContent = content
+    }
+
+
     func body(content: Content) -> some View {
         VStack(spacing: spacing) {
             aboveContent()
             content
         }
     }
+
 }
 
 
@@ -28,7 +38,7 @@ extension View {
         spacing: CGFloat? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) -> some View {
-        let stackModifier = StackAbove(spacing: spacing, aboveContent: content)
+        let stackModifier = StackAboveModifier(spacing: spacing, content: content)
         return modifier(stackModifier)
     }
 
