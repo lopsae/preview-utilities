@@ -67,6 +67,13 @@ extension CGSize {
     }
 
 
+    /// Returns the greater of the size components.
+    @inlinable nonisolated
+    public var max: CGFloat {
+        Swift.max(width, height)
+    }
+
+
     @inlinable nonisolated
     public var toPoint: CGPoint {
         .init(x: width, y: height)
