@@ -38,12 +38,23 @@ extension CGSize {
     }
 
 
+    /// Returns a `CGSize` with each component of `self` rounded to an integral value using the
+    /// specified rounding rule.
+    @inlinable nonisolated
+    public func rounded(_ rule: FloatingPointRoundingRule) -> Self {
+        .init(
+            width:  width .rounded(rule),
+            height: height.rounded(rule)
+        )
+    }
+
+
     /// Returns a `CGSize` with each component of `self` multiplied by `multiplier`.
     @inlinable nonisolated
     func multiplying(by multiplier: CGFloat) -> Self {
         .init(
-            width: self.width * multiplier,
-            height: self.height * multiplier
+            width:  width  * multiplier,
+            height: height * multiplier
         )
     }
 
@@ -54,8 +65,8 @@ extension CGSize {
     @inlinable nonisolated
     func hadamart(bySize multiplier: CGSize) -> Self {
         .init(
-            width: self.width * multiplier.width,
-            height: self.height * multiplier.height
+            width:  width  * multiplier.width,
+            height: height * multiplier.height
         )
     }
 
