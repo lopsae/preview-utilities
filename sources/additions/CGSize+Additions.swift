@@ -65,13 +65,13 @@ extension CGSize {
     public func scaled(toFill size: CGSize) -> Self {
         let fillScale: CGFloat
 
-        if size.width == .zero {
-            if size.height == .zero { return .zero }
-            fillScale = height / size.height
-        } else if size.height == .zero {
-            fillScale = width / size.width
+        if width == .zero {
+            if height == .zero { return .zero }
+            fillScale = size.height / height
+        } else if height == .zero {
+            fillScale = size.width / width
         } else {
-            fillScale = Swift.max(width / size.width, height / size.height)
+            fillScale = Swift.max(size.width / width, size.height / height)
         }
 
         return multiplying(by: fillScale)
