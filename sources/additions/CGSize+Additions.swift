@@ -60,6 +60,24 @@ extension CGSize {
     }
 
 
+    // TODO: add tests, include scaling to fill zero sizes.
+    @inlinable nonisolated
+    public func scaled(toFill size: CGSize) -> Self {
+        let fillScale: CGFloat
+
+        if size.width == .zero {
+            if size.height == .zero { return .zero }
+            fillScale = height / size.height
+        } else if size.height == .zero {
+            fillScale = width / size.width
+        } else {
+            fillScale = Swift.max(width / size.width, height / size.height)
+        }
+
+        return multiplying(by: fillScale)
+    }
+
+
     /// Returns the lesser of the size components.
     @inlinable nonisolated
     public var min: CGFloat {
