@@ -6,6 +6,10 @@
 
 import SwiftUI
 
+// FUTURE: Figure out a dynamic shape around a caption. Rounded border that surrounds several `Text`s
+// respecting each of their sizes. Make it a option/trait.
+
+// FUTURE: Here and in CaptionRectagle, localized key could be optional. At that point, debugOverlay could also use floating caption directly!
 
 /// Draws in an overlay of the content view a floating caption text. Optionally can display
 /// additional information like width and height of the content view.
