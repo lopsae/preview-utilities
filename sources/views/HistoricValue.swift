@@ -11,7 +11,7 @@ import SwiftUI
 ///
 /// Every time the displayed value changes the previous value is stored. All stored values are
 /// displayed offset of the current value, towards an specified edgde.
-struct HistoricValue<Value: Equatable, Formatter: FormatStyle>: View
+public struct HistoricValue<Value: Equatable, Formatter: FormatStyle>: View
 where
     Formatter.FormatInput == Value,
     Formatter.FormatOutput == String
@@ -39,14 +39,14 @@ where
 
 
     /// Creates a view which displays a formatted value along its history of previous values.
-    init(value: Value, isMarked: Binding<Bool> = .constant(false), format formatter: Formatter) {
+    public init(value: Value, isMarked: Binding<Bool> = .constant(false), format formatter: Formatter) {
         self.value = value
         self._isMarked = isMarked
         self.formatter = formatter
     }
 
 
-    var body: some View {
+    public var body: some View {
         let valueString = formatter.format(value)
         Text(valueString)
         .monospacedDigit()
@@ -72,7 +72,7 @@ where
 
 
     /// Configures the instance with the given parameters.
-    func configure(
+    public func configure(
         padding: Double? = nil,
         spacing: Double? = nil,
         edge: Edge? = nil
@@ -145,7 +145,7 @@ extension HistoricValue {
 extension HistoricValue {
 
     /// Creates a view which displays a string value along its history of previous values.
-    init(value: Value, isMarked: Binding<Bool> = .constant(false))
+    public init(value: Value, isMarked: Binding<Bool> = .constant(false))
     where
         Formatter == IdentityFormatStyle<Value>,
         Value == String
@@ -156,7 +156,7 @@ extension HistoricValue {
 
     /// Creates a view which displays the string description of a value along its history of
     /// previous values.
-    init(describingValue value: Value, isMarked: Binding<Bool> = .constant(false))
+    public init(describingValue value: Value, isMarked: Binding<Bool> = .constant(false))
     where Formatter == StringDescriptionFormatStyle<Value>
     {
         self.init(value: value, isMarked: isMarked, format: .init())
