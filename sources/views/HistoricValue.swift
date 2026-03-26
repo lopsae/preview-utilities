@@ -128,6 +128,7 @@ where
 
 extension HistoricValue {
 
+    // TODO: rename to HistoryItem.
     struct History {
         let value: Value
         let marked: Bool
@@ -162,10 +163,26 @@ extension HistoricValue {
 }
 
 
-// MARK: - Previews.
+// MARK: - PreviewContent
 
 
-#Preview("String Value") {
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+    static var star: some View {
+        StarShape(points: 6, concaveVertexRatio: 0.8)
+            .fill(.pink.gradient)
+    }
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var selectedIndex: Int = 0
     @Previewable @State var isMarked: Bool = false
     @Previewable @State var historyEdge: Edge = .top
@@ -234,7 +251,7 @@ extension HistoricValue {
 }
 
 
-#Preview("Formatted") {
+#Preview("Formatted", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var value: Double = 0.12345
     @Previewable @State var isMarked: Bool = false
     @Previewable @State var useFormatter: Bool = true
