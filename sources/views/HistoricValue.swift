@@ -182,15 +182,19 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Default", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var selectedIndex: Int = 0
     @Previewable @State var isMarked: Bool = false
     @Previewable @State var historyEdge: Edge = .top
     let values = Strings.natoPhoneticAlphabet
     let selection = values[selectedIndex]
 
+    VisibleSpacer()
+
     HistoricValue(value: selection, isMarked: $isMarked)
         .configure(padding: 10, spacing: 40, edge: historyEdge)
+
+    VisibleSpacer()
 
     Text.caption("Change value:")
         .padding(.top)
@@ -257,38 +261,38 @@ private struct PreviewContent {
     @Previewable @State var useFormatter: Bool = true
     let step: Double = 0.12345
 
-    if useFormatter {
-        HistoricValue(value: value, isMarked: $isMarked, format: .fractionLength(2))
-            .configure(spacing: 35)
-    } else {
-        HistoricValue(describingValue: value, isMarked: $isMarked)
-            .configure(spacing: 15, edge: .top)
-    }
-
-
-    Text("raw: \(value)")
-        .font(.caption)
-        .monospacedDigit()
-    Text("Using \(useFormatter ? "Short Fraction" : "Default (String Description)")")
-        .font(.caption)
-
-    HStack {
-        Button("Substract", constrainedSystemImage: "minus") { value -= step }
-        .labelStyle(.iconOnly)
-        .buttonStyle(.borderedProminent)
-
-        Button("Mark", constrainedSystemImage: isMarked ? "circle.fill" : "circle") {
-            isMarked.toggle()
+    VStack(alignment: .leading) {
+        if useFormatter {
+            HistoricValue(value: value, isMarked: $isMarked, format: .fractionLength(2))
+                .configure(spacing: 35)
+        } else {
+            HistoricValue(describingValue: value, isMarked: $isMarked)
+                .configure(spacing: 15, edge: .top)
         }
-        .labelStyle(.iconOnly)
-        .buttonStyle(.borderedProminent)
 
-        Button("Add", constrainedSystemImage: "plus") { value += step }
-        .labelStyle(.iconOnly)
-        .buttonStyle(.borderedProminent)
-    } // HStack
+        Text("raw: \(value)")
+            .font(.caption)
+            .monospacedDigit()
+        Text("Using \(useFormatter ? "Short Fraction" : "Default (String Description)")")
+            .font(.caption)
+
+        HStack {
+            Button("Substract", constrainedSystemImage: "minus") { value -= step }
+            .labelStyle(.iconOnly)
+            .buttonStyle(.borderedProminent)
+
+            Button("Mark", constrainedSystemImage: isMarked ? "circle.fill" : "circle") {
+                isMarked.toggle()
+            }
+            .labelStyle(.iconOnly)
+            .buttonStyle(.borderedProminent)
+
+            Button("Add", constrainedSystemImage: "plus") { value += step }
+            .labelStyle(.iconOnly)
+            .buttonStyle(.borderedProminent)
+        } // HStack
+    } // VStack
+    .maxWidthFrame(alignment: .leading)
 
     Toggle("Use Formatter", isOn: $useFormatter)
-        .padding(.horizontal)
-
 }
