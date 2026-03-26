@@ -66,12 +66,11 @@ private struct PreviewContent {
 }
 
 
-#Preview("Default", traits: .zeroSpacing, .headerFooter(.showDividers), PreviewContent.layout) {
+#Preview("Default", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     VisibleSpacer()
-    Divider()
+    DashedDivider()
     VisibleSpacer(axis: .horizontal)
-        .padding(.horizontal)
-    Divider()
+    DashedDivider()
     VisibleSpacer(axis: .vertical)
 }
 
