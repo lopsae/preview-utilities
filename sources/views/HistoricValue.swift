@@ -28,11 +28,13 @@ where
     /// Number of changes of values to keep in history.
     let historyLength: Int = 10
 
+    /// Space between the value view and the first historic value.
+    private(set) var historyPadding: Double = 5
 
-    private(set) var historyPadding: Double = 5.0
-    private(set) var historySpacing: Double = 25.0
+    /// Space between each historic value.
+    private(set) var historySpacing: Double = 16
     /// Direction in which the historic values are displayed.
-    private(set) var historyEdge: Edge = .trailing
+    private(set) var historyEdge: Edge = .bottom
 
 
 
@@ -185,14 +187,14 @@ private struct PreviewContent {
 #Preview("Default", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var selectedIndex: Int = 0
     @Previewable @State var isMarked: Bool = false
-    @Previewable @State var historyEdge: Edge = .top
+    @Previewable @State var historyEdge: Edge = .bottom
     let values = Strings.natoPhoneticAlphabet
     let selection = values[selectedIndex]
 
     VisibleSpacer()
 
     HistoricValue(value: selection, isMarked: $isMarked)
-        .configure(padding: 10, spacing: 40, edge: historyEdge)
+        .configure(/*padding: 10, spacing: 40, */edge: historyEdge)
 
     VisibleSpacer()
 
@@ -264,10 +266,10 @@ private struct PreviewContent {
     VStack(alignment: .leading) {
         if useFormatter {
             HistoricValue(value: value, isMarked: $isMarked, format: .fractionLength(2))
-                .configure(spacing: 35)
+                .configure(spacing: 35, edge: .trailing)
         } else {
             HistoricValue(describingValue: value, isMarked: $isMarked)
-                .configure(spacing: 15, edge: .top)
+                .configure(padding: 10, edge: .top)
         }
 
         Text("raw: \(value)")
