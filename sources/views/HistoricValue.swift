@@ -17,7 +17,7 @@ where
     Formatter.FormatOutput == String
 {
 
-    @State private var history: [History] = []
+    @State private var history: [HistoryItem] = []
     @Binding private var isMarked: Bool
 
     /// Current value.
@@ -64,7 +64,7 @@ where
             if history.count >= historyLength {
                 history.removeLast(1 + history.count - historyLength)
             }
-            let historyItem = History(value: oldValue, marked: isMarked)
+            let historyItem = HistoryItem(value: oldValue, marked: isMarked)
             history.insert(historyItem, at: 0)
             isMarked = false
         }
@@ -130,8 +130,7 @@ where
 
 extension HistoricValue {
 
-    // TODO: rename to HistoryItem.
-    struct History {
+    struct HistoryItem {
         let value: Value
         let marked: Bool
     }
