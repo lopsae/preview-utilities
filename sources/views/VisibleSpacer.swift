@@ -23,13 +23,13 @@ public struct VisibleSpacer: View {
         let paddingEdges: Edge.Set
         switch axis {
         case .horizontal:
-            minWidth = 0
+            minWidth = .zero
             maxWidth = .infinity
             minHeight = nil
             maxHeight = nil
             paddingEdges = .vertical
         case .vertical:
-            minHeight = 0
+            minHeight = .zero
             maxHeight = .infinity
             minWidth = nil
             maxWidth = nil

@@ -52,8 +52,8 @@ public struct DebugOverlayModifier: ViewModifier {
         // thickness of `bordersWidth*2` to remain visible, and offset to stay centered with the
         // origin.
         let minimumRect = CGSize(squareOf: boundedBordersWidth * 2).centered(in: size)
-        let xOffset = min(0.0, minimumRect.origin.x)
-        let yOffset = min(0.0, minimumRect.origin.y)
+        let xOffset = min(.zero, minimumRect.origin.x)
+        let yOffset = min(.zero, minimumRect.origin.y)
 
         let minWidth  = max(boundedBordersWidth * 2, size.width)
         let minHeight = max(boundedBordersWidth * 2, size.height)
@@ -64,21 +64,21 @@ public struct DebugOverlayModifier: ViewModifier {
         let trailingInset = geometry.safeAreaInsets.trailing
 
         // Top.
-        if topInset != 0 {
+        if topInset != .zero {
             Rectangle()
                 .fill(Self.safeAreasShapeStyle)
                 .frame(width: minWidth, height: topInset)
                 .offset(x: xOffset, y: -topInset)
         }
         // Leading.
-        if leadingInset != 0 {
+        if leadingInset != .zero {
             Rectangle()
                 .fill(Self.safeAreasShapeStyle)
                 .frame(width: leadingInset, height: minHeight)
                 .offset(x: -leadingInset, y: yOffset)
         }
         // Bottom.
-        if bottomInset != 0 {
+        if bottomInset != .zero {
             Rectangle()
                 .fill(Self.safeAreasShapeStyle)
                 .frame(width: minWidth, height: bottomInset)
@@ -86,7 +86,7 @@ public struct DebugOverlayModifier: ViewModifier {
         }
 
         // Trailing.
-        if trailingInset != 0 {
+        if trailingInset != .zero {
             Rectangle()
                 .fill(Self.safeAreasShapeStyle)
                 .frame(width: trailingInset, height: minHeight)
@@ -487,10 +487,10 @@ private struct PreviewContent {
 
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var bordersWidth: Double = 5
-    @Previewable @State var widthIndex: Double = 0.0
-    @Previewable @State var heightIndex: Double = 0.0
-    @Previewable @State var width: Double = 0.0
-    @Previewable @State var height: Double = 0.0
+    @Previewable @State var widthIndex: Double = .zero
+    @Previewable @State var heightIndex: Double = .zero
+    @Previewable @State var width: Double = .zero
+    @Previewable @State var height: Double = .zero
 
     let values: [Double] = Array(
         [

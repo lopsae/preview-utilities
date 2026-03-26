@@ -236,7 +236,7 @@ public struct SyncImageGenerator {
         let hash = persistentHash(for: string)
 
         // Hue.
-        let hue = hueComponent(hash: hash, offset: 0)
+        let hue = hueComponent(hash: hash, offset: .zero)
         // Saturation in the range of: 0.6 - 1.0.
         let saturation = colorComponent(hash: hash, offset: 60, delta: 40)
         // Brightness in the range: 0.55 - 0.9.

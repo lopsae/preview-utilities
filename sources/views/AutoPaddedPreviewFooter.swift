@@ -18,8 +18,8 @@ import SwiftUI
 /// See ``MinimumSafeAreaPaddingModifier`` for more details on the found issues.
 struct AutoPaddedPreviewFooter: View {
 
-    @State private var paddedHeight: CGFloat = 0.0
-    @State private var fullHeight: CGFloat = 0.0
+    @State private var paddedHeight: CGFloat = .zero
+    @State private var fullHeight: CGFloat = .zero
 
     let flexibleHeight: Bool
 
@@ -176,7 +176,7 @@ private struct PreviewContent {
 
     AutoPaddedPreviewFooter(flexibleHeight: isFlexible)
     .preview_printsUpdates(true)
-    .safeAreaInset(edge: .bottom, spacing: 0) {
+    .safeAreaInset(edge: .bottom, spacing: .zero) {
         Rectangle()
             .fill(.green.quaternary)
             .frame(width: 200, height: bottomSafeAreaInset)

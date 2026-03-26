@@ -23,7 +23,7 @@ struct PreviewHeader: View {
         let contentPaddingEdges: Edge.Set = enableTopPadding
             ? .all
             : .not(.top)
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             Text("Header")
 
             if flexibleHeight {

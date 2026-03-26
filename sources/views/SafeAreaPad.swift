@@ -47,7 +47,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                     .alignmentGuide(guidedAlignment, moveTo: .center, insetBy: alignmentInset)
 
                     // Safearea indicator.
-                    if safeArea > 0 {
+                    if safeArea > .zero {
                         safeAreaIndicator(safeArea: safeArea)
                         .alignmentGuide(guidedAlignment, insetBy: safeArea)
                     }
@@ -124,7 +124,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
         case .top:    .leading
         case .bottom: .trailing
         }
-        VStack(alignment: alignment, spacing: 0) {
+        VStack(alignment: alignment, spacing: .zero) {
             let divider = DashedDivider(lineWidth: 1)
             let text = Text(safeArea, format: .fractionLength(2))
                 .font(.caption.monospaced())
@@ -187,12 +187,12 @@ private struct PreviewContent {
                 topTrailingRadius: mayorRadius
             )
             .fill(.gray.quaternary)
-            .padding(.init(top: padding, leading: padding, bottom: 0, trailing: padding))
+            .padding(.init(top: padding, leading: padding, bottom: .zero, trailing: padding))
             .ignoresSafeArea()
         }
 
     SafeAreaPad(edge: .top)
-        .safeAreaInset(edge: .top, spacing: 0) {
+        .safeAreaInset(edge: .top, spacing: .zero) {
             CaptionRectangle(
                 "Top SafeArea", fill: .green.gradient.quaternary,
                 width: 100, height: safeAreaInset,
@@ -213,7 +213,7 @@ private struct PreviewContent {
     VisibleSpacer()
 
     SafeAreaPad(edge: .bottom)
-    .safeAreaInset(edge: .bottom, spacing: 0) {
+    .safeAreaInset(edge: .bottom, spacing: .zero) {
         CaptionRectangle(
             "Bottom SafeArea", fill: .green.gradient.quaternary,
             width: 100, height: safeAreaInset,

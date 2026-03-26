@@ -48,7 +48,7 @@ public enum Strings {
     nonisolated
     public static func loremIpsum(words: Int) -> String {
         // TODO: could this be done by joining together whole loremIpsum words, and then appending a range?
-        guard words > 0 else { return "" }
+        guard words > .zero else { return "" }
         guard !loremIpsumWords.isEmpty else { fatalError() }
         
         var result: [Substring] = []

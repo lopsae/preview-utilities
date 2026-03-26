@@ -23,7 +23,7 @@ struct PreviewFooter: View {
         let paddingEdges: Edge.Set = enableBottomPadding
             ? .all
             : .not(.bottom)
-        VStack(spacing: 0) {
+        VStack(spacing: .zero) {
             if flexibleHeight {
                 ClearRectangle()
             }
