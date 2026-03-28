@@ -47,7 +47,6 @@ public class PrintOnce {
 
 
 #Preview(traits: .iPhoneProSizeLayout) {
-    // TODO: search for uses of print once, most uses elsewhere use @State, which is not necessary.
     @Previewable let printOnce: PrintOnce = .previewStarted
 
     // Only known way to print ahead, but this prints on every call to body.

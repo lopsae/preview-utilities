@@ -119,7 +119,7 @@ extension View {
 
 
 #Preview("Default", traits: .zeroSpacing, .iPhoneProSizeLayout) {
-    @Previewable @State var printOnce: PrintOnce = .previewStarted
+    @Previewable let printOnce: PrintOnce = .previewStarted
     @Previewable @State var topContentHeight: Double = 300
     @Previewable @State var addlSafeArea: Double = 60
     @Previewable @State var useDeviceSafeArea: Bool = false

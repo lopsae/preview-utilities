@@ -377,7 +377,7 @@ private struct PreviewContent {
 
 
 #Preview("LazyHStack", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var printOnce: PrintOnce = .previewStarted
+    @Previewable let printOnce: PrintOnce = .previewStarted
     @Previewable @State var scrollPosition = ScrollPosition()
     @Previewable @State var imageGenerator = ImageGeneratorStore(
         generator: ConcurrentImageGenerator(

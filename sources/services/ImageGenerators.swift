@@ -406,7 +406,7 @@ extension PreviewContent {
 
 
 #Preview("Concurrent", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var printOnce = PrintOnce("✴️ Concurrent preview started")
+    @Previewable let printOnce = PrintOnce("✴️ Concurrent preview started")
 
     PreviewCaption("""
         Using `ConcurrentImageGenerator` through a generic-typed container. 
@@ -427,7 +427,7 @@ extension PreviewContent {
 }
 
 #Preview("Nonisolated", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var printOnce = PrintOnce("✴️ Nonisolated preview started")
+    @Previewable let printOnce = PrintOnce("✴️ Nonisolated preview started")
 
     PreviewCaption("""
         Using `NonisolatedImageGenerator` through a generic-typed container. 
@@ -448,7 +448,7 @@ extension PreviewContent {
 
 
 #Preview("MainActor", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var printOnce = PrintOnce("✴️ MainActor preview started")
+    @Previewable let printOnce = PrintOnce("✴️ MainActor preview started")
 
     PreviewCaption("""
         Using `MainActorImageGenerator` through a generic-typed container. 
@@ -587,7 +587,7 @@ extension PreviewContent {
 
 
 #Preview("Nonisolated/DefaultIsolation", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var printOnce = PrintOnce("✴️ Comparison preview started")
+    @Previewable let printOnce = PrintOnce("✴️ Comparison preview started")
 
     PreviewCaption("""
         The same implementation of `NonisolatedImageGenerator` behaves differently depending on the
@@ -686,7 +686,7 @@ extension PreviewContent {
 
 
 #Preview("ConcurrentErasure", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
+    @Previewable let printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
 
     PreviewCaption("""
         Using `ConcurrentImageGenerator` through a type-erased container. 
@@ -711,7 +711,7 @@ extension PreviewContent {
 
 
 #Preview("NonisolatedErasure", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var printOnce = PrintOnce("✴️ NonisoltedErasure preview started")
+    @Previewable let printOnce = PrintOnce("✴️ NonisoltedErasure preview started")
 
     PreviewCaption("""
         Using `NonisolatedImageGenerator` through a type-erased container. 
@@ -735,7 +735,7 @@ extension PreviewContent {
 
 
 #Preview("MainActorErasure", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
+    @Previewable let printOnce = PrintOnce("✴️ ConcurrentErasure preview started")
 
     PreviewCaption("""
         Using `MainActorImageGenerator` through a type-erased container. 
