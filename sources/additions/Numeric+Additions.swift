@@ -65,9 +65,15 @@ extension Numeric where Self : BinaryFloatingPoint {
 
 extension Double {
 
-    // Must be marked as `deprecated` in order to show a warning when used. If marked as
-    // `unavailable` the parent `BinaryFloatingPoint` extension implementation is used instead, and
-    // no warning is shown.
+    /// /// The mathematical constant tau (𝜏), approximately equal to `2*pi`: 6.28318.
+    ///
+    /// When measuring an angle in radians, 𝜏 is equivalent to a one turn.
+    /// https://www.tauday.com
+    static var tau: Double { .pi * 2 }
+
+
+    // Marked as `deprecated` to show a warning when used. If marked as `unavailable` the parent
+    // `BinaryFloatingPoint` extension implementation is used instead, and no warning is shown.
     @available(*, deprecated, message: "Value is already Double, this call is unnecessary")
     @inlinable nonisolated
     public var asDouble: Double { self }
