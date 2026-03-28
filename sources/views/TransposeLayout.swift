@@ -70,11 +70,8 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    @Previewable let printOnce: PrintOnce = .previewStarted
     @Previewable @State var wideWidth: Double = 200
     @Previewable @State var tallHeight: Double = 200
-
-    printOnce.print()
 
     Slider.captioned(
         "Wide Width",
@@ -121,12 +118,9 @@ private struct PreviewContent {
 
 
 #Preview("Text", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    @Previewable let printOnce: PrintOnce = .previewStarted
     @Previewable @State var wordCount: Double = 10
     @Previewable @State var fixedWidth: Double = 200
     @Previewable @State var fixedHeight: Double = 200
-
-    printOnce.print()
 
     Slider.captioned(
         "Word count",
@@ -165,4 +159,37 @@ private struct PreviewContent {
 }
 
 
-// TODO: make an interactive TextField and button, see how it behaves.
+#Preview("Interactive", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable @State var string: String = Strings.loremIpsum(words: 5)
+
+    PreviewCaption("""
+        `.rotationEffect` actually rotates the hit-testing areas of the rotated content. Text views
+        and buttons behave correctly when transposed and rotated.
+        """)
+
+    let view = Group {
+        HStack {
+            TextField("Text Field", text: $string)
+            Button("Button", systemImage: "ladybug") {
+                print("Button tapped")
+            }
+            .buttonStyle(.borderedProminent)
+        }
+    }
+
+    TransposeLayout {
+        view
+    }
+    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .maxSizeFrame()
+
+    DashedDivider()
+    Text.caption("Transposed Views")
+
+    TransposeLayout {
+        view
+        .rotationEffect(.turns(1/4))
+    }
+    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .maxSizeFrame()
+}
