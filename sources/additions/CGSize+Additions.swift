@@ -17,7 +17,7 @@ extension CGSize {
 
     @inlinable nonisolated
     public static func square(of length: CGFloat) -> Self {
-        return .init(squareOf: length)
+        .init(squareOf: length)
     }
 
 
@@ -34,7 +34,29 @@ extension CGSize {
 
     @inlinable nonisolated
     public func adding(width: CGFloat = .zero, height: CGFloat = .zero) -> Self {
-        return .init(width: self.width + width, height: self.height + height)
+        .init(width: self.width + width, height: self.height + height)
+    }
+
+
+    /// Returns a size that can contain both `self` and the given size.
+    ///
+    /// The returned size uses the largest of each component from both sizes.
+    @inlinable nonisolated
+    public func enveloping(_ size: CGSize) -> Self {
+        .init(
+            width: Swift.max(width, size.width),
+            height: Swift.max(height, size.height)
+        )
+    }
+
+
+    /// Updates this size to a size that can contain both `self` and the given size.
+    ///
+    /// The updated size size uses the largest of each component from both sizes.
+    @inlinable nonisolated
+    public mutating func envelop(_ size: CGSize) {
+        width = Swift.max(width, size.width)
+        height = Swift.max(height, size.height)
     }
 
 
