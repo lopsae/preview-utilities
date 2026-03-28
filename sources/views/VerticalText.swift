@@ -63,6 +63,7 @@ struct VerticalText: View {
 
 // MARK: - TransposeLayout
 
+// TODO: move to its own file.
 
 /// A custom layout that transposes the width and height its subviews.
 ///
@@ -176,7 +177,7 @@ private struct PreviewContent {
     .maxSizeFrame()
 
     DashedDivider()
-    Text.caption("Transposed")
+    Text.caption("Transposed View")
 
     TransposeLayout {
         CaptionRectangle(
@@ -196,6 +197,7 @@ private struct PreviewContent {
 }
 
 
+// TODO: move to its own file.
 extension Angle {
 
     static func turns(_ turns: Double) -> Self {
@@ -205,8 +207,13 @@ extension Angle {
 }
 
 
+// TODO: move to its own file.
 extension Double {
 
+    /// /// The mathematical constant tau (𝜏), approximately equal to `2*pi`: 6.28318.
+    ///
+    /// When measuring an angle in radians, 𝜏 is equivalent to a one turn.
+    /// https://www.tauday.com
     static var tau: Double { .pi * 2 }
 
 }
