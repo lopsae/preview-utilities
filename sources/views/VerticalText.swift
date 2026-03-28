@@ -193,7 +193,51 @@ private struct PreviewContent {
     }
     .debugOverlay(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
+}
 
+
+#Preview("TransposeLayout-Text", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable let printOnce: PrintOnce = .previewStarted
+    @Previewable @State var wordCount: Double = 10
+    @Previewable @State var fixedWidth: Double = 200
+    @Previewable @State var fixedHeight: Double = 200
+
+    printOnce.print()
+
+    Slider.captioned(
+        "Word count",
+        value: $wordCount,
+        in: 0...100,
+        valueFormat: .arithmeticRoundedInteger)
+    Slider.captioned(
+        "Fixed Width",
+        value: $fixedWidth,
+        in: 0...400,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+    Slider.captioned(
+        "Fixed Heigth",
+        value: $fixedHeight,
+        in: 0...400,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+
+    let textString = Strings.loremIpsum(words: wordCount.rounded().asInt)
+    TransposeLayout {
+        Text(verbatim: textString)
+    }
+    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .maxSizeFrame()
+
+    DashedDivider()
+    Text.caption("Transposed Text")
+
+    TransposeLayout {
+        Text(verbatim: textString)
+        .rotationEffect(.turns(1/4))
+    }
+    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .maxSizeFrame()
 }
 
 
