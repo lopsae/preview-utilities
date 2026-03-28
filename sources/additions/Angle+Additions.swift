@@ -9,9 +9,11 @@ import SwiftUI
 
 extension Angle {
 
-    // TODO: rename to turn, since it would read `1/4 of a turn`, not `1/4 of a turns`.
-    static func turns(_ turns: Double) -> Self {
-        .radians(turns * .tau)
+    // TODO: add turn property to read angle in turn.
+
+    /// Creates an angle with the given turn value.
+    static func turn(_ turn: Double) -> Self {
+        .radians(turn * .tau)
     }
 
 }

@@ -105,12 +105,12 @@ private struct PreviewContent {
             "Wide", color: .brown, size: .init(width: wideWidth, height: 100),
             traits: .alignment(.topLeading)
         )
-        .rotationEffect(.turns(1/4))
+        .rotationEffect(.turn(1/4))
         CaptionRectangle(
             "Tall", color: .yellow, size: .init(width: 100, height: tallHeight),
             traits: .alignment(.topTrailing)
         )
-        .rotationEffect(.turns(1/4))
+        .rotationEffect(.turn(1/4))
     }
     .debugOverlay(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
@@ -152,7 +152,7 @@ private struct PreviewContent {
 
     TransposeLayout {
         Text(verbatim: textString)
-        .rotationEffect(.turns(1/4))
+        .rotationEffect(.turn(1/4))
     }
     .debugOverlay(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
@@ -188,7 +188,7 @@ private struct PreviewContent {
 
     TransposeLayout {
         view
-        .rotationEffect(.turns(1/4))
+        .rotationEffect(.turn(1/4))
     }
     .debugOverlay(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()

@@ -27,8 +27,8 @@ struct VerticalText: View {
 
         var angle: Angle {
             switch self {
-            case .upwards:   .turns(-1/4)
-            case .downwards: .turns(1/4)
+            case .upwards:   .turn(-1/4)
+            case .downwards: .turn(1/4)
             }
         }
     }
