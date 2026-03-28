@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+/// Simplified example implementation of a ZStack with center alignment.
 private struct DummyZStack: Layout {
 
     func sizeThatFits(
@@ -36,11 +37,12 @@ private struct DummyZStack: Layout {
         print(" ┗ bounds: +:\(bounds.origin) ◻:\(bounds.size) ")
         print(" ┗ proposal: ◻\(proposal.debugSizeString) ")
 
+        let childProposal = ProposedViewSize(bounds.size)
         for subview in subviews {
             subview.place(
                 at: bounds.center,
                 anchor: .center,
-                proposal: proposal
+                proposal: childProposal
             )
         }
     }
@@ -62,16 +64,32 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("DummyZStack", traits: .headerFooter, PreviewContent.layout) {
+#Preview("DummyZStack", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable let printOnce: PrintOnce = .previewStarted
+    @Previewable @State var wideWidth: Double = 200
+    @Previewable @State var tallHeight: Double = 200
 
     printOnce.print()
+
+    Slider.captioned(
+        "Wide Width",
+        value: $wideWidth,
+        in: 0...400,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+    Slider.captioned(
+        "Tall Heigth",
+        value: $tallHeight,
+        in: 0...400,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+
     DummyZStack {
         CaptionRectangle(
-            "Tall", color: .yellow, size: .init(width: 200, height: 100),
+            "Wide", color: .brown, size: .init(width: wideWidth, height: 100),
             traits: .alignment(.topLeading))
         CaptionRectangle(
-            "Wide", color: .brown, size: .init(width: 100, height: 200),
+            "Tall", color: .yellow, size: .init(width: 100, height: tallHeight),
             traits: .alignment(.topTrailing))
     }
     .debugOverlay(.size, .infoAlignment(.outerBottom))
