@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A custom layout that transposes the width and height of its subviews.
 ///
-/// This layout swaps the width and height in both the size proposal sent to the child and the
+/// This layout swaps the width and height in both the size proposal sent to the subvies and the
 /// resulting size reported back to the parent. This enables the geometry of the rotated view to
 /// participate with the layout system.
 ///
