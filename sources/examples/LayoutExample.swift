@@ -8,7 +8,7 @@ import SwiftUI
 
 
 /// Simplified example implementation of a ZStack with center alignment.
-private struct DummyZStack: Layout {
+private struct ExampleZStack: Layout {
 
     func sizeThatFits(
         proposal: ProposedViewSize,
@@ -64,7 +64,7 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("DummyZStack", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("ExampleZStack", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable let printOnce: PrintOnce = .previewStarted
     @Previewable @State var wideWidth: Double = 200
     @Previewable @State var tallHeight: Double = 200
@@ -84,7 +84,7 @@ private struct PreviewContent {
         currentValueFormat: .fractionLength(2),
         boundsValueFormat: .arithmeticRoundedInteger)
 
-    DummyZStack {
+    ExampleZStack {
         CaptionRectangle(
             "Wide", color: .brown, size: .init(width: wideWidth, height: 100),
             traits: .alignment(.topLeading))
