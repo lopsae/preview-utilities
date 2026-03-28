@@ -109,18 +109,6 @@ private struct TransposeLayout: Layout {
 }
 
 
-extension ProposedViewSize {
-
-    nonisolated
-    var debugSizeString: String {
-        let widthString = width?.formatted(.fractionLength(1)) ?? "nil"
-        let heightString = height?.formatted(.fractionLength(1)) ?? "nil"
-        return "(w:\(widthString), h:\(heightString))"
-    }
-
-}
-
-
 nonisolated
 private struct DummyZStack: Layout {
 
