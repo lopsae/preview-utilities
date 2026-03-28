@@ -77,15 +77,26 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var wordCount: Double = 10
+
+    Slider.captioned(
+        "Word count",
+        value: $wordCount,
+        in: 0...100,
+        valueFormat: .arithmeticRoundedInteger)
+
+    let string = Strings.loremIpsum(words: wordCount.arithmeticRoundedInt)
     HStack {
-        VerticalText("Downwards: \(Strings.loremIpsum(words: 10))")
+        VerticalText(verbatim: string)
         .floatingCaption("Downwards Text", .colorStyle(.red), .alignment(.outerTrailingTop))
 
         CaptionRectangle("Fixed Content", color: .red, size: [200, 100])
     }
 
+    DashedDivider()
+
     HStack {
-        VerticalText("Upwards: \(Strings.loremIpsum(words: 10))", direction: .upwards)
+        VerticalText(verbatim: string, direction: .upwards)
         .floatingCaption("Upwards Text", .colorStyle(.blue), .alignment(.outerTrailingTop))
 
         CaptionRectangle("Fixed Content", color: .blue, size: [200, 100])
@@ -94,22 +105,50 @@ private struct PreviewContent {
 
 
 #Preview("VStack", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var verticalWordCount: Double = 20
+    @Previewable @State var horizontalWordCount: Double = 20
+
+    Slider.captioned(
+        "Vertical word count",
+        value: $verticalWordCount,
+        in: 0...100,
+        valueFormat: .arithmeticRoundedInteger)
+    Slider.captioned(
+        "Horizontal word count",
+        value: $horizontalWordCount,
+        in: 0...100,
+        valueFormat: .arithmeticRoundedInteger)
+
     VStack {
-        VerticalText(verbatim: Strings.loremIpsum(words: 10))
-        Text(verbatim: Strings.loremIpsum(words: 10))
+        VerticalText(verbatim: Strings.loremIpsum(words: verticalWordCount.arithmeticRoundedInt))
+        Text(verbatim: Strings.loremIpsum(words: horizontalWordCount.arithmeticRoundedInt))
         CaptionRectangle("Fixed Content", color: .yellow, size: [100, 100])
     }
-    .frame(maxWidth: .infinity)
+    .font(.caption)
     .floatingCaption("VStack", .colorStyle(.orange), .alignment(.outerBottomTrailing))
 }
 
 
 #Preview("HStack", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var verticalWordCount: Double = 30
+    @Previewable @State var horizontalWordCount: Double = 30
+
+    Slider.captioned(
+        "Vertical word count",
+        value: $verticalWordCount,
+        in: 0...100,
+        valueFormat: .arithmeticRoundedInteger)
+    Slider.captioned(
+        "Horizontal word count",
+        value: $horizontalWordCount,
+        in: 0...100,
+        valueFormat: .arithmeticRoundedInteger)
+
     HStack {
-        VerticalText(verbatim: Strings.loremIpsum(words: 10))
-        Text(verbatim: Strings.loremIpsum(words: 10))
+        VerticalText(verbatim: Strings.loremIpsum(words: verticalWordCount.arithmeticRoundedInt))
+        Text(verbatim: Strings.loremIpsum(words: horizontalWordCount.arithmeticRoundedInt))
         CaptionRectangle("Fixed Content", color: .yellow, size: [100, 100])
     }
-    .frame(maxWidth: .infinity)
+    .font(.caption)
     .floatingCaption("VStack", .colorStyle(.orange), .alignment(.outerBottomTrailing))
 }
