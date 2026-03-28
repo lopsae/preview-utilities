@@ -144,7 +144,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("TransposeLayout", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("TransposeLayout", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable let printOnce: PrintOnce = .previewStarted
     @Previewable @State var wideWidth: Double = 200
     @Previewable @State var tallHeight: Double = 200
@@ -173,6 +173,42 @@ private struct PreviewContent {
             traits: .alignment(.topTrailing))
     }
     .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .maxSizeFrame()
+
+    DashedDivider()
+    Text.caption("Transposed")
+
+    TransposeLayout {
+        CaptionRectangle(
+            "Wide", color: .brown, size: .init(width: wideWidth, height: 100),
+            traits: .alignment(.topLeading)
+        )
+        .rotationEffect(.turns(1/4))
+        CaptionRectangle(
+            "Tall", color: .yellow, size: .init(width: 100, height: tallHeight),
+            traits: .alignment(.topTrailing)
+        )
+        .rotationEffect(.turns(1/4))
+    }
+    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .maxSizeFrame()
+
+}
+
+
+extension Angle {
+
+    static func turns(_ turns: Double) -> Self {
+        .radians(turns * .tau)
+    }
+
+}
+
+
+extension Double {
+
+    static var tau: Double { .pi * 2 }
+
 }
 
 
