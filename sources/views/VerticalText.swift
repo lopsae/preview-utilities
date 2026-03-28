@@ -9,42 +9,44 @@ import SwiftUI
 
 /// Experimental view that displays a vertical text, reading either upwards or downwards.
 ///
-/// This view wraps a SwiftUI `Text` view, rotates it, and uses a custom layout to negotiate its
-/// vertical size.
+/// This view wraps a SwiftUI `Text` view, rotates it, and uses a `TransposeLayout` to negotiate its
+/// size.
 struct VerticalText: View {
+
+    static let defaultDirection: Direction = .downwards
 
     let content: Text
     let direction: Direction
 
     /// The direction in which the text reads.
     enum Direction: Sendable {
-        /// Text reads from bottom to top (rotated 270 degrees counter-clockwise).
+        /// Text reads from bottom to top, rotated 1/4 of a turn counter-clockwise.
         case upwards
-        /// Text reads from top to bottom (rotated 90 degrees clockwise).
+        /// Text reads from top to bottom, rotated 1/4 of a turn clockwise.
         case downwards
 
         var angle: Angle {
             switch self {
-            case .upwards:   .degrees(-90)
-            case .downwards: .degrees(90)
+            case .upwards:   .turns(-1/4)
+            case .downwards: .turns(1/4)
             }
         }
     }
 
 
-    init(_ content: Text, direction: Direction = .upwards) {
+    init(_ content: Text, direction: Direction = Self.defaultDirection) {
         self.content = content
         self.direction = direction
     }
 
 
-    init(_ key: LocalizedStringKey, direction: Direction = .upwards) {
+    init(_ key: LocalizedStringKey, direction: Direction = Self.defaultDirection) {
         self.content = Text(key)
         self.direction = direction
     }
 
 
-    init(verbatim: String, direction: Direction = .upwards) {
+    init(verbatim: String, direction: Direction = Self.defaultDirection) {
         self.content = Text(verbatim: verbatim)
         self.direction = direction
     }
@@ -53,7 +55,6 @@ struct VerticalText: View {
     var body: some View {
         TransposeLayout {
             content
-            .fixedSize()
             .rotationEffect(direction.angle)
         }
     }
@@ -77,26 +78,22 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
     HStack {
-        VerticalText("Upwards Label", direction: .upwards)
-            .border(.tertiary)
+        VerticalText("Downwards: \(Strings.loremIpsum(words: 10))")
+        .floatingCaption("Downwards Text", .colorStyle(.red), .alignment(.outerTrailingTop))
 
-        Rectangle()
-            .fill(.cyan.gradient.tertiary)
-            .frame(width: 200, height: 100)
+        CaptionRectangle("Fixed Content", color: .red, size: [200, 100])
     }
 
     HStack {
-        VerticalText("Downwards Label", direction: .downwards)
-            .border(.tertiary)
+        VerticalText("Upwards: \(Strings.loremIpsum(words: 10))", direction: .upwards)
+        .floatingCaption("Upwards Text", .colorStyle(.blue), .alignment(.outerTrailingTop))
 
-        Rectangle()
-            .fill(.mint.gradient.tertiary)
-            .frame(width: 200, height: 100)
+        CaptionRectangle("Fixed Content", color: .blue, size: [200, 100])
     }
 }
 
 
-#Preview("In Containers", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Stacks", traits: .fixedHeader, PreviewContent.layout) {
     VStack {
         VerticalText("Vertical in VStack", direction: .upwards)
             .border(.tertiary)
