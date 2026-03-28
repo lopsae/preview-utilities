@@ -93,19 +93,23 @@ private struct PreviewContent {
 }
 
 
-#Preview("Stacks", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("VStack", traits: .fixedHeader, PreviewContent.layout) {
     VStack {
-        VerticalText("Vertical in VStack", direction: .upwards)
-            .border(.tertiary)
+        VerticalText(verbatim: Strings.loremIpsum(words: 10))
+        Text(verbatim: Strings.loremIpsum(words: 10))
+        CaptionRectangle("Fixed Content", color: .yellow, size: [100, 100])
     }
     .frame(maxWidth: .infinity)
-    .border(.quaternary)
+    .floatingCaption("VStack", .colorStyle(.orange), .alignment(.outerBottomTrailing))
+}
 
-    HStack(alignment: .center) {
-        VerticalText("Left", direction: .upwards)
-            .border(.tertiary)
-        ClearRectangle(width: 100, height: 150, fill: .indigo.gradient.tertiary)
-        VerticalText("Right", direction: .downwards)
-            .border(.tertiary)
+
+#Preview("HStack", traits: .fixedHeader, PreviewContent.layout) {
+    HStack {
+        VerticalText(verbatim: Strings.loremIpsum(words: 10))
+        Text(verbatim: Strings.loremIpsum(words: 10))
+        CaptionRectangle("Fixed Content", color: .yellow, size: [100, 100])
     }
+    .frame(maxWidth: .infinity)
+    .floatingCaption("VStack", .colorStyle(.orange), .alignment(.outerBottomTrailing))
 }
