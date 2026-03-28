@@ -193,7 +193,7 @@ private struct PreviewContent {
     VisibleSpacer()
 
     HistoricValue(value: selection, isMarked: $isMarked)
-        .configure(/*padding: 10, spacing: 40, */edge: historyEdge)
+        .configure(edge: historyEdge)
 
     VisibleSpacer()
 
