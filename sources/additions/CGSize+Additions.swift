@@ -60,6 +60,12 @@ extension CGSize {
     }
 
 
+    @inlinable nonisolated
+    public var transposed: Self {
+        .init(width: height, height: width)
+    }
+
+
     /// Returns a `CGSize` with each component of `self` rounded to an integral value using the
     /// specified rounding rule.
     @inlinable nonisolated

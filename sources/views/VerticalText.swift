@@ -64,11 +64,13 @@ struct VerticalText: View {
 // MARK: - TransposeLayout
 
 
-/// A custom layout that transposes the width and height of its single child.
+/// A custom layout that transposes the width and height its subviews.
 ///
 /// This layout swaps the width and height in both the size proposal sent to the child and the
 /// resulting size reported back to the parent. This enables a rotated view to participate correctly
 /// in the layout system.
+///
+/// The subviews are arranged in the same manner as a centered ZStack.
 nonisolated
 private struct TransposeLayout: Layout {
 
@@ -77,14 +79,14 @@ private struct TransposeLayout: Layout {
         subviews: Subviews,
         cache: inout ()
     ) -> CGSize {
-        // Propose with swapped dimensions so the child measures as if unrotated.
-        let transposedProposal = ProposedViewSize(
-            width: proposal.height,
-            height: proposal.width
-        )
-        let size = subviews.first?.sizeThatFits(transposedProposal) ?? .zero
-        // Swap the resulting size so the parent sees the rotated dimensions.
-        return CGSize(width: size.height, height: size.width)
+        let transposedProposal = proposal.transposed
+        var containerSize: CGSize = .zero
+        for subview in subviews {
+            let size = subview.sizeThatFits(transposedProposal)
+            containerSize.envelop(size)
+        }
+        // Transpose the container size so the parent sees the rotated dimensions.
+        return containerSize.transposed
     }
 
 
@@ -95,15 +97,13 @@ private struct TransposeLayout: Layout {
         cache: inout ()
     ) {
         // Place the child centered in the bounds with a transposed proposal.
-        let transposedProposal = ProposedViewSize(
-            width: bounds.height,
-            height: bounds.width
-        )
-        subviews.first?.place(
-            at: CGPoint(x: bounds.midX, y: bounds.midY),
-            anchor: .center,
-            proposal: transposedProposal
-        )
+        let transposedProposal = ProposedViewSize(bounds.size.transposed)
+        for subview in subviews {
+            subview.place(
+                at: bounds.center,
+                anchor: .center,
+                proposal: transposedProposal)
+        }
     }
 
 }
@@ -145,23 +145,34 @@ private struct PreviewContent {
 
 
 #Preview("TransposeLayout", traits: .fixedHeader, PreviewContent.layout) {
-    HStack {
-        VerticalText("Upwards Label", direction: .upwards)
-            .border(.tertiary)
+    @Previewable let printOnce: PrintOnce = .previewStarted
+    @Previewable @State var wideWidth: Double = 200
+    @Previewable @State var tallHeight: Double = 200
 
-        Rectangle()
-            .fill(.cyan.gradient.tertiary)
-            .frame(width: 200, height: 100)
+    printOnce.print()
+
+    Slider.captioned(
+        "Wide Width",
+        value: $wideWidth,
+        in: 0...400,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+    Slider.captioned(
+        "Tall Heigth",
+        value: $tallHeight,
+        in: 0...400,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+
+    TransposeLayout {
+        CaptionRectangle(
+            "Wide", color: .brown, size: .init(width: wideWidth, height: 100),
+            traits: .alignment(.topLeading))
+        CaptionRectangle(
+            "Tall", color: .yellow, size: .init(width: 100, height: tallHeight),
+            traits: .alignment(.topTrailing))
     }
-
-    HStack {
-        VerticalText("Downwards Label", direction: .downwards)
-            .border(.tertiary)
-
-        Rectangle()
-            .fill(.mint.gradient.tertiary)
-            .frame(width: 200, height: 100)
-    }
+    .debugOverlay(.size, .infoAlignment(.outerBottom))
 }
 
 
