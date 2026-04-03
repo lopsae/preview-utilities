@@ -67,7 +67,7 @@ extension View {
 
 extension View {
 
-    /// Adds an action to be performed when a geometry proxy value changes.
+    /// Adds an action to be performed when a geometry property changes.
     ///
     /// Convenience function for `View.onGeometryChange(for:of:action:)` that infers the type of
     /// the observed value from a given `keypath`.
@@ -84,7 +84,7 @@ extension View {
     }
 
 
-    /// Updates a binding when a geometry proxy value changes.
+    /// Updates a binding when a geometry property changes.
     ///
     /// Convenience function for `View.onGeometryChange(for:of:action:)` that infers the type of
     /// the observed value from a given `keypath` and updates a binding directly.
@@ -104,8 +104,7 @@ extension View {
     }
 
 
-    /// Adds an action to be performed when a value, created from a geometry proxy property,
-    /// changes.
+    /// Adds an action to be performed when a value, created from a geometry property, changes.
     ///
     /// Convenience function for `View.onGeometryChange(for:of:action:)` that infers the type of
     /// the observed value from a given `keypath`.
@@ -116,8 +115,8 @@ extension View {
         action: @escaping (_ newValue: Result) -> Void
     ) -> some View
     where
-    Property : Equatable & Sendable,
-    Result: Equatable & Sendable
+        Property: Equatable & Sendable, // TODO: might not need equatable.
+        Result: Equatable & Sendable
     {
         self.onGeometryChange(for: Result.self, of: { geometryProxy in
             let value = geometryProxy[keyPath: keyPath]
@@ -127,7 +126,7 @@ extension View {
     }
 
 
-    /// Updates a binding when a value, created from a geometry proxy property, changes.
+    /// Updates a binding when a value, created from a geometry property, changes.
     ///
     /// Convenience function for `View.onGeometryChange(for:of:action:)` that infers the type of
     /// the observed value from a given `keypath` and updates a binding directly.
@@ -138,8 +137,8 @@ extension View {
         transform: @Sendable @escaping (Property) -> Result
     ) -> some View
     where
-    Property : Equatable & Sendable,
-    Result: Equatable & Sendable
+        Property: Equatable & Sendable, // TODO: might not need equatable.
+        Result: Equatable & Sendable
     {
         self.onGeometryChange(
             keyPath: keyPath,
@@ -156,7 +155,8 @@ extension View {
 
 extension View {
 
-    @inlinable public func contentMargins(
+    @inlinable
+    public func contentMargins(
         _ insets: EdgeInsets,
         for placement: ContentMarginPlacement = .automatic
     ) -> some View {
@@ -164,16 +164,39 @@ extension View {
     }
 
 
-    @inlinable public func onScrollGeometryChange<T>(
+    /// Adds an action to be performed when a scroll geometry property changes.
+    ///
+    /// Convenience function for `View.onScrollGeometryChange(for:of:action:)` that infers the type
+    /// of the observed value from a given `keypath`.
+    ///
+    /// This function propagates ALL changes of the observed property to `action`. Use with caution.
+    @inlinable
+    public func onScrollGeometryChange<Property>(
+        of keyPath: KeyPath<ScrollGeometry, Property>,
+        action: @escaping (_ oldValue: Property, _ newValue: Property) -> Void
+    ) -> some View
+    where Property: Equatable & Sendable
+    {
+        self.onScrollGeometryChange(for: Property.self, of: { $0[keyPath: keyPath] }, action: action)
+    }
+
+
+    /// Updates a binding when a scroll geometry property changes.
+    ///
+    /// Convenience function for `View.onScrollGeometryChange(for:of:action:)` that infers the type
+    /// of the observed value from a given `keypath` and updates a binding directly.
+    ///
+    /// This function propagates ALL changes of the observed property to `binding`. Use with caution.
+    @inlinable
+    public func onScrollGeometryChange<T>(
         of keyPath: KeyPath<ScrollGeometry, T>,
         binding: Binding<T>
     ) -> some View
-        where T : Equatable, T : Sendable
+    where T: Equatable & Sendable
     {
         self.onScrollGeometryChange(
-            for: T.self,
-            of: { $0[keyPath: keyPath] },
-            action: { binding.wrappedValue = $1 }
+            of: keyPath,
+            action: { oldValue, newValue in binding.wrappedValue = newValue }
         )
     }
 
@@ -237,6 +260,9 @@ private struct PreviewContent {
         }
     }
     // TODO: use geometry change with transform to produce containerWidth.
+//    .onGeometryChange(keyPath: \.self, binding: $scrollableWidth) { geometry in
+//        geometry.contentWidth - geometry.containerWidth
+//    }
     .onScrollGeometryChange(of: \.contentSize.width, binding: $contentWidth)
     .onScrollGeometryChange(of: \.containerSize.width, binding: $containerWidth)
     .onScrollGeometryChange(for: Double.self) { geometry in
