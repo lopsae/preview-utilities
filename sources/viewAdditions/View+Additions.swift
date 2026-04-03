@@ -200,6 +200,29 @@ extension View {
         )
     }
 
+
+    /// Adds an action to be performed when a value, created from a scroll geometry property,
+    /// changes.
+    ///
+    /// Convenience function for `View.onScrollGeometryChange(for:of:action:)` that infers the type
+    /// of the observed value from a given `keypath`.
+    @inlinable
+    public func onScrollGeometryChange<Property, Result>(
+        of keyPath: KeyPath<ScrollGeometry, Property> & Sendable,
+        transform: @Sendable @escaping (Property) -> Result,
+        action: @escaping (_ oldValue: Result, _ newValue: Result) -> Void
+    ) -> some View
+    where
+        Property: Equatable & Sendable, // TODO: might not need equatable.
+        Result: Equatable & Sendable
+    {
+        self.onScrollGeometryChange(for: Result.self, of: { geometry in
+            let value = geometry[keyPath: keyPath]
+            let result = transform(value)
+            return result
+        }, action: action)
+    }
+
 }
 
 
@@ -247,8 +270,6 @@ private struct PreviewContent {
 #Preview("GeometryChanges+Transforms", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var scrollableWidth: CGFloat = 0
     @Previewable @State var scrollRatio: CGFloat = 0
-    @Previewable @State var contentWidth: CGFloat = 0
-    @Previewable @State var containerWidth: CGFloat = 0
 
     PreviewCaption("""
         `onScrollGeometryChange` also has options to transform a value, or to perform an action.
@@ -259,20 +280,21 @@ private struct PreviewContent {
             CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
         }
     }
-    // TODO: use geometry change with transform to produce containerWidth.
-//    .onGeometryChange(keyPath: \.self, binding: $scrollableWidth) { geometry in
-//        geometry.contentWidth - geometry.containerWidth
-//    }
-    .onScrollGeometryChange(of: \.contentSize.width, binding: $contentWidth)
-    .onScrollGeometryChange(of: \.containerSize.width, binding: $containerWidth)
+    // TODO: assign directly to binding
+    .onScrollGeometryChange(of: \.self) { geometry in
+        geometry.contentSize.width - geometry.containerSize.width
+    } action: { oldValue, newValue in
+        scrollableWidth = newValue
+    }
     .onScrollGeometryChange(for: Double.self) { geometry in
         geometry.contentOffset.x
     } action: { oldValue, newValue in
-        let scrollableWidth = (contentWidth - containerWidth)
         guard scrollableWidth > 0 else { return }
         scrollRatio = newValue / scrollableWidth
     }
 
     Text("Scroll Ratio: \(scrollRatio, format: .fractionLength(2))")
+        .monospacedDigit()
+    Text("Scrollable Width: \(scrollableWidth, format: .fractionLength(2))")
         .monospacedDigit()
 }
