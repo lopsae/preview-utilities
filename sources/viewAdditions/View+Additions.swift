@@ -178,3 +178,96 @@ extension View {
     }
 
 }
+
+
+// TODO: move on geometry additions and previews to its own file.
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("GeometryChanges+Binding", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var contentOffset: CGFloat = 0
+    @Previewable @State var visibleRect: CGRect = .zero
+
+    PreviewCaption("""
+        `onScrollGeometryChange(of:binding:)` can forward all changes to a scroll geometry property to a
+        binding.
+        """)
+
+    ScrollView(.horizontal) {
+        // TODO: HStack(collection...)
+        HStack {
+            ForEach(0...9, id: \.self) { index in
+                CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
+            }
+        }
+    }
+    .onScrollGeometryChange(of: \.contentOffset.x, binding: $contentOffset)
+    .onScrollGeometryChange(of: \.visibleRect, binding: $visibleRect)
+
+    Text("Content Offset: \(contentOffset, format: .fractionLength(2))")
+        .monospacedDigit()
+    Text("Visible Rect: \(visibleRect.debugDescription(format: .fractionLength(2)))")
+        .monospacedDigit()
+}
+
+
+// TODO: move to extension
+
+extension CGRect {
+
+    func debugDescription<Style>(format: Style) -> String where Style: FormatStyle, Style.FormatInput == Double, Style.FormatOutput == String {
+        let xString = origin.x.formatted(format)
+        let yString = origin.y.formatted(format)
+        let widthString  = size.width.formatted(format)
+        let heightString = size.height.formatted(format)
+        return "(\(xString), \(yString), \(widthString), \(heightString))"
+    }
+
+}
+
+
+#Preview("GeometryChanges+Transforms", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var scrollableWidth: CGFloat = 0
+    @Previewable @State var scrollRatio: CGFloat = 0
+    @Previewable @State var contentWidth: CGFloat = 0
+    @Previewable @State var containerWidth: CGFloat = 0
+
+    PreviewCaption("""
+        `onScrollGeometryChange` also has options to transform a value, or to perform an action.
+        """)
+
+    ScrollView(.horizontal) {
+        // TODO: HStack(collection...)
+        HStack {
+            ForEach(0...9, id: \.self) { index in
+                CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
+            }
+        }
+    }
+    // TODO: use geometry change with transform to produce containerWidth.
+    .onScrollGeometryChange(of: \.contentSize.width, binding: $contentWidth)
+    .onScrollGeometryChange(of: \.containerSize.width, binding: $containerWidth)
+    .onScrollGeometryChange(for: Double.self) { geometry in
+        geometry.contentOffset.x
+    } action: { oldValue, newValue in
+        let scrollableWidth = (contentWidth - containerWidth)
+        guard scrollableWidth > 0 else { return }
+        scrollRatio = newValue / scrollableWidth
+    }
+
+    Text("Scroll Ratio: \(scrollRatio, format: .fractionLength(2))")
+        .monospacedDigit()
+}
