@@ -35,3 +35,26 @@ extension HStack {
     }
 
 }
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+    ScrollView(.horizontal) {
+        HStack(0...5, id: \.self) { index in
+            CaptionRectangle("Item \(index)", color: .green, size: .square(of: 100))
+        }
+    }
+}
