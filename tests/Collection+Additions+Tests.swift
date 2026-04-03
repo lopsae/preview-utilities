@@ -11,6 +11,23 @@ import Testing
 
 struct CollectionAdditionsTests {
 
+    @Test func subscriptModulo() {
+        let array: [String] = ["zero", "one", "two", "three", "four"]
+
+        #expect(array[modulo: 0] == "zero")
+        #expect(array[modulo: 1] == "one")
+        #expect(array[modulo: 4] == "four")
+
+        #expect(array[modulo: 5] == "zero")
+        #expect(array[modulo: 7] == "two")
+        #expect(array[modulo: 9] == "four")
+
+        #expect(array[modulo: 100] == "zero")
+        #expect(array[modulo: 103] == "three")
+        #expect(array[modulo: 104] == "four")
+    }
+
+
     @Test func offsetAndDistanceFromStart() {
         let array: [String] = ["zero", "one", "two", "three", "four"]
 
