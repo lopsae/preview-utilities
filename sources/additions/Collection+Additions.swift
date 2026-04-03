@@ -9,14 +9,13 @@ import Foundation
 
 extension Collection {
 
-    // TODO: rename to wrapping? modular
     /// Returns the element at the given distance from the start index, wrapping around through a
     /// modulo operation if the distance is greated that number of elements in the collection.
     ///
     /// The parameter must be positive. Negative values will produce a fatal error.
-    public subscript(modulo modulo: Int) -> Element {
+    public subscript(wrapping wrappingDistance: Int) -> Element {
         let totalDistance = distance(fromStartTo: endIndex)
-        let indexDistance = modulo % totalDistance
+        let indexDistance = wrappingDistance % totalDistance
         let moduloIndex = index(startOffsetBy: indexDistance)
         return self[moduloIndex]
     }

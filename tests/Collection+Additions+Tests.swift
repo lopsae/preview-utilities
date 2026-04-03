@@ -11,20 +11,20 @@ import Testing
 
 struct CollectionAdditionsTests {
 
-    @Test func subscriptModulo() {
+    @Test func subscriptWrapping() {
         let array: [String] = ["zero", "one", "two", "three", "four"]
 
-        #expect(array[modulo: 0] == "zero")
-        #expect(array[modulo: 1] == "one")
-        #expect(array[modulo: 4] == "four")
+        #expect(array[wrapping: 0] == "zero")
+        #expect(array[wrapping: 1] == "one")
+        #expect(array[wrapping: 4] == "four")
 
-        #expect(array[modulo: 5] == "zero")
-        #expect(array[modulo: 7] == "two")
-        #expect(array[modulo: 9] == "four")
+        #expect(array[wrapping: 5] == "zero")
+        #expect(array[wrapping: 7] == "two")
+        #expect(array[wrapping: 9] == "four")
 
-        #expect(array[modulo: 100] == "zero")
-        #expect(array[modulo: 103] == "three")
-        #expect(array[modulo: 104] == "four")
+        #expect(array[wrapping: 100] == "zero")
+        #expect(array[wrapping: 103] == "three")
+        #expect(array[wrapping: 104] == "four")
     }
 
 
