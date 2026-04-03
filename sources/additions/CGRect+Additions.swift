@@ -51,6 +51,17 @@ extension CGRect {
         self.offsetBy(dx: x, dy: y)
     }
 
+
+    nonisolated
+    func debugDescription<Style>(format: Style) -> String
+    where Style: FormatStyle, Style.FormatInput == Double, Style.FormatOutput == String {
+        let xString = origin.x.formatted(format)
+        let yString = origin.y.formatted(format)
+        let widthString  = size.width.formatted(format)
+        let heightString = size.height.formatted(format)
+        return "(\(xString), \(yString), \(widthString), \(heightString))"
+    }
+
 }
 
 

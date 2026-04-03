@@ -224,21 +224,6 @@ private struct PreviewContent {
 }
 
 
-// TODO: move to extension
-
-extension CGRect {
-
-    func debugDescription<Style>(format: Style) -> String where Style: FormatStyle, Style.FormatInput == Double, Style.FormatOutput == String {
-        let xString = origin.x.formatted(format)
-        let yString = origin.y.formatted(format)
-        let widthString  = size.width.formatted(format)
-        let heightString = size.height.formatted(format)
-        return "(\(xString), \(yString), \(widthString), \(heightString))"
-    }
-
-}
-
-
 #Preview("GeometryChanges+Transforms", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var scrollableWidth: CGFloat = 0
     @Previewable @State var scrollRatio: CGFloat = 0
