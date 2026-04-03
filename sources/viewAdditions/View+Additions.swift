@@ -223,6 +223,28 @@ extension View {
         }, action: action)
     }
 
+
+    /// Updates a binding when a value, created from a scroll geometry property, changes.
+    ///
+    /// Convenience function for `View.onScrollGeometryChange(for:of:action:)` that infers the type
+    /// of the observed value from a given `keypath` and updates a binding directly.
+    @inlinable
+    public func onScrollGeometryChange<Property, Result>(
+        of keyPath: KeyPath<ScrollGeometry, Property> & Sendable,
+        binding: Binding<Result>,
+        transform: @Sendable @escaping (Property) -> Result
+    ) -> some View
+    where
+        Property: Equatable & Sendable, // TODO: might not need equatable.
+        Result: Equatable & Sendable
+    {
+        self.onScrollGeometryChange(
+            of: keyPath,
+            transform: transform,
+            action: { oldValue, newValue in binding.wrappedValue = newValue }
+        )
+    }
+
 }
 
 
@@ -280,11 +302,8 @@ private struct PreviewContent {
             CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
         }
     }
-    // TODO: assign directly to binding
-    .onScrollGeometryChange(of: \.self) { geometry in
+    .onScrollGeometryChange(of: \.self, binding: $scrollableWidth) { geometry in
         geometry.contentSize.width - geometry.containerSize.width
-    } action: { oldValue, newValue in
-        scrollableWidth = newValue
     }
     .onScrollGeometryChange(for: Double.self) { geometry in
         geometry.contentOffset.x
