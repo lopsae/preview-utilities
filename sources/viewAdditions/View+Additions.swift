@@ -207,11 +207,8 @@ private struct PreviewContent {
         """)
 
     ScrollView(.horizontal) {
-        // TODO: HStack(collection...)
-        HStack {
-            ForEach(0...9, id: \.self) { index in
-                CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
-            }
+        HStack(0...9, id: \.self) { index in
+            CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
         }
     }
     .onScrollGeometryChange(of: \.contentOffset.x, binding: $contentOffset)
@@ -235,11 +232,8 @@ private struct PreviewContent {
         """)
 
     ScrollView(.horizontal) {
-        // TODO: HStack(collection...)
-        HStack {
-            ForEach(0...9, id: \.self) { index in
-                CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
-            }
+        HStack(0...9, id: \.self) { index in
+            CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
         }
     }
     // TODO: use geometry change with transform to produce containerWidth.
