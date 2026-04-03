@@ -9,9 +9,10 @@ import SwiftUI
 
 extension Picker {
 
-    // ForEach makes an implicit constrain of ValuesCollection to RandomAccessCollection, and
-    // ElementID to Hashable given its struct definition. The constrains in this initializers are
-    // not strictly necessary. Still, these are left here for completeness.
+    // `ForEach` implicitly constrains `ValuesCollection `to `RandomAccessCollection`, and
+    // `ElementID` to `Hashable`, as specified in its struct definition. The constraints in this
+    // initializers to `RandomAccessCollection` and `Hashable` are not not strictly necessary, the
+    // initializers would work without them. Still, these are left here for completeness.
 
     // For the initializers that use self-identified elements, an Identifiable constraint is
     // preferred over SelfIdentifiable. With that constraint SelfIdentifiable is not required, and
