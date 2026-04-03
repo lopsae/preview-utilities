@@ -100,51 +100,60 @@ private struct PreviewContent {
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-        Button(
-            "Circle",
-            constrainedSystemImage: circleToggle ? "circle.fill" : "circle"
-        ) { circleToggle.toggle() }
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
-
-        Button(
-            "Vertical",
-            constrainedSystemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
-        ) { guidepointToggle.toggle() }
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
-
         Button("Plus", constrainedSystemImage: "plus", action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
     }
 
+    Text.caption("Toggle buttons:")
+
+    Button(
+        "Circle",
+        constrainedSystemImage: circleToggle ? "circle.fill" : "circle"
+    ) { circleToggle.toggle() }
+    .buttonStyle(.borderedProminent)
+    .labelStyle(.iconOnly)
+    .debugOverlay(.hairline, .size, .infoAlignment(.outerTrailing))
+
+    Button(
+        "Vertical",
+        constrainedSystemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
+    ) { guidepointToggle.toggle() }
+    .buttonStyle(.borderedProminent)
+    .labelStyle(.iconOnly)
+    .debugOverlay(.hairline, .size, .infoAlignment(.outerTrailing))
+
     PreviewCaption("""
         Buttons using the `.iconOnly` style will change its size depending on the image being used.
         """)
 
-    HStack {
-        Button("Minus", systemImage: "minus", action: {})
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
+    VStack {
+        HStack {
+            Button("Minus", systemImage: "minus", action: {})
+                .buttonStyle(.borderedProminent)
+                .labelStyle(.iconOnly)
 
-        Button(
-            "Circle",
-            systemImage: circleToggle ? "circle.fill" : "circle"
-        ) { circleToggle.toggle() }
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
+            Button("Plus", systemImage: "plus", action: {})
+                .buttonStyle(.borderedProminent)
+                .labelStyle(.iconOnly)
+        }
 
-        Button(
-            "Vertical",
-            systemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
-        ) { guidepointToggle.toggle() }
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
+        Text.caption("Toggle buttons:")
+        HStack {
+            Button(
+                "Circle",
+                systemImage: circleToggle ? "circle.fill" : "circle"
+            ) { circleToggle.toggle() }
+                .buttonStyle(.borderedProminent)
+                .labelStyle(.iconOnly)
 
-        Button("Plus", systemImage: "plus", action: {})
-            .buttonStyle(.borderedProminent)
-            .labelStyle(.iconOnly)
+            Button(
+                "Vertical",
+                systemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
+            ) { guidepointToggle.toggle() }
+                .buttonStyle(.borderedProminent)
+                .labelStyle(.iconOnly)
+        }
     }
 }
 
