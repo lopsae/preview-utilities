@@ -171,12 +171,10 @@ extension View {
     ///
     /// This function propagates ALL changes of the observed property to `action`. Use with caution.
     @inlinable
-    public func onScrollGeometryChange<Property>(
+    public func onScrollGeometryChange<Property: Equatable>(
         of keyPath: KeyPath<ScrollGeometry, Property>,
         action: @escaping (_ oldValue: Property, _ newValue: Property) -> Void
-    ) -> some View
-    where Property: Equatable & Sendable
-    {
+    ) -> some View {
         self.onScrollGeometryChange(for: Property.self, of: { $0[keyPath: keyPath] }, action: action)
     }
 
@@ -188,12 +186,10 @@ extension View {
     ///
     /// This function propagates ALL changes of the observed property to `binding`. Use with caution.
     @inlinable
-    public func onScrollGeometryChange<T>(
-        of keyPath: KeyPath<ScrollGeometry, T>,
-        binding: Binding<T>
-    ) -> some View
-    where T: Equatable & Sendable
-    {
+    public func onScrollGeometryChange<Property: Equatable>(
+        of keyPath: KeyPath<ScrollGeometry, Property>,
+        binding: Binding<Property>
+    ) -> some View {
         self.onScrollGeometryChange(
             of: keyPath,
             action: { oldValue, newValue in binding.wrappedValue = newValue }
@@ -207,15 +203,11 @@ extension View {
     /// Convenience function for `View.onScrollGeometryChange(for:of:action:)` that infers the type
     /// of the observed value from a given `keypath`.
     @inlinable
-    public func onScrollGeometryChange<Property, Result>(
-        of keyPath: KeyPath<ScrollGeometry, Property> & Sendable,
+    public func onScrollGeometryChange<Property, Result: Equatable>(
+        of keyPath: KeyPath<ScrollGeometry, Property>,
         transform: @Sendable @escaping (Property) -> Result,
         action: @escaping (_ oldValue: Result, _ newValue: Result) -> Void
-    ) -> some View
-    where
-        Property: Equatable & Sendable, // TODO: might not need equatable.
-        Result: Equatable & Sendable
-    {
+    ) -> some View {
         self.onScrollGeometryChange(for: Result.self, of: { geometry in
             let value = geometry[keyPath: keyPath]
             let result = transform(value)
@@ -229,15 +221,11 @@ extension View {
     /// Convenience function for `View.onScrollGeometryChange(for:of:action:)` that infers the type
     /// of the observed value from a given `keypath` and updates a binding directly.
     @inlinable
-    public func onScrollGeometryChange<Property, Result>(
-        of keyPath: KeyPath<ScrollGeometry, Property> & Sendable,
+    public func onScrollGeometryChange<Property, Result: Equatable>(
+        of keyPath: KeyPath<ScrollGeometry, Property>,
         binding: Binding<Result>,
         transform: @Sendable @escaping (Property) -> Result
-    ) -> some View
-    where
-        Property: Equatable & Sendable, // TODO: might not need equatable.
-        Result: Equatable & Sendable
-    {
+    ) -> some View {
         self.onScrollGeometryChange(
             of: keyPath,
             transform: transform,
