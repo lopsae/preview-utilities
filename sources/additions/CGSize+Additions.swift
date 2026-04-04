@@ -38,6 +38,24 @@ extension CGSize {
     }
 
 
+    @inlinable nonisolated
+    public func adding(size: CGSize) -> Self {
+        .init(width: width + size.width, height: height + size.height)
+    }
+
+
+    @inlinable nonisolated
+    public func subtracting(width: CGFloat = .zero, height: CGFloat = .zero) -> Self {
+        .init(width: self.width - width, height: self.height - height)
+    }
+
+
+    @inlinable nonisolated
+    public func subtracting(size: CGSize) -> Self {
+        .init(width: width - size.width, height: height - size.height)
+    }
+
+
     /// Returns a size that can contain both `self` and the given size.
     ///
     /// The returned size uses the largest of each component from both sizes.

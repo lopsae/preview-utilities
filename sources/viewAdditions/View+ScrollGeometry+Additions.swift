@@ -93,6 +93,24 @@ extension View {
 }
 
 
+// MARK: ScrollGeometry
+
+
+extension ScrollGeometry {
+
+    /// Returns a size represeting the range of values that `contentOffset` can take.
+    ///
+    /// When `contentOffset` is set to zero, the scroll view is scrolled to its top-leading
+    /// position, when set to `(contentOffsetSize.width, contentOffsetSize.height)` the scrol view
+    /// is scrolled to its bottom-trailing position.
+    public var contentOffsetSize: CGSize {
+        // TODO: contentInsets probably have to be considered!
+        contentSize.subtracting(size: containerSize)
+    }
+
+}
+
+
 // MARK: - PreviewContent
 
 
@@ -110,6 +128,7 @@ private struct PreviewContent {
 #Preview("GeometryChanges+Binding", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var contentOffset: CGFloat = 0
     @Previewable @State var visibleRect: CGRect = .zero
+    @Previewable @State var contentOffsetWidth: CGFloat = 0
 
     PreviewCaption("""
         `onScrollGeometryChange(of:binding:)` can forward all changes to a scroll geometry property to a
@@ -123,17 +142,21 @@ private struct PreviewContent {
     }
     .onScrollGeometryChange(of: \.contentOffset.x, binding: $contentOffset)
     .onScrollGeometryChange(of: \.visibleRect, binding: $visibleRect)
+    .onScrollGeometryChange(of: \.contentOffsetSize.width, binding: $contentOffsetWidth)
 
     Text("Content Offset: \(contentOffset, format: .fractionLength(2))")
         .monospacedDigit()
     Text("Visible Rect: \(visibleRect.debugDescription(format: .fractionLength(2)))")
         .monospacedDigit()
+    Text("Content Offset Width: \(contentOffsetWidth, format: .fractionLength(2))")
+        .monospacedDigit()
 }
 
 
 #Preview("GeometryChanges+Transforms", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable @State var scrollableWidth: CGFloat = 0
     @Previewable @State var scrollRatio: CGFloat = 0
+    @Previewable @State var contentOffset: CGFloat = 0
+    @Previewable @State var contentOffsetWidth: CGFloat = 0
 
     PreviewCaption("""
         `onScrollGeometryChange` also has options to transform a value, or to perform an action.
@@ -144,18 +167,21 @@ private struct PreviewContent {
             CaptionRectangle("Item \(index)", color: .pink, size: .square(of: 100))
         }
     }
-    .onScrollGeometryChange(of: \.self, binding: $scrollableWidth) { geometry in
+    .onScrollGeometryChange(of: \.contentOffset.x, binding: $contentOffset)
+    .onScrollGeometryChange(of: \.self, binding: $contentOffsetWidth) { geometry in
         geometry.contentSize.width - geometry.containerSize.width
     }
     .onScrollGeometryChange(for: Double.self) { geometry in
         geometry.contentOffset.x
     } action: { oldValue, newValue in
-        guard scrollableWidth > 0 else { return }
-        scrollRatio = newValue / scrollableWidth
+        guard contentOffsetWidth > 0 else { return }
+        scrollRatio = newValue / contentOffsetWidth
     }
 
     Text("Scroll Ratio: \(scrollRatio, format: .fractionLength(2))")
         .monospacedDigit()
-    Text("Scrollable Width: \(scrollableWidth, format: .fractionLength(2))")
+    Text("Content Offset: \(contentOffset, format: .fractionLength(2))")
+        .monospacedDigit()
+    Text("Content Offset Width: \(contentOffsetWidth, format: .fractionLength(2))")
         .monospacedDigit()
 }
