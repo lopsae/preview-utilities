@@ -17,7 +17,7 @@ extension HStack {
 
     /// Creates a horizontal stack that generates its content with the elements of a given
     /// collection identified through a key path.
-    init<ValuesCollection, ElementContent, ElementID>(
+    public init<ValuesCollection, ElementContent, ElementID>(
         _ collection: ValuesCollection,
         id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
         @ViewBuilder elementContent: @escaping (ValuesCollection.Element) -> ElementContent
