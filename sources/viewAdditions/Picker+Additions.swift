@@ -7,17 +7,18 @@
 import SwiftUI
 
 
+// `ForEach` implicitly constrains `ValuesCollection `to `RandomAccessCollection`, and `ElementID`
+// to `Hashable`, as specified in its struct definition. The constraints in this initializers to
+// `RandomAccessCollection` and `Hashable` are not not strictly necessary (the initializers would
+// still work without them) but are made implicit for completeness.
+
+// For the initializers that use self-identified elements: an `Elent: Identifiable` constraint along
+// an `ID: Element` is preferred over a constraint to `SelfIdentifiable`. With the preferred
+// constraint the compiler checks for the constraint that `SelfIndentifible` implicitly requires,
+// and will also detect if a type overrides the default `id` provided by `SelfIdentifiable`.
+
+
 extension Picker {
-
-    // `ForEach` implicitly constrains `ValuesCollection `to `RandomAccessCollection`, and
-    // `ElementID` to `Hashable`, as specified in its struct definition. The constraints in this
-    // initializers to `RandomAccessCollection` and `Hashable` are not not strictly necessary, the
-    // initializers would work without them. Still, these are left here for completeness.
-
-    // For the initializers that use self-identified elements, an Identifiable constraint is
-    // preferred over SelfIdentifiable. With that constraint SelfIdentifiable is not required, and
-    // the compiler will detect if a type overrides the default `id` provided by SelfIdentifiable.
-
 
     // MARK: Collection of Values + ID KeyPath + ViewBuilder
     // + Selection Value
@@ -30,6 +31,9 @@ extension Picker {
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
     /// a given localized key.
+    ///
+    /// No constraint is made between `selection` type and the `collection` elements type. The views
+    /// produced by `elementContent` must use `.tag` with the selection value for that element.
     init<ValuesCollection, ElementContent, ElementID>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
@@ -54,6 +58,34 @@ extension Picker {
         )
     }
 
+}
+
+
+#Preview("Collection+IdKeyPath+View", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
+
+    VStack(alignment: .leading) {
+        PreviewCaption("""
+            Picker with a collection of **non-identifiable** elements, with a **view-builder** for
+            each collection element.
+            """)
+        Text("Value: \(nonIdentifiedValue.rawValue)")
+            .monospaced()
+        Picker(
+            "NonIdentifiable Picker",
+            selection: $nonIdentifiedValue,
+            collection: PreviewContent.NonidentifiedValues.allCases,
+            id: \.rawValue
+        ) { value in
+            // Id is not self, tag is required for selection to work.
+            Label(value.rawValue.capitalized, systemImage: "ladybug")
+            .tag(value)
+        }.pickerStyle(.segmented)
+    }
+}
+
+
+extension Picker {
 
     // MARK: Collection of Values + ID KeyPath + ViewBuilder
     // + Selection Value
@@ -280,7 +312,7 @@ extension Picker {
 }
 
 
-// MARK: - Previews
+// MARK: - PreviewContent
 
 
 @MainActor
@@ -307,11 +339,12 @@ private struct PreviewContent {
 
 // FUTURE: if used elsewhere consider moving to its own file and add previews to ascertain it works.
 
-/// Text with a tag.
+/// Text with a tag. Used instead of the `.tag` modifier when a concrete type is necessary.
 ///
-/// Used to provide a concrete type to type constraints in extended inits. In cases where views
+/// Used to provide a concrete-type for type-constraints in extended inits. In cases where views
 /// produced by a `ForEach` need to be tagged, this type can be used to provide a concrete type in
-/// type constraints. The usual `.tag` modifier cannot be used since it returns an opaque `some View`.
+/// type constraints. The usual `.tag` modifier cannot be used since it returns an opaque
+/// `some View`.
 struct TaggedText<Tag: Hashable>: View {
     let string: String
     let tag: Tag
@@ -327,27 +360,14 @@ struct TaggedText<Tag: Hashable>: View {
 }
 
 
+// MARK: - Previews
+
+
 #Preview("Identifiable", traits: .headerFooter, PreviewContent.layout) {
-    @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
     @Previewable @State var identifiedValue: PreviewContent.IdentifiedValues = .bob
     @Previewable @State var selfIdentifiedValue: PreviewContent.SelfIdentifiedValues = .heidi
 
     VStack(alignment: .leading) {
-        PreviewCaption("Picker with a collection of **non-identifiable** elements.")
-        Text("Value: \(nonIdentifiedValue.rawValue)")
-            .monospaced()
-        Picker(
-            "NonIdentifiable Picker",
-            selection: $nonIdentifiedValue,
-            collection: PreviewContent.NonidentifiedValues.allCases,
-            id: \.rawValue
-        ) { value in
-            // Id is not self, tag is required for selection to work.
-            Text(value.rawValue.capitalized).tag(value)
-        }.pickerStyle(.segmented)
-
-        DashedDivider()
-
         PreviewCaption("Picker with a collection of **identifiable** elements.")
         Text("Value: \(identifiedValue.rawValue)")
             .monospaced()

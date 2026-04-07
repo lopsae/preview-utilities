@@ -7,13 +7,13 @@
 import SwiftUI
 
 
+// `ForEach` implicitly constrains `ValuesCollection `to `RandomAccessCollection`, and `ElementID`
+// to `Hashable`, as specified in its struct definition. The constraints in this initializers to
+// `RandomAccessCollection` and `Hashable` are not not strictly necessary (the initializers would
+// still work without them) but are made implicit for completeness.
+
+
 extension HStack {
-
-    // `ForEach` implicitly constrains `ValuesCollection `to `RandomAccessCollection`, and
-    // `ElementID` to `Hashable`, as specified in its struct definition. The constraints in this
-    // initializers to `RandomAccessCollection` and `Hashable` are not not strictly necessary, the
-    // initializers would work without them. Still, these are left here for completeness.
-
 
     /// Creates a horizontal stack that generates its content with the elements of a given
     /// collection identified through a key path.
