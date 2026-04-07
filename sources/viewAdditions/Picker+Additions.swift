@@ -18,7 +18,7 @@ import SwiftUI
 // and will also detect if a type overrides the default `id` provided by `SelfIdentifiable`.
 
 
-// MARK: Collection of Values + ID KeyPath + ViewBuilder
+// MARK: Collection + ID KeyPath + ViewBuilder
 // + Selection value binding.
 // + Collection of possible selection values.
 // + ID KeyPath.
@@ -65,6 +65,9 @@ extension Picker {
 }
 
 
+// MARK: - Preview
+
+
 #Preview("Collection+IdKeyPath+View", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
 
@@ -86,7 +89,7 @@ extension Picker {
 }
 
 
-// MARK: Collection of Values + ID KeyPath + ViewBuilder
+// MARK: Collection of Identifiable + ViewBuilder
 // + Selection value binding.
 // + Collection of Identifiable values, possible selection values.
 // + ViewBuilder for each element.
@@ -131,6 +134,9 @@ extension Picker {
 }
 
 
+// MARK: - Previews
+
+
 #Preview("Id'dCollection+View", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var identifiedValue: PreviewContent.IdentifiedValues = .bob
 
@@ -151,12 +157,12 @@ extension Picker {
 }
 
 
-extension Picker {
+// MARK: Collection of Self-Identifiables + ViewBuilder
+// + Selection value binding.
+// + Collection of Self-Identifiable values, possible selection values.
+// + ViewBuilder for each element.
 
-    // MARK: Self-Identifiables Collection + ViewBuilder
-    // + Selection Value
-    // + Collection of Self-Identifiable values
-    // + ViewBuilder for each element.
+extension Picker {
 
     /// Creates a picker that generates its label and creates the option views with the elements
     /// of a given collection of possible selection values.
