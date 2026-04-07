@@ -19,9 +19,9 @@ import SwiftUI
 
 
 // MARK: Collection of Values + ID KeyPath + ViewBuilder
-// + Selection Value
-// + Collection of possible selection values
-// + ID KeyPath
+// + Selection value binding.
+// + Collection of possible selection values.
+// + ID KeyPath.
 // + ViewBuilder for each element.
 
 extension Picker {
@@ -68,37 +68,40 @@ extension Picker {
 #Preview("Collection+IdKeyPath+View", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
 
-    VStack(alignment: .leading) {
-        PreviewCaption("""
-            Picker with a collection of **non-identifiable** elements, with a **view-builder** for
-            each collection element.
-            """)
-        Text("Value: \(nonIdentifiedValue.rawValue)")
-            .monospaced()
-        Picker(
-            "NonIdentifiable Picker",
-            selection: $nonIdentifiedValue,
-            collection: PreviewContent.NonidentifiedValues.allCases,
-            id: \.rawValue
-        ) { value in
-            Label(value.rawValue.capitalized, systemImage: "ladybug")
-        }.pickerStyle(.segmented)
-    }
+    PreviewCaption("""
+        Picker with a collection of **non-identifiable** elements, with a **view-builder** for
+        each collection element.
+        """)
+
+    Text("Value: \(nonIdentifiedValue.rawValue)")
+        .monospaced()
+    Picker(
+        "NonIdentifiable Picker",
+        selection: $nonIdentifiedValue,
+        collection: PreviewContent.NonidentifiedValues.allCases,
+        id: \.rawValue
+    ) { value in
+        Label(value.rawValue.capitalized, systemImage: "ladybug")
+    }.pickerStyle(.segmented)
 }
 
 
+// MARK: Collection of Values + ID KeyPath + ViewBuilder
+// + Selection value binding.
+// + Collection of Identifiable values, possible selection values.
+// + ViewBuilder for each element.
+
 extension Picker {
 
-    // MARK: Collection of Values + ID KeyPath + ViewBuilder
-    // + Selection Value
-    // + Collection of Identifiable values
-    // + ViewBuilder for each element.
-
     /// Creates a picker that generates its label and creates the option views with the elements
-    /// of a given collection of `Identifiable` elements.
+    /// of a given collection of `Identifiable` elements. The collection contains the possible
+    /// selection values
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
     /// a given localized key.
+    ///
+    /// The views created by `elementContent` are automatically tagged with their corresponding
+    /// element.
     init<ValuesCollection, ElementContent>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
@@ -108,20 +111,47 @@ extension Picker {
         ValuesCollection: RandomAccessCollection,
         ValuesCollection.Element: Identifiable,
         ElementContent: View,
+        SelectionValue == ValuesCollection.Element,
         Label == Text,
-        Content == ForEach<ValuesCollection, ValuesCollection.Element.ID, ElementContent>
+        Content == ForEach<ValuesCollection, ValuesCollection.Element.ID, TaggedView<ElementContent, SelectionValue>>
     {
         self.init(
             title,
             selection: selection,
             content: {
                 ForEach(collection) { element in
-                    elementContent(element)
+                    TaggedView(tag: element) {
+                        elementContent(element)
+                    }
                 }
             }
         )
     }
 
+}
+
+
+#Preview("Id'dCollection+View", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var identifiedValue: PreviewContent.IdentifiedValues = .bob
+
+    PreviewCaption("""
+        Picker with a collection of **identifiable** elements, with a **view-builder** for each 
+        collection element.
+        """)
+
+    Text("Value: \(identifiedValue.rawValue)")
+        .monospaced()
+    Picker(
+        "Identifiable Picker",
+        selection: $identifiedValue,
+        collection: PreviewContent.IdentifiedValues.allCases
+    ) { value in
+        Text(value.rawValue.capitalized)
+    }.pickerStyle(.segmented)
+}
+
+
+extension Picker {
 
     // MARK: Self-Identifiables Collection + ViewBuilder
     // + Selection Value
@@ -399,19 +429,19 @@ where Content: View, Tag: Hashable
     @Previewable @State var selfIdentifiedValue: PreviewContent.SelfIdentifiedValues = .heidi
 
     VStack(alignment: .leading) {
-        PreviewCaption("Picker with a collection of **identifiable** elements.")
-        Text("Value: \(identifiedValue.rawValue)")
-            .monospaced()
-        Picker(
-            "Identifiable Picker",
-            selection: $identifiedValue,
-            collection: PreviewContent.IdentifiedValues.allCases
-        ) { value in
-            // Id is not self, tag is required for selection to work.
-            Text(value.rawValue.capitalized).tag(value)
-        }.pickerStyle(.segmented)
-
-        DashedDivider()
+//        PreviewCaption("Picker with a collection of **identifiable** elements.")
+//        Text("Value: \(identifiedValue.rawValue)")
+//            .monospaced()
+//        Picker(
+//            "Identifiable Picker",
+//            selection: $identifiedValue,
+//            collection: PreviewContent.IdentifiedValues.allCases
+//        ) { value in
+//            // Id is not self, tag is required for selection to work.
+//            Text(value.rawValue.capitalized).tag(value)
+//        }.pickerStyle(.segmented)
+//
+//        DashedDivider()
 
         PreviewCaption("Picker with a collection of **self-identifiable** elements.")
         Text("Value: \(selfIdentifiedValue.rawValue)")
