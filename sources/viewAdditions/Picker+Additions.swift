@@ -31,7 +31,7 @@ extension Picker {
     /// element is identified with the given keypath.
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
-    /// a given localized key.
+    /// the given localized key.
     ///
     /// The views created by `elementContent` are automatically tagged with their corresponding
     /// element.
@@ -101,7 +101,7 @@ extension Picker {
     /// selection values
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
-    /// a given localized key.
+    /// the given localized key.
     ///
     /// The views created by `elementContent` are automatically tagged with their corresponding
     /// element.
@@ -174,7 +174,7 @@ extension Picker {
     /// that self-identifies, that is, in which the `ID` type is itself.
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
-    /// a given localized key.
+    /// the given localized key.
 //    init<ValuesCollection, ElementContent>(
 //        _ title: LocalizedStringKey,
 //        selection: Binding<SelectionValue>,
