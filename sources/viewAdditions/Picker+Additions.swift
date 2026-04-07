@@ -273,6 +273,36 @@ extension Picker {
 }
 
 
+// MARK: - Preview
+
+
+#Preview("Collection+IdKeyPath+Format", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
+
+    PreviewCaption("Picker with a collection of **non-identifiable** elements, using a **format style**.")
+
+    Text("Value: \(nonIdentifiedValue.rawValue)")
+        .monospaced()
+    Picker(
+        "NonIdentifiable RawValue Picker",
+        selection: $nonIdentifiedValue,
+        collection: PreviewContent.NonidentifiedValues.allCases,
+        id: \.rawValue,
+        elementFormat: .rawValueCapitalized()
+    ).pickerStyle(.segmented)
+    Picker(
+        "NonIdentifiable Full Name Picker",
+        selection: $nonIdentifiedValue,
+        collection: PreviewContent.NonidentifiedValues.allCases,
+        id: \.rawValue,
+        elementFormat: .property(\.fullName)
+    ).pickerStyle(.segmented)
+}
+
+
+// TODO: Finish moving previews underneath each implementation, as the ones above here.
+
+
 extension Picker {
 
     // MARK: Self-Identifiables Collection + Element Format
@@ -397,15 +427,26 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
+    nonisolated
     enum NonidentifiedValues: String, CaseIterable {
         case jane, john, janie, fred
+        var fullName: String {
+            switch self {
+            case .jane:  "Jane Dane"
+            case .john:  "John Doe"
+            case .janie: "Janie Fox"
+            case .fred:  "Fred Merc"
+            }
+        }
     }
 
+    nonisolated
     enum IdentifiedValues: String, Identifiable, CaseIterable {
         case  alice, bob, charlie, dave
         var id: String { self.rawValue }
     }
 
+    nonisolated
     enum SelfIdentifiedValues: String, SelfIdentifiable, CaseIterable {
         case  grace, heidi, ivan, judy
     }
@@ -467,24 +508,6 @@ where Content: View, Tag: Hashable
 
 
 // MARK: - Previews
-
-
-#Preview("Formatted", traits: .headerFooter, PreviewContent.layout) {
-    @Previewable @State var nonIdentifiedValue: PreviewContent.NonidentifiedValues = .john
-
-    VStack(alignment: .leading) {
-        PreviewCaption("Picker with a collection of **non-identifiable** elements, using a **format style**.")
-        Text("Value: \(nonIdentifiedValue.rawValue)")
-            .monospaced()
-        Picker(
-            "NonIdentifiable Picker",
-            selection: $nonIdentifiedValue,
-            collection: PreviewContent.NonidentifiedValues.allCases,
-            id: \.rawValue,
-            elementFormat: .rawValueCapitalized()
-        ).pickerStyle(.segmented)
-    }
-}
 
 
 #Preview("Formatted+SelfId", traits: .headerFooter, PreviewContent.layout) {
