@@ -18,22 +18,23 @@ import SwiftUI
 // and will also detect if a type overrides the default `id` provided by `SelfIdentifiable`.
 
 
+// MARK: Collection of Values + ID KeyPath + ViewBuilder
+// + Selection Value
+// + Collection of possible selection values
+// + ID KeyPath
+// + ViewBuilder for each element.
+
 extension Picker {
 
-    // MARK: Collection of Values + ID KeyPath + ViewBuilder
-    // + Selection Value
-    // + Collection of possible values
-    // + ID KeyPath
-    // + ViewBuilder for each element.
-
     /// Creates a picker that generates its label and creates the option views with the elements
-    /// of a given collection identified through a key path.
+    /// of the given collection. The collection contains the possible selection values, and each
+    /// element is identified with the given keypath.
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
     /// a given localized key.
     ///
-    /// No constraint is made between `selection` type and the `collection` elements type. The views
-    /// produced by `elementContent` must use `.tag` with the selection value for that element.
+    /// The views created by `elementContent` are automatically tagged with their corresponding
+    /// element.
     init<ValuesCollection, ElementContent, ElementID>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
@@ -44,15 +45,18 @@ extension Picker {
         ValuesCollection: RandomAccessCollection,
         ElementContent: View,
         ElementID: Hashable,
+        SelectionValue == ValuesCollection.Element,
         Label == Text,
-        Content == ForEach<ValuesCollection, ElementID, ElementContent>
+        Content == ForEach<ValuesCollection, ElementID, TaggedView<ElementContent, SelectionValue>>
     {
         self.init(
             title,
             selection: selection,
             content: {
                 ForEach(collection, id: idKeyPath) { element in
-                    elementContent(element)
+                    TaggedView(tag: element) {
+                        elementContent(element)
+                    }
                 }
             }
         )
@@ -77,9 +81,7 @@ extension Picker {
             collection: PreviewContent.NonidentifiedValues.allCases,
             id: \.rawValue
         ) { value in
-            // Id is not self, tag is required for selection to work.
             Label(value.rawValue.capitalized, systemImage: "ladybug")
-            .tag(value)
         }.pickerStyle(.segmented)
     }
 }
@@ -336,6 +338,7 @@ private struct PreviewContent {
 }
 
 
+// MARK: EXPERIMENTAL: TaggedText
 
 // FUTURE: if used elsewhere consider moving to its own file and add previews to ascertain it works.
 
@@ -345,7 +348,7 @@ private struct PreviewContent {
 /// produced by a `ForEach` need to be tagged, this type can be used to provide a concrete type in
 /// type constraints. The usual `.tag` modifier cannot be used since it returns an opaque
 /// `some View`.
-struct TaggedText<Tag: Hashable>: View {
+struct TaggedText<Tag>: View where Tag: Hashable {
     let string: String
     let tag: Tag
 
@@ -356,6 +359,34 @@ struct TaggedText<Tag: Hashable>: View {
 
     var body: some View {
         Text(verbatim: string).tag(tag)
+    }
+}
+
+
+// MARK: EXPERIMENTAL: TaggedView
+
+// FUTURE: if used elsewhere consider moving to its own file and add previews to ascertain it works.
+
+/// View with a tag. Used instead of the `.tag` modifier when a concrete type is necessary.
+///
+/// Used to provide a concrete-type for type-constraints in extended inits. In cases where views
+/// produced by a `ForEach` need to be tagged, this type can be used to provide a concrete type in
+/// type constraints. The usual `.tag` modifier cannot be used since it returns an opaque
+/// `some View`.
+struct TaggedView<Content, Tag>: View
+where Content: View, Tag: Hashable
+{
+    let content: () -> Content
+    let tag: Tag
+
+    init(tag: Tag, @ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+        self.tag = tag
+    }
+
+    var body: some View {
+        content()
+        .tag(tag)
     }
 }
 
