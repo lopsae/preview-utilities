@@ -15,13 +15,13 @@ import SwiftUI
 ///
 /// - Note: This formatter retrieves a string property for an input object using a key path. Since
 /// `KeyPath` cannot be meaningfully encoded or decoded a `Codable` implementation is provided, but
-/// a serialization round-trip of this type does is not possible. Encoding stores a dummy value.
-/// Decoding will always fail with a `DecodingError.dataCorrupted` error.
+/// a serialization round-trip of this type is not possible. Encoding stores a dummy value. Decoding
+/// will always fail with a `DecodingError.dataCorrupted` error.
 nonisolated
-struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
+public struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
     let property: KeyPath<Input, String> & Sendable
 
-    func format(_ value: Input) -> String {
+    public func format(_ value: Input) -> String {
         return value[keyPath: property]
     }
 
@@ -31,7 +31,7 @@ struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
 
     /// `PropertyFormatStyle` cannot be meaningfully encoded/decoded. This function will always
     /// throw a `DecodingError.dataCorrupted` error.
-    init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         throw DecodingError.dataCorrupted(
             .init(codingPath: decoder.codingPath, debugDescription: "PropertyFormatStyle cannot be decoded.")
         )
@@ -39,7 +39,7 @@ struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
 
     /// `PropertyFormatStyle` cannot be meaningfully encoded/decoded. This function stores a dummy
     /// value and succeeds.
-    func encode(to encoder: any Encoder) throws {
+    public func encode(to encoder: any Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode("PropertyFormatStyle")
     }
@@ -52,7 +52,7 @@ extension FormatStyle {
 
     /// Returns a format style that outputs a string property from the input object.
     nonisolated
-    static func property<Input>(
+    public static func property<Input>(
         _ property: KeyPath<Input, String> & Sendable
     ) -> Self
     where

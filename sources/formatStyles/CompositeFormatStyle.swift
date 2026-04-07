@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A Structure that joins two format styles.
 nonisolated
-struct CompositeFormatStyle<InputFormat, OutputFormat>: FormatStyle, Sendable
+public struct CompositeFormatStyle<InputFormat, OutputFormat>: FormatStyle, Sendable
 where
     InputFormat: FormatStyle & Sendable,
     OutputFormat: FormatStyle & Sendable,
@@ -19,7 +19,7 @@ where
     let input: InputFormat
     let output: OutputFormat
 
-    func format(_ value: InputFormat.FormatInput) -> OutputFormat.FormatOutput {
+    public func format(_ value: InputFormat.FormatInput) -> OutputFormat.FormatOutput {
         let intermediate = input.format(value)
         return output.format(intermediate)
     }

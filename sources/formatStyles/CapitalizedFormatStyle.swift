@@ -9,9 +9,9 @@ import SwiftUI
 
 /// A structure that capitalizes a string.
 nonisolated
-struct CapitalizedFormatStyle: FormatStyle, Sendable {
+public struct CapitalizedFormatStyle: FormatStyle, Sendable {
 
-    func format(_ value: String) -> String {
+    public func format(_ value: String) -> String {
         return value.capitalized
     }
 
@@ -32,7 +32,7 @@ extension FormatStyle {
     /// Returns a format style that uses the string output of another formatter and outputs the
     /// capitalized string.
     nonisolated
-    static func capitalized<InputFormat: FormatStyle>(
+    public static func capitalized<InputFormat: FormatStyle>(
         input: InputFormat
     ) -> Self
     where
@@ -50,7 +50,7 @@ extension FormatStyle {
 
     /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable`.
     nonisolated
-    static func rawValueCapitalized<Value: RawRepresentable>() -> Self
+    public static func rawValueCapitalized<Value: RawRepresentable>() -> Self
     where
         Value.RawValue: StringProtocol,
         Self == CompositeFormatStyle<RawValueFormatStyle<Value>, CapitalizedFormatStyle>
@@ -66,7 +66,7 @@ extension FormatStyle {
 
     /// Returns a format style that outputs a capitalized string property from the input object.
     nonisolated
-    static func capitalized<Input>(
+    public static func capitalized<Input>(
         property: KeyPath<Input, String> & Sendable
     ) -> Self
     where
@@ -106,6 +106,6 @@ private struct PreviewContent {
     Text("String: `\("lorem ipsum", format: .capitalized)`")
     Text("Raw Value: `\(dummy, format: .rawValueCapitalized())`")
     Text("Property: `\(dummy, format: .capitalized(property: \.value))`")
-    Text("Format Input: `\(dummy, format: .capitalized(input: .description()))`")
+    Text("Input Format: `\(dummy, format: .capitalized(input: .description()))`")
 }
 
