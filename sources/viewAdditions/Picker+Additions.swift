@@ -175,30 +175,30 @@ extension Picker {
     ///
     /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
     /// a given localized key.
-    init<ValuesCollection, ElementContent>(
-        _ title: LocalizedStringKey,
-        selection: Binding<SelectionValue>,
-        selectables: ValuesCollection,
-        @ViewBuilder elementContent: @escaping (SelectionValue) -> ElementContent
-    ) where
-        ValuesCollection: RandomAccessCollection,
-        ValuesCollection.Element: Identifiable,
-        ValuesCollection.Element == SelectionValue,
-        ValuesCollection.Element.ID == SelectionValue,
-        ElementContent: View,
-        Label == Text,
-        Content == ForEach<ValuesCollection, SelectionValue, ElementContent>
-    {
-        self.init(
-            title,
-            selection: selection,
-            content: {
-                ForEach(selectables) { element in
-                    elementContent(element)
-                }
-            }
-        )
-    }
+//    init<ValuesCollection, ElementContent>(
+//        _ title: LocalizedStringKey,
+//        selection: Binding<SelectionValue>,
+//        selectables: ValuesCollection,
+//        @ViewBuilder elementContent: @escaping (SelectionValue) -> ElementContent
+//    ) where
+//        ValuesCollection: RandomAccessCollection,
+//        ValuesCollection.Element: Identifiable,
+//        ValuesCollection.Element == SelectionValue,
+//        ValuesCollection.Element.ID == SelectionValue,
+//        ElementContent: View,
+//        Label == Text,
+//        Content == ForEach<ValuesCollection, SelectionValue, ElementContent>
+//    {
+//        self.init(
+//            title,
+//            selection: selection,
+//            content: {
+//                ForEach(selectables) { element in
+//                    elementContent(element)
+//                }
+//            }
+//        )
+//    }
 
 }
 
@@ -206,21 +206,21 @@ extension Picker {
 // MARK: - Previews
 
 
-#Preview("SelfIdCollection+View", traits: .headerFooter, PreviewContent.layout) {
-    @Previewable @State var selfIdentifiedValue: PreviewContent.SelfIdentifiedValues = .heidi
-
-    PreviewCaption("Picker with a collection of **self-identifiable** elements.")
-
-    Text("Value: \(selfIdentifiedValue.rawValue)")
-        .monospaced()
-    Picker(
-        "SelfIdentifiable Picker",
-        selection: $selfIdentifiedValue,
-        selectables: PreviewContent.SelfIdentifiedValues.allCases,
-    ) { value in
-        Text(value.rawValue.capitalized)
-    }.pickerStyle(.segmented)
-}
+//#Preview("SelfIdCollection+View", traits: .headerFooter, PreviewContent.layout) {
+//    @Previewable @State var selfIdentifiedValue: PreviewContent.SelfIdentifiedValues = .heidi
+//
+//    PreviewCaption("Picker with a collection of **self-identifiable** elements.")
+//
+//    Text("Value: \(selfIdentifiedValue.rawValue)")
+//        .monospaced()
+//    Picker(
+//        "SelfIdentifiable Picker",
+//        selection: $selfIdentifiedValue,
+//        selectables: PreviewContent.SelfIdentifiedValues.allCases,
+//    ) { value in
+//        Text(value.rawValue.capitalized)
+//    }.pickerStyle(.segmented)
+//}
 
 
 // MARK: Collection of Values + ID KeyPath + Element Formatter
