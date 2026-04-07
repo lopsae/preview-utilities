@@ -245,7 +245,7 @@ extension Picker {
     /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
     /// the picker label, and transforming the collection elements through a format style for their
     /// respective labels.
-    init<ValuesCollection, ElementID>(
+    public init<ValuesCollection, ElementID>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
         collection: ValuesCollection,
@@ -500,7 +500,7 @@ private struct PreviewContent {
 /// produced by a `ForEach` need to be tagged, this type can be used to provide a concrete type in
 /// type constraints. The usual `.tag` modifier cannot be used since it returns an opaque
 /// `some View`.
-struct TaggedText<Tag>: View where Tag: Hashable {
+public struct TaggedText<Tag>: View where Tag: Hashable {
     let string: String
     let tag: Tag
 
@@ -509,7 +509,7 @@ struct TaggedText<Tag>: View where Tag: Hashable {
         self.tag = tag
     }
 
-    var body: some View {
+    public var body: some View {
         Text(verbatim: string).tag(tag)
     }
 }
