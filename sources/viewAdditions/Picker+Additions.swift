@@ -137,7 +137,7 @@ extension Picker {
 // MARK: - Previews
 
 
-#Preview("Id'dCollection+View", traits: .headerFooter, PreviewContent.layout) {
+#Preview("IdCollection+View", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var identifiedValue: PreviewContent.IdentifiedValues = .bob
 
     PreviewCaption("""
@@ -156,6 +156,9 @@ extension Picker {
     }.pickerStyle(.segmented)
 }
 
+
+// TODO: This initializer may not be necessary anymore, after the collection inits enforce that
+// collection.elements ARE the selection values.
 
 // MARK: Collection of Self-Identifiables + ViewBuilder
 // + Selection value binding.
@@ -197,12 +200,37 @@ extension Picker {
         )
     }
 
+}
 
-    // MARK: Collection of Values + ID KeyPath + Element Format
-    // + Selection Value
-    // + Collection of possible values
-    // + ID KeyPath
-    // + Formatter for producing Texts
+
+// MARK: - Previews
+
+
+#Preview("SelfIdCollection+View", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var selfIdentifiedValue: PreviewContent.SelfIdentifiedValues = .heidi
+
+    PreviewCaption("Picker with a collection of **self-identifiable** elements.")
+
+    Text("Value: \(selfIdentifiedValue.rawValue)")
+        .monospaced()
+    Picker(
+        "SelfIdentifiable Picker",
+        selection: $selfIdentifiedValue,
+        selectables: PreviewContent.SelfIdentifiedValues.allCases,
+    ) { value in
+        Text(value.rawValue.capitalized)
+    }.pickerStyle(.segmented)
+}
+
+
+// MARK: Collection of Values + ID KeyPath + Element Formatter
+// + Selection Value
+// + Collection of possible values
+// + ID KeyPath
+// + Formatter for producing Texts
+
+
+extension Picker {
 
     /// Creates a picker that generates its label and option views with the formatted elements of a
     /// given collection identified through a key path.
@@ -428,40 +456,6 @@ where Content: View, Tag: Hashable
 
 
 // MARK: - Previews
-
-
-#Preview("Identifiable", traits: .headerFooter, PreviewContent.layout) {
-    @Previewable @State var identifiedValue: PreviewContent.IdentifiedValues = .bob
-    @Previewable @State var selfIdentifiedValue: PreviewContent.SelfIdentifiedValues = .heidi
-
-    VStack(alignment: .leading) {
-//        PreviewCaption("Picker with a collection of **identifiable** elements.")
-//        Text("Value: \(identifiedValue.rawValue)")
-//            .monospaced()
-//        Picker(
-//            "Identifiable Picker",
-//            selection: $identifiedValue,
-//            collection: PreviewContent.IdentifiedValues.allCases
-//        ) { value in
-//            // Id is not self, tag is required for selection to work.
-//            Text(value.rawValue.capitalized).tag(value)
-//        }.pickerStyle(.segmented)
-//
-//        DashedDivider()
-
-        PreviewCaption("Picker with a collection of **self-identifiable** elements.")
-        Text("Value: \(selfIdentifiedValue.rawValue)")
-            .monospaced()
-        Picker(
-            "SelfIdentifiable Picker",
-            selection: $selfIdentifiedValue,
-            selectables: PreviewContent.SelfIdentifiedValues.allCases,
-        ) { value in
-            // No tag needed!
-            Text(value.rawValue.capitalized)
-        }.pickerStyle(.segmented)
-    } // VStack
-}
 
 
 #Preview("Formatted", traits: .headerFooter, PreviewContent.layout) {
