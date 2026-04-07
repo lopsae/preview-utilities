@@ -270,6 +270,42 @@ extension Picker {
         )
     }
 
+
+    // TODO: added, but deemed unnecessary, since most of times that a property of a object is going
+    // to be used, it will need some formatting, like capitalization. Delete if this is not used.
+
+    /// Creates a picker that generates its label and option views with a string property of the
+    /// elements of the given collection. The collection contains the possible selection values, and
+    /// each element is identified with the given keypath.
+    ///
+    /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
+    /// the picker label, and retrieving a string from each collection element using the
+    /// `elementString` keypath for their respective labels.
+//    init<ValuesCollection, ElementID>(
+//        _ title: LocalizedStringKey,
+//        selection: Binding<SelectionValue>,
+//        collection: ValuesCollection,
+//        id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
+//        elementString: KeyPath<ValuesCollection.Element, String>,
+//    ) where
+//        ValuesCollection: RandomAccessCollection,
+//        ValuesCollection.Element == SelectionValue,
+//        ElementID: Hashable,
+//        Label == Text,
+//        Content == ForEach<ValuesCollection, ElementID, TaggedText<SelectionValue>>
+//    {
+//        self.init(
+//            title,
+//            selection: selection,
+//            content: {
+//                ForEach(collection, id: idKeyPath) { element in
+//                    let string = element[keyPath: elementString]
+//                    TaggedText(verbatim: string, tag: element)
+//                }
+//            }
+//        )
+//    }
+
 }
 
 
