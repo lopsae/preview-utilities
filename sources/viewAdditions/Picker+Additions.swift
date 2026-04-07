@@ -223,20 +223,27 @@ extension Picker {
 //}
 
 
-// MARK: Collection of Values + ID KeyPath + Element Formatter
-// + Selection Value
-// + Collection of possible values
-// + ID KeyPath
-// + Formatter for producing Texts
 
+// =================================================================================================
+// MARK: - With Formatters
+// =================================================================================================
+
+
+
+// MARK: Collection + ID KeyPath + Element Formatter
+// + Selection value binding.
+// + Collection of possible selection values.
+// + ID KeyPath.
+// + Formatter for producing Texts
 
 extension Picker {
 
-    /// Creates a picker that generates its label and option views with the formatted elements of a
-    /// given collection identified through a key path.
+    /// Creates a picker that generates its label and option views with the formatted elements of
+    /// the given collection. The collection contains the possible selection values, and each
+    /// element is identified with the given keypath.
     ///
     /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
-    /// the picker label, and transforming the selection values through a format style for their
+    /// the picker label, and transforming the collection elements through a format style for their
     /// respective labels.
     init<ValuesCollection, ElementID>(
         _ title: LocalizedStringKey,
@@ -263,6 +270,10 @@ extension Picker {
         )
     }
 
+}
+
+
+extension Picker {
 
     // MARK: Self-Identifiables Collection + Element Format
     // + Selection Value
