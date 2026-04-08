@@ -72,7 +72,7 @@ import UIKit
 extension CGRect {
 
     @inlinable nonisolated
-    func inset(by value: CGFloat) -> Self {
+    public func inset(by value: CGFloat) -> Self {
         inset(by: UIEdgeInsets.all(value))
     }
 
