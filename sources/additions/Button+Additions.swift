@@ -37,7 +37,7 @@ extension Button {
             } icon: {
                 HiddenParentOverlay {
                     Text(verbatim: "M")
-                } content: {
+                } overlaid: {
                     Image(systemName: systemImage)
                 }
             }
