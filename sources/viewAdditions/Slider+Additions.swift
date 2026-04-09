@@ -50,16 +50,26 @@ extension Slider where Label : View {
     /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
     /// the slider label, and transforming the current and bounds values through the format style
     /// for their respective label.
-    init<Value>(
+    init<Value, CurrentFormat, BoundsFormat>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
         in bounds: ClosedRange<Value> = 0...1,
-        currentValueFormat: any FormatStyle<Value, String>,
-        boundsValueFormat: any FormatStyle<Value, String>,
+        currentValueFormat: CurrentFormat,
+        boundsValueFormat: BoundsFormat,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
+        // This initializer uses generics for the parameters FormatStyle, instead of `any FormatStyle`
+        // as used in the rest of initializers. This should work exactly the same.
+        // This was changed to mimic how Text works, which uses generics for the FormatStyle as well.
+        // If this causes no issues in the long term, this should be the preferred approach.
         Value : BinaryFloatingPoint,
         Value.Stride : BinaryFloatingPoint,
+        CurrentFormat: FormatStyle,
+        CurrentFormat.FormatInput == Value,
+        CurrentFormat.FormatOutput == String,
+        BoundsFormat: FormatStyle,
+        BoundsFormat.FormatInput == Value,
+        BoundsFormat.FormatOutput == String,
         Label == Text,
         ValueLabel == Text
     {
@@ -247,20 +257,26 @@ extension Slider where Label : View {
 
 extension Slider {
 
-    public static func captioned<Value>(
+    public static func captioned<Value, CurrentFormat, BoundsFormat>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
         in bounds: ClosedRange<Value> = 0...1,
         step: Value.Stride = 1,
-        currentValueFormat: any FormatStyle<Value, String>,
-        boundsValueFormat: any FormatStyle<Value, String>,
+        currentValueFormat: CurrentFormat,
+        boundsValueFormat: BoundsFormat,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) -> some View
     where
-       Value : BinaryFloatingPoint,
-       Value.Stride : BinaryFloatingPoint,
-       Label == Text,
-       ValueLabel == Text
+        Value: BinaryFloatingPoint,
+        Value.Stride: BinaryFloatingPoint,
+        CurrentFormat: FormatStyle,
+        CurrentFormat.FormatInput == Value,
+        CurrentFormat.FormatOutput == String,
+        BoundsFormat: FormatStyle,
+        BoundsFormat.FormatInput == Value,
+        BoundsFormat.FormatOutput == String,
+        Label == Text,
+        ValueLabel == Text
     {
         let slider = Slider(
             title, value: value, in: bounds,
@@ -295,16 +311,19 @@ extension Slider {
     }
 
 
-    public static func captioned<Value>(
+    public static func captioned<Value, Format>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
         in bounds: ClosedRange<Value> = 0...1,
-        valueFormat: any FormatStyle<Value, String>,
+        valueFormat: Format,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) -> some View
     where
         Value : BinaryFloatingPoint,
         Value.Stride : BinaryFloatingPoint,
+        Format: FormatStyle,
+        Format.FormatInput == Value,
+        Format.FormatOutput == String,
         Label == Text,
         ValueLabel == Text
     {
