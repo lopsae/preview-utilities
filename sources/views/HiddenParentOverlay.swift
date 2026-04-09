@@ -30,3 +30,29 @@ public struct HiddenParentOverlay<Parent: View, Content: View>: View {
             }
     }
 }
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+    HiddenParentOverlay {
+        Text("Parent")
+    } content: {
+        Text("Longer Overlaid Text")
+            .font(.title)
+            .fixedSize()
+    }
+    .floatingCaption("Hidden Parent", .colorStyle(.purple), .alignment(.outerTop))
+}
