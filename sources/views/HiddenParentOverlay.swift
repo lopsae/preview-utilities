@@ -87,8 +87,8 @@ private struct PreviewContent {
         Text("Parent")
     } overlaid: {
         Text("Large Overlaid Text")
-            .font(.title)
-            .fixedSize()
+        .font(.title)
+        .fixedSize()
     }
     .floatingCaption("Hidden Parent", .colorStyle(.purple), .alignment(.outerTop))
 
@@ -98,10 +98,35 @@ private struct PreviewContent {
         Text("Parent")
     } overlaid: {
         Text("Large Overlaid Text")
-            .font(.title)
-            .fixedSize()
-            .opacity(0.1)
+        .font(.title)
+        .fixedSize()
+        .opacity(0.1)
     }
     .makeParentVisible()
     .floatingCaption("Visible Parent", .colorStyle(.purple), .alignment(.outerBottom))
+
+    DashedDivider().padding(.top)
+
+    PreviewCaption("Modifiers like `.font` will affect both the hidden parent and the overlaid content.")
+
+    HiddenParentOverlay {
+        Text("Parent")
+    } overlaid: {
+        Text("Long Overlaid Text")
+        .fixedSize()
+        .opacity(0.1)
+    }
+    .makeParentVisible()
+    .font(.headline)
+
+
+    HiddenParentOverlay {
+        Image(systemName: "circle")
+    } overlaid: {
+        Text("Overlaid Text")
+        .fixedSize()
+        .opacity(0.1)
+    }
+    .makeParentVisible()
+    .font(.title)
 }
