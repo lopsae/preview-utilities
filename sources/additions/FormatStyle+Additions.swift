@@ -11,12 +11,12 @@ import SwiftUI
 extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
 
     @inlinable nonisolated
-    public static var arithmeticRoundedInteger: FloatingPointFormatStyle<Double> {
+    public static var arithmeticRoundedInteger: Self {
         .number.rounded(rule: .toNearestOrEven, increment: 1)
     }
 
     @inlinable nonisolated
-    public static func fractionLength(_ length: Int) -> FloatingPointFormatStyle<Double> {
+    public static func fractionLength(_ length: Int) -> Self {
         .number.precision(.fractionLength(length))
     }
 
@@ -26,13 +26,13 @@ extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
 extension FormatStyle where Self == FloatingPointFormatStyle<CGFloat> {
 
     @inlinable nonisolated
-    public static var arithmeticRoundedInteger: FloatingPointFormatStyle<CGFloat> {
-        Self().rounded(rule: .toNearestOrEven, increment: 1)
+    public static var arithmeticRoundedInteger: Self {
+        .init().rounded(rule: .toNearestOrEven, increment: 1)
     }
 
     @inlinable nonisolated
-    public static func fractionLength(_ length: Int) -> FloatingPointFormatStyle<CGFloat> {
-        Self().precision(.fractionLength(length))
+    public static func fractionLength(_ length: Int) -> Self {
+        .init().precision(.fractionLength(length))
     }
 
 }
