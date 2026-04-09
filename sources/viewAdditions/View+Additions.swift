@@ -18,14 +18,28 @@ extension View {
     }
 
     @inlinable nonisolated
-    public func maxWidthFrame(minHeight: CGFloat? = nil, alignment: Alignment = .center) -> some View {
-        self.frame(maxWidth: .infinity, minHeight: minHeight, alignment: alignment)
+    public func maxWidthFrame(alignment: Alignment = .center) -> some View {
+        self.frame(maxWidth: .infinity, alignment: alignment)
     }
 
 
     @inlinable nonisolated
-    public func maxHeightFrame(minWidth: CGFloat? = nil, alignment: Alignment = .center) -> some View {
-        self.frame(minWidth: minWidth, maxHeight: .infinity, alignment: alignment)
+    public func maxWidthFrame(height: CGFloat, alignment: Alignment = .center) -> some View {
+        self.frame(maxWidth: .infinity, alignment: alignment)
+            .frame(height: height, alignment: alignment)
+    }
+
+
+    @inlinable nonisolated
+    public func maxHeightFrame(alignment: Alignment = .center) -> some View {
+        self.frame(maxHeight: .infinity, alignment: alignment)
+    }
+
+
+    @inlinable nonisolated
+    public func maxHeightFrame(width: CGFloat, alignment: Alignment = .center) -> some View {
+        self.frame(maxHeight: .infinity, alignment: alignment)
+            .frame(width: width, alignment: alignment)
     }
 
 
