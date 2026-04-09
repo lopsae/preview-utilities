@@ -179,8 +179,8 @@ extension CGSize {
 extension CGSize: @retroactive ExpressibleByArrayLiteral {
 
     public init(arrayLiteral elements: CGFloat...) {
-        guard elements.count >= 2 else {
-            fatalError("CGSize expressed as an array literal must have at least 2 elements: \(elements)")
+        guard elements.count == 2 else {
+            fatalError("CGSize expressed as an array literal must have exactly 2 elements: \(elements)")
         }
         self.init(width: elements[0], height: elements[1])
     }
