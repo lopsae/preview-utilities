@@ -34,15 +34,37 @@ extension CGRect {
     }
 
 
+    /// Returns a rectangle of the given size centered in `self`.
     @inlinable nonisolated
     public func center(size: CGSize) -> Self {
         let centeredRect = CGRect(
-            x: (self.width - size.width) / 2 + self.origin.x,
-            y: (self.height - size.height) / 2 + self.origin.y,
+            x: (width - size.width) / 2 + origin.x,
+            y: (height - size.height) / 2 + origin.y,
             width: size.width,
             height: size.height
         )
         return centeredRect
+    }
+
+
+    /// Returns a copy of the given rectangle aligned to the specfied edge of `self`.
+    ///
+    /// The returned rectangle keeps the same properties as `other`, except for either `origin.x` or
+    /// `origin.y` which are modified to align to the specified edge of `self`.
+    @inlinable nonisolated
+    public func align(rect other: CGRect, to edge: Edge) -> Self {
+        var alignedRect = other
+        switch edge {
+        case .top:
+            alignedRect.origin.y = origin.y
+        case .leading:
+            alignedRect.origin.x = origin.x
+        case .bottom:
+            alignedRect.origin.y = origin.y + height - other.height
+        case .trailing:
+            alignedRect.origin.x = origin.x + width - other.width
+        }
+        return alignedRect
     }
 
 
