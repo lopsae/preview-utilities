@@ -50,7 +50,7 @@ extension CGRect {
     /// Returns a copy of the given rectangle aligned to the specfied edge of `self`.
     ///
     /// The returned rectangle keeps the same properties as `other`, except for either `origin.x` or
-    /// `origin.y` which are modified to align to the specified edge of `self`.
+    /// `origin.y` which are updated to align to the specified edge of `self`.
     @inlinable nonisolated
     public func align(rect other: CGRect, to edge: Edge) -> Self {
         var alignedRect = other
@@ -65,6 +65,16 @@ extension CGRect {
             alignedRect.origin.x = origin.x + width - other.width
         }
         return alignedRect
+    }
+
+
+    /// Returns a copy of `self` aligned to the specified edge of the given rectangle.
+    ///
+    /// The returned rectangle keeps the same properties as `self`, except for either `origin.x` or
+    /// `origin.y` which are updated to align to the specified edge of `other`.
+    @inlinable nonisolated
+    public func aligned(to edge: Edge, of other: CGRect) -> Self {
+        other.align(rect: self, to: edge)
     }
 
 

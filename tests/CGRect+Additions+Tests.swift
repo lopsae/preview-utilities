@@ -27,6 +27,11 @@ struct CGRectAdditionsTests {
         #expect(rect.align(rect: toAlign, to: .leading)  == .init(origin: [5,  20], size: [60, 40]))
         #expect(rect.align(rect: toAlign, to: .bottom)   == .init(origin: [30, 47], size: [60, 40]))
         #expect(rect.align(rect: toAlign, to: .trailing) == .init(origin: [35, 20], size: [60, 40]))
+
+        #expect(toAlign.aligned(to: .top,      of: rect) == .init(origin: [30,  7], size: [60, 40]))
+        #expect(toAlign.aligned(to: .leading,  of: rect) == .init(origin: [5,  20], size: [60, 40]))
+        #expect(toAlign.aligned(to: .bottom,   of: rect) == .init(origin: [30, 47], size: [60, 40]))
+        #expect(toAlign.aligned(to: .trailing, of: rect) == .init(origin: [35, 20], size: [60, 40]))
     }
 
 }
