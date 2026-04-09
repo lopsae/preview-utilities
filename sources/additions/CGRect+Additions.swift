@@ -76,6 +76,12 @@ extension CGRect {
         inset(by: UIEdgeInsets.all(value))
     }
 
+
+    @inlinable nonisolated
+    public func outset(by value: CGFloat) -> Self {
+        inset(by: UIEdgeInsets.all(-value))
+    }
+
 }
 
 #endif
