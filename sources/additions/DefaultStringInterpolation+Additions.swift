@@ -4,6 +4,7 @@
 //
 
 
+import Playgrounds
 import Foundation
 
 
@@ -31,4 +32,16 @@ extension DefaultStringInterpolation {
         appendInterpolation(formattedValue)
     }
 
+}
+
+
+// MARK: - Playgrounds
+
+
+#Playground("Default") {
+    _ = "NilDefault (none): \(nilDefault: Optional<Int>.none)"
+    _ = "NilDefault (some): \(nilDefault: Optional<Int>.some(57))"
+    _ = "EmptyDefault (none): \(emptyDefault: Optional<Int>.none)"
+
+    _ = "Format Interpolation: \(2.57, format: .number.notation(.scientific))"
 }
