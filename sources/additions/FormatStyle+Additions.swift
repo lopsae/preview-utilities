@@ -5,6 +5,7 @@
 
 
 import Foundation
+import Playgrounds
 import SwiftUI
 
 
@@ -54,12 +55,12 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var doubleValue: Double = 2.57
-    @Previewable @State var cgfloatValue: CGFloat = 5.72
+    @Previewable @State var cgFloatValue: CGFloat = 5.72
 
-    Text("`Double` Rounded: ")
+    Text("`Double` Rounded:")
     Text(doubleValue, format: .arithmeticRoundedInteger)
 
-    Text("`Double` Fraction Length: ")
+    Text("`Double` Fraction Length:")
     Text(doubleValue, format: .fractionLength(3))
 
     Slider.captioned(
@@ -70,15 +71,24 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("`CGFloat` Rounded: ")
-    Text(cgfloatValue, format: .arithmeticRoundedInteger)
+    Text("`CGFloat` Rounded:")
+    Text(cgFloatValue, format: .arithmeticRoundedInteger)
 
-    Text("`CGFloat` Fraction Length: ")
-    Text(cgfloatValue, format: .fractionLength(3))
+    Text("`CGFloat` Fraction Length:")
+    Text(cgFloatValue, format: .fractionLength(3))
 
     Slider.captioned(
         "CGFloat Value",
-        value: $cgfloatValue, in: 0...10,
+        value: $cgFloatValue, in: 0...10,
         currentValueFormat: .fractionLength(1),
         boundsValueFormat: .arithmeticRoundedInteger)
+}
+
+
+#Playground("StringInterpolation") {
+    let doubleValue: Double = 2.575757
+    let doubleString = "Double: \(doubleValue, format: .fractionLength(3))"
+
+    let cgFloatValue: CGFloat = 5.727272
+    let cgFloatString = "CGFloat: \(cgFloatValue, format: .fractionLength(3))"
 }
