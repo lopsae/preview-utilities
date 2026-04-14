@@ -15,15 +15,16 @@ extension Slider where Label : View {
     /// Creates a slider to select a value from a given range, which generates its label, and
     /// displays the provided labels for current and bounds values.
     ///
-    /// This initializer creates a ``SwiftUI/Text`` view on your behalf, and treats the
-    /// localized key similar to ``SwiftUI/Text/init(_:tableName:bundle:comment:)``. See
-    /// ``SwiftUI/Text`` for more information about localizing strings.
+    /// This initializer creates a ``SwiftUI/Text`` view on your behalf for the slider label, and
+    /// treats the localized key similar to ``SwiftUI/Text/init(_:tableName:bundle:comment:)``.
+    ///
+    /// See``SwiftUI/Text`` for more information about localizing strings.
     init<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
         in bounds: ClosedRange<Value> = 0...1,
         @ViewBuilder currentValueLabel: () -> some View = { EmptyView() },
-        @ViewBuilder boundsValueLabel: (Value) -> ValueLabel = { (_: Value) in EmptyView() },
+        @ViewBuilder boundsValueLabel: (Value) -> ValueLabel,
         onEditingChanged: @escaping (Bool) -> Void = { _ in }
     ) where
         Value : BinaryFloatingPoint,
@@ -44,12 +45,47 @@ extension Slider where Label : View {
     }
 
 
+    /// Creates a slider to select a value from a given range, which generates its label, and
+    /// displays the provided label for the current value.
+    ///
+    /// No labels are displayed for the bounds values.
+    ///
+    /// This initializer creates a ``SwiftUI/Text`` view on your behalf for the slider label, and
+    /// treats the localized key similar to ``SwiftUI/Text/init(_:tableName:bundle:comment:)``.
+    ///
+    /// See``SwiftUI/Text`` for more information about localizing strings.
+    init<Value>(
+        _ title: LocalizedStringKey,
+        value: Binding<Value>,
+        in bounds: ClosedRange<Value> = 0...1,
+        @ViewBuilder currentValueLabel: () -> some View = { EmptyView() },
+        onEditingChanged: @escaping (Bool) -> Void = { _ in }
+    ) where
+        Value : BinaryFloatingPoint,
+        Value.Stride : BinaryFloatingPoint,
+        Label == Text,
+        ValueLabel == EmptyView
+    {
+        self.init(
+            value: value,
+            in: bounds,
+            neutralValue: nil,
+            enabledBounds: nil,
+            label: { Text(title) },
+            currentValueLabel: currentValueLabel,
+            minimumValueLabel: { EmptyView() },
+            maximumValueLabel: { EmptyView() },
+            onEditingChanged: onEditingChanged
+        )
+    }
+
+
     /// Creates a slider to select a value from a given range, which generates labels for itself,
     /// current, and bounds values.
     ///
     /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
     /// the slider label, and transforming the current and bounds values through the format style
-    /// for their respective label.
+    /// for their respective labels.
     init<Value, CurrentFormat, BoundsFormat>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
@@ -91,7 +127,7 @@ extension Slider where Label : View {
     ///
     /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
     /// the slider label, and transforming the current and bounds values through the format style
-    /// for their respective label.
+    /// for their respective labels.
     init<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
@@ -127,7 +163,7 @@ extension Slider where Label : View {
     ///
     /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
     /// the slider label, and transforming the current and bounds values through a single format
-    /// style for their respective label.
+    /// style for their respective labels.
     init<Value>(
         _ title: LocalizedStringKey,
         value: Binding<Value>,
@@ -159,7 +195,7 @@ extension Slider where Label : View {
     ///
     /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
     /// the slider label, and transforming the collection-mapped current and bounds values through
-    /// the format style for their respective label.
+    /// the format style for their respective labels.
     init<Value, MapCollection>(
         _ title: LocalizedStringKey,
         collection: MapCollection,
