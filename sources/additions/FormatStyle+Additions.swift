@@ -87,8 +87,8 @@ private struct PreviewContent {
 
 #Playground("StringInterpolation") {
     let doubleValue: Double = 2.575757
-    let doubleString = "Double: \(doubleValue, format: .fractionLength(3))"
+    _ = "Formatted Double: \(doubleValue, format: .fractionLength(3))"
 
     let cgFloatValue: CGFloat = 5.727272
-    let cgFloatString = "CGFloat: \(cgFloatValue, format: .fractionLength(3))"
+    _ = "Formatted CGFloat: \(cgFloatValue, format: .fractionLength(3))"
 }
