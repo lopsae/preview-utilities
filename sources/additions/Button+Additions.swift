@@ -10,6 +10,9 @@ import SwiftUI
 extension Button {
 
 
+    // FUTURE: Would this work better as a button style? Likely no, because then that would exclude
+    // other button styles like .iconOnly. Unless styles can be stacked together.
+
     /// Creates a button that generates its label from a localized string key
     /// and system image name constrained in size.
     ///
@@ -36,6 +39,7 @@ extension Button {
                 Text(titleKey)
             } icon: {
                 HiddenParentOverlay {
+                    // FUTURE: use instead a circle image.
                     Text(verbatim: "M")
                 } overlaid: {
                     Image(systemName: systemImage)
