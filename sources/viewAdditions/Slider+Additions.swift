@@ -188,7 +188,7 @@ extension Slider where Label : View {
 
         self.init(
             value: mapBinding,
-            in: Value(collection.startIndex)...Value(collection.beforeEndIndex),
+            in: Value(collection.startIndex)...Value(collection.finalIndex),
             step: 1.0,
             neutralValue: nil,
             enabledBounds: nil,
@@ -233,7 +233,7 @@ extension Slider where Label : View {
 
         self.init(
             value: mapBinding,
-            in: Value(collection.startIndex)...Value(collection.beforeEndIndex),
+            in: Value(collection.startIndex)...Value(collection.finalIndex),
             step: 1.0,
             neutralValue: nil,
             enabledBounds: nil,

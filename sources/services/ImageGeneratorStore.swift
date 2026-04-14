@@ -423,7 +423,7 @@ private struct PreviewContent {
             strings.startIndex,
             strings.endIndex * 1/4,
             strings.endIndex * 3/4,
-            strings.beforeEndIndex
+            strings.finalIndex
         ]
         ForEach(indices, id: \.self) { index in
             let string  = strings[index]
