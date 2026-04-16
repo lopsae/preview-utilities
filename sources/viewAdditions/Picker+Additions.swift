@@ -105,7 +105,7 @@ extension Picker {
     ///
     /// The views created by `elementContent` are automatically tagged with their corresponding
     /// element.
-    init<ValuesCollection, ElementContent>(
+    public init<ValuesCollection, ElementContent>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
         collection: ValuesCollection,
@@ -525,7 +525,7 @@ public struct TaggedText<Tag>: View where Tag: Hashable {
 /// produced by a `ForEach` need to be tagged, this type can be used to provide a concrete type in
 /// type constraints. The usual `.tag` modifier cannot be used since it returns an opaque
 /// `some View`.
-struct TaggedView<Content, Tag>: View
+public struct TaggedView<Content, Tag>: View
 where Content: View, Tag: Hashable
 {
     let content: () -> Content
@@ -536,7 +536,7 @@ where Content: View, Tag: Hashable
         self.tag = tag
     }
 
-    var body: some View {
+    public var body: some View {
         content()
         .tag(tag)
     }
