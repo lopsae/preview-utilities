@@ -35,7 +35,7 @@ extension Picker {
     ///
     /// The views created by `elementContent` are automatically tagged with their corresponding
     /// element.
-    init<ValuesCollection, ElementContent, ElementID>(
+    public init<ValuesCollection, ElementContent, ElementID>(
         _ title: LocalizedStringKey,
         selection: Binding<SelectionValue>,
         collection: ValuesCollection,
