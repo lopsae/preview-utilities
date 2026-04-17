@@ -20,33 +20,34 @@ import SwiftUI
 /// by the parent view, irregardless of the size of the overlaid content.
 public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
 
-    let visibleParent: Bool
+    let isParentVisible: Bool
     let parent: () -> Parent
     let overlaid: () -> Overlaid
-
-
-    init(
-        visibleParent: Bool = false,
-        @ViewBuilder parent: @escaping () -> Parent,
-        @ViewBuilder overlaid: @escaping () -> Overlaid
-    ) {
-        self.visibleParent = visibleParent
-        self.parent = parent
-        self.overlaid = overlaid
-    }
 
 
     public init(
         @ViewBuilder parent: @escaping () -> Parent,
         @ViewBuilder overlaid: @escaping () -> Overlaid
     ) {
-        self.init(visibleParent: false, parent: parent, overlaid: overlaid)
+        self.init(parent: parent, overlaid: overlaid, isParentVisible: false)
+    }
+
+
+    /// Private initializer for parent visibility.
+    private init(
+        parent: @escaping () -> Parent,
+        overlaid: @escaping () -> Overlaid,
+        isParentVisible: Bool
+    ) {
+        self.parent = parent
+        self.overlaid = overlaid
+        self.isParentVisible = isParentVisible
     }
 
 
     public var body: some View {
         Group {
-            if visibleParent {
+            if isParentVisible {
                 parent()
             } else {
                 parent()
@@ -62,7 +63,7 @@ public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
 
     /// Returns the view with the parent visible. Intended for preview and troubleshooting.
     public func makeParentVisible() -> Self {
-        .init(visibleParent: true, parent: parent, overlaid: overlaid)
+        .init(parent: parent, overlaid: overlaid, isParentVisible: true)
     }
 
 }
