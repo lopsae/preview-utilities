@@ -12,12 +12,13 @@ import SwiftUI
 /// The parent content is hidden visually and for accessibility, but still occupies space normally
 /// for layout purpouses.
 ///
-/// The parent content determines the space that will be used. The overlaid content is centered in
+/// The parent content determines the space that will be used. The overlaid content is aligned in
 /// this space. Overlaid content larger that the parent content does not modify the size occupied by
 /// the parent content, the overlaid content just overflows.
 ///
-/// This has the practical result of displaying the overlaid content centered in the space occupied
-/// by the parent view, irregardless of the size of the overlaid content.
+/// This has the practical result of displaying the overlaid content aligned to the space occupied
+/// by the parent view, while using exactly the size of the parent view irregardless of the size of
+/// the overlaid content.
 public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
 
     let parent: () -> Parent
@@ -140,7 +141,7 @@ private struct PreviewContent {
 
 #Preview("Alignments", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var horizontalAlignment: HorizontalAlignmentEnum = .center
-    @Previewable @State var verticalAlignment: VerticalAlignmentEnum = .bottom
+    @Previewable @State var verticalAlignment: VerticalAlignmentEnum = .firstTextBaseline
 
     Picker(
         "Horizontal",
@@ -160,6 +161,7 @@ private struct PreviewContent {
         horizontal: horizontalAlignment.alignment,
         vertical: verticalAlignment.alignment)
 
+    let viewHeight: Double = 70
     HiddenParentOverlay(alignment: alignment) {
         Text("Parent")
     } overlaid: {
@@ -169,7 +171,7 @@ private struct PreviewContent {
         .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
     }
     .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
-    .frame(height: 70)
+    .frame(height: viewHeight)
 
     DashedDivider()
 
@@ -184,5 +186,51 @@ private struct PreviewContent {
     }
     .visibleParent()
     .floatingCaption("Visible Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
+    .frame(height: viewHeight)
+
+    PreviewCaption("With images, since images contain text alignment guides.")
+        .padding(.bottom)
+
+    HStack {
+        let viewSize: CGSize = [100, 70]
+        HiddenParentOverlay(alignment: alignment) {
+            Image(systemName: "circle")
+                .font(.title2)
+        } overlaid: {
+            Image(systemName: "person.crop.square.on.square.angled")
+            .font(.largeTitle)
+            .opacity(0.2)
+            .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+        }
+        .visibleParent()
+        .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
+        .maxSizeFrame()
+
+        HiddenParentOverlay(alignment: alignment) {
+            Image(systemName: "circle")
+            .font(.title2)
+        } overlaid: {
+            Image(systemName: "envelope.badge.shield.half.filled")
+            .font(.largeTitle)
+            .opacity(0.2)
+            .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+        }
+        .visibleParent()
+        .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
+        .maxSizeFrame()
+
+        HiddenParentOverlay(alignment: alignment) {
+            Image(systemName: "circle")
+            .font(.title2)
+        } overlaid: {
+            Image(systemName: "photo.badge.shield.exclamationmark")
+            .font(.largeTitle)
+            .opacity(0.2)
+            .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+        }
+        .visibleParent()
+        .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
+        .maxSizeFrame()
+    }
     .frame(height: 70)
 }
