@@ -22,7 +22,7 @@ extension Button {
     /// is specially noticeable when using the `.iconOnly` label style. The label for the button
     /// constrains the space the image uses to the space occupied by a hidden `Text` containing
     /// only the string `M`. The image is not resized, it is centered over its available space.
-    /// Large images may appear closer to the label compared to when using the stock button
+    /// Large images may appear closer to the label compared to when using the default button
     /// initializers.
     ///
     /// This initializer creates a ``Label`` view on your behalf, and treats the localized key
@@ -32,9 +32,27 @@ extension Button {
         constrainedSystemImage systemImage: String,
         action: @escaping () -> Void
     )
-        where Label == SwiftUI.Label<Text, HiddenParentOverlay<Text, Image>>
+        where Label == SwiftUI.Label<Text, HiddenParentOverlay<Text, ViewWithOpacity<Image>>>
+    {
+        self.init(
+            titleKey,
+            constrainedSystemImage: systemImage,
+            visibleConstraint: false,
+            action: action
+        )
+    }
+
+
+    fileprivate init(
+        _ titleKey: LocalizedStringKey,
+        constrainedSystemImage systemImage: String,
+        visibleConstraint: Bool,
+        action: @escaping () -> Void
+    )
+        where Label == SwiftUI.Label<Text, HiddenParentOverlay<Text, ViewWithOpacity<Image>>>
     {
         self.init(action: action) {
+            let opacity: Double? = visibleConstraint ? 0.5 : nil
             SwiftUI.Label {
                 Text(titleKey)
             } icon: {
@@ -42,11 +60,15 @@ extension Button {
                     // FUTURE: use instead a circle image.
                     Text(verbatim: "M")
                 } overlaid: {
-                    Image(systemName: systemImage)
+                    ViewWithOpacity(opacity: opacity) {
+                        Image(systemName: systemImage)
+                    }
                 }
+                .visibleParent(visibleConstraint)
             }
         }
     }
+
 
 }
 
@@ -82,12 +104,17 @@ private struct PreviewContent {
         Button("Plus", constrainedSystemImage: "plus", action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
+
+        Button("Photo", constrainedSystemImage: "photo.badge.shield.exclamationmark", action: {})
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
     }
 
     Text.caption("Toggle buttons:")
 
     Button(
-        "Circle",
+        "Circle/Fill",
         constrainedSystemImage: circleToggle ? "circle.fill" : "circle"
     ) { circleToggle.toggle() }
     .buttonStyle(.borderedProminent)
@@ -95,7 +122,7 @@ private struct PreviewContent {
     .debugOverlay(.hairline, .size, .infoAlignment(.outerTrailing))
 
     Button(
-        "Vertical",
+        "Vertical/Horizontal",
         constrainedSystemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
     ) { guidepointToggle.toggle() }
     .buttonStyle(.borderedProminent)
@@ -203,5 +230,68 @@ private struct PreviewContent {
                 .buttonStyle(.borderedProminent)
             Text.caption("Regular")
         }.font(.title)
+    }
+}
+
+
+#Preview("VisibleConstrain", traits: .headerFooter, PreviewContent.layout) {
+    PreviewCaption("""
+        The `visibleConstrain` parameter can be used to debug the hidden image constrain.
+        """)
+
+    HStack {
+        VStack {
+            let imageName = "guidepoint.horizontal"
+            Text.caption("Constrained")
+            Button("Horiz", constrainedSystemImage: imageName, action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Horiz", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Horiz", systemImage: imageName, action: {})
+                .buttonStyle(.borderedProminent)
+            Text.caption("Regular")
+        }
+
+        VStack {
+            let imageName = "photo.badge.shield.exclamationmark"
+            Text.caption("Constrained")
+            Button("Off", constrainedSystemImage: imageName, action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Off", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
+                .buttonStyle(.borderedProminent)
+            Button("Off", systemImage: imageName, action: {})
+                .buttonStyle(.borderedProminent)
+            Text.caption("Regular")
+        }
+    }
+}
+
+
+
+// MARK: EXPERIMENTAL: ViewWithOpacity
+
+// FUTURE: if used elsewhere consider moving to its own file and add previews to ascertain it works.
+
+/// View with an opacity modifier. Used instead of the `.opacity` modifier when a concrete type is
+/// necessary.
+///
+/// Used to provide a concrete-type for type-constraints in extended inits, since operators like
+/// `.opacity` often return an opaque `some View`.
+public struct ViewWithOpacity<Content>: View where Content: View {
+    let content: () -> Content
+    let opacity: Double?
+
+    init(opacity: Double?, @ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+        self.opacity = opacity
+    }
+
+    public var body: some View {
+        if let opacity {
+            content().opacity(opacity)
+        } else {
+            // No opacity is applied, to allow external modifiers to apply.
+            content()
+        }
     }
 }

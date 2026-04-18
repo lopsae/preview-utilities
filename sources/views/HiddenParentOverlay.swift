@@ -64,7 +64,7 @@ public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
     /// Returns the view with the parent visible.
     ///
     /// Intended for preview and troubleshooting.
-    public func visibleParent(visible: Bool = true) -> Self {
+    public func visibleParent(_ visible: Bool = true) -> Self {
         .init(parent: parent, overlaid: overlaid, isParentVisible: visible)
     }
 
