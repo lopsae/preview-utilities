@@ -61,9 +61,11 @@ public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
     }
 
 
-    /// Returns the view with the parent visible. Intended for preview and troubleshooting.
-    public func makeParentVisible() -> Self {
-        .init(parent: parent, overlaid: overlaid, isParentVisible: true)
+    /// Returns the view with the parent visible.
+    ///
+    /// Intended for preview and troubleshooting.
+    public func visibleParent(visible: Bool = true) -> Self {
+        .init(parent: parent, overlaid: overlaid, isParentVisible: visible)
     }
 
 }
@@ -103,7 +105,7 @@ private struct PreviewContent {
         .fixedSize()
         .opacity(0.1)
     }
-    .makeParentVisible()
+    .visibleParent()
     .floatingCaption("Visible Parent", .colorStyle(.purple), .alignment(.outerBottom))
 
     DashedDivider().padding(.top)
@@ -117,7 +119,7 @@ private struct PreviewContent {
         .fixedSize()
         .opacity(0.1)
     }
-    .makeParentVisible()
+    .visibleParent()
     .font(.headline)
 
 
@@ -128,6 +130,6 @@ private struct PreviewContent {
         .fixedSize()
         .opacity(0.1)
     }
-    .makeParentVisible()
+    .visibleParent()
     .font(.title)
 }
