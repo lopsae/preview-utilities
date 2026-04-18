@@ -105,6 +105,40 @@ private struct PreviewContent {
 }
 
 
+#Preview("HStack Height", traits: .fixedHeader, PreviewContent.layout) {
+    PreviewCaption("""
+        Note that in certain cases where a stack is space constrained, content that expands (like 
+        a `DashedDivider`) will use the space that is available to the stack, **NOT** stack final 
+        size, which could be larger due to other views in the stack.
+        """)
+    .paragraph("""
+        In those cases, the Stack may need a fixed size to allow views like `DashedDivider` to show
+        properly.
+        """)
+
+    CaptionRectangle("Fixed Height", color: .brown, size: [150, 20])
+
+    HStack {
+        CaptionRectangle("Fixed height\nContent", color: .mint, height: 40)
+        DashedDivider(axis: .vertical)
+        CaptionRectangle("Expanding\nContent", color: .mint, width: 70)
+        DashedDivider(axis: .vertical)
+        CaptionRectangle("Expanding\nContent", color: .mint)
+    }
+    .frame(height: 60)
+    .floatingCaption("HStack with fixed height", .colorStyle(.cyan), .alignment(.outerTopLeading))
+
+    HStack {
+        CaptionRectangle("Fixed height\nContent", color: .mint, height: 60)
+        DashedDivider(axis: .vertical)
+        CaptionRectangle("Squished\nContent!", color: .red, width: 70)
+        DashedDivider(axis: .vertical)
+        CaptionRectangle("Squished\nContent!", color: .red)
+    }
+    .floatingCaption("HStack", .colorStyle(.cyan), .alignment(.outerBottomLeading))
+}
+
+
 #Preview("Space Distribution", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var fixedHeight: Double = 200
 

@@ -43,6 +43,9 @@ public struct HeaderFooterContainer<Content: View>: View {
                 .padding(.horizontal, contentPadding)
             }
 
+            // FUTURE: Experiment to see if this VStack is necessary. Without it, the content views
+            // may receive less spacing presure from the header/footer. See previews in DashedDivider
+            // for good examples of the issues.
             VStack {
                 content()
             }
