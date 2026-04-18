@@ -142,19 +142,23 @@ private struct PreviewContent {
             Button("Plus", systemImage: "plus", action: {})
                 .buttonStyle(.borderedProminent)
                 .labelStyle(.iconOnly)
+
+            Button("Photo", systemImage: "photo.badge.shield.exclamationmark", action: {})
+                .buttonStyle(.borderedProminent)
+                .labelStyle(.iconOnly)
         }
 
         Text.caption("Toggle buttons:")
         HStack {
             Button(
-                "Circle",
+                "Circle/Fill",
                 systemImage: circleToggle ? "circle.fill" : "circle"
             ) { circleToggle.toggle() }
                 .buttonStyle(.borderedProminent)
                 .labelStyle(.iconOnly)
 
             Button(
-                "Vertical",
+                "Vertical/Horizontal",
                 systemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
             ) { guidepointToggle.toggle() }
                 .buttonStyle(.borderedProminent)
@@ -230,6 +234,22 @@ private struct PreviewContent {
                 .buttonStyle(.borderedProminent)
             Text.caption("Regular")
         }.font(.title)
+    }
+}
+
+
+#Preview("Offcenter", traits: .headerFooter, PreviewContent.layout) {
+    PreviewCaption("""
+        With certain asymetrical images the icon may appear offcenter.
+        """)
+
+    VStack {
+        Text.caption("Constrained")
+        Button("Off", constrainedSystemImage: "photo.badge.shield.exclamationmark", action: {})
+            .buttonStyle(.borderedProminent)
+        Button("Off", systemImage: "photo.badge.shield.exclamationmark", action: {})
+            .buttonStyle(.borderedProminent)
+        Text.caption("Regular")
     }
 }
 
