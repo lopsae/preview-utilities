@@ -13,17 +13,19 @@ extension Button {
     // FUTURE: Would this work better as a button style? Likely no, because then that would exclude
     // other button styles like .iconOnly. Unless styles can be stacked together.
 
-    /// Creates a button that generates its label from a localized string key
-    /// and system image name constrained in size.
+    /// Creates a button that generates its label from a localized string key and system image name,
+    /// with the image constrained in size.
     ///
     /// The size of the button will remain consistent irregardless of the image used.
     ///
     /// Different system images have different sizes, which can impact the size of the button. This
-    /// is specially noticeable when using the `.iconOnly` label style. The label for the button
-    /// constrains the space the image uses to the space occupied by a hidden `Text` containing
-    /// only the string `M`. The image is not resized, it is centered over its available space.
-    /// Large images may appear closer to the label compared to when using the default button
-    /// initializers.
+    /// is specially noticeable when using the `.iconOnly` label style. The label produced for the
+    /// button constrains the space the image can use to the space occupied by a hidden *circle*
+    /// image, the displayed image itself is not resized. The image is aligned to the horizontal
+    /// center and first text baseline of its available space.
+    ///
+    /// Large images may appear slightly closer to the label when compared to buttons using the
+    /// default initializers.
     ///
     /// This initializer creates a ``Label`` view on your behalf, and treats the localized key
     /// similar to ``Text/init(_:tableName:bundle:comment:)``.
@@ -32,7 +34,7 @@ extension Button {
         constrainedSystemImage systemImage: String,
         action: @escaping () -> Void
     )
-        where Label == SwiftUI.Label<Text, HiddenParentOverlay<Text, ViewWithOpacity<Image>>>
+    where Label == SwiftUI.Label<Text, HiddenParentOverlay<Image, ViewWithOpacity<Image>>>
     {
         self.init(
             titleKey,
@@ -49,16 +51,15 @@ extension Button {
         visibleConstraint: Bool,
         action: @escaping () -> Void
     )
-        where Label == SwiftUI.Label<Text, HiddenParentOverlay<Text, ViewWithOpacity<Image>>>
+    where Label == SwiftUI.Label<Text, HiddenParentOverlay<Image, ViewWithOpacity<Image>>>
     {
         self.init(action: action) {
             let opacity: Double? = visibleConstraint ? 0.5 : nil
             SwiftUI.Label {
                 Text(titleKey)
             } icon: {
-                HiddenParentOverlay {
-                    // FUTURE: use instead a circle image.
-                    Text(verbatim: "M")
+                HiddenParentOverlay(alignment: .centerFirstTextBaseline) {
+                    Image(systemName: "circle")
                 } overlaid: {
                     ViewWithOpacity(opacity: opacity) {
                         Image(systemName: systemImage)
@@ -130,7 +131,8 @@ private struct PreviewContent {
     .debugOverlay(.hairline, .size, .infoAlignment(.outerTrailing))
 
     PreviewCaption("""
-        Buttons using the `.iconOnly` style will change its size depending on the image being used.
+        Buttons using the default initializer and the `.iconOnly` style will change its size 
+        depending on the image being used.
         """)
 
     VStack {
@@ -240,16 +242,40 @@ private struct PreviewContent {
 
 #Preview("Offcenter", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
-        With certain asymetrical images the icon may appear offcenter.
+        The image is aligned to `.centerFirstTextBaseline`, so that asymetrical images remain
+        aligned with the label text.
         """)
 
-    VStack {
-        Text.caption("Constrained")
-        Button("Off", constrainedSystemImage: "photo.badge.shield.exclamationmark", action: {})
-            .buttonStyle(.borderedProminent)
-        Button("Off", systemImage: "photo.badge.shield.exclamationmark", action: {})
-            .buttonStyle(.borderedProminent)
-        Text.caption("Regular")
+    HStack {
+        VStack {
+            Text.caption("Constrained")
+            Group {
+                let imageName = "photo.badge.shield.exclamationmark"
+                Button("Off", constrainedSystemImage: imageName, action: {})
+                    .buttonStyle(.borderedProminent)
+                Button("Off", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
+                    .buttonStyle(.borderedProminent)
+                Button("Off", systemImage: imageName, action: {})
+                    .buttonStyle(.borderedProminent)
+            }
+            .font(.title)
+            Text.caption("Regular")
+        }
+
+        VStack {
+            Text.caption("Constrained")
+            Group {
+                let imageName = "envelope.badge.shield.half.filled"
+                Button("Off", constrainedSystemImage: imageName, action: {})
+                    .buttonStyle(.borderedProminent)
+                Button("Off", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
+                    .buttonStyle(.borderedProminent)
+                Button("Off", systemImage: imageName, action: {})
+                    .buttonStyle(.borderedProminent)
+            }
+            .font(.title)
+            Text.caption("Regular")
+        }
     }
 }
 
@@ -261,26 +287,32 @@ private struct PreviewContent {
 
     HStack {
         VStack {
-            let imageName = "guidepoint.horizontal"
             Text.caption("Constrained")
-            Button("Horiz", constrainedSystemImage: imageName, action: {})
-                .buttonStyle(.borderedProminent)
-            Button("Horiz", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
-                .buttonStyle(.borderedProminent)
-            Button("Horiz", systemImage: imageName, action: {})
-                .buttonStyle(.borderedProminent)
+            Group {
+                let imageName = "guidepoint.horizontal"
+                Button("Horiz", constrainedSystemImage: imageName, action: {})
+                    .buttonStyle(.borderedProminent)
+                Button("Horiz", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
+                    .buttonStyle(.borderedProminent)
+                Button("Horiz", systemImage: imageName, action: {})
+                    .buttonStyle(.borderedProminent)
+            }
+            .font(.title)
             Text.caption("Regular")
         }
 
         VStack {
-            let imageName = "photo.badge.shield.exclamationmark"
             Text.caption("Constrained")
-            Button("Off", constrainedSystemImage: imageName, action: {})
-                .buttonStyle(.borderedProminent)
-            Button("Off", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
-                .buttonStyle(.borderedProminent)
-            Button("Off", systemImage: imageName, action: {})
-                .buttonStyle(.borderedProminent)
+            Group {
+                let imageName = "photo.badge.shield.exclamationmark"
+                Button("Off", constrainedSystemImage: imageName, action: {})
+                    .buttonStyle(.borderedProminent)
+                Button("Off", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
+                    .buttonStyle(.borderedProminent)
+                Button("Off", systemImage: imageName, action: {})
+                    .buttonStyle(.borderedProminent)
+            }
+            .font(.title)
             Text.caption("Regular")
         }
     }

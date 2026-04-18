@@ -206,6 +206,8 @@ private struct PreviewContent {
         .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
         .maxSizeFrame()
 
+        DashedDivider(axis: .vertical)
+
         HiddenParentOverlay(alignment: alignment) {
             Image(systemName: "circle")
             .font(.title2)
@@ -218,6 +220,8 @@ private struct PreviewContent {
         .visibleParent()
         .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
         .maxSizeFrame()
+
+        DashedDivider(axis: .vertical)
 
         HiddenParentOverlay(alignment: alignment) {
             Image(systemName: "circle")
