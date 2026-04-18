@@ -20,27 +20,31 @@ import SwiftUI
 /// by the parent view, irregardless of the size of the overlaid content.
 public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
 
-    let isParentVisible: Bool
     let parent: () -> Parent
     let overlaid: () -> Overlaid
+    let alignment: Alignment
+    let isParentVisible: Bool
 
 
     public init(
+        alignment: Alignment = .center,
         @ViewBuilder parent: @escaping () -> Parent,
         @ViewBuilder overlaid: @escaping () -> Overlaid
     ) {
-        self.init(parent: parent, overlaid: overlaid, isParentVisible: false)
+        self.init(alignment: alignment, parent: parent, overlaid: overlaid, isParentVisible: false)
     }
 
 
-    /// Private initializer for parent visibility.
+    /// Private base initializer. Allows for parent visibility.
     private init(
+        alignment: Alignment,
         parent: @escaping () -> Parent,
         overlaid: @escaping () -> Overlaid,
         isParentVisible: Bool
     ) {
         self.parent = parent
         self.overlaid = overlaid
+        self.alignment = alignment
         self.isParentVisible = isParentVisible
     }
 
@@ -55,7 +59,7 @@ public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
                 .accessibilityHidden(true)
             }
         }
-        .overlay(alignment: .center) {
+        .overlay(alignment: alignment) {
             overlaid()
         }
     }
@@ -65,7 +69,7 @@ public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
     ///
     /// Intended for preview and troubleshooting.
     public func visibleParent(_ visible: Bool = true) -> Self {
-        .init(parent: parent, overlaid: overlaid, isParentVisible: visible)
+        .init(alignment: alignment, parent: parent, overlaid: overlaid, isParentVisible: visible)
     }
 
 }
@@ -132,4 +136,53 @@ private struct PreviewContent {
     }
     .visibleParent()
     .font(.title)
+}
+
+#Preview("Alignments", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var horizontalAlignment: HorizontalAlignmentEnum = .center
+    @Previewable @State var verticalAlignment: VerticalAlignmentEnum = .bottom
+
+    Picker(
+        "Horizontal",
+        selection: $horizontalAlignment,
+        selectables: HorizontalAlignmentEnum.allCases,
+        elementFormat: .capitalized(property: \.displayName)
+    ).pickerStyle(.segmented)
+
+    Picker(
+        "Vertical",
+        selection: $verticalAlignment,
+        selectables: VerticalAlignmentEnum.allCases,
+        elementFormat: .capitalized(property: \.displayName)
+    ).pickerStyle(.segmented)
+
+    let alignment = Alignment(
+        horizontal: horizontalAlignment.alignment,
+        vertical: verticalAlignment.alignment)
+
+    HiddenParentOverlay(alignment: alignment) {
+        Text("Parent")
+    } overlaid: {
+        Text("Large Overlaid Text")
+        .font(.title)
+        .fixedSize()
+        .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+    }
+    .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
+    .frame(height: 70)
+
+    DashedDivider()
+
+    HiddenParentOverlay(alignment: alignment) {
+        Text("Parent")
+    } overlaid: {
+        Text("Large Overlaid Text")
+        .font(.title)
+        .fixedSize()
+        .opacity(0.1)
+        .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+    }
+    .visibleParent()
+    .floatingCaption("Visible Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
+    .frame(height: 70)
 }
