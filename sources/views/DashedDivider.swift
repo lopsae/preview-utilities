@@ -76,45 +76,43 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     VStack {
-        CaptionRectangle("Content", color: .cyan, size: [150, 50])
+        CaptionRectangle("Content", color: .cyan, size: [150, 40])
         DashedDivider()
-        CaptionRectangle("Content", color: .cyan, size: [150, 50])
+        CaptionRectangle("Content", color: .cyan, size: [150, 40])
         DashedDivider()
-        CaptionRectangle("Content", color: .cyan, size: [150, 50])
+        CaptionRectangle("Content", color: .cyan, size: [150, 40])
     }
     .floatingCaption("VStack", .colorStyle(.cyan), .alignment(.topLeading))
 
     HStack {
-        CaptionRectangle("Content", color: .mint, height: 50)
+        CaptionRectangle("Content\nfixed height", color: .mint, height: 60)
         DashedDivider(axis: .vertical)
         CaptionRectangle("Content", color: .mint, width: 70)
         DashedDivider(axis: .vertical)
         CaptionRectangle("Content", color: .mint)
     }
-    .frame(height: 50)
+    .frame(height: 60)
     .floatingCaption("HStack with fixed height", .colorStyle(.cyan), .alignment(.topLeading))
 
     HStack {
-        CaptionRectangle("Content", color: .mint, height: 50)
+        CaptionRectangle("Content\nfixed height", color: .mint, height: 60)
         DashedDivider(axis: .vertical)
-        CaptionRectangle("Content", color: .mint, width: 70)
+        CaptionRectangle("Content", color: .red, width: 70)
         DashedDivider(axis: .vertical)
-        CaptionRectangle("Content", color: .mint)
+        CaptionRectangle("Content", color: .red)
     }
-//    .frame(height: 50)
     .floatingCaption("HStack", .colorStyle(.cyan), .alignment(.topLeading))
 }
 
 
 #Preview("Space Distribution", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    @Previewable @State var fixedHeight: Double = 100
+    @Previewable @State var fixedHeight: Double = 200
 
     PreviewCaption("""
         Seems `HStack` (and likely also `VStack`) will resize an internal view that is trying to
-        expand its height with the size the `HStack` is allowed to have, even if content
+        expand with the size the `HStack` is allowed to have, even if content
         inside is making it larger.
         """)
-    .font(.caption)
 
     Slider.captioned(
         "Fixed Height",
@@ -124,33 +122,18 @@ private struct PreviewContent {
 
     VStack {
         VStack {
-            VStack {
-                CaptionRectangle("Fixed Height", color: .brown, size: [150, fixedHeight])
-                DashedDivider()
-                CaptionRectangle("Content", color: .cyan, size: [150, 30])
-            }
-            .floatingCaption("VStack", .colorStyle(.cyan), .alignment(.topLeading))
+            CaptionRectangle("Fixed Height", color: .brown, size: [150, fixedHeight])
 
             HStack {
-                CaptionRectangle("Content", color: .mint, size: [70, 30])
+                CaptionRectangle("Fixed Size", color: .mint, size: [100, 100])
                 DashedDivider(axis: .vertical)
-                CaptionRectangle("Content", color: .mint, size: [70, 30])
-                DashedDivider(axis: .vertical)
-                CaptionRectangle("Max Size", color: .mint, width: 70)
-            }
-            .frame(height: 70)
-            .floatingCaption("HStack with Set Height", .colorStyle(.cyan), .alignment(.topLeading))
-
-            HStack {
-                CaptionRectangle("Content", color: .mint, size: [70, 30])
-                DashedDivider(axis: .vertical)
-                CaptionRectangle("Content", color: .mint, size: [70, 30])
-                DashedDivider(axis: .vertical)
-                CaptionRectangle("Squished\nMax Size", color: .red, width: 70)
+                CaptionRectangle("Squished\nMax Height", color: .red, width: 100)
             }
             .floatingCaption("HStack", .colorStyle(.cyan), .alignment(.topLeading))
         }
+        .floatingCaption("VStack", .colorStyle(.orange), .alignment(.bottom))
 
         VisibleSpacer()
     }
+    .floatingCaption("VStack", .colorStyle(.gray), .alignment(.bottomTrailing))
 }
