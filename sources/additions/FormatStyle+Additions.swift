@@ -9,16 +9,29 @@ import Playgrounds
 import SwiftUI
 
 
+extension FormatStyle {
+
+    @inlinable nonisolated
+    public static func fractionLength<Value: BinaryFloatingPoint>(_ length: Int) -> Self
+    where Self == FloatingPointFormatStyle<Value>
+    {
+        .init().precision(.fractionLength(length))
+    }
+
+}
+
+
+// MARK: - Convenience Properties
+// Most of these could be defined as functions to allow a single generic implementation for
+// `BinaryFloatingPoint`. However, these are kept deliberately as vars to eschew the terminating
+// parenthesis of the function call.
+
+
 extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
 
     @inlinable nonisolated
     public static var arithmeticRoundedInteger: Self {
         .number.rounded(rule: .toNearestOrEven, increment: 1)
-    }
-
-    @inlinable nonisolated
-    public static func fractionLength(_ length: Int) -> Self {
-        .number.precision(.fractionLength(length))
     }
 
 }
@@ -29,11 +42,6 @@ extension FormatStyle where Self == FloatingPointFormatStyle<CGFloat> {
     @inlinable nonisolated
     public static var arithmeticRoundedInteger: Self {
         .init().rounded(rule: .toNearestOrEven, increment: 1)
-    }
-
-    @inlinable nonisolated
-    public static func fractionLength(_ length: Int) -> Self {
-        .init().precision(.fractionLength(length))
     }
 
 }
@@ -61,7 +69,7 @@ private struct PreviewContent {
     Text(doubleValue, format: .arithmeticRoundedInteger)
 
     Text("`Double` Fraction Length:")
-    Text(doubleValue, format: .fractionLength(3))
+    Text(doubleValue, format: .fractionLength(5))
 
     Slider.captioned(
         "Double Value",
@@ -75,7 +83,7 @@ private struct PreviewContent {
     Text(cgFloatValue, format: .arithmeticRoundedInteger)
 
     Text("`CGFloat` Fraction Length:")
-    Text(cgFloatValue, format: .fractionLength(3))
+    Text(cgFloatValue, format: .fractionLength(5))
 
     Slider.captioned(
         "CGFloat Value",
