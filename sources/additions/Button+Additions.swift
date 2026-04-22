@@ -156,16 +156,73 @@ private struct PreviewContent {
                 "Circle/Fill",
                 systemImage: circleToggle ? "circle.fill" : "circle"
             ) { circleToggle.toggle() }
-                .buttonStyle(.borderedProminent)
-                .labelStyle(.iconOnly)
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
 
             Button(
                 "Vertical/Horizontal",
                 systemImage: guidepointToggle ? "guidepoint.vertical" : "guidepoint.horizontal"
             ) { guidepointToggle.toggle() }
-                .buttonStyle(.borderedProminent)
-                .labelStyle(.iconOnly)
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
         }
+    }
+}
+
+
+#Preview("Labeled", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var circleToggle: Bool = false
+    @Previewable @State var guidepointToggle: Bool = false
+
+    PreviewCaption("""
+        The image is aligned to `centerFirstTextBaseline`, which is the same behaviour as using the
+        stock initializer when using system images.
+        """)
+
+    Text.caption("Constrained")
+    HStack {
+        Button("Ag", constrainedSystemImage: "circle", action: {})
+            .buttonStyle(.borderedProminent)
+            .debugAlignmentOverlay(.firstTextBaseline)
+
+        Button("Ag", constrainedSystemImage: "guidepoint.horizontal", action: {})
+            .buttonStyle(.borderedProminent)
+            .debugAlignmentOverlay(.firstTextBaseline)
+
+        Button("Ag", constrainedSystemImage: "envelope.badge.shield.half.filled", action: {})
+            .buttonStyle(.borderedProminent)
+            .debugAlignmentOverlay(.firstTextBaseline)
+    }
+
+    HStack {
+        Button("Ag", systemImage: "circle", action: {})
+            .buttonStyle(.borderedProminent)
+            .debugAlignmentOverlay(.firstTextBaseline)
+
+        Button("Ag", systemImage: "guidepoint.horizontal", action: {})
+            .buttonStyle(.borderedProminent)
+            .debugAlignmentOverlay(.firstTextBaseline)
+
+        Button("Ag", systemImage: "envelope.badge.shield.half.filled", action: {})
+            .buttonStyle(.borderedProminent)
+            .debugAlignmentOverlay(.firstTextBaseline)
+    }
+    Text.caption("Stock")
+
+    PreviewCaption("""
+        The difference in size is particularly noticeable when the icon has protuding elements in
+        bottom.
+        """)
+
+    Text.caption("Stock")
+    HStack {
+        Button("Ag", systemImage: "envelope.badge.shield.half.filled", action: {})
+        .buttonStyle(.borderedProminent)
+        .debugAlignmentOverlay(.firstTextBaseline)
+        // FIXME: compare stock using Image, against a constrained one
+        Button("Ag", image: .customEnvelopeOffcenterBadgeBottomTrailing, action: {})
+        .buttonStyle(.borderedProminent)
+        .debugAlignmentOverlay(.firstTextBaseline)
     }
 }
 
@@ -187,6 +244,12 @@ private struct PreviewContent {
             // FIXME: Bring specialized Button(icon) init from separate project.
             Button(action: {}) {
                 Label(title: { Text("Off") }, icon: { Image(.customEnvelopeOffcenterBadgeTopTrailing) } )
+            }
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
+            Button(action: {}) {
+                Label(title: { Text("Off") }, icon: { Image(.customEnvelopeOffcenterBadgeBottomTrailing) } )
             }
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
