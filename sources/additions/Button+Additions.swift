@@ -240,9 +240,9 @@ private struct PreviewContent {
 }
 
 
-#Preview("Offcenter", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Alignment", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
-        The image is aligned to `.centerFirstTextBaseline`, so that asymetrical images remain
+        The image is aligned to `centerFirstTextBaseline`, so that asymetrical images remain
         aligned with the label text.
         """)
 
@@ -251,12 +251,15 @@ private struct PreviewContent {
             Text.caption("Constrained")
             Group {
                 let imageName = "photo.badge.shield.exclamationmark"
-                Button("Off", constrainedSystemImage: imageName, action: {})
+                Button("Align", constrainedSystemImage: imageName, action: {})
                     .buttonStyle(.borderedProminent)
-                Button("Off", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
+                    .debugAlignmentOverlay(.firstTextBaseline)
+                Button("Align", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
                     .buttonStyle(.borderedProminent)
-                Button("Off", systemImage: imageName, action: {})
+                    .debugAlignmentOverlay(.firstTextBaseline)
+                Button("Align", systemImage: imageName, action: {})
                     .buttonStyle(.borderedProminent)
+                    .debugAlignmentOverlay(.firstTextBaseline)
             }
             .font(.title)
             Text.caption("Regular")
@@ -266,12 +269,15 @@ private struct PreviewContent {
             Text.caption("Constrained")
             Group {
                 let imageName = "envelope.badge.shield.half.filled"
-                Button("Off", constrainedSystemImage: imageName, action: {})
+                Button("Align", constrainedSystemImage: imageName, action: {})
                     .buttonStyle(.borderedProminent)
-                Button("Off", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
+                    .debugAlignmentOverlay(.firstTextBaseline)
+                Button("Align", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
                     .buttonStyle(.borderedProminent)
-                Button("Off", systemImage: imageName, action: {})
+                    .debugAlignmentOverlay(.firstTextBaseline)
+                Button("Align", systemImage: imageName, action: {})
                     .buttonStyle(.borderedProminent)
+                    .debugAlignmentOverlay(.firstTextBaseline)
             }
             .font(.title)
             Text.caption("Regular")
@@ -346,4 +352,30 @@ public struct ViewWithOpacity<Content>: View where Content: View {
             content()
         }
     }
+}
+
+
+// TODO: Move to additions.
+
+extension View {
+
+    func debugAlignmentOverlay(_ verticalAlignment: VerticalAlignment) -> some View {
+        let alignment: Alignment = .init(horizontal: .center, vertical: verticalAlignment)
+        return self.overlay(alignment: alignment) {
+            Rectangle()
+                .fill(.red.secondary)
+                .frame(height: 2)
+        }
+    }
+
+
+    func debugAlignmentOverlay(_ horizontalAlignment: HorizontalAlignment) -> some View {
+        let alignment: Alignment = .init(horizontal: horizontalAlignment, vertical: .center)
+        return self.overlay(alignment: alignment) {
+            Rectangle()
+                .fill(.red.secondary)
+                .frame(width: 2)
+        }
+    }
+
 }
