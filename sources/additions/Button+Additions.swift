@@ -241,16 +241,26 @@ private struct PreviewContent {
     VStack {
         Text.caption("Custom Symbols")
         HStack {
+            // FIXME: for custom symbols, button can be created using `image:` or creating the Label directly.
+            // There is no single api to use either system symbols or custom symbols. One might need to be created.
+            Button("Offcenter", image: .customEnvelopeOffcenterBadgeTopTrailing, action: {})
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
             // FIXME: Bring specialized Button(icon) init from separate project.
             Button(action: {}) {
-                Label(title: { Text("Off") }, icon: { Image(.customEnvelopeOffcenterBadgeTopTrailing) } )
+                Label(title: { Text("Offcenter") }, icon: { Image(.customEnvelopeOffcenterBadgeTopTrailing) } )
             }
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
             Button(action: {}) {
-                Label(title: { Text("Off") }, icon: { Image(.customEnvelopeOffcenterBadgeBottomTrailing) } )
+                Label(title: { Text("Offcenter") }, icon: { Image(.customEnvelopeOffcenterBadgeBottomTrailing) } )
             }
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
+            Button("Offcenter", image: .customEnvelopeOffcenterBadgeBottomTrailing, action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
         }
