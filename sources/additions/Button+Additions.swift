@@ -170,6 +170,52 @@ private struct PreviewContent {
 }
 
 
+#Preview("Icon", traits: .headerFooter, PreviewContent.layout) {
+    @Previewable @State var circleToggle: Bool = false
+    @Previewable @State var guidepointToggle: Bool = false
+
+    PreviewCaption("""
+        Buttons providing an `Image` directly as  also have size size issues.
+        """)
+    .paragraph("""
+        This direct `Image` case is necessary for using custom symbols.
+        """)
+
+    VStack {
+        Text.caption("Custom Symbols")
+        HStack {
+            // FIXME: Bring specialized Button(icon) init from separate project.
+            Button(action: {}) {
+                Label(title: { Text("Off") }, icon: { Image(.customEnvelopeOffcenterBadgeTopTrailing) } )
+            }
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+        }
+
+        Text.caption("System Symbols")
+        HStack {
+            Button(action: {}) {
+                Label(title: { Text("Minus") }, icon: { Image(systemName: "minus") } )
+            }
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
+            Button(action: {}) {
+                Label(title: { Text("Horizontal") }, icon: { Image(systemName: "guidepoint.horizontal") } )
+            }
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+
+            Button(action: {}) {
+                Label(title: { Text("Circle") }, icon: { Image(systemName: "circle") } )
+            }
+            .buttonStyle(.borderedProminent)
+            .labelStyle(.iconOnly)
+        }
+    }
+}
+
+
 #Preview("Comparison", traits: .headerFooter, PreviewContent.layout) {
     PreviewCaption("""
         For wide images, the label may appear closer to the image that when using regular stock
