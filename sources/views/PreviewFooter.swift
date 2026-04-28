@@ -1,0 +1,185 @@
+//
+//  PreviewUtilities
+//  Created by Maic Lopez Saenz.
+//
+
+
+import SwiftUI
+
+
+struct PreviewFooter: View {
+
+    let enableBottomPadding: Bool
+    let flexibleHeight: Bool
+
+
+    init(enableBottomPadding: Bool, flexibleHeight: Bool = true) {
+        self.enableBottomPadding = enableBottomPadding
+        self.flexibleHeight = flexibleHeight
+    }
+
+
+    var body: some View {
+        let paddingEdges: Edge.Set = enableBottomPadding
+            ? .all
+            : .not(.bottom)
+        VStack(spacing: .zero) {
+            if flexibleHeight {
+                ClearRectangle()
+            }
+
+            Text("Footer")
+            Image(systemName: "shoeprints.fill")
+        }  // VStack
+        .foregroundStyle(.tertiary)
+        .maxWidthFrame()
+        .concentricSafeAreaBackground(
+            fill: HeaderFooterContainer.backgroundStyle,
+            contentPaddingEdges: paddingEdges,
+            safeAreaPaddingEdges: paddingEdges)
+    }
+
+}
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
+
+    /// Representative of behaviour used in ``HeaderFooterPreviewModifier``, where the footer is
+    /// always displayed in a preview where in iOS there is a top and bottom safe-area.
+    static var platformEnableBottomPadding: Bool {
+        #if os(macOS)
+        true
+        #else
+        false
+        #endif
+    }
+
+    @ViewBuilder
+    static func topControls(@ViewBuilder content: () -> some View) -> some View {
+        VStack {
+            content()
+        }
+        .maxWidthFrame()
+        .concentricSafeAreaBackground(fill: .orange, contentPaddingEdges: .not(.top))
+
+        Text("Flexible")
+        .foregroundStyle(.secondary)
+        .font(.caption)
+        .maxSizeFrame()
+        .concentricSafeAreaBackground(fill: .orange, paddingEdges: .not(.top))
+    }
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .zeroSpacing, PreviewContent.layout) {
+    @Previewable @State var enableBottomPadding: Bool = PreviewContent.platformEnableBottomPadding
+    @Previewable @State var isFlexible: Bool = true
+    @Previewable @State var fixedHeight: Double = 400
+
+    PreviewContent.topControls {
+        Toggle("Flexible Height", isOn: $isFlexible)
+        Toggle("Enable Bottom Padding", isOn: $enableBottomPadding)
+        Text("Platform default: \(PreviewContent.platformEnableBottomPadding.description)")
+            .font(.caption.monospaced())
+
+        Slider.captioned(
+            "Fixed Content Height",
+            value: $fixedHeight,
+            in: 0...800,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
+    }
+
+    DashedDivider()
+
+    CaptionRectangle(
+        "Fixed Content", color: .red,
+        width: 150, height: fixedHeight,
+        traits: .height)
+
+    DashedDivider()
+
+    PreviewFooter(enableBottomPadding: enableBottomPadding, flexibleHeight: isFlexible)
+}
+
+
+#Preview("Paddings", traits: .zeroSpacing, PreviewContent.layout) {
+    PreviewContent.topControls {
+        Text(
+            "In iOS, when displayed against the preview frame, the footer should NOT use bottom " +
+            "padding. In macOS, padding is added to prevent the footer text from touching the " +
+            "bottom of the window."
+        )
+        .fixedSize(horizontal: false, vertical: true)
+        .maxWidthFrame(alignment: .leading)
+    }
+
+    VisibleSpacer()
+
+    PreviewFooter(enableBottomPadding: true, flexibleHeight: false)
+        .floatingCaption("**Enabled** padding", .alignment(.inner(.topLeading)), .padding(25))
+        .debugOverlay(.bordersWidth(2))
+
+    VisibleSpacer()
+
+    PreviewFooter(enableBottomPadding: false, flexibleHeight: false)
+        .floatingCaption("**Disabled** padding", .alignment(.inner(.topLeading)), .padding(25))
+        .debugOverlay(.bordersWidth(2))
+
+    VisibleSpacer()
+
+    PreviewFooter(enableBottomPadding: PreviewContent.platformEnableBottomPadding, flexibleHeight: false)
+        .floatingCaption(
+            "Platform padding: **`\(PreviewContent.platformEnableBottomPadding.description)`**",
+            .alignment(.inner(.topLeading)),
+            .padding(25))
+        .debugOverlay(.bordersWidth(2))
+}
+
+
+#Preview("SafeArea", traits: .zeroSpacing, PreviewContent.layout) {
+    @Previewable @State var bottomSafeAreaInset: Double = 60
+    @Previewable @State var useDeviceSafeArea: Bool = false
+    @Previewable @State var enableBottomPadding: Bool = PreviewContent.platformEnableBottomPadding
+    @Previewable @State var isFlexible: Bool = true
+
+    PreviewContent.topControls {
+        Slider.captioned(
+            "Bottom SafeArea",
+            value: $bottomSafeAreaInset,
+            in: 0...100,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
+
+        Toggle("Use device safe area", isOn: $useDeviceSafeArea)
+        Toggle("Flexible Height", isOn: $isFlexible)
+        Toggle("Enable Bottom Padding", isOn: $enableBottomPadding)
+        Text("Platform default: \(PreviewContent.platformEnableBottomPadding.description)")
+            .font(.caption.monospaced())
+    }
+
+    DashedDivider()
+
+    PreviewFooter(enableBottomPadding: enableBottomPadding, flexibleHeight: isFlexible)
+    .safeAreaInset(edge: .bottom, spacing: 0) {
+        CaptionRectangle(
+            "Bottom SafeArea", fill: .green.gradient.quaternary,
+            width: 100, height: bottomSafeAreaInset,
+            traits: .height, .alignment(.outerTrailing))
+    }
+
+    if !useDeviceSafeArea {
+        SafeAreaPad(edge: .bottom, showDivider: true)
+    }
+
+}
