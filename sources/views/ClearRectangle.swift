@@ -24,6 +24,7 @@ public struct ClearRectangle<S: ShapeStyle> : View {
     }
 
 
+    // TODO: make `fill` available only as a modifier function.
     public init(width: CGFloat? = nil, height: CGFloat? = nil, fill: S) {
         self.width = width
         self.height = height
