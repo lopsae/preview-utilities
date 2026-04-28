@@ -1,0 +1,67 @@
+//
+//  PreviewUtilities
+//  Created by Maic Lopez Saenz.
+//
+
+
+import SwiftUI
+
+
+/// Convenience view that contains an invisible rectangle framed to a given size.
+public struct ClearRectangle<S: ShapeStyle> : View {
+
+    let width: CGFloat?
+    let height: CGFloat?
+    let fill: S
+
+
+    public init(width: CGFloat? = nil, height: CGFloat? = nil)
+    where S == Color
+    {
+        self.width = width
+        self.height = height
+        self.fill = .clear
+    }
+
+
+    // TODO: make `fill` available only as a modifier function.
+    public init(width: CGFloat? = nil, height: CGFloat? = nil, fill: S) {
+        self.width = width
+        self.height = height
+        self.fill = fill
+    }
+
+
+    public init(size: CGSize)
+    where S == Color
+    {
+        self.init(width: size.width, height: size.height)
+    }
+
+
+    public init(size: CGSize, fill: S) {
+        self.init(width: size.width, height: size.height, fill: fill)
+    }
+
+
+    public var body: some View {
+        Rectangle()
+            .fill(fill)
+            .frame(width: width, height: height)
+    }
+
+}
+
+
+
+// MARK: - Previews
+
+
+#Preview(traits: .fixedHeader) {
+    ClearRectangle(size: .square(of: 50), fill: Color.red.opacity(0.3))
+
+    ClearRectangle(size: .square(of: 100))
+        .debugOverlay()
+
+    ClearRectangle(width: 200, fill: .blue.opacity(0.3))
+}
