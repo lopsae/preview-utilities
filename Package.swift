@@ -1,7 +1,6 @@
 // swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
-
-// https://theswiftdev.com/the-swift-package-manifest-file/
+// https://docs.swift.org/swiftpm/documentation/packagemanagerdocs/settingswifttoolsversion/
 
 
 import PackageDescription
@@ -31,6 +30,7 @@ let package = Package(
         ),
     ]
 )
+
 
 // Target settings.
 for target in package.targets {
