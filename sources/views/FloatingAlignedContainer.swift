@@ -89,6 +89,18 @@ public enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     }
 
 
+    // TODO: DRY into name components.
+    var displayName: String {
+        let first = key.rawValue
+        let rest = switch self {
+        case .inner(let innerAlignment): innerAlignment.displayName
+        case .outer(let outerAlignment): outerAlignment.displayName
+        }
+
+        return "\(first) \(rest)"
+    }
+
+
     var abbreviatedName: String {
         let firstLetter = key.rawValue.formatted(.firstCharacter)
         let abbreviation = switch self {
@@ -267,9 +279,9 @@ extension FloatingAlignment {
         let horizontal: HorizontalAlignment
         let vertical: VerticalAlignment
 
-        var abbreviatedName: String {
-            return horizontal.abbreviatedName + vertical.abbreviatedName
-        }
+        // TODO: Dry into name components.
+        var displayName: String { "\(horizontal.displayName) \(vertical.displayName)" }
+        var abbreviatedName: String { horizontal.abbreviatedName + vertical.abbreviatedName }
 
         var swiftAlignment: SwiftUI.Alignment {
             .init(horizontal: horizontal.swiftAlignment, vertical: vertical.swiftAlignment)
@@ -315,10 +327,7 @@ extension FloatingAlignment {
         case leading, center, trailing
 
         var displayName: String { rawValue }
-
-        var abbreviatedName: String {
-            rawValue.formatted(.firstCharacter)
-        }
+        var abbreviatedName: String { displayName.formatted(.firstCharacter) }
 
         var swiftAlignment: SwiftUI.HorizontalAlignment {
             switch self {
@@ -360,9 +369,8 @@ extension FloatingAlignment {
     enum VerticalAlignment: String, CaseIterable, SelfIdentifiable {
         case top, center, bottom
 
-        var abbreviatedName: String {
-            rawValue.formatted(.firstCharacter)
-        }
+        var displayName: String { rawValue }
+        var abbreviatedName: String { displayName.formatted(.firstCharacter) }
 
         var swiftAlignment: SwiftUI.VerticalAlignment {
             switch self {
@@ -427,8 +435,21 @@ extension FloatingAlignment {
             }
         }
 
+        // TODO: DRY into name components.
+        var displayName: String {
+            let mayorName = key.rawValue
+            let minorName = switch self {
+            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
+                horizontalAlignment.displayName
+            case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
+                outerVerticalAlignment.displayName
+            }
+
+            return "\(mayorName) \(minorName)"
+        }
+
         var abbreviatedName: String {
-            let mayorLetter = key.rawValue.first?.description ?? .init()
+            let mayorLetter = key.rawValue.formatted(.firstCharacter)
             let minorLetter = switch self {
             case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
                 horizontalAlignment.abbreviatedName
@@ -455,7 +476,7 @@ extension FloatingAlignment {
                 case .above: .bottom
                 case .under: .top
                 }
-                // Oposite horizontal, to hug leading/trailing from the outside.
+                // Opposite horizontal, to hug leading/trailing from the outside.
                 return .init(horizontal: oppositeKey.swiftHorizontal, vertical: vertical)
             }
         }
@@ -529,9 +550,8 @@ extension FloatingAlignment {
     public enum OuterVerticalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
         case above, top, center, bottom, under
 
-        var abbreviatedName: String {
-            rawValue.formatted(.firstCharacter)
-        }
+        var displayName: String { rawValue }
+        var abbreviatedName: String { displayName.formatted(.firstCharacter) }
     }
 
 }
@@ -746,7 +766,9 @@ private struct PreviewContent {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
                 FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
-                    Text.caption(verbatim:alignment.abbreviatedName)
+                    Text.caption(verbatim:alignment.displayName).fixedSize()
+                    .padding(2)
+                    .floatingCaption("", .colorStyle(.mint))
                 }
             }
         }
