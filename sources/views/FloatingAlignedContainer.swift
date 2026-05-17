@@ -756,7 +756,7 @@ private struct PreviewContent {
 #Preview("Horizontal Alignments", traits: PreviewContent.layout) {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
-        Text(horizontalAlignment.displayName.formatted(.capitalized))
+        Text(horizontalAlignment.displayName, format: .capitalized)
         Rectangle()
             .fill(.teal.gradient.secondary)
         .frame(width: 100, height: 100)

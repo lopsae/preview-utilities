@@ -11,7 +11,7 @@ extension DebugOverlayModifier {
 
     public struct Configuration {
 
-        var caption: LocalizedStringKey? = nil
+        var captionSource: CaptionSource? = nil
         var bordersWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
@@ -30,9 +30,22 @@ extension DebugOverlayModifier {
 
         /// Returns `true` if configured to display any geometry information or caption.
         var containsInfoCaptionElements: Bool {
-            !infoElements.isEmpty || caption != nil
+            !infoElements.isEmpty || captionSource != nil
         }
 
+    }
+
+}
+
+
+// MARK: - CaptionSource
+
+
+extension DebugOverlayModifier.Configuration {
+
+    enum CaptionSource {
+        case localizedKey(LocalizedStringKey)
+        case verbatim(String)
     }
 
 }
@@ -44,7 +57,7 @@ extension DebugOverlayModifier {
 extension DebugOverlayModifier.Configuration {
 
 
-    // TODO: could use IdentifibleShift
+    // TODO: could use IdentifiableShift
 
     // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
     // and `PinnedScrollableViews`.
@@ -105,7 +118,11 @@ extension DebugOverlayModifier.Configuration {
         public static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
         public static func caption(_ key: LocalizedStringKey) -> Trait {
-            .modifier(CaptionModifier(caption: key))
+            .modifier(CaptionModifier(source: .localizedKey(key)))
+        }
+
+        public static func caption(verbatim string: String) -> Trait {
+            .modifier(CaptionModifier(source: .verbatim(string)))
         }
 
         public static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
@@ -140,9 +157,9 @@ extension DebugOverlayModifier.Configuration {
     }
 
     struct CaptionModifier: Modifier {
-        let caption: LocalizedStringKey
+        let source: DebugOverlayModifier.Configuration.CaptionSource
         func update(configuration: inout DebugOverlayModifier.Configuration) {
-            configuration.caption = caption
+            configuration.captionSource = source
         }
     }
 

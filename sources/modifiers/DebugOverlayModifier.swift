@@ -7,8 +7,9 @@
 import SwiftUI
 
 
-/// Draws in an overlay of the content view visual representations of the view's boundaries and safe
-/// areas. Optionally can display additional information like size, origin, and the safe area insets.
+/// Draws in an overlay a view visual representations of the view's boundaries, origin, and safe
+/// areas. Optionally can display additional geometry information like size, origin, and the safe
+/// area insets.
 public struct DebugOverlayModifier: ViewModifier {
 
     /// The borders width is limited to a minimum of 1 so that there is always a visual overlay even
@@ -37,9 +38,9 @@ public struct DebugOverlayModifier: ViewModifier {
                 innerStrokeRect(geometry: geometry)
                 originReticuleRects(geometry: geometry)
                 geometryInfoView(geometry)
-            } // GeometryReader
+            }
             .allowsHitTesting(false)
-        } // overlay
+        }
     }
 
 
@@ -171,10 +172,17 @@ public struct DebugOverlayModifier: ViewModifier {
                     let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
                     // Caption.
-                    if let caption = configuration.caption {
-                        Text(caption)
+                    switch configuration.captionSource {
+                    case .localizedKey(let localizedStringKey):
+                        Text(localizedStringKey)
                         .font(.caption)
                         .multilineTextAlignment(alignments.text)
+                    case .verbatim(let string):
+                        Text(verbatim: string)
+                        .font(.caption)
+                        .multilineTextAlignment(alignments.text)
+                    case .none:
+                        EmptyView()
                     }
 
                     // Width, Height, or Size.
@@ -569,13 +577,22 @@ private struct PreviewContent {
 
 
 #Preview("All Alignments", traits: PreviewContent.layout) {
-    let size: CGSize = .init(width: 300, height: 150)
-    PreviewContent.star
-    .frame(size: size)
-    .overlay {
-        ForEach(FloatingAlignment.allCases) { alignment in
-            ClearRectangle()
-                .debugOverlay(.width, .infoAlignment(alignment))
+    ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
+        DashedDivider()
+        Text(horizontalAlignment.displayName, format: .capitalized)
+
+        PreviewContent.star
+        .frame(size: [100, 130])
+        .overlay {
+            let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
+            ForEach(alignments) { alignment in
+                ClearRectangle()
+                    .debugOverlay(
+                        .width, .caption(verbatim: alignment.hyphenatedName),
+                        .infoAlignment(alignment))
+            }
         }
+        .padding(.vertical, 30)
     }
+    DashedDivider()
 }
