@@ -130,6 +130,33 @@ public enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     }
 
 
+    /// Horizontal alignment component of the floating alignment.
+    var horizontal: HorizontalAlignment {
+        switch self {
+        case .inner(let innerAlignment): innerAlignment.horizontal
+        case .outer(let outerAlignment): outerAlignment.horizontal
+        }
+    }
+
+
+    // MARK: Shorthand functions
+
+
+    /// Returns an outer floating alignment with the given horizontal alignment, and vertically
+    /// aligned to the center.
+    ///
+    /// E.g.: `outer(horizontal: .leading)` returns `outerLeadingCenter`.
+    ///
+    /// For `center` horizontal alignment, defaults to returning `outerTrailingCenter`.
+    public static func outer(horizontal: HorizontalAlignment) -> Self {
+        switch horizontal {
+        case .leading:  .outer(.leadingCenter)
+        case .center:   .outer(.trailingCenter)
+        case .trailing: .outer(.trailingCenter)
+        }
+    }
+
+
     // MARK: Shorthand properties
 
 
@@ -202,6 +229,10 @@ public enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     public static let outerTrailing:       Self = .outerTrailingCenter
 
 
+    // MARK: All Cases
+
+
+    /// All floating alignment cases.
     public static let allCases: [FloatingAlignment] = {
         let innerCases: [FloatingAlignment] = FloatingAlignment.InnerAlignment.allCases.map {
             .inner($0)
@@ -211,6 +242,16 @@ public enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
         }
         return innerCases + outerCases
     }()
+
+
+    /// Returns all floating alignment cases that use the given horizontal component.
+    public static func allCases(
+        withHorizontal horizontalAlignment: HorizontalAlignment
+    ) -> [FloatingAlignment] {
+        allCases.filter { floatingAlignment in
+            floatingAlignment.horizontal == horizontalAlignment
+        }
+    }
 
 }
 
@@ -273,6 +314,8 @@ extension FloatingAlignment {
     public enum HorizontalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
         case leading, center, trailing
 
+        var displayName: String { rawValue }
+
         var abbreviatedName: String {
             rawValue.formatted(.firstCharacter)
         }
@@ -290,6 +333,16 @@ extension FloatingAlignment {
             case .leading:  .leading
             case .center:   .center
             case .trailing: .trailing
+            }
+        }
+
+
+        /// The opposite alignment.
+        var opposite: Self {
+            switch self {
+            case .leading:  .trailing
+            case .center:   .center
+            case .trailing: .leading
             }
         }
 
@@ -390,7 +443,7 @@ extension FloatingAlignment {
         var contentAlignment: SwiftUI.Alignment {
             switch self {
             case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
-                // Same horizontal, opposie vertical, to hug the top/bottom.
+                // Same horizontal, opposite vertical, to hug the top/bottom.
                 return .init(horizontal: horizontalAlignment.swiftAlignment, vertical: oppositeKey.swiftVertical)
             case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
                 let vertical: SwiftUI.VerticalAlignment = switch outerVerticalAlignment {
@@ -414,6 +467,17 @@ extension FloatingAlignment {
                 horizontalAlignment.textAlignment
             case .leading: .trailing
             case .trailing: .leading
+            }
+        }
+
+
+        /// Horizontal alignment component.
+        var horizontal: HorizontalAlignment {
+            switch self {
+            case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
+                horizontalAlignment
+            case .leading:  .leading
+            case .trailing: .trailing
             }
         }
 
@@ -478,12 +542,12 @@ extension FloatingAlignment {
     /// Container of alignments that can be applied to content that is aligned using a
     /// `FloatingAlignment`.
     ///
-    /// Use the contained `content` and `text` alignments to align content to the appropiate edge
+    /// Use the contained `content` and `text` alignments to align content to the appropriate edge
     /// that the content will be touching.
     ///
-    /// I.e.: For content aligned to ``FloatingAlignment/outerTrailing``, the ``SwiftUI/HorizontalAlignment/leading``
-    /// and ``SwiftUI/TextAlignment/leading`` will be passed for the content to align itself towards
-    /// the trailing edge from the outside.
+    /// I.e.: For content aligned to ``FloatingAlignment/outerTrailing``, the
+    /// ``SwiftUI/HorizontalAlignment/leading`` and ``SwiftUI/TextAlignment/leading`` will be passed
+    /// for the content to align itself towards the trailing edge from the outside.
     nonisolated
     struct ContentAlignments {
         let content: SwiftUI.Alignment
@@ -668,4 +732,26 @@ private struct PreviewContent {
             }
         }
     }
+}
+
+
+#Preview("Horizontal Alignments", traits: PreviewContent.layout) {
+    ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
+        DashedDivider()
+        Text(horizontalAlignment.displayName.formatted(.capitalized))
+        Rectangle()
+            .fill(.teal.gradient.secondary)
+        .frame(width: 100, height: 100)
+        .overlay {
+            let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
+            ForEach(alignments) { alignment in
+                FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
+                    Text.caption(verbatim:alignment.abbreviatedName)
+                }
+            }
+        }
+        .padding(.vertical, 20)
+    }
+
+    DashedDivider()
 }
