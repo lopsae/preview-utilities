@@ -1,7 +1,8 @@
+#!/bin/zsh -v
 
 swift package --allow-writing-to-directory ./docs \
     generate-documentation --target "PreviewUtilities" \
     --disable-indexing \
     --transform-for-static-hosting \
-    --hosting-base-path "https://lopsae.com/preview-utilities/" \
+    --hosting-base-path "/preview-utilities" \
     --output-path ./docs
