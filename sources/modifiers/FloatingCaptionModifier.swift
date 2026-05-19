@@ -9,10 +9,16 @@ import SwiftUI
 // FUTURE: Figure out a dynamic shape around a caption. Rounded border that surrounds several `Text`s
 // respecting each of their sizes. Make it a option/trait.
 
-// FUTURE: Here and in CaptionRectagle, localized key could be optional. At that point, debugOverlay could also use floating caption directly!
+// FUTURE: Here and in CaptionRectangle, localized key could be optional. At that point, debugOverlay could also use floating caption directly!
 
-/// Draws in an overlay of the content view a floating caption text. Optionally can display
-/// additional information like width and height of the content view.
+/// Overlays a floating caption text aligned to a ``FloatingAlignment``.
+///
+/// Displays in a overlay a caption text that floats aligned to an edge or center of the view. The
+/// caption can be displayed either inside or outside of the view's boundaries, defined through a
+/// given ``FloatingAlignment``. The overlay can be configured to display additional information
+/// like its size, and to draw a border around the view's boundary.
+///
+/// Apply this modifier using the convenience ``SwiftUICore/View/floatingCaption(_:_:)`` function.
 public struct FloatingCaptionModifier: ViewModifier {
 
     let localizedKey: LocalizedStringKey

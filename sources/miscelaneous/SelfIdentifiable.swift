@@ -8,8 +8,8 @@
 /// itself.
 ///
 /// - Note: Implementers of this protocol can still provide an implementation of any type to the
-///     `id` property. In this case that custom implementation will take precedence over the one
-///     provided here unless the instance is cated to `SelfIdentifiable`.
+///     `id` property. In this case that custom implementation will take precedence over the default
+///     implementation provided here, unless the instance is cast to `SelfIdentifiable`.
 nonisolated
 public protocol SelfIdentifiable: Identifiable, Hashable {
 

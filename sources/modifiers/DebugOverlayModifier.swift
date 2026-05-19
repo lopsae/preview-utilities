@@ -6,10 +6,27 @@
 
 import SwiftUI
 
+// FIXME: how are API collections like https://developer.apple.com/documentation/swiftui/view-layout done?
 
-/// Draws in an overlay a view visual representations of the view's boundaries, origin, and safe
-/// areas. Optionally can display additional geometry information like size, origin, and the safe
-/// area insets.
+
+/// Overlays a view visual representations of a view's boundaries, origin, and safe areas.
+///
+/// Displays in a overlay a visual representation of a view's boundaries, its origin point, and any
+/// safe area insets affecting it. The overlay can be configured to also display geometry
+/// information like size, origin coordinates, safe area insets, or a given caption.
+///
+/// Apply this modifier using the convenience ``SwiftUICore/View/debugOverlay()`` function.
+///
+/// The overlay can be configured by passing different traits to the ``SwiftUICore/View/debugOverlay(_:)``
+/// function.
+///
+/// ```
+/// Rectangle()
+///     .fill(.yellow.gradient)
+///     .frame(width: 200, height: 100)
+///     .debugOverlay(.hairline, .width)
+/// ```
+/// ![Debug overlay using traits.](debugoverlay-simple-traits)
 public struct DebugOverlayModifier: ViewModifier {
 
     /// The borders width is limited to a minimum of 1 so that there is always a visual overlay even
@@ -638,6 +655,14 @@ private struct PreviewContent {
 }
 
 
+#Preview("SS: Simple Traits", traits: PreviewContent.layout) {
+    Rectangle()
+        .fill(.yellow.gradient)
+        .frame(width: 200, height: 100)
+        .debugOverlay(.hairline, .width)
+}
+
+
 #Preview("SS: Traits", traits: PreviewContent.layout) {
     Rectangle()
         .fill(.indigo.gradient)
@@ -649,6 +674,3 @@ private struct PreviewContent {
         )
     Spacer()
 }
-
-
-
