@@ -596,3 +596,59 @@ private struct PreviewContent {
     }
     DashedDivider()
 }
+
+
+// MARK: Screenshot Previews
+
+
+#Preview("SS: Simple", traits: PreviewContent.layout) {
+    VStack(spacing: 16) {
+        Rectangle()
+            .fill(.teal.gradient)
+            .frame(width: 250, height: 50)
+        Text("Preview Text")
+            .font(.title)
+            .debugOverlay()
+        Rectangle()
+            .fill(.green.gradient)
+            .frame(width: 250, height: 50)
+    }
+    Spacer()
+}
+
+
+#Preview("SS: SafeArea", traits: PreviewContent.layout) {
+    NavigationStack {
+        VStack {
+            Text("Preview Text")
+                .debugOverlay()
+            Spacer()
+        }
+        .navigationTitle("Navigation Title")
+    }
+}
+
+
+#Preview("SS: Geometry", traits: PreviewContent.layout) {
+    Rectangle()
+        .fill(.orange.gradient)
+        .frame(width: 250, height: 150)
+        .debugOverlay(.allGeometry)
+    Spacer()
+}
+
+
+#Preview("SS: Traits", traits: PreviewContent.layout) {
+    Rectangle()
+        .fill(.indigo.gradient)
+        .frame(width: 250, height: 100)
+        .debugOverlay(
+            .caption("Preview Rectangle"),
+            .height, .origin,
+            .infoAlignment(.outerBottomTrailing)
+        )
+    Spacer()
+}
+
+
+
