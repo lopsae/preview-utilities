@@ -21,7 +21,7 @@ Build the documentation archive (`PreviewUtilities.doccarchive`):
 swift package generate-documentation
 ```
 
-Preview documenation in a local server:
+Preview documentation in a local server:
 ```zsh
 swift package --disable-sandbox preview-documentation
 ``` 
