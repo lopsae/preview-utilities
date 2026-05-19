@@ -504,20 +504,3 @@ extension View {
     }
 
 }
-
-
-// FIXME: move to own file.
-extension ImageResource {
-
-    enum ModuleCatalogResource: String {
-        case envelopeOffcenterBadgeTopTrailing    = "custom.envelope.offcenter.badge.top.trailing"
-        case envelopeOffcenterBadgeBottomTrailing = "custom.envelope.offcenter.badge.bottom.trailing"
-
-        var name: String { rawValue }
-    }
-
-    static func moduleCatalog(_ resource: ModuleCatalogResource) -> Self {
-        .init(name: resource.name, bundle: .module)
-    }
-
-}
