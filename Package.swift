@@ -22,7 +22,10 @@ let package = Package(
     targets: [
         .target(
             name: "PreviewUtilities",
-            path: "sources"
+            path: "sources",
+            resources: [
+                .process("assets.xcassets")
+            ]
         ),
         .testTarget(
             name: "PreviewUtilitiesTests",
