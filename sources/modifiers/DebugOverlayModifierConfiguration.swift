@@ -9,6 +9,13 @@ import SwiftUI
 
 extension DebugOverlayModifier {
 
+    /// Configuration of a `DebugOverlayModifier`.
+    ///
+    /// Contains the caption, border settings, geometry elements to display, and the floating
+    /// alignment for the debug caption.
+    ///
+    /// Usually you don't build this object directly, instead one is created and configured using
+    /// the passed ``Trait`` instances to ``SwiftUICore/View/debugOverlay(_:)``.
     public struct Configuration {
 
         var captionSource: CaptionSource? = nil
@@ -86,7 +93,13 @@ extension DebugOverlayModifier.Configuration {
 
 extension DebugOverlayModifier.Configuration {
 
-    /// Customizations that can be applied to a debug overlay.
+    /// Customizations that can be applied to the `Configuration` for a `DebugOverlayModifier`.
+    ///
+    /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` to build the
+    /// [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay. All passed
+    /// traits are applied in order to a default configuration, each trait making a modification
+    /// towards the final configuration. If multiple traits that modify the same configuration
+    /// properties are applied, usually the last will overwrite any former.
     public enum Trait: Sendable {
         case modifier(any Modifier)
         case traits([Trait])
@@ -103,44 +116,82 @@ extension DebugOverlayModifier.Configuration {
         }
 
 
+        /// Sets the debug overlay borders to a width of `1`.
         public static let hairline: Trait = .modifier(HairlineModifier())
 
+        /// Sets the debug overlay borders to the given width
+        /// - Parameter bordersWidth: Width of the debug overlay borders.
         public static func bordersWidth(_ bordersWidth: CGFloat) -> Trait {
             .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
         }
 
+        /// Prints the width of the parent view in the geometry caption.
         public static let width: Trait          = .modifier(InfoElementsModifier(infoElements: .width))
+
+        /// Prints the height of the parent view in the geometry caption.
         public static let height: Trait         = .modifier(InfoElementsModifier(infoElements: .height))
+
+        /// Prints the origin of the parent view in the geometry caption.
+        ///
+        /// The printed origin uses the global coordinate space.
         public static let origin: Trait         = .modifier(InfoElementsModifier(infoElements: .origin))
+
+        /// Prints the safe area insets applied to the parent view in the geometry caption.
         public static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
 
+        /// Prints the width and height of the parent view in the geometry caption.
         public static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
+
+        /// Prints all supported information in the geometry caption.
         public static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
+        /// Prints the given localized string in the debug caption.
+        /// 
+        /// Only one caption is supported, passing this trait more that once will overwrite any
+        /// previous.
+        ///
+        /// - Parameter key: Localized string key to display.
         public static func caption(_ key: LocalizedStringKey) -> Trait {
             .modifier(CaptionModifier(source: .localizedKey(key)))
         }
 
+        /// Prints the given verbatim string in the debug caption.
+        /// 
+        /// Only one caption is supported, passing this trait more that once will overwrite any
+        /// previous.
+        ///
+        /// - Parameter string: Verbatim string to display.
         public static func caption(verbatim string: String) -> Trait {
             .modifier(CaptionModifier(source: .verbatim(string)))
         }
 
+        /// Aligns the debug caption to the given floating alignment.
+        /// - Parameter alignment: Floating alignment of the debug caption.
         public static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: alignment))
         }
 
-        /// Default inner aligned position for the information caption: top-leading.
-        public static let innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .inner(.topLeading)))
+        /// Aligns the debug caption to the default inner floating alignment.
+        ///
+        /// The default is ``FloatingAlignment/innerTopLeading``.
+        public static let innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .innerTopLeading))
 
-        public static func innerInfo(_ innerAlingment: FloatingAlignment.InnerAlignment) -> Trait {
-            .modifier(InfoAlignmentModifier(alignment: .inner(innerAlingment)))
+        
+        /// Aligns the debug caption to the given inner floating alignment.
+        /// - Parameter innerAlignment: Inner floating alignment for the debug caption.
+        public static func innerInfo(_ innerAlignment: FloatingAlignment.InnerAlignment) -> Trait {
+            .modifier(InfoAlignmentModifier(alignment: .inner(innerAlignment)))
         }
 
-        /// Default outer aligned position for the information caption: top-leading.
-        public static let outerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .outer(.topLeading)))
+        /// Aligns the debug caption to the default outer floating alignment.
+        ///
+        /// The default is ``FloatingAlignment/outerTopLeading``.
+        public static let outerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .outerTopLeading))
 
-        public static func outerInfo(_ outerAlingment: FloatingAlignment.OuterAlignment) -> Trait {
-            .modifier(InfoAlignmentModifier(alignment: .outer(outerAlingment)))
+        /// Aligns the debug caption to the given outer floating alignment.
+        /// - Parameter outerAlignment: Outer floating alignment for the debug caption.
+        public static func outerInfo(_ outerAlignment: FloatingAlignment.OuterAlignment) -> Trait {
+            .modifier(InfoAlignmentModifier(alignment: .outer(outerAlignment)))
         }
 
     }
@@ -152,6 +203,10 @@ extension DebugOverlayModifier.Configuration {
 
 extension DebugOverlayModifier.Configuration {
 
+    /// Modifier for a debug overlay configuration.
+    ///
+    /// Applies an update to a debug overlay configuration. Used by ``DebugOverlayModifier/Configuration/Trait``
+    /// instances as building blocks for a configuration instance.
     public protocol Modifier: Sendable {
         func update(configuration: inout DebugOverlayModifier.Configuration)
     }

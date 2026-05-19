@@ -7,26 +7,36 @@
 import SwiftUI
 
 // FIXME: how are API collections like https://developer.apple.com/documentation/swiftui/view-layout done?
+// FIXME: add image describing the different parts of the the debug overlay.
 
-
-/// Overlays a view visual representations of a view's boundaries, origin, and safe areas.
+/// Overlays a visual representations of a view's boundaries, origin, and safe areas.
 ///
-/// Displays in a overlay a visual representation of a view's boundaries, its origin point, and any
-/// safe area insets affecting it. The overlay can be configured to also display geometry
-/// information like size, origin coordinates, safe area insets, or a given caption.
+/// Displays in an overlay a visual representation of a view's boundaries, its origin point, and any
+/// applied safe area insets. The overlay can be configured to also display geometry information
+/// like size, origin coordinates, safe area insets, or a given text caption.
 ///
-/// Apply this modifier using the convenience ``SwiftUICore/View/debugOverlay()`` function.
+/// All content added by this modifier is layered in an overlay of the parent view, the original
+/// layout is never modified.
 ///
-/// The overlay can be configured by passing different traits to the ``SwiftUICore/View/debugOverlay(_:)``
-/// function.
+/// Apply this modifier using ``SwiftUICore/View/debugOverlay()``.
 ///
+/// ```swift
+/// Text("Sphinx of Black Quartz")
+///     .font(.title)
+///     .debugOverlay()
 /// ```
+/// ![Debug overlay with default configuration.](debug-overlay-default)
+///
+/// The overlay can be configured by passing different [`Trait`](doc:Configuration/Trait) instances
+/// to ``SwiftUICore/View/debugOverlay(_:)``.
+///
+/// ```swift
 /// Rectangle()
 ///     .fill(.yellow.gradient)
 ///     .frame(width: 200, height: 100)
 ///     .debugOverlay(.hairline, .width)
 /// ```
-/// ![Debug overlay using traits.](debugoverlay-simple-traits)
+/// ![Debug overlay using traits.](debug-overlay-simple-traits)
 public struct DebugOverlayModifier: ViewModifier {
 
     /// The borders width is limited to a minimum of 1 so that there is always a visual overlay even
@@ -618,19 +628,18 @@ private struct PreviewContent {
 // MARK: Screenshot Previews
 
 
-#Preview("SS: Simple", traits: PreviewContent.layout) {
-    VStack(spacing: 16) {
-        Rectangle()
-            .fill(.teal.gradient)
-            .frame(width: 250, height: 50)
-        Text("Preview Text")
-            .font(.title)
-            .debugOverlay()
-        Rectangle()
-            .fill(.green.gradient)
-            .frame(width: 250, height: 50)
-    }
-    Spacer()
+#Preview("SS: Default", traits: PreviewContent.layout) {
+    Text("Sphinx of Black Quartz")
+        .font(.title)
+        .debugOverlay()
+}
+
+
+#Preview("SS: Simple Traits", traits: PreviewContent.layout) {
+    Rectangle()
+        .fill(.yellow.gradient)
+        .frame(width: 200, height: 100)
+        .debugOverlay(.hairline, .width)
 }
 
 
@@ -652,14 +661,6 @@ private struct PreviewContent {
         .frame(width: 250, height: 150)
         .debugOverlay(.allGeometry)
     Spacer()
-}
-
-
-#Preview("SS: Simple Traits", traits: PreviewContent.layout) {
-    Rectangle()
-        .fill(.yellow.gradient)
-        .frame(width: 200, height: 100)
-        .debugOverlay(.hairline, .width)
 }
 
 

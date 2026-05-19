@@ -11,14 +11,17 @@ import SwiftUI
 
 // FUTURE: Here and in CaptionRectangle, localized key could be optional. At that point, debugOverlay could also use floating caption directly!
 
-/// Overlays a floating caption text aligned to a ``FloatingAlignment``.
+/// Overlays a floating caption text aligned to a `FloatingAlignment`.
 ///
-/// Displays in a overlay a caption text that floats aligned to an edge or center of the view. The
-/// caption can be displayed either inside or outside of the view's boundaries, defined through a
-/// given ``FloatingAlignment``. The overlay can be configured to display additional information
-/// like its size, and to draw a border around the view's boundary.
+/// Displays in an overlay a floating caption text aligned to a specified ``FloatingAlignment``.
+/// The caption can be aligned to the center, any inner edge, and any outer edge of the parent view
+/// boundaries. The overlay can be configured to display additional information like its size, and
+/// to draw a border around the view's boundary.
 ///
-/// Apply this modifier using the convenience ``SwiftUICore/View/floatingCaption(_:_:)`` function.
+/// All content added by this modifier is layered in an overlay of the parent view, the original
+/// layout is never modified.
+///
+/// Apply this modifier using ``SwiftUICore/View/floatingCaption(_:_:)``.
 public struct FloatingCaptionModifier: ViewModifier {
 
     let localizedKey: LocalizedStringKey
@@ -92,6 +95,13 @@ extension FloatingCaptionModifier {
     // This trait implementation is an experimental configuration object solely based on an
     // enumeration, in contrast with a structure containing all properties like
     // `DebugOverlayModifier.Configuration`.
+
+    /// Customizations that can be applied to a `FloatingCaptionModifier`.
+    ///
+    /// Traits are passed to ``SwiftUICore/View/floatingCaption(_:_:)`` to build the configuration
+    /// of a floating caption overlay. All passed traits are applied in order to a default
+    /// configuration. If multiple traits that modify the same configuration properties are applied,
+    /// usually the last will overwrite any former.
     public enum Trait: IdentifiableCase {
         case width
         case height
@@ -109,7 +119,7 @@ extension FloatingCaptionModifier {
             case traits
         }
 
-        // Since the enum have associated values, each enum needs to be indentified by a value-less
+        // Since the enum have associated values, each enum needs to be identified by a value-less
         // parallel enum.
         public var `case`: Case {
             switch self {
