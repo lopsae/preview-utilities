@@ -59,6 +59,7 @@ extension Button {
                 Text(titleKey)
             } icon: {
                 HiddenParentOverlay(alignment: .centerFirstTextBaseline) {
+                    // TODO: try "app.grid" instead of circle for base symbol.
                     Image(systemName: "circle")
                 } overlaid: {
                     ViewWithOpacity(opacity: opacity) {
@@ -214,15 +215,20 @@ private struct PreviewContent {
         bottom.
         """)
 
-    Text.caption("Stock")
     HStack {
         Button("Ag", systemImage: "envelope.badge.shield.half.filled", action: {})
         .buttonStyle(.borderedProminent)
         .debugAlignmentOverlay(.firstTextBaseline)
+        .stackAbove {
+            Text.caption("Stock")
+        }
         // FIXME: compare stock using Image, against a constrained one
-        Button("Ag", image: .customEnvelopeOffcenterBadgeBottomTrailing, action: {})
+        Button("Ag", image: .moduleCatalog(.envelopeOffcenterBadgeBottomTrailing), action: {})
         .buttonStyle(.borderedProminent)
         .debugAlignmentOverlay(.firstTextBaseline)
+        .stackAbove {
+            Text.caption("Custom")
+        }
     }
 }
 
@@ -243,24 +249,24 @@ private struct PreviewContent {
         HStack {
             // FIXME: for custom symbols, button can be created using `image:` or creating the Label directly.
             // There is no single api to use either system symbols or custom symbols. One might need to be created.
-            Button("Offcenter", image: .customEnvelopeOffcenterBadgeTopTrailing, action: {})
+            Button("Offcenter", image: .moduleCatalog(.envelopeOffcenterBadgeTopTrailing), action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
             // FIXME: Bring specialized Button(icon) init from separate project.
             Button(action: {}) {
-                Label(title: { Text("Offcenter") }, icon: { Image(.customEnvelopeOffcenterBadgeTopTrailing) } )
+                Label(title: { Text("Offcenter") }, icon: { Image(.moduleCatalog(.envelopeOffcenterBadgeTopTrailing)) } )
             }
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
             Button(action: {}) {
-                Label(title: { Text("Offcenter") }, icon: { Image(.customEnvelopeOffcenterBadgeBottomTrailing) } )
+                Label(title: { Text("Offcenter") }, icon: { Image(.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)) } )
             }
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-            Button("Offcenter", image: .customEnvelopeOffcenterBadgeBottomTrailing, action: {})
+            Button("Offcenter", image: .moduleCatalog(.envelopeOffcenterBadgeBottomTrailing), action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
         }
@@ -495,6 +501,23 @@ extension View {
                 .fill(.red.secondary)
                 .frame(width: 2)
         }
+    }
+
+}
+
+
+// FIXME: move to own file.
+extension ImageResource {
+
+    enum ModuleCatalogResource: String {
+        case envelopeOffcenterBadgeTopTrailing    = "custom.envelope.offcenter.badge.top.trailing"
+        case envelopeOffcenterBadgeBottomTrailing = "custom.envelope.offcenter.badge.bottom.trailing"
+
+        var name: String { rawValue }
+    }
+
+    static func moduleCatalog(_ resource: ModuleCatalogResource) -> Self {
+        .init(name: resource.name, bundle: .module)
     }
 
 }
