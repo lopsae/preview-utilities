@@ -27,8 +27,8 @@ extension Button {
     /// Large images may appear slightly closer to the label when compared to buttons using the
     /// default initializers.
     ///
-    /// This initializer creates a ``Label`` view on your behalf, and treats the localized key
-    /// similar to ``Text/init(_:tableName:bundle:comment:)``.
+    /// This initializer creates a `SwiftUI/Label` view on your behalf, and treats the localized key
+    /// similar to `SwiftUI/Text.init(_:tableName:bundle:comment:)`.
     public init(
         _ titleKey: LocalizedStringKey,
         constrainedSystemImage systemImage: String,
