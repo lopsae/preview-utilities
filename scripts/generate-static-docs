@@ -3,5 +3,5 @@ swift package --allow-writing-to-directory ./docs \
     generate-documentation --target "PreviewUtilities" \
     --disable-indexing \
     --transform-for-static-hosting \
-    --hosting-base-path "https://lopsae.github.io/preview-utilities/" \
+    --hosting-base-path "https://lopsae.com/preview-utilities/" \
     --output-path ./docs
