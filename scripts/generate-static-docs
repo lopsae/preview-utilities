@@ -1,8 +1,16 @@
 #!/bin/zsh -v
 
+# Generate static documentation files.
+
 swift package --allow-writing-to-directory ./docs \
     generate-documentation --target "PreviewUtilities" \
     --disable-indexing \
     --transform-for-static-hosting \
     --hosting-base-path "/preview-utilities" \
     --output-path ./docs
+
+
+# Prettity jsons, to have minimal changes upon update.
+find ./docs -name "*.json" \
+    -exec bash -c 'jq -M -c --sort-keys . "{}" > "{}.tmp" && mv "{}.tmp" "{}"' \;
+
