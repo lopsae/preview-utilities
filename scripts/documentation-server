@@ -1,26 +1,30 @@
 #!/usr/bin/python3
 
-# Run with `python3 documentation-server`
+
+# Serves a local folder with a given path prefix. This mimics how the documentation is served in
+# GitHub pages, where the content in `docs` is served in the subdirectory `preview-utilities`.
 
 import http.server
 import socketserver
 import os
 
 PORT = 8000
-PREFIX = '/preview-utilities'
-DIRECTORY = 'docs' # The local folder to serve
+PATH_PREFIX = '/preview-utilities'
+LOCAL_DIRECTORY = 'docs'
+DOCUMENTATION_ROOT = '/documentation/previewutilities'
 
 class PrefixedHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         # Set the base directory for the handler (Python 3.7+)
-        super().__init__(*args, directory=DIRECTORY, **kwargs)
+        super().__init__(*args, directory=LOCAL_DIRECTORY, **kwargs)
 
     def translate_path(self, path):
         # Remove the prefix from the URL path before looking for the file
-        if path.startswith(PREFIX):
-            path = path[len(PREFIX):] or '/'
+        if path.startswith(PATH_PREFIX):
+            path = path[len(PATH_PREFIX):] or '/'
         return super().translate_path(path)
 
 with socketserver.TCPServer(("", PORT), PrefixedHandler) as httpd:
-    print(f"Serving {DIRECTORY} at http://localhost:{PORT}{PREFIX}")
+    print(f"Serving {LOCAL_DIRECTORY} at: http://localhost:{PORT}{PATH_PREFIX}")
+    print(f"Documentation available at: http://localhost:{PORT}{PATH_PREFIX}{DOCUMENTATION_ROOT}")
     httpd.serve_forever()
