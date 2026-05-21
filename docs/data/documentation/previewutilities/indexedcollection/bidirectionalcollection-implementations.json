@@ -2,6 +2,7 @@
   "hierarchy": {
     "paths": [
       [
+        "doc://PreviewUtilities/documentation/technology-root",
         "doc://PreviewUtilities/documentation/PreviewUtilities",
         "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection"
       ]
@@ -167,6 +168,20 @@
       "title": "index(before:)",
       "type": "topic",
       "url": "/documentation/previewutilities/indexedcollection/index(before:)"
+    },
+    "doc://PreviewUtilities/documentation/technology-root": {
+      "abstract": [
+        {
+          "text": "Technology Root Catalogue",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/technology-root",
+      "kind": "article",
+      "role": "collection",
+      "title": "Package Documentation",
+      "type": "topic",
+      "url": "/documentation/technology-root"
     }
   },
   "schemaVersion": {

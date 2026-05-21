@@ -2,6 +2,7 @@
   "hierarchy": {
     "paths": [
       [
+        "doc://PreviewUtilities/documentation/technology-root",
         "doc://PreviewUtilities/documentation/PreviewUtilities",
         "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
         "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize"
@@ -112,6 +113,20 @@
       "title": "init(arrayLiteral:)",
       "type": "topic",
       "url": "/documentation/previewutilities/corefoundation/cgsize/init(arrayliteral:)"
+    },
+    "doc://PreviewUtilities/documentation/technology-root": {
+      "abstract": [
+        {
+          "text": "Technology Root Catalogue",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/technology-root",
+      "kind": "article",
+      "role": "collection",
+      "title": "Package Documentation",
+      "type": "topic",
+      "url": "/documentation/technology-root"
     }
   },
   "schemaVersion": {

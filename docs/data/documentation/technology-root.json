@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "This documentation archive contains documentation for the following packages:",
+      "text": "Technology Root Catalogue",
       "type": "text"
     }
   ],
@@ -23,29 +23,19 @@
     {
       "content": [
         {
-          "anchor": "overview",
+          "anchor": "Overview",
           "level": 2,
           "text": "Overview",
           "type": "heading"
         },
         {
-          "items": [
+          "inlineContent": [
             {
-              "content": [
-                {
-                  "inlineContent": [
-                    {
-                      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-                      "isActive": true,
-                      "type": "reference"
-                    }
-                  ],
-                  "type": "paragraph"
-                }
-              ]
+              "text": "This documentation archive contains documentation for multiple utility packages.",
+              "type": "text"
             }
           ],
-          "type": "unorderedList"
+          "type": "paragraph"
         }
       ],
       "kind": "content"
@@ -73,6 +63,15 @@
     "patch": 0
   },
   "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Frameworks",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ],
+      "title": "Frameworks"
+    }
+  ],
   "variants": [
     {
       "paths": [
