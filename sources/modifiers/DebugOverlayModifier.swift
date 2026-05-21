@@ -627,9 +627,13 @@ private struct PreviewContent {
 
 // MARK: Screenshot Previews
 
+// FIXME: Move to a specific screenshots folder to organize.
 
-#Preview("SS: Default", traits: PreviewContent.layout) {
+
+#Preview("debug-overlay-default@3x", traits: .docsScreenshot(height: 160)) {
     Text("Sphinx of Black Quartz")
+        .font(.title)
+    Text("Judge my Vow")
         .font(.title)
         .debugOverlay()
 }
@@ -674,4 +678,49 @@ private struct PreviewContent {
             .infoAlignment(.outerBottomTrailing)
         )
     Spacer()
+}
+
+
+struct DocsScreenshotPreviewModifier: PreviewModifier {
+
+    static let defaultWidth: Double = 400
+
+    let size: CGSize
+
+    init(size: CGSize) {
+        self.size = size
+    }
+
+    init(height: Double) {
+        self.size = [Self.defaultWidth, height]
+    }
+
+    func body(content: Content, context _: ()) -> some View {
+        VStack {
+            content
+        }
+        .frame(size: size)
+        .border(.tertiary, width: 1)
+    }
+
+}
+
+
+extension PreviewTrait where T == Preview.ViewTraits {
+
+    public static func docsScreenshot(size: CGSize) -> PreviewTrait {
+        .init(
+            .modifier(DocsScreenshotPreviewModifier(size: size)),
+            .fixedLayout(size: size)
+        )
+    }
+
+
+    public static func docsScreenshot(height: Double) -> PreviewTrait {
+        .init(
+            .modifier(DocsScreenshotPreviewModifier(height: height)),
+            .fixedLayout(size: [DocsScreenshotPreviewModifier.defaultWidth, height])
+        )
+    }
+
 }
