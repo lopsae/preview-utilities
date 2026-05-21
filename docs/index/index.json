@@ -5,6 +5,11 @@
   "interfaceLanguages": {
     "swift": [
       {
+        "path": "/documentation/technology-root",
+        "title": "Package Documentation",
+        "type": "module"
+      },
+      {
         "children": [
           {
             "title": "Debug Overlay",
