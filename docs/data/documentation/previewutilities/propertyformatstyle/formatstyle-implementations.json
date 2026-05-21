@@ -71,7 +71,178 @@
       "type": "topic",
       "url": "/documentation/previewutilities/propertyformatstyle"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/currency(code:)-1dtg3": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/capitalized(input:)": {
+      "abstract": [
+        {
+          "text": "Returns a format style that uses the string output of another formatter and outputs the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "capitalized string.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "capitalized"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "InputFormat"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "input"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "InputFormat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/capitalized(input:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "capitalized(input:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/capitalized(input:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/capitalized(property:)": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs a capitalized string property from the input object.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "capitalized"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "property"
+        },
+        {
+          "kind": "text",
+          "text": ": any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7KeyPathC",
+          "text": "KeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "> & "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8SendableP",
+          "text": "Sendable"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/capitalized(property:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "capitalized(property:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/capitalized(property:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/fractionLength(_:)": {
       "abstract": [],
       "fragments": [
         {
@@ -92,7 +263,7 @@
         },
         {
           "kind": "identifier",
-          "text": "currency"
+          "text": "fractionLength"
         },
         {
           "kind": "text",
@@ -107,12 +278,82 @@
           "text": ">("
         },
         {
-          "kind": "externalParam",
-          "text": "code"
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Si",
+          "text": "Int"
         },
         {
           "kind": "text",
-          "text": ": "
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/fractionLength(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "fractionLength(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/fractionlength(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/property(_:)": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs a string property from the input object.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "property"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ">(any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7KeyPathC",
+          "text": "KeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ", "
         },
         {
           "kind": "typeIdentifier",
@@ -121,6 +362,15 @@
         },
         {
           "kind": "text",
+          "text": "> & "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8SendableP",
+          "text": "Sendable"
+        },
+        {
+          "kind": "text",
           "text": ") -> "
         },
         {
@@ -128,15 +378,28 @@
           "text": "Self"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/currency(code:)-1dtg3",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/property(_:)",
       "kind": "symbol",
       "role": "symbol",
-      "title": "currency(code:)",
+      "title": "property(_:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/currency(code:)-1dtg3"
+      "url": "/documentation/previewutilities/propertyformatstyle/property(_:)"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/currency(code:)-2mjv6": {
-      "abstract": [],
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/rawValue()": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs the raw value of a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -156,7 +419,7 @@
         },
         {
           "kind": "identifier",
-          "text": "currency"
+          "text": "rawValue"
         },
         {
           "kind": "text",
@@ -164,43 +427,52 @@
         },
         {
           "kind": "genericParameter",
-          "text": "V"
+          "text": "Value"
         },
         {
           "kind": "text",
-          "text": ">("
-        },
-        {
-          "kind": "externalParam",
-          "text": "code"
-        },
-        {
-          "kind": "text",
-          "text": ": "
+          "text": ">() -> "
         },
         {
           "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
+          "preciseIdentifier": "s:16PreviewUtilities19RawValueFormatStyleV",
+          "text": "RawValueFormatStyle"
         },
         {
           "kind": "text",
-          "text": ") -> "
+          "text": "<"
         },
         {
           "kind": "typeIdentifier",
-          "text": "Self"
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/currency(code:)-2mjv6",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/rawValue()",
       "kind": "symbol",
       "role": "symbol",
-      "title": "currency(code:)",
+      "title": "rawValue()",
       "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/currency(code:)-2mjv6"
+      "url": "/documentation/previewutilities/propertyformatstyle/rawvalue()"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/list(memberStyle:type:width:)": {
-      "abstract": [],
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/rawValueCapitalized()": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs the capitalized raw value of a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -220,7 +492,7 @@
         },
         {
           "kind": "identifier",
-          "text": "list"
+          "text": "rawValueCapitalized"
         },
         {
           "kind": "text",
@@ -228,597 +500,23 @@
         },
         {
           "kind": "genericParameter",
-          "text": "MemberStyle"
+          "text": "Value"
         },
         {
           "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "genericParameter",
-          "text": "Base"
-        },
-        {
-          "kind": "text",
-          "text": ">("
-        },
-        {
-          "kind": "externalParam",
-          "text": "memberStyle"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "MemberStyle"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "type"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
-          "text": "ListFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "MemberStyle"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Base"
-        },
-        {
-          "kind": "text",
-          "text": ">."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation15ListFormatStyleV0B4TypeO",
-          "text": "ListType"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "width"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
-          "text": "ListFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "MemberStyle"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Base"
-        },
-        {
-          "kind": "text",
-          "text": ">."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation15ListFormatStyleV5WidthO",
-          "text": "Width"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
+          "text": ">() -> "
         },
         {
           "kind": "typeIdentifier",
           "text": "Self"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/list(memberStyle:type:width:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/rawValueCapitalized()",
       "kind": "symbol",
       "role": "symbol",
-      "title": "list(memberStyle:type:width:)",
+      "title": "rawValueCapitalized()",
       "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/list(memberstyle:type:width:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/list(type:width:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "list"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "genericParameter",
-          "text": "Base"
-        },
-        {
-          "kind": "text",
-          "text": ">("
-        },
-        {
-          "kind": "externalParam",
-          "text": "type"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
-          "text": "ListFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11StringStyleV",
-          "text": "StringStyle"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Base"
-        },
-        {
-          "kind": "text",
-          "text": ">."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation15ListFormatStyleV0B4TypeO",
-          "text": "ListType"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "width"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
-          "text": "ListFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11StringStyleV",
-          "text": "StringStyle"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Base"
-        },
-        {
-          "kind": "text",
-          "text": ">."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation15ListFormatStyleV5WidthO",
-          "text": "Width"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/list(type:width:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "list(type:width:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/list(type:width:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/locale(_:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "locale"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation6LocaleV",
-          "text": "Locale"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/locale(_:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "locale(_:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/locale(_:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/measurement(width:usage:hidesScaleName:numberFormatStyle:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "measurement"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "width"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11MeasurementV",
-          "text": "Measurement"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:objc(cs)NSUnitTemperature",
-          "text": "UnitTemperature"
-        },
-        {
-          "kind": "text",
-          "text": ">."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV",
-          "text": "FormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV9UnitWidthV",
-          "text": "UnitWidth"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "usage"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation26MeasurementFormatUnitUsageV",
-          "text": "MeasurementFormatUnitUsage"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:objc(cs)NSUnitTemperature",
-          "text": "UnitTemperature"
-        },
-        {
-          "kind": "text",
-          "text": ">, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "hidesScaleName"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "numberFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation24FloatingPointFormatStyleV",
-          "text": "FloatingPointFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sd",
-          "text": "Double"
-        },
-        {
-          "kind": "text",
-          "text": ">?) -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/measurement(width:usage:hidesScaleName:numberFormatStyle:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "measurement(width:usage:hidesScaleName:numberFormatStyle:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/measurement(width:usage:hidesscalename:numberformatstyle:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/measurement(width:usage:numberFormatStyle:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "measurement"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "genericParameter",
-          "text": "UnitType"
-        },
-        {
-          "kind": "text",
-          "text": ">("
-        },
-        {
-          "kind": "externalParam",
-          "text": "width"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11MeasurementV",
-          "text": "Measurement"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "UnitType"
-        },
-        {
-          "kind": "text",
-          "text": ">."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV",
-          "text": "FormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV9UnitWidthV",
-          "text": "UnitWidth"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "usage"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation26MeasurementFormatUnitUsageV",
-          "text": "MeasurementFormatUnitUsage"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "UnitType"
-        },
-        {
-          "kind": "text",
-          "text": ">, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "numberFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation24FloatingPointFormatStyleV",
-          "text": "FloatingPointFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sd",
-          "text": "Double"
-        },
-        {
-          "kind": "text",
-          "text": ">?) -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/measurement(width:usage:numberFormatStyle:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "measurement(width:usage:numberFormatStyle:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/measurement(width:usage:numberformatstyle:)"
+      "url": "/documentation/previewutilities/propertyformatstyle/rawvaluecapitalized()"
     }
   },
   "schemaVersion": {
@@ -829,23 +527,15 @@
   "sections": [],
   "topicSections": [
     {
-      "anchor": "Instance-Methods",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/locale(_:)"
-      ],
-      "title": "Instance Methods"
-    },
-    {
       "anchor": "Type-Methods",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/currency(code:)-1dtg3",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/currency(code:)-2mjv6",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/list(memberStyle:type:width:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/list(type:width:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/measurement(width:usage:hidesScaleName:numberFormatStyle:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/measurement(width:usage:numberFormatStyle:)"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/capitalized(input:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/capitalized(property:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/fractionLength(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/property(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/rawValue()",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/rawValueCapitalized()"
       ],
       "title": "Type Methods"
     }
