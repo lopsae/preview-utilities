@@ -4,9 +4,14 @@ set -v
 
 # Generate static documentation files into the `docs` folder.
 
+# Uses --experimental-skip-synthesized-symbols as a workaround to the documentation of standard
+# library protocols changing randomly on every rebuild.
+# See https://github.com/lopsae/docc-extensions-issue
+
 swift package --allow-writing-to-directory ./docs \
     generate-documentation --target "PreviewUtilities" \
     --disable-indexing \
+    --experimental-skip-synthesized-symbols \
     --transform-for-static-hosting \
     --hosting-base-path "/preview-utilities" \
     --output-path ./docs
