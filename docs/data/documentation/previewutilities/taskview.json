@@ -1,1 +1,689 @@
-{"abstract":[{"text":"Experimental view that starts a task when it appears and when the task completes displays the","type":"text"},{"text":" ","type":"text"},{"text":"given content using the result.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities8TaskViewV","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"TaskView"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"TaskView"}],"role":"symbol","roleHeading":"Structure","symbolKind":"struct","title":"TaskView"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"@"},{"kind":"attribute","preciseIdentifier":"s:ScM","text":"MainActor"},{"kind":"text","text":" "},{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"TaskView"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Result"},{"kind":"text","text":", "},{"kind":"genericParameter","text":"PendingContent"},{"kind":"text","text":", "},{"kind":"genericParameter","text":"CompletedContent"},{"kind":"text","text":"> "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Result"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:s8SendableP","text":"Sendable"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"PendingContent"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"CompletedContent"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}]}],"kind":"declarations"},{"content":[{"anchor":"overview","level":2,"text":"Overview","type":"heading"},{"inlineContent":[{"text":"The task is scheduled using the ","type":"text"},{"code":".task","type":"codeVoice"},{"text":" view modifier, if the view is removed while the task is","type":"text"},{"text":" ","type":"text"},{"text":"still executing, the task is cancelled.","type":"text"}],"type":"paragraph"}],"kind":"content"}],"references":{"doc://PreviewUtilities/7SwiftUI4ViewP":{"identifier":"doc://PreviewUtilities/7SwiftUI4ViewP","title":"SwiftUICore.View","type":"unresolvable"},"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView":{"abstract":[{"text":"Experimental view that starts a task when it appears and when the task completes displays the","type":"text"},{"text":" ","type":"text"},{"text":"given content using the result.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"TaskView"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"TaskView"}],"role":"symbol","title":"TaskView","type":"topic","url":"/documentation/previewutilities/taskview"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations","kind":"article","role":"collectionGroup","title":"View Implementations","type":"topic","url":"/documentation/previewutilities/taskview/view-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/body":{"abstract":[],"fragments":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"body"},{"kind":"text","text":": "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/body","kind":"symbol","role":"symbol","title":"body","type":"topic","url":"/documentation/previewutilities/taskview/body"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)":{"abstract":[{"text":"Creates a view that starts a task with the given operation, while the task is running a","type":"text"},{"text":" ","type":"text"},{"text":"clear rectangle of size zero is displayed, and when the task completes the content is","type":"text"},{"text":" ","type":"text"},{"text":"replaced with ","type":"text"},{"code":"completedContent","type":"codeVoice"},{"text":".","type":"text"}],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Result","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"Sendable","type":"codeVoice"},{"text":", ","type":"text"},{"code":"PendingContent","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"View","type":"codeVoice"},{"text":", and ","type":"text"},{"code":"CompletedContent","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"View","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"operation"},{"kind":"text","text":": "},{"kind":"keyword","text":"nonisolated(nonsending)"},{"kind":"text","text":" () "},{"kind":"keyword","text":"async"},{"kind":"text","text":" -> "},{"kind":"typeIdentifier","text":"Result"},{"kind":"text","text":", "},{"kind":"externalParam","text":"completed"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Result"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"CompletedContent"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)","kind":"symbol","role":"symbol","title":"init(operation:completed:)","type":"topic","url":"/documentation/previewutilities/taskview/init(operation:completed:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)":{"abstract":[{"text":"Creates a view that starts a task with the given operation, while the task is running","type":"text"},{"text":" ","type":"text"},{"code":"pendingContent","type":"codeVoice"},{"text":" is displayed, and when the task completes the content is replaced with","type":"text"},{"text":" ","type":"text"},{"code":"completedContent","type":"codeVoice"},{"text":".","type":"text"}],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"operation"},{"kind":"text","text":": "},{"kind":"keyword","text":"nonisolated(nonsending)"},{"kind":"text","text":" () "},{"kind":"keyword","text":"async"},{"kind":"text","text":" -> "},{"kind":"typeIdentifier","text":"Result"},{"kind":"text","text":", "},{"kind":"externalParam","text":"pending"},{"kind":"text","text":": () -> "},{"kind":"typeIdentifier","text":"PendingContent"},{"kind":"text","text":", "},{"kind":"externalParam","text":"completed"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Result"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"CompletedContent"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)","kind":"symbol","role":"symbol","title":"init(operation:pending:completed:)","type":"topic","url":"/documentation/previewutilities/taskview/init(operation:pending:completed:)"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP","doc://PreviewUtilities/7SwiftUI4ViewP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)","doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)"],"title":"Initializers"},{"anchor":"Instance-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/body"],"title":"Instance Properties"},{"anchor":"Default-Implementations","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations","doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations"],"title":"Default Implementations"}],"variants":[{"paths":["/documentation/previewutilities/taskview"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Experimental view that starts a task when it appears and when the task completes displays the",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "given content using the result.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities8TaskViewV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "TaskView"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "TaskView"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Structure",
+    "symbolKind": "struct",
+    "title": "TaskView"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "TaskView"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "Result"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "genericParameter",
+              "text": "PendingContent"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "genericParameter",
+              "text": "CompletedContent"
+            },
+            {
+              "kind": "text",
+              "text": "> "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Result"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s8SendableP",
+              "text": "Sendable"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "PendingContent"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "CompletedContent"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The task is scheduled using the ",
+              "type": "text"
+            },
+            {
+              "code": ".task",
+              "type": "codeVoice"
+            },
+            {
+              "text": " view modifier, if the view is removed while the task is",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "still executing, the task is cancelled.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/7SwiftUI4ViewP": {
+      "identifier": "doc://PreviewUtilities/7SwiftUI4ViewP",
+      "title": "SwiftUICore.View",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
+      "abstract": [
+        {
+          "text": "Experimental view that starts a task when it appears and when the task completes displays the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "given content using the result.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaskView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaskView"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaskView",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "View Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview/view-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/body": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "body"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/body",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "body",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview/body"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)": {
+      "abstract": [
+        {
+          "text": "Creates a view that starts a task with the given operation, while the task is running a",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "clear rectangle of size zero is displayed, and when the task completes the content is",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "replaced with ",
+          "type": "text"
+        },
+        {
+          "code": "completedContent",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Result",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "Sendable",
+            "type": "codeVoice"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "code": "PendingContent",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ", and ",
+            "type": "text"
+          },
+          {
+            "code": "CompletedContent",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "operation"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "nonisolated(nonsending)"
+        },
+        {
+          "kind": "text",
+          "text": " () "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Result"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "completed"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Result"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "CompletedContent"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(operation:completed:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview/init(operation:completed:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)": {
+      "abstract": [
+        {
+          "text": "Creates a view that starts a task with the given operation, while the task is running",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "code": "pendingContent",
+          "type": "codeVoice"
+        },
+        {
+          "text": " is displayed, and when the task completes the content is replaced with",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "code": "completedContent",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "operation"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "nonisolated(nonsending)"
+        },
+        {
+          "kind": "text",
+          "text": " () "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Result"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "pending"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "PendingContent"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "completed"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Result"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "CompletedContent"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(operation:pending:completed:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview/init(operation:pending:completed:)"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP",
+        "doc://PreviewUtilities/7SwiftUI4ViewP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/body"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Default-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations"
+      ],
+      "title": "Default Implementations"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/taskview"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

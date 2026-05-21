@@ -1,1 +1,669 @@
-{"abstract":[{"text":"Nonisolated ImageGenerator with a ","type":"text"},{"code":"nonisolated generateImage","type":"codeVoice"},{"text":" function that will inherit the","type":"text"},{"text":" ","type":"text"},{"text":"isolation context of the caller.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities25NonisolatedImageGeneratorC","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"NonisolatedImageGenerator"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"NonisolatedImageGenerator"}],"role":"symbol","roleHeading":"Class","symbolKind":"class","title":"NonisolatedImageGenerator"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"final"},{"kind":"text","text":" "},{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"NonisolatedImageGenerator"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol":{"abstract":[{"text":"Protocol for all image generators. Provides functions to generate images along the thread","type":"text"},{"text":" ","type":"text"},{"text":"information where the image was generated.","type":"text"}],"fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageGeneratorProtocol"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ImageGeneratorProtocol"}],"role":"symbol","title":"ImageGeneratorProtocol","type":"topic","url":"/documentation/previewutilities/imagegeneratorprotocol"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator":{"abstract":[{"text":"Nonisolated ImageGenerator with a ","type":"text"},{"code":"nonisolated generateImage","type":"codeVoice"},{"text":" function that will inherit the","type":"text"},{"text":" ","type":"text"},{"text":"isolation context of the caller.","type":"text"}],"fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"NonisolatedImageGenerator"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"NonisolatedImageGenerator"}],"role":"symbol","title":"NonisolatedImageGenerator","type":"topic","url":"/documentation/previewutilities/nonisolatedimagegenerator"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generateImage(with:)":{"abstract":[{"text":"Generates an image asyncronously, this function inherits the isolation context of the","type":"text"},{"text":" ","type":"text"},{"text":"caller.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generateImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":") "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19ImageGeneratorErrorO","text":"ImageGeneratorError"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities25NonisolatedImageGeneratorC","text":"NonisolatedImageGenerator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea","text":"ImageTuple"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generateImage(with:)","kind":"symbol","role":"symbol","title":"generateImage(with:)","type":"topic","url":"/documentation/previewutilities/nonisolatedimagegenerator/generateimage(with:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generatePlatformImage(with:)":{"abstract":[{"text":"Generates a platform image asyncronously, this function inherits the isolation context of","type":"text"},{"text":" ","type":"text"},{"text":"the caller.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generatePlatformImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":") "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19ImageGeneratorErrorO","text":"ImageGeneratorError"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities25NonisolatedImageGeneratorC","text":"NonisolatedImageGenerator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC5Tuplea","text":"PlatformImageTuple"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generatePlatformImage(with:)","kind":"symbol","role":"symbol","title":"generatePlatformImage(with:)","type":"topic","url":"/documentation/previewutilities/nonisolatedimagegenerator/generateplatformimage(with:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/id":{"abstract":[{"text":"Unique identifier of the generator.","type":"text"}],"fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"id"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation4UUIDV","text":"UUID"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/id","kind":"symbol","role":"symbol","title":"id","type":"topic","url":"/documentation/previewutilities/nonisolatedimagegenerator/id"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"size"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGSize","text":"CGSize"},{"kind":"text","text":", "},{"kind":"externalParam","text":"sleepRange"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SN","text":"ClosedRange"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:s8DurationV","text":"Duration"},{"kind":"text","text":">?)"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)","kind":"symbol","role":"symbol","title":"init(size:sleepRange:)","type":"topic","url":"/documentation/previewutilities/nonisolatedimagegenerator/init(size:sleeprange:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/makeCopy()":{"abstract":[{"text":"Creates a copy of the generator with the same settings and a new ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/id","isActive":true,"type":"reference"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"makeCopy"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/makeCopy()","kind":"symbol","role":"symbol","title":"makeCopy()","type":"topic","url":"/documentation/previewutilities/nonisolatedimagegenerator/makecopy()"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/size":{"abstract":[{"text":"Size of the generated images.","type":"text"}],"fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"size"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGSize","text":"CGSize"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/size","kind":"symbol","role":"symbol","title":"size","type":"topic","url":"/documentation/previewutilities/nonisolatedimagegenerator/size"},"doc://PreviewUtilities/s12IdentifiableP":{"identifier":"doc://PreviewUtilities/s12IdentifiableP","title":"Swift.Identifiable","type":"unresolvable"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol","doc://PreviewUtilities/s12IdentifiableP","doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)"],"title":"Initializers"},{"anchor":"Instance-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/id","doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/size"],"title":"Instance Properties"},{"anchor":"Instance-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generateImage(with:)","doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generatePlatformImage(with:)","doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/makeCopy()"],"title":"Instance Methods"}],"variants":[{"paths":["/documentation/previewutilities/nonisolatedimagegenerator"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Nonisolated ImageGenerator with a ",
+      "type": "text"
+    },
+    {
+      "code": "nonisolated generateImage",
+      "type": "codeVoice"
+    },
+    {
+      "text": " function that will inherit the",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "isolation context of the caller.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities25NonisolatedImageGeneratorC",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "class"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "NonisolatedImageGenerator"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "NonisolatedImageGenerator"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Class",
+    "symbolKind": "class",
+    "title": "NonisolatedImageGenerator"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "final"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "class"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "NonisolatedImageGenerator"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
+      "abstract": [
+        {
+          "text": "Protocol for all image generators. Provides functions to generate images along the thread",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "information where the image was generated.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorProtocol"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorProtocol"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorProtocol",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorprotocol"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator": {
+      "abstract": [
+        {
+          "text": "Nonisolated ImageGenerator with a ",
+          "type": "text"
+        },
+        {
+          "code": "nonisolated generateImage",
+          "type": "codeVoice"
+        },
+        {
+          "text": " function that will inherit the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "isolation context of the caller.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "NonisolatedImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "NonisolatedImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "NonisolatedImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generateImage(with:)": {
+      "abstract": [
+        {
+          "text": "Generates an image asyncronously, this function inherits the isolation context of the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "caller.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generateImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+          "text": "ImageGeneratorError"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities25NonisolatedImageGeneratorC",
+          "text": "NonisolatedImageGenerator"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea",
+          "text": "ImageTuple"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generateImage(with:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generateImage(with:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator/generateimage(with:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generatePlatformImage(with:)": {
+      "abstract": [
+        {
+          "text": "Generates a platform image asyncronously, this function inherits the isolation context of",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "the caller.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generatePlatformImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+          "text": "ImageGeneratorError"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities25NonisolatedImageGeneratorC",
+          "text": "NonisolatedImageGenerator"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC5Tuplea",
+          "text": "PlatformImageTuple"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generatePlatformImage(with:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generatePlatformImage(with:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator/generateplatformimage(with:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/id": {
+      "abstract": [
+        {
+          "text": "Unique identifier of the generator.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "id"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation4UUIDV",
+          "text": "UUID"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/id",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "id",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator/id"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "sleepRange"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SN",
+          "text": "ClosedRange"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8DurationV",
+          "text": "Duration"
+        },
+        {
+          "kind": "text",
+          "text": ">?)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(size:sleepRange:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator/init(size:sleeprange:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/makeCopy()": {
+      "abstract": [
+        {
+          "text": "Creates a copy of the generator with the same settings and a new ",
+          "type": "text"
+        },
+        {
+          "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/id",
+          "isActive": true,
+          "type": "reference"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "makeCopy"
+        },
+        {
+          "kind": "text",
+          "text": "() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/makeCopy()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "makeCopy()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator/makecopy()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/size": {
+      "abstract": [
+        {
+          "text": "Size of the generated images.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/size",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "size",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator/size"
+    },
+    "doc://PreviewUtilities/s12IdentifiableP": {
+      "identifier": "doc://PreviewUtilities/s12IdentifiableP",
+      "title": "Swift.Identifiable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
+        "doc://PreviewUtilities/s12IdentifiableP",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/id",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/size"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generateImage(with:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/generatePlatformImage(with:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/makeCopy()"
+      ],
+      "title": "Instance Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/nonisolatedimagegenerator"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

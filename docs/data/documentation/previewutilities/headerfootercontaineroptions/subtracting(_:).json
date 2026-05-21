@@ -1,1 +1,238 @@
-{"abstract":[{"text":"Inherited from ","type":"text"},{"code":"SetAlgebra.subtracting(_:)","type":"codeVoice"},{"text":".","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/subtracting(_:)"},"kind":"symbol","metadata":{"extendedModule":"Swift","externalID":"s:s10SetAlgebraPsE11subtractingyxxF::SYNTHESIZED::s:16PreviewUtilities28HeaderFooterContainerOptionsV","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"subtracting"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"modules":[{"name":"PreviewUtilities","relatedModules":["Swift"]}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"subtracting(_:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"subtracting"},{"kind":"text","text":"("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"other"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions":{"abstract":[],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HeaderFooterContainerOptions"}],"role":"symbol","title":"HeaderFooterContainerOptions","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/subtracting(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"subtracting"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/subtracting(_:)","kind":"symbol","role":"symbol","title":"subtracting(_:)","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/subtracting(_:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/headerfootercontaineroptions/subtracting(_:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "SetAlgebra.subtracting(_:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/subtracting(_:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Swift",
+    "externalID": "s:s10SetAlgebraPsE11subtractingyxxF::SYNTHESIZED::s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "subtracting"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Self"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Self"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Swift"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "subtracting(_:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "subtracting"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "other"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "role": "symbol",
+      "title": "HeaderFooterContainerOptions",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/subtracting(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "subtracting"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/subtracting(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "subtracting(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/subtracting(_:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/headerfootercontaineroptions/subtracting(_:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

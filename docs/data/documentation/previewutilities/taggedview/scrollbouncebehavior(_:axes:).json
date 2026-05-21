@@ -1,1 +1,401 @@
-{"abstract":[{"text":"Inherited from ","type":"text"},{"code":"View.scrollBounceBehavior(_:axes:)","type":"codeVoice"},{"text":".","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView/scrollBounceBehavior(_:axes:)"},"kind":"symbol","metadata":{"extendedModule":"SwiftUICore","externalID":"s:7SwiftUI4ViewPAAE20scrollBounceBehavior_4axesQrAA06ScrolleF0V_AA4AxisO3SetVtF::SYNTHESIZED::s:16PreviewUtilities10TaggedViewV","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"scrollBounceBehavior"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI20ScrollBounceBehaviorV","text":"ScrollBounceBehavior"},{"kind":"text","text":", "},{"kind":"externalParam","text":"axes"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4AxisO","text":"Axis"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4AxisO3SetV","text":"Set"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUICore"]}],"platforms":[{"beta":false,"deprecated":false,"introducedAt":"16.4","name":"iOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"13.3","name":"macOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"16.4","name":"tvOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"9.4","name":"watchOS","unavailable":false}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"scrollBounceBehavior(_:axes:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"scrollBounceBehavior"},{"kind":"text","text":"("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"behavior"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI20ScrollBounceBehaviorV","text":"ScrollBounceBehavior"},{"kind":"text","text":", "},{"kind":"externalParam","text":"axes"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4AxisO","text":"Axis"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4AxisO3SetV","text":"Set"},{"kind":"text","text":" = [.vertical]) -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"},{"kind":"text","text":"\n"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView":{"abstract":[{"text":"View with a tag. Used instead of the ","type":"text"},{"code":".tag","type":"codeVoice"},{"text":" modifier when a concrete type is necessary.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"TaggedView"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"TaggedView"}],"role":"symbol","title":"TaggedView","type":"topic","url":"/documentation/previewutilities/taggedview"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView/scrollBounceBehavior(_:axes:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"scrollBounceBehavior"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI20ScrollBounceBehaviorV","text":"ScrollBounceBehavior"},{"kind":"text","text":", "},{"kind":"externalParam","text":"axes"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4AxisO","text":"Axis"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4AxisO3SetV","text":"Set"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView/scrollBounceBehavior(_:axes:)","kind":"symbol","role":"symbol","title":"scrollBounceBehavior(_:axes:)","type":"topic","url":"/documentation/previewutilities/taggedview/scrollbouncebehavior(_:axes:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/taggedview/scrollbouncebehavior(_:axes:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "View.scrollBounceBehavior(_:axes:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView/scrollBounceBehavior(_:axes:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI4ViewPAAE20scrollBounceBehavior_4axesQrAA06ScrolleF0V_AA4AxisO3SetVtF::SYNTHESIZED::s:16PreviewUtilities10TaggedViewV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "scrollBounceBehavior"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI20ScrollBounceBehaviorV",
+        "text": "ScrollBounceBehavior"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "axes"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4AxisO",
+        "text": "Axis"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4AxisO3SetV",
+        "text": "Set"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "keyword",
+        "text": "some"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4ViewP",
+        "text": "View"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "16.4",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "13.3",
+        "name": "macOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "16.4",
+        "name": "tvOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "9.4",
+        "name": "watchOS",
+        "unavailable": false
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "scrollBounceBehavior(_:axes:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "scrollBounceBehavior"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "behavior"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI20ScrollBounceBehaviorV",
+              "text": "ScrollBounceBehavior"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "axes"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4AxisO",
+              "text": "Axis"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4AxisO3SetV",
+              "text": "Set"
+            },
+            {
+              "kind": "text",
+              "text": " = [.vertical]) -> "
+            },
+            {
+              "kind": "keyword",
+              "text": "some"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": "\n"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView": {
+      "abstract": [
+        {
+          "text": "View with a tag. Used instead of the ",
+          "type": "text"
+        },
+        {
+          "code": ".tag",
+          "type": "codeVoice"
+        },
+        {
+          "text": " modifier when a concrete type is necessary.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaggedView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaggedView"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaggedView",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taggedview"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView/scrollBounceBehavior(_:axes:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "scrollBounceBehavior"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI20ScrollBounceBehaviorV",
+          "text": "ScrollBounceBehavior"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "axes"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4AxisO",
+          "text": "Axis"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4AxisO3SetV",
+          "text": "Set"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView/scrollBounceBehavior(_:axes:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "scrollBounceBehavior(_:axes:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taggedview/scrollbouncebehavior(_:axes:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/taggedview/scrollbouncebehavior(_:axes:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

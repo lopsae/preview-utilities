@@ -1,1 +1,402 @@
-{"abstract":[{"text":"Inherited from ","type":"text"},{"code":"View.tabItem(_:)","type":"codeVoice"},{"text":".","type":"text"}],"deprecationSummary":[{"inlineContent":[{"text":"Use `Tab(title:image:value:content:)` and related initializers instead","type":"text"}],"type":"paragraph"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/TaskView"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/tabItem(_:)"},"kind":"symbol","metadata":{"extendedModule":"SwiftUICore","externalID":"s:7SwiftUI4ViewPAAE7tabItemyQrqd__yXEAaBRd__lF::SYNTHESIZED::s:16PreviewUtilities8TaskViewV","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"tabItem"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"V"},{"kind":"text","text":">(() -> "},{"kind":"typeIdentifier","text":"V"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUICore"]}],"platforms":[{"beta":false,"deprecated":false,"deprecatedAt":"100000.0","introducedAt":"13.0","message":"Use `Tab(title:image:value:content:)` and related initializers instead","name":"iOS","unavailable":false},{"beta":false,"deprecated":false,"deprecatedAt":"100000.0","introducedAt":"10.15","message":"Use `Tab(title:image:value:content:)` and related initializers instead","name":"macOS","unavailable":false},{"beta":false,"deprecated":false,"deprecatedAt":"100000.0","introducedAt":"13.0","message":"Use `Tab(title:image:value:content:)` and related initializers instead","name":"tvOS","unavailable":false},{"beta":false,"deprecated":false,"deprecatedAt":"100000.0","introducedAt":"7.0","message":"Use `Tab(title:image:value:content:)` and related initializers instead","name":"watchOS","unavailable":false}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"tabItem(_:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"tabItem"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"V"},{"kind":"text","text":">("},{"kind":"attribute","text":"@"},{"kind":"attribute","preciseIdentifier":"s:7SwiftUI11ViewBuilderV","text":"ViewBuilder"},{"kind":"text","text":" "},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"label"},{"kind":"text","text":": () -> "},{"kind":"typeIdentifier","text":"V"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"},{"kind":"text","text":" "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"V"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"},{"kind":"text","text":"\n"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView":{"abstract":[{"text":"Experimental view that starts a task when it appears and when the task completes displays the","type":"text"},{"text":" ","type":"text"},{"text":"given content using the result.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"TaskView"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"TaskView"}],"role":"symbol","title":"TaskView","type":"topic","url":"/documentation/previewutilities/taskview"},"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/tabItem(_:)":{"abstract":[],"deprecated":true,"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"tabItem"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"V"},{"kind":"text","text":">(() -> "},{"kind":"typeIdentifier","text":"V"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/tabItem(_:)","kind":"symbol","role":"symbol","title":"tabItem(_:)","type":"topic","url":"/documentation/previewutilities/taskview/tabitem(_:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/taskview/tabitem(_:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "View.tabItem(_:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "deprecationSummary": [
+    {
+      "inlineContent": [
+        {
+          "text": "Use `Tab(title:image:value:content:)` and related initializers instead",
+          "type": "text"
+        }
+      ],
+      "type": "paragraph"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/tabItem(_:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI4ViewPAAE7tabItemyQrqd__yXEAaBRd__lF::SYNTHESIZED::s:16PreviewUtilities8TaskViewV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "tabItem"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "genericParameter",
+        "text": "V"
+      },
+      {
+        "kind": "text",
+        "text": ">(() -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "V"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "keyword",
+        "text": "some"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4ViewP",
+        "text": "View"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "deprecatedAt": "100000.0",
+        "introducedAt": "13.0",
+        "message": "Use `Tab(title:image:value:content:)` and related initializers instead",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "deprecatedAt": "100000.0",
+        "introducedAt": "10.15",
+        "message": "Use `Tab(title:image:value:content:)` and related initializers instead",
+        "name": "macOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "deprecatedAt": "100000.0",
+        "introducedAt": "13.0",
+        "message": "Use `Tab(title:image:value:content:)` and related initializers instead",
+        "name": "tvOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "deprecatedAt": "100000.0",
+        "introducedAt": "7.0",
+        "message": "Use `Tab(title:image:value:content:)` and related initializers instead",
+        "name": "watchOS",
+        "unavailable": false
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "tabItem(_:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "tabItem"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "V"
+            },
+            {
+              "kind": "text",
+              "text": ">("
+            },
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:7SwiftUI11ViewBuilderV",
+              "text": "ViewBuilder"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "label"
+            },
+            {
+              "kind": "text",
+              "text": ": () -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "V"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "keyword",
+              "text": "some"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "V"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": "\n"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
+      "abstract": [
+        {
+          "text": "Experimental view that starts a task when it appears and when the task completes displays the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "given content using the result.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaskView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaskView"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaskView",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/tabItem(_:)": {
+      "abstract": [],
+      "deprecated": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "tabItem"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "V"
+        },
+        {
+          "kind": "text",
+          "text": ">(() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "V"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/tabItem(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "tabItem(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview/tabitem(_:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/taskview/tabitem(_:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

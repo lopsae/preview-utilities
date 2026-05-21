@@ -1,1 +1,165 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities24NonisolatedThreadCheckerCACycfc","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"()"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Initializer","symbolKind":"init","title":"init()"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"init"},{"kind":"text","text":"()"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker":{"abstract":[{"text":"Nonisolated sendable object that contains a concurrent async function, a explicit nonisolated","type":"text"},{"text":" ","type":"text"},{"text":"async function, and an async function with the default isolation; to inspect the thread running","type":"text"},{"text":" ","type":"text"},{"text":"in each function.","type":"text"}],"fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"NonisolatedThreadChecker"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"NonisolatedThreadChecker"}],"role":"symbol","title":"NonisolatedThreadChecker","type":"topic","url":"/documentation/previewutilities/nonisolatedthreadchecker"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"()"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()","kind":"symbol","role":"symbol","title":"init()","type":"topic","url":"/documentation/previewutilities/nonisolatedthreadchecker/init()"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/nonisolatedthreadchecker/init()"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities24NonisolatedThreadCheckerCACycfc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "()"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init()"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "()"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker": {
+      "abstract": [
+        {
+          "text": "Nonisolated sendable object that contains a concurrent async function, a explicit nonisolated",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "async function, and an async function with the default isolation; to inspect the thread running",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "in each function.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "NonisolatedThreadChecker"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "NonisolatedThreadChecker"
+        }
+      ],
+      "role": "symbol",
+      "title": "NonisolatedThreadChecker",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedthreadchecker"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "()"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedthreadchecker/init()"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/nonisolatedthreadchecker/init()"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

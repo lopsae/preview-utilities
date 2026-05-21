@@ -1,1 +1,350 @@
-{"abstract":[{"text":"Inherited from ","type":"text"},{"code":"View.navigationSubtitle(_:)","type":"codeVoice"},{"text":".","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/navigationSubtitle(_:)-2zdsu"},"kind":"symbol","metadata":{"extendedModule":"SwiftUICore","externalID":"s:7SwiftUI4ViewPAAE18navigationSubtitleyQrAA18LocalizedStringKeyVF::SYNTHESIZED::s:16PreviewUtilities0A7CaptionV","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"navigationSubtitle"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUICore"]}],"platforms":[{"beta":false,"deprecated":false,"introducedAt":"26.0","name":"iOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"14.0","name":"Mac Catalyst","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"11.0","name":"macOS","unavailable":false}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"navigationSubtitle(_:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"navigationSubtitle"},{"kind":"text","text":"("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"subtitleKey"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"},{"kind":"text","text":"\n"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer":{"abstract":[],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainer"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HeaderFooterContainer"}],"role":"symbol","title":"HeaderFooterContainer","type":"topic","url":"/documentation/previewutilities/headerfootercontainer"},"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption":{"abstract":[{"text":"Caption with a background similar to the header and footer created by","type":"text"},{"text":" ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer","isActive":true,"type":"reference"},{"text":". Intended to provide additional detail along a preview.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"PreviewCaption"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PreviewCaption"}],"role":"symbol","title":"PreviewCaption","type":"topic","url":"/documentation/previewutilities/previewcaption"},"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/navigationSubtitle(_:)-2zdsu":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"navigationSubtitle"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/navigationSubtitle(_:)-2zdsu","kind":"symbol","role":"symbol","title":"navigationSubtitle(_:)","type":"topic","url":"/documentation/previewutilities/previewcaption/navigationsubtitle(_:)-2zdsu"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/previewcaption/navigationsubtitle(_:)-2zdsu"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "View.navigationSubtitle(_:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/navigationSubtitle(_:)-2zdsu"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI4ViewPAAE18navigationSubtitleyQrAA18LocalizedStringKeyVF::SYNTHESIZED::s:16PreviewUtilities0A7CaptionV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "navigationSubtitle"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+        "text": "LocalizedStringKey"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "keyword",
+        "text": "some"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4ViewP",
+        "text": "View"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "26.0",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "14.0",
+        "name": "Mac Catalyst",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "11.0",
+        "name": "macOS",
+        "unavailable": false
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "navigationSubtitle(_:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "navigationSubtitle"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "subtitleKey"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+              "text": "LocalizedStringKey"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "keyword",
+              "text": "some"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": "\n"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainer"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainer"
+        }
+      ],
+      "role": "symbol",
+      "title": "HeaderFooterContainer",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontainer"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption": {
+      "abstract": [
+        {
+          "text": "Caption with a background similar to the header and footer created by",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
+          "isActive": true,
+          "type": "reference"
+        },
+        {
+          "text": ". Intended to provide additional detail along a preview.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PreviewCaption"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PreviewCaption"
+        }
+      ],
+      "role": "symbol",
+      "title": "PreviewCaption",
+      "type": "topic",
+      "url": "/documentation/previewutilities/previewcaption"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/navigationSubtitle(_:)-2zdsu": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "navigationSubtitle"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+          "text": "LocalizedStringKey"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/navigationSubtitle(_:)-2zdsu",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "navigationSubtitle(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/previewcaption/navigationsubtitle(_:)-2zdsu"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/previewcaption/navigationsubtitle(_:)-2zdsu"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

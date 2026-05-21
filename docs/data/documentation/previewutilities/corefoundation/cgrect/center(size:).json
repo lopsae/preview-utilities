@@ -1,1 +1,284 @@
-{"abstract":[{"text":"Returns a rectangle of the given size centered in ","type":"text"},{"code":"self","type":"codeVoice"},{"text":".","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation","doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/center(size:)"},"kind":"symbol","metadata":{"extendedModule":"CoreFoundation","externalID":"s:So6CGRectV16PreviewUtilitiesE6center4sizeABSo6CGSizeV_tF","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"center"},{"kind":"text","text":"("},{"kind":"externalParam","text":"size"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGSize","text":"CGSize"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGRect","text":"CGRect"}],"modules":[{"name":"PreviewUtilities","relatedModules":["CoreFoundation"]}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"center(size:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"center"},{"kind":"text","text":"("},{"kind":"externalParam","text":"size"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGSize","text":"CGSize"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGRect","text":"CGRect"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation","kind":"symbol","role":"collection","title":"CoreFoundation","type":"topic","url":"/documentation/previewutilities/corefoundation"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"c:@S@CGRect","text":"CGRect"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"CGRect"}],"role":"symbol","title":"CGRect","type":"topic","url":"/documentation/previewutilities/corefoundation/cgrect"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/center(size:)":{"abstract":[{"text":"Returns a rectangle of the given size centered in ","type":"text"},{"code":"self","type":"codeVoice"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"center"},{"kind":"text","text":"("},{"kind":"externalParam","text":"size"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGSize","text":"CGSize"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGRect","text":"CGRect"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/center(size:)","kind":"symbol","role":"symbol","title":"center(size:)","type":"topic","url":"/documentation/previewutilities/corefoundation/cgrect/center(size:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/corefoundation/cgrect/center(size:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Returns a rectangle of the given size centered in ",
+      "type": "text"
+    },
+    {
+      "code": "self",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/center(size:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "CoreFoundation",
+    "externalID": "s:So6CGRectV16PreviewUtilitiesE6center4sizeABSo6CGSizeV_tF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "center"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "size"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "c:@S@CGSize",
+        "text": "CGSize"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "c:@S@CGRect",
+        "text": "CGRect"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "CoreFoundation"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "center(size:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "center"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "size"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:@S@CGSize",
+              "text": "CGSize"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:@S@CGRect",
+              "text": "CGRect"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "CoreFoundation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CGRect"
+        }
+      ],
+      "role": "symbol",
+      "title": "CGRect",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgrect"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/center(size:)": {
+      "abstract": [
+        {
+          "text": "Returns a rectangle of the given size centered in ",
+          "type": "text"
+        },
+        {
+          "code": "self",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "center"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/center(size:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "center(size:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgrect/center(size:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/corefoundation/cgrect/center(size:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

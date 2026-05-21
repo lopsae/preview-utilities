@@ -1,1 +1,157 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/init()"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities19IdentityFormatStyleVACyxGycfc","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"()"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Initializer","symbolKind":"init","title":"init()"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"init"},{"kind":"text","text":"()"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle":{"abstract":[{"text":"A structure that performs an identity transformation, always returns the input as output with no","type":"text"},{"text":" ","type":"text"},{"text":"modifications.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"IdentityFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"IdentityFormatStyle"}],"role":"symbol","title":"IdentityFormatStyle","type":"topic","url":"/documentation/previewutilities/identityformatstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/init()":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"()"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/init()","kind":"symbol","role":"symbol","title":"init()","type":"topic","url":"/documentation/previewutilities/identityformatstyle/init()"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/identityformatstyle/init()"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/init()"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19IdentityFormatStyleVACyxGycfc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "()"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init()"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "()"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle": {
+      "abstract": [
+        {
+          "text": "A structure that performs an identity transformation, always returns the input as output with no",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "modifications.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "IdentityFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IdentityFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "IdentityFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identityformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/init()": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "()"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/init()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identityformatstyle/init()"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/identityformatstyle/init()"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

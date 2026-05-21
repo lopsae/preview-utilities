@@ -1,1 +1,190 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImage"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC0a","fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"PlatformImage"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"PlatformImage"}],"role":"symbol","roleHeading":"Type Alias","symbolKind":"typealias","title":"ImageGeneratorProtocol.PlatformImage"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"PlatformImage"},{"kind":"text","text":" = "},{"kind":"typeIdentifier","preciseIdentifier":"c:objc(cs)NSImage","text":"NSImage"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol":{"abstract":[{"text":"Protocol for all image generators. Provides functions to generate images along the thread","type":"text"},{"text":" ","type":"text"},{"text":"information where the image was generated.","type":"text"}],"fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageGeneratorProtocol"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ImageGeneratorProtocol"}],"role":"symbol","title":"ImageGeneratorProtocol","type":"topic","url":"/documentation/previewutilities/imagegeneratorprotocol"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImage":{"abstract":[],"fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"PlatformImage"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImage","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PlatformImage"}],"role":"symbol","title":"ImageGeneratorProtocol.PlatformImage","type":"topic","url":"/documentation/previewutilities/imagegeneratorprotocol/platformimage"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/imagegeneratorprotocol/platformimage"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImage"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC0a",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "typealias"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "PlatformImage"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "PlatformImage"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Alias",
+    "symbolKind": "typealias",
+    "title": "ImageGeneratorProtocol.PlatformImage"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "typealias"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "PlatformImage"
+            },
+            {
+              "kind": "text",
+              "text": " = "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:objc(cs)NSImage",
+              "text": "NSImage"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
+      "abstract": [
+        {
+          "text": "Protocol for all image generators. Provides functions to generate images along the thread",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "information where the image was generated.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorProtocol"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorProtocol"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorProtocol",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorprotocol"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImage": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PlatformImage"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImage",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PlatformImage"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorProtocol.PlatformImage",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorprotocol/platformimage"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/imagegeneratorprotocol/platformimage"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

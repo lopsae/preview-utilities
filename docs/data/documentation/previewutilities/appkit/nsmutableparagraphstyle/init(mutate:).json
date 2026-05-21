@@ -1,1 +1,266 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/AppKit","doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle/init(mutate:)"},"kind":"symbol","metadata":{"extendedModule":"AppKit","externalID":"s:So23NSMutableParagraphStyleC16PreviewUtilitiesE6mutateAByABXDXE_tcfc","fragments":[{"kind":"keyword","text":"convenience"},{"kind":"text","text":" "},{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"mutate"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":")"}],"modules":[{"name":"PreviewUtilities","relatedModules":["AppKit"]}],"role":"symbol","roleHeading":"Initializer","symbolKind":"init","title":"init(mutate:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"convenience"},{"kind":"text","text":" "},{"kind":"keyword","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"mutate"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":")"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/AppKit":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/AppKit","kind":"symbol","role":"collection","title":"AppKit","type":"topic","url":"/documentation/previewutilities/appkit"},"doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"c:objc(cs)NSMutableParagraphStyle","text":"NSMutableParagraphStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"NSMutableParagraphStyle"}],"role":"symbol","title":"NSMutableParagraphStyle","type":"topic","url":"/documentation/previewutilities/appkit/nsmutableparagraphstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle/init(mutate:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"convenience"},{"kind":"text","text":" "},{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"mutate"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle/init(mutate:)","kind":"symbol","role":"symbol","title":"init(mutate:)","type":"topic","url":"/documentation/previewutilities/appkit/nsmutableparagraphstyle/init(mutate:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/appkit/nsmutableparagraphstyle/init(mutate:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle/init(mutate:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "AppKit",
+    "externalID": "s:So23NSMutableParagraphStyleC16PreviewUtilitiesE6mutateAByABXDXE_tcfc",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "convenience"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "mutate"
+      },
+      {
+        "kind": "text",
+        "text": ": ("
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Self"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s4Voida",
+        "text": "Void"
+      },
+      {
+        "kind": "text",
+        "text": ")"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "AppKit"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(mutate:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "convenience"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "mutate"
+            },
+            {
+              "kind": "text",
+              "text": ": ("
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s4Voida",
+              "text": "Void"
+            },
+            {
+              "kind": "text",
+              "text": ")"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "AppKit",
+      "type": "topic",
+      "url": "/documentation/previewutilities/appkit"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:objc(cs)NSMutableParagraphStyle",
+          "text": "NSMutableParagraphStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "NSMutableParagraphStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "NSMutableParagraphStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/appkit/nsmutableparagraphstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle/init(mutate:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "convenience"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "mutate"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s4Voida",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit/NSMutableParagraphStyle/init(mutate:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(mutate:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/appkit/nsmutableparagraphstyle/init(mutate:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/appkit/nsmutableparagraphstyle/init(mutate:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

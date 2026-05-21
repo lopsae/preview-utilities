@@ -1,1 +1,271 @@
-{"abstract":[{"code":"PropertyFormatStyle","type":"codeVoice"},{"text":" cannot be meaningfully encoded/decoded. This function will always","type":"text"},{"text":" ","type":"text"},{"text":"throw a ","type":"text"},{"code":"DecodingError.dataCorrupted","type":"codeVoice"},{"text":" error.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities19PropertyFormatStyleV4fromACyxGs7Decoder_p_tKcfc","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"from"},{"kind":"text","text":": any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7DecoderP","text":"Decoder"},{"kind":"text","text":") "},{"kind":"keyword","text":"throws"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Initializer","symbolKind":"init","title":"init(from:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"from"},{"kind":"text","text":" "},{"kind":"internalParam","text":"decoder"},{"kind":"text","text":": any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7DecoderP","text":"Decoder"},{"kind":"text","text":") "},{"kind":"keyword","text":"throws"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle":{"abstract":[{"text":"A format style that returns a string property referenced by a key path.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"PropertyFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PropertyFormatStyle"}],"role":"symbol","title":"PropertyFormatStyle","type":"topic","url":"/documentation/previewutilities/propertyformatstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)":{"abstract":[{"code":"PropertyFormatStyle","type":"codeVoice"},{"text":" cannot be meaningfully encoded/decoded. This function will always","type":"text"},{"text":" ","type":"text"},{"text":"throw a ","type":"text"},{"code":"DecodingError.dataCorrupted","type":"codeVoice"},{"text":" error.","type":"text"}],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"from"},{"kind":"text","text":": any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7DecoderP","text":"Decoder"},{"kind":"text","text":") "},{"kind":"keyword","text":"throws"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)","kind":"symbol","role":"symbol","title":"init(from:)","type":"topic","url":"/documentation/previewutilities/propertyformatstyle/init(from:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/propertyformatstyle/init(from:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "code": "PropertyFormatStyle",
+      "type": "codeVoice"
+    },
+    {
+      "text": " cannot be meaningfully encoded/decoded. This function will always",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "throw a ",
+      "type": "text"
+    },
+    {
+      "code": "DecodingError.dataCorrupted",
+      "type": "codeVoice"
+    },
+    {
+      "text": " error.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19PropertyFormatStyleV4fromACyxGs7Decoder_p_tKcfc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "from"
+      },
+      {
+        "kind": "text",
+        "text": ": any "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s7DecoderP",
+        "text": "Decoder"
+      },
+      {
+        "kind": "text",
+        "text": ") "
+      },
+      {
+        "kind": "keyword",
+        "text": "throws"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(from:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "from"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "decoder"
+            },
+            {
+              "kind": "text",
+              "text": ": any "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s7DecoderP",
+              "text": "Decoder"
+            },
+            {
+              "kind": "text",
+              "text": ") "
+            },
+            {
+              "kind": "keyword",
+              "text": "throws"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that returns a string property referenced by a key path.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "PropertyFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)": {
+      "abstract": [
+        {
+          "code": "PropertyFormatStyle",
+          "type": "codeVoice"
+        },
+        {
+          "text": " cannot be meaningfully encoded/decoded. This function will always",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "throw a ",
+          "type": "text"
+        },
+        {
+          "code": "DecodingError.dataCorrupted",
+          "type": "codeVoice"
+        },
+        {
+          "text": " error.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "from"
+        },
+        {
+          "kind": "text",
+          "text": ": any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7DecoderP",
+          "text": "Decoder"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(from:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/init(from:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/propertyformatstyle/init(from:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

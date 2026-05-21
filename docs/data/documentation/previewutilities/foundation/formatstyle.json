@@ -1,1 +1,882 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/Foundation"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle"},"kind":"symbol","metadata":{"extendedModule":"Foundation","externalID":"s:e:s:10Foundation11FormatStyleP16PreviewUtilitiesAA013FloatingPointbC0Vy04CoreA07CGFloatVGRszrlE24arithmeticRoundedIntegerAJvpZ","fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:10Foundation11FormatStyleP","text":"FormatStyle"}],"modules":[{"name":"PreviewUtilities","relatedModules":["Foundation"]}],"navigatorTitle":[{"kind":"identifier","text":"FormatStyle"}],"role":"symbol","roleHeading":"Extended Protocol","symbolKind":"extension","title":"FormatStyle"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11FormatStyleP","text":"FormatStyle"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation","kind":"symbol","role":"collection","title":"Foundation","type":"topic","url":"/documentation/previewutilities/foundation"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:10Foundation11FormatStyleP","text":"FormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"FormatStyle"}],"role":"symbol","title":"FormatStyle","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod":{"abstract":[],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Self","type":"codeVoice"},{"text":" is ","type":"text"},{"code":"FloatingPointFormatStyle<Double>","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"arithmeticRoundedInteger"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation24FloatingPointFormatStyleV","text":"FloatingPointFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":">"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod","kind":"symbol","role":"symbol","title":"arithmeticRoundedInteger","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/arithmeticroundedinteger-2pjod"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-33pn8":{"abstract":[],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Self","type":"codeVoice"},{"text":" is ","type":"text"},{"code":"FloatingPointFormatStyle<CGFloat>","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"arithmeticRoundedInteger"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation24FloatingPointFormatStyleV","text":"FloatingPointFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":">"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-33pn8","kind":"symbol","role":"symbol","title":"arithmeticRoundedInteger","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/arithmeticroundedinteger-33pn8"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(input:)":{"abstract":[{"text":"Returns a format style that uses the string output of another formatter and outputs the","type":"text"},{"text":" ","type":"text"},{"text":"capitalized string.","type":"text"}],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"capitalized"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"InputFormat"},{"kind":"text","text":">("},{"kind":"externalParam","text":"input"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"InputFormat"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(input:)","kind":"symbol","role":"symbol","title":"capitalized(input:)","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/capitalized(input:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(property:)":{"abstract":[{"text":"Returns a format style that outputs a capitalized string property from the input object.","type":"text"}],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"capitalized"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Input"},{"kind":"text","text":">("},{"kind":"externalParam","text":"property"},{"kind":"text","text":": any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7KeyPathC","text":"KeyPath"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":", "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":"> & "},{"kind":"typeIdentifier","preciseIdentifier":"s:s8SendableP","text":"Sendable"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(property:)","kind":"symbol","role":"symbol","title":"capitalized(property:)","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/capitalized(property:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"fractionLength"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Value"},{"kind":"text","text":">("},{"kind":"typeIdentifier","preciseIdentifier":"s:Si","text":"Int"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)","kind":"symbol","role":"symbol","title":"fractionLength(_:)","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/fractionlength(_:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity":{"abstract":[],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Self","type":"codeVoice"},{"text":" is ","type":"text"},{"code":"IdentityFormatStyle<String>","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"identity"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19IdentityFormatStyleV","text":"IdentityFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":">"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity","kind":"symbol","role":"symbol","title":"identity","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/identity"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/property(_:)":{"abstract":[{"text":"Returns a format style that outputs a string property from the input object.","type":"text"}],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"property"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Input"},{"kind":"text","text":">(any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7KeyPathC","text":"KeyPath"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":", "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":"> & "},{"kind":"typeIdentifier","preciseIdentifier":"s:s8SendableP","text":"Sendable"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/property(_:)","kind":"symbol","role":"symbol","title":"property(_:)","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/property(_:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()":{"abstract":[{"text":"Returns a format style that outputs the raw value of a ","type":"text"},{"code":"RawRepresentable","type":"codeVoice"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"rawValue"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Value"},{"kind":"text","text":">() -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19RawValueFormatStyleV","text":"RawValueFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":">"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()","kind":"symbol","role":"symbol","title":"rawValue()","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/rawvalue()"},"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()":{"abstract":[{"text":"Returns a format style that outputs the capitalized raw value of a ","type":"text"},{"code":"RawRepresentable","type":"codeVoice"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"rawValueCapitalized"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Value"},{"kind":"text","text":">() -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()","kind":"symbol","role":"symbol","title":"rawValueCapitalized()","type":"topic","url":"/documentation/previewutilities/foundation/formatstyle/rawvaluecapitalized()"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Type-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod","doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-33pn8","doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity"],"title":"Type Properties"},{"anchor":"Type-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(input:)","doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(property:)","doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)","doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/property(_:)","doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()","doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()"],"title":"Type Methods"}],"variants":[{"paths":["/documentation/previewutilities/foundation/formatstyle"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Foundation",
+    "externalID": "s:e:s:10Foundation11FormatStyleP16PreviewUtilitiesAA013FloatingPointbC0Vy04CoreA07CGFloatVGRszrlE24arithmeticRoundedIntegerAJvpZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:10Foundation11FormatStyleP",
+        "text": "FormatStyle"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Foundation"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "FormatStyle"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Protocol",
+    "symbolKind": "extension",
+    "title": "FormatStyle"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11FormatStyleP",
+              "text": "FormatStyle"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Foundation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:10Foundation11FormatStyleP",
+          "text": "FormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "FormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "FormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FloatingPointFormatStyle<Double>",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "arithmeticRoundedInteger"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation24FloatingPointFormatStyleV",
+          "text": "FloatingPointFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "arithmeticRoundedInteger",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/arithmeticroundedinteger-2pjod"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-33pn8": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FloatingPointFormatStyle<CGFloat>",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "arithmeticRoundedInteger"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation24FloatingPointFormatStyleV",
+          "text": "FloatingPointFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-33pn8",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "arithmeticRoundedInteger",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/arithmeticroundedinteger-33pn8"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(input:)": {
+      "abstract": [
+        {
+          "text": "Returns a format style that uses the string output of another formatter and outputs the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "capitalized string.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "capitalized"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "InputFormat"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "input"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "InputFormat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(input:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "capitalized(input:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/capitalized(input:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(property:)": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs a capitalized string property from the input object.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "capitalized"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "property"
+        },
+        {
+          "kind": "text",
+          "text": ": any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7KeyPathC",
+          "text": "KeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "> & "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8SendableP",
+          "text": "Sendable"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(property:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "capitalized(property:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/capitalized(property:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "fractionLength"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Si",
+          "text": "Int"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "fractionLength(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/fractionlength(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "IdentityFormatStyle<String>",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "identity"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19IdentityFormatStyleV",
+          "text": "IdentityFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "identity",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/identity"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/property(_:)": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs a string property from the input object.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "property"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ">(any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7KeyPathC",
+          "text": "KeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "> & "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8SendableP",
+          "text": "Sendable"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/property(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "property(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/property(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs the raw value of a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "rawValue"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19RawValueFormatStyleV",
+          "text": "RawValueFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "rawValue()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/rawvalue()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs the capitalized raw value of a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "rawValueCapitalized"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "rawValueCapitalized()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/rawvaluecapitalized()"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Type-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-33pn8",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity"
+      ],
+      "title": "Type Properties"
+    },
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(input:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalized(property:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/property(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()"
+      ],
+      "title": "Type Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/foundation/formatstyle"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,208 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities28HeaderFooterContainerOptionsV05fixedD0ACvpZ","fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixedFooter"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Type Property","symbolKind":"property","title":"fixedFooter"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixedFooter"},{"kind":"text","text":": "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions":{"abstract":[],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HeaderFooterContainerOptions"}],"role":"symbol","title":"HeaderFooterContainerOptions","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixedFooter"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter","kind":"symbol","role":"symbol","title":"fixedFooter","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/fixedfooter"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/headerfootercontaineroptions/fixedfooter"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities28HeaderFooterContainerOptionsV05fixedD0ACvpZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "static"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "let"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "fixedFooter"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+        "text": "HeaderFooterContainerOptions"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Property",
+    "symbolKind": "property",
+    "title": "fixedFooter"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "static"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "let"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "fixedFooter"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+              "text": "HeaderFooterContainerOptions"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "role": "symbol",
+      "title": "HeaderFooterContainerOptions",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "fixedFooter"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "fixedFooter",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/fixedfooter"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/headerfootercontaineroptions/fixedfooter"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

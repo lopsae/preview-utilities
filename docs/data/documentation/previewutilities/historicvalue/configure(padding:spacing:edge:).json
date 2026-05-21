@@ -1,1 +1,426 @@
-{"abstract":[{"text":"Configures the instance with the given parameters.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities13HistoricValueV9configure7padding7spacing4edgeACyxq_GSdSg_AI7SwiftUI4EdgeOSgtF","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"configure"},{"kind":"text","text":"("},{"kind":"externalParam","text":"padding"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"spacing"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"edge"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4EdgeO","text":"Edge"},{"kind":"text","text":"?) -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities13HistoricValueV","text":"HistoricValue"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Formatter"},{"kind":"text","text":">"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"configure(padding:spacing:edge:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"@"},{"kind":"attribute","preciseIdentifier":"s:ScM","text":"MainActor"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"configure"},{"kind":"text","text":"("},{"kind":"externalParam","text":"padding"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":"? = nil, "},{"kind":"externalParam","text":"spacing"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":"? = nil, "},{"kind":"externalParam","text":"edge"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4EdgeO","text":"Edge"},{"kind":"text","text":"? = nil) -> "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities13HistoricValueV","text":"HistoricValue"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Formatter"},{"kind":"text","text":">"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue":{"abstract":[{"text":"Displays a value, along a history of previous values offset from the view.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HistoricValue"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HistoricValue"}],"role":"symbol","title":"HistoricValue","type":"topic","url":"/documentation/previewutilities/historicvalue"},"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)":{"abstract":[{"text":"Configures the instance with the given parameters.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"configure"},{"kind":"text","text":"("},{"kind":"externalParam","text":"padding"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"spacing"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"edge"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4EdgeO","text":"Edge"},{"kind":"text","text":"?) -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities13HistoricValueV","text":"HistoricValue"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Formatter"},{"kind":"text","text":">"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)","kind":"symbol","role":"symbol","title":"configure(padding:spacing:edge:)","type":"topic","url":"/documentation/previewutilities/historicvalue/configure(padding:spacing:edge:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/historicvalue/configure(padding:spacing:edge:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Configures the instance with the given parameters.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities13HistoricValueV9configure7padding7spacing4edgeACyxq_GSdSg_AI7SwiftUI4EdgeOSgtF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "configure"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "padding"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:Sd",
+        "text": "Double"
+      },
+      {
+        "kind": "text",
+        "text": "?, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "spacing"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:Sd",
+        "text": "Double"
+      },
+      {
+        "kind": "text",
+        "text": "?, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "edge"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4EdgeO",
+        "text": "Edge"
+      },
+      {
+        "kind": "text",
+        "text": "?) -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities13HistoricValueV",
+        "text": "HistoricValue"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Value"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Formatter"
+      },
+      {
+        "kind": "text",
+        "text": ">"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "configure(padding:spacing:edge:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "configure"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "padding"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sd",
+              "text": "Double"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "spacing"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sd",
+              "text": "Double"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "edge"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4EdgeO",
+              "text": "Edge"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil) -> "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities13HistoricValueV",
+              "text": "HistoricValue"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Value"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Formatter"
+            },
+            {
+              "kind": "text",
+              "text": ">"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue": {
+      "abstract": [
+        {
+          "text": "Displays a value, along a history of previous values offset from the view.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HistoricValue"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HistoricValue"
+        }
+      ],
+      "role": "symbol",
+      "title": "HistoricValue",
+      "type": "topic",
+      "url": "/documentation/previewutilities/historicvalue"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)": {
+      "abstract": [
+        {
+          "text": "Configures the instance with the given parameters.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "configure"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "padding"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "spacing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "edge"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4EdgeO",
+          "text": "Edge"
+        },
+        {
+          "kind": "text",
+          "text": "?) -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities13HistoricValueV",
+          "text": "HistoricValue"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Formatter"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "configure(padding:spacing:edge:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/historicvalue/configure(padding:spacing:edge:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/historicvalue/configure(padding:spacing:edge:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

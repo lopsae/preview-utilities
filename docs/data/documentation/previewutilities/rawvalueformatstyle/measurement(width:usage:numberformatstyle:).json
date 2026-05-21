@@ -1,1 +1,630 @@
-{"abstract":[{"text":"Inherited from ","type":"text"},{"code":"FormatStyle.measurement(width:usage:numberFormatStyle:)","type":"codeVoice"},{"text":".","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/measurement(width:usage:numberFormatStyle:)"},"kind":"symbol","metadata":{"extendedModule":"Foundation","externalID":"s:10Foundation11FormatStylePAAE11measurement5width5usage06numberbC0AA11MeasurementVAASo11NSDimensionCRbzrlEABVyqd___GAL9UnitWidthVyqd____G_AA0hbJ5UsageVyqd__GAA013FloatingPointbC0VySdGSgtAMRszAKRbd__lFZ::SYNTHESIZED::s:16PreviewUtilities19RawValueFormatStyleV","fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"measurement"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"UnitType"},{"kind":"text","text":">("},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementV","text":"Measurement"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"UnitType"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV","text":"FormatStyle"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV9UnitWidthV","text":"UnitWidth"},{"kind":"text","text":", "},{"kind":"externalParam","text":"usage"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation26MeasurementFormatUnitUsageV","text":"MeasurementFormatUnitUsage"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"UnitType"},{"kind":"text","text":">, "},{"kind":"externalParam","text":"numberFormatStyle"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation24FloatingPointFormatStyleV","text":"FloatingPointFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":">?) -> "},{"kind":"typeIdentifier","text":"Self"}],"modules":[{"name":"PreviewUtilities","relatedModules":["Foundation"]}],"platforms":[{"beta":false,"deprecated":false,"introducedAt":"15.0","name":"iOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"12.0","name":"macOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"15.0","name":"tvOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"8.0","name":"watchOS","unavailable":false}],"role":"symbol","roleHeading":"Type Method","symbolKind":"method","title":"measurement(width:usage:numberFormatStyle:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"measurement"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"UnitType"},{"kind":"text","text":">("},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementV","text":"Measurement"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"UnitType"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV","text":"FormatStyle"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV9UnitWidthV","text":"UnitWidth"},{"kind":"text","text":", "},{"kind":"externalParam","text":"usage"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation26MeasurementFormatUnitUsageV","text":"MeasurementFormatUnitUsage"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"UnitType"},{"kind":"text","text":"> = .general, "},{"kind":"externalParam","text":"numberFormatStyle"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation24FloatingPointFormatStyleV","text":"FloatingPointFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":">? = nil) -> "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":" "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":" == "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementV","text":"Measurement"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"UnitType"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV","text":"FormatStyle"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"UnitType"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"c:objc(cs)NSDimension","text":"Dimension"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle":{"abstract":[{"text":"A structure that converts a ","type":"text"},{"code":"RawRepresentable","type":"codeVoice"},{"text":" to its raw value.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"RawValueFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"RawValueFormatStyle"}],"role":"symbol","title":"RawValueFormatStyle","type":"topic","url":"/documentation/previewutilities/rawvalueformatstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/measurement(width:usage:numberFormatStyle:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"measurement"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"UnitType"},{"kind":"text","text":">("},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementV","text":"Measurement"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"UnitType"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV","text":"FormatStyle"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV9UnitWidthV","text":"UnitWidth"},{"kind":"text","text":", "},{"kind":"externalParam","text":"usage"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation26MeasurementFormatUnitUsageV","text":"MeasurementFormatUnitUsage"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"UnitType"},{"kind":"text","text":">, "},{"kind":"externalParam","text":"numberFormatStyle"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation24FloatingPointFormatStyleV","text":"FloatingPointFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":">?) -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/measurement(width:usage:numberFormatStyle:)","kind":"symbol","role":"symbol","title":"measurement(width:usage:numberFormatStyle:)","type":"topic","url":"/documentation/previewutilities/rawvalueformatstyle/measurement(width:usage:numberformatstyle:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/rawvalueformatstyle/measurement(width:usage:numberformatstyle:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "FormatStyle.measurement(width:usage:numberFormatStyle:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/measurement(width:usage:numberFormatStyle:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Foundation",
+    "externalID": "s:10Foundation11FormatStylePAAE11measurement5width5usage06numberbC0AA11MeasurementVAASo11NSDimensionCRbzrlEABVyqd___GAL9UnitWidthVyqd____G_AA0hbJ5UsageVyqd__GAA013FloatingPointbC0VySdGSgtAMRszAKRbd__lFZ::SYNTHESIZED::s:16PreviewUtilities19RawValueFormatStyleV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "static"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "measurement"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "genericParameter",
+        "text": "UnitType"
+      },
+      {
+        "kind": "text",
+        "text": ">("
+      },
+      {
+        "kind": "externalParam",
+        "text": "width"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation11MeasurementV",
+        "text": "Measurement"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "UnitType"
+      },
+      {
+        "kind": "text",
+        "text": ">."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV",
+        "text": "FormatStyle"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV9UnitWidthV",
+        "text": "UnitWidth"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "usage"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation26MeasurementFormatUnitUsageV",
+        "text": "MeasurementFormatUnitUsage"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "UnitType"
+      },
+      {
+        "kind": "text",
+        "text": ">, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "numberFormatStyle"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation24FloatingPointFormatStyleV",
+        "text": "FloatingPointFormatStyle"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:Sd",
+        "text": "Double"
+      },
+      {
+        "kind": "text",
+        "text": ">?) -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Self"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Foundation"
+        ]
+      }
+    ],
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "15.0",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "12.0",
+        "name": "macOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "15.0",
+        "name": "tvOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "8.0",
+        "name": "watchOS",
+        "unavailable": false
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Method",
+    "symbolKind": "method",
+    "title": "measurement(width:usage:numberFormatStyle:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "static"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "measurement"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "UnitType"
+            },
+            {
+              "kind": "text",
+              "text": ">("
+            },
+            {
+              "kind": "externalParam",
+              "text": "width"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11MeasurementV",
+              "text": "Measurement"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "UnitType"
+            },
+            {
+              "kind": "text",
+              "text": ">."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV",
+              "text": "FormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV9UnitWidthV",
+              "text": "UnitWidth"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "usage"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation26MeasurementFormatUnitUsageV",
+              "text": "MeasurementFormatUnitUsage"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "UnitType"
+            },
+            {
+              "kind": "text",
+              "text": "> = .general, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "numberFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation24FloatingPointFormatStyleV",
+              "text": "FloatingPointFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sd",
+              "text": "Double"
+            },
+            {
+              "kind": "text",
+              "text": ">? = nil) -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": " == "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11MeasurementV",
+              "text": "Measurement"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "UnitType"
+            },
+            {
+              "kind": "text",
+              "text": ">."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV",
+              "text": "FormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "UnitType"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:objc(cs)NSDimension",
+              "text": "Dimension"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle": {
+      "abstract": [
+        {
+          "text": "A structure that converts a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": " to its raw value.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "RawValueFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "RawValueFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "RawValueFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/measurement(width:usage:numberFormatStyle:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "measurement"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "UnitType"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "width"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation11MeasurementV",
+          "text": "Measurement"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "UnitType"
+        },
+        {
+          "kind": "text",
+          "text": ">."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV",
+          "text": "FormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation11MeasurementVAASo11NSDimensionCRbzrlE11FormatStyleV9UnitWidthV",
+          "text": "UnitWidth"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "usage"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation26MeasurementFormatUnitUsageV",
+          "text": "MeasurementFormatUnitUsage"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "UnitType"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "numberFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation24FloatingPointFormatStyleV",
+          "text": "FloatingPointFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        },
+        {
+          "kind": "text",
+          "text": ">?) -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/measurement(width:usage:numberFormatStyle:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "measurement(width:usage:numberFormatStyle:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle/measurement(width:usage:numberformatstyle:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/rawvalueformatstyle/measurement(width:usage:numberformatstyle:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

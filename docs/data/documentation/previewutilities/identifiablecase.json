@@ -1,1 +1,395 @@
-{"abstract":[{"text":"Protocol to provide a ","type":"text"},{"code":"case","type":"codeVoice"},{"text":" property, for enumerations with associated values, to simplify","type":"text"},{"text":" ","type":"text"},{"text":"the identification of each case.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities16IdentifiableCaseP","fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"IdentifiableCase"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"IdentifiableCase"}],"role":"symbol","roleHeading":"Protocol","symbolKind":"protocol","title":"IdentifiableCase"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"IdentifiableCase"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait":{"abstract":[{"text":"Customizations that can be applied to a ","type":"text"},{"code":"FloatingCaptionModifier","type":"codeVoice"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"Trait"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"Trait"}],"role":"symbol","title":"FloatingCaptionModifier.Trait","type":"topic","url":"/documentation/previewutilities/floatingcaptionmodifier/trait"},"doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase":{"abstract":[{"text":"Protocol to provide a ","type":"text"},{"code":"case","type":"codeVoice"},{"text":" property, for enumerations with associated values, to simplify","type":"text"},{"text":" ","type":"text"},{"text":"the identification of each case.","type":"text"}],"fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"IdentifiableCase"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"IdentifiableCase"}],"role":"symbol","title":"IdentifiableCase","type":"topic","url":"/documentation/previewutilities/identifiablecase"},"doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype":{"abstract":[],"fragments":[{"kind":"keyword","text":"associatedtype"},{"kind":"text","text":" "},{"kind":"identifier","text":"Case"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:SH","text":"Hashable"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype","kind":"symbol","required":true,"role":"symbol","title":"Case","type":"topic","url":"/documentation/previewutilities/identifiablecase/case-swift.associatedtype"},"doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/case-swift.property":{"abstract":[],"fragments":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"`case`"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities16IdentifiableCaseP0D0Qa","text":"Case"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/case-swift.property","kind":"symbol","required":true,"role":"symbol","title":"case","type":"topic","url":"/documentation/previewutilities/identifiablecase/case-swift.property"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus":{"abstract":[],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Generator","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"ImageGeneratorProtocol","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"GenerationStatus"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"GenerationStatus"}],"role":"symbol","title":"ImageGeneratorStore.GenerationStatus","type":"topic","url":"/documentation/previewutilities/imagegeneratorstore/generationstatus"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait","doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus"],"kind":"relationships","title":"Conforming Types","type":"conformingTypes"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Associated-Types","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype"],"title":"Associated Types"},{"anchor":"Instance-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/case-swift.property"],"title":"Instance Properties"}],"variants":[{"paths":["/documentation/previewutilities/identifiablecase"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Protocol to provide a ",
+      "type": "text"
+    },
+    {
+      "code": "case",
+      "type": "codeVoice"
+    },
+    {
+      "text": " property, for enumerations with associated values, to simplify",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "the identification of each case.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities16IdentifiableCaseP",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "protocol"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "IdentifiableCase"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "IdentifiableCase"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Protocol",
+    "symbolKind": "protocol",
+    "title": "IdentifiableCase"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "protocol"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "IdentifiableCase"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait": {
+      "abstract": [
+        {
+          "text": "Customizations that can be applied to a ",
+          "type": "text"
+        },
+        {
+          "code": "FloatingCaptionModifier",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingCaptionModifier.Trait",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase": {
+      "abstract": [
+        {
+          "text": "Protocol to provide a ",
+          "type": "text"
+        },
+        {
+          "code": "case",
+          "type": "codeVoice"
+        },
+        {
+          "text": " property, for enumerations with associated values, to simplify",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "the identification of each case.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "IdentifiableCase"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IdentifiableCase"
+        }
+      ],
+      "role": "symbol",
+      "title": "IdentifiableCase",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identifiablecase"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "associatedtype"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Case"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SH",
+          "text": "Hashable"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype",
+      "kind": "symbol",
+      "required": true,
+      "role": "symbol",
+      "title": "Case",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identifiablecase/case-swift.associatedtype"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/case-swift.property": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "`case`"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities16IdentifiableCaseP0D0Qa",
+          "text": "Case"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/case-swift.property",
+      "kind": "symbol",
+      "required": true,
+      "role": "symbol",
+      "title": "case",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identifiablecase/case-swift.property"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Generator",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "ImageGeneratorProtocol",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "GenerationStatus"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "GenerationStatus"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus"
+      ],
+      "kind": "relationships",
+      "title": "Conforming Types",
+      "type": "conformingTypes"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Associated-Types",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype"
+      ],
+      "title": "Associated Types"
+    },
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/case-swift.property"
+      ],
+      "title": "Instance Properties"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/identifiablecase"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

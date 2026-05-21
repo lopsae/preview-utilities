@@ -1,1 +1,624 @@
-{"abstract":[{"text":"Inherited from ","type":"text"},{"code":"FormatStyle.list(type:width:)","type":"codeVoice"},{"text":".","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/list(type:width:)"},"kind":"symbol","metadata":{"extendedModule":"Foundation","externalID":"s:10Foundation11FormatStylePAAE4list4type5widthAA04ListbC0VyAA06StringC0Vqd__GAH0G4TypeOyAJqd___G_AH5WidthOyAJqd___GtAKRszSTRd__SS7ElementRtd__lFZ::SYNTHESIZED::s:16PreviewUtilities20CompositeFormatStyleV","fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"list"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Base"},{"kind":"text","text":">("},{"kind":"externalParam","text":"type"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV","text":"ListFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11StringStyleV","text":"StringStyle"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV0B4TypeO","text":"ListType"},{"kind":"text","text":", "},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV","text":"ListFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11StringStyleV","text":"StringStyle"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV5WidthO","text":"Width"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"modules":[{"name":"PreviewUtilities","relatedModules":["Foundation"]}],"platforms":[{"beta":false,"deprecated":false,"introducedAt":"15.0","name":"iOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"12.0","name":"macOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"15.0","name":"tvOS","unavailable":false},{"beta":false,"deprecated":false,"introducedAt":"8.0","name":"watchOS","unavailable":false}],"role":"symbol","roleHeading":"Type Method","symbolKind":"method","title":"list(type:width:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"list"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Base"},{"kind":"text","text":">("},{"kind":"externalParam","text":"type"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV","text":"ListFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11StringStyleV","text":"StringStyle"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV0B4TypeO","text":"ListType"},{"kind":"text","text":", "},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV","text":"ListFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11StringStyleV","text":"StringStyle"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV5WidthO","text":"Width"},{"kind":"text","text":" = .standard) -> "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":" "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":" == "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV","text":"ListFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11StringStyleV","text":"StringStyle"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":">, "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:ST","text":"Sequence"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:ST7ElementQa","text":"Element"},{"kind":"text","text":" == "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle":{"abstract":[{"text":"A Structure that joins two format styles.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"CompositeFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"CompositeFormatStyle"}],"role":"symbol","title":"CompositeFormatStyle","type":"topic","url":"/documentation/previewutilities/compositeformatstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/list(type:width:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"list"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Base"},{"kind":"text","text":">("},{"kind":"externalParam","text":"type"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV","text":"ListFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11StringStyleV","text":"StringStyle"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV0B4TypeO","text":"ListType"},{"kind":"text","text":", "},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV","text":"ListFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation11StringStyleV","text":"StringStyle"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Base"},{"kind":"text","text":">."},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation15ListFormatStyleV5WidthO","text":"Width"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/list(type:width:)","kind":"symbol","role":"symbol","title":"list(type:width:)","type":"topic","url":"/documentation/previewutilities/compositeformatstyle/list(type:width:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/compositeformatstyle/list(type:width:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "FormatStyle.list(type:width:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/list(type:width:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Foundation",
+    "externalID": "s:10Foundation11FormatStylePAAE4list4type5widthAA04ListbC0VyAA06StringC0Vqd__GAH0G4TypeOyAJqd___G_AH5WidthOyAJqd___GtAKRszSTRd__SS7ElementRtd__lFZ::SYNTHESIZED::s:16PreviewUtilities20CompositeFormatStyleV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "static"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "list"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "genericParameter",
+        "text": "Base"
+      },
+      {
+        "kind": "text",
+        "text": ">("
+      },
+      {
+        "kind": "externalParam",
+        "text": "type"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
+        "text": "ListFormatStyle"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation11StringStyleV",
+        "text": "StringStyle"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Base"
+      },
+      {
+        "kind": "text",
+        "text": ">."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation15ListFormatStyleV0B4TypeO",
+        "text": "ListType"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "width"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
+        "text": "ListFormatStyle"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation11StringStyleV",
+        "text": "StringStyle"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Base"
+      },
+      {
+        "kind": "text",
+        "text": ">."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:10Foundation15ListFormatStyleV5WidthO",
+        "text": "Width"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Self"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Foundation"
+        ]
+      }
+    ],
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "15.0",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "12.0",
+        "name": "macOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "15.0",
+        "name": "tvOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "8.0",
+        "name": "watchOS",
+        "unavailable": false
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Method",
+    "symbolKind": "method",
+    "title": "list(type:width:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "static"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "list"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "Base"
+            },
+            {
+              "kind": "text",
+              "text": ">("
+            },
+            {
+              "kind": "externalParam",
+              "text": "type"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
+              "text": "ListFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11StringStyleV",
+              "text": "StringStyle"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Base"
+            },
+            {
+              "kind": "text",
+              "text": ">."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation15ListFormatStyleV0B4TypeO",
+              "text": "ListType"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "width"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
+              "text": "ListFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11StringStyleV",
+              "text": "StringStyle"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Base"
+            },
+            {
+              "kind": "text",
+              "text": ">."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation15ListFormatStyleV5WidthO",
+              "text": "Width"
+            },
+            {
+              "kind": "text",
+              "text": " = .standard) -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": " == "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
+              "text": "ListFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:10Foundation11StringStyleV",
+              "text": "StringStyle"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Base"
+            },
+            {
+              "kind": "text",
+              "text": ">, "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Base"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:ST",
+              "text": "Sequence"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Base"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:ST7ElementQa",
+              "text": "Element"
+            },
+            {
+              "kind": "text",
+              "text": " == "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle": {
+      "abstract": [
+        {
+          "text": "A Structure that joins two format styles.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CompositeFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CompositeFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "CompositeFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/compositeformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/list(type:width:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "list"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Base"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "type"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
+          "text": "ListFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation11StringStyleV",
+          "text": "StringStyle"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Base"
+        },
+        {
+          "kind": "text",
+          "text": ">."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation15ListFormatStyleV0B4TypeO",
+          "text": "ListType"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "width"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation15ListFormatStyleV",
+          "text": "ListFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation11StringStyleV",
+          "text": "StringStyle"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Base"
+        },
+        {
+          "kind": "text",
+          "text": ">."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation15ListFormatStyleV5WidthO",
+          "text": "Width"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/list(type:width:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "list(type:width:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/compositeformatstyle/list(type:width:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/compositeformatstyle/list(type:width:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

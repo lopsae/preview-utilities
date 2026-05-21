@@ -1,1 +1,376 @@
-{"abstract":[{"text":"Experimental observable object to print a log message during the first request of views.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities9PrintOnceC","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"PrintOnce"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"PrintOnce"}],"role":"symbol","roleHeading":"Class","symbolKind":"class","title":"PrintOnce"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"PrintOnce"}]}],"kind":"declarations"},{"content":[{"anchor":"overview","level":2,"text":"Overview","type":"heading"},{"inlineContent":[{"text":"Call ","type":"text"},{"code":"print()","type":"codeVoice"},{"text":" within a view body to print ","type":"text"},{"code":"mesage","type":"codeVoice"},{"text":" the first time it is called. This is","type":"text"},{"text":" ","type":"text"},{"text":"currently the best know way to print a message consistently at the begining of a preview.","type":"text"}],"type":"paragraph"},{"inlineContent":[{"text":"Internally ","type":"text"},{"code":"Swift.print","type":"codeVoice"},{"text":" is used, instead of ","type":"text"},{"code":"Logger","type":"codeVoice"},{"text":", since logger sadly does not get","type":"text"},{"text":" ","type":"text"},{"text":"displayed in Xcode console for previews.","type":"text"}],"type":"paragraph"}],"kind":"content"}],"references":{"doc://PreviewUtilities/11Observation10ObservableP":{"identifier":"doc://PreviewUtilities/11Observation10ObservableP","title":"Observation.Observable","type":"unresolvable"},"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce":{"abstract":[{"text":"Experimental observable object to print a log message during the first request of views.","type":"text"}],"fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"PrintOnce"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PrintOnce"}],"role":"symbol","title":"PrintOnce","type":"topic","url":"/documentation/previewutilities/printonce"},"doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/previewStarted":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"previewStarted"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities9PrintOnceC","text":"PrintOnce"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/previewStarted","kind":"symbol","role":"symbol","title":"previewStarted","type":"topic","url":"/documentation/previewutilities/printonce/previewstarted"},"doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()":{"abstract":[{"text":"Prints ","type":"text"},{"code":"message","type":"codeVoice"},{"text":" the only the first time it is called, always returns ","type":"text"},{"code":"EmptyView","type":"codeVoice"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"print"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI9EmptyViewV","text":"EmptyView"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()","kind":"symbol","role":"symbol","title":"print()","type":"topic","url":"/documentation/previewutilities/printonce/print()"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s8CopyableP":{"identifier":"doc://PreviewUtilities/s8CopyableP","title":"Swift.Copyable","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"},"doc://PreviewUtilities/s9EscapableP":{"identifier":"doc://PreviewUtilities/s9EscapableP","title":"Swift.Escapable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/11Observation10ObservableP","doc://PreviewUtilities/s8CopyableP","doc://PreviewUtilities/s9EscapableP","doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Instance-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()"],"title":"Instance Methods"},{"anchor":"Type-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/previewStarted"],"title":"Type Properties"}],"variants":[{"paths":["/documentation/previewutilities/printonce"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Experimental observable object to print a log message during the first request of views.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities9PrintOnceC",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "class"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "PrintOnce"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "PrintOnce"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Class",
+    "symbolKind": "class",
+    "title": "PrintOnce"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "class"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "PrintOnce"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Call ",
+              "type": "text"
+            },
+            {
+              "code": "print()",
+              "type": "codeVoice"
+            },
+            {
+              "text": " within a view body to print ",
+              "type": "text"
+            },
+            {
+              "code": "mesage",
+              "type": "codeVoice"
+            },
+            {
+              "text": " the first time it is called. This is",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "currently the best know way to print a message consistently at the begining of a preview.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Internally ",
+              "type": "text"
+            },
+            {
+              "code": "Swift.print",
+              "type": "codeVoice"
+            },
+            {
+              "text": " is used, instead of ",
+              "type": "text"
+            },
+            {
+              "code": "Logger",
+              "type": "codeVoice"
+            },
+            {
+              "text": ", since logger sadly does not get",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "displayed in Xcode console for previews.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/11Observation10ObservableP": {
+      "identifier": "doc://PreviewUtilities/11Observation10ObservableP",
+      "title": "Observation.Observable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce": {
+      "abstract": [
+        {
+          "text": "Experimental observable object to print a log message during the first request of views.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PrintOnce"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PrintOnce"
+        }
+      ],
+      "role": "symbol",
+      "title": "PrintOnce",
+      "type": "topic",
+      "url": "/documentation/previewutilities/printonce"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/previewStarted": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "previewStarted"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities9PrintOnceC",
+          "text": "PrintOnce"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/previewStarted",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "previewStarted",
+      "type": "topic",
+      "url": "/documentation/previewutilities/printonce/previewstarted"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()": {
+      "abstract": [
+        {
+          "text": "Prints ",
+          "type": "text"
+        },
+        {
+          "code": "message",
+          "type": "codeVoice"
+        },
+        {
+          "text": " the only the first time it is called, always returns ",
+          "type": "text"
+        },
+        {
+          "code": "EmptyView",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "print"
+        },
+        {
+          "kind": "text",
+          "text": "() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI9EmptyViewV",
+          "text": "EmptyView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "print()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/printonce/print()"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8CopyableP": {
+      "identifier": "doc://PreviewUtilities/s8CopyableP",
+      "title": "Swift.Copyable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s9EscapableP": {
+      "identifier": "doc://PreviewUtilities/s9EscapableP",
+      "title": "Swift.Escapable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/11Observation10ObservableP",
+        "doc://PreviewUtilities/s8CopyableP",
+        "doc://PreviewUtilities/s9EscapableP",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()"
+      ],
+      "title": "Instance Methods"
+    },
+    {
+      "anchor": "Type-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/previewStarted"
+      ],
+      "title": "Type Properties"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/printonce"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,336 @@
-{"abstract":[{"text":"Returns the view with the parent visible.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities19HiddenParentOverlayV07visibleD0yACyxq_GSbF","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"visibleParent"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19HiddenParentOverlayV","text":"HiddenParentOverlay"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Parent"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Overlaid"},{"kind":"text","text":">"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"visibleParent(_:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"@"},{"kind":"attribute","preciseIdentifier":"s:ScM","text":"MainActor"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"visibleParent"},{"kind":"text","text":"("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"visible"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":" = true) -> "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19HiddenParentOverlayV","text":"HiddenParentOverlay"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Parent"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Overlaid"},{"kind":"text","text":">"}]}],"kind":"declarations"},{"content":[{"anchor":"discussion","level":2,"text":"Discussion","type":"heading"},{"inlineContent":[{"text":"Intended for preview and troubleshooting.","type":"text"}],"type":"paragraph"}],"kind":"content"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay":{"abstract":[{"text":"Experimental view that displays the given content overlaid on a parent view that is hidden.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HiddenParentOverlay"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HiddenParentOverlay"}],"role":"symbol","title":"HiddenParentOverlay","type":"topic","url":"/documentation/previewutilities/hiddenparentoverlay"},"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)":{"abstract":[{"text":"Returns the view with the parent visible.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"visibleParent"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19HiddenParentOverlayV","text":"HiddenParentOverlay"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Parent"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Overlaid"},{"kind":"text","text":">"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)","kind":"symbol","role":"symbol","title":"visibleParent(_:)","type":"topic","url":"/documentation/previewutilities/hiddenparentoverlay/visibleparent(_:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/hiddenparentoverlay/visibleparent(_:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Returns the view with the parent visible.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19HiddenParentOverlayV07visibleD0yACyxq_GSbF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "visibleParent"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:Sb",
+        "text": "Bool"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities19HiddenParentOverlayV",
+        "text": "HiddenParentOverlay"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Parent"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Overlaid"
+      },
+      {
+        "kind": "text",
+        "text": ">"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "visibleParent(_:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "visibleParent"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "visible"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sb",
+              "text": "Bool"
+            },
+            {
+              "kind": "text",
+              "text": " = true) -> "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities19HiddenParentOverlayV",
+              "text": "HiddenParentOverlay"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Parent"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Overlaid"
+            },
+            {
+              "kind": "text",
+              "text": ">"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Intended for preview and troubleshooting.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
+      "abstract": [
+        {
+          "text": "Experimental view that displays the given content overlaid on a parent view that is hidden.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "role": "symbol",
+      "title": "HiddenParentOverlay",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)": {
+      "abstract": [
+        {
+          "text": "Returns the view with the parent visible.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "visibleParent"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19HiddenParentOverlayV",
+          "text": "HiddenParentOverlay"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Parent"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Overlaid"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "visibleParent(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay/visibleparent(_:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/hiddenparentoverlay/visibleparent(_:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,529 @@
-{"abstract":[{"text":"A format style that returns a string property referenced by a key path.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities19PropertyFormatStyleV","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"PropertyFormatStyle"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"PropertyFormatStyle"}],"role":"symbol","roleHeading":"Structure","symbolKind":"struct","title":"PropertyFormatStyle"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"PropertyFormatStyle"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Input"},{"kind":"text","text":"> "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:s8SendableP","text":"Sendable"}]}],"kind":"declarations"},{"content":[{"anchor":"overview","level":2,"text":"Overview","type":"heading"},{"content":[{"inlineContent":[{"text":"This formatter retrieves a string property for an input object using a key path. Since","type":"text"},{"text":" ","type":"text"},{"code":"KeyPath","type":"codeVoice"},{"text":" cannot be meaningfully encoded or decoded a ","type":"text"},{"code":"Codable","type":"codeVoice"},{"text":" implementation is provided, but","type":"text"},{"text":" ","type":"text"},{"text":"a serialization round-trip of this type is not possible. Encoding stores a dummy value. Decoding","type":"text"},{"text":" ","type":"text"},{"text":"will always fail with a ","type":"text"},{"code":"DecodingError.dataCorrupted","type":"codeVoice"},{"text":" error.","type":"text"}],"type":"paragraph"}],"name":"Note","style":"note","type":"aside"}],"kind":"content"}],"references":{"doc://PreviewUtilities/10Foundation11FormatStyleP":{"identifier":"doc://PreviewUtilities/10Foundation11FormatStyleP","title":"Foundation.FormatStyle","type":"unresolvable"},"doc://PreviewUtilities/SE":{"identifier":"doc://PreviewUtilities/SE","title":"Swift.Encodable","type":"unresolvable"},"doc://PreviewUtilities/SH":{"identifier":"doc://PreviewUtilities/SH","title":"Swift.Hashable","type":"unresolvable"},"doc://PreviewUtilities/SQ":{"identifier":"doc://PreviewUtilities/SQ","title":"Swift.Equatable","type":"unresolvable"},"doc://PreviewUtilities/Se":{"identifier":"doc://PreviewUtilities/Se","title":"Swift.Decodable","type":"unresolvable"},"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle":{"abstract":[{"text":"A format style that returns a string property referenced by a key path.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"PropertyFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PropertyFormatStyle"}],"role":"symbol","title":"PropertyFormatStyle","type":"topic","url":"/documentation/previewutilities/propertyformatstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations","kind":"article","role":"collectionGroup","title":"Equatable Implementations","type":"topic","url":"/documentation/previewutilities/propertyformatstyle/equatable-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations","kind":"article","role":"collectionGroup","title":"FormatStyle Implementations","type":"topic","url":"/documentation/previewutilities/propertyformatstyle/formatstyle-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/encode(to:)":{"abstract":[{"code":"PropertyFormatStyle","type":"codeVoice"},{"text":" cannot be meaningfully encoded/decoded. This function stores a dummy","type":"text"},{"text":" ","type":"text"},{"text":"value and succeeds.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"encode"},{"kind":"text","text":"("},{"kind":"externalParam","text":"to"},{"kind":"text","text":": any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7EncoderP","text":"Encoder"},{"kind":"text","text":") "},{"kind":"keyword","text":"throws"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/encode(to:)","kind":"symbol","role":"symbol","title":"encode(to:)","type":"topic","url":"/documentation/previewutilities/propertyformatstyle/encode(to:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"format"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)","kind":"symbol","role":"symbol","title":"format(_:)","type":"topic","url":"/documentation/previewutilities/propertyformatstyle/format(_:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)":{"abstract":[{"code":"PropertyFormatStyle","type":"codeVoice"},{"text":" cannot be meaningfully encoded/decoded. This function will always","type":"text"},{"text":" ","type":"text"},{"text":"throw a ","type":"text"},{"code":"DecodingError.dataCorrupted","type":"codeVoice"},{"text":" error.","type":"text"}],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"from"},{"kind":"text","text":": any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7DecoderP","text":"Decoder"},{"kind":"text","text":") "},{"kind":"keyword","text":"throws"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)","kind":"symbol","role":"symbol","title":"init(from:)","type":"topic","url":"/documentation/previewutilities/propertyformatstyle/init(from:)"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/10Foundation11FormatStyleP","doc://PreviewUtilities/Se","doc://PreviewUtilities/SE","doc://PreviewUtilities/SQ","doc://PreviewUtilities/SH","doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)"],"title":"Initializers"},{"anchor":"Instance-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/encode(to:)","doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)"],"title":"Instance Methods"},{"anchor":"Default-Implementations","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations","doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations","doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations"],"title":"Default Implementations"}],"variants":[{"paths":["/documentation/previewutilities/propertyformatstyle"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "A format style that returns a string property referenced by a key path.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19PropertyFormatStyleV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "PropertyFormatStyle"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "PropertyFormatStyle"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Structure",
+    "symbolKind": "struct",
+    "title": "PropertyFormatStyle"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "PropertyFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "Input"
+            },
+            {
+              "kind": "text",
+              "text": "> "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Input"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s8SendableP",
+              "text": "Sendable"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "content": [
+            {
+              "inlineContent": [
+                {
+                  "text": "This formatter retrieves a string property for an input object using a key path. Since",
+                  "type": "text"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
+                  "code": "KeyPath",
+                  "type": "codeVoice"
+                },
+                {
+                  "text": " cannot be meaningfully encoded or decoded a ",
+                  "type": "text"
+                },
+                {
+                  "code": "Codable",
+                  "type": "codeVoice"
+                },
+                {
+                  "text": " implementation is provided, but",
+                  "type": "text"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
+                  "text": "a serialization round-trip of this type is not possible. Encoding stores a dummy value. Decoding",
+                  "type": "text"
+                },
+                {
+                  "text": " ",
+                  "type": "text"
+                },
+                {
+                  "text": "will always fail with a ",
+                  "type": "text"
+                },
+                {
+                  "code": "DecodingError.dataCorrupted",
+                  "type": "codeVoice"
+                },
+                {
+                  "text": " error.",
+                  "type": "text"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "name": "Note",
+          "style": "note",
+          "type": "aside"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/10Foundation11FormatStyleP": {
+      "identifier": "doc://PreviewUtilities/10Foundation11FormatStyleP",
+      "title": "Foundation.FormatStyle",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SE": {
+      "identifier": "doc://PreviewUtilities/SE",
+      "title": "Swift.Encodable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SH": {
+      "identifier": "doc://PreviewUtilities/SH",
+      "title": "Swift.Hashable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SQ": {
+      "identifier": "doc://PreviewUtilities/SQ",
+      "title": "Swift.Equatable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/Se": {
+      "identifier": "doc://PreviewUtilities/Se",
+      "title": "Swift.Decodable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that returns a string property referenced by a key path.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "PropertyFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "Equatable Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/equatable-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "FormatStyle Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/formatstyle-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/encode(to:)": {
+      "abstract": [
+        {
+          "code": "PropertyFormatStyle",
+          "type": "codeVoice"
+        },
+        {
+          "text": " cannot be meaningfully encoded/decoded. This function stores a dummy",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "value and succeeds.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "encode"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "to"
+        },
+        {
+          "kind": "text",
+          "text": ": any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7EncoderP",
+          "text": "Encoder"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/encode(to:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "encode(to:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/encode(to:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "format"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "format(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/format(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)": {
+      "abstract": [
+        {
+          "code": "PropertyFormatStyle",
+          "type": "codeVoice"
+        },
+        {
+          "text": " cannot be meaningfully encoded/decoded. This function will always",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "throw a ",
+          "type": "text"
+        },
+        {
+          "code": "DecodingError.dataCorrupted",
+          "type": "codeVoice"
+        },
+        {
+          "text": " error.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "from"
+        },
+        {
+          "kind": "text",
+          "text": ": any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7DecoderP",
+          "text": "Decoder"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(from:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/init(from:)"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/10Foundation11FormatStyleP",
+        "doc://PreviewUtilities/Se",
+        "doc://PreviewUtilities/SE",
+        "doc://PreviewUtilities/SQ",
+        "doc://PreviewUtilities/SH",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/init(from:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/encode(to:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)"
+      ],
+      "title": "Instance Methods"
+    },
+    {
+      "anchor": "Default-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations"
+      ],
+      "title": "Default Implementations"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/propertyformatstyle"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

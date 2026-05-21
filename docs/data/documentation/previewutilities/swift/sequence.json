@@ -1,1 +1,686 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/Swift"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence"},"kind":"symbol","metadata":{"extendedModule":"Swift","externalID":"s:e:s:ST16PreviewUtilitiesE13dictionaryMap3key5valueSDyqd__qd_0_Gqd__7ElementQzXE_qd_0_AGXEtSHRd__r0_lF","fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:ST","text":"Sequence"}],"modules":[{"name":"PreviewUtilities","relatedModules":["Swift"]}],"navigatorTitle":[{"kind":"identifier","text":"Sequence"}],"role":"symbol","roleHeading":"Extended Protocol","symbolKind":"extension","title":"Sequence"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:ST","text":"Sequence"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift","kind":"symbol","role":"collection","title":"Swift","type":"topic","url":"/documentation/previewutilities/swift"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:ST","text":"Sequence"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"Sequence"}],"role":"symbol","title":"Sequence","type":"topic","url":"/documentation/previewutilities/swift/sequence"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-27yp3":{"abstract":[{"text":"Produces a dictionary mapping each elements of the sequence to a key and their corresponding","type":"text"},{"text":" ","type":"text"},{"text":"value.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"dictionaryMap"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Key"},{"kind":"text","text":", "},{"kind":"genericParameter","text":"Value"},{"kind":"text","text":">("},{"kind":"externalParam","text":"key"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:ST7ElementQa","text":"Element"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Key"},{"kind":"text","text":", "},{"kind":"externalParam","text":"value"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:ST7ElementQa","text":"Element"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":") -> ["},{"kind":"typeIdentifier","text":"Key"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":"]"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-27yp3","kind":"symbol","role":"symbol","title":"dictionaryMap(key:value:)","type":"topic","url":"/documentation/previewutilities/swift/sequence/dictionarymap(key:value:)-27yp3"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-89yw6":{"abstract":[{"text":"Produces a dictionary mapping each elements of the sequence to a key, and using the given","type":"text"},{"text":" ","type":"text"},{"text":"value for all keys.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"dictionaryMap"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Key"},{"kind":"text","text":", "},{"kind":"genericParameter","text":"Value"},{"kind":"text","text":">("},{"kind":"externalParam","text":"key"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:ST7ElementQa","text":"Element"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Key"},{"kind":"text","text":", "},{"kind":"externalParam","text":"value"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":") -> ["},{"kind":"typeIdentifier","text":"Key"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":"]"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-89yw6","kind":"symbol","role":"symbol","title":"dictionaryMap(key:value:)","type":"topic","url":"/documentation/previewutilities/swift/sequence/dictionarymap(key:value:)-89yw6"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-8s4el":{"abstract":[{"text":"Produces a dictionary using the elements of the sequence as keys, and using the given value","type":"text"},{"text":" ","type":"text"},{"text":"for all keys.","type":"text"}],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Element","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"Hashable","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"dictionaryMap"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Value"},{"kind":"text","text":">("},{"kind":"externalParam","text":"value"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":") -> ["},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:ST7ElementQa","text":"Element"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":"]"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-8s4el","kind":"symbol","role":"symbol","title":"dictionaryMap(value:)","type":"topic","url":"/documentation/previewutilities/swift/sequence/dictionarymap(value:)-8s4el"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-s8q4":{"abstract":[{"text":"Produces a dictionary using the elements of the sequence as keys, and mapping each key to","type":"text"},{"text":" ","type":"text"},{"text":"a corresponding value.","type":"text"}],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Element","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"Hashable","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"dictionaryMap"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Value"},{"kind":"text","text":">("},{"kind":"externalParam","text":"value"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:ST7ElementQa","text":"Element"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":") -> ["},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:ST7ElementQa","text":"Element"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":"]"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-s8q4","kind":"symbol","role":"symbol","title":"dictionaryMap(value:)","type":"topic","url":"/documentation/previewutilities/swift/sequence/dictionarymap(value:)-s8q4"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Instance-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-27yp3","doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-89yw6","doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-8s4el","doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-s8q4"],"title":"Instance Methods"}],"variants":[{"paths":["/documentation/previewutilities/swift/sequence"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Swift",
+    "externalID": "s:e:s:ST16PreviewUtilitiesE13dictionaryMap3key5valueSDyqd__qd_0_Gqd__7ElementQzXE_qd_0_AGXEtSHRd__r0_lF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:ST",
+        "text": "Sequence"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Swift"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "Sequence"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Protocol",
+    "symbolKind": "extension",
+    "title": "Sequence"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:ST",
+              "text": "Sequence"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Swift",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:ST",
+          "text": "Sequence"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Sequence"
+        }
+      ],
+      "role": "symbol",
+      "title": "Sequence",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/sequence"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-27yp3": {
+      "abstract": [
+        {
+          "text": "Produces a dictionary mapping each elements of the sequence to a key and their corresponding",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "value.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "dictionaryMap"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Key"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "key"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:ST7ElementQa",
+          "text": "Element"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Key"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "value"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:ST7ElementQa",
+          "text": "Element"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ") -> ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Key"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-27yp3",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "dictionaryMap(key:value:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/sequence/dictionarymap(key:value:)-27yp3"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-89yw6": {
+      "abstract": [
+        {
+          "text": "Produces a dictionary mapping each elements of the sequence to a key, and using the given",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "value for all keys.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "dictionaryMap"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Key"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "key"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:ST7ElementQa",
+          "text": "Element"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Key"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "value"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ") -> ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Key"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-89yw6",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "dictionaryMap(key:value:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/sequence/dictionarymap(key:value:)-89yw6"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-8s4el": {
+      "abstract": [
+        {
+          "text": "Produces a dictionary using the elements of the sequence as keys, and using the given value",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "for all keys.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Element",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "Hashable",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "dictionaryMap"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "value"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ") -> ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:ST7ElementQa",
+          "text": "Element"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-8s4el",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "dictionaryMap(value:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/sequence/dictionarymap(value:)-8s4el"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-s8q4": {
+      "abstract": [
+        {
+          "text": "Produces a dictionary using the elements of the sequence as keys, and mapping each key to",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "a corresponding value.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Element",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "Hashable",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "dictionaryMap"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "value"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:ST7ElementQa",
+          "text": "Element"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ") -> ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:ST7ElementQa",
+          "text": "Element"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-s8q4",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "dictionaryMap(value:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/sequence/dictionarymap(value:)-s8q4"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-27yp3",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(key:value:)-89yw6",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-8s4el",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence/dictionaryMap(value:)-s8q4"
+      ],
+      "title": "Instance Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swift/sequence"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

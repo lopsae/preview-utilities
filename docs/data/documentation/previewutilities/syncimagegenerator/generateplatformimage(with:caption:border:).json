@@ -1,1 +1,454 @@
-{"abstract":[{"text":"Synchronously generates a platform image with the given strings.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities18SyncImageGeneratorV016generatePlatformD04with7caption6borderSo7NSImageCSS_SSSgSbtF","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generatePlatformImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":", "},{"kind":"externalParam","text":"caption"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"border"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities18SyncImageGeneratorV","text":"SyncImageGenerator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a","text":"PlatformImage"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"generatePlatformImage(with:caption:border:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generatePlatformImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":" "},{"kind":"internalParam","text":"text"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":", "},{"kind":"externalParam","text":"caption"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":"? = nil, "},{"kind":"externalParam","text":"border"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":" = false) -> "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities18SyncImageGeneratorV","text":"SyncImageGenerator"},{"kind":"text","text":"."},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a","text":"PlatformImage"}]}],"kind":"declarations"},{"content":[{"anchor":"discussion","level":2,"text":"Discussion","type":"heading"},{"inlineContent":[{"text":"Images generated with the same ","type":"text"},{"code":"text","type":"codeVoice"},{"text":" always have the same background color.","type":"text"}],"type":"paragraph"}],"kind":"content"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator":{"abstract":[{"text":"Synchronous image generator. Can be instantiated to produce any number of images of a given","type":"text"},{"text":" ","type":"text"},{"text":"size, or used statically to produce the same images.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"SyncImageGenerator"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"SyncImageGenerator"}],"role":"symbol","title":"SyncImageGenerator","type":"topic","url":"/documentation/previewutilities/syncimagegenerator"},"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage":{"abstract":[],"fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"PlatformImage"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PlatformImage"}],"role":"symbol","title":"SyncImageGenerator.PlatformImage","type":"topic","url":"/documentation/previewutilities/syncimagegenerator/platformimage"},"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)":{"abstract":[{"text":"Synchronously generates a platform image with the given strings.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generatePlatformImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":", "},{"kind":"externalParam","text":"caption"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"border"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities18SyncImageGeneratorV","text":"SyncImageGenerator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a","text":"PlatformImage"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)","kind":"symbol","role":"symbol","title":"generatePlatformImage(with:caption:border:)","type":"topic","url":"/documentation/previewutilities/syncimagegenerator/generateplatformimage(with:caption:border:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/syncimagegenerator/generateplatformimage(with:caption:border:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Synchronously generates a platform image with the given strings.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities18SyncImageGeneratorV016generatePlatformD04with7caption6borderSo7NSImageCSS_SSSgSbtF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "generatePlatformImage"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "with"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "caption"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": "?, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "border"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:Sb",
+        "text": "Bool"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV",
+        "text": "SyncImageGenerator"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a",
+        "text": "PlatformImage"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "generatePlatformImage(with:caption:border:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "generatePlatformImage"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "with"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "text"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "caption"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "border"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sb",
+              "text": "Bool"
+            },
+            {
+              "kind": "text",
+              "text": " = false) -> "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV",
+              "text": "SyncImageGenerator"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a",
+              "text": "PlatformImage"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Images generated with the same ",
+              "type": "text"
+            },
+            {
+              "code": "text",
+              "type": "codeVoice"
+            },
+            {
+              "text": " always have the same background color.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator": {
+      "abstract": [
+        {
+          "text": "Synchronous image generator. Can be instantiated to produce any number of images of a given",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "size, or used statically to produce the same images.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "SyncImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SyncImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "SyncImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PlatformImage"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PlatformImage"
+        }
+      ],
+      "role": "symbol",
+      "title": "SyncImageGenerator.PlatformImage",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/platformimage"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)": {
+      "abstract": [
+        {
+          "text": "Synchronously generates a platform image with the given strings.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generatePlatformImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "caption"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "border"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV",
+          "text": "SyncImageGenerator"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a",
+          "text": "PlatformImage"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generatePlatformImage(with:caption:border:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/generateplatformimage(with:caption:border:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/syncimagegenerator/generateplatformimage(with:caption:border:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

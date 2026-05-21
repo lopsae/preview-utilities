@@ -1,1 +1,201 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint"},"kind":"symbol","metadata":{"extendedModule":"CoreFoundation","externalID":"s:e:s:So7CGPointV16PreviewUtilitiesE12arrayLiteralAB14CoreFoundation7CGFloatVd_tcfc","fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"c:@S@CGPoint","text":"CGPoint"}],"modules":[{"name":"PreviewUtilities","relatedModules":["CoreFoundation"]}],"navigatorTitle":[{"kind":"identifier","text":"CGPoint"}],"role":"symbol","roleHeading":"Extended Structure","symbolKind":"extension","title":"CGPoint"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGPoint","text":"CGPoint"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation","kind":"symbol","role":"collection","title":"CoreFoundation","type":"topic","url":"/documentation/previewutilities/corefoundation"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"c:@S@CGPoint","text":"CGPoint"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"CGPoint"}],"role":"symbol","title":"CGPoint","type":"topic","url":"/documentation/previewutilities/corefoundation/cgpoint"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint/ExpressibleByArrayLiteral-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint/ExpressibleByArrayLiteral-Implementations","kind":"article","role":"collectionGroup","title":"ExpressibleByArrayLiteral Implementations","type":"topic","url":"/documentation/previewutilities/corefoundation/cgpoint/expressiblebyarrayliteral-implementations"},"doc://PreviewUtilities/s25ExpressibleByArrayLiteralP":{"identifier":"doc://PreviewUtilities/s25ExpressibleByArrayLiteralP","title":"Swift.ExpressibleByArrayLiteral","type":"unresolvable"},"doc://PreviewUtilities/s8CopyableP":{"identifier":"doc://PreviewUtilities/s8CopyableP","title":"Swift.Copyable","type":"unresolvable"},"doc://PreviewUtilities/s9EscapableP":{"identifier":"doc://PreviewUtilities/s9EscapableP","title":"Swift.Escapable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/s8CopyableP","doc://PreviewUtilities/s9EscapableP","doc://PreviewUtilities/s25ExpressibleByArrayLiteralP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Default-Implementations","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint/ExpressibleByArrayLiteral-Implementations"],"title":"Default Implementations"}],"variants":[{"paths":["/documentation/previewutilities/corefoundation/cgpoint"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "CoreFoundation",
+    "externalID": "s:e:s:So7CGPointV16PreviewUtilitiesE12arrayLiteralAB14CoreFoundation7CGFloatVd_tcfc",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "c:@S@CGPoint",
+        "text": "CGPoint"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "CoreFoundation"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "CGPoint"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "CGPoint"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:@S@CGPoint",
+              "text": "CGPoint"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "CoreFoundation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:@S@CGPoint",
+          "text": "CGPoint"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CGPoint"
+        }
+      ],
+      "role": "symbol",
+      "title": "CGPoint",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgpoint"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint/ExpressibleByArrayLiteral-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint/ExpressibleByArrayLiteral-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "ExpressibleByArrayLiteral Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgpoint/expressiblebyarrayliteral-implementations"
+    },
+    "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP": {
+      "identifier": "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP",
+      "title": "Swift.ExpressibleByArrayLiteral",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8CopyableP": {
+      "identifier": "doc://PreviewUtilities/s8CopyableP",
+      "title": "Swift.Copyable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s9EscapableP": {
+      "identifier": "doc://PreviewUtilities/s9EscapableP",
+      "title": "Swift.Escapable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s8CopyableP",
+        "doc://PreviewUtilities/s9EscapableP",
+        "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Default-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint/ExpressibleByArrayLiteral-Implementations"
+      ],
+      "title": "Default Implementations"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/corefoundation/cgpoint"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

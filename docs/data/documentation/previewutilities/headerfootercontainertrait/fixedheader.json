@@ -1,1 +1,221 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait/fixedHeader"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities26HeaderFooterContainerTraitV05fixedC0ACvpZ","fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixedHeader"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities26HeaderFooterContainerTraitV","text":"HeaderFooterContainerTrait"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Type Property","symbolKind":"property","title":"fixedHeader"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"@"},{"kind":"attribute","preciseIdentifier":"s:ScM","text":"MainActor"},{"kind":"text","text":" "},{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixedHeader"},{"kind":"text","text":": "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities26HeaderFooterContainerTraitV","text":"HeaderFooterContainerTrait"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait":{"abstract":[],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainerTrait"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HeaderFooterContainerTrait"}],"role":"symbol","title":"HeaderFooterContainerTrait","type":"topic","url":"/documentation/previewutilities/headerfootercontainertrait"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait/fixedHeader":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixedHeader"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities26HeaderFooterContainerTraitV","text":"HeaderFooterContainerTrait"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait/fixedHeader","kind":"symbol","role":"symbol","title":"fixedHeader","type":"topic","url":"/documentation/previewutilities/headerfootercontainertrait/fixedheader"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/headerfootercontainertrait/fixedheader"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait/fixedHeader"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities26HeaderFooterContainerTraitV05fixedC0ACvpZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "static"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "let"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "fixedHeader"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities26HeaderFooterContainerTraitV",
+        "text": "HeaderFooterContainerTrait"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Property",
+    "symbolKind": "property",
+    "title": "fixedHeader"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "static"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "let"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "fixedHeader"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities26HeaderFooterContainerTraitV",
+              "text": "HeaderFooterContainerTrait"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainerTrait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainerTrait"
+        }
+      ],
+      "role": "symbol",
+      "title": "HeaderFooterContainerTrait",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontainertrait"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait/fixedHeader": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "fixedHeader"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities26HeaderFooterContainerTraitV",
+          "text": "HeaderFooterContainerTrait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait/fixedHeader",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "fixedHeader",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontainertrait/fixedheader"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/headerfootercontainertrait/fixedheader"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

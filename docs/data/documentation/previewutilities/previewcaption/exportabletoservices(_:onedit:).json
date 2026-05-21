@@ -1,1 +1,493 @@
-{"abstract":[{"text":"Inherited from ","type":"text"},{"code":"View.exportableToServices(_:onEdit:)","type":"codeVoice"},{"text":".","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/exportableToServices(_:onEdit:)"},"kind":"symbol","metadata":{"extendedModule":"SwiftUICore","externalID":"s:7SwiftUI4ViewPAAE20exportableToServices_6onEditQrSayqd__GyXA_SbAFct16CoreTransferable0J0Rd__lF::SYNTHESIZED::s:16PreviewUtilities0A7CaptionV","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"exportableToServices"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"T"},{"kind":"text","text":">("},{"kind":"attribute","text":"@autoclosure "},{"kind":"text","text":"() -> ["},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"], "},{"kind":"externalParam","text":"onEdit"},{"kind":"text","text":": (["},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"]) -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUICore"]}],"platforms":[{"beta":false,"deprecated":false,"introducedAt":"13.0","name":"macOS","unavailable":false}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"exportableToServices(_:onEdit:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"exportableToServices"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"T"},{"kind":"text","text":">("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"payload"},{"kind":"text","text":": "},{"kind":"attribute","text":"@autoclosure "},{"kind":"attribute","text":"@escaping "},{"kind":"text","text":"() -> ["},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"], "},{"kind":"externalParam","text":"onEdit"},{"kind":"text","text":": "},{"kind":"attribute","text":"@escaping "},{"kind":"text","text":"(["},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"]) -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"},{"kind":"text","text":" "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:16CoreTransferable0B0P","text":"Transferable"},{"kind":"text","text":"\n"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer":{"abstract":[],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainer"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HeaderFooterContainer"}],"role":"symbol","title":"HeaderFooterContainer","type":"topic","url":"/documentation/previewutilities/headerfootercontainer"},"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption":{"abstract":[{"text":"Caption with a background similar to the header and footer created by","type":"text"},{"text":" ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer","isActive":true,"type":"reference"},{"text":". Intended to provide additional detail along a preview.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"PreviewCaption"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PreviewCaption"}],"role":"symbol","title":"PreviewCaption","type":"topic","url":"/documentation/previewutilities/previewcaption"},"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/exportableToServices(_:onEdit:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"exportableToServices"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"T"},{"kind":"text","text":">("},{"kind":"attribute","text":"@autoclosure "},{"kind":"text","text":"() -> ["},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"], "},{"kind":"externalParam","text":"onEdit"},{"kind":"text","text":": (["},{"kind":"typeIdentifier","text":"T"},{"kind":"text","text":"]) -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/exportableToServices(_:onEdit:)","kind":"symbol","role":"symbol","title":"exportableToServices(_:onEdit:)","type":"topic","url":"/documentation/previewutilities/previewcaption/exportabletoservices(_:onedit:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/previewcaption/exportabletoservices(_:onedit:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "View.exportableToServices(_:onEdit:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/exportableToServices(_:onEdit:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI4ViewPAAE20exportableToServices_6onEditQrSayqd__GyXA_SbAFct16CoreTransferable0J0Rd__lF::SYNTHESIZED::s:16PreviewUtilities0A7CaptionV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "exportableToServices"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "genericParameter",
+        "text": "T"
+      },
+      {
+        "kind": "text",
+        "text": ">("
+      },
+      {
+        "kind": "attribute",
+        "text": "@autoclosure "
+      },
+      {
+        "kind": "text",
+        "text": "() -> ["
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "T"
+      },
+      {
+        "kind": "text",
+        "text": "], "
+      },
+      {
+        "kind": "externalParam",
+        "text": "onEdit"
+      },
+      {
+        "kind": "text",
+        "text": ": (["
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "T"
+      },
+      {
+        "kind": "text",
+        "text": "]) -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:Sb",
+        "text": "Bool"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "keyword",
+        "text": "some"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4ViewP",
+        "text": "View"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "introducedAt": "13.0",
+        "name": "macOS",
+        "unavailable": false
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "exportableToServices(_:onEdit:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "exportableToServices"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "T"
+            },
+            {
+              "kind": "text",
+              "text": ">("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "payload"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "attribute",
+              "text": "@autoclosure "
+            },
+            {
+              "kind": "attribute",
+              "text": "@escaping "
+            },
+            {
+              "kind": "text",
+              "text": "() -> ["
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "T"
+            },
+            {
+              "kind": "text",
+              "text": "], "
+            },
+            {
+              "kind": "externalParam",
+              "text": "onEdit"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "attribute",
+              "text": "@escaping "
+            },
+            {
+              "kind": "text",
+              "text": "(["
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "T"
+            },
+            {
+              "kind": "text",
+              "text": "]) -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sb",
+              "text": "Bool"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "keyword",
+              "text": "some"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "T"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16CoreTransferable0B0P",
+              "text": "Transferable"
+            },
+            {
+              "kind": "text",
+              "text": "\n"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainer"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainer"
+        }
+      ],
+      "role": "symbol",
+      "title": "HeaderFooterContainer",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontainer"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption": {
+      "abstract": [
+        {
+          "text": "Caption with a background similar to the header and footer created by",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
+          "isActive": true,
+          "type": "reference"
+        },
+        {
+          "text": ". Intended to provide additional detail along a preview.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PreviewCaption"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PreviewCaption"
+        }
+      ],
+      "role": "symbol",
+      "title": "PreviewCaption",
+      "type": "topic",
+      "url": "/documentation/previewutilities/previewcaption"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/exportableToServices(_:onEdit:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "exportableToServices"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "attribute",
+          "text": "@autoclosure "
+        },
+        {
+          "kind": "text",
+          "text": "() -> ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": "], "
+        },
+        {
+          "kind": "externalParam",
+          "text": "onEdit"
+        },
+        {
+          "kind": "text",
+          "text": ": (["
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": "]) -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/exportableToServices(_:onEdit:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "exportableToServices(_:onEdit:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/previewcaption/exportabletoservices(_:onedit:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/previewcaption/exportabletoservices(_:onedit:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

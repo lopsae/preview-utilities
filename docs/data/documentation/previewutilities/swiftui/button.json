@@ -1,1 +1,272 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button"},"kind":"symbol","metadata":{"extendedModule":"SwiftUI","externalID":"s:e:s:7SwiftUI6ButtonV16PreviewUtilitiesE_22constrainedSystemImage6actionACyAA5LabelVyAA4TextVAD19HiddenParentOverlayVyAA0H0VAD15ViewWithOpacityVyANGGGGAA18LocalizedStringKeyV_SSyyctcASRszrlufc","fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI6ButtonV","text":"Button"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUI"]}],"navigatorTitle":[{"kind":"identifier","text":"Button"}],"role":"symbol","roleHeading":"Extended Structure","symbolKind":"extension","title":"Button"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI6ButtonV","text":"Button"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI","kind":"symbol","role":"collection","title":"SwiftUI","type":"topic","url":"/documentation/previewutilities/swiftui"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI6ButtonV","text":"Button"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"Button"}],"role":"symbol","title":"Button","type":"topic","url":"/documentation/previewutilities/swiftui/button"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)":{"abstract":[{"text":"Creates a button that generates its label from a localized string key and system image name,","type":"text"},{"text":" ","type":"text"},{"text":"with the image constrained in size.","type":"text"}],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Label","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"View","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":", "},{"kind":"externalParam","text":"constrainedSystemImage"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":", "},{"kind":"externalParam","text":"action"},{"kind":"text","text":": () -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)","kind":"symbol","role":"symbol","title":"init(_:constrainedSystemImage:action:)","type":"topic","url":"/documentation/previewutilities/swiftui/button/init(_:constrainedsystemimage:action:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)"],"title":"Initializers"}],"variants":[{"paths":["/documentation/previewutilities/swiftui/button"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUI",
+    "externalID": "s:e:s:7SwiftUI6ButtonV16PreviewUtilitiesE_22constrainedSystemImage6actionACyAA5LabelVyAA4TextVAD19HiddenParentOverlayVyAA0H0VAD15ViewWithOpacityVyANGGGGAA18LocalizedStringKeyV_SSyyctcASRszrlufc",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:7SwiftUI6ButtonV",
+        "text": "Button"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUI"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "Button"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "Button"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI6ButtonV",
+              "text": "Button"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUI",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6ButtonV",
+          "text": "Button"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Button"
+        }
+      ],
+      "role": "symbol",
+      "title": "Button",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/button"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)": {
+      "abstract": [
+        {
+          "text": "Creates a button that generates its label from a localized string key and system image name,",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "with the image constrained in size.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Label",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+          "text": "LocalizedStringKey"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "constrainedSystemImage"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "action"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s4Voida",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(_:constrainedSystemImage:action:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/button/init(_:constrainedsystemimage:action:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)"
+      ],
+      "title": "Initializers"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftui/button"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

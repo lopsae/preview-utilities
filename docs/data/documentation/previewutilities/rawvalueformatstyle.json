@@ -1,1 +1,429 @@
-{"abstract":[{"text":"A structure that converts a ","type":"text"},{"code":"RawRepresentable","type":"codeVoice"},{"text":" to its raw value.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities19RawValueFormatStyleV","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"RawValueFormatStyle"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"RawValueFormatStyle"}],"role":"symbol","roleHeading":"Structure","symbolKind":"struct","title":"RawValueFormatStyle"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"RawValueFormatStyle"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Value"},{"kind":"text","text":"> "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:SY","text":"RawRepresentable"},{"kind":"text","text":", "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:SY8RawValueQa","text":"RawValue"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sy","text":"StringProtocol"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/10Foundation11FormatStyleP":{"identifier":"doc://PreviewUtilities/10Foundation11FormatStyleP","title":"Foundation.FormatStyle","type":"unresolvable"},"doc://PreviewUtilities/SE":{"identifier":"doc://PreviewUtilities/SE","title":"Swift.Encodable","type":"unresolvable"},"doc://PreviewUtilities/SH":{"identifier":"doc://PreviewUtilities/SH","title":"Swift.Hashable","type":"unresolvable"},"doc://PreviewUtilities/SQ":{"identifier":"doc://PreviewUtilities/SQ","title":"Swift.Equatable","type":"unresolvable"},"doc://PreviewUtilities/Se":{"identifier":"doc://PreviewUtilities/Se","title":"Swift.Decodable","type":"unresolvable"},"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle":{"abstract":[{"text":"A structure that converts a ","type":"text"},{"code":"RawRepresentable","type":"codeVoice"},{"text":" to its raw value.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"RawValueFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"RawValueFormatStyle"}],"role":"symbol","title":"RawValueFormatStyle","type":"topic","url":"/documentation/previewutilities/rawvalueformatstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations","kind":"article","role":"collectionGroup","title":"Equatable Implementations","type":"topic","url":"/documentation/previewutilities/rawvalueformatstyle/equatable-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations","kind":"article","role":"collectionGroup","title":"FormatStyle Implementations","type":"topic","url":"/documentation/previewutilities/rawvalueformatstyle/formatstyle-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/format(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"format"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/format(_:)","kind":"symbol","role":"symbol","title":"format(_:)","type":"topic","url":"/documentation/previewutilities/rawvalueformatstyle/format(_:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"()"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()","kind":"symbol","role":"symbol","title":"init()","type":"topic","url":"/documentation/previewutilities/rawvalueformatstyle/init()"},"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"from"},{"kind":"text","text":": any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7DecoderP","text":"Decoder"},{"kind":"text","text":") "},{"kind":"keyword","text":"throws"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)","kind":"symbol","role":"symbol","title":"init(from:)","type":"topic","url":"/documentation/previewutilities/rawvalueformatstyle/init(from:)"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/10Foundation11FormatStyleP","doc://PreviewUtilities/Se","doc://PreviewUtilities/SE","doc://PreviewUtilities/SQ","doc://PreviewUtilities/SH","doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()","doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)"],"title":"Initializers"},{"anchor":"Instance-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/format(_:)"],"title":"Instance Methods"},{"anchor":"Default-Implementations","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations","doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations","doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations"],"title":"Default Implementations"}],"variants":[{"paths":["/documentation/previewutilities/rawvalueformatstyle"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "A structure that converts a ",
+      "type": "text"
+    },
+    {
+      "code": "RawRepresentable",
+      "type": "codeVoice"
+    },
+    {
+      "text": " to its raw value.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19RawValueFormatStyleV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "RawValueFormatStyle"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "RawValueFormatStyle"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Structure",
+    "symbolKind": "struct",
+    "title": "RawValueFormatStyle"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "RawValueFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "Value"
+            },
+            {
+              "kind": "text",
+              "text": "> "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Value"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SY",
+              "text": "RawRepresentable"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Value"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SY8RawValueQa",
+              "text": "RawValue"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sy",
+              "text": "StringProtocol"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/10Foundation11FormatStyleP": {
+      "identifier": "doc://PreviewUtilities/10Foundation11FormatStyleP",
+      "title": "Foundation.FormatStyle",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SE": {
+      "identifier": "doc://PreviewUtilities/SE",
+      "title": "Swift.Encodable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SH": {
+      "identifier": "doc://PreviewUtilities/SH",
+      "title": "Swift.Hashable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SQ": {
+      "identifier": "doc://PreviewUtilities/SQ",
+      "title": "Swift.Equatable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/Se": {
+      "identifier": "doc://PreviewUtilities/Se",
+      "title": "Swift.Decodable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle": {
+      "abstract": [
+        {
+          "text": "A structure that converts a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": " to its raw value.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "RawValueFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "RawValueFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "RawValueFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "Equatable Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle/equatable-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "FormatStyle Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle/formatstyle-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/format(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "format"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/format(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "format(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle/format(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "()"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle/init()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "from"
+        },
+        {
+          "kind": "text",
+          "text": ": any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7DecoderP",
+          "text": "Decoder"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(from:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle/init(from:)"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/10Foundation11FormatStyleP",
+        "doc://PreviewUtilities/Se",
+        "doc://PreviewUtilities/SE",
+        "doc://PreviewUtilities/SQ",
+        "doc://PreviewUtilities/SH",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/format(_:)"
+      ],
+      "title": "Instance Methods"
+    },
+    {
+      "anchor": "Default-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations"
+      ],
+      "title": "Default Implementations"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/rawvalueformatstyle"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

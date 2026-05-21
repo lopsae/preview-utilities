@@ -1,1 +1,552 @@
-{"abstract":[{"text":"Creates a view which displays the string description of a value along its history of","type":"text"},{"text":" ","type":"text"},{"text":"previous values.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)"},"kind":"symbol","metadata":{"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Value","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"Equatable","type":"codeVoice"},{"text":", ","type":"text"},{"code":"Value","type":"codeVoice"},{"text":" is ","type":"text"},{"code":"Formatter.FormatInput","type":"codeVoice"},{"text":", ","type":"text"},{"code":"Formatter","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"FormatStyle","type":"codeVoice"},{"text":", and ","type":"text"},{"code":"Formatter.FormatOutput","type":"codeVoice"},{"text":" is ","type":"text"},{"code":"String","type":"codeVoice"},{"text":".","type":"text"}]},"extendedModule":"PreviewUtilities","externalID":"s:16PreviewUtilities13HistoricValueV010describingD08isMarkedACyxAA28StringDescriptionFormatStyleVyxGGx_7SwiftUI7BindingVySbGtcAHRs_rlufc","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"describingValue"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":", "},{"kind":"externalParam","text":"isMarked"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI7BindingV","text":"Binding"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":">)"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Initializer","symbolKind":"init","title":"init(describingValue:isMarked:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"@"},{"kind":"attribute","preciseIdentifier":"s:ScM","text":"MainActor"},{"kind":"text","text":" "},{"kind":"keyword","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"describingValue"},{"kind":"text","text":" "},{"kind":"internalParam","text":"value"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":", "},{"kind":"externalParam","text":"isMarked"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI7BindingV","text":"Binding"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":"> = .constant(false)) "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Formatter"},{"kind":"text","text":" == "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28StringDescriptionFormatStyleV","text":"StringDescriptionFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":">"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue":{"abstract":[{"text":"Displays a value, along a history of previous values offset from the view.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HistoricValue"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HistoricValue"}],"role":"symbol","title":"HistoricValue","type":"topic","url":"/documentation/previewutilities/historicvalue"},"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)":{"abstract":[{"text":"Creates a view which displays the string description of a value along its history of","type":"text"},{"text":" ","type":"text"},{"text":"previous values.","type":"text"}],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Value","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"Equatable","type":"codeVoice"},{"text":", ","type":"text"},{"code":"Value","type":"codeVoice"},{"text":" is ","type":"text"},{"code":"Formatter.FormatInput","type":"codeVoice"},{"text":", ","type":"text"},{"code":"Formatter","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"FormatStyle","type":"codeVoice"},{"text":", and ","type":"text"},{"code":"Formatter.FormatOutput","type":"codeVoice"},{"text":" is ","type":"text"},{"code":"String","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"describingValue"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Value"},{"kind":"text","text":", "},{"kind":"externalParam","text":"isMarked"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI7BindingV","text":"Binding"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:Sb","text":"Bool"},{"kind":"text","text":">)"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)","kind":"symbol","role":"symbol","title":"init(describingValue:isMarked:)","type":"topic","url":"/documentation/previewutilities/historicvalue/init(describingvalue:ismarked:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle":{"abstract":[{"text":"A structure that converts any instance to its string description.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"StringDescriptionFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"StringDescriptionFormatStyle"}],"role":"symbol","title":"StringDescriptionFormatStyle","type":"topic","url":"/documentation/previewutilities/stringdescriptionformatstyle"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/historicvalue/init(describingvalue:ismarked:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Creates a view which displays the string description of a value along its history of",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "previous values.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "conformance": {
+      "availabilityPrefix": [
+        {
+          "text": "Available when",
+          "type": "text"
+        }
+      ],
+      "conformancePrefix": [
+        {
+          "text": "Conforms when",
+          "type": "text"
+        }
+      ],
+      "constraints": [
+        {
+          "code": "Value",
+          "type": "codeVoice"
+        },
+        {
+          "text": " conforms to ",
+          "type": "text"
+        },
+        {
+          "code": "Equatable",
+          "type": "codeVoice"
+        },
+        {
+          "text": ", ",
+          "type": "text"
+        },
+        {
+          "code": "Value",
+          "type": "codeVoice"
+        },
+        {
+          "text": " is ",
+          "type": "text"
+        },
+        {
+          "code": "Formatter.FormatInput",
+          "type": "codeVoice"
+        },
+        {
+          "text": ", ",
+          "type": "text"
+        },
+        {
+          "code": "Formatter",
+          "type": "codeVoice"
+        },
+        {
+          "text": " conforms to ",
+          "type": "text"
+        },
+        {
+          "code": "FormatStyle",
+          "type": "codeVoice"
+        },
+        {
+          "text": ", and ",
+          "type": "text"
+        },
+        {
+          "code": "Formatter.FormatOutput",
+          "type": "codeVoice"
+        },
+        {
+          "text": " is ",
+          "type": "text"
+        },
+        {
+          "code": "String",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ]
+    },
+    "extendedModule": "PreviewUtilities",
+    "externalID": "s:16PreviewUtilities13HistoricValueV010describingD08isMarkedACyxAA28StringDescriptionFormatStyleVyxGGx_7SwiftUI7BindingVySbGtcAHRs_rlufc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "describingValue"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Value"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "isMarked"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI7BindingV",
+        "text": "Binding"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:Sb",
+        "text": "Bool"
+      },
+      {
+        "kind": "text",
+        "text": ">)"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(describingValue:isMarked:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "describingValue"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "value"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Value"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "isMarked"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI7BindingV",
+              "text": "Binding"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sb",
+              "text": "Bool"
+            },
+            {
+              "kind": "text",
+              "text": "> = .constant(false)) "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Formatter"
+            },
+            {
+              "kind": "text",
+              "text": " == "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities28StringDescriptionFormatStyleV",
+              "text": "StringDescriptionFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Value"
+            },
+            {
+              "kind": "text",
+              "text": ">"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue": {
+      "abstract": [
+        {
+          "text": "Displays a value, along a history of previous values offset from the view.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HistoricValue"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HistoricValue"
+        }
+      ],
+      "role": "symbol",
+      "title": "HistoricValue",
+      "type": "topic",
+      "url": "/documentation/previewutilities/historicvalue"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)": {
+      "abstract": [
+        {
+          "text": "Creates a view which displays the string description of a value along its history of",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "previous values.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Value",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "Equatable",
+            "type": "codeVoice"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "code": "Value",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "Formatter.FormatInput",
+            "type": "codeVoice"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "code": "Formatter",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ", and ",
+            "type": "text"
+          },
+          {
+            "code": "Formatter.FormatOutput",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "String",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "describingValue"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "isMarked"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI7BindingV",
+          "text": "Binding"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ">)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(describingValue:isMarked:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/historicvalue/init(describingvalue:ismarked:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
+      "abstract": [
+        {
+          "text": "A structure that converts any instance to its string description.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "StringDescriptionFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "StringDescriptionFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "StringDescriptionFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/stringdescriptionformatstyle"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/historicvalue/init(describingvalue:ismarked:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

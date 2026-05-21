@@ -1,1 +1,171 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation"},"kind":"symbol","metadata":{"externalID":"s:m:s:e:s:So6CGRectV16PreviewUtilitiesE5addTo4pathAB7SwiftUI4PathVz_tF","modules":[{"name":"PreviewUtilities"}],"role":"collection","roleHeading":"Extended Module","symbolKind":"extension","title":"CoreFoundation"},"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation","kind":"symbol","role":"collection","title":"CoreFoundation","type":"topic","url":"/documentation/previewutilities/corefoundation"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"c:@S@CGPoint","text":"CGPoint"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"CGPoint"}],"role":"symbol","title":"CGPoint","type":"topic","url":"/documentation/previewutilities/corefoundation/cgpoint"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"c:@S@CGRect","text":"CGRect"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"CGRect"}],"role":"symbol","title":"CGRect","type":"topic","url":"/documentation/previewutilities/corefoundation/cgrect"},"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"c:@S@CGSize","text":"CGSize"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"CGSize"}],"role":"symbol","title":"CGSize","type":"topic","url":"/documentation/previewutilities/corefoundation/cgsize"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Extended-Structures","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint","doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect","doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize"],"title":"Extended Structures"}],"variants":[{"paths":["/documentation/previewutilities/corefoundation"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:m:s:e:s:So6CGRectV16PreviewUtilitiesE5addTo4pathAB7SwiftUI4PathVz_tF",
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "collection",
+    "roleHeading": "Extended Module",
+    "symbolKind": "extension",
+    "title": "CoreFoundation"
+  },
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "CoreFoundation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:@S@CGPoint",
+          "text": "CGPoint"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CGPoint"
+        }
+      ],
+      "role": "symbol",
+      "title": "CGPoint",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgpoint"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CGRect"
+        }
+      ],
+      "role": "symbol",
+      "title": "CGRect",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgrect"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CGSize"
+        }
+      ],
+      "role": "symbol",
+      "title": "CGSize",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Extended-Structures",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize"
+      ],
+      "title": "Extended Structures"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/corefoundation"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

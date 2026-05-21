@@ -1,1 +1,618 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle/init(_:fill:stroke:borderWidth:width:height:traits:)-5ab2c"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities16CaptionRectangleV_4fill6stroke11borderWidth5width6height6traitsACyxq_G7SwiftUI18LocalizedStringKeyV_xq_14CoreFoundation7CGFloatVAPSgAqA08FloatingC8ModifierV5TraitOdtcfc","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":", "},{"kind":"externalParam","text":"fill"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Fill"},{"kind":"text","text":", "},{"kind":"externalParam","text":"stroke"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Stroke"},{"kind":"text","text":", "},{"kind":"externalParam","text":"borderWidth"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":", "},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"height"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"traits"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities23FloatingCaptionModifierV","text":"FloatingCaptionModifier"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities23FloatingCaptionModifierV5TraitO","text":"Trait"},{"kind":"text","text":"...)"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Initializer","symbolKind":"init","title":"init(_:fill:stroke:borderWidth:width:height:traits:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"@"},{"kind":"attribute","preciseIdentifier":"s:ScM","text":"MainActor"},{"kind":"text","text":" "},{"kind":"keyword","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"localizationKey"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":", "},{"kind":"externalParam","text":"fill"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Fill"},{"kind":"text","text":" = .gray.gradient.tertiary, "},{"kind":"externalParam","text":"stroke"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Stroke"},{"kind":"text","text":" = .tertiary, "},{"kind":"externalParam","text":"borderWidth"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":" = 1, "},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":"? = nil, "},{"kind":"externalParam","text":"height"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":"? = nil, "},{"kind":"externalParam","text":"traits"},{"kind":"text","text":": "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities23FloatingCaptionModifierV","text":"FloatingCaptionModifier"},{"kind":"text","text":"."},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities23FloatingCaptionModifierV5TraitO","text":"Trait"},{"kind":"text","text":"...)"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle":{"abstract":[{"text":"Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"CaptionRectangle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"CaptionRectangle"}],"role":"symbol","title":"CaptionRectangle","type":"topic","url":"/documentation/previewutilities/captionrectangle"},"doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle/init(_:fill:stroke:borderWidth:width:height:traits:)-5ab2c":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":", "},{"kind":"externalParam","text":"fill"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Fill"},{"kind":"text","text":", "},{"kind":"externalParam","text":"stroke"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Stroke"},{"kind":"text","text":", "},{"kind":"externalParam","text":"borderWidth"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":", "},{"kind":"externalParam","text":"width"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"height"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":"?, "},{"kind":"externalParam","text":"traits"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities23FloatingCaptionModifierV","text":"FloatingCaptionModifier"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities23FloatingCaptionModifierV5TraitO","text":"Trait"},{"kind":"text","text":"...)"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle/init(_:fill:stroke:borderWidth:width:height:traits:)-5ab2c","kind":"symbol","role":"symbol","title":"init(_:fill:stroke:borderWidth:width:height:traits:)","type":"topic","url":"/documentation/previewutilities/captionrectangle/init(_:fill:stroke:borderwidth:width:height:traits:)-5ab2c"},"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier":{"abstract":[{"text":"Overlays a floating caption text aligned to a ","type":"text"},{"code":"FloatingAlignment","type":"codeVoice"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"FloatingCaptionModifier"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"FloatingCaptionModifier"}],"role":"symbol","title":"FloatingCaptionModifier","type":"topic","url":"/documentation/previewutilities/floatingcaptionmodifier"},"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait":{"abstract":[{"text":"Customizations that can be applied to a ","type":"text"},{"code":"FloatingCaptionModifier","type":"codeVoice"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"Trait"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"Trait"}],"role":"symbol","title":"FloatingCaptionModifier.Trait","type":"topic","url":"/documentation/previewutilities/floatingcaptionmodifier/trait"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/captionrectangle/init(_:fill:stroke:borderwidth:width:height:traits:)-5ab2c"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle/init(_:fill:stroke:borderWidth:width:height:traits:)-5ab2c"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities16CaptionRectangleV_4fill6stroke11borderWidth5width6height6traitsACyxq_G7SwiftUI18LocalizedStringKeyV_xq_14CoreFoundation7CGFloatVAPSgAqA08FloatingC8ModifierV5TraitOdtcfc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+        "text": "LocalizedStringKey"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "fill"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Fill"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "stroke"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Stroke"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "borderWidth"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+        "text": "CGFloat"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "width"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+        "text": "CGFloat"
+      },
+      {
+        "kind": "text",
+        "text": "?, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "height"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+        "text": "CGFloat"
+      },
+      {
+        "kind": "text",
+        "text": "?, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "traits"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
+        "text": "FloatingCaptionModifier"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+        "text": "Trait"
+      },
+      {
+        "kind": "text",
+        "text": "...)"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(_:fill:stroke:borderWidth:width:height:traits:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "localizationKey"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+              "text": "LocalizedStringKey"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "fill"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Fill"
+            },
+            {
+              "kind": "text",
+              "text": " = .gray.gradient.tertiary, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "stroke"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Stroke"
+            },
+            {
+              "kind": "text",
+              "text": " = .tertiary, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "borderWidth"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+              "text": "CGFloat"
+            },
+            {
+              "kind": "text",
+              "text": " = 1, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "width"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+              "text": "CGFloat"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "height"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+              "text": "CGFloat"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "traits"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
+              "text": "FloatingCaptionModifier"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+              "text": "Trait"
+            },
+            {
+              "kind": "text",
+              "text": "...)"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle": {
+      "abstract": [
+        {
+          "text": "Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CaptionRectangle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CaptionRectangle"
+        }
+      ],
+      "role": "symbol",
+      "title": "CaptionRectangle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/captionrectangle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle/init(_:fill:stroke:borderWidth:width:height:traits:)-5ab2c": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+          "text": "LocalizedStringKey"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "fill"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Fill"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "stroke"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Stroke"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "borderWidth"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "width"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "height"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "traits"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
+          "text": "FloatingCaptionModifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+          "text": "Trait"
+        },
+        {
+          "kind": "text",
+          "text": "...)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle/init(_:fill:stroke:borderWidth:width:height:traits:)-5ab2c",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(_:fill:stroke:borderWidth:width:height:traits:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/captionrectangle/init(_:fill:stroke:borderwidth:width:height:traits:)-5ab2c"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
+      "abstract": [
+        {
+          "text": "Overlays a floating caption text aligned to a ",
+          "type": "text"
+        },
+        {
+          "code": "FloatingAlignment",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "FloatingCaptionModifier"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "FloatingCaptionModifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingCaptionModifier",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait": {
+      "abstract": [
+        {
+          "text": "Customizations that can be applied to a ",
+          "type": "text"
+        },
+        {
+          "code": "FloatingCaptionModifier",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingCaptionModifier.Trait",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/captionrectangle/init(_:fill:stroke:borderwidth:width:height:traits:)-5ab2c"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

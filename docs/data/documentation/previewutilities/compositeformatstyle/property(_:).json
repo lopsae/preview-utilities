@@ -1,1 +1,462 @@
-{"abstract":[{"text":"Returns a format style that outputs a string property from the input object.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/property(_:)"},"kind":"symbol","metadata":{"extendedModule":"Foundation","externalID":"s:10Foundation11FormatStyleP16PreviewUtilitiesE8propertyyAD08PropertybC0Vyqd__Gs8Sendable_s7KeyPathCyqd__SSGXcAHRszsAIRd__lFZ::SYNTHESIZED::s:16PreviewUtilities20CompositeFormatStyleV","fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"property"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Input"},{"kind":"text","text":">(any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7KeyPathC","text":"KeyPath"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":", "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":"> & "},{"kind":"typeIdentifier","preciseIdentifier":"s:s8SendableP","text":"Sendable"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"modules":[{"name":"PreviewUtilities","relatedModules":["Foundation"]}],"role":"symbol","roleHeading":"Type Method","symbolKind":"method","title":"property(_:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"property"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Input"},{"kind":"text","text":">("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"property"},{"kind":"text","text":": any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7KeyPathC","text":"KeyPath"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":", "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":"> & "},{"kind":"typeIdentifier","preciseIdentifier":"s:s8SendableP","text":"Sendable"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":" "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":" == "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19PropertyFormatStyleV","text":"PropertyFormatStyle"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":">, "},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":" : "},{"kind":"typeIdentifier","preciseIdentifier":"s:s8SendableP","text":"Sendable"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle":{"abstract":[{"text":"A Structure that joins two format styles.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"CompositeFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"CompositeFormatStyle"}],"role":"symbol","title":"CompositeFormatStyle","type":"topic","url":"/documentation/previewutilities/compositeformatstyle"},"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/property(_:)":{"abstract":[{"text":"Returns a format style that outputs a string property from the input object.","type":"text"}],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"property"},{"kind":"text","text":"<"},{"kind":"genericParameter","text":"Input"},{"kind":"text","text":">(any "},{"kind":"typeIdentifier","preciseIdentifier":"s:s7KeyPathC","text":"KeyPath"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","text":"Input"},{"kind":"text","text":", "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":"> & "},{"kind":"typeIdentifier","preciseIdentifier":"s:s8SendableP","text":"Sendable"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/property(_:)","kind":"symbol","role":"symbol","title":"property(_:)","type":"topic","url":"/documentation/previewutilities/compositeformatstyle/property(_:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle":{"abstract":[{"text":"A format style that returns a string property referenced by a key path.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"PropertyFormatStyle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PropertyFormatStyle"}],"role":"symbol","title":"PropertyFormatStyle","type":"topic","url":"/documentation/previewutilities/propertyformatstyle"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/compositeformatstyle/property(_:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Returns a format style that outputs a string property from the input object.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/property(_:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Foundation",
+    "externalID": "s:10Foundation11FormatStyleP16PreviewUtilitiesE8propertyyAD08PropertybC0Vyqd__Gs8Sendable_s7KeyPathCyqd__SSGXcAHRszsAIRd__lFZ::SYNTHESIZED::s:16PreviewUtilities20CompositeFormatStyleV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "static"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "property"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "genericParameter",
+        "text": "Input"
+      },
+      {
+        "kind": "text",
+        "text": ">(any "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s7KeyPathC",
+        "text": "KeyPath"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Input"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": "> & "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s8SendableP",
+        "text": "Sendable"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Self"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Foundation"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Method",
+    "symbolKind": "method",
+    "title": "property(_:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "static"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "property"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "Input"
+            },
+            {
+              "kind": "text",
+              "text": ">("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "property"
+            },
+            {
+              "kind": "text",
+              "text": ": any "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s7KeyPathC",
+              "text": "KeyPath"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Input"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": "> & "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s8SendableP",
+              "text": "Sendable"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": " == "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities19PropertyFormatStyleV",
+              "text": "PropertyFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Input"
+            },
+            {
+              "kind": "text",
+              "text": ">, "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Input"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s8SendableP",
+              "text": "Sendable"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle": {
+      "abstract": [
+        {
+          "text": "A Structure that joins two format styles.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CompositeFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CompositeFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "CompositeFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/compositeformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/property(_:)": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs a string property from the input object.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "property"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ">(any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7KeyPathC",
+          "text": "KeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "> & "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8SendableP",
+          "text": "Sendable"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/property(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "property(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/compositeformatstyle/property(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that returns a string property referenced by a key path.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "PropertyFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/compositeformatstyle/property(_:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

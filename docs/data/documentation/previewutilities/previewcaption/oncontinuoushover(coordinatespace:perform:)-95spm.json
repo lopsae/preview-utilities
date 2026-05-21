@@ -1,1 +1,479 @@
-{"abstract":[{"text":"Inherited from ","type":"text"},{"code":"View.onContinuousHover(coordinateSpace:perform:)","type":"codeVoice"},{"text":".","type":"text"}],"deprecationSummary":[{"inlineContent":[{"text":"use overload that accepts a CoordinateSpaceProtocol instead","type":"text"}],"type":"paragraph"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/onContinuousHover(coordinateSpace:perform:)-95spm"},"kind":"symbol","metadata":{"extendedModule":"SwiftUICore","externalID":"s:7SwiftUI4ViewPAAE17onContinuousHover15coordinateSpace7performQrAA010CoordinateH0O_yAA0F5PhaseOctF::SYNTHESIZED::s:16PreviewUtilities0A7CaptionV","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"onContinuousHover"},{"kind":"text","text":"("},{"kind":"externalParam","text":"coordinateSpace"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI15CoordinateSpaceO","text":"CoordinateSpace"},{"kind":"text","text":", "},{"kind":"externalParam","text":"perform"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI10HoverPhaseO","text":"HoverPhase"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUICore"]}],"platforms":[{"beta":false,"deprecated":false,"deprecatedAt":"100000.0","introducedAt":"16.0","message":"use overload that accepts a CoordinateSpaceProtocol instead","name":"iOS","unavailable":false},{"beta":false,"deprecated":false,"deprecatedAt":"100000.0","introducedAt":"13.0","message":"use overload that accepts a CoordinateSpaceProtocol instead","name":"macOS","unavailable":false},{"beta":false,"deprecated":false,"deprecatedAt":"100000.0","introducedAt":"16.0","message":"use overload that accepts a CoordinateSpaceProtocol instead","name":"tvOS","unavailable":false},{"beta":false,"deprecated":false,"deprecatedAt":"100000.0","introducedAt":"1.0","message":"use overload that accepts a CoordinateSpaceProtocol instead","name":"visionOS","unavailable":false}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"onContinuousHover(coordinateSpace:perform:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"onContinuousHover"},{"kind":"text","text":"("},{"kind":"externalParam","text":"coordinateSpace"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI15CoordinateSpaceO","text":"CoordinateSpace"},{"kind":"text","text":" = .local, "},{"kind":"externalParam","text":"perform"},{"kind":"text","text":" "},{"kind":"internalParam","text":"action"},{"kind":"text","text":": "},{"kind":"attribute","text":"@escaping "},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI10HoverPhaseO","text":"HoverPhase"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"},{"kind":"text","text":"\n"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer":{"abstract":[],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainer"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HeaderFooterContainer"}],"role":"symbol","title":"HeaderFooterContainer","type":"topic","url":"/documentation/previewutilities/headerfootercontainer"},"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption":{"abstract":[{"text":"Caption with a background similar to the header and footer created by","type":"text"},{"text":" ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer","isActive":true,"type":"reference"},{"text":". Intended to provide additional detail along a preview.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"PreviewCaption"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PreviewCaption"}],"role":"symbol","title":"PreviewCaption","type":"topic","url":"/documentation/previewutilities/previewcaption"},"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/onContinuousHover(coordinateSpace:perform:)-95spm":{"abstract":[],"deprecated":true,"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"onContinuousHover"},{"kind":"text","text":"("},{"kind":"externalParam","text":"coordinateSpace"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI15CoordinateSpaceO","text":"CoordinateSpace"},{"kind":"text","text":", "},{"kind":"externalParam","text":"perform"},{"kind":"text","text":": ("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI10HoverPhaseO","text":"HoverPhase"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":") -> "},{"kind":"keyword","text":"some"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/onContinuousHover(coordinateSpace:perform:)-95spm","kind":"symbol","role":"symbol","title":"onContinuousHover(coordinateSpace:perform:)","type":"topic","url":"/documentation/previewutilities/previewcaption/oncontinuoushover(coordinatespace:perform:)-95spm"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/previewcaption/oncontinuoushover(coordinatespace:perform:)-95spm"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "View.onContinuousHover(coordinateSpace:perform:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "deprecationSummary": [
+    {
+      "inlineContent": [
+        {
+          "text": "use overload that accepts a CoordinateSpaceProtocol instead",
+          "type": "text"
+        }
+      ],
+      "type": "paragraph"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/onContinuousHover(coordinateSpace:perform:)-95spm"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI4ViewPAAE17onContinuousHover15coordinateSpace7performQrAA010CoordinateH0O_yAA0F5PhaseOctF::SYNTHESIZED::s:16PreviewUtilities0A7CaptionV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "onContinuousHover"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "coordinateSpace"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI15CoordinateSpaceO",
+        "text": "CoordinateSpace"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "perform"
+      },
+      {
+        "kind": "text",
+        "text": ": ("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI10HoverPhaseO",
+        "text": "HoverPhase"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s4Voida",
+        "text": "Void"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "keyword",
+        "text": "some"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4ViewP",
+        "text": "View"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "platforms": [
+      {
+        "beta": false,
+        "deprecated": false,
+        "deprecatedAt": "100000.0",
+        "introducedAt": "16.0",
+        "message": "use overload that accepts a CoordinateSpaceProtocol instead",
+        "name": "iOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "deprecatedAt": "100000.0",
+        "introducedAt": "13.0",
+        "message": "use overload that accepts a CoordinateSpaceProtocol instead",
+        "name": "macOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "deprecatedAt": "100000.0",
+        "introducedAt": "16.0",
+        "message": "use overload that accepts a CoordinateSpaceProtocol instead",
+        "name": "tvOS",
+        "unavailable": false
+      },
+      {
+        "beta": false,
+        "deprecated": false,
+        "deprecatedAt": "100000.0",
+        "introducedAt": "1.0",
+        "message": "use overload that accepts a CoordinateSpaceProtocol instead",
+        "name": "visionOS",
+        "unavailable": false
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "onContinuousHover(coordinateSpace:perform:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "onContinuousHover"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "coordinateSpace"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI15CoordinateSpaceO",
+              "text": "CoordinateSpace"
+            },
+            {
+              "kind": "text",
+              "text": " = .local, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "perform"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "action"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "attribute",
+              "text": "@escaping "
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI10HoverPhaseO",
+              "text": "HoverPhase"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s4Voida",
+              "text": "Void"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "keyword",
+              "text": "some"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": "\n"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainer"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainer"
+        }
+      ],
+      "role": "symbol",
+      "title": "HeaderFooterContainer",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontainer"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption": {
+      "abstract": [
+        {
+          "text": "Caption with a background similar to the header and footer created by",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
+          "isActive": true,
+          "type": "reference"
+        },
+        {
+          "text": ". Intended to provide additional detail along a preview.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PreviewCaption"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PreviewCaption"
+        }
+      ],
+      "role": "symbol",
+      "title": "PreviewCaption",
+      "type": "topic",
+      "url": "/documentation/previewutilities/previewcaption"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/onContinuousHover(coordinateSpace:perform:)-95spm": {
+      "abstract": [],
+      "deprecated": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "onContinuousHover"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "coordinateSpace"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI15CoordinateSpaceO",
+          "text": "CoordinateSpace"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "perform"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI10HoverPhaseO",
+          "text": "HoverPhase"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s4Voida",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/onContinuousHover(coordinateSpace:perform:)-95spm",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "onContinuousHover(coordinateSpace:perform:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/previewcaption/oncontinuoushover(coordinatespace:perform:)-95spm"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/previewcaption/oncontinuoushover(coordinatespace:perform:)-95spm"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

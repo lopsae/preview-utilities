@@ -1,1 +1,490 @@
-{"abstract":[{"text":"Generates an image with a given string, returns the image and the ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo","isActive":true,"type":"reference"},{"text":" where the","type":"text"},{"text":" ","type":"text"},{"text":"image was generated.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/generateImage(with:)"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities22ImageGeneratorProtocolP08generateC04with7SwiftUI0C0V5image_AA10ThreadInfoV06threadL0tSS_tYaAA0cD5ErrorOYKF","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generateImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":") "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19ImageGeneratorErrorO","text":"ImageGeneratorError"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea","text":"ImageTuple"}],"modules":[{"name":"PreviewUtilities"}],"required":true,"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"generateImage(with:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generateImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":" "},{"kind":"internalParam","text":"text"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":") "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":"("},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19ImageGeneratorErrorO","text":"ImageGeneratorError"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/ImageTuple","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea","text":"ImageTuple"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError":{"abstract":[],"fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageGeneratorError"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ImageGeneratorError"}],"role":"symbol","title":"ImageGeneratorError","type":"topic","url":"/documentation/previewutilities/imagegeneratorerror"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol":{"abstract":[{"text":"Protocol for all image generators. Provides functions to generate images along the thread","type":"text"},{"text":" ","type":"text"},{"text":"information where the image was generated.","type":"text"}],"fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageGeneratorProtocol"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ImageGeneratorProtocol"}],"role":"symbol","title":"ImageGeneratorProtocol","type":"topic","url":"/documentation/previewutilities/imagegeneratorprotocol"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/ImageTuple":{"abstract":[],"fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageTuple"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/ImageTuple","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ImageTuple"}],"role":"symbol","title":"ImageGeneratorProtocol.ImageTuple","type":"topic","url":"/documentation/previewutilities/imagegeneratorprotocol/imagetuple"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/generateImage(with:)":{"abstract":[{"text":"Generates an image with a given string, returns the image and the ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo","isActive":true,"type":"reference"},{"text":" where the","type":"text"},{"text":" ","type":"text"},{"text":"image was generated.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generateImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":") "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19ImageGeneratorErrorO","text":"ImageGeneratorError"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea","text":"ImageTuple"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/generateImage(with:)","kind":"symbol","required":true,"role":"symbol","title":"generateImage(with:)","type":"topic","url":"/documentation/previewutilities/imagegeneratorprotocol/generateimage(with:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo":{"abstract":[],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"ThreadInfo"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ThreadInfo"}],"role":"symbol","title":"ThreadInfo","type":"topic","url":"/documentation/previewutilities/threadinfo"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/imagegeneratorprotocol/generateimage(with:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Generates an image with a given string, returns the image and the ",
+      "type": "text"
+    },
+    {
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
+      "isActive": true,
+      "type": "reference"
+    },
+    {
+      "text": " where the",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "image was generated.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/generateImage(with:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities22ImageGeneratorProtocolP08generateC04with7SwiftUI0C0V5image_AA10ThreadInfoV06threadL0tSS_tYaAA0cD5ErrorOYKF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "generateImage"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "with"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": ") "
+      },
+      {
+        "kind": "keyword",
+        "text": "async"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "throws"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+        "text": "ImageGeneratorError"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Self"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea",
+        "text": "ImageTuple"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "required": true,
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "generateImage(with:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "generateImage"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "with"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "text"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": ") "
+            },
+            {
+              "kind": "keyword",
+              "text": "async"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "throws"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+              "text": "ImageGeneratorError"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/ImageTuple",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea",
+              "text": "ImageTuple"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorError"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorError"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorError",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorerror"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
+      "abstract": [
+        {
+          "text": "Protocol for all image generators. Provides functions to generate images along the thread",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "information where the image was generated.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorProtocol"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorProtocol"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorProtocol",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorprotocol"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/ImageTuple": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageTuple"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/ImageTuple",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageTuple"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorProtocol.ImageTuple",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorprotocol/imagetuple"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/generateImage(with:)": {
+      "abstract": [
+        {
+          "text": "Generates an image with a given string, returns the image and the ",
+          "type": "text"
+        },
+        {
+          "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
+          "isActive": true,
+          "type": "reference"
+        },
+        {
+          "text": " where the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "image was generated.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generateImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+          "text": "ImageGeneratorError"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea",
+          "text": "ImageTuple"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/generateImage(with:)",
+      "kind": "symbol",
+      "required": true,
+      "role": "symbol",
+      "title": "generateImage(with:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorprotocol/generateimage(with:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ThreadInfo"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ThreadInfo"
+        }
+      ],
+      "role": "symbol",
+      "title": "ThreadInfo",
+      "type": "topic",
+      "url": "/documentation/previewutilities/threadinfo"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/imagegeneratorprotocol/generateimage(with:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,228 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities19ImageGeneratorErrorO","fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageGeneratorError"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"ImageGeneratorError"}],"role":"symbol","roleHeading":"Enumeration","symbolKind":"enum","title":"ImageGeneratorError"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageGeneratorError"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError":{"abstract":[],"fragments":[{"kind":"keyword","text":"enum"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageGeneratorError"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ImageGeneratorError"}],"role":"symbol","title":"ImageGeneratorError","type":"topic","url":"/documentation/previewutilities/imagegeneratorerror"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations","kind":"article","role":"collectionGroup","title":"Error Implementations","type":"topic","url":"/documentation/previewutilities/imagegeneratorerror/error-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"case"},{"kind":"text","text":" "},{"kind":"identifier","text":"cancelled"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities10ThreadInfoV","text":"ThreadInfo"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)","kind":"symbol","role":"symbol","title":"ImageGeneratorError.cancelled(_:)","type":"topic","url":"/documentation/previewutilities/imagegeneratorerror/cancelled(_:)"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s5ErrorP":{"identifier":"doc://PreviewUtilities/s5ErrorP","title":"Swift.Error","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/s5ErrorP","doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Enumeration-Cases","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)"],"title":"Enumeration Cases"},{"anchor":"Default-Implementations","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations"],"title":"Default Implementations"}],"variants":[{"paths":["/documentation/previewutilities/imagegeneratorerror"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19ImageGeneratorErrorO",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "enum"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "ImageGeneratorError"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "ImageGeneratorError"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Enumeration",
+    "symbolKind": "enum",
+    "title": "ImageGeneratorError"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "enum"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "ImageGeneratorError"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorError"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorError"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorError",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorerror"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "Error Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorerror/error-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "cancelled"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ImageGeneratorError.cancelled(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorerror/cancelled(_:)"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s5ErrorP": {
+      "identifier": "doc://PreviewUtilities/s5ErrorP",
+      "title": "Swift.Error",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s5ErrorP",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Enumeration-Cases",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)"
+      ],
+      "title": "Enumeration Cases"
+    },
+    {
+      "anchor": "Default-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations"
+      ],
+      "title": "Default Implementations"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/imagegeneratorerror"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

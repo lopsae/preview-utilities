@@ -1,1 +1,695 @@
-{"abstract":[{"text":"Creates a button that generates its label from a localized string key and system image name,","type":"text"},{"text":" ","type":"text"},{"text":"with the image constrained in size.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)"},"kind":"symbol","metadata":{"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Label","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"View","type":"codeVoice"},{"text":".","type":"text"}]},"extendedModule":"SwiftUI","externalID":"s:7SwiftUI6ButtonV16PreviewUtilitiesE_22constrainedSystemImage6actionACyAA5LabelVyAA4TextVAD19HiddenParentOverlayVyAA0H0VAD15ViewWithOpacityVyANGGGGAA18LocalizedStringKeyV_SSyyctcASRszrlufc","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":", "},{"kind":"externalParam","text":"constrainedSystemImage"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":", "},{"kind":"externalParam","text":"action"},{"kind":"text","text":": () -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":")"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUI"]}],"role":"symbol","roleHeading":"Initializer","symbolKind":"init","title":"init(_:constrainedSystemImage:action:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"_"},{"kind":"text","text":" "},{"kind":"internalParam","text":"titleKey"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":", "},{"kind":"externalParam","text":"constrainedSystemImage"},{"kind":"text","text":" "},{"kind":"internalParam","text":"systemImage"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":", "},{"kind":"externalParam","text":"action"},{"kind":"text","text":": "},{"kind":"attribute","text":"@escaping "},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":") "},{"kind":"keyword","text":"where"},{"kind":"text","text":" "},{"kind":"typeIdentifier","text":"Label"},{"kind":"text","text":" == "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI5LabelV","text":"Label"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI4TextV","text":"Text"},{"kind":"text","text":", "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19HiddenParentOverlayV","text":"HiddenParentOverlay"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI5ImageV","text":"Image"},{"kind":"text","text":", "},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity","kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities15ViewWithOpacityV","text":"ViewWithOpacity"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI5ImageV","text":"Image"},{"kind":"text","text":">>>"}]}],"kind":"declarations"},{"content":[{"anchor":"discussion","level":2,"text":"Discussion","type":"heading"},{"inlineContent":[{"text":"The size of the button will remain consistent irregardless of the image used.","type":"text"}],"type":"paragraph"},{"inlineContent":[{"text":"Different system images have different sizes, which can impact the size of the button. This","type":"text"},{"text":" ","type":"text"},{"text":"is specially noticeable when using the ","type":"text"},{"code":".iconOnly","type":"codeVoice"},{"text":" label style. The label produced for the","type":"text"},{"text":" ","type":"text"},{"text":"button constrains the space the image can use to the space occupied by a hidden ","type":"text"},{"inlineContent":[{"text":"circle","type":"text"}],"type":"emphasis"},{"text":" ","type":"text"},{"text":"image, the displayed image itself is not resized. The image is aligned to the horizontal","type":"text"},{"text":" ","type":"text"},{"text":"center and first text baseline of its available space.","type":"text"}],"type":"paragraph"},{"inlineContent":[{"text":"Large images may appear slightly closer to the label when compared to buttons using the","type":"text"},{"text":" ","type":"text"},{"text":"default initializers.","type":"text"}],"type":"paragraph"},{"inlineContent":[{"text":"This initializer creates a ","type":"text"},{"code":"SwiftUI/Label","type":"codeVoice"},{"text":" view on your behalf, and treats the localized key","type":"text"},{"text":" ","type":"text"},{"text":"similar to ","type":"text"},{"code":"SwiftUI/Text.init(_:tableName:bundle:comment:)","type":"codeVoice"},{"text":".","type":"text"}],"type":"paragraph"}],"kind":"content"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay":{"abstract":[{"text":"Experimental view that displays the given content overlaid on a parent view that is hidden.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HiddenParentOverlay"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HiddenParentOverlay"}],"role":"symbol","title":"HiddenParentOverlay","type":"topic","url":"/documentation/previewutilities/hiddenparentoverlay"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI","kind":"symbol","role":"collection","title":"SwiftUI","type":"topic","url":"/documentation/previewutilities/swiftui"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI6ButtonV","text":"Button"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"Button"}],"role":"symbol","title":"Button","type":"topic","url":"/documentation/previewutilities/swiftui/button"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)":{"abstract":[{"text":"Creates a button that generates its label from a localized string key and system image name,","type":"text"},{"text":" ","type":"text"},{"text":"with the image constrained in size.","type":"text"}],"conformance":{"availabilityPrefix":[{"text":"Available when","type":"text"}],"conformancePrefix":[{"text":"Conforms when","type":"text"}],"constraints":[{"code":"Label","type":"codeVoice"},{"text":" conforms to ","type":"text"},{"code":"View","type":"codeVoice"},{"text":".","type":"text"}]},"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI18LocalizedStringKeyV","text":"LocalizedStringKey"},{"kind":"text","text":", "},{"kind":"externalParam","text":"constrainedSystemImage"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":", "},{"kind":"externalParam","text":"action"},{"kind":"text","text":": () -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:s4Voida","text":"Void"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)","kind":"symbol","role":"symbol","title":"init(_:constrainedSystemImage:action:)","type":"topic","url":"/documentation/previewutilities/swiftui/button/init(_:constrainedsystemimage:action:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity":{"abstract":[{"text":"View with an opacity modifier. Used instead of the ","type":"text"},{"code":".opacity","type":"codeVoice"},{"text":" modifier when a concrete type is","type":"text"},{"text":" ","type":"text"},{"text":"necessary.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"ViewWithOpacity"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ViewWithOpacity"}],"role":"symbol","title":"ViewWithOpacity","type":"topic","url":"/documentation/previewutilities/viewwithopacity"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/swiftui/button/init(_:constrainedsystemimage:action:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Creates a button that generates its label from a localized string key and system image name,",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "with the image constrained in size.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "conformance": {
+      "availabilityPrefix": [
+        {
+          "text": "Available when",
+          "type": "text"
+        }
+      ],
+      "conformancePrefix": [
+        {
+          "text": "Conforms when",
+          "type": "text"
+        }
+      ],
+      "constraints": [
+        {
+          "code": "Label",
+          "type": "codeVoice"
+        },
+        {
+          "text": " conforms to ",
+          "type": "text"
+        },
+        {
+          "code": "View",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ]
+    },
+    "extendedModule": "SwiftUI",
+    "externalID": "s:7SwiftUI6ButtonV16PreviewUtilitiesE_22constrainedSystemImage6actionACyAA5LabelVyAA4TextVAD19HiddenParentOverlayVyAA0H0VAD15ViewWithOpacityVyANGGGGAA18LocalizedStringKeyV_SSyyctcASRszrlufc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+        "text": "LocalizedStringKey"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "constrainedSystemImage"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "action"
+      },
+      {
+        "kind": "text",
+        "text": ": () -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s4Voida",
+        "text": "Void"
+      },
+      {
+        "kind": "text",
+        "text": ")"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUI"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(_:constrainedSystemImage:action:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "titleKey"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+              "text": "LocalizedStringKey"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "constrainedSystemImage"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "systemImage"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "action"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "attribute",
+              "text": "@escaping "
+            },
+            {
+              "kind": "text",
+              "text": "() -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s4Voida",
+              "text": "Void"
+            },
+            {
+              "kind": "text",
+              "text": ") "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Label"
+            },
+            {
+              "kind": "text",
+              "text": " == "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI5LabelV",
+              "text": "Label"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4TextV",
+              "text": "Text"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities19HiddenParentOverlayV",
+              "text": "HiddenParentOverlay"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI5ImageV",
+              "text": "Image"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities15ViewWithOpacityV",
+              "text": "ViewWithOpacity"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI5ImageV",
+              "text": "Image"
+            },
+            {
+              "kind": "text",
+              "text": ">>>"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The size of the button will remain consistent irregardless of the image used.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Different system images have different sizes, which can impact the size of the button. This",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "is specially noticeable when using the ",
+              "type": "text"
+            },
+            {
+              "code": ".iconOnly",
+              "type": "codeVoice"
+            },
+            {
+              "text": " label style. The label produced for the",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "button constrains the space the image can use to the space occupied by a hidden ",
+              "type": "text"
+            },
+            {
+              "inlineContent": [
+                {
+                  "text": "circle",
+                  "type": "text"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "image, the displayed image itself is not resized. The image is aligned to the horizontal",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "center and first text baseline of its available space.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Large images may appear slightly closer to the label when compared to buttons using the",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "default initializers.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This initializer creates a ",
+              "type": "text"
+            },
+            {
+              "code": "SwiftUI/Label",
+              "type": "codeVoice"
+            },
+            {
+              "text": " view on your behalf, and treats the localized key",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "similar to ",
+              "type": "text"
+            },
+            {
+              "code": "SwiftUI/Text.init(_:tableName:bundle:comment:)",
+              "type": "codeVoice"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
+      "abstract": [
+        {
+          "text": "Experimental view that displays the given content overlaid on a parent view that is hidden.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "role": "symbol",
+      "title": "HiddenParentOverlay",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUI",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6ButtonV",
+          "text": "Button"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Button"
+        }
+      ],
+      "role": "symbol",
+      "title": "Button",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/button"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)": {
+      "abstract": [
+        {
+          "text": "Creates a button that generates its label from a localized string key and system image name,",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "with the image constrained in size.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Label",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+          "text": "LocalizedStringKey"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "constrainedSystemImage"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "action"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s4Voida",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button/init(_:constrainedSystemImage:action:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(_:constrainedSystemImage:action:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/button/init(_:constrainedsystemimage:action:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity": {
+      "abstract": [
+        {
+          "text": "View with an opacity modifier. Used instead of the ",
+          "type": "text"
+        },
+        {
+          "code": ".opacity",
+          "type": "codeVoice"
+        },
+        {
+          "text": " modifier when a concrete type is",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "necessary.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ViewWithOpacity"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ViewWithOpacity"
+        }
+      ],
+      "role": "symbol",
+      "title": "ViewWithOpacity",
+      "type": "topic",
+      "url": "/documentation/previewutilities/viewwithopacity"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftui/button/init(_:constrainedsystemimage:action:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

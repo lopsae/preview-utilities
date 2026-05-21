@@ -1,1 +1,316 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/Swift"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection"},"kind":"symbol","metadata":{"extendedModule":"Swift","externalID":"s:e:s:SK16PreviewUtilitiesE10clampIndexy0D0QzSgADF","fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:SK","text":"BidirectionalCollection"}],"modules":[{"name":"PreviewUtilities","relatedModules":["Swift"]}],"navigatorTitle":[{"kind":"identifier","text":"BidirectionalCollection"}],"role":"symbol","roleHeading":"Extended Protocol","symbolKind":"extension","title":"BidirectionalCollection"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:SK","text":"BidirectionalCollection"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift","kind":"symbol","role":"collection","title":"Swift","type":"topic","url":"/documentation/previewutilities/swift"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:SK","text":"BidirectionalCollection"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"BidirectionalCollection"}],"role":"symbol","title":"BidirectionalCollection","type":"topic","url":"/documentation/previewutilities/swift/bidirectionalcollection"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/beforeEndIndex":{"abstract":[],"deprecated":true,"fragments":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"beforeEndIndex"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:Sl5IndexQa","text":"Index"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/beforeEndIndex","kind":"symbol","role":"symbol","title":"beforeEndIndex","type":"topic","url":"/documentation/previewutilities/swift/bidirectionalcollection/beforeendindex"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/clampIndex(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"clampIndex"},{"kind":"text","text":"("},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:Sl5IndexQa","text":"Index"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:Sl5IndexQa","text":"Index"},{"kind":"text","text":"?"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/clampIndex(_:)","kind":"symbol","role":"symbol","title":"clampIndex(_:)","type":"topic","url":"/documentation/previewutilities/swift/bidirectionalcollection/clampindex(_:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/finalIndex":{"abstract":[],"fragments":[{"kind":"keyword","text":"var"},{"kind":"text","text":" "},{"kind":"identifier","text":"finalIndex"},{"kind":"text","text":": "},{"kind":"typeIdentifier","text":"Self"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:Sl5IndexQa","text":"Index"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/finalIndex","kind":"symbol","role":"symbol","title":"finalIndex","type":"topic","url":"/documentation/previewutilities/swift/bidirectionalcollection/finalindex"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Instance-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/beforeEndIndex","doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/finalIndex"],"title":"Instance Properties"},{"anchor":"Instance-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/clampIndex(_:)"],"title":"Instance Methods"}],"variants":[{"paths":["/documentation/previewutilities/swift/bidirectionalcollection"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Swift",
+    "externalID": "s:e:s:SK16PreviewUtilitiesE10clampIndexy0D0QzSgADF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:SK",
+        "text": "BidirectionalCollection"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Swift"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "BidirectionalCollection"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Protocol",
+    "symbolKind": "extension",
+    "title": "BidirectionalCollection"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SK",
+              "text": "BidirectionalCollection"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Swift",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:SK",
+          "text": "BidirectionalCollection"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "BidirectionalCollection"
+        }
+      ],
+      "role": "symbol",
+      "title": "BidirectionalCollection",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/bidirectionalcollection"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/beforeEndIndex": {
+      "abstract": [],
+      "deprecated": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "beforeEndIndex"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sl5IndexQa",
+          "text": "Index"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/beforeEndIndex",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "beforeEndIndex",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/bidirectionalcollection/beforeendindex"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/clampIndex(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "clampIndex"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sl5IndexQa",
+          "text": "Index"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sl5IndexQa",
+          "text": "Index"
+        },
+        {
+          "kind": "text",
+          "text": "?"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/clampIndex(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "clampIndex(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/bidirectionalcollection/clampindex(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/finalIndex": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "finalIndex"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sl5IndexQa",
+          "text": "Index"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/finalIndex",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "finalIndex",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/bidirectionalcollection/finalindex"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/beforeEndIndex",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/finalIndex"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection/clampIndex(_:)"
+      ],
+      "title": "Instance Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swift/bidirectionalcollection"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,412 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets"},"kind":"symbol","metadata":{"extendedModule":"SwiftUICore","externalID":"s:e:s:7SwiftUI10EdgeInsetsV16PreviewUtilitiesE3allAC14CoreFoundation7CGFloatV_tcfc","fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI10EdgeInsetsV","text":"EdgeInsets"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUICore"]}],"navigatorTitle":[{"kind":"identifier","text":"EdgeInsets"}],"role":"symbol","roleHeading":"Extended Structure","symbolKind":"extension","title":"EdgeInsets"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI10EdgeInsetsV","text":"EdgeInsets"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore","kind":"symbol","role":"collection","title":"SwiftUICore","type":"topic","url":"/documentation/previewutilities/swiftuicore"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI10EdgeInsetsV","text":"EdgeInsets"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"EdgeInsets"}],"role":"symbol","title":"EdgeInsets","type":"topic","url":"/documentation/previewutilities/swiftuicore/edgeinsets"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/all(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"all"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI10EdgeInsetsV","text":"EdgeInsets"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/all(_:)","kind":"symbol","role":"symbol","title":"all(_:)","type":"topic","url":"/documentation/previewutilities/swiftuicore/edgeinsets/all(_:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/horizontal(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"horizontal"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI10EdgeInsetsV","text":"EdgeInsets"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/horizontal(_:)","kind":"symbol","role":"symbol","title":"horizontal(_:)","type":"topic","url":"/documentation/previewutilities/swiftuicore/edgeinsets/horizontal(_:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(all:)":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"all"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(all:)","kind":"symbol","role":"symbol","title":"init(all:)","type":"topic","url":"/documentation/previewutilities/swiftuicore/edgeinsets/init(all:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(horizontal:vertical:)":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"horizontal"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":", "},{"kind":"externalParam","text":"vertical"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(horizontal:vertical:)","kind":"symbol","role":"symbol","title":"init(horizontal:vertical:)","type":"topic","url":"/documentation/previewutilities/swiftuicore/edgeinsets/init(horizontal:vertical:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/vertical(_:)":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"vertical"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:14CoreFoundation7CGFloatV","text":"CGFloat"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:7SwiftUI10EdgeInsetsV","text":"EdgeInsets"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/vertical(_:)","kind":"symbol","role":"symbol","title":"vertical(_:)","type":"topic","url":"/documentation/previewutilities/swiftuicore/edgeinsets/vertical(_:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(all:)","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(horizontal:vertical:)"],"title":"Initializers"},{"anchor":"Type-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/all(_:)","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/horizontal(_:)","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/vertical(_:)"],"title":"Type Methods"}],"variants":[{"paths":["/documentation/previewutilities/swiftuicore/edgeinsets"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:e:s:7SwiftUI10EdgeInsetsV16PreviewUtilitiesE3allAC14CoreFoundation7CGFloatV_tcfc",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:7SwiftUI10EdgeInsetsV",
+        "text": "EdgeInsets"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "EdgeInsets"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "EdgeInsets"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI10EdgeInsetsV",
+              "text": "EdgeInsets"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUICore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI10EdgeInsetsV",
+          "text": "EdgeInsets"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EdgeInsets"
+        }
+      ],
+      "role": "symbol",
+      "title": "EdgeInsets",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edgeinsets"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/all(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "all"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI10EdgeInsetsV",
+          "text": "EdgeInsets"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/all(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "all(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edgeinsets/all(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/horizontal(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "horizontal"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI10EdgeInsetsV",
+          "text": "EdgeInsets"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/horizontal(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "horizontal(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edgeinsets/horizontal(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(all:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "all"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(all:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(all:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edgeinsets/init(all:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(horizontal:vertical:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "horizontal"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "vertical"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(horizontal:vertical:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(horizontal:vertical:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edgeinsets/init(horizontal:vertical:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/vertical(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "vertical"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI10EdgeInsetsV",
+          "text": "EdgeInsets"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/vertical(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "vertical(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edgeinsets/vertical(_:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(all:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/init(horizontal:vertical:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/all(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/horizontal(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets/vertical(_:)"
+      ],
+      "title": "Type Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftuicore/edgeinsets"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

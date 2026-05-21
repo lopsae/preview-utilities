@@ -1,1 +1,325 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore"},"kind":"symbol","metadata":{"externalID":"s:m:s:e:s:7SwiftUI10EdgeInsetsV16PreviewUtilitiesE3allAC14CoreFoundation7CGFloatV_tcfc","modules":[{"name":"PreviewUtilities"}],"role":"collection","roleHeading":"Extended Module","symbolKind":"extension","title":"SwiftUICore"},"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore","kind":"symbol","role":"collection","title":"SwiftUICore","type":"topic","url":"/documentation/previewutilities/swiftuicore"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI19ConcentricRectangleV","text":"ConcentricRectangle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ConcentricRectangle"}],"role":"symbol","title":"ConcentricRectangle","type":"topic","url":"/documentation/previewutilities/swiftuicore/concentricrectangle"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"Edge"}],"role":"symbol","title":"Edge","type":"topic","url":"/documentation/previewutilities/swiftuicore/edge"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI10EdgeInsetsV","text":"EdgeInsets"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"EdgeInsets"}],"role":"symbol","title":"EdgeInsets","type":"topic","url":"/documentation/previewutilities/swiftuicore/edgeinsets"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI6HStackV","text":"HStack"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HStack"}],"role":"symbol","title":"HStack","type":"topic","url":"/documentation/previewutilities/swiftuicore/hstack"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI5ImageV","text":"Image"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"Image"}],"role":"symbol","title":"Image","type":"topic","url":"/documentation/previewutilities/swiftuicore/image"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI14ScrollGeometryV","text":"ScrollGeometry"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ScrollGeometry"}],"role":"symbol","title":"ScrollGeometry","type":"topic","url":"/documentation/previewutilities/swiftuicore/scrollgeometry"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Text":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI4TextV","text":"Text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Text","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"Text"}],"role":"symbol","title":"Text","type":"topic","url":"/documentation/previewutilities/swiftuicore/text"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI4ViewP","text":"View"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"View"}],"role":"symbol","title":"View","type":"topic","url":"/documentation/previewutilities/swiftuicore/view"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Extended-Protocols","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View"],"title":"Extended Protocols"},{"anchor":"Extended-Structures","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Text"],"title":"Extended Structures"},{"anchor":"Extended-Types","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge"],"title":"Extended Types"}],"variants":[{"paths":["/documentation/previewutilities/swiftuicore"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:m:s:e:s:7SwiftUI10EdgeInsetsV16PreviewUtilitiesE3allAC14CoreFoundation7CGFloatV_tcfc",
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "collection",
+    "roleHeading": "Extended Module",
+    "symbolKind": "extension",
+    "title": "SwiftUICore"
+  },
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUICore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI19ConcentricRectangleV",
+          "text": "ConcentricRectangle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ConcentricRectangle"
+        }
+      ],
+      "role": "symbol",
+      "title": "ConcentricRectangle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/concentricrectangle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Edge"
+        }
+      ],
+      "role": "symbol",
+      "title": "Edge",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edge"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI10EdgeInsetsV",
+          "text": "EdgeInsets"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "EdgeInsets"
+        }
+      ],
+      "role": "symbol",
+      "title": "EdgeInsets",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edgeinsets"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6HStackV",
+          "text": "HStack"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HStack"
+        }
+      ],
+      "role": "symbol",
+      "title": "HStack",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/hstack"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI5ImageV",
+          "text": "Image"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Image"
+        }
+      ],
+      "role": "symbol",
+      "title": "Image",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/image"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI14ScrollGeometryV",
+          "text": "ScrollGeometry"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ScrollGeometry"
+        }
+      ],
+      "role": "symbol",
+      "title": "ScrollGeometry",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/scrollgeometry"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Text": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI4TextV",
+          "text": "Text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Text",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Text"
+        }
+      ],
+      "role": "symbol",
+      "title": "Text",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/text"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "View"
+        }
+      ],
+      "role": "symbol",
+      "title": "View",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/view"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Extended-Protocols",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View"
+      ],
+      "title": "Extended Protocols"
+    },
+    {
+      "anchor": "Extended-Structures",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/EdgeInsets",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Text"
+      ],
+      "title": "Extended Structures"
+    },
+    {
+      "anchor": "Extended-Types",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge"
+      ],
+      "title": "Extended Types"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftuicore"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

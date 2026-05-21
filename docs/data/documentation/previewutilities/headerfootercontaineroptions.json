@@ -1,1 +1,614 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainerOptions"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"HeaderFooterContainerOptions"}],"role":"symbol","roleHeading":"Structure","symbolKind":"struct","title":"HeaderFooterContainerOptions"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainerOptions"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/SQ":{"identifier":"doc://PreviewUtilities/SQ","title":"Swift.Equatable","type":"unresolvable"},"doc://PreviewUtilities/SY":{"identifier":"doc://PreviewUtilities/SY","title":"Swift.RawRepresentable","type":"unresolvable"},"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions":{"abstract":[],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"HeaderFooterContainerOptions"}],"role":"symbol","title":"HeaderFooterContainerOptions","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations","kind":"article","role":"collectionGroup","title":"Equatable Implementations","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/equatable-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations","kind":"article","role":"collectionGroup","title":"OptionSet Implementations","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/optionset-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations","kind":"article","role":"collectionGroup","title":"SetAlgebra Implementations","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/setalgebra-implementations"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/default":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"`default`"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/default","kind":"symbol","role":"symbol","title":"default","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/default"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/empty":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"empty"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/empty","kind":"symbol","role":"symbol","title":"empty","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/empty"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixed":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixed"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixed","kind":"symbol","role":"symbol","title":"fixed","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/fixed"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixedFooter"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter","kind":"symbol","role":"symbol","title":"fixedFooter","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/fixedfooter"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedHeader":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"fixedHeader"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedHeader","kind":"symbol","role":"symbol","title":"fixedHeader","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/fixedheader"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/init(rawValue:)":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"rawValue"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Si","text":"Int"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/init(rawValue:)","kind":"symbol","role":"symbol","title":"init(rawValue:)","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/init(rawvalue:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/padContent":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"padContent"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/padContent","kind":"symbol","role":"symbol","title":"padContent","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/padcontent"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/rawValue":{"abstract":[],"fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"rawValue"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Si","text":"Int"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/rawValue","kind":"symbol","role":"symbol","title":"rawValue","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/rawvalue"},"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers":{"abstract":[],"fragments":[{"kind":"keyword","text":"static"},{"kind":"text","text":" "},{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"showDividers"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities28HeaderFooterContainerOptionsV","text":"HeaderFooterContainerOptions"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers","kind":"symbol","role":"symbol","title":"showDividers","type":"topic","url":"/documentation/previewutilities/headerfootercontaineroptions/showdividers"},"doc://PreviewUtilities/s10SetAlgebraP":{"identifier":"doc://PreviewUtilities/s10SetAlgebraP","title":"Swift.SetAlgebra","type":"unresolvable"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s25ExpressibleByArrayLiteralP":{"identifier":"doc://PreviewUtilities/s25ExpressibleByArrayLiteralP","title":"Swift.ExpressibleByArrayLiteral","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"},"doc://PreviewUtilities/s9OptionSetP":{"identifier":"doc://PreviewUtilities/s9OptionSetP","title":"Swift.OptionSet","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/SQ","doc://PreviewUtilities/s25ExpressibleByArrayLiteralP","doc://PreviewUtilities/s9OptionSetP","doc://PreviewUtilities/SY","doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP","doc://PreviewUtilities/s10SetAlgebraP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/init(rawValue:)"],"title":"Initializers"},{"anchor":"Instance-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/rawValue"],"title":"Instance Properties"},{"anchor":"Type-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/default","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/empty","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixed","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedHeader","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/padContent","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers"],"title":"Type Properties"},{"anchor":"Default-Implementations","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations","doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations"],"title":"Default Implementations"}],"variants":[{"paths":["/documentation/previewutilities/headerfootercontaineroptions"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "HeaderFooterContainerOptions"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "HeaderFooterContainerOptions"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Structure",
+    "symbolKind": "struct",
+    "title": "HeaderFooterContainerOptions"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "HeaderFooterContainerOptions"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/SQ": {
+      "identifier": "doc://PreviewUtilities/SQ",
+      "title": "Swift.Equatable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SY": {
+      "identifier": "doc://PreviewUtilities/SY",
+      "title": "Swift.RawRepresentable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "role": "symbol",
+      "title": "HeaderFooterContainerOptions",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "Equatable Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/equatable-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "OptionSet Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/optionset-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "SetAlgebra Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/setalgebra-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/default": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "`default`"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/default",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "default",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/default"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/empty": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "empty"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/empty",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "empty",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/empty"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixed": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "fixed"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixed",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "fixed",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/fixed"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "fixedFooter"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "fixedFooter",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/fixedfooter"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedHeader": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "fixedHeader"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedHeader",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "fixedHeader",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/fixedheader"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/init(rawValue:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "rawValue"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Si",
+          "text": "Int"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/init(rawValue:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(rawValue:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/init(rawvalue:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/padContent": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "padContent"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/padContent",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "padContent",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/padcontent"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/rawValue": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "rawValue"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Si",
+          "text": "Int"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/rawValue",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "rawValue",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/rawvalue"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "showDividers"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+          "text": "HeaderFooterContainerOptions"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "showDividers",
+      "type": "topic",
+      "url": "/documentation/previewutilities/headerfootercontaineroptions/showdividers"
+    },
+    "doc://PreviewUtilities/s10SetAlgebraP": {
+      "identifier": "doc://PreviewUtilities/s10SetAlgebraP",
+      "title": "Swift.SetAlgebra",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP": {
+      "identifier": "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP",
+      "title": "Swift.ExpressibleByArrayLiteral",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s9OptionSetP": {
+      "identifier": "doc://PreviewUtilities/s9OptionSetP",
+      "title": "Swift.OptionSet",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/SQ",
+        "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP",
+        "doc://PreviewUtilities/s9OptionSetP",
+        "doc://PreviewUtilities/SY",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP",
+        "doc://PreviewUtilities/s10SetAlgebraP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/init(rawValue:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/rawValue"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Type-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/default",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/empty",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixed",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedFooter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/fixedHeader",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/padContent",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers"
+      ],
+      "title": "Type Properties"
+    },
+    {
+      "anchor": "Default-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations"
+      ],
+      "title": "Default Implementations"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/headerfootercontaineroptions"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,1 +1,377 @@
-{"abstract":[{"text":"Nonisolated sendable object that contains a concurrent async function, a explicit nonisolated","type":"text"},{"text":" ","type":"text"},{"text":"async function, and an async function with the default isolation; to inspect the thread running","type":"text"},{"text":" ","type":"text"},{"text":"in each function.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities24NonisolatedThreadCheckerC","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"NonisolatedThreadChecker"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"NonisolatedThreadChecker"}],"role":"symbol","roleHeading":"Class","symbolKind":"class","title":"NonisolatedThreadChecker"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"final"},{"kind":"text","text":" "},{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"NonisolatedThreadChecker"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker":{"abstract":[{"text":"Nonisolated sendable object that contains a concurrent async function, a explicit nonisolated","type":"text"},{"text":" ","type":"text"},{"text":"async function, and an async function with the default isolation; to inspect the thread running","type":"text"},{"text":" ","type":"text"},{"text":"in each function.","type":"text"}],"fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"NonisolatedThreadChecker"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"NonisolatedThreadChecker"}],"role":"symbol","title":"NonisolatedThreadChecker","type":"topic","url":"/documentation/previewutilities/nonisolatedthreadchecker"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/concurrentThreadInfo()":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"concurrentThreadInfo"},{"kind":"text","text":"() "},{"kind":"keyword","text":"async"},{"kind":"text","text":" -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities10ThreadInfoV","text":"ThreadInfo"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/concurrentThreadInfo()","kind":"symbol","role":"symbol","title":"concurrentThreadInfo()","type":"topic","url":"/documentation/previewutilities/nonisolatedthreadchecker/concurrentthreadinfo()"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/defaultIsolationThreadInfo()":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"defaultIsolationThreadInfo"},{"kind":"text","text":"() "},{"kind":"keyword","text":"async"},{"kind":"text","text":" -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities10ThreadInfoV","text":"ThreadInfo"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/defaultIsolationThreadInfo()","kind":"symbol","role":"symbol","title":"defaultIsolationThreadInfo()","type":"topic","url":"/documentation/previewutilities/nonisolatedthreadchecker/defaultisolationthreadinfo()"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"()"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()","kind":"symbol","role":"symbol","title":"init()","type":"topic","url":"/documentation/previewutilities/nonisolatedthreadchecker/init()"},"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/nonisolatedThreadInfo()":{"abstract":[],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"nonisolatedThreadInfo"},{"kind":"text","text":"() "},{"kind":"keyword","text":"async"},{"kind":"text","text":" -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities10ThreadInfoV","text":"ThreadInfo"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/nonisolatedThreadInfo()","kind":"symbol","role":"symbol","title":"nonisolatedThreadInfo()","type":"topic","url":"/documentation/previewutilities/nonisolatedthreadchecker/nonisolatedthreadinfo()"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()"],"title":"Initializers"},{"anchor":"Instance-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/concurrentThreadInfo()","doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/defaultIsolationThreadInfo()","doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/nonisolatedThreadInfo()"],"title":"Instance Methods"}],"variants":[{"paths":["/documentation/previewutilities/nonisolatedthreadchecker"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Nonisolated sendable object that contains a concurrent async function, a explicit nonisolated",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "async function, and an async function with the default isolation; to inspect the thread running",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "in each function.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities24NonisolatedThreadCheckerC",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "class"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "NonisolatedThreadChecker"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "NonisolatedThreadChecker"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Class",
+    "symbolKind": "class",
+    "title": "NonisolatedThreadChecker"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "final"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "class"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "NonisolatedThreadChecker"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker": {
+      "abstract": [
+        {
+          "text": "Nonisolated sendable object that contains a concurrent async function, a explicit nonisolated",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "async function, and an async function with the default isolation; to inspect the thread running",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "in each function.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "NonisolatedThreadChecker"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "NonisolatedThreadChecker"
+        }
+      ],
+      "role": "symbol",
+      "title": "NonisolatedThreadChecker",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedthreadchecker"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/concurrentThreadInfo()": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "concurrentThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": "() "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/concurrentThreadInfo()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "concurrentThreadInfo()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedthreadchecker/concurrentthreadinfo()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/defaultIsolationThreadInfo()": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "defaultIsolationThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": "() "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/defaultIsolationThreadInfo()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "defaultIsolationThreadInfo()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedthreadchecker/defaultisolationthreadinfo()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "()"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedthreadchecker/init()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/nonisolatedThreadInfo()": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "nonisolatedThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": "() "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/nonisolatedThreadInfo()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "nonisolatedThreadInfo()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedthreadchecker/nonisolatedthreadinfo()"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/init()"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/concurrentThreadInfo()",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/defaultIsolationThreadInfo()",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedThreadChecker/nonisolatedThreadInfo()"
+      ],
+      "title": "Instance Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/nonisolatedthreadchecker"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

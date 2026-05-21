@@ -1,1 +1,190 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a","fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"PlatformImage"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"PlatformImage"}],"role":"symbol","roleHeading":"Type Alias","symbolKind":"typealias","title":"SyncImageGenerator.PlatformImage"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"PlatformImage"},{"kind":"text","text":" = "},{"kind":"typeIdentifier","preciseIdentifier":"c:objc(cs)NSImage","text":"NSImage"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator":{"abstract":[{"text":"Synchronous image generator. Can be instantiated to produce any number of images of a given","type":"text"},{"text":" ","type":"text"},{"text":"size, or used statically to produce the same images.","type":"text"}],"fragments":[{"kind":"keyword","text":"struct"},{"kind":"text","text":" "},{"kind":"identifier","text":"SyncImageGenerator"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"SyncImageGenerator"}],"role":"symbol","title":"SyncImageGenerator","type":"topic","url":"/documentation/previewutilities/syncimagegenerator"},"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage":{"abstract":[],"fragments":[{"kind":"keyword","text":"typealias"},{"kind":"text","text":" "},{"kind":"identifier","text":"PlatformImage"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"PlatformImage"}],"role":"symbol","title":"SyncImageGenerator.PlatformImage","type":"topic","url":"/documentation/previewutilities/syncimagegenerator/platformimage"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/syncimagegenerator/platformimage"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "typealias"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "PlatformImage"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "PlatformImage"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Alias",
+    "symbolKind": "typealias",
+    "title": "SyncImageGenerator.PlatformImage"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "typealias"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "PlatformImage"
+            },
+            {
+              "kind": "text",
+              "text": " = "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:objc(cs)NSImage",
+              "text": "NSImage"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator": {
+      "abstract": [
+        {
+          "text": "Synchronous image generator. Can be instantiated to produce any number of images of a given",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "size, or used statically to produce the same images.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "SyncImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SyncImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "SyncImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PlatformImage"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PlatformImage"
+        }
+      ],
+      "role": "symbol",
+      "title": "SyncImageGenerator.PlatformImage",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/platformimage"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/syncimagegenerator/platformimage"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

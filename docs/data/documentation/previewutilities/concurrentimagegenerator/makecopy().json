@@ -1,1 +1,280 @@
-{"abstract":[{"text":"Creates a copy of the generator with the same settings and a new ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id","isActive":true,"type":"reference"},{"text":".","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities24ConcurrentImageGeneratorC8makeCopyACXDyF","fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"makeCopy"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"Self"}],"modules":[{"name":"PreviewUtilities"}],"role":"symbol","roleHeading":"Instance Method","symbolKind":"method","title":"makeCopy()"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"@"},{"kind":"attribute","preciseIdentifier":"s:ScM","text":"MainActor"},{"kind":"text","text":" "},{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"makeCopy"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"Self"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator":{"abstract":[{"text":"Nonisolated ImageGenerator with a ","type":"text"},{"code":"@concurrent generateImage","type":"codeVoice"},{"text":" function that will always be","type":"text"},{"text":" ","type":"text"},{"text":"called in the cooperative thread pool.","type":"text"}],"fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"ConcurrentImageGenerator"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ConcurrentImageGenerator"}],"role":"symbol","title":"ConcurrentImageGenerator","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id":{"abstract":[{"text":"Unique identifier of the generator.","type":"text"}],"fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"id"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation4UUIDV","text":"UUID"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id","kind":"symbol","role":"symbol","title":"id","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator/id"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()":{"abstract":[{"text":"Creates a copy of the generator with the same settings and a new ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id","isActive":true,"type":"reference"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"makeCopy"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()","kind":"symbol","role":"symbol","title":"makeCopy()","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator/makecopy()"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/concurrentimagegenerator/makecopy()"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Creates a copy of the generator with the same settings and a new ",
+      "type": "text"
+    },
+    {
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id",
+      "isActive": true,
+      "type": "reference"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities24ConcurrentImageGeneratorC8makeCopyACXDyF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "makeCopy"
+      },
+      {
+        "kind": "text",
+        "text": "() -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Self"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "makeCopy()"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "makeCopy"
+            },
+            {
+              "kind": "text",
+              "text": "() -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Self"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
+      "abstract": [
+        {
+          "text": "Nonisolated ImageGenerator with a ",
+          "type": "text"
+        },
+        {
+          "code": "@concurrent generateImage",
+          "type": "codeVoice"
+        },
+        {
+          "text": " function that will always be",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "called in the cooperative thread pool.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ConcurrentImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ConcurrentImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "ConcurrentImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id": {
+      "abstract": [
+        {
+          "text": "Unique identifier of the generator.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "id"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation4UUIDV",
+          "text": "UUID"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "id",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/id"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()": {
+      "abstract": [
+        {
+          "text": "Creates a copy of the generator with the same settings and a new ",
+          "type": "text"
+        },
+        {
+          "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id",
+          "isActive": true,
+          "type": "reference"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "makeCopy"
+        },
+        {
+          "kind": "text",
+          "text": "() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "makeCopy()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/makecopy()"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/concurrentimagegenerator/makecopy()"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

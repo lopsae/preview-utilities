@@ -1,1 +1,661 @@
-{"abstract":[{"text":"Nonisolated ImageGenerator with a ","type":"text"},{"code":"@concurrent generateImage","type":"codeVoice"},{"text":" function that will always be","type":"text"},{"text":" ","type":"text"},{"text":"called in the cooperative thread pool.","type":"text"}],"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator"},"kind":"symbol","metadata":{"externalID":"s:16PreviewUtilities24ConcurrentImageGeneratorC","fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"ConcurrentImageGenerator"}],"modules":[{"name":"PreviewUtilities"}],"navigatorTitle":[{"kind":"identifier","text":"ConcurrentImageGenerator"}],"role":"symbol","roleHeading":"Class","symbolKind":"class","title":"ConcurrentImageGenerator"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"attribute","text":"nonisolated"},{"kind":"text","text":" "},{"kind":"keyword","text":"final"},{"kind":"text","text":" "},{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"ConcurrentImageGenerator"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator":{"abstract":[{"text":"Nonisolated ImageGenerator with a ","type":"text"},{"code":"@concurrent generateImage","type":"codeVoice"},{"text":" function that will always be","type":"text"},{"text":" ","type":"text"},{"text":"called in the cooperative thread pool.","type":"text"}],"fragments":[{"kind":"keyword","text":"class"},{"kind":"text","text":" "},{"kind":"identifier","text":"ConcurrentImageGenerator"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ConcurrentImageGenerator"}],"role":"symbol","title":"ConcurrentImageGenerator","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generateImage(with:)":{"abstract":[{"text":"Generates an image concurrently, this function always runs in the cooperative thread pool.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generateImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":") "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19ImageGeneratorErrorO","text":"ImageGeneratorError"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities24ConcurrentImageGeneratorC","text":"ConcurrentImageGenerator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea","text":"ImageTuple"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generateImage(with:)","kind":"symbol","role":"symbol","title":"generateImage(with:)","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator/generateimage(with:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)":{"abstract":[{"text":"Generates a platform image concurrently, this function always runs in the cooperative thread","type":"text"},{"text":" ","type":"text"},{"text":"pool.","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"generatePlatformImage"},{"kind":"text","text":"("},{"kind":"externalParam","text":"with"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SS","text":"String"},{"kind":"text","text":") "},{"kind":"keyword","text":"async"},{"kind":"text","text":" "},{"kind":"keyword","text":"throws"},{"kind":"text","text":"("},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities19ImageGeneratorErrorO","text":"ImageGeneratorError"},{"kind":"text","text":") -> "},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities24ConcurrentImageGeneratorC","text":"ConcurrentImageGenerator"},{"kind":"text","text":"."},{"kind":"typeIdentifier","preciseIdentifier":"s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC5Tuplea","text":"PlatformImageTuple"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)","kind":"symbol","role":"symbol","title":"generatePlatformImage(with:)","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator/generateplatformimage(with:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id":{"abstract":[{"text":"Unique identifier of the generator.","type":"text"}],"fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"id"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:10Foundation4UUIDV","text":"UUID"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id","kind":"symbol","role":"symbol","title":"id","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator/id"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/init(size:sleepRange:)":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"size"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGSize","text":"CGSize"},{"kind":"text","text":", "},{"kind":"externalParam","text":"sleepRange"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:SN","text":"ClosedRange"},{"kind":"text","text":"<"},{"kind":"typeIdentifier","preciseIdentifier":"s:s8DurationV","text":"Duration"},{"kind":"text","text":">?)"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/init(size:sleepRange:)","kind":"symbol","role":"symbol","title":"init(size:sleepRange:)","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator/init(size:sleeprange:)"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()":{"abstract":[{"text":"Creates a copy of the generator with the same settings and a new ","type":"text"},{"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id","isActive":true,"type":"reference"},{"text":".","type":"text"}],"fragments":[{"kind":"keyword","text":"func"},{"kind":"text","text":" "},{"kind":"identifier","text":"makeCopy"},{"kind":"text","text":"() -> "},{"kind":"typeIdentifier","text":"Self"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()","kind":"symbol","role":"symbol","title":"makeCopy()","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator/makecopy()"},"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/size":{"abstract":[{"text":"Size of the generated images.","type":"text"}],"fragments":[{"kind":"keyword","text":"let"},{"kind":"text","text":" "},{"kind":"identifier","text":"size"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"c:@S@CGSize","text":"CGSize"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/size","kind":"symbol","role":"symbol","title":"size","type":"topic","url":"/documentation/previewutilities/concurrentimagegenerator/size"},"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol":{"abstract":[{"text":"Protocol for all image generators. Provides functions to generate images along the thread","type":"text"},{"text":" ","type":"text"},{"text":"information where the image was generated.","type":"text"}],"fragments":[{"kind":"keyword","text":"protocol"},{"kind":"text","text":" "},{"kind":"identifier","text":"ImageGeneratorProtocol"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ImageGeneratorProtocol"}],"role":"symbol","title":"ImageGeneratorProtocol","type":"topic","url":"/documentation/previewutilities/imagegeneratorprotocol"},"doc://PreviewUtilities/s12IdentifiableP":{"identifier":"doc://PreviewUtilities/s12IdentifiableP","title":"Swift.Identifiable","type":"unresolvable"},"doc://PreviewUtilities/s16SendableMetatypeP":{"identifier":"doc://PreviewUtilities/s16SendableMetatypeP","title":"Swift.SendableMetatype","type":"unresolvable"},"doc://PreviewUtilities/s8SendableP":{"identifier":"doc://PreviewUtilities/s8SendableP","title":"Swift.Sendable","type":"unresolvable"}},"relationshipsSections":[{"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol","doc://PreviewUtilities/s12IdentifiableP","doc://PreviewUtilities/s8SendableP","doc://PreviewUtilities/s16SendableMetatypeP"],"kind":"relationships","title":"Conforms To","type":"conformsTo"}],"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"topicSections":[{"anchor":"Initializers","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/init(size:sleepRange:)"],"title":"Initializers"},{"anchor":"Instance-Properties","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id","doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/size"],"title":"Instance Properties"},{"anchor":"Instance-Methods","generated":true,"identifiers":["doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generateImage(with:)","doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)","doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()"],"title":"Instance Methods"}],"variants":[{"paths":["/documentation/previewutilities/concurrentimagegenerator"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "abstract": [
+    {
+      "text": "Nonisolated ImageGenerator with a ",
+      "type": "text"
+    },
+    {
+      "code": "@concurrent generateImage",
+      "type": "codeVoice"
+    },
+    {
+      "text": " function that will always be",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "called in the cooperative thread pool.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities24ConcurrentImageGeneratorC",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "class"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "ConcurrentImageGenerator"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "ConcurrentImageGenerator"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Class",
+    "symbolKind": "class",
+    "title": "ConcurrentImageGenerator"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "final"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "class"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "ConcurrentImageGenerator"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
+      "abstract": [
+        {
+          "text": "Nonisolated ImageGenerator with a ",
+          "type": "text"
+        },
+        {
+          "code": "@concurrent generateImage",
+          "type": "codeVoice"
+        },
+        {
+          "text": " function that will always be",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "called in the cooperative thread pool.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ConcurrentImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ConcurrentImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "ConcurrentImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generateImage(with:)": {
+      "abstract": [
+        {
+          "text": "Generates an image concurrently, this function always runs in the cooperative thread pool.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generateImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+          "text": "ImageGeneratorError"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities24ConcurrentImageGeneratorC",
+          "text": "ConcurrentImageGenerator"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP0C5Tuplea",
+          "text": "ImageTuple"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generateImage(with:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generateImage(with:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/generateimage(with:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)": {
+      "abstract": [
+        {
+          "text": "Generates a platform image concurrently, this function always runs in the cooperative thread",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "pool.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generatePlatformImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+          "text": "ImageGeneratorError"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities24ConcurrentImageGeneratorC",
+          "text": "ConcurrentImageGenerator"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC5Tuplea",
+          "text": "PlatformImageTuple"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generatePlatformImage(with:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/generateplatformimage(with:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id": {
+      "abstract": [
+        {
+          "text": "Unique identifier of the generator.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "id"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation4UUIDV",
+          "text": "UUID"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "id",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/id"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/init(size:sleepRange:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "sleepRange"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SN",
+          "text": "ClosedRange"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8DurationV",
+          "text": "Duration"
+        },
+        {
+          "kind": "text",
+          "text": ">?)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/init(size:sleepRange:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(size:sleepRange:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/init(size:sleeprange:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()": {
+      "abstract": [
+        {
+          "text": "Creates a copy of the generator with the same settings and a new ",
+          "type": "text"
+        },
+        {
+          "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id",
+          "isActive": true,
+          "type": "reference"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "makeCopy"
+        },
+        {
+          "kind": "text",
+          "text": "() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "makeCopy()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/makecopy()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/size": {
+      "abstract": [
+        {
+          "text": "Size of the generated images.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/size",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "size",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/size"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
+      "abstract": [
+        {
+          "text": "Protocol for all image generators. Provides functions to generate images along the thread",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "information where the image was generated.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorProtocol"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorProtocol"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorProtocol",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorprotocol"
+    },
+    "doc://PreviewUtilities/s12IdentifiableP": {
+      "identifier": "doc://PreviewUtilities/s12IdentifiableP",
+      "title": "Swift.Identifiable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
+        "doc://PreviewUtilities/s12IdentifiableP",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/init(size:sleepRange:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/id",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/size"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generateImage(with:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/makeCopy()"
+      ],
+      "title": "Instance Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/concurrentimagegenerator"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

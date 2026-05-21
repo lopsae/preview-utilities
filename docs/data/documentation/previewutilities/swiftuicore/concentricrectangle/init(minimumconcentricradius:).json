@@ -1,1 +1,210 @@
-{"hierarchy":{"paths":[["doc://PreviewUtilities/documentation/PreviewUtilities","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore","doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle"]]},"identifier":{"interfaceLanguage":"swift","url":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle/init(minimumConcentricRadius:)"},"kind":"symbol","metadata":{"extendedModule":"SwiftUICore","externalID":"s:7SwiftUI19ConcentricRectangleV16PreviewUtilitiesE07minimumC6RadiusACSd_tcfc","fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"minimumConcentricRadius"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":")"}],"modules":[{"name":"PreviewUtilities","relatedModules":["SwiftUICore"]}],"role":"symbol","roleHeading":"Initializer","symbolKind":"init","title":"init(minimumConcentricRadius:)"},"primaryContentSections":[{"declarations":[{"languages":["swift"],"platforms":["macOS"],"tokens":[{"kind":"keyword","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"minimumConcentricRadius"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":")"}]}],"kind":"declarations"}],"references":{"doc://PreviewUtilities/documentation/PreviewUtilities":{"abstract":[{"text":"Utilities for SwiftUI previews.","type":"text"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities","kind":"symbol","role":"collection","title":"PreviewUtilities","type":"topic","url":"/documentation/previewutilities"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore":{"abstract":[],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore","kind":"symbol","role":"collection","title":"SwiftUICore","type":"topic","url":"/documentation/previewutilities/swiftuicore"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle":{"abstract":[],"fragments":[{"kind":"keyword","text":"extension"},{"kind":"text","text":" "},{"kind":"identifier","preciseIdentifier":"s:7SwiftUI19ConcentricRectangleV","text":"ConcentricRectangle"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle","kind":"symbol","navigatorTitle":[{"kind":"identifier","text":"ConcentricRectangle"}],"role":"symbol","title":"ConcentricRectangle","type":"topic","url":"/documentation/previewutilities/swiftuicore/concentricrectangle"},"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle/init(minimumConcentricRadius:)":{"abstract":[],"fragments":[{"kind":"identifier","text":"init"},{"kind":"text","text":"("},{"kind":"externalParam","text":"minimumConcentricRadius"},{"kind":"text","text":": "},{"kind":"typeIdentifier","preciseIdentifier":"s:Sd","text":"Double"},{"kind":"text","text":")"}],"identifier":"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle/init(minimumConcentricRadius:)","kind":"symbol","role":"symbol","title":"init(minimumConcentricRadius:)","type":"topic","url":"/documentation/previewutilities/swiftuicore/concentricrectangle/init(minimumconcentricradius:)"}},"schemaVersion":{"major":0,"minor":3,"patch":0},"sections":[],"variants":[{"paths":["/documentation/previewutilities/swiftuicore/concentricrectangle/init(minimumconcentricradius:)"],"traits":[{"interfaceLanguage":"swift"}]}]}
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle/init(minimumConcentricRadius:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI19ConcentricRectangleV16PreviewUtilitiesE07minimumC6RadiusACSd_tcfc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "minimumConcentricRadius"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:Sd",
+        "text": "Double"
+      },
+      {
+        "kind": "text",
+        "text": ")"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(minimumConcentricRadius:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "minimumConcentricRadius"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sd",
+              "text": "Double"
+            },
+            {
+              "kind": "text",
+              "text": ")"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUICore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI19ConcentricRectangleV",
+          "text": "ConcentricRectangle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ConcentricRectangle"
+        }
+      ],
+      "role": "symbol",
+      "title": "ConcentricRectangle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/concentricrectangle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle/init(minimumConcentricRadius:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "minimumConcentricRadius"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ConcentricRectangle/init(minimumConcentricRadius:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(minimumConcentricRadius:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/concentricrectangle/init(minimumconcentricradius:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftuicore/concentricrectangle/init(minimumconcentricradius:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}
