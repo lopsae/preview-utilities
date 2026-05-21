@@ -235,24 +235,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/rawvalueformatstyle"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/rawvalueformatstyle/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "FormatStyle Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/rawvalueformatstyle/formatstyle-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/format(_:)": {
       "abstract": [],
       "fragments": [
@@ -402,16 +384,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/format(_:)"
       ],
       "title": "Instance Methods"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/FormatStyle-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

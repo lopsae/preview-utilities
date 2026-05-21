@@ -71,49 +71,40 @@
       "type": "topic",
       "url": "/documentation/previewutilities/indexedcollection"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/beforeEndIndex": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/index(before:)": {
       "abstract": [],
-      "deprecated": true,
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "beforeEndIndex"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sl5IndexQa",
-          "text": "Index"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/beforeEndIndex",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "beforeEndIndex",
-      "type": "topic",
-      "url": "/documentation/previewutilities/indexedcollection/beforeendindex"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/clampIndex(_:)": {
-      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Base",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "BidirectionalCollection",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
       "fragments": [
         {
           "kind": "keyword",
@@ -125,15 +116,23 @@
         },
         {
           "kind": "identifier",
-          "text": "clampIndex"
+          "text": "index"
         },
         {
           "kind": "text",
           "text": "("
         },
         {
+          "kind": "externalParam",
+          "text": "before"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
           "kind": "typeIdentifier",
-          "text": "Self"
+          "text": "Base"
         },
         {
           "kind": "text",
@@ -150,51 +149,7 @@
         },
         {
           "kind": "typeIdentifier",
-          "text": "Self"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sl5IndexQa",
-          "text": "Index"
-        },
-        {
-          "kind": "text",
-          "text": "?"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/clampIndex(_:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "clampIndex(_:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/indexedcollection/clampindex(_:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/finalIndex": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "finalIndex"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
+          "text": "Base"
         },
         {
           "kind": "text",
@@ -206,12 +161,12 @@
           "text": "Index"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/finalIndex",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/index(before:)",
       "kind": "symbol",
       "role": "symbol",
-      "title": "finalIndex",
+      "title": "index(before:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/indexedcollection/finalindex"
+      "url": "/documentation/previewutilities/indexedcollection/index(before:)"
     }
   },
   "schemaVersion": {
@@ -222,19 +177,10 @@
   "sections": [],
   "topicSections": [
     {
-      "anchor": "Instance-Properties",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/beforeEndIndex",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/finalIndex"
-      ],
-      "title": "Instance Properties"
-    },
-    {
       "anchor": "Instance-Methods",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/clampIndex(_:)"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/index(before:)"
       ],
       "title": "Instance Methods"
     }

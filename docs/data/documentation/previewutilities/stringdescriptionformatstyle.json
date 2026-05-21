@@ -172,24 +172,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/stringdescriptionformatstyle"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/stringdescriptionformatstyle/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/FormatStyle-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/FormatStyle-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "FormatStyle Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/stringdescriptionformatstyle/formatstyle-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/format(_:)": {
       "abstract": [],
       "fragments": [
@@ -339,16 +321,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/format(_:)"
       ],
       "title": "Instance Methods"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/FormatStyle-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/FormatStyle-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

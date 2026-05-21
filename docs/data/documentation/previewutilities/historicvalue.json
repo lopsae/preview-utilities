@@ -282,15 +282,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/historicvalue"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/View-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/View-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "View Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/historicvalue/view-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/body": {
       "abstract": [],
       "fragments": [
@@ -876,15 +867,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)"
       ],
       "title": "Instance Methods"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/View-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/View-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

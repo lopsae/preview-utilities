@@ -200,15 +200,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/previewcaption"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/View-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/View-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "View Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/previewcaption/view-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/body": {
       "abstract": [],
       "fragments": [
@@ -381,15 +372,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/paragraph(_:)"
       ],
       "title": "Instance Methods"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/View-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption/View-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

@@ -178,15 +178,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/clearrectangle"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/View-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/View-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "View Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/clearrectangle/view-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/body": {
       "abstract": [],
       "fragments": [
@@ -485,15 +476,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/body"
       ],
       "title": "Instance Properties"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/View-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/View-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

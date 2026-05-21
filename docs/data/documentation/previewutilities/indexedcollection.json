@@ -233,15 +233,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/indexedcollection/bidirectionalcollection-implementations"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Collection-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Collection-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Collection Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/indexedcollection/collection-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Element": {
       "abstract": [],
       "fragments": [
@@ -270,15 +261,6 @@
       "title": "IndexedCollection.Element",
       "type": "topic",
       "url": "/documentation/previewutilities/indexedcollection/element"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Sequence-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Sequence-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Sequence Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/indexedcollection/sequence-implementations"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/endIndex": {
       "abstract": [],
@@ -553,12 +535,7 @@
       "anchor": "Default-Implementations",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/BidirectionalCollection-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/BidirectionalCollection-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Collection-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Collection-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Sequence-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Sequence-Implementations"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/BidirectionalCollection-Implementations"
       ],
       "title": "Default Implementations"
     }

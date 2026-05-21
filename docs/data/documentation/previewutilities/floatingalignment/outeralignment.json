@@ -165,24 +165,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outeralignment"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/outeralignment/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/SelfIdentifiable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/SelfIdentifiable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "SelfIdentifiable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/outeralignment/selfidentifiable-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/allCases": {
       "abstract": [],
       "fragments": [
@@ -1528,15 +1510,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/trailingUnder"
       ],
       "title": "Type Properties"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/SelfIdentifiable-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

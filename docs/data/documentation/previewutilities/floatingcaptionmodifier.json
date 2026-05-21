@@ -320,15 +320,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/ViewModifier-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/ViewModifier-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "ViewModifier Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier/viewmodifier-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/body(content:)": {
       "abstract": [],
       "fragments": [
@@ -727,14 +718,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait"
       ],
       "title": "Enumerations"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/ViewModifier-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

@@ -170,33 +170,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/RawRepresentable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/RawRepresentable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "RawRepresentable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment/rawrepresentable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/SelfIdentifiable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/SelfIdentifiable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "SelfIdentifiable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment/selfidentifiable-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/above": {
       "abstract": [],
       "fragments": [
@@ -462,16 +435,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/init(rawValue:)"
       ],
       "title": "Initializers"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/RawRepresentable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment/SelfIdentifiable-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

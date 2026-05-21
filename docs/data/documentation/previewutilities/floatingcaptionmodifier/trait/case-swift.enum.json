@@ -226,15 +226,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/Case-swift.enum/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/Case-swift.enum/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/equatable-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/Case-swift.enum/alignment": {
       "abstract": [],
       "fragments": [
@@ -464,14 +455,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/Case-swift.enum/width"
       ],
       "title": "Enumeration Cases"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/Case-swift.enum/Equatable-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

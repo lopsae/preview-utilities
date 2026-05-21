@@ -134,33 +134,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/headerfootercontaineroptions"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontaineroptions/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "OptionSet Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontaineroptions/optionset-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "SetAlgebra Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontaineroptions/setalgebra-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/default": {
       "abstract": [],
       "fragments": [
@@ -587,16 +560,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers"
       ],
       "title": "Type Properties"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/OptionSet-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/SetAlgebra-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

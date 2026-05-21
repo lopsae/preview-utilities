@@ -116,15 +116,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/imagegeneratorerror"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Error Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorerror/error-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)": {
       "abstract": [],
       "fragments": [
@@ -203,14 +194,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)"
       ],
       "title": "Enumeration Cases"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/Error-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

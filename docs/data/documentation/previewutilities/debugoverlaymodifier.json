@@ -415,15 +415,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/ViewModifier-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/ViewModifier-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "ViewModifier Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/debugoverlaymodifier/viewmodifier-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/body(content:)": {
       "abstract": [],
       "fragments": [
@@ -841,14 +832,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/body(content:)"
       ],
       "title": "Instance Methods"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/ViewModifier-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

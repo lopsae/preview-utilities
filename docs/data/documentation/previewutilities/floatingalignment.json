@@ -134,15 +134,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/equatable-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment": {
       "abstract": [],
       "fragments": [
@@ -258,15 +249,6 @@
       "title": "FloatingAlignment.OuterVerticalAlignment",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/SelfIdentifiable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/SelfIdentifiable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "SelfIdentifiable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/selfidentifiable-implementations"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases": {
       "abstract": [
@@ -2420,15 +2402,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment"
       ],
       "title": "Enumerations"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/SelfIdentifiable-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

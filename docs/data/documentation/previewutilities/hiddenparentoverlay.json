@@ -281,15 +281,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/hiddenparentoverlay"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/View-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/View-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "View Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/hiddenparentoverlay/view-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/body": {
       "abstract": [],
       "fragments": [
@@ -517,15 +508,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)"
       ],
       "title": "Instance Methods"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/View-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/View-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

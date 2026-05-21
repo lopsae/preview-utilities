@@ -165,24 +165,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/inneralignment"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/inneralignment/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/SelfIdentifiable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/SelfIdentifiable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "SelfIdentifiable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/inneralignment/selfidentifiable-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/allCases": {
       "abstract": [],
       "fragments": [
@@ -987,15 +969,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/trailingCenter"
       ],
       "title": "Type Properties"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/SelfIdentifiable-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

@@ -188,24 +188,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/identityformatstyle"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/identityformatstyle/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/FormatStyle-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/FormatStyle-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "FormatStyle Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/identityformatstyle/formatstyle-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/format(_:)": {
       "abstract": [],
       "fragments": [
@@ -354,16 +336,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/format(_:)"
       ],
       "title": "Instance Methods"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/FormatStyle-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/FormatStyle-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

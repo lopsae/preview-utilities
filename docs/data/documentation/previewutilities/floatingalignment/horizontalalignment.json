@@ -170,33 +170,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/horizontalalignment"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/horizontalalignment/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/RawRepresentable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/RawRepresentable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "RawRepresentable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/horizontalalignment/rawrepresentable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/SelfIdentifiable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/SelfIdentifiable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "SelfIdentifiable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingalignment/horizontalalignment/selfidentifiable-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/center": {
       "abstract": [],
       "fragments": [
@@ -414,16 +387,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/init(rawValue:)"
       ],
       "title": "Initializers"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/RawRepresentable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/SelfIdentifiable-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

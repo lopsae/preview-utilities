@@ -264,24 +264,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/propertyformatstyle"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Equatable Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/equatable-implementations"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "FormatStyle Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle/formatstyle-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/encode(to:)": {
       "abstract": [
         {
@@ -502,16 +484,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)"
       ],
       "title": "Instance Methods"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/Equatable-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/FormatStyle-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

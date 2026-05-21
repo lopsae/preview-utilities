@@ -280,15 +280,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/taskview"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "View Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/taskview/view-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/body": {
       "abstract": [],
       "fragments": [
@@ -663,15 +654,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/body"
       ],
       "title": "Instance Properties"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/View-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

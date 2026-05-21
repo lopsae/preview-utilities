@@ -258,15 +258,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/taggedtext"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText/View-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText/View-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "View Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/taggedtext/view-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText/body": {
       "abstract": [],
       "fragments": [
@@ -344,15 +335,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText/body"
       ],
       "title": "Instance Properties"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText/View-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText/View-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [

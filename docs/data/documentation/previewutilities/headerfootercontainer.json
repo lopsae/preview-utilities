@@ -167,15 +167,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/headerfootercontainer"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer/View-Implementations": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer/View-Implementations",
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "View Implementations",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontainer/view-implementations"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer/body": {
       "abstract": [],
       "fragments": [
@@ -253,15 +244,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer/body"
       ],
       "title": "Instance Properties"
-    },
-    {
-      "anchor": "Default-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer/View-Implementations",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer/View-Implementations"
-      ],
-      "title": "Default Implementations"
     }
   ],
   "variants": [
