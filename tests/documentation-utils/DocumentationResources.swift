@@ -45,16 +45,18 @@ struct DocumentationResources {
             case .light:
                 // Light scheme requires NO scheme in the filename.
                 // Eg: image-name@3x.png
-                "\(resource.name)@\(scaleInt)x.png"
+                "\(resource.resourceName)@\(scaleInt)x.png"
             case .dark:
                 // Dark scheme requires the scheme in the filename.
                 // Eg: image-name~dark@3x.png
-                "\(resource.name)~dark@\(scaleInt)x.png"
+                "\(resource.resourceName)~dark@\(scaleInt)x.png"
             @unknown default:
                 throw StorageError.unknownColorScheme
             }
 
-            let fileURL = outputDirectory.appendingPathComponent(filename)
+            let fileURL = outputDirectory
+                .appending(pathComponents: resource.folderPath)
+                .appending(path: filename, directoryHint: .notDirectory)
 
             let destination = CGImageDestinationCreateWithURL(
                 fileURL as CFURL,
@@ -91,6 +93,19 @@ struct DocumentationResources {
                 "Failed to write PNG to: \(path)"
             }
         }
+    }
+
+}
+
+
+extension URL {
+
+    func appending<S>(pathComponents: [S]) -> URL where S : StringProtocol {
+        var result = self
+        for component in pathComponents {
+            result = result.appending(path: component)
+        }
+        return result
     }
 
 }

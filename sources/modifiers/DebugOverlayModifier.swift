@@ -66,6 +66,7 @@ public struct DebugOverlayModifier: ViewModifier {
                 outerStrokeRect(geometry: geometry)
                 innerStrokeRect(geometry: geometry)
                 originReticuleRects(geometry: geometry)
+                // TODO: rename to debug caption view
                 geometryInfoView(geometry)
             }
             .allowsHitTesting(false)
@@ -192,6 +193,10 @@ public struct DebugOverlayModifier: ViewModifier {
         if configuration.containsInfoCaptionElements {
             let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
+            // FIXME: when using outer alignments, some alignment appear too far away from the edge
+            // since the spacing is accounting for the inner stroke. Reconsider the spacing for
+            // this cases. Likely a spacing of 2 from edge may work.
+
             FloatingAlignedContainer(
                 alignment: configuration.infoAlignment,
                 spacing: boundedBordersWidth * 1.5
@@ -253,7 +258,7 @@ public struct DebugOverlayModifier: ViewModifier {
     ///
     /// Minimum size at which a `Rectangle` is found to be drawn:
     /// + `0.17` in iPhone 17 Pro simulator; however this was found to jump to `0.35` when running
-    ///   in the MacBook Pro Retina display, and if might depend on display resolution.
+    ///   in the MacBook Pro Retina display, and it might depend on display resolution.
     /// + `0.25` in macOS 26 in preview canvas.
     /// + `0.39` when preview in an iPad Pro 11-inch M4.
     ///
@@ -629,57 +634,24 @@ private struct PreviewContent {
 
 // MARK: Screenshot Previews
 
-// FIXME: Move to a specific screenshots folder to organize.
+// FIXME: Move preview and modifier to a documentationPreview example file.
 
 
-#Preview("debug-overlay-default@3x", traits: .docsScreenshot(height: 160)) {
-    Text("Sphinx of Black Quartz")
-        .font(.title)
-    Text("Judge my Vow")
-        .font(.title)
-        .debugOverlay()
-}
-
-
-#Preview("SS: Simple Traits", traits: PreviewContent.layout) {
-    Rectangle()
-        .fill(.yellow.gradient)
-        .frame(width: 200, height: 100)
-        .debugOverlay(.hairline, .width)
-}
-
-
-#Preview("SS: SafeArea", traits: PreviewContent.layout) {
-    NavigationStack {
-        VStack {
-            Text("Preview Text")
-                .debugOverlay()
-            Spacer()
-        }
-        .navigationTitle("Navigation Title")
+#Preview("debug-overlay-alignments", traits: .docsScreenshot(height: 160)) {
+    HStack(spacing: 16) {
+        Rectangle()
+            .fill(.green.gradient)
+            .frame(width: 100, height: 60)
+            .debugOverlay(.caption("Inner Top"), .alignment(.innerTop))
+        Rectangle()
+            .fill(.mint.gradient)
+            .frame(width: 100, height: 60)
+            .debugOverlay(.caption("Outer Bottom Leading"), .alignment(.outerBottomLeading))
+        Rectangle()
+            .fill(.teal.gradient)
+            .frame(width: 100, height: 60)
+            .debugOverlay(.caption("Outer Top Trailing"), .alignment(.outerTopTrailing))
     }
-}
-
-
-#Preview("SS: Geometry", traits: PreviewContent.layout) {
-    Rectangle()
-        .fill(.orange.gradient)
-        .frame(width: 250, height: 150)
-        .debugOverlay(.allGeometry)
-    Spacer()
-}
-
-
-#Preview("SS: Traits", traits: PreviewContent.layout) {
-    Rectangle()
-        .fill(.indigo.gradient)
-        .frame(width: 250, height: 100)
-        .debugOverlay(
-            .caption("Preview Rectangle"),
-            .height, .origin,
-            .infoAlignment(.outerBottomTrailing)
-        )
-    Spacer()
 }
 
 

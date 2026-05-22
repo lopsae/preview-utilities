@@ -18,8 +18,12 @@ struct DocumentationRenderer {
     static let defaultColorSchemes: Set<ColorScheme> = [.light, .dark]
 
     /// Renders a SwiftUI view configured as a documentation image.
+    ///
+    /// The name components determine the folder location and name of the image. Every name
+    /// component except the last is treated as the folder path where the image will be saved. The
+    /// name of the image is all the name components joined with hyphens (`-`).
     static func render<Content: View>(
-        _ name: String,
+        nameComponents: [String],
         size: CGSize,
         scale: CGFloat = defaultScale,
         colorSchemes: Set<ColorScheme> = defaultColorSchemes,
@@ -39,25 +43,44 @@ struct DocumentationRenderer {
             }
 
             guard let cgImage = renderer.cgImage else {
-                throw RendererError.renderingFailed(name)
+                let resourceName = RenderResource.resourceName(components: nameComponents)
+                throw RendererError.renderingFailed(resourceName)
             }
             images[scheme] = cgImage
         }
 
-        return RenderResource(name: name, scale: scale, images: images)
+        return RenderResource(nameComponents: nameComponents, scale: scale, images: images)
+    }
+
+
+    /// Renders a SwiftUI view configured as a documentation image.
+    static func render<Content: View>(
+        nameComponents: String...,
+        size: CGSize,
+        scale: CGFloat = defaultScale,
+        colorSchemes: Set<ColorScheme> = defaultColorSchemes,
+        @ViewBuilder content: () -> Content
+    ) throws -> RenderResource {
+        try render(
+            nameComponents: nameComponents,
+            size: size, scale: scale, colorSchemes: colorSchemes,
+            content: content
+        )
     }
 
     /// Renders a SwiftUI view configured as a documentation image, using the default width.
     static func render<Content: View>(
-        _ name: String,
+        _ nameComponents: String...,
         height: CGFloat,
         scale: CGFloat = defaultScale,
         colorSchemes: Set<ColorScheme> = defaultColorSchemes,
         @ViewBuilder content: () -> Content
     ) throws -> RenderResource {
         try render(
-            name, size: [Self.defaultWidth, height],
-            scale: scale, colorSchemes: colorSchemes,
+            nameComponents: nameComponents,
+            size: [Self.defaultWidth, height],
+            scale: scale,
+            colorSchemes: colorSchemes,
             content: content
         )
     }
@@ -66,9 +89,28 @@ struct DocumentationRenderer {
     /// Container of a rendered documentation resource. May contain different images for each color
     /// scheme.
     struct RenderResource {
-        let name: String
+
+        /// Components of the resource name.
+        ///
+        /// Determines the folder location and name of the image. Every component except the last is
+        /// used as the folder path where the image will be saved in the documentation catalog
+        /// resources folder. The name of the resource is all the name components joined with
+        /// hyphens (`-`).
+        let nameComponents: [String]
         let scale: CGFloat
         let images: [ColorScheme: CGImage]
+
+        var folderPath: [String] {
+            Array(nameComponents.prefix(nameComponents.count - 1))
+        }
+
+        static func resourceName(components: [String]) -> String {
+            components.joined(separator: "-")
+        }
+
+        var resourceName: String {
+            Self.resourceName(components: nameComponents)
+        }
     }
 
 
