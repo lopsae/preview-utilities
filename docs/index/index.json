@@ -3150,13 +3150,13 @@
                         "type": "groupMarker"
                       },
                       {
-                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsscreenshot(height:)",
-                        "title": "static func docsScreenshot(height: Double) -> PreviewTrait<T>",
+                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsrender(height:)",
+                        "title": "static func docsRender(height: Double) -> PreviewTrait<T>",
                         "type": "method"
                       },
                       {
-                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsscreenshot(size:)",
-                        "title": "static func docsScreenshot(size: CGSize) -> PreviewTrait<T>",
+                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsrender(size:)",
+                        "title": "static func docsRender(size: CGSize) -> PreviewTrait<T>",
                         "type": "method"
                       },
                       {
@@ -3652,6 +3652,11 @@
                       {
                         "path": "/documentation/previewutilities/swiftuicore/view/debugoverlay(traits:)",
                         "title": "func debugOverlay(traits: [DebugOverlayModifier.Configuration.Trait]) -> some View",
+                        "type": "method"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/swiftuicore/view/docrender(size:)",
+                        "title": "func docRender(size: CGSize) -> some View",
                         "type": "method"
                       },
                       {

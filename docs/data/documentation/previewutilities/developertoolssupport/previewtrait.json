@@ -133,7 +133,7 @@
       "type": "topic",
       "url": "/documentation/previewutilities/developertoolssupport/previewtrait"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(height:)": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(height:)": {
       "abstract": [],
       "conformance": {
         "availabilityPrefix": [
@@ -186,7 +186,7 @@
         },
         {
           "kind": "identifier",
-          "text": "docsScreenshot"
+          "text": "docsRender"
         },
         {
           "kind": "text",
@@ -227,14 +227,14 @@
           "text": ">"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(height:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(height:)",
       "kind": "symbol",
       "role": "symbol",
-      "title": "docsScreenshot(height:)",
+      "title": "docsRender(height:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsscreenshot(height:)"
+      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsrender(height:)"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(size:)": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(size:)": {
       "abstract": [],
       "conformance": {
         "availabilityPrefix": [
@@ -287,7 +287,7 @@
         },
         {
           "kind": "identifier",
-          "text": "docsScreenshot"
+          "text": "docsRender"
         },
         {
           "kind": "text",
@@ -328,12 +328,12 @@
           "text": ">"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(size:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(size:)",
       "kind": "symbol",
       "role": "symbol",
-      "title": "docsScreenshot(size:)",
+      "title": "docsRender(size:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsscreenshot(size:)"
+      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsrender(size:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/fixedHeader": {
       "abstract": [
@@ -1815,8 +1815,8 @@
       "anchor": "Type-Methods",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(height:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(size:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(height:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(size:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/fixedHeader(_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/fixedHeaderFooter(_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/fixedLayout(size:)",
