@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-#Preview("debug-overlay-alignments", traits: .docsScreenshot(height: 160)) {
+#Preview("debug-overlay-alignments", traits: .docsRender(height: 160)) {
     HStack(spacing: 16) {
         Rectangle()
             .fill(.green.gradient)
@@ -25,7 +25,7 @@ import SwiftUI
 }
 
 
-struct DocsScreenshotPreviewModifier: PreviewModifier {
+struct DocumentationRenderPreviewModifier: PreviewModifier {
 
     static let defaultWidth: Double = 400
 
@@ -52,18 +52,18 @@ struct DocsScreenshotPreviewModifier: PreviewModifier {
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
-    public static func docsScreenshot(size: CGSize) -> PreviewTrait {
+    public static func docsRender(size: CGSize) -> PreviewTrait {
         .init(
-            .modifier(DocsScreenshotPreviewModifier(size: size)),
+            .modifier(DocumentationRenderPreviewModifier(size: size)),
             .fixedLayout(size: size)
         )
     }
 
 
-    public static func docsScreenshot(height: Double) -> PreviewTrait {
+    public static func docsRender(height: Double) -> PreviewTrait {
         .init(
-            .modifier(DocsScreenshotPreviewModifier(height: height)),
-            .fixedLayout(size: [DocsScreenshotPreviewModifier.defaultWidth, height])
+            .modifier(DocumentationRenderPreviewModifier(height: height)),
+            .fixedLayout(size: [DocumentationRenderPreviewModifier.defaultWidth, height])
         )
     }
 
