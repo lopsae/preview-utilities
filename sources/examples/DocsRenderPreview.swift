@@ -25,6 +25,9 @@ import SwiftUI
 }
 
 
+// MARK: - DocumentationRenderPreviewModifier
+
+
 struct DocumentationRenderPreviewModifier: PreviewModifier {
 
     static let defaultWidth: Double = 400
@@ -40,14 +43,13 @@ struct DocumentationRenderPreviewModifier: PreviewModifier {
     }
 
     func body(content: Content, context _: ()) -> some View {
-        VStack {
-            content
-        }
-        .frame(size: size)
-        .border(.tertiary, width: 1)
+        content.docRender(size: size)
     }
 
 }
+
+
+// MARK: - PreviewTrait Extension
 
 
 extension PreviewTrait where T == Preview.ViewTraits {
@@ -65,6 +67,37 @@ extension PreviewTrait where T == Preview.ViewTraits {
             .modifier(DocumentationRenderPreviewModifier(height: height)),
             .fixedLayout(size: [DocumentationRenderPreviewModifier.defaultWidth, height])
         )
+    }
+
+}
+
+
+// MARK: - DocumentationRenderModifier
+
+
+struct DocumentationRenderModifier: ViewModifier {
+
+    let size: CGSize
+
+    func body(content: Content) -> some View {
+        VStack {
+            content
+        }
+        .frame(size: size)
+        .background(.background, in: .rect)
+        .border(.tertiary, width: 1)
+    }
+
+}
+
+
+// MARK: - View Extension
+
+
+extension View {
+
+    public func docRender(size: CGSize) -> some View {
+        return modifier(DocumentationRenderModifier(size: size))
     }
 
 }

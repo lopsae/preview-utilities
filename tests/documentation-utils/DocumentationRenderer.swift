@@ -33,12 +33,8 @@ struct DocumentationRenderer {
 
         for scheme in colorSchemes {
             let renderer = ImageRenderer(scale: scale) {
-                VStack {
-                    content()
-                }
-                .frame(width: size.width, height: size.height)
-                .background(.background, in: .rect)
-                .border(.tertiary, width: 1)
+                content()
+                .docRender(size: size)
                 .environment(\.colorScheme, scheme)
             }
 
