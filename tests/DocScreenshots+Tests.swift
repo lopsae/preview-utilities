@@ -9,26 +9,76 @@
 import ImageIO
 import SwiftUI
 import Testing
+import UniformTypeIdentifiers.UTType
 
 
 /// Renders SwiftUI views to PNG files for use in DocC documentation.
 ///
 /// Rendered images are saved in the package `documentation.docc/resources` folder.
 @MainActor
-struct DocScreenshotRenderer {
+struct DocumentationRenderer {
 
-    static let scale: CGFloat = 3
     static let defaultWidth: CGFloat = DocsScreenshotPreviewModifier.defaultWidth
+    static let defaultScale: CGFloat = 3
 
-    let outputDirectory: URL
+    /// Renders a SwiftUI view configured as a documentation image.
+    static func render<Content: View>(
+        _ name: String,
+        size: CGSize,
+        scale: CGFloat = defaultScale,
+        @ViewBuilder content: () -> Content
+    ) throws -> CGImage {
+        let framedContent = VStack {
+            content()
+        }
+        .frame(width: size.width, height: size.height)
+        .background(.background, in: .rect)
+        .border(.tertiary, width: 1)
+        .environment(\.colorScheme, .light)
 
-    init() throws {
+        let renderer = ImageRenderer(content: framedContent)
+        renderer.scale = scale
+
+        guard let cgImage = renderer.cgImage else {
+            throw RendererError.renderingFailed(name)
+        }
+        return cgImage
+    }
+
+    /// Renders a SwiftUI view configured as a documentation image, using the default width.
+    static func render<Content: View>(
+        _ name: String,
+        height: CGFloat,
+        scale: CGFloat = defaultScale,
+        @ViewBuilder content: () -> Content
+    ) throws -> CGImage {
+        try render(name, size: [Self.defaultWidth, height], content: content)
+    }
+
+
+    enum RendererError: LocalizedError {
+        case renderingFailed(String)
+
+        var errorDescription: String? {
+            switch self {
+            case .renderingFailed(let name):
+                "DocumentationRenderer failed to produce a CGImage for '\(name)'"
+            }
+        }
+    }
+
+}
+
+
+struct DocumentationResources {
+
+    static func store(name: String, cgImage: CGImage) throws {
         // Navigate from the test bundle to the documentation resources directory.
-        // Assumes tests are run from the test package root.
+        // Assumes this file is located at the root of the tests folder.
         let packageRoot = URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent() // tests/
             .deletingLastPathComponent() // package root
-        outputDirectory = packageRoot
+        let outputDirectory = packageRoot
             .appendingPathComponent("sources")
             .appendingPathComponent("documentation.docc")
             .appendingPathComponent("resources")
@@ -40,32 +90,7 @@ struct DocScreenshotRenderer {
             isDirectory: &isDirectory
         )
         guard exists, isDirectory.boolValue else {
-            throw ScreenshotError.outputDirectoryMissing(outputDirectory.path)
-        }
-    }
-
-    /// Renders a SwiftUI view to a PNG file.
-    ///
-    /// The saved filename is `{name}@3x.png`.
-    @discardableResult
-    func render<Content: View>(
-        _ name: String,
-        size: CGSize,
-        @ViewBuilder content: () -> Content
-    ) throws -> URL {
-        let framedContent = VStack {
-            content()
-        }
-        .frame(width: size.width, height: size.height)
-        .background(.background, in: .rect)
-        .border(.tertiary, width: 1)
-        .environment(\.colorScheme, .light)
-
-        let renderer = ImageRenderer(content: framedContent)
-        renderer.scale = Self.scale
-
-        guard let cgImage = renderer.cgImage else {
-            throw ScreenshotError.renderingFailed(name)
+            throw StorageError.outputDirectoryMissing(outputDirectory.path)
         }
 
         let filename = "\(name)@3x.png"
@@ -73,47 +98,37 @@ struct DocScreenshotRenderer {
 
         let destination = CGImageDestinationCreateWithURL(
             fileURL as CFURL,
-            "public.png" as CFString,
+            UTType.png.identifier as CFString,
             1,
             nil
         )
         guard let destination else {
-            throw ScreenshotError.fileCreationFailed(fileURL.path)
+            throw StorageError.fileCreationFailed(fileURL.path)
         }
         CGImageDestinationAddImage(destination, cgImage, nil)
         guard CGImageDestinationFinalize(destination) else {
-            throw ScreenshotError.fileCreationFailed(fileURL.path)
+            throw StorageError.fileCreationFailed(fileURL.path)
         }
 
-        return fileURL
+        // Attach image to test.
+        Attachment.record(cgImage, named: filename, as: .png)
     }
 
-    /// Convenience for views using only a height (with the default width).
-    @discardableResult
-    func render<Content: View>(
-        _ name: String,
-        height: CGFloat,
-        @ViewBuilder content: () -> Content
-    ) throws -> URL {
-        try render(name, size: CGSize(width: Self.defaultWidth, height: height), content: content)
-    }
 
-    enum ScreenshotError: Error, CustomStringConvertible {
+    enum StorageError: LocalizedError {
         case outputDirectoryMissing(String)
-        case renderingFailed(String)
         case fileCreationFailed(String)
 
-        var description: String {
+        var errorDescription: String? {
             switch self {
             case .outputDirectoryMissing(let path):
                 "Documentation resources directory not found: \(path)"
-            case .renderingFailed(let name):
-                "ImageRenderer failed to produce a CGImage for '\(name)'"
             case .fileCreationFailed(let path):
                 "Failed to write PNG to: \(path)"
             }
         }
     }
+
 }
 
 
@@ -125,14 +140,14 @@ struct DocScreenshotRenderer {
 struct DocScreenshotTests {
 
     @Test func debugOverlayDefault() throws {
-        let renderer = try DocScreenshotRenderer()
-        try renderer.render("debug-overlay-default-test", height: 160) {
+        let render = try DocumentationRenderer.render("debug-overlay-default-test", height: 160) {
             Text("Sphinx of Black Quartz")
                 .font(.title)
             Text("Judge my Vow")
                 .font(.title)
                 .debugOverlay()
         }
+        try DocumentationResources.store(name: "debug-overlay-default-test", cgImage: render)
     }
 
 }
