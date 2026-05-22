@@ -17,6 +17,9 @@
         "suites" : [
           {
             "name" : "DocScreenshotTests"
+          },
+          {
+            "name" : "RendersForDebugOverlay"
           }
         ]
       },
