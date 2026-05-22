@@ -30,9 +30,9 @@ struct RendersForDebugOverlay {
             .fill(.yellow.gradient)
             .frame(width: 200, height: 100)
             .debugOverlay(
-                .hairline,                 // debug borders width are set to 1
-                .width,                    // prints the width if the parent view
-                .alignment(.innerTrailing) // aligns debug caption to trailing-center
+                .hairline,                 // sets debug borders width to 1
+                .width,                    // prints width of the parent view
+                .alignment(.innerTrailing) // aligns caption to trailing-center
             )
         }
         try DocumentationResources.store(resource: resource)
