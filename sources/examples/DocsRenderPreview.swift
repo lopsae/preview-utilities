@@ -15,10 +15,10 @@ struct ExamplesForDebugOverlay {
     @ViewBuilder static var components: some View {
         Capsule()
         .fill(.quaternary)
-        .frame(width: 160, height: 80)
+        .frame(width: 140, height: 60)
         .debugOverlay(.caption("A `Capsule` shape"), .size, .alignment(.outerTop))
         .overlay {
-            // Outer Stroke.
+            // Outer stroke.
             FloatingAlignedContainer(alignment: .outerTrailing, spacing: 10) { contentAlignments in
                 HStack(spacing: 4) {
                     GeometryReader { geometry in
@@ -30,14 +30,34 @@ struct ExamplesForDebugOverlay {
                         }
                         .stroke(.primary, lineWidth: 1)
                     }
-                    .frame(size: [20, 80])
+                    .frame(size: [20, 60])
 
                     Text.caption("Outer stroke\nin blue")
                     .multilineTextAlignment(contentAlignments.text)
                 }
             }
 
-            // Inner Stroke.
+            // Safe area inset.
+            FloatingAlignedContainer(alignment: .outerTrailingUnder, spacing: 5) { contentAlignments in
+                HStack(spacing: 4) {
+                    GeometryReader { geometry in
+                        Path { path in
+                            path.move(to: .zero)
+                            path.addLine(to: [.zero, geometry.size.height])
+                            path.move(to: [.zero, geometry.size.height/2])
+                            path.addLine(to: [geometry.size.width, geometry.size.height/2])
+                        }
+                        .stroke(.primary, lineWidth: 1)
+                    }
+                    .frame(size: [20, 30])
+
+                    Text.caption("Safe area inset\nin green")
+                    .multilineTextAlignment(contentAlignments.text)
+                }
+                .offset(x: 5)
+            }
+
+            // Inner stroke.
             FloatingAlignedContainer(alignment: .innerTrailing, spacing: 10) { contentAlignments in
                 HStack(spacing: 4) {
                     Text.caption("Inner stroke\nin red")
@@ -52,11 +72,11 @@ struct ExamplesForDebugOverlay {
                         }
                         .stroke(.primary, lineWidth: 1)
                     }
-                    .frame(size: [20, 60])
+                    .frame(size: [20, 40])
                 }
             }
 
-            // Origin.
+            // Origin point.
             FloatingAlignedContainer(alignment: .outerLeadingTop, spacing: 10) { contentAlignments in
                 HStack(spacing: 4) {
                     Text.caption("Origin point")
@@ -76,7 +96,7 @@ struct ExamplesForDebugOverlay {
                 .offset(y: -17)
             }
 
-            // Debug Caption.
+            // Debug caption.
             FloatingAlignedContainer(alignment: .outerLeadingAbove, spacing: 10) { contentAlignments in
                 HStack(spacing: 4) {
                     Text.caption("Debug caption")
@@ -91,12 +111,16 @@ struct ExamplesForDebugOverlay {
                         }
                         .stroke(.primary, lineWidth: 1)
                     }
-                    .frame(size: [19.5, 26])
+                    .frame(size: [20, 26])
                 }
-                .offset(x: 16)
+//                .offset(x: 6)
             }
+        } // overlay
+        .safeAreaInset(edge: .bottom, spacing: .zero) {
+            ClearRectangle().frame(squareOf: 35)
         }
-        .offset(y: 16)
+        .offset(y: 20)
+
     }
 
 }
