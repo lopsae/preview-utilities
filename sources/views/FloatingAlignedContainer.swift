@@ -7,21 +7,43 @@
 import SwiftUI
 
 
+/// View that aligns the given content to a floating alignment.
+///
+/// This view expands to the size available, and allows the given content to expand up to that size.
+/// The content is the aligned to the given floating alignment.
+///
+/// Intended to be used mostly inside an `overlay` modifier, so that the given content is aligned
+/// to the parent view.
 struct FloatingAlignedContainer<Content: View>: View {
 
     let alignment: FloatingAlignment
     // TODO: nil could be unnecessary here, if a view wants default padding they could define it in the content.
-    let spacing: CGFloat?
+    let horizontalSpacing: CGFloat?
+    let verticalSpacing: CGFloat?
     let content: (FloatingAlignment.ContentAlignments) -> Content
 
 
     init(
         alignment: FloatingAlignment = .inner(.center),
-        spacing: CGFloat? = .zero,
+        horizontalSpacing: CGFloat? = .zero,
+        verticalSpacing: CGFloat? = .zero,
         @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
     ) {
         self.alignment = alignment
-        self.spacing = spacing
+        self.horizontalSpacing = horizontalSpacing
+        self.verticalSpacing = verticalSpacing
+        self.content = content
+    }
+
+
+    init(
+        alignment: FloatingAlignment = .inner(.center),
+        spacing: CGFloat,
+        @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
+    ) {
+        self.alignment = alignment
+        self.horizontalSpacing = spacing
+        self.verticalSpacing = spacing
         self.content = content
     }
 
@@ -34,8 +56,13 @@ struct FloatingAlignedContainer<Content: View>: View {
                 let contentAlignments = FloatingAlignment.ContentAlignments(floatingAlignment: alignment)
                 content(contentAlignments)
             }
-            .padding(.all, spacing)
-            // Centers the view based in the alignment even when the frame is smaller that the view.
+            // This first frame constrains the content to the same size the geometry reader can take.
+            .frame(size: geometry.size, alignment: alignment.forContent)
+            // Padding is added on top, for spacing from the edge of the content.
+            .padding(.horizontal, horizontalSpacing)
+            .padding(.vertical, verticalSpacing)
+            // Aligns the content based in the floating alignment, larger content floats due to
+            // this alignment.
             .frame(size: geometry.size, alignment: alignment.forContent)
             .offset(offset)
         } // GeometryReader
@@ -616,7 +643,8 @@ private struct PreviewContent {
 #Preview("Alignments", traits: .zeroSpacing, .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var isLargeParent: Bool = true
     @Previewable @State var contentOption: PreviewContent.ContentOption = .multiline
-    @Previewable @State var spacing: Double = 5
+    @Previewable @State var horizontalSpacing: Double = 5
+    @Previewable @State var verticalSpacing: Double = 5
 
     @Previewable @State var alignmentKey: FloatingAlignment.Key = .outer
     @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
@@ -668,18 +696,31 @@ private struct PreviewContent {
             }
         }
 
-        Slider.captioned(
-            "Spacing", value: $spacing, in: 0...15,
-            currentValueFormat: .fractionLength(2),
-            boundsValueFormat: .arithmeticRoundedInteger)
+        DashedDivider()
 
         Toggle("Large Parent", isOn: $isLargeParent)
         Picker("Content", selection: $contentOption, caseFormat: .rawValueCapitalized())
             .pickerStyle(.segmented)
+
+        DashedDivider()
+
+        Slider.captioned(
+            "Horizontal Spacing", value: $horizontalSpacing, in: 0...15,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
+        Slider.captioned(
+            "Vertical Spacing", value: $verticalSpacing, in: 0...15,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger)
+
     }
     .padding(.not(.top))
 
-    let floatingContent = FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignments in
+    let floatingContent = FloatingAlignedContainer(
+        alignment: alignment,
+        horizontalSpacing: horizontalSpacing,
+        verticalSpacing: verticalSpacing
+    ) { alignments in
         switch contentOption {
         case .text:
             VStack(alignment: alignments.content.horizontal) {
