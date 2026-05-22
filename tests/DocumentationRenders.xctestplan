@@ -1,19 +1,19 @@
 {
   "configurations" : [
     {
-      "id" : "6CE515D2-C9C8-4D6B-B15C-7021476FAC6E",
-      "name" : "Test Scheme Action",
+      "id" : "A2F6940E-5AB3-49FC-873F-1B7124AF7C6C",
+      "name" : "Configuration 1",
       "options" : {
 
       }
     }
   ],
   "defaultOptions" : {
-    "performanceAntipatternCheckerEnabled" : true
+    "testTimeoutsEnabled" : true
   },
   "testTargets" : [
     {
-      "skippedTags" : {
+      "selectedTags" : {
         "tags" : [
           ".documentationRender"
         ]
@@ -25,5 +25,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 1
 }
