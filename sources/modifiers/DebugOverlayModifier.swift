@@ -6,8 +6,6 @@
 
 import SwiftUI
 
-// FIXME: how are API collections like https://developer.apple.com/documentation/swiftui/view-layout done?
-// FIXME: add image describing the different parts of the the debug overlay.
 
 /// Overlays a visual representations of a view's boundaries, origin, and safe areas.
 ///
@@ -74,9 +72,12 @@ import SwiftUI
 /// ![Debug overlay example alignments.](debug-overlay-alignments)
 public struct DebugOverlayModifier: ViewModifier {
 
-    /// The borders width is limited to a minimum of 1 so that there is always a visual overlay even
-    /// on zero sizes. Smaller values are overridden with the minimum.
+    /// Minimum limit for the border width. Ensures there is always a visual overlay even on sizes
+    /// approaching zero. Smaller values are overridden with the minimum.
     private static let minBordersWidth: CGFloat = 1
+
+    /// Minimum limit for the reticule length. Ensures there is always a visual reticule even on
+    /// sizes approaching zero. Smaller values are overridden with the minimum.
     private static let minReticuleLength: CGFloat = 2
 
     private static let outerShapeStyle:     some ShapeStyle = .blue.tertiary
@@ -100,7 +101,7 @@ public struct DebugOverlayModifier: ViewModifier {
                 innerStrokeRect(geometry: geometry)
                 originReticuleRects(geometry: geometry)
                 // TODO: rename to debug caption view
-                geometryInfoView(geometry)
+                debugCaptionView(geometry)
             }
             .allowsHitTesting(false)
         }
@@ -222,17 +223,30 @@ public struct DebugOverlayModifier: ViewModifier {
 
 
     @ViewBuilder
-    private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
+    private func debugCaptionView(_ geometry: GeometryProxy) -> some View {
         if configuration.containsInfoCaptionElements {
             let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
-            // FIXME: when using outer alignments, some alignment appear too far away from the edge
-            // since the spacing is accounting for the inner stroke. Reconsider the spacing for
-            // this cases. Likely a spacing of 2 from edge may work.
+            // At most, the caption sits 4 points away from the borders.
+            let maxSpacingFromBoundary = boundedBordersWidth + 4
+            // At smaller sizes, the spacing is reduced along the borders width,
+            // with a different ratio for each axis.
+            let horizontalSpacingFromBoundary = (boundedBordersWidth * 2.0).clamped(to: ...maxSpacingFromBoundary)
+            let verticalSpacingFromBoundary = (boundedBordersWidth * 1.2).clamped(to: ...maxSpacingFromBoundary)
+
+            let outerAlignment = configuration.infoAlignment.outerAlignment
+            let verticalSpacing = verticalSpacingFromBoundary
+
+            // For outer alignment with top-or-bottom mayor, the caption is aligned 2 points from
+            // the edge of the content. Otherwise it looks misaligned.
+            let horizontalSpacing = outerAlignment?.key.isEqual(toAny: .top, .bottom) ?? false
+                ? 2
+                : horizontalSpacingFromBoundary
 
             FloatingAlignedContainer(
                 alignment: configuration.infoAlignment,
-                spacing: boundedBordersWidth * 1.5
+                horizontalSpacing: horizontalSpacing,
+                verticalSpacing: verticalSpacing,
             ) { alignments in
                 Group {
                     let globalFrame = geometry.frame(in: .global)
@@ -534,7 +548,7 @@ private struct PreviewContent {
         }
 
         Slider.captioned(
-            "Line Width", value: $bordersWidth, in: 0...15,
+            "Line Width", value: $bordersWidth, in: 0...30,
             currentValueFormat: .fractionLength(2),
             boundsValueFormat: .arithmeticRoundedInteger)
 
@@ -665,8 +679,13 @@ private struct PreviewContent {
 }
 
 
-// MARK: Screenshot Previews
+extension Hashable {
 
-// FIXME: Move preview and modifier to a documentationPreview example file.
+    nonisolated
+    func isEqual(toAny others: Self...) -> Bool {
+        let set = Set(others)
+        return set.contains(self)
+    }
 
+}
 
