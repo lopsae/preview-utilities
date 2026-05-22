@@ -35,7 +35,7 @@ import SwiftUI
 /// ```swift
 /// Rectangle()
 /// .fill(.yellow.gradient)
-/// .frame(width: 200, height: 100)
+/// .frame(width: 200, height: 80)
 /// .debugOverlay(
 ///     .hairline,                 // sets debug borders width to 1
 ///     .width,                    // prints width of the parent view
