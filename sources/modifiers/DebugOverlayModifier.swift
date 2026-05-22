@@ -13,12 +13,12 @@ import SwiftUI
 ///
 /// Displays in an overlay a visual representation of a view's boundaries, its origin point, and any
 /// applied safe area insets. The overlay can be configured to also display geometry information
-/// like size, origin coordinates, safe area insets, or a given text caption.
+/// like size, global origin coordinates, safe area insets, or a given text caption.
 ///
 /// All content added by this modifier is layered in an overlay of the parent view, the original
 /// layout is never modified.
 ///
-/// Apply this modifier using ``SwiftUICore/View/debugOverlay()``.
+/// Apply this modifier using ``SwiftUICore/View/debugOverlay()``:
 ///
 /// ```swift
 /// Text("Sphinx of Black Quartz")
@@ -29,16 +29,42 @@ import SwiftUI
 /// ```
 /// ![Debug overlay with default configuration.](debug-overlay-default)
 ///
-/// The overlay can be configured by passing different [`Trait`](doc:Configuration/Trait) instances
-/// to ``SwiftUICore/View/debugOverlay(_:)``.
+/// The overlay can be configured by passing [`Trait`](doc:Configuration/Trait) instances to
+/// ``SwiftUICore/View/debugOverlay(_:)``:
 ///
 /// ```swift
 /// Rectangle()
-///     .fill(.yellow.gradient)
-///     .frame(width: 200, height: 100)
-///     .debugOverlay(.hairline, .width)
+/// .fill(.yellow.gradient)
+/// .frame(width: 200, height: 100)
+/// .debugOverlay(
+///     .hairline,                 // debug borders width are set to 1
+///     .width,                    // prints the width if the parent view
+///     .alignment(.innerTrailing) // aligns debug caption to trailing-center
+/// )
 /// ```
 /// ![Debug overlay using traits.](debug-overlay-simple-traits)
+///
+/// The overlay uses ``FloatingAlignment`` to determine the position of the debug caption,
+/// supporting positions both inside and outside of the parent view. When an ``FloatingAlignment/OuterAlignment``
+/// is used, the space occupied by the parent view does not change, even if the caption is
+/// displayed outside of its boundaries:
+/// ```swift
+/// HStack(spacing: 16) {
+///     Rectangle()
+///         .fill(.green.gradient)
+///         .frame(width: 100, height: 60)
+///         .debugOverlay(.caption("Inner Top"), .alignment(.innerTop))
+///     Rectangle()
+///         .fill(.mint.gradient)
+///         .frame(width: 100, height: 60)
+///         .debugOverlay(.caption("Outer Bottom Leading"), .alignment(.outerBottomLeading))
+///     Rectangle()
+///         .fill(.teal.gradient)
+///         .frame(width: 100, height: 60)
+///         .debugOverlay(.caption("Outer Top Trailing"), .alignment(.outerTopTrailing))
+/// }
+/// ```
+/// ![Debug overlay example alignments.](debug-overlay-alignments)
 public struct DebugOverlayModifier: ViewModifier {
 
     /// The borders width is limited to a minimum of 1 so that there is always a visual overlay even

@@ -30,15 +30,15 @@ struct RendersForDebugOverlay {
             .fill(.yellow.gradient)
             .frame(width: 200, height: 100)
             .debugOverlay(
-                .hairline, 
-                .width,
-                .infoAlignment(.innerTrailing)
+                .hairline,                 // debug borders width are set to 1
+                .width,                    // prints the width if the parent view
+                .alignment(.innerTrailing) // aligns debug caption to trailing-center
             )
         }
         try DocumentationResources.store(resource: resource)
     }
 
-    
+
     @Test func alignments() throws {
         let resource = try DocumentationRenderer.render("debug-overlay", "alignments", height: 160) {
             HStack(spacing: 16) {

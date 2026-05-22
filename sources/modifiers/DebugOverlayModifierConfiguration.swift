@@ -15,7 +15,7 @@ extension DebugOverlayModifier {
     /// alignment for the debug caption.
     ///
     /// Usually you don't build this object directly, instead one is created and configured using
-    /// the passed ``Trait`` instances to ``SwiftUICore/View/debugOverlay(_:)``.
+    /// the ``Trait`` instances passed to ``SwiftUICore/View/debugOverlay(_:)``.
     public struct Configuration {
 
         var captionSource: CaptionSource? = nil
@@ -35,7 +35,7 @@ extension DebugOverlayModifier {
         }
 
 
-        /// Returns `true` if configured to display any geometry information or caption.
+        /// Indicates if the configuration displays any elements in the debug caption.
         var containsInfoCaptionElements: Bool {
             !infoElements.isEmpty || captionSource != nil
         }
@@ -125,25 +125,23 @@ extension DebugOverlayModifier.Configuration {
             .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
         }
 
-        /// Prints the width of the parent view in the geometry caption.
-        public static let width: Trait          = .modifier(InfoElementsModifier(infoElements: .width))
+        /// Prints the width of the parent view in the debug caption.
+        public static let width: Trait = .modifier(InfoElementsModifier(infoElements: .width))
 
-        /// Prints the height of the parent view in the geometry caption.
-        public static let height: Trait         = .modifier(InfoElementsModifier(infoElements: .height))
+        /// Prints the height of the parent view in the debug caption.
+        public static let height: Trait = .modifier(InfoElementsModifier(infoElements: .height))
 
-        /// Prints the origin of the parent view in the geometry caption.
-        ///
-        /// The printed origin uses the global coordinate space.
-        public static let origin: Trait         = .modifier(InfoElementsModifier(infoElements: .origin))
+        /// Prints the global origin coordinate of the parent view in the debug caption.
+        public static let origin: Trait = .modifier(InfoElementsModifier(infoElements: .origin))
 
-        /// Prints the safe area insets applied to the parent view in the geometry caption.
+        /// Prints the safe area insets applied to the parent view in the debug caption.
         public static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
 
-        /// Prints the width and height of the parent view in the geometry caption.
-        public static let size: Trait           = .modifier(InfoElementsModifier(infoElements: .size))
+        /// Prints the width and height of the parent view in the debug caption.
+        public static let size: Trait = .modifier(InfoElementsModifier(infoElements: .size))
 
-        /// Prints all supported information in the geometry caption.
-        public static let allGeometry: Trait    = .modifier(InfoElementsModifier(infoElements: .allGeometry))
+        /// Prints all supported geometry information in the debug caption.
+        public static let allGeometry: Trait = .modifier(InfoElementsModifier(infoElements: .allGeometry))
 
         /// Prints the given localized string in the debug caption.
         /// 
