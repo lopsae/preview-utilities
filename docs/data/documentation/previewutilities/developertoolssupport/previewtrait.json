@@ -133,6 +133,208 @@
       "type": "topic",
       "url": "/documentation/previewutilities/developertoolssupport/previewtrait"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(height:)": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "T",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "Preview.ViewTraits",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "docsScreenshot"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "height"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:21DeveloperToolsSupport12PreviewTraitV",
+          "text": "PreviewTrait"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(height:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "docsScreenshot(height:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsscreenshot(height:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(size:)": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "T",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "Preview.ViewTraits",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "docsScreenshot"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:21DeveloperToolsSupport12PreviewTraitV",
+          "text": "PreviewTrait"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(size:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "docsScreenshot(size:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsscreenshot(size:)"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/fixedHeader": {
       "abstract": [
         {
@@ -1613,6 +1815,8 @@
       "anchor": "Type-Methods",
       "generated": true,
       "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(height:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsScreenshot(size:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/fixedHeader(_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/fixedHeaderFooter(_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/fixedLayout(size:)",

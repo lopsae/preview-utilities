@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Prints the width of the parent view in the geometry caption.",
+      "text": "Prints the width of the parent view in the debug caption.",
       "type": "text"
     }
   ],
@@ -305,7 +305,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/width": {
       "abstract": [
         {
-          "text": "Prints the width of the parent view in the geometry caption.",
+          "text": "Prints the width of the parent view in the debug caption.",
           "type": "text"
         }
       ],

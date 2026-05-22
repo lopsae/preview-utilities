@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Prints the height of the parent view in the geometry caption.",
+      "text": "Prints the height of the parent view in the debug caption.",
       "type": "text"
     }
   ],
@@ -305,7 +305,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/height": {
       "abstract": [
         {
-          "text": "Prints the height of the parent view in the geometry caption.",
+          "text": "Prints the height of the parent view in the debug caption.",
           "type": "text"
         }
       ],

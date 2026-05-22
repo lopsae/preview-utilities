@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Prints all supported information in the geometry caption.",
+      "text": "Prints all supported geometry information in the debug caption.",
       "type": "text"
     }
   ],
@@ -305,7 +305,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/allGeometry": {
       "abstract": [
         {
-          "text": "Prints all supported information in the geometry caption.",
+          "text": "Prints all supported geometry information in the debug caption.",
           "type": "text"
         }
       ],

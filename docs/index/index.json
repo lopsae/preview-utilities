@@ -118,6 +118,11 @@
                             "type": "groupMarker"
                           },
                           {
+                            "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/alignment(_:)",
+                            "title": "static func alignment(FloatingAlignment) -> DebugOverlayModifier.Configuration.Trait",
+                            "type": "method"
+                          },
+                          {
                             "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/borderswidth(_:)",
                             "title": "static func bordersWidth(CGFloat) -> DebugOverlayModifier.Configuration.Trait",
                             "type": "method"
@@ -267,6 +272,11 @@
                         "type": "groupMarker"
                       },
                       {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/alignment(_:)",
+                        "title": "static func alignment(FloatingAlignment) -> DebugOverlayModifier.Configuration.Trait",
+                        "type": "method"
+                      },
+                      {
                         "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/borderswidth(_:)",
                         "title": "static func bordersWidth(CGFloat) -> DebugOverlayModifier.Configuration.Trait",
                         "type": "method"
@@ -374,6 +384,11 @@
                   {
                     "title": "Type Methods",
                     "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/alignment(_:)",
+                    "title": "static func alignment(FloatingAlignment) -> DebugOverlayModifier.Configuration.Trait",
+                    "type": "method"
                   },
                   {
                     "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/borderswidth(_:)",
@@ -3133,6 +3148,16 @@
                       {
                         "title": "Type Methods",
                         "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsscreenshot(height:)",
+                        "title": "static func docsScreenshot(height: Double) -> PreviewTrait<T>",
+                        "type": "method"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsscreenshot(size:)",
+                        "title": "static func docsScreenshot(size: CGSize) -> PreviewTrait<T>",
+                        "type": "method"
                       },
                       {
                         "path": "/documentation/previewutilities/developertoolssupport/previewtrait/fixedheader(_:)",

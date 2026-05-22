@@ -311,10 +311,82 @@
       "type": "topic",
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/alignment(_:)": {
+      "abstract": [
+        {
+          "text": "Aligns the debug caption to the given floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "alignment"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV",
+          "text": "DebugOverlayModifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV",
+          "text": "Configuration"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV5TraitO",
+          "text": "Trait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/alignment(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "alignment(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/alignment(_:)"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/allGeometry": {
       "abstract": [
         {
-          "text": "Prints all supported information in the geometry caption.",
+          "text": "Prints all supported geometry information in the debug caption.",
           "type": "text"
         }
       ],
@@ -672,7 +744,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/height": {
       "abstract": [
         {
-          "text": "Prints the height of the parent view in the geometry caption.",
+          "text": "Prints the height of the parent view in the debug caption.",
           "type": "text"
         }
       ],
@@ -1005,7 +1077,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/origin": {
       "abstract": [
         {
-          "text": "Prints the origin of the parent view in the geometry caption.",
+          "text": "Prints the global origin coordinate of the parent view in the debug caption.",
           "type": "text"
         }
       ],
@@ -1212,7 +1284,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/safeAreaInsets": {
       "abstract": [
         {
-          "text": "Prints the safe area insets applied to the parent view in the geometry caption.",
+          "text": "Prints the safe area insets applied to the parent view in the debug caption.",
           "type": "text"
         }
       ],
@@ -1275,7 +1347,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/size": {
       "abstract": [
         {
-          "text": "Prints the width and height of the parent view in the geometry caption.",
+          "text": "Prints the width and height of the parent view in the debug caption.",
           "type": "text"
         }
       ],
@@ -1392,7 +1464,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/width": {
       "abstract": [
         {
-          "text": "Prints the width of the parent view in the geometry caption.",
+          "text": "Prints the width of the parent view in the debug caption.",
           "type": "text"
         }
       ],
@@ -1817,6 +1889,7 @@
       "anchor": "Type-Methods",
       "generated": true,
       "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/alignment(_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/bordersWidth(_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/caption(_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/caption(verbatim:)",

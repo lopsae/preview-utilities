@@ -123,7 +123,7 @@
               "type": "text"
             },
             {
-              "text": "the passed ",
+              "text": "the ",
               "type": "text"
             },
             {
@@ -132,7 +132,7 @@
               "type": "reference"
             },
             {
-              "text": " instances to ",
+              "text": " instances passed to ",
               "type": "text"
             },
             {
