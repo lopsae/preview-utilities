@@ -14,7 +14,7 @@ import UniformTypeIdentifiers.UTType
 /// Utility structure to store images into the documentation catalog resources.
 struct DocumentationResources {
 
-    static func store(name: String, cgImage: CGImage) throws {
+    static func store(resource: DocumentationRenderer.RenderResource) throws {
         // TODO: could check path components until `tests` is found
         // TODO: if more that X last components are checked, also throw an error
 
@@ -39,25 +39,29 @@ struct DocumentationResources {
             throw StorageError.outputDirectoryMissing(outputDirectory.path)
         }
 
-        let filename = "\(name)@3x.png"
-        let fileURL = outputDirectory.appendingPathComponent(filename)
 
-        let destination = CGImageDestinationCreateWithURL(
-            fileURL as CFURL,
-            UTType.png.identifier as CFString,
-            1,
-            nil
-        )
-        guard let destination else {
-            throw StorageError.fileCreationFailed(fileURL.path)
-        }
-        CGImageDestinationAddImage(destination, cgImage, nil)
-        guard CGImageDestinationFinalize(destination) else {
-            throw StorageError.fileCreationFailed(fileURL.path)
-        }
+        for (scheme, cgImage) in resource.images {
+            // Eg: image~dark@3x.png
+            let filename = "\(resource.name)~\(scheme)@\(resource.scale)x.png"
+            let fileURL = outputDirectory.appendingPathComponent(filename)
 
-        // Attach image to test.
-        Attachment.record(cgImage, named: filename, as: .png)
+            let destination = CGImageDestinationCreateWithURL(
+                fileURL as CFURL,
+                UTType.png.identifier as CFString,
+                1,
+                nil
+            )
+            guard let destination else {
+                throw StorageError.fileCreationFailed(fileURL.path)
+            }
+            CGImageDestinationAddImage(destination, cgImage, nil)
+            guard CGImageDestinationFinalize(destination) else {
+                throw StorageError.fileCreationFailed(fileURL.path)
+            }
+
+            // Attach image to test.
+            Attachment.record(cgImage, named: filename, as: .png)
+        }
     }
 
 

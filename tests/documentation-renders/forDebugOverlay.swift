@@ -14,14 +14,14 @@ import Testing
 struct RendersForDebugOverlay {
 
     @Test func testRender() throws {
-        let render = try DocumentationRenderer.render("debug-overlay-default-test", height: 160) {
+        let resource = try DocumentationRenderer.render("debug-overlay-default-test", height: 160) {
             Text("Sphinx of Black Quartz")
                 .font(.title)
             Text("Judge my Vow")
                 .font(.title)
                 .debugOverlay()
         }
-        try DocumentationResources.store(name: "debug-overlay-default-test", cgImage: render)
+        try DocumentationResources.store(resource: resource)
     }
 
 }
