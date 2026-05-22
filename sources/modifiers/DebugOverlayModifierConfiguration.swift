@@ -165,33 +165,43 @@ extension DebugOverlayModifier.Configuration {
             .modifier(CaptionModifier(source: .verbatim(string)))
         }
 
+        // TODO: deprecate.
         /// Aligns the debug caption to the given floating alignment.
         /// - Parameter alignment: Floating alignment of the debug caption.
         public static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: alignment))
         }
 
+        // TODO: deprecate, replace with innerAlignment
         /// Aligns the debug caption to the default inner floating alignment.
         ///
         /// The default is ``FloatingAlignment/innerTopLeading``.
         public static let innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .innerTopLeading))
 
-        
+        // TODO: deprecate.
         /// Aligns the debug caption to the given inner floating alignment.
         /// - Parameter innerAlignment: Inner floating alignment for the debug caption.
         public static func innerInfo(_ innerAlignment: FloatingAlignment.InnerAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: .inner(innerAlignment)))
         }
 
+        // TODO: deprecate, replace with outerAlignment.
         /// Aligns the debug caption to the default outer floating alignment.
         ///
         /// The default is ``FloatingAlignment/outerTopLeading``.
         public static let outerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .outerTopLeading))
 
+        // TODO: deprecate.
         /// Aligns the debug caption to the given outer floating alignment.
         /// - Parameter outerAlignment: Outer floating alignment for the debug caption.
         public static func outerInfo(_ outerAlignment: FloatingAlignment.OuterAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: .outer(outerAlignment)))
+        }
+
+        /// Aligns the debug caption to the given floating alignment.
+        /// - Parameter alignment: Floating alignment of the debug caption.
+        public static func alignment(_ alignment: FloatingAlignment) -> Trait {
+            .modifier(InfoAlignmentModifier(alignment: alignment))
         }
 
     }
