@@ -22,6 +22,8 @@ import SwiftUI
 ///
 /// ```swift
 /// Text("Sphinx of Black Quartz")
+///    .font(.title)
+/// Text("Judge my Vow")
 ///     .font(.title)
 ///     .debugOverlay()
 /// ```

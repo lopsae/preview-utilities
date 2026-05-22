@@ -8,8 +8,7 @@ import SwiftUI
 import Testing
 
 
-/// Each test uses a `DocScreenshotRenderer` to produce an image that is saved to the package
-/// documentation catalog.
+/// Each test produces an image saved to the package documentation catalog.
 @Suite(.tags(.documentationRender))
 struct RendersForDebugOverlay {
 

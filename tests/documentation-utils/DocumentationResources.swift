@@ -36,13 +36,24 @@ struct DocumentationResources {
             isDirectory: &isDirectory
         )
         guard exists, isDirectory.boolValue else {
-            throw StorageError.outputDirectoryMissing(outputDirectory.path)
+            throw StorageError.outputDirectoryMissing(path: outputDirectory.path)
         }
 
-
         for (scheme, cgImage) in resource.images {
-            // Eg: image~dark@3x.png
-            let filename = "\(resource.name)~\(scheme)@\(resource.scale)x.png"
+            let scaleInt = resource.scale.arithmeticRoundedInt
+            let filename = switch scheme {
+            case .light:
+                // Light scheme requires NO scheme in the filename.
+                // Eg: image-name@3x.png
+                "\(resource.name)@\(scaleInt)x.png"
+            case .dark:
+                // Dark scheme requires the scheme in the filename.
+                // Eg: image-name~dark@3x.png
+                "\(resource.name)~dark@\(scaleInt)x.png"
+            @unknown default:
+                throw StorageError.unknownColorScheme
+            }
+
             let fileURL = outputDirectory.appendingPathComponent(filename)
 
             let destination = CGImageDestinationCreateWithURL(
@@ -52,11 +63,11 @@ struct DocumentationResources {
                 nil
             )
             guard let destination else {
-                throw StorageError.fileCreationFailed(fileURL.path)
+                throw StorageError.fileCreationFailed(path: fileURL.path)
             }
             CGImageDestinationAddImage(destination, cgImage, nil)
             guard CGImageDestinationFinalize(destination) else {
-                throw StorageError.fileCreationFailed(fileURL.path)
+                throw StorageError.fileCreationFailed(path: fileURL.path)
             }
 
             // Attach image to test.
@@ -66,13 +77,16 @@ struct DocumentationResources {
 
 
     enum StorageError: LocalizedError {
-        case outputDirectoryMissing(String)
-        case fileCreationFailed(String)
+        case outputDirectoryMissing(path: String)
+        case unknownColorScheme
+        case fileCreationFailed(path: String)
 
         var errorDescription: String? {
             switch self {
             case .outputDirectoryMissing(let path):
                 "Documentation resources directory not found: \(path)"
+            case .unknownColorScheme:
+                "Encountered an unknown ColorScheme"
             case .fileCreationFailed(let path):
                 "Failed to write PNG to: \(path)"
             }
