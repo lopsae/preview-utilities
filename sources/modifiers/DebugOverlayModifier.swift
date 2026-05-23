@@ -109,7 +109,6 @@ public struct DebugOverlayModifier: ViewModifier {
                 outerStrokeRect(geometry: geometry)
                 innerStrokeRect(geometry: geometry)
                 originReticuleRects(geometry: geometry)
-                // TODO: rename to debug caption view
                 debugCaptionView(geometry)
             }
             .allowsHitTesting(false)
@@ -337,6 +336,16 @@ extension View {
 
     /// Layers in front of this view a debug overlay using the default configuration.
     ///
+    /// Applies the ``DebugOverlayModifier``, overlaying a visual representation of the views
+    /// boundaries, origin point, and safe area insets.
+    ///
+    /// ```swift
+    /// Text("a sort of splendid torch")
+    ///     .debugOverlay()
+    /// Text("which I have got hold of for the moment")
+    /// ```
+    /// ![Debug overlay with default configuration applied to a single Text.](debug-overlay-torch-default)
+    ///
     /// - Returns: A view with a debug overlay as foreground.
     public func debugOverlay() -> some View {
         let configuration = DebugOverlayModifier.Configuration()
@@ -346,21 +355,24 @@ extension View {
 
     /// Layers in front of this view a debug overlay configured using the given traits.
     ///
+    /// Applies the ``DebugOverlayModifier`` configured with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// instances, overlaying a visual representation of the views boundaries, origin point, and
+    /// safe area insets.
+    ///
+    /// The traits are applied in the order they are passed to a default configuration. Later
+    /// traits may override earlier ones depending on the configuration each trait modifies.
+    ///
+    /// ```swift
+    /// Text("a sort of splendid torch")
+    ///     .debugOverlay(.width, .alignment(.outerTop))
+    /// Text("which I have got hold of for the moment")
+    /// ```
+    /// ![Debug overlay with traits applied to a single Text.](debug-overlay-torch-traits)
+    ///
     /// - Parameters:
     ///   - traits: The traits to modify the default configuration.
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
-    /// 
-    /// Example usage:
-    /// ```swift
-    /// // Hairline outline.
-    /// Text("Hello")
-    ///     .debugOutline(.hairline)
-    ///
-    /// // Outlines along size and origin info.
-    /// Text("Hello")
-    ///     .debugOutline(.size, .origin)
-    /// ```
     public func debugOverlay(_ traits: DebugOverlayModifier.Configuration.Trait...) -> some View {
         let configuration = DebugOverlayModifier.Configuration(traits: traits)
         return modifier(DebugOverlayModifier(configuration: configuration))
@@ -368,6 +380,13 @@ extension View {
 
 
     /// Layers in front of this view a debug overlay configured using the given traits.
+    ///
+    /// Applies the ``DebugOverlayModifier`` configured with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// instances, overlaying a visual representation of the views boundaries, origin point, and
+    /// safe area insets.
+    ///
+    /// The traits are applied in the order they are passed to a default configuration. Later
+    /// traits may override earlier ones depending on the configuration each trait modifies.
     ///
     /// - Parameters:
     ///   - traits: The traits to modify the default configuration.

@@ -98,8 +98,8 @@ extension DebugOverlayModifier.Configuration {
     /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` to build the
     /// [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay. All passed
     /// traits are applied in order to a default configuration, each trait making a modification
-    /// towards the final configuration. If multiple traits that modify the same configuration
-    /// properties are applied, usually the last will overwrite any former.
+    /// towards the final configuration. If multiple traits modify the same configuration
+    /// properties, the last one applied may overwrite former traits.
     public enum Trait: Sendable {
         case modifier(any Modifier)
         case traits([Trait])

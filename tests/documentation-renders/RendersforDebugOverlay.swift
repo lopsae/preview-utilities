@@ -64,4 +64,24 @@ struct RendersForDebugOverlay {
         try DocumentationResources.store(resource: resource)
     }
 
+
+    @Test func torchDefault() throws {
+        let resource = try DocumentationRenderer.render("debug-overlay", "torch-default", height: 100) {
+            Text("a sort of splendid torch")
+                .debugOverlay()
+            Text("which I have got hold of for the moment")
+        }
+        try DocumentationResources.store(resource: resource)
+    }
+
+
+    @Test func torchTraits() throws {
+        let resource = try DocumentationRenderer.render("debug-overlay", "torch-traits", height: 100) {
+            Text("a sort of splendid torch")
+                .debugOverlay(.width, .alignment(.outerTop))
+            Text("which I have got hold of for the moment")
+        }
+        try DocumentationResources.store(resource: resource)
+    }
+
 }
