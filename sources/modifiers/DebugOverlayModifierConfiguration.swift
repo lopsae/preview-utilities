@@ -15,7 +15,7 @@ extension DebugOverlayModifier {
     /// alignment for the debug caption.
     ///
     /// Usually you don't build this object directly, instead one is created and configured using
-    /// the ``Trait`` instances passed to ``SwiftUICore/View/debugOverlay(_:)``.
+    /// the [`Trait`](doc:Trait) instances passed to ``SwiftUICore/View/debugOverlay(_:)``.
     public struct Configuration {
 
         var captionSource: CaptionSource? = nil
@@ -93,16 +93,21 @@ extension DebugOverlayModifier.Configuration {
 
 extension DebugOverlayModifier.Configuration {
 
-    /// Customizations that can be applied to the `Configuration` for a `DebugOverlayModifier`.
-    ///
+    /// Customizations that can be applied to the `Configuration` of a `DebugOverlayModifier`.
+    ///  
     /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` to build the
     /// [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay. All passed
     /// traits are applied in order to a default configuration, each trait making a modification
     /// towards the final configuration. If multiple traits modify the same configuration
     /// properties, the last one applied may overwrite former traits.
     public enum Trait: Sendable {
+
+        /// Applies the associated modifier.
         case modifier(any Modifier)
+
+        /// Applies the associated traits.
         case traits([Trait])
+
 
         func apply(to configuration: inout DebugOverlayModifier.Configuration) {
             switch self {
