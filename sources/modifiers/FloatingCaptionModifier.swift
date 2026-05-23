@@ -13,10 +13,10 @@ import SwiftUI
 
 /// Overlays a floating caption aligned to a `FloatingAlignment`.
 ///
-/// Displays in an overlay a floating caption text aligned to a specified ``FloatingAlignment``.
-/// The caption text is configured to use its preferred size, not constrained to the size of the
-/// parent view. It can be aligned to the center, any edge or corner, inside or outside, of the
-/// view's boundaries: hence it _floats_ over the parent view attached to relative position.
+/// Displays in an overlay a caption text aligned to a specified ``FloatingAlignment``. The caption
+/// text is configured to use its preferred size, not constrained to the size of the parent view. It
+/// can be aligned to the center, any edge or corner, inside or outside, of the view's boundaries:
+/// hence it _floats_ over the parent view attached to relative position.
 ///
 /// All content added by this modifier is layered in an overlay of the parent view, the original
 /// layout is never modified.
@@ -61,10 +61,10 @@ import SwiftUI
 ///
 /// ### Borders and Styles
 ///
-/// The style of the caption text can be modified with the ``FloatingCaptionModifier/Trait/captionStyle(_:)``
+/// The style of the caption text can be modified with the [`captionStyle(_:)`](doc:FloatingCaptionModifier/Trait/captionStyle(_:))
 /// trait.
 ///
-/// Additionally an inset border can be drawn around the parent view using the ``FloatingCaptionModifier/Trait/borderStyle(_:)``
+/// Additionally an inset border can be drawn around the parent view using the [`borderStyle(_:)`](doc:FloatingCaptionModifier/Trait/borderStyle(_:))
 /// trait:
 /// ```swift
 /// Circle()
@@ -79,6 +79,13 @@ import SwiftUI
 /// )
 /// ```
 /// ![Floating caption with example style and border.](floating-caption-style-and-border)
+///
+///
+/// ## Topics
+///
+/// ### Configuration
+///
+/// + ``Trait``
 public struct FloatingCaptionModifier: ViewModifier {
 
     let localizedKey: LocalizedStringKey
@@ -165,10 +172,10 @@ extension FloatingCaptionModifier {
     /// configuration, usually the last overwrites any former.
     public enum Trait: IdentifiableCase {
 
-        /// Configures the caption with the given floating alignment.
+        /// Aligns the caption to the given floating alignment.
         case alignment(FloatingAlignment)
 
-        /// Configures the padding of the caption from the aligned edge.
+        /// Pads the caption from the aligned edge.
         ///
         /// When omitted, a default padding of `2` is used.
         ///
@@ -182,14 +189,16 @@ extension FloatingCaptionModifier {
         /// Prints the height of the parent view along the text caption.
         case height
 
-        /// Configures the text caption with the given shape style.
+        /// Sets the shape style for the text caption.
         case captionStyle(any ShapeStyle)
 
-        /// Configures the border with the given shape style.
+        /// Sets the shape style for the border.
         case borderStyle(any ShapeStyle)
 
-        /// Configures the border width.
+        /// Sets the border to the given width
         case borderWidth(CGFloat)
+
+        /// Applies the associated traits.
         case traits([Trait])
 
 
@@ -227,14 +236,13 @@ extension FloatingCaptionModifier {
         /// Prints the width and height of the parent view along the text caption.
         public static let size: Self = .traits([.width, .height])
 
-        /// Configures the padding of the caption from the aligned edge to zero.
+        /// Pads to zero the caption from the aligned edge.
         public static let zeroPadding:   Self = .padding(.zero)
 
-        /// Configures the padding of the caption from the aligned edge to the default system
-        /// padding.
+        /// Pads the caption from the aligned edge to the default system padding.
         public static let systemPadding: Self = .padding(nil)
 
-        /// Configures the text caption and border with the given shape style.
+        /// Sets the shape style for the text caption and border.
         public static func style(_ style: some ShapeStyle) -> Self {
             .traits([.captionStyle(style), .borderStyle(style)])
         }
