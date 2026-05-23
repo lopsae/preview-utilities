@@ -11,17 +11,75 @@ import SwiftUI
 
 // FUTURE: Here and in CaptionRectangle, localized key could be optional. At that point, debugOverlay could also use floating caption directly!
 
-/// Overlays a floating caption text aligned to a `FloatingAlignment`.
+/// Overlays a floating caption aligned to a `FloatingAlignment`.
 ///
 /// Displays in an overlay a floating caption text aligned to a specified ``FloatingAlignment``.
-/// The caption can be aligned to the center, any inner edge, and any outer edge of the parent view
-/// boundaries. The overlay can be configured to display additional information like its size, and
-/// to draw a border around the view's boundary.
+/// The caption text is configured to use its preferred size, not constrained to the size of the
+/// parent view. It can be aligned to the center, any edge or corner, inside or outside, of the
+/// view's boundaries: hence it _floats_ over the parent view attached to relative position.
 ///
 /// All content added by this modifier is layered in an overlay of the parent view, the original
 /// layout is never modified.
 ///
-/// Apply this modifier using ``SwiftUICore/View/floatingCaption(_:_:)``.
+/// Apply this modifier using ``SwiftUICore/View/floatingCaption(_:_:)``, by default the caption
+/// is center aligned:
+/// ```swift
+/// HStack {
+///     Rectangle()
+///         .fill(.blue.gradient)
+///         .frame(width: 80, height: 80)
+///     Rectangle()
+///         .fill(.indigo.gradient)
+///         .frame(width: 80, height: 80)
+///         .floatingCaption("A floating caption\noverflowing the parent view")
+/// }
+/// ```
+/// ![Floating caption with default configuration.](floating-caption-default)
+///
+///
+/// ### Text and Alignment
+///
+/// The caption can be configured by passing ``Trait`` instances to ``SwiftUICore/View/floatingCaption(_:_:)``,
+/// the ``FloatingCaptionModifier/Trait/alignment(_:)`` trait determines the position of the
+/// caption.
+///
+/// Markdown formatting is supported in the given localized string key. The caption text treats the
+/// localized key similar to `SwiftUICore/Text/init(_:tableName:bundle:comment:)`. See ``SwiftUICore/Text``
+/// for more information about localizing and formatting strings.
+///
+/// ```swift
+/// Rectangle()
+/// .fill(.purple.gradient)
+/// .frame(width: 80, height: 80)
+/// .floatingCaption(
+///     "A Square\n**Purple** `Rectangle`",
+///     .alignment(.outerTrailingTop), // alignment for the caption
+///     .height                        // prints the height of the parent view
+/// )
+/// ```
+/// ![Floating caption with example traits and explanations.](floating-caption-traits-explained)
+///
+///
+/// ### Borders and Styles
+///
+/// The style of the caption text can be modified with the ``FloatingCaptionModifier/Trait/captionStyle(_:)``
+/// trait.
+///
+/// Additionally an inset border can be drawn around the parent view using the ``FloatingCaptionModifier/Trait/borderStyle(_:)``
+/// trait:
+/// ```swift
+/// Circle()
+/// .fill(.tertiary)
+/// .frame(width: 80, height: 80)
+/// .floatingCaption(
+///     "A `Circle` Shape",
+///     .alignment(.outerLeadingBottom),
+///     .captionStyle(.purple),
+///     .borderStyle(.indigo.tertiary),
+///     .borderWidth(4)
+/// )
+/// ```
+/// ![Floating caption with example style and border.](floating-caption-style-and-border)
 public struct FloatingCaptionModifier: ViewModifier {
 
     let localizedKey: LocalizedStringKey
@@ -220,11 +278,43 @@ extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait
 
 extension View {
 
+    /// Layers in front of this view a floating caption.
+    /// 
+    /// Applies the ``FloatingCaptionModifier``, overlaying a floating caption configured with the
+    /// given ``FloatingCaptionModifier/Trait`` instances.
+    /// 
+    /// ```swift
+    /// Rectangle()
+    /// .fill(.indigo.gradient)
+    /// .frame(width: 80, height: 80)
+    /// .floatingCaption("A Square Rectangle", .height, .alignment(.outerTrailingTop))
+    /// ```
+    /// ![Floating caption with traits applied to a rectangle.](floating-caption-simple-traits)
+    ///
+    /// The traits are applied in the order they are passed. Later traits may override earlier ones
+    /// depending on the configuration each trait modifies.
+    ///
+    /// - Returns: A view with a floating caption as foreground.
+    /// - Parameters:
+    ///   - key: Localized string key to display.
+    ///   - traits: The traits to modify the floating caption.
     public func floatingCaption(_ key: LocalizedStringKey, _ traits: FloatingCaptionModifier.Trait...) -> some View {
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
 
 
+    /// Layers in front of this view a floating caption.
+    ///
+    /// Applies the ``FloatingCaptionModifier``, overlaying a floating caption configured with the
+    /// given ``FloatingCaptionModifier/Trait`` instances.
+    ///
+    /// The traits are applied in the order they are passed. Later traits may override earlier ones
+    /// depending on the configuration each trait modifies.
+    ///
+    /// - Returns: A view with a floating caption as foreground.
+    /// - Parameters:
+    ///   - key: Localized string key to display.
+    ///   - traits: The traits to modify the floating caption.
     public func floatingCaption(_ key: LocalizedStringKey, traits: [FloatingCaptionModifier.Trait]) -> some View {
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
