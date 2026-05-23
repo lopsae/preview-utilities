@@ -102,6 +102,7 @@ public struct DebugOverlayModifier: ViewModifier {
     }
 
 
+    @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
         content.overlay {
             GeometryReader { geometry in
