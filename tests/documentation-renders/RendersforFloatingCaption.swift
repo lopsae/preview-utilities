@@ -39,7 +39,7 @@ struct RendersForFloatingCaption {
             .fill(.purple.gradient)
             .frame(width: 80, height: 80)
             .floatingCaption(
-                "A Square\n**Purple** `Rectangle`",
+                "A **Purple**\nSquare `Rectangle`",
                 .alignment(.outerTrailingTop), // alignment for the caption
                 .height                        // prints the height of the parent view
             )
