@@ -45,7 +45,7 @@ struct RendersForDebugOverlay {
 
 
     @Test func alignments() throws {
-        let resource = try DocumentationRenderer.render("debug-overlay", "alignments", height: 160) {
+        let resource = try DocumentationRenderer.render("debug-overlay", "alignments", height: 180) {
             HStack(spacing: 16) {
                 Rectangle()
                     .fill(.green.gradient)
@@ -54,11 +54,11 @@ struct RendersForDebugOverlay {
                 Rectangle()
                     .fill(.mint.gradient)
                     .frame(width: 100, height: 60)
-                    .debugOverlay(.caption("Outer Bottom Leading"), .alignment(.outerBottomLeading))
+                    .debugOverlay(.caption("Outer Bottom\nLeading"), .alignment(.outerBottomLeading))
                 Rectangle()
                     .fill(.teal.gradient)
                     .frame(width: 100, height: 60)
-                    .debugOverlay(.caption("Outer Top Trailing"), .alignment(.outerTopTrailing))
+                    .debugOverlay(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
             }
         }
         try DocumentationResources.store(resource: resource)

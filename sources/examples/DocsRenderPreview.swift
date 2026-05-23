@@ -111,16 +111,14 @@ struct ExamplesForDebugOverlay {
                         }
                         .stroke(.primary, lineWidth: 1)
                     }
-                    .frame(size: [20, 26])
+                    .frame(size: [20, 24])
                 }
-//                .offset(x: 6)
             }
         } // overlay
         .safeAreaInset(edge: .bottom, spacing: .zero) {
             ClearRectangle().frame(squareOf: 35)
         }
         .offset(y: 20)
-
     }
 
 }
