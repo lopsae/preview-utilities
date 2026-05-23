@@ -152,7 +152,7 @@
               "type": "text"
             },
             {
-              "text": "towards the final configuration. If multiple traits that modify the same configuration",
+              "text": "towards the final configuration. If multiple traits modify the same configuration",
               "type": "text"
             },
             {
@@ -160,7 +160,7 @@
               "type": "text"
             },
             {
-              "text": "properties are applied, usually the last will overwrite any former.",
+              "text": "properties, the last one applied may overwrite former traits.",
               "type": "text"
             }
           ],

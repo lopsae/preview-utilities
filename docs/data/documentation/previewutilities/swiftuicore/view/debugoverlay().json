@@ -179,9 +179,85 @@
         }
       ],
       "kind": "content"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Applies the ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ", overlaying a visual representation of the views",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "boundaries, origin point, and safe area insets.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "Text(\"a sort of splendid torch\")",
+            "    .debugOverlay()",
+            "Text(\"which I have got hold of for the moment\")"
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "debug-overlay-torch-default",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
+    "debug-overlay-torch-default": {
+      "alt": "Debug overlay with default configuration applied to a single Text.",
+      "identifier": "debug-overlay-torch-default",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/debug-overlay-torch-default@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/debug-overlay-torch-default~dark@3x.png"
+        }
+      ]
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities": {
       "abstract": [
         {

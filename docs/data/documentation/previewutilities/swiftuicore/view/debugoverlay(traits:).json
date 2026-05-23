@@ -271,6 +271,80 @@
         }
       ],
       "kind": "content"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Applies the ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " configured with the given ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait",
+              "isActive": true,
+              "overridingTitle": "Trait",
+              "overridingTitleInlineContent": [
+                {
+                  "code": "Trait",
+                  "type": "codeVoice"
+                }
+              ],
+              "type": "reference"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "instances, overlaying a visual representation of the views boundaries, origin point, and",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "safe area insets.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The traits are applied in the order they are passed to a default configuration. Later",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "traits may override earlier ones depending on the configuration each trait modifies.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {

@@ -283,7 +283,61 @@
         {
           "inlineContent": [
             {
-              "text": "Example usage:",
+              "text": "Applies the ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " configured with the given ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait",
+              "isActive": true,
+              "overridingTitle": "Trait",
+              "overridingTitleInlineContent": [
+                {
+                  "code": "Trait",
+                  "type": "codeVoice"
+                }
+              ],
+              "type": "reference"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "instances, overlaying a visual representation of the views boundaries, origin point, and",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "safe area insets.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The traits are applied in the order they are passed to a default configuration. Later",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "traits may override earlier ones depending on the configuration each trait modifies.",
               "type": "text"
             }
           ],
@@ -291,22 +345,48 @@
         },
         {
           "code": [
-            "// Hairline outline.",
-            "Text(\"Hello\")",
-            "    .debugOutline(.hairline)",
-            "",
-            "// Outlines along size and origin info.",
-            "Text(\"Hello\")",
-            "    .debugOutline(.size, .origin)"
+            "Text(\"a sort of splendid torch\")",
+            "    .debugOverlay(.width, .alignment(.outerTop))",
+            "Text(\"which I have got hold of for the moment\")"
           ],
           "syntax": "swift",
           "type": "codeListing"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "debug-overlay-torch-traits",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
         }
       ],
       "kind": "content"
     }
   ],
   "references": {
+    "debug-overlay-torch-traits": {
+      "alt": "Debug overlay with traits applied to a single Text.",
+      "identifier": "debug-overlay-torch-traits",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/debug-overlay-torch-traits@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/debug-overlay-torch-traits~dark@3x.png"
+        }
+      ]
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities": {
       "abstract": [
         {
