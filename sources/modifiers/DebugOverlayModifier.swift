@@ -38,8 +38,8 @@ import SwiftUI
 /// .fill(.yellow.gradient.secondary)
 /// .frame(width: 200, height: 80)
 /// .debugOverlay(
-///     .bordersWidth(2),          // sets debug borders width to 2
 ///     .size,                     // prints the size of the parent view
+///     .bordersWidth(2),          // sets debug borders width to 2
 ///     .alignment(.innerTrailing) // aligns caption to trailing-center
 /// )
 /// ```
