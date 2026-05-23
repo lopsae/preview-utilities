@@ -594,7 +594,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
       "abstract": [
         {
-          "text": "Overlays a floating caption text aligned to a ",
+          "text": "Overlays a floating caption aligned to a ",
           "type": "text"
         },
         {
@@ -842,7 +842,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase": {
       "abstract": [
         {
-          "text": "Protocol to provide a ",
+          "text": "Protocol that provides a ",
           "type": "text"
         },
         {
@@ -850,16 +850,12 @@
           "type": "codeVoice"
         },
         {
-          "text": " property, for enumerations with associated values, to simplify",
+          "text": " property to identify each case of an ",
           "type": "text"
         },
         {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "the identification of each case.",
-          "type": "text"
+          "code": "Enum",
+          "type": "codeVoice"
         }
       ],
       "fragments": [
@@ -1861,7 +1857,12 @@
       "url": "/documentation/previewutilities/swiftuicore/view/debugoverlay(traits:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Layers in front of this view a floating caption.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -1960,7 +1961,12 @@
       "url": "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Layers in front of this view a floating caption.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {

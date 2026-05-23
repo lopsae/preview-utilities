@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Sets the shape style for the text caption and border.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -203,7 +209,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
       "abstract": [
         {
-          "text": "Overlays a floating caption text aligned to a ",
+          "text": "Overlays a floating caption aligned to a ",
           "type": "text"
         },
         {
@@ -285,7 +291,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/style(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Sets the shape style for the text caption and border.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

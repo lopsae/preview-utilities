@@ -107,7 +107,7 @@
               "type": "reference"
             },
             {
-              "text": " to build the configuration",
+              "text": " to configure a floating",
               "type": "text"
             },
             {
@@ -115,7 +115,7 @@
               "type": "text"
             },
             {
-              "text": "of a floating caption overlay. All passed traits are applied in order to a default",
+              "text": "caption overlay. All passed traits are applied in order: if multiple traits modify the same",
               "type": "text"
             },
             {
@@ -123,15 +123,7 @@
               "type": "text"
             },
             {
-              "text": "configuration. If multiple traits that modify the same configuration properties are applied,",
-              "type": "text"
-            },
-            {
-              "text": " ",
-              "type": "text"
-            },
-            {
-              "text": "usually the last will overwrite any former.",
+              "text": "configuration, usually the last overwrites any former.",
               "type": "text"
             }
           ],
@@ -159,7 +151,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
       "abstract": [
         {
-          "text": "Overlays a floating caption text aligned to a ",
+          "text": "Overlays a floating caption aligned to a ",
           "type": "text"
         },
         {
@@ -240,37 +232,13 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/Case-swift.enum": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Case"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/Case-swift.enum",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Case"
-        }
-      ],
-      "role": "symbol",
-      "title": "FloatingCaptionModifier.Trait.Case",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/alignment(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Aligns the caption to the given floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -306,7 +274,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/alignment(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/border": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Configures the caption with the default border style.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -355,7 +328,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/border"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/borderStyle(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Sets the shape style for the border.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -391,7 +369,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/borderstyle(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/borderWidth(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Sets the border to the given width",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -427,7 +410,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/borderwidth(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/captionStyle(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Sets the shape style for the text caption.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -462,58 +450,13 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/captionstyle(_:)"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/case-swift.property": {
-      "abstract": [],
-      "fragments": [
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/colorStyle(_:)": {
+      "abstract": [
         {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "`case`"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-          "text": "FloatingCaptionModifier"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-          "text": "Trait"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO4CaseO",
-          "text": "Case"
+          "text": "Configures the text caption and border with the given color.",
+          "type": "text"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/case-swift.property",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "case",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.property"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/colorStyle(_:)": {
-      "abstract": [],
       "fragments": [
         {
           "kind": "keyword",
@@ -571,7 +514,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/colorstyle(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/height": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Prints the height of the parent view along the text caption.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -594,7 +542,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/height"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/padding(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Pads the caption from the aligned edge.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -630,7 +583,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/padding(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/size": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Prints the width and height of the parent view along the text caption.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -679,7 +637,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/size"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/style(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Sets the shape style for the text caption and border.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -745,7 +708,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/style(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/systemPadding": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Pads the caption from the aligned edge to the default system padding.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -794,7 +762,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/systempadding"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/traits(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Applies the associated traits.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -839,7 +812,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/traits(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/width": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Prints the width of the parent view along the text caption.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -862,7 +840,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/width"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/zeroPadding": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Pads to zero the caption from the aligned edge.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -913,7 +896,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase": {
       "abstract": [
         {
-          "text": "Protocol to provide a ",
+          "text": "Protocol that provides a ",
           "type": "text"
         },
         {
@@ -921,16 +904,12 @@
           "type": "codeVoice"
         },
         {
-          "text": " property, for enumerations with associated values, to simplify",
+          "text": " property to identify each case of an ",
           "type": "text"
         },
         {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "the identification of each case.",
-          "type": "text"
+          "code": "Enum",
+          "type": "codeVoice"
         }
       ],
       "fragments": [
@@ -961,7 +940,12 @@
       "url": "/documentation/previewutilities/identifiablecase"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Layers in front of this view a floating caption.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -1060,7 +1044,12 @@
       "url": "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Layers in front of this view a floating caption.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -1224,14 +1213,6 @@
       "title": "Enumeration Cases"
     },
     {
-      "anchor": "Instance-Properties",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/case-swift.property"
-      ],
-      "title": "Instance Properties"
-    },
-    {
       "anchor": "Type-Properties",
       "generated": true,
       "identifiers": [
@@ -1250,14 +1231,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/style(_:)"
       ],
       "title": "Type Methods"
-    },
-    {
-      "anchor": "Enumerations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/Case-swift.enum"
-      ],
-      "title": "Enumerations"
     }
   ],
   "variants": [

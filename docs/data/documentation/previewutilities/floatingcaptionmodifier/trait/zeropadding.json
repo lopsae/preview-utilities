@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Pads to zero the caption from the aligned edge.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -153,7 +159,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
       "abstract": [
         {
-          "text": "Overlays a floating caption text aligned to a ",
+          "text": "Overlays a floating caption aligned to a ",
           "type": "text"
         },
         {
@@ -235,7 +241,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/zeroPadding": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Pads to zero the caption from the aligned edge.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

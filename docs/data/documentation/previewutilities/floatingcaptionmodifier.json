@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Overlays a floating caption text aligned to a ",
+      "text": "Overlays a floating caption aligned to a ",
       "type": "text"
     },
     {
@@ -109,7 +109,7 @@
         {
           "inlineContent": [
             {
-              "text": "Displays in an overlay a floating caption text aligned to a specified ",
+              "text": "Displays in an overlay a caption text aligned to a specified ",
               "type": "text"
             },
             {
@@ -118,7 +118,7 @@
               "type": "reference"
             },
             {
-              "text": ".",
+              "text": ". The caption",
               "type": "text"
             },
             {
@@ -126,7 +126,7 @@
               "type": "text"
             },
             {
-              "text": "The caption can be aligned to the center, any inner edge, and any outer edge of the parent view",
+              "text": "text is configured to use its preferred size, not constrained to the size of the parent view. It",
               "type": "text"
             },
             {
@@ -134,7 +134,7 @@
               "type": "text"
             },
             {
-              "text": "boundaries. The overlay can be configured to display additional information like its size, and",
+              "text": "can be aligned to the center, any edge or corner, inside or outside, of the view’s boundaries:",
               "type": "text"
             },
             {
@@ -142,7 +142,20 @@
               "type": "text"
             },
             {
-              "text": "to draw a border around the view’s boundary.",
+              "text": "hence it ",
+              "type": "text"
+            },
+            {
+              "inlineContent": [
+                {
+                  "text": "floats",
+                  "type": "text"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "text": " over the parent view attached to relative position.",
               "type": "text"
             }
           ],
@@ -177,8 +190,246 @@
               "type": "reference"
             },
             {
-              "text": ".",
+              "text": ", by default the caption",
               "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "is center aligned:",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "HStack {",
+            "    Rectangle()",
+            "        .fill(.blue.gradient.secondary)",
+            "        .frame(width: 80, height: 80)",
+            "    Rectangle()",
+            "        .fill(.indigo.gradient.secondary)",
+            "        .frame(width: 80, height: 80)",
+            "        .floatingCaption(\"A floating caption\\noverflowing the parent view\")",
+            "}"
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-caption-default",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "anchor": "Text-and-Alignment",
+          "level": 3,
+          "text": "Text and Alignment",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The caption can be configured by passing ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " instances to ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ",",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "the ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/alignment(_:)",
+              "isActive": true,
+              "overridingTitle": "alignment(_:)",
+              "overridingTitleInlineContent": [
+                {
+                  "code": "alignment(_:)",
+                  "type": "codeVoice"
+                }
+              ],
+              "type": "reference"
+            },
+            {
+              "text": " trait determines the position of the caption.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Markdown formatting is supported in the given localized string key. The caption text treats the",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "localized key similar to ",
+              "type": "text"
+            },
+            {
+              "code": "SwiftUICore/Text/init(_:tableName:bundle:comment:)",
+              "type": "codeVoice"
+            },
+            {
+              "text": ". See ",
+              "type": "text"
+            },
+            {
+              "code": "SwiftUICore/Text",
+              "type": "codeVoice"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "for more information about localizing and formatting strings.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "Rectangle()",
+            ".fill(.purple.gradient)",
+            ".frame(width: 80, height: 80)",
+            ".floatingCaption(",
+            "    \"A **Purple**\\nSquare `Rectangle`\",",
+            "    .alignment(.outerTrailingTop), // alignment for the caption",
+            "    .height                        // prints the height of the parent view",
+            ")"
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-caption-traits-explained",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "anchor": "Borders-and-Styles",
+          "level": 3,
+          "text": "Borders and Styles",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The style of the caption text can be modified with the ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/captionStyle(_:)",
+              "isActive": true,
+              "overridingTitle": "captionStyle(_:)",
+              "overridingTitleInlineContent": [
+                {
+                  "code": "captionStyle(_:)",
+                  "type": "codeVoice"
+                }
+              ],
+              "type": "reference"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "trait.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Additionally an inset border can be drawn around the parent view using the ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/borderStyle(_:)",
+              "isActive": true,
+              "overridingTitle": "borderStyle(_:)",
+              "overridingTitleInlineContent": [
+                {
+                  "code": "borderStyle(_:)",
+                  "type": "codeVoice"
+                }
+              ],
+              "type": "reference"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "trait:",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "Circle()",
+            ".fill(.tertiary)",
+            ".frame(width: 80, height: 80)",
+            ".floatingCaption(",
+            "    \"A `Circle` Shape\",",
+            "    .alignment(.outerLeadingBottom),",
+            "    .captionStyle(.purple),",
+            "    .borderStyle(.indigo.tertiary),",
+            "    .borderWidth(4)",
+            ")"
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-caption-style-and-border",
+              "type": "image"
             }
           ],
           "type": "paragraph"
@@ -239,7 +490,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
       "abstract": [
         {
-          "text": "Overlays a floating caption text aligned to a ",
+          "text": "Overlays a floating caption aligned to a ",
           "type": "text"
         },
         {
@@ -320,12 +571,17 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/body(content:)": {
-      "abstract": [],
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/alignment(_:)": {
+      "abstract": [
+        {
+          "text": "Aligns the caption to the given floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
-          "text": "func"
+          "text": "case"
         },
         {
           "kind": "text",
@@ -333,60 +589,118 @@
         },
         {
           "kind": "identifier",
-          "text": "body"
+          "text": "alignment"
         },
         {
           "kind": "text",
           "text": "("
         },
         {
-          "kind": "externalParam",
-          "text": "content"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
           "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-          "text": "FloatingCaptionModifier"
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
         },
         {
           "kind": "text",
-          "text": "."
-        },
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/alignment(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "FloatingCaptionModifier.Trait.alignment(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/alignment(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/borderStyle(_:)": {
+      "abstract": [
         {
-          "kind": "typeIdentifier",
-          "text": "Content"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
+          "text": "Sets the shape style for the border.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
         {
           "kind": "keyword",
-          "text": "some"
+          "text": "case"
         },
         {
           "kind": "text",
           "text": " "
         },
         {
+          "kind": "identifier",
+          "text": "borderStyle"
+        },
+        {
+          "kind": "text",
+          "text": "(any "
+        },
+        {
           "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4ViewP",
-          "text": "View"
+          "preciseIdentifier": "s:7SwiftUI10ShapeStyleP",
+          "text": "ShapeStyle"
+        },
+        {
+          "kind": "text",
+          "text": ")"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/body(content:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/borderStyle(_:)",
       "kind": "symbol",
       "role": "symbol",
-      "title": "body(content:)",
+      "title": "FloatingCaptionModifier.Trait.borderStyle(_:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier/body(content:)"
+      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/borderstyle(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/captionStyle(_:)": {
+      "abstract": [
+        {
+          "text": "Sets the shape style for the text caption.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "captionStyle"
+        },
+        {
+          "kind": "text",
+          "text": "(any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI10ShapeStyleP",
+          "text": "ShapeStyle"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/captionStyle(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "FloatingCaptionModifier.Trait.captionStyle(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/captionstyle(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/init(localizedKey:traits:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Creates a modifier configured with the given traits.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "identifier",
@@ -448,7 +762,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/init(localizedkey:traits:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Layers in front of this view a floating caption.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -547,7 +866,12 @@
       "url": "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Layers in front of this view a floating caption.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -662,6 +986,69 @@
       "identifier": "doc://PreviewUtilities/s8SendableP",
       "title": "Swift.Sendable",
       "type": "unresolvable"
+    },
+    "floating-caption-default": {
+      "alt": "Floating caption with default configuration.",
+      "identifier": "floating-caption-default",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-caption-default@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-caption-default~dark@3x.png"
+        }
+      ]
+    },
+    "floating-caption-style-and-border": {
+      "alt": "Floating caption with example style and border.",
+      "identifier": "floating-caption-style-and-border",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-caption-style-and-border@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-caption-style-and-border~dark@3x.png"
+        }
+      ]
+    },
+    "floating-caption-traits-explained": {
+      "alt": "Floating caption with example traits and explanations.",
+      "identifier": "floating-caption-traits-explained",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-caption-traits-explained@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-caption-traits-explained~dark@3x.png"
+        }
+      ]
     }
   },
   "relationshipsSections": [
@@ -696,28 +1083,19 @@
   ],
   "topicSections": [
     {
+      "anchor": "Configuration",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait"
+      ],
+      "title": "Configuration"
+    },
+    {
       "anchor": "Initializers",
       "generated": true,
       "identifiers": [
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/init(localizedKey:traits:)"
       ],
       "title": "Initializers"
-    },
-    {
-      "anchor": "Instance-Methods",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/body(content:)"
-      ],
-      "title": "Instance Methods"
-    },
-    {
-      "anchor": "Enumerations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait"
-      ],
-      "title": "Enumerations"
     }
   ],
   "variants": [

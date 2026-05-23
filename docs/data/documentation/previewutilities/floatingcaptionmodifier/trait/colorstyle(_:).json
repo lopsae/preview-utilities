@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Configures the text caption and border with the given color.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -167,6 +173,38 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This trait sets the caption to the given color, and the border to its ",
+              "type": "text"
+            },
+            {
+              "code": "secondary",
+              "type": "codeVoice"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "hierarchical level.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -187,7 +225,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
       "abstract": [
         {
-          "text": "Overlays a floating caption text aligned to a ",
+          "text": "Overlays a floating caption aligned to a ",
           "type": "text"
         },
         {
@@ -269,7 +307,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/colorStyle(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Configures the text caption and border with the given color.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

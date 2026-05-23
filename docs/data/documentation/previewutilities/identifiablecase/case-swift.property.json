@@ -133,7 +133,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase": {
       "abstract": [
         {
-          "text": "Protocol to provide a ",
+          "text": "Protocol that provides a ",
           "type": "text"
         },
         {
@@ -141,16 +141,12 @@
           "type": "codeVoice"
         },
         {
-          "text": " property, for enumerations with associated values, to simplify",
+          "text": " property to identify each case of an ",
           "type": "text"
         },
         {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "the identification of each case.",
-          "type": "text"
+          "code": "Enum",
+          "type": "codeVoice"
         }
       ],
       "fragments": [

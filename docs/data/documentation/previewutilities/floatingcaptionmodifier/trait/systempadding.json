@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Pads the caption from the aligned edge to the default system padding.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -153,7 +159,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
       "abstract": [
         {
-          "text": "Overlays a floating caption text aligned to a ",
+          "text": "Overlays a floating caption aligned to a ",
           "type": "text"
         },
         {
@@ -235,7 +241,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/systemPadding": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Pads the caption from the aligned edge to the default system padding.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

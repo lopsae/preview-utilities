@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Prints the height of the parent view along the text caption.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -86,7 +92,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
       "abstract": [
         {
-          "text": "Overlays a floating caption text aligned to a ",
+          "text": "Overlays a floating caption aligned to a ",
           "type": "text"
         },
         {
@@ -168,7 +174,12 @@
       "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/height": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Prints the height of the parent view along the text caption.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

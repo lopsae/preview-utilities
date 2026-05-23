@@ -124,7 +124,7 @@
               "type": "text"
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration",
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier#Configuration",
               "isActive": true,
               "overridingTitle": "Configuration",
               "overridingTitleInlineContent": [
@@ -218,6 +218,14 @@
       "title": "DebugOverlayModifier",
       "type": "topic",
       "url": "/documentation/previewutilities/debugoverlaymodifier"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier#Configuration": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier#Configuration",
+      "kind": "section",
+      "title": "Configuration",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier#Configuration"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration": {
       "abstract": [

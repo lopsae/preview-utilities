@@ -900,7 +900,12 @@
       "url": "/documentation/previewutilities/swiftuicore/view/docrender(size:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Layers in front of this view a floating caption.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -999,7 +1004,12 @@
       "url": "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Layers in front of this view a floating caption.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {

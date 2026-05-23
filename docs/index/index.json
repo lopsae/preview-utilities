@@ -19,7 +19,7 @@
               {
                 "children": [
                   {
-                    "title": "Structures",
+                    "title": "Configuration",
                     "type": "groupMarker"
                   },
                   {
@@ -163,13 +163,113 @@
                     "type": "struct"
                   },
                   {
-                    "title": "Instance Methods",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/debugoverlaymodifier/body(content:)",
-                    "title": "func body(content: DebugOverlayModifier.Content) -> some View",
-                    "type": "method"
+                    "children": [
+                      {
+                        "title": "Enumeration Cases",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/modifier(_:)",
+                        "title": "case modifier(any DebugOverlayModifier.Configuration.Modifier)",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/traits(_:)",
+                        "title": "case traits([DebugOverlayModifier.Configuration.Trait])",
+                        "type": "case"
+                      },
+                      {
+                        "title": "Type Properties",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/allgeometry",
+                        "title": "static let allGeometry: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/hairline",
+                        "title": "static let hairline: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/height",
+                        "title": "static let height: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/innerinfo",
+                        "title": "static let innerInfo: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/origin",
+                        "title": "static let origin: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/outerinfo",
+                        "title": "static let outerInfo: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/safeareainsets",
+                        "title": "static let safeAreaInsets: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/size",
+                        "title": "static let size: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/width",
+                        "title": "static let width: DebugOverlayModifier.Configuration.Trait",
+                        "type": "property"
+                      },
+                      {
+                        "title": "Type Methods",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/alignment(_:)",
+                        "title": "static func alignment(FloatingAlignment) -> DebugOverlayModifier.Configuration.Trait",
+                        "type": "method"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/borderswidth(_:)",
+                        "title": "static func bordersWidth(CGFloat) -> DebugOverlayModifier.Configuration.Trait",
+                        "type": "method"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/caption(_:)",
+                        "title": "static func caption(LocalizedStringKey) -> DebugOverlayModifier.Configuration.Trait",
+                        "type": "method"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/caption(verbatim:)",
+                        "title": "static func caption(verbatim: String) -> DebugOverlayModifier.Configuration.Trait",
+                        "type": "method"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/infoalignment(_:)",
+                        "title": "static func infoAlignment(FloatingAlignment) -> DebugOverlayModifier.Configuration.Trait",
+                        "type": "method"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/innerinfo(_:)",
+                        "title": "static func innerInfo(FloatingAlignment.InnerAlignment) -> DebugOverlayModifier.Configuration.Trait",
+                        "type": "method"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/outerinfo(_:)",
+                        "title": "static func outerInfo(FloatingAlignment.OuterAlignment) -> DebugOverlayModifier.Configuration.Trait",
+                        "type": "method"
+                      }
+                    ],
+                    "path": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait",
+                    "title": "DebugOverlayModifier.Configuration.Trait",
+                    "type": "enum"
                   }
                 ],
                 "path": "/documentation/previewutilities/debugoverlaymodifier",
@@ -447,25 +547,7 @@
               {
                 "children": [
                   {
-                    "title": "Initializers",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingcaptionmodifier/init(localizedkey:traits:)",
-                    "title": "init(localizedKey: LocalizedStringKey, traits: [FloatingCaptionModifier.Trait])",
-                    "type": "init"
-                  },
-                  {
-                    "title": "Instance Methods",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingcaptionmodifier/body(content:)",
-                    "title": "func body(content: FloatingCaptionModifier.Content) -> some View",
-                    "type": "method"
-                  },
-                  {
-                    "title": "Enumerations",
+                    "title": "Configuration",
                     "type": "groupMarker"
                   },
                   {
@@ -515,15 +597,6 @@
                         "type": "case"
                       },
                       {
-                        "title": "Instance Properties",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.property",
-                        "title": "var `case`: FloatingCaptionModifier.Trait.Case",
-                        "type": "property"
-                      },
-                      {
                         "title": "Type Properties",
                         "type": "groupMarker"
                       },
@@ -560,66 +633,20 @@
                         "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/style(_:)",
                         "title": "static func style(some ShapeStyle) -> FloatingCaptionModifier.Trait",
                         "type": "method"
-                      },
-                      {
-                        "title": "Enumerations",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "children": [
-                          {
-                            "title": "Enumeration Cases",
-                            "type": "groupMarker"
-                          },
-                          {
-                            "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/alignment",
-                            "title": "case alignment",
-                            "type": "case"
-                          },
-                          {
-                            "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/borderstyle",
-                            "title": "case borderStyle",
-                            "type": "case"
-                          },
-                          {
-                            "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/borderwidth",
-                            "title": "case borderWidth",
-                            "type": "case"
-                          },
-                          {
-                            "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/captionstyle",
-                            "title": "case captionStyle",
-                            "type": "case"
-                          },
-                          {
-                            "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/height",
-                            "title": "case height",
-                            "type": "case"
-                          },
-                          {
-                            "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/padding",
-                            "title": "case padding",
-                            "type": "case"
-                          },
-                          {
-                            "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/traits",
-                            "title": "case traits",
-                            "type": "case"
-                          },
-                          {
-                            "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/width",
-                            "title": "case width",
-                            "type": "case"
-                          }
-                        ],
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum",
-                        "title": "FloatingCaptionModifier.Trait.Case",
-                        "type": "enum"
                       }
                     ],
                     "path": "/documentation/previewutilities/floatingcaptionmodifier/trait",
                     "title": "FloatingCaptionModifier.Trait",
                     "type": "enum"
+                  },
+                  {
+                    "title": "Initializers",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingcaptionmodifier/init(localizedkey:traits:)",
+                    "title": "init(localizedKey: LocalizedStringKey, traits: [FloatingCaptionModifier.Trait])",
+                    "type": "init"
                   }
                 ],
                 "path": "/documentation/previewutilities/floatingcaptionmodifier",
@@ -673,15 +700,6 @@
                     "type": "case"
                   },
                   {
-                    "title": "Instance Properties",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.property",
-                    "title": "var `case`: FloatingCaptionModifier.Trait.Case",
-                    "type": "property"
-                  },
-                  {
                     "title": "Type Properties",
                     "type": "groupMarker"
                   },
@@ -718,61 +736,6 @@
                     "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/style(_:)",
                     "title": "static func style(some ShapeStyle) -> FloatingCaptionModifier.Trait",
                     "type": "method"
-                  },
-                  {
-                    "title": "Enumerations",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "children": [
-                      {
-                        "title": "Enumeration Cases",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/alignment",
-                        "title": "case alignment",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/borderstyle",
-                        "title": "case borderStyle",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/borderwidth",
-                        "title": "case borderWidth",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/captionstyle",
-                        "title": "case captionStyle",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/height",
-                        "title": "case height",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/padding",
-                        "title": "case padding",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/traits",
-                        "title": "case traits",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum/width",
-                        "title": "case width",
-                        "type": "case"
-                      }
-                    ],
-                    "path": "/documentation/previewutilities/floatingcaptionmodifier/trait/case-swift.enum",
-                    "title": "FloatingCaptionModifier.Trait.Case",
-                    "type": "enum"
                   }
                 ],
                 "path": "/documentation/previewutilities/floatingcaptionmodifier/trait",
