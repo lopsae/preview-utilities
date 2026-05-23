@@ -21,10 +21,10 @@ struct RendersForFloatingCaption {
         let resource = try DocumentationRenderer.render("floating-caption", "default", height: 160) {
             HStack {
                 Rectangle()
-                    .fill(.blue.gradient)
+                    .fill(.blue.gradient.secondary)
                     .frame(width: 80, height: 80)
                 Rectangle()
-                    .fill(.indigo.gradient)
+                    .fill(.indigo.gradient.secondary)
                     .frame(width: 80, height: 80)
                     .floatingCaption("A floating caption\noverflowing the parent view")
             }

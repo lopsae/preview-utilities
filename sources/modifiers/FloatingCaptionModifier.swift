@@ -26,10 +26,10 @@ import SwiftUI
 /// ```swift
 /// HStack {
 ///     Rectangle()
-///         .fill(.blue.gradient)
+///         .fill(.blue.gradient.secondary)
 ///         .frame(width: 80, height: 80)
 ///     Rectangle()
-///         .fill(.indigo.gradient)
+///         .fill(.indigo.gradient.secondary)
 ///         .frame(width: 80, height: 80)
 ///         .floatingCaption("A floating caption\noverflowing the parent view")
 /// }
@@ -40,11 +40,10 @@ import SwiftUI
 /// ### Text and Alignment
 ///
 /// The caption can be configured by passing ``Trait`` instances to ``SwiftUICore/View/floatingCaption(_:_:)``,
-/// the ``FloatingCaptionModifier/Trait/alignment(_:)`` trait determines the position of the
-/// caption.
+/// the [`alignment(_:)`](doc:Trait/alignment(_:)) trait determines the position of the caption.
 ///
 /// Markdown formatting is supported in the given localized string key. The caption text treats the
-/// localized key similar to `SwiftUICore/Text/init(_:tableName:bundle:comment:)`. See ``SwiftUICore/Text``
+/// localized key similar to `SwiftUICore/Text/init(_:tableName:bundle:comment:)`. See `SwiftUICore/Text`
 /// for more information about localizing and formatting strings.
 ///
 /// ```swift
