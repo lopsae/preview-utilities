@@ -48,10 +48,10 @@ import SwiftUI
 ///
 /// ### Visual Components
 ///
-/// The boundaries of the parent view are visualized through two strokes: a solid outer stroke (by
-/// default in blue) is drawn exactly outside of the view's boundaries, and a dashed inner stroke
-/// (by default in red) is drawn exactly inside. A small cross marks the origin point, and green
-/// rectangles represent safe area insets applied to the view.
+/// The boundaries of the parent view are visualized using two strokes: a dashed inner stroke (by
+/// default red) drawn inset of the view's boundaries, and a solid outer stroke (by default blue)
+/// drawn outside. A cross `+` marks the origin point, and green rectangles represent safe area
+/// insets applied to the view.
 ///
 /// ![Visual components of the debug overlay.](debug-overlay-components)
 ///
