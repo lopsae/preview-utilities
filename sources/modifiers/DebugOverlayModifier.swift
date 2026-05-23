@@ -27,6 +27,9 @@ import SwiftUI
 /// ```
 /// ![Debug overlay with default configuration.](debug-overlay-default)
 ///
+///
+/// ### Traits and Configuration
+///
 /// The overlay can be configured by passing [`Trait`](doc:Configuration/Trait) instances to
 /// ``SwiftUICore/View/debugOverlay(_:)``:
 ///
@@ -42,12 +45,18 @@ import SwiftUI
 /// ```
 /// ![Debug overlay using traits.](debug-overlay-simple-traits)
 ///
+///
+/// ### Visual Components
+///
 /// The boundaries of the parent view are visualized through two strokes: a solid outer stroke (by
 /// default in blue) is drawn exactly outside of the view's boundaries, and a dashed inner stroke
 /// (by default in red) is drawn exactly inside. A small cross marks the origin point, and green
 /// rectangles represent safe area insets applied to the view.
 ///
 /// ![Visual components of the debug overlay.](debug-overlay-components)
+///
+///
+/// ### Caption Alignment
 ///
 /// The overlay uses ``FloatingAlignment`` to determine the position of the debug caption,
 /// supporting positions both inside and outside of the parent view. When an ``FloatingAlignment/OuterAlignment``
