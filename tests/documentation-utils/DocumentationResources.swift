@@ -54,8 +54,13 @@ struct DocumentationResources {
                 throw StorageError.unknownColorScheme
             }
 
-            let fileURL = outputDirectory
+            let folderURL = outputDirectory
                 .appending(pathComponents: resource.folderPath)
+            try FileManager.default.createDirectory(
+                at: folderURL,
+                withIntermediateDirectories: true)
+
+            let fileURL = folderURL
                 .appending(path: filename, directoryHint: .notDirectory)
 
             let destination = CGImageDestinationCreateWithURL(
