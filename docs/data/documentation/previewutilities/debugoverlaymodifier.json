@@ -179,6 +179,12 @@
           "type": "paragraph"
         },
         {
+          "anchor": "Traits-and-Configuration",
+          "level": 3,
+          "text": "Traits and Configuration",
+          "type": "heading"
+        },
+        {
           "inlineContent": [
             {
               "text": "The overlay can be configured by passing ",
@@ -240,9 +246,15 @@
           "type": "paragraph"
         },
         {
+          "anchor": "Visual-Components",
+          "level": 3,
+          "text": "Visual Components",
+          "type": "heading"
+        },
+        {
           "inlineContent": [
             {
-              "text": "The boundaries of the parent view are visualized through two strokes: a solid outer stroke (by",
+              "text": "The boundaries of the parent view are visualized using two strokes: a dashed inner stroke (by",
               "type": "text"
             },
             {
@@ -250,7 +262,7 @@
               "type": "text"
             },
             {
-              "text": "default in blue) is drawn exactly outside of the view’s boundaries, and a dashed inner stroke",
+              "text": "default red) drawn inset of the view’s boundaries, and a solid outer stroke (by default blue)",
               "type": "text"
             },
             {
@@ -258,7 +270,15 @@
               "type": "text"
             },
             {
-              "text": "(by default in red) is drawn exactly inside. A small cross marks the origin point, and green",
+              "text": "drawn outside. A cross ",
+              "type": "text"
+            },
+            {
+              "code": "+",
+              "type": "codeVoice"
+            },
+            {
+              "text": " marks the origin point, and green rectangles represent safe area",
               "type": "text"
             },
             {
@@ -266,7 +286,7 @@
               "type": "text"
             },
             {
-              "text": "rectangles represent safe area insets applied to the view.",
+              "text": "insets applied to the view.",
               "type": "text"
             }
           ],
@@ -280,6 +300,12 @@
             }
           ],
           "type": "paragraph"
+        },
+        {
+          "anchor": "Caption-Alignment",
+          "level": 3,
+          "text": "Caption Alignment",
+          "type": "heading"
         },
         {
           "inlineContent": [
@@ -338,11 +364,11 @@
             "    Rectangle()",
             "        .fill(.mint.gradient)",
             "        .frame(width: 100, height: 60)",
-            "        .debugOverlay(.caption(\"Outer Bottom Leading\"), .alignment(.outerBottomLeading))",
+            "        .debugOverlay(.caption(\"Outer Bottom\\nLeading\"), .alignment(.outerBottomLeading))",
             "    Rectangle()",
             "        .fill(.teal.gradient)",
             "        .frame(width: 100, height: 60)",
-            "        .debugOverlay(.caption(\"Outer Top Trailing\"), .alignment(.outerTopTrailing))",
+            "        .debugOverlay(.caption(\"Outer Top\\nTrailing\"), .alignment(.outerTopTrailing))",
             "}"
           ],
           "syntax": "swift",
