@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Applies the associated modifier.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -270,7 +276,7 @@
           "type": "codeVoice"
         },
         {
-          "text": " for a ",
+          "text": " of a ",
           "type": "text"
         },
         {
@@ -310,7 +316,12 @@
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/modifier(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Applies the associated modifier.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

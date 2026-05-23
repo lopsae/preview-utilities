@@ -129,6 +129,13 @@
             {
               "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait",
               "isActive": true,
+              "overridingTitle": "Trait",
+              "overridingTitleInlineContent": [
+                {
+                  "code": "Trait",
+                  "type": "codeVoice"
+                }
+              ],
               "type": "reference"
             },
             {
@@ -287,7 +294,7 @@
           "type": "codeVoice"
         },
         {
-          "text": " for a ",
+          "text": " of a ",
           "type": "text"
         },
         {

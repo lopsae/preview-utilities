@@ -9,7 +9,7 @@
       "type": "codeVoice"
     },
     {
-      "text": " for a ",
+      "text": " of a ",
       "type": "text"
     },
     {
@@ -272,7 +272,7 @@
           "type": "codeVoice"
         },
         {
-          "text": " for a ",
+          "text": " of a ",
           "type": "text"
         },
         {
@@ -1021,7 +1021,12 @@
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/innerinfo(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/modifier(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Applies the associated modifier.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -1408,7 +1413,12 @@
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/size"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/traits(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Applies the associated traits.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

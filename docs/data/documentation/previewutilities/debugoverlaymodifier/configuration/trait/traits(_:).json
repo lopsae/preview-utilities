@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Applies the associated traits.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -236,7 +242,7 @@
           "type": "codeVoice"
         },
         {
-          "text": " for a ",
+          "text": " of a ",
           "type": "text"
         },
         {
@@ -276,7 +282,12 @@
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/traits(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Applies the associated traits.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
