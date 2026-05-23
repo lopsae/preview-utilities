@@ -85,11 +85,16 @@ public struct FloatingCaptionModifier: ViewModifier {
     let flatTraits: [Trait]
 
 
+    /// Creates a modifier configured with the given traits.
+    /// - Parameters:
+    ///   - localizedKey: A Localized string key to display as caption.
+    ///   - traits: The traits to configure the modifier.
     public init(localizedKey: LocalizedStringKey, traits: [Trait]) {
         self.localizedKey = localizedKey
         self.flatTraits = traits.flattenTraits()
     }
 
+    @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
         content.overlay {
             GeometryReader { geometry in
@@ -154,54 +159,90 @@ extension FloatingCaptionModifier {
     // `DebugOverlayModifier.Configuration`.
 
     /// Customizations that can be applied to a `FloatingCaptionModifier`.
-    ///
-    /// Traits are passed to ``SwiftUICore/View/floatingCaption(_:_:)`` to build the configuration
-    /// of a floating caption overlay. All passed traits are applied in order to a default
-    /// configuration. If multiple traits that modify the same configuration properties are applied,
-    /// usually the last will overwrite any former.
+    ///  
+    /// Traits are passed to ``SwiftUICore/View/floatingCaption(_:_:)`` to configure a floating
+    /// caption overlay. All passed traits are applied in order: if multiple traits modify the same
+    /// configuration, usually the last overwrites any former.
     public enum Trait: IdentifiableCase {
-        case width
-        case height
-        case captionStyle(any ShapeStyle)
-        case borderStyle(any ShapeStyle)
-        case borderWidth(CGFloat)
+
+        /// Configures the caption with the given floating alignment.
         case alignment(FloatingAlignment)
+
+        /// Configures the padding of the caption from the aligned edge.
+        ///
+        /// When omitted, a default padding of `2` is used.
+        ///
+        /// Providing a float value uses that value as padding, or using `nil` uses the default
+        /// system padding.
         case padding(CGFloat? = nil)
+
+        /// Prints the width of the parent view along the text caption.
+        case width
+
+        /// Prints the height of the parent view along the text caption.
+        case height
+
+        /// Configures the text caption with the given shape style.
+        case captionStyle(any ShapeStyle)
+
+        /// Configures the border with the given shape style.
+        case borderStyle(any ShapeStyle)
+
+        /// Configures the border width.
+        case borderWidth(CGFloat)
         case traits([Trait])
 
+
+        /// Enumeration to identify each trait case.
+        @_documentation(visibility: internal)
         public enum Case {
+            case alignment, padding
             case width, height
             case captionStyle, borderStyle, borderWidth
-            case alignment, padding
             case traits
         }
 
-        // Since the enum have associated values, each enum needs to be identified by a value-less
-        // parallel enum.
+
+        /// Identifier of the trait case.
+        @_documentation(visibility: internal)
         public var `case`: Case {
             switch self {
+            case .alignment:    .alignment
+            case .padding:      .padding
             case .width:        .width
             case .height:       .height
             case .captionStyle: .captionStyle
             case .borderStyle:  .borderStyle
             case .borderWidth:  .borderWidth
-            case .alignment:    .alignment
-            case .padding:      .padding
             case .traits:       .traits
             }
         }
 
 
+        /// Configures the caption with the default border style.
+        ///
+        /// The default is `HierarchicalShapeStyle/quaternary`.
         public static let border: Self = .borderStyle(.quaternary)
+
+        /// Prints the width and height of the parent view along the text caption.
         public static let size: Self = .traits([.width, .height])
 
+        /// Configures the padding of the caption from the aligned edge to zero.
         public static let zeroPadding:   Self = .padding(.zero)
+
+        /// Configures the padding of the caption from the aligned edge to the default system
+        /// padding.
         public static let systemPadding: Self = .padding(nil)
 
+        /// Configures the text caption and border with the given shape style.
         public static func style(_ style: some ShapeStyle) -> Self {
             .traits([.captionStyle(style), .borderStyle(style)])
         }
 
+        /// Configures the text caption and border with the given color.
+        ///
+        /// This trait sets the caption to the given color, and the border to its `secondary`
+        /// hierarchical level.
         public static func colorStyle(_ color: Color) -> Self {
             .traits([.captionStyle(color), .borderStyle(color.secondary)])
         }
