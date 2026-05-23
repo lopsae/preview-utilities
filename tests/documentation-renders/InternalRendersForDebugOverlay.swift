@@ -11,7 +11,7 @@ import SwiftUI
 import Testing
 
 
-/// Rendering function for documentation images for `DebugOverlayModifier`.
+/// Rendering functions for documentation images for `DebugOverlayModifier`.
 ///
 /// Each test produces an image saved to the package documentation catalog.
 ///

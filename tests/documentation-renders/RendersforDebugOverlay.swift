@@ -8,11 +8,11 @@ import SwiftUI
 import Testing
 
 
-/// Rendering function for documentation images for `DebugOverlayModifier`.
+/// Rendering functions for documentation images for `DebugOverlayModifier`.
 ///
 /// Each test produces an image saved to the package documentation catalog.
 ///
-/// This file does not have internal access to the `PreviewUtilities` package, since the code in
+/// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
 /// each function is also used in code snippets.
 @Suite(.tags(.documentationRender))
 struct RendersForDebugOverlay {
@@ -32,11 +32,11 @@ struct RendersForDebugOverlay {
     @Test func simpleTraits() throws {
         let resource = try DocumentationRenderer.render("debug-overlay", "simple-traits", height: 160) {
             Rectangle()
-            .fill(.yellow.gradient)
+            .fill(.yellow.gradient.secondary)
             .frame(width: 200, height: 80)
             .debugOverlay(
-                .hairline,                 // sets debug borders width to 1
-                .width,                    // prints width of the parent view
+                .bordersWidth(2),          // sets debug borders width to 2
+                .size,                     // prints the size of the parent view
                 .alignment(.innerTrailing) // aligns caption to trailing-center
             )
         }

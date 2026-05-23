@@ -35,11 +35,11 @@ import SwiftUI
 ///
 /// ```swift
 /// Rectangle()
-/// .fill(.yellow.gradient)
+/// .fill(.yellow.gradient.secondary)
 /// .frame(width: 200, height: 80)
 /// .debugOverlay(
-///     .hairline,                 // sets debug borders width to 1
-///     .width,                    // prints width of the parent view
+///     .bordersWidth(2),          // sets debug borders width to 2
+///     .size,                     // prints the size of the parent view
 ///     .alignment(.innerTrailing) // aligns caption to trailing-center
 /// )
 /// ```
