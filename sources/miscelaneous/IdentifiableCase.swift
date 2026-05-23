@@ -4,8 +4,10 @@
 //
 
 
-/// Protocol to provide a `case` property, for enumerations with associated values, to simplify
-/// the identification of each case.
+/// Protocol that provides a `case` property to identify each case of an `Enum`
+///
+/// For enumerations with associated values, makes it possible to identify the case of an instance
+/// with a simple equality operation.
 nonisolated
 public protocol IdentifiableCase {
     associatedtype Case: Hashable
