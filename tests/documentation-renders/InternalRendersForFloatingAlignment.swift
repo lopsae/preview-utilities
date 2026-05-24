@@ -29,10 +29,9 @@ struct InternalRendersForFloatingAlignment {
 
 
     @Test func outerAlignments() throws {
-        let resource = try DocumentationRenderer.render("floating-alignment", "outer-alignments") {
+        try DocumentationResources.renderAndStore("floating-alignment", "outer-alignments") {
             IllustrationsForFloatingAlignment.outerAlignments
         }
-        try DocumentationResources.store(resource: resource)
     }
 
 }

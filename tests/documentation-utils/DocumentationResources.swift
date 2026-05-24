@@ -4,6 +4,9 @@
 //
 
 
+import PreviewUtilities
+
+
 import CoreGraphics
 import ImageIO
 import Foundation
@@ -17,6 +20,7 @@ struct DocumentationResources {
     static func store(resource: DocumentationRenderer.RenderResource) throws {
         // TODO: could check path components until `tests` is found
         // TODO: if more that X last components are checked, also throw an error
+        // TODO: resources name components should have at least one element!
 
         // Navigate from the test bundle to the documentation resources directory.
         // This logic depends on the location of this file.
@@ -83,6 +87,25 @@ struct DocumentationResources {
     }
 
 
+    static func renderAndStore(
+        _ nameComponents: String...,
+        illustration: () -> DocumentationIllustration
+    ) throws {
+        let resource = try DocumentationRenderer.render(
+            nameComponents: nameComponents,
+            illustration: illustration
+        )
+        try store(resource: resource)
+    }
+
+}
+
+
+// MARK: - StorageError
+
+
+extension DocumentationResources {
+
     enum StorageError: LocalizedError {
         case outputDirectoryMissing(path: String)
         case unknownColorScheme
@@ -101,6 +124,9 @@ struct DocumentationResources {
     }
 
 }
+
+
+// MARK: - Extensions
 
 
 extension URL {

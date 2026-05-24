@@ -56,7 +56,7 @@ struct DocumentationRenderer {
     /// component except the last is treated as the folder path where the image will be saved. The
     /// name of the image is all the name components joined with hyphens (`-`).
     static func render(
-        _ nameComponents: String...,
+        nameComponents: [String],
         scale: CGFloat = defaultScale,
         colorSchemes: Set<ColorScheme> = defaultColorSchemes,
         illustration: () -> DocumentationIllustration
@@ -126,6 +126,18 @@ struct DocumentationRenderer {
         let nameComponents: [String]
         let scale: CGFloat
         let images: [ColorScheme: CGImage]
+
+
+        init(
+            nameComponents: [String],
+            scale: CGFloat,
+            images: [ColorScheme : CGImage],
+        ) {
+            precondition(!nameComponents.isEmpty, "nameComponents must contain at least one element")
+            self.nameComponents = nameComponents
+            self.scale = scale
+            self.images = images
+        }
 
         var folderPath: [String] {
             Array(nameComponents.prefix(nameComponents.count - 1))
