@@ -20,6 +20,13 @@ import Testing
 @Suite(.tags(.documentationRender))
 struct InternalRendersForFloatingAlignment {
 
+    @Test func alignmentExamples() throws {
+        try DocumentationResources.renderAndStore("floating-alignment", "alignment-examples") {
+            IllustrationsForFloatingAlignment.alignmentExamples
+        }
+    }
+
+
     @Test func innerAlignments() throws {
         let resource = try DocumentationRenderer.render("floating-alignment", "inner-alignments", height: 240) {
             IllustrationsForFloatingAlignment.innerAlignments

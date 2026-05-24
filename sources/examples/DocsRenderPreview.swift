@@ -126,6 +126,36 @@ struct ExamplesForDebugOverlay {
 
 struct IllustrationsForFloatingAlignment {
 
+
+    /// Illustration of ``FloatingAlignment`` examples.
+    static var alignmentExamples: DocumentationIllustration {
+        DocumentationIllustration(height: 160) {
+            Rectangle()
+            .fill(.orange.gradient.secondary)
+            .frame(size: [260, 80])
+            .overlay {
+                FloatingAlignedContainer(
+                    alignment: .outerTopLeading,
+                    horizontalSpacing: .zero,
+                    verticalSpacing: 2
+                ) { contentAlignments in
+                    Text("Content aligned to\nOuter Top Leading")
+                    .font(.caption)
+                    .multilineTextAlignment(contentAlignments.text)
+                }
+                FloatingAlignedContainer(
+                    alignment: .innerBottomTrailing,
+                    spacing: 2
+                ) { contentAlignments in
+                    Text("Content aligned to\nInner Bottom Trailing")
+                    .font(.caption)
+                    .multilineTextAlignment(contentAlignments.text)
+                }
+            }
+            .offset(y: 10)
+        }
+    }
+
     /// Illustration of the inner alignments of ``FloatingAlignment``.
     ///
     /// Intended for a height of 240.
@@ -247,6 +277,11 @@ struct IllustrationsForFloatingAlignment {
 
 #Preview("debug-overlay-components", traits: .docsRender(height: 200)) {
     ExamplesForDebugOverlay.components
+}
+
+
+#Preview("floating-alignment-alignment-examples", traits: .docsIllustration) {
+    IllustrationsForFloatingAlignment.alignmentExamples
 }
 
 
