@@ -7,13 +7,14 @@
 import SwiftUI
 
 
-/// View that aligns the given content to a floating alignment.
+/// View that aligns content to a floating alignment.
 ///
-/// This view expands to the size available, and allows the given content to expand up to that size.
-/// The content is the aligned to the given floating alignment.
+/// This view is the primary implementation to align any content to a ``FloatingAlignment``.
 ///
-/// Intended to be used mostly inside an `overlay` modifier, so that the given content is aligned
-/// to the parent view.
+/// The container view expands to the size available, and allows the given content to expand up to
+/// that size. The content is then aligned to the specified floating alignment.
+///
+/// When used inside an `overlay` modifier, the content is aligned to the parent view.
 struct FloatingAlignedContainer<Content: View>: View {
 
     let alignment: FloatingAlignment
@@ -98,8 +99,47 @@ struct FloatingAlignedContainer<Content: View>: View {
 // MARK: - FloatingAlignment
 
 
-nonisolated
-public enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
+/// Alignment positions for floating content.
+///
+/// Identifies the alignment positions for aligning floating content to a parent view. Floating
+/// content is content overlaid a parent view and aligned to a position relative to the
+/// view's boundaries, either inside or outside.
+///
+/// For example, _Inner Top Leading_, and _Outer Bottom Trailing_:
+///
+/// **TODO: ADD IMAGE**
+///
+///
+/// ### Inner Alignments
+///
+/// The inner alignments are identified by the possible combinations of a ``FloatingAlignment/HorizontalAlignment``
+/// and a ``FloatingAlignment/VerticalAlignment``. These are intended to work as equivalent of the
+/// SwiftUI alignments of the same names, for example aligning content to a ``InnerAlignment/topLeading``
+/// would be equivalent to aligning content using an `SwiftUICore/Alignment/topLeading`.
+///
+/// ![Illustration of all inner floating alignments.](floating-alignment-inner-alignments)
+///
+///
+/// ### Outer Alignments
+///
+/// Outer alignments are identified by a mayor and minor components. The mayor component is defined
+/// through the ``OuterAlignment`` cases and identifies the edge to which the content will be
+/// aligned: top, leading, bottom, or trailing.
+///
+/// The minor component determines the direction in an edge where the content will be aligned. For
+/// top and bottom the minor components can be: leading, center, or trailing. For leading and
+/// trailing the minor components can be: above, top, center, bottom, or under.
+///
+/// ![Illustration of all outer floating alignments.](floating-alignment-outer-alignments)
+///
+///
+/// ### Implementing floating content
+///
+/// This type only identifies the different positions for floating content. Consumers use this
+/// information to align their own content though their own implementation. Each floating alignment
+/// provides the appropriate ``ContentAlignments`` for content to align itself to the attached edge.
+public nonisolated
+enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
     case inner(InnerAlignment)
     case outer(OuterAlignment)
@@ -298,8 +338,8 @@ public enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
 extension FloatingAlignment {
 
-    nonisolated
-    public struct InnerAlignment: CaseIterable, SelfIdentifiable, Sendable {
+    public nonisolated
+    struct InnerAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
         let horizontal: HorizontalAlignment
         let vertical: VerticalAlignment
@@ -352,8 +392,8 @@ extension FloatingAlignment {
 
 extension FloatingAlignment {
 
-    nonisolated
-    public enum HorizontalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
+    public nonisolated
+    enum HorizontalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
         case leading, center, trailing
 
         var displayName: String { rawValue }
@@ -395,8 +435,8 @@ extension FloatingAlignment {
 
 extension FloatingAlignment {
 
-    nonisolated
-    enum VerticalAlignment: String, CaseIterable, SelfIdentifiable {
+    public nonisolated
+    enum VerticalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
         case top, center, bottom
 
         var displayName: String { rawValue }
@@ -419,8 +459,8 @@ extension FloatingAlignment {
 
 extension FloatingAlignment {
 
-    nonisolated
-    public enum OuterAlignment: CaseIterable, SelfIdentifiable, Sendable {
+    public nonisolated
+    enum OuterAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
         case top(HorizontalAlignment)
         case leading(OuterVerticalAlignment)
@@ -571,8 +611,8 @@ extension FloatingAlignment {
 
 extension FloatingAlignment {
 
-    nonisolated
-    public enum OuterVerticalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
+    public nonisolated
+    enum OuterVerticalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
         case above, top, center, bottom, under
 
         var displayName: String { rawValue }
@@ -590,10 +630,10 @@ extension FloatingAlignment {
     /// Use the contained `content` and `text` alignments to align content to the appropriate edge
     /// that the content will be touching.
     ///
-    /// I.e.: For content aligned to ``FloatingAlignment/outerTrailing``, the
-    /// ``SwiftUI/HorizontalAlignment/leading`` and ``SwiftUI/TextAlignment/leading`` will be passed
-    /// for the content to align itself towards the trailing edge from the outside.
-    nonisolated
+    /// For example, content aligned to ``FloatingAlignment/outerTrailing`` will use the content
+    /// alignments `SwiftUI/HorizontalAlignment/leading` and for text `SwiftUI/TextAlignment/leading`
+    /// so that the content itself leans towards towards the trailing edge from the outside.
+    public nonisolated
     struct ContentAlignments {
         let content: SwiftUI.Alignment
         let text: SwiftUI.TextAlignment
