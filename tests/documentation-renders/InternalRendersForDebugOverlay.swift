@@ -22,7 +22,7 @@ struct InternalRendersForDebugOverlay {
 
     @Test func components() throws {
         let resource = try DocumentationRenderer.render("debug-overlay", "components", height: 200) {
-            ExamplesForDebugOverlay.components
+            IllustrationsForDebugOverlay.components
         }
         try DocumentationResources.store(resource: resource)
     }

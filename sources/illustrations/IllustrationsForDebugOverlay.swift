@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-struct ExamplesForDebugOverlay {
+struct IllustrationsForDebugOverlay {
 
     /// Illustration of the components of the `debugOverlay`.
     ///
@@ -146,5 +146,5 @@ struct ExamplesForDebugOverlay {
 
 
 #Preview("components", traits: .docsRender(height: 200)) {
-    ExamplesForDebugOverlay.components
+    IllustrationsForDebugOverlay.components
 }
