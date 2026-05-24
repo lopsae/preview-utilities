@@ -80,3 +80,28 @@ extension View {
     }
 
 }
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .docsIllustration) {
+    DocumentationIllustration(height: 160) {
+        CaptionRectangle(
+            "Documentation\nIllustration\nPrevew",
+            color: .orange, size: [200, 80]
+        )
+    }
+}
+
+
+#Preview("Padded", traits: .docsIllustration) {
+    DocumentationIllustration(height: 160) {
+        CaptionRectangle(
+            "Documentation\nIllustration\nPrevew",
+            color: .orange, size: [200, 80]
+        )
+    }
+    .floatingCaption("Padded to show the illustration border", .alignment(.outerBottomTrailing))
+    .padding(30)
+}
