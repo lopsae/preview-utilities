@@ -96,10 +96,6 @@ struct FloatingAlignedContainer<Content: View>: View {
 }
 
 
-
-
-
-
 // MARK: - PreviewContent
 
 
@@ -278,6 +274,7 @@ private struct PreviewContent {
         ForEach(FloatingAlignment.allCases) { alignment in
             FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
                 Text("black\nquartz")
+                    .font(.caption)
                     .multilineTextAlignment(alignments.text)
                 Image(systemName: "target")
                     .foregroundStyle(.tertiary)
@@ -285,28 +282,4 @@ private struct PreviewContent {
             }
         }
     }
-}
-
-
-#Preview("Horizontal Alignments", traits: PreviewContent.layout) {
-    ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
-        DashedDivider()
-        Text(horizontalAlignment.displayName, format: .capitalized)
-        Rectangle()
-            .fill(.teal.gradient.secondary)
-        .frame(width: 100, height: 100)
-        .overlay {
-            let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
-            ForEach(alignments) { alignment in
-                FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
-                    Text.caption(verbatim:alignment.hyphenatedName).fixedSize()
-                    .padding(2)
-                    .floatingCaption("", .colorStyle(.mint))
-                }
-            }
-        }
-        .padding(.vertical, 20)
-    }
-
-    DashedDivider()
 }

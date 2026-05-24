@@ -552,3 +552,45 @@ extension FloatingAlignment {
     }
 
 }
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
+
+    enum ContentOption: String, SelfIdentifiable, CaseIterable {
+        case text, vertical, multiline
+    }
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("All Alignments", traits: PreviewContent.layout) {
+    ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
+        DashedDivider()
+        Text(horizontalAlignment.displayName, format: .capitalized)
+        Rectangle()
+            .fill(.teal.gradient.secondary)
+        .frame(width: 100, height: 100)
+        .overlay {
+            let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
+            ForEach(alignments) { alignment in
+                FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
+                    Text.caption(verbatim:alignment.hyphenatedName).fixedSize()
+                    .padding(2)
+                    .floatingCaption("", .colorStyle(.mint))
+                }
+            }
+        }
+        .padding(.vertical, 20)
+    }
+
+    DashedDivider()
+}
