@@ -5,6 +5,7 @@
 
 
 import SwiftUI
+import PreviewUtilities
 
 
 /// Renders SwiftUI views to PNG files for use in DocC documentation.
@@ -35,6 +36,36 @@ struct DocumentationRenderer {
             let renderer = ImageRenderer(scale: scale) {
                 content()
                 .docRender(size: size)
+                .environment(\.colorScheme, scheme)
+            }
+
+            guard let cgImage = renderer.cgImage else {
+                let resourceName = RenderResource.resourceName(components: nameComponents)
+                throw RendererError.renderingFailed(resourceName)
+            }
+            images[scheme] = cgImage
+        }
+
+        return RenderResource(nameComponents: nameComponents, scale: scale, images: images)
+    }
+
+
+    /// Renders a SwiftUI view configured as a documentation image.
+    ///
+    /// The name components determine the folder location and name of the image. Every name
+    /// component except the last is treated as the folder path where the image will be saved. The
+    /// name of the image is all the name components joined with hyphens (`-`).
+    static func render(
+        _ nameComponents: String...,
+        scale: CGFloat = defaultScale,
+        colorSchemes: Set<ColorScheme> = defaultColorSchemes,
+        illustration: () -> DocumentationIllustration
+    ) throws -> RenderResource {
+        var images: [ColorScheme: CGImage] = [:]
+
+        for scheme in colorSchemes {
+            let renderer = ImageRenderer(scale: scale) {
+                illustration()
                 .environment(\.colorScheme, scheme)
             }
 

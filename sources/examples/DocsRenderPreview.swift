@@ -124,7 +124,7 @@ struct ExamplesForDebugOverlay {
 }
 
 
-struct ExamplesForFloatingAlignment {
+struct IllustrationsForFloatingAlignment {
 
     /// Illustration of the inner alignments of ``FloatingAlignment``.
     ///
@@ -171,54 +171,54 @@ struct ExamplesForFloatingAlignment {
 
 
     /// Illustration of the outer alignments of ``FloatingAlignment``.
-    ///
-    /// Intended for a height of 300.
-    @ViewBuilder static var outerAlignments: some View {
-        Rectangle()
-        .fill(.orange.gradient.secondary)
-        .frame(size: [200, 140])
-        .overlay {
-            ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
-                let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
-                    .filter { $0.key == .outer }
-                ForEach(alignments) { alignment in
-                    let alignmentName = alignment.displayNameComponents
-                        .suffix(2)
-                        .map(formatting: .capitalized)
-                        .joined(separator: "\n")
+    static var outerAlignments: DocumentationIllustration {
+        DocumentationIllustration(height: 300) {
+            Rectangle()
+            .fill(.orange.gradient.secondary)
+            .frame(size: [200, 140])
+            .overlay {
+                ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
+                    let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
+                        .filter { $0.key == .outer }
+                    ForEach(alignments) { alignment in
+                        let alignmentName = alignment.displayNameComponents
+                            .suffix(2)
+                            .map(formatting: .capitalized)
+                            .joined(separator: "\n")
 
-                    FloatingAlignedContainer(
-                        alignment: alignment,
-                        spacing: 4
-                    ) { contentAlignments in
-                        Text.caption("\(alignmentName)")
-                            .multilineTextAlignment(contentAlignments.text)
+                        FloatingAlignedContainer(
+                            alignment: alignment,
+                            spacing: 4
+                        ) { contentAlignments in
+                            Text.caption("\(alignmentName)")
+                                .multilineTextAlignment(contentAlignments.text)
+                        }
                     }
+                } // ForEach
+
+                FloatingAlignedContainer(
+                    alignment: .center,
+                    spacing: 4
+                ) { contentAlignments in
+                    Text.caption("Outer Alignments")
+                        .foregroundStyle(.orange)
                 }
-            } // ForEach
 
-            FloatingAlignedContainer(
-                alignment: .center,
-                spacing: 4
-            ) { contentAlignments in
-                Text.caption("Outer Alignments")
-                    .foregroundStyle(.orange)
-            }
-
-            // Dashed dividers.
-            FloatingAlignedContainer(alignment: .top, spacing: .zero) { contentAlignments in
-                DashedDivider().frame(width: 340)
-            }
-            FloatingAlignedContainer(alignment: .bottom, spacing: .zero) { contentAlignments in
-                DashedDivider().frame(width: 340)
-            }
-            FloatingAlignedContainer(alignment: .leading, spacing: .zero) { contentAlignments in
-                DashedDivider(axis: .vertical).frame(height: 240)
-            }
-            FloatingAlignedContainer(alignment: .trailing, spacing: .zero) { contentAlignments in
-                DashedDivider(axis: .vertical).frame(height: 240)
-            }
-        }
+                // Dashed dividers.
+                FloatingAlignedContainer(alignment: .top, spacing: .zero) { contentAlignments in
+                    DashedDivider().frame(width: 340)
+                }
+                FloatingAlignedContainer(alignment: .bottom, spacing: .zero) { contentAlignments in
+                    DashedDivider().frame(width: 340)
+                }
+                FloatingAlignedContainer(alignment: .leading, spacing: .zero) { contentAlignments in
+                    DashedDivider(axis: .vertical).frame(height: 240)
+                }
+                FloatingAlignedContainer(alignment: .trailing, spacing: .zero) { contentAlignments in
+                    DashedDivider(axis: .vertical).frame(height: 240)
+                }
+            } // overlay
+        } // DocumentationIllustration
     }
 
 }
@@ -251,13 +251,14 @@ struct ExamplesForFloatingAlignment {
 
 
 #Preview("floating-alignment-inner-alignments", traits: .docsRender(height: 240)) {
-    ExamplesForFloatingAlignment.innerAlignments
+    IllustrationsForFloatingAlignment.innerAlignments
 }
 
 
-#Preview("floating-alignment-outer-alignments", traits: .docsRender(height: 300)) {
-    ExamplesForFloatingAlignment.outerAlignments
+#Preview("floating-alignment-outer-alignments", traits: .docsIllustration) {
+    IllustrationsForFloatingAlignment.outerAlignments
 }
+
 
 
 // MARK: - DocumentationRenderPreviewModifier
@@ -307,6 +308,16 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
+extension PreviewTrait where T == Preview.ViewTraits {
+
+    /// Applies the preview traits needed for documentation illustration.
+    public static var docsIllustration: PreviewTrait {
+        .sizeThatFitsLayout
+    }
+
+}
+
+
 // MARK: - DocumentationRenderModifier
 
 
@@ -315,6 +326,32 @@ struct DocumentationRenderModifier: ViewModifier {
     let size: CGSize
 
     func body(content: Content) -> some View {
+        VStack {
+            content
+        }
+        .frame(size: size)
+        .background(.background, in: .rect)
+        .border(.tertiary, width: 1)
+    }
+
+}
+
+
+/// Wraps content for rendering of a documentation illustration.
+public struct DocumentationIllustration: View {
+
+    static var defaultWidth: CGFloat { 400 }
+
+    let size: CGSize
+    let content: AnyView
+
+    init<Content: View>(height: CGFloat, @ViewBuilder content: @escaping () -> Content) {
+        self.size = [Self.defaultWidth, height]
+        self.content = AnyView(content())
+    }
+
+    @_documentation(visibility: internal)
+    public var body: some View {
         VStack {
             content
         }
