@@ -15,7 +15,8 @@ import Testing
 ///
 /// Each test produces an image saved to the package documentation catalog.
 ///
-/// This file has testable access to PreviewUtilities.
+/// This file has testable access to PreviewUtilities. This code should not be used in documentation
+/// snippets.
 @Suite(.tags(.documentationRender))
 struct InternalRendersForDebugOverlay {
 
