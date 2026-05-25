@@ -247,6 +247,20 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
         }
     }
 
+
+    /// Returns all floating alignment cases that use the given mayor component.
+    public static func allCases(
+        outerWithMajor majorKey: OuterAlignment.Key
+    ) -> [FloatingAlignment] {
+        allCases.filter { floatingAlignment in
+            switch floatingAlignment {
+            case .inner: return false
+            case .outer(let outerAlignment):
+                return outerAlignment.key == majorKey
+            }
+        }
+    }
+
 }
 
 
@@ -384,7 +398,7 @@ extension FloatingAlignment {
         case bottom(HorizontalAlignment)
         case trailing(OuterVerticalAlignment)
 
-        enum Key: String, CaseIterable, SelfIdentifiable {
+        public enum Key: String, CaseIterable, SelfIdentifiable, Sendable {
             case top, leading, bottom, trailing
 
             var swiftHorizontal: SwiftUI.HorizontalAlignment {
