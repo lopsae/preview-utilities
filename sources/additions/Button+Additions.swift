@@ -27,8 +27,8 @@ extension Button {
     /// Large images may appear slightly closer to the label when compared to buttons using the
     /// default initializers.
     ///
-    /// This initializer creates a ``Label`` view on your behalf, and treats the localized key
-    /// similar to ``Text/init(_:tableName:bundle:comment:)``.
+    /// This initializer creates a `SwiftUI/Label` view on your behalf, and treats the localized key
+    /// similar to `SwiftUI/Text.init(_:tableName:bundle:comment:)`.
     public init(
         _ titleKey: LocalizedStringKey,
         constrainedSystemImage systemImage: String,
@@ -59,6 +59,7 @@ extension Button {
                 Text(titleKey)
             } icon: {
                 HiddenParentOverlay(alignment: .centerFirstTextBaseline) {
+                    // TODO: try "app.grid" instead of circle for base symbol.
                     Image(systemName: "circle")
                 } overlaid: {
                     ViewWithOpacity(opacity: opacity) {
@@ -214,15 +215,20 @@ private struct PreviewContent {
         bottom.
         """)
 
-    Text.caption("Stock")
     HStack {
         Button("Ag", systemImage: "envelope.badge.shield.half.filled", action: {})
         .buttonStyle(.borderedProminent)
         .debugAlignmentOverlay(.firstTextBaseline)
+        .stackAbove {
+            Text.caption("Stock")
+        }
         // FIXME: compare stock using Image, against a constrained one
-        Button("Ag", image: .customEnvelopeOffcenterBadgeBottomTrailing, action: {})
+        Button("Ag", image: .moduleCatalog(.envelopeOffcenterBadgeBottomTrailing), action: {})
         .buttonStyle(.borderedProminent)
         .debugAlignmentOverlay(.firstTextBaseline)
+        .stackAbove {
+            Text.caption("Custom")
+        }
     }
 }
 
@@ -243,24 +249,24 @@ private struct PreviewContent {
         HStack {
             // FIXME: for custom symbols, button can be created using `image:` or creating the Label directly.
             // There is no single api to use either system symbols or custom symbols. One might need to be created.
-            Button("Offcenter", image: .customEnvelopeOffcenterBadgeTopTrailing, action: {})
+            Button("Offcenter", image: .moduleCatalog(.envelopeOffcenterBadgeTopTrailing), action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
             // FIXME: Bring specialized Button(icon) init from separate project.
             Button(action: {}) {
-                Label(title: { Text("Offcenter") }, icon: { Image(.customEnvelopeOffcenterBadgeTopTrailing) } )
+                Label(title: { Text("Offcenter") }, icon: { Image(.moduleCatalog(.envelopeOffcenterBadgeTopTrailing)) } )
             }
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
             Button(action: {}) {
-                Label(title: { Text("Offcenter") }, icon: { Image(.customEnvelopeOffcenterBadgeBottomTrailing) } )
+                Label(title: { Text("Offcenter") }, icon: { Image(.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)) } )
             }
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-            Button("Offcenter", image: .customEnvelopeOffcenterBadgeBottomTrailing, action: {})
+            Button("Offcenter", image: .moduleCatalog(.envelopeOffcenterBadgeBottomTrailing), action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
         }

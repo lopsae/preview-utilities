@@ -1,0 +1,289 @@
+{
+  "abstract": [
+    {
+      "text": "Returns a size represeting the range of values that ",
+      "type": "text"
+    },
+    {
+      "code": "contentOffset",
+      "type": "codeVoice"
+    },
+    {
+      "text": " can take.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry/contentOffsetSize"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI14ScrollGeometryV16PreviewUtilitiesE17contentOffsetSizeSo6CGSizeVvp",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "var"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "contentOffsetSize"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "c:@S@CGSize",
+        "text": "CGSize"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Property",
+    "symbolKind": "property",
+    "title": "contentOffsetSize"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "var"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "contentOffsetSize"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:@S@CGSize",
+              "text": "CGSize"
+            },
+            {
+              "kind": "text",
+              "text": " { "
+            },
+            {
+              "kind": "keyword",
+              "text": "get"
+            },
+            {
+              "kind": "text",
+              "text": " }"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "When ",
+              "type": "text"
+            },
+            {
+              "code": "contentOffset",
+              "type": "codeVoice"
+            },
+            {
+              "text": " is set to zero, the scroll view is scrolled to its top-leading",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "position, when set to ",
+              "type": "text"
+            },
+            {
+              "code": "(contentOffsetSize.width, contentOffsetSize.height)",
+              "type": "codeVoice"
+            },
+            {
+              "text": " the scrol view",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "is scrolled to its bottom-trailing position.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUICore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI14ScrollGeometryV",
+          "text": "ScrollGeometry"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ScrollGeometry"
+        }
+      ],
+      "role": "symbol",
+      "title": "ScrollGeometry",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/scrollgeometry"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry/contentOffsetSize": {
+      "abstract": [
+        {
+          "text": "Returns a size represeting the range of values that ",
+          "type": "text"
+        },
+        {
+          "code": "contentOffset",
+          "type": "codeVoice"
+        },
+        {
+          "text": " can take.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "contentOffsetSize"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry/contentOffsetSize",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "contentOffsetSize",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/scrollgeometry/contentoffsetsize"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftuicore/scrollgeometry/contentoffsetsize"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

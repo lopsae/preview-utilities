@@ -192,7 +192,6 @@ private struct PreviewContent {
         .padding(.bottom)
 
     HStack {
-        let viewSize: CGSize = [100, 70]
         HiddenParentOverlay(alignment: alignment) {
             Image(systemName: "circle")
                 .font(.title2)

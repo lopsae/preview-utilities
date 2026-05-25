@@ -1,7 +1,4 @@
 // swift-tools-version: 6.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
-
-// https://theswiftdev.com/the-swift-package-manifest-file/
 
 
 import PackageDescription
@@ -19,10 +16,16 @@ let package = Package(
             targets: ["PreviewUtilities"]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.1.0")
+    ],
     targets: [
         .target(
             name: "PreviewUtilities",
-            path: "sources"
+            path: "sources",
+            resources: [
+                .process("assets.xcassets")
+            ]
         ),
         .testTarget(
             name: "PreviewUtilitiesTests",
@@ -31,6 +34,7 @@ let package = Package(
         ),
     ]
 )
+
 
 // Target settings.
 for target in package.targets {

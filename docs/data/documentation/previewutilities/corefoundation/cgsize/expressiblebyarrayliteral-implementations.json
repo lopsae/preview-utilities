@@ -1,0 +1,160 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/technology-root",
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/ExpressibleByArrayLiteral-Implementations"
+  },
+  "kind": "article",
+  "metadata": {
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "collectionGroup",
+    "roleHeading": "API Collection",
+    "title": "ExpressibleByArrayLiteral Implementations"
+  },
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "CoreFoundation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CGSize"
+        }
+      ],
+      "role": "symbol",
+      "title": "CGSize",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/init(arrayLiteral:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "arrayLiteral"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "...)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/init(arrayLiteral:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(arrayLiteral:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/init(arrayliteral:)"
+    },
+    "doc://PreviewUtilities/documentation/technology-root": {
+      "abstract": [
+        {
+          "text": "Technology Root Catalogue",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/technology-root",
+      "kind": "article",
+      "role": "collection",
+      "title": "Package Documentation",
+      "type": "topic",
+      "url": "/documentation/technology-root"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/init(arrayLiteral:)"
+      ],
+      "title": "Initializers"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/corefoundation/cgsize/expressiblebyarrayliteral-implementations"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}
