@@ -21,7 +21,12 @@ Text("Judge my Vow")
     .font(.title)
     .debugOverlay()
 ```
-![Debug overlay with default configuration.](sources/documentation.docc/resources/debug-overlay/debug-overlay-default@3x.png)
+
+<img
+    src="sources/documentation.docc/resources/debug-overlay/debug-overlay-default@3x.png"
+    width="400px"
+    alt="Debug overlay with default configuration."
+/>
 
 
 
