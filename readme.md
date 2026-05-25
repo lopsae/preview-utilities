@@ -91,6 +91,12 @@ packages.
 
 
 
+### License
+
+Preview Utilities is licensed under the [MIT License](LICENSE).
+
+
+
 -----
 
 Written with ♥ in San Francisco, California.
