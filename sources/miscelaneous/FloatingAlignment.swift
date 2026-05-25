@@ -24,7 +24,7 @@ import SwiftUI
 /// ### Inner Alignments
 ///
 /// Inner alignments are composed by a ``FloatingAlignment/HorizontalAlignment`` and a ``FloatingAlignment/VerticalAlignment``.
-/// These are intended to work as equivalents of the SwiftUI alignments of the same names, for
+/// These are intended to work as equivalents of the SwiftUI alignments with the same names, for
 /// example aligning content to ``InnerAlignment/topLeading`` would be equivalent to aligning the
 /// same content using a `SwiftUICore/Alignment/topLeading`.
 ///
@@ -279,7 +279,7 @@ extension FloatingAlignment {
     /// Alignment positions for inner floating content.
     ///
     /// An inner alignments is composed by a ``FloatingAlignment/HorizontalAlignment`` and a ``FloatingAlignment/VerticalAlignment``.
-    /// These are intended to work as equivalents of the SwiftUI alignments of the same names, for
+    /// These are intended to work as equivalents of the SwiftUI alignments with the same names, for
     /// example aligning content to ``InnerAlignment/topLeading`` would be equivalent to aligning
     /// the same content using `SwiftUICore/Alignment/topLeading`.
     ///
