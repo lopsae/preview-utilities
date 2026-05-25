@@ -17,7 +17,7 @@ import SwiftUI
 ///     source: "floating-alignment-alignment-examples",
 ///     alt: "Example floating alignments for inner top leading and outer bottom trailing"
 /// ) {
-///     Two possible floating alignments are _Inner Top Leading_ and _Outer Bottom Trailing_.
+///     Example floating alignments: _Outer Top Leading_ and _Inner Bottom Trailing_.
 /// }
 ///
 ///
@@ -25,8 +25,8 @@ import SwiftUI
 ///
 /// Inner alignments are composed by a ``FloatingAlignment/HorizontalAlignment`` and a ``FloatingAlignment/VerticalAlignment``.
 /// These are intended to work as equivalents of the SwiftUI alignments of the same names, for
-/// example aligning content to a ``InnerAlignment/topLeading`` would be equivalent to aligning
-/// the same content using a `SwiftUICore/Alignment/topLeading`.
+/// example aligning content to ``InnerAlignment/topLeading`` would be equivalent to aligning the
+/// same content using a `SwiftUICore/Alignment/topLeading`.
 ///
 /// @Image(
 ///     source: "floating-alignment-inner-alignments",
@@ -282,7 +282,7 @@ extension FloatingAlignment {
     ///
     /// An inner alignments is composed by a ``FloatingAlignment/HorizontalAlignment`` and a ``FloatingAlignment/VerticalAlignment``.
     /// These are intended to work as equivalents of the SwiftUI alignments of the same names, for
-    /// example aligning content to a ``InnerAlignment/topLeading`` would be equivalent to aligning
+    /// example aligning content to ``InnerAlignment/topLeading`` would be equivalent to aligning
     /// the same content using a `SwiftUICore/Alignment/topLeading`.
     ///
     /// @Image(
