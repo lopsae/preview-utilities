@@ -140,7 +140,7 @@ private struct PreviewContent {
     @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
 
-    @Previewable @State var outerMayorAlignment: FloatingAlignment.OuterAlignment.Key = .bottom
+    @Previewable @State var outerMajorAlignment: FloatingAlignment.OuterAlignment.Key = .bottom
     @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
 
@@ -149,7 +149,7 @@ private struct PreviewContent {
         case .inner:
             return .inner(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
         case .outer:
-            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMayorAlignment {
+            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMajorAlignment {
             case .top:      .top(     outerMinorHorizontalAlignment)
             case .bottom:   .bottom(  outerMinorHorizontalAlignment)
             case .leading:  .leading( outerMinorVerticalAlignment)
@@ -173,10 +173,10 @@ private struct PreviewContent {
                 .pickerStyle(.segmented)
 
         case .outer:
-            Picker("Outer Mayor Alignment", selection: $outerMayorAlignment, caseFormat: .rawValueCapitalized())
+            Picker("Outer Major Alignment", selection: $outerMajorAlignment, caseFormat: .rawValueCapitalized())
                 .pickerStyle(.segmented)
 
-            switch outerMayorAlignment {
+            switch outerMajorAlignment {
             case .top, .bottom:
                 Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment, caseFormat: .rawValueCapitalized())
                     .pickerStyle(.segmented)

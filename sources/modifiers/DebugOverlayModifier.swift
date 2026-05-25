@@ -254,7 +254,7 @@ public struct DebugOverlayModifier: ViewModifier {
             let outerAlignment = configuration.infoAlignment.outerAlignment
             let verticalSpacing = verticalSpacingFromBoundary
 
-            // For outer alignment with top-or-bottom mayor, the caption is aligned 2 points from
+            // For outer alignment with top-or-bottom major, the caption is aligned 2 points from
             // the edge of the content. Otherwise it looks misaligned.
             let horizontalSpacing = outerAlignment?.key.isEqual(toAny: .top, .bottom) ?? false
                 ? 2
@@ -528,7 +528,7 @@ private struct PreviewContent {
     @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
 
-    @Previewable @State var outerMayorAlignment: FloatingAlignment.OuterAlignment.Key = .top
+    @Previewable @State var outerMajorAlignment: FloatingAlignment.OuterAlignment.Key = .top
     @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
 
@@ -545,7 +545,7 @@ private struct PreviewContent {
         case .inner:
             positionTrait = .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
         case .outer:
-            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMayorAlignment {
+            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMajorAlignment {
             case .top:      .top(     outerMinorHorizontalAlignment)
             case .bottom:   .bottom(  outerMinorHorizontalAlignment)
             case .leading:  .leading( outerMinorVerticalAlignment)
@@ -571,10 +571,10 @@ private struct PreviewContent {
                 .pickerStyle(.segmented)
 
         case .outer:
-            Picker("Outer Mayor Alignment", selection: $outerMayorAlignment, caseFormat: .rawValueCapitalized())
+            Picker("Outer Major Alignment", selection: $outerMajorAlignment, caseFormat: .rawValueCapitalized())
                 .pickerStyle(.segmented)
 
-            switch outerMayorAlignment {
+            switch outerMajorAlignment {
             case .top, .bottom:
                 Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment, caseFormat: .rawValueCapitalized())
                     .pickerStyle(.segmented)

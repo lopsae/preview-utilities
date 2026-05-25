@@ -37,8 +37,8 @@ import SwiftUI
 ///
 /// ### Outer Alignments
 ///
-/// Outer alignments are composed by a mayor component and a minor component. ``OuterAlignment``
-/// defines the mayor components and identifies the edge to which the content will be primarily
+/// Outer alignments are composed by a major component and a minor component. ``OuterAlignment``
+/// defines the major components and identifies the edge to which the content will be primarily
 /// aligned: top, leading, bottom, or trailing. The minor component determines the secondary
 /// direction along that edge where the content will be aligned.
 ///
@@ -196,7 +196,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     public static let bottomTrailing:      Self = .innerBottomTrailing
 
 
-    // Outer Top Mayor
+    // Outer Top Major
     public static let outerTopLeading:     Self = .outer(.topLeading)
     public static let outerTopCenter:      Self = .outer(.topCenter)
     public static let outerTopTrailing:    Self = .outer(.topTrailing)
@@ -204,7 +204,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     public static let outerTop:            Self = .outerTopCenter
 
 
-    // Outer Bottom Mayor
+    // Outer Bottom Major
     public static let outerBottomLeading:  Self = .outer(.bottomLeading)
     public static let outerBottomCenter:   Self = .outer(.bottomCenter)
     public static let outerBottomTrailing: Self = .outer(.bottomTrailing)
@@ -212,7 +212,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     public static let outerBottom:         Self = .outerBottomCenter
 
 
-    // Outer Leading Mayor
+    // Outer Leading Major
     public static let outerLeadingAbove:   Self = .outer(.leadingAbove)
     public static let outerLeadingTop:     Self = .outer(.leadingTop)
     public static let outerLeadingCenter:  Self = .outer(.leadingCenter)
@@ -222,7 +222,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     public static let outerLeading:        Self = .outerLeadingCenter
 
 
-    // Outer Trailing Mayor
+    // Outer Trailing Major
     public static let outerTrailingAbove:  Self = .outer(.trailingAbove)
     public static let outerTrailingTop:    Self = .outer(.trailingTop)
     public static let outerTrailingCenter: Self = .outer(.trailingCenter)
@@ -257,7 +257,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     }
 
 
-    /// Returns all floating alignment cases that use the given mayor component.
+    /// Returns all floating alignment cases that use the given major component.
     public static func allCases(
         outerWithMajor majorKey: OuterAlignment.Key
     ) -> [FloatingAlignment] {
@@ -414,8 +414,8 @@ extension FloatingAlignment {
 
     /// Alignment positions for outer floating content.
     ///
-    /// An outer alignments is composed by a mayor component and a minor component. ``OuterAlignment``
-    /// defines the mayor components and identifies the edge to which the content will be primarily
+    /// An outer alignments is composed by a major component and a minor component. ``OuterAlignment``
+    /// defines the major components and identifies the edge to which the content will be primarily
     /// aligned: top, leading, bottom, or trailing. The minor component determines the secondary
     /// direction along that edge where the content will be aligned.
     ///
@@ -475,7 +475,7 @@ extension FloatingAlignment {
         }
 
         var displayNameComponents: [String] {
-            let mayorName = key.rawValue
+            let majorName = key.rawValue
             let minorName = switch self {
             case .top(let horizontalAlignment), .bottom(let horizontalAlignment):
                 horizontalAlignment.displayName
@@ -483,7 +483,7 @@ extension FloatingAlignment {
                 outerVerticalAlignment.displayName
             }
 
-            return [mayorName, minorName]
+            return [majorName, minorName]
         }
 
         var displayName: String { displayNameComponents.joined(separator: .space)
