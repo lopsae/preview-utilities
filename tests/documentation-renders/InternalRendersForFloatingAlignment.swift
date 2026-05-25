@@ -28,10 +28,9 @@ struct InternalRendersForFloatingAlignment {
 
 
     @Test func innerAlignments() throws {
-        let resource = try DocumentationRenderer.render("floating-alignment", "inner-alignments", height: 240) {
+        try DocumentationResources.renderAndStore("floating-alignment", "inner-alignments") {
             IllustrationsForFloatingAlignment.innerAlignments
         }
-        try DocumentationResources.store(resource: resource)
     }
 
 

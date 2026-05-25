@@ -39,45 +39,45 @@ struct IllustrationsForFloatingAlignment {
     }
 
     /// Illustration of the inner alignments of ``FloatingAlignment``.
-    ///
-    /// Intended for a height of 240.
-    @ViewBuilder static var innerAlignments: some View {
-        HStack {
-            ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
-                Rectangle()
-                    .fill(.orange.gradient.secondary)
-                .frame(size: [100, 140])
-                .overlay {
-                    ForEach(FloatingAlignment.VerticalAlignment.allCases) { verticalAlignment in
-                        let alignment: FloatingAlignment = .inner(.init(
-                            horizontal: horizontalAlignment,
-                            vertical: verticalAlignment
-                        ))
-                        let alignmentName = alignment.displayNameComponents
-                            .suffix(2)
-                            .map(formatting: .capitalized)
-                            .joined(separator: "\n")
+    static var innerAlignments: DocumentationIllustration {
+        DocumentationIllustration(height: 240) {
+            HStack {
+                ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
+                    Rectangle()
+                        .fill(.orange.gradient.secondary)
+                        .frame(size: [100, 140])
+                        .overlay {
+                            ForEach(FloatingAlignment.VerticalAlignment.allCases) { verticalAlignment in
+                                let alignment: FloatingAlignment = .inner(.init(
+                                    horizontal: horizontalAlignment,
+                                    vertical: verticalAlignment
+                                ))
+                                let alignmentName = alignment.displayNameComponents
+                                    .suffix(2)
+                                    .map(formatting: .capitalized)
+                                    .joined(separator: "\n")
 
-                        FloatingAlignedContainer(
-                            alignment: alignment,
-                            spacing: 4
-                        ) { contentAlignments in
-                            Text.caption("\(alignmentName)")
-                                .multilineTextAlignment(contentAlignments.text)
+                                FloatingAlignedContainer(
+                                    alignment: alignment,
+                                    spacing: 4
+                                ) { contentAlignments in
+                                    Text.caption("\(alignmentName)")
+                                        .multilineTextAlignment(contentAlignments.text)
+                                }
+                            }
                         }
-                    }
                 }
-            }
-        }
-        .overlay {
-            FloatingAlignedContainer(
-                alignment: .outerTopLeading,
-                horizontalSpacing: .zero,
-                verticalSpacing: 4
-            ) { contentAlignments in
-                Text.caption("Inner Alignments")
-                    .foregroundStyle(.orange)
-            }
+            } // HStack
+            .overlay {
+                FloatingAlignedContainer(
+                    alignment: .outerTopLeading,
+                    horizontalSpacing: .zero,
+                    verticalSpacing: 4
+                ) { contentAlignments in
+                    Text.caption("Inner Alignments")
+                        .foregroundStyle(.orange)
+                }
+            } // overlay
         }
     }
 
@@ -144,7 +144,7 @@ struct IllustrationsForFloatingAlignment {
 }
 
 
-#Preview("inner-alignments", traits: .docsRender(height: 240)) {
+#Preview("inner-alignments", traits: .docsIllustration) {
     IllustrationsForFloatingAlignment.innerAlignments
 }
 
