@@ -5,6 +5,12 @@ Utilities for SwiftUI previews.
 
 A collection of modifiers, additions, views, and other utilities usually useful for building previews in SwiftUI.
 
+[Package Documentation](https://lopsae.com/preview-utilities/documentation/previewutilities)
+
+> [!NOTE]
+> Package documentation is currently a work in progress. Many of the utilities in this package
+> have not been documented thoroughly.
+
 Debug Overlay
 -------------
 Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.
@@ -51,7 +57,12 @@ Circle()
     .borderWidth(4)                  // sets the border width
 )
 ```
-![Floating caption with example traits and explanations.](sources/documentation.docc/resources/floating-caption/floating-caption-readme-traits@3x.png)
+
+<img
+    src="sources/documentation.docc/resources/floating-caption/floating-caption-readme-traits@3x.png"
+    width="400px"
+    alt="Floating caption with example traits and explanations."
+/>
 
 
 
