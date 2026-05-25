@@ -86,4 +86,26 @@ struct RendersForFloatingCaption {
         }
     }
 
+
+    @Test(.tags(.documentationRender))
+    func readmeTraits() throws {
+        try DocumentationResources.renderAndStore(
+            "floating-caption", "readme-traits",
+            colorSchemes: [.light]
+        ) {
+            DocumentationIllustration(height: 160) {
+                Circle()
+                .fill(.tertiary)
+                .frame(width: 80, height: 80)
+                .floatingCaption(
+                    "A `Circle` Shape",              // caption localized string
+                    .height,                         // prints the height of the parent view
+                    .alignment(.outerLeadingBottom), // alignment for the caption
+                    .colorStyle(.indigo),            // sets the caption and border color
+                    .borderWidth(4)                  // sets the border width
+                )
+            }
+        }
+    }
+
 }

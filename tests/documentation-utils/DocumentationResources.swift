@@ -10,6 +10,7 @@ import PreviewUtilities
 import CoreGraphics
 import ImageIO
 import Foundation
+import SwiftUI
 import Testing
 import UniformTypeIdentifiers.UTType
 
@@ -89,10 +90,12 @@ struct DocumentationResources {
 
     static func renderAndStore(
         _ nameComponents: String...,
+        colorSchemes: Set<ColorScheme> = DocumentationRenderer.defaultColorSchemes,
         illustration: () -> DocumentationIllustration
     ) throws {
         let resource = try DocumentationRenderer.render(
             nameComponents: nameComponents,
+            colorSchemes: colorSchemes,
             illustration: illustration
         )
         try store(resource: resource)
