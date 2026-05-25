@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Vertical alignment component of an outer floating alignment.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -80,6 +86,59 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Vertical alignment component of an outer alignment with a horizontal major component",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "(leading or trailing).",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Adds ",
+              "type": "text"
+            },
+            {
+              "code": "above",
+              "type": "codeVoice"
+            },
+            {
+              "text": " and ",
+              "type": "text"
+            },
+            {
+              "code": "under",
+              "type": "codeVoice"
+            },
+            {
+              "text": " to the usual vertical components.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -113,7 +172,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -142,7 +206,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Vertical alignment component of an outer floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

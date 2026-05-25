@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Alignment positions for floating content.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -78,6 +84,339 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Identifies the alignment positions for floating content over a parent view. Floating content is",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "content overlaid a parent view and aligned to an edge of its boundaries, either inside or",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "outside.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-alignment-alignment-examples",
+              "metadata": {
+                "abstract": [
+                  {
+                    "text": "Example floating alignments: ",
+                    "type": "text"
+                  },
+                  {
+                    "inlineContent": [
+                      {
+                        "text": "Outer Top Leading",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "emphasis"
+                  },
+                  {
+                    "text": " and ",
+                    "type": "text"
+                  },
+                  {
+                    "inlineContent": [
+                      {
+                        "text": "Inner Bottom Trailing",
+                        "type": "text"
+                      }
+                    ],
+                    "type": "emphasis"
+                  },
+                  {
+                    "text": ".",
+                    "type": "text"
+                  }
+                ]
+              },
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "anchor": "Inner-Alignments",
+          "level": 3,
+          "text": "Inner Alignments",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Inner alignments are composed by a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " and a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "These are intended to work as equivalents of the SwiftUI alignments with the same names, for",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "example aligning content to ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topLeading",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " would be equivalent to aligning the",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "same content using a ",
+              "type": "text"
+            },
+            {
+              "code": "SwiftUICore/Alignment/topLeading",
+              "type": "codeVoice"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-alignment-inner-alignments",
+              "metadata": {
+                "abstract": [
+                  {
+                    "text": "All inner alignments.",
+                    "type": "text"
+                  }
+                ]
+              },
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "anchor": "Outer-Alignments",
+          "level": 3,
+          "text": "Outer Alignments",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Outer alignments are composed by a major component and a minor component. ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "defines the major components and identifies the edge to which the content will be primarily",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "aligned: top, leading, bottom, or trailing. The minor component determines the secondary",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "direction along that edge where the content will be aligned.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Outer alignments with a vertical major (top and bottom) support three minor components: leading,",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "center, and trailing.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-alignment-outer-with-vertical-major",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Outer alignments with a horizontal major (leading and trailing) support five minor components:",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "above, top, center, bottom, and under.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-alignment-outer-with-horizontal-major",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "anchor": "Implementing-floating-content",
+          "level": 3,
+          "text": "Implementing floating content",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This type only identifies the different positions for floating content. Consumers use this",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "information to align their own content though their own implementation. Each floating alignment",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "provides the appropriate ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/ContentAlignments",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " for content to align itself to the attached edge.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Two examples of this implementations are ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " and ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -105,8 +444,47 @@
       "type": "topic",
       "url": "/documentation/previewutilities"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier": {
+      "abstract": [
+        {
+          "text": "Overlays a visual representations of a view’s boundaries, origin, and safe areas.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DebugOverlayModifier"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DebugOverlayModifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "DebugOverlayModifier",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -134,8 +512,55 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/ContentAlignments": {
+      "abstract": [
+        {
+          "text": "Container of alignments that can be applied to content aligned using a ",
+          "type": "text"
+        },
+        {
+          "code": "FloatingAlignment",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ContentAlignments"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/ContentAlignments",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ContentAlignments"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.ContentAlignments",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/contentalignments"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Horizontal alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -164,7 +589,12 @@
       "url": "/documentation/previewutilities/floatingalignment/horizontalalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for inner floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -192,8 +622,62 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/inneralignment"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topLeading": {
       "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "topLeading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO05InnerD0V",
+          "text": "InnerAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topLeading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "topLeading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/inneralignment/topleading"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment": {
+      "abstract": [
+        {
+          "text": "Alignment positions for outer floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -222,7 +706,12 @@
       "url": "/documentation/previewutilities/floatingalignment/outeralignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Vertical alignment component of an outer floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -250,10 +739,44 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment": {
+      "abstract": [
+        {
+          "text": "Vertical alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.VerticalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases": {
       "abstract": [
         {
-          "text": "All floating alignment cases.",
+          "text": "All floating alignments.",
           "type": "text"
         }
       ],
@@ -299,10 +822,94 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/allcases"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases(outerWithMajor:)": {
+      "abstract": [
+        {
+          "text": "Returns all floating alignment with the given major component.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "allCases"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "outerWithMajor"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO05OuterD0O",
+          "text": "OuterAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO05OuterD0O3KeyO",
+          "text": "Key"
+        },
+        {
+          "kind": "text",
+          "text": ") -> ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases(outerWithMajor:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "allCases(outerWithMajor:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/allcases(outerwithmajor:)"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases(withHorizontal:)": {
       "abstract": [
         {
-          "text": "Returns all floating alignment cases that use the given horizontal component.",
+          "text": "Returns all floating alignment with the given horizontal component.",
           "type": "text"
         }
       ],
@@ -535,7 +1142,12 @@
       "url": "/documentation/previewutilities/floatingalignment/center"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/inner(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "An inner floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -1140,7 +1752,12 @@
       "url": "/documentation/previewutilities/floatingalignment/leading"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outer(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "An outer floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -1187,15 +1804,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outer(horizontal:)": {
       "abstract": [
         {
-          "text": "Returns an outer floating alignment with the given horizontal alignment, and vertically",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "aligned to the center.",
+          "text": "Returns an outer floating alignment with the given horizontal major component, centered.",
           "type": "text"
         }
       ],
@@ -2223,6 +2832,48 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/trailing"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
+      "abstract": [
+        {
+          "text": "Overlays a floating caption aligned to a ",
+          "type": "text"
+        },
+        {
+          "code": "FloatingAlignment",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "FloatingCaptionModifier"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "FloatingCaptionModifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingCaptionModifier",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable": {
       "abstract": [
         {
@@ -2292,6 +2943,90 @@
       "identifier": "doc://PreviewUtilities/s8SendableP",
       "title": "Swift.Sendable",
       "type": "unresolvable"
+    },
+    "floating-alignment-alignment-examples": {
+      "alt": "Example floating alignments for inner top leading and outer bottom trailing",
+      "identifier": "floating-alignment-alignment-examples",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-alignment-examples@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-alignment-examples~dark@3x.png"
+        }
+      ]
+    },
+    "floating-alignment-inner-alignments": {
+      "alt": "Illustration of all inner floating alignments.",
+      "identifier": "floating-alignment-inner-alignments",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-inner-alignments@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-inner-alignments~dark@3x.png"
+        }
+      ]
+    },
+    "floating-alignment-outer-with-horizontal-major": {
+      "alt": "Outer floating alignments with a horizontal major.",
+      "identifier": "floating-alignment-outer-with-horizontal-major",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-outer-with-horizontal-major@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-outer-with-horizontal-major~dark@3x.png"
+        }
+      ]
+    },
+    "floating-alignment-outer-with-vertical-major": {
+      "alt": "Outer floating alignments with a vertical major.",
+      "identifier": "floating-alignment-outer-with-vertical-major",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-outer-with-vertical-major@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-outer-with-vertical-major~dark@3x.png"
+        }
+      ]
     }
   },
   "relationshipsSections": [
@@ -2318,9 +3053,76 @@
   "sections": [],
   "topicSections": [
     {
+      "anchor": "Inner-Alignments",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTopLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTopCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTopTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerLeadingCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTrailingCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottomLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottomCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottomTrailing"
+      ],
+      "title": "Inner Alignments"
+    },
+    {
+      "anchor": "Inner-Alignments-Aliases",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/top",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/leading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/trailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/center",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTop",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/topLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/topTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomTrailing"
+      ],
+      "title": "Inner Alignments Aliases"
+    },
+    {
+      "anchor": "Outer-Alignments",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingAbove",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingTop",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingBottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingUnder",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingAbove",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingTop",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingBottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingUnder"
+      ],
+      "title": "Outer Alignments"
+    },
+    {
+      "anchor": "Outer-Alignments-Aliases",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTop",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailing"
+      ],
+      "title": "Outer Alignments Aliases"
+    },
+    {
       "anchor": "Structures",
       "generated": true,
       "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/ContentAlignments",
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment"
       ],
       "title": "Structures"
@@ -2338,49 +3140,7 @@
       "anchor": "Type-Properties",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottom",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/center",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottom",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottomCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottomLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottomTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerLeadingCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTop",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTopCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTopLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTopTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTrailingCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/leading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottom",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingAbove",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingBottom",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingTop",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingUnder",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTop",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingAbove",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingBottom",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingTop",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingUnder",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/top",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/topLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/topTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/trailing"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases"
       ],
       "title": "Type Properties"
     },
@@ -2388,6 +3148,7 @@
       "anchor": "Type-Methods",
       "generated": true,
       "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases(outerWithMajor:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases(withHorizontal:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outer(horizontal:)"
       ],
@@ -2399,7 +3160,8 @@
       "identifiers": [
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment"
       ],
       "title": "Enumerations"
     }

@@ -562,8 +562,47 @@
       "type": "topic",
       "url": "/documentation/previewutilities/developertoolssupport"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration": {
+      "abstract": [
+        {
+          "text": "Wraps content for rendering a documentation illustration.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DocumentationIllustration"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DocumentationIllustration"
+        }
+      ],
+      "role": "symbol",
+      "title": "DocumentationIllustration",
+      "type": "topic",
+      "url": "/documentation/previewutilities/documentationillustration"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -2391,6 +2430,13 @@
       "title": "Floating Caption"
     },
     {
+      "anchor": "Floating-Alignment",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment"
+      ],
+      "title": "Floating Alignment"
+    },
+    {
       "anchor": "Classes",
       "generated": true,
       "identifiers": [
@@ -2424,6 +2470,7 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle",
         "doc://PreviewUtilities/documentation/PreviewUtilities/ConstrainedFill",
         "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration",
         "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
         "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
         "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait",
@@ -2451,7 +2498,6 @@
       "generated": true,
       "identifiers": [
         "doc://PreviewUtilities/documentation/PreviewUtilities/Defaults",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment",
         "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults",
         "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
         "doc://PreviewUtilities/documentation/PreviewUtilities/Strings"

@@ -84,7 +84,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -113,7 +118,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Vertical alignment component of an outer floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

@@ -842,63 +842,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/swiftuicore/view/debugoverlay(traits:)"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/docRender(size:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "docRender"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "size"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@S@CGSize",
-          "text": "CGSize"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4ViewP",
-          "text": "View"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/docRender(size:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "docRender(size:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/view/docrender(size:)"
-    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)": {
       "abstract": [
         {
@@ -2962,7 +2905,6 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(traits:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/docRender(size:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/frame(size:alignment:)",

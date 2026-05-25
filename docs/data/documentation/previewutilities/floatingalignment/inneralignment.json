@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Alignment positions for inner floating content.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -80,6 +86,102 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "An inner alignments is composed by a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " and a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "These are intended to work as equivalents of the SwiftUI alignments with the same names, for",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "example aligning content to ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topLeading",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " would be equivalent to aligning",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "the same content using ",
+              "type": "text"
+            },
+            {
+              "code": "SwiftUICore/Alignment/topLeading",
+              "type": "codeVoice"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-alignment-inner-alignments",
+              "metadata": {
+                "abstract": [
+                  {
+                    "text": "All inner alignments.",
+                    "type": "text"
+                  }
+                ]
+              },
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -108,7 +210,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -136,8 +243,47 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment": {
+      "abstract": [
+        {
+          "text": "Horizontal alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HorizontalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HorizontalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.HorizontalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/horizontalalignment"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for inner floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -166,7 +312,12 @@
       "url": "/documentation/previewutilities/floatingalignment/inneralignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/allCases": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "All inner alignments.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -855,6 +1006,40 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/inneralignment/trailingcenter"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment": {
+      "abstract": [
+        {
+          "text": "Vertical alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.VerticalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable": {
       "abstract": [
         {
@@ -924,6 +1109,27 @@
       "identifier": "doc://PreviewUtilities/s8SendableP",
       "title": "Swift.Sendable",
       "type": "unresolvable"
+    },
+    "floating-alignment-inner-alignments": {
+      "alt": "Illustration of all inner floating alignments.",
+      "identifier": "floating-alignment-inner-alignments",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-inner-alignments@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-inner-alignments~dark@3x.png"
+        }
+      ]
     }
   },
   "relationshipsSections": [

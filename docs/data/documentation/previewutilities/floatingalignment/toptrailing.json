@@ -118,7 +118,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -145,6 +150,446 @@
       "title": "FloatingAlignment",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottom": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "bottom"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottom",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "bottom",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/bottom"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomLeading": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "bottomLeading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomLeading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "bottomLeading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/bottomleading"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomTrailing": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "bottomTrailing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomTrailing",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "bottomTrailing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/bottomtrailing"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/center": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "center"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/center",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "center",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/center"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottom": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "innerBottom"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottom",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "innerBottom",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/innerbottom"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerLeading": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "innerLeading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerLeading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "innerLeading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/innerleading"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTop": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "innerTop"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTop",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "innerTop",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/innertop"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTrailing": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "innerTrailing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTrailing",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "innerTrailing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/innertrailing"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/leading": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "leading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/leading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "leading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/leading"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/top": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "top"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/top",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "top",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/top"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/topLeading": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "topLeading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/topLeading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "topLeading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/topleading"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/topTrailing": {
       "abstract": [],
@@ -185,6 +630,46 @@
       "title": "topTrailing",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/toptrailing"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/trailing": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "trailing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/trailing",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "trailing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/trailing"
     }
   },
   "schemaVersion": {
@@ -193,6 +678,27 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Inner-Alignments-Aliases",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/top",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/leading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/trailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/center",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTop",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerBottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/innerTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/topLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/bottomTrailing"
+      ],
+      "title": "Inner Alignments Aliases"
+    }
+  ],
   "variants": [
     {
       "paths": [

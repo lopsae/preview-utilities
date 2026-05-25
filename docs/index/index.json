@@ -753,6 +753,678 @@
                 "type": "method"
               },
               {
+                "title": "Floating Alignment",
+                "type": "groupMarker"
+              },
+              {
+                "children": [
+                  {
+                    "title": "Inner Alignments",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innertopleading",
+                    "title": "static let innerTopLeading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innertopcenter",
+                    "title": "static let innerTopCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innertoptrailing",
+                    "title": "static let innerTopTrailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innerleadingcenter",
+                    "title": "static let innerLeadingCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innercenter",
+                    "title": "static let innerCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innertrailingcenter",
+                    "title": "static let innerTrailingCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innerbottomleading",
+                    "title": "static let innerBottomLeading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innerbottomcenter",
+                    "title": "static let innerBottomCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innerbottomtrailing",
+                    "title": "static let innerBottomTrailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "title": "Inner Alignments Aliases",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/top",
+                    "title": "static let top: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/leading",
+                    "title": "static let leading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/bottom",
+                    "title": "static let bottom: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/trailing",
+                    "title": "static let trailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/center",
+                    "title": "static let center: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innertop",
+                    "title": "static let innerTop: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innerleading",
+                    "title": "static let innerLeading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innerbottom",
+                    "title": "static let innerBottom: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/innertrailing",
+                    "title": "static let innerTrailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/topleading",
+                    "title": "static let topLeading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/toptrailing",
+                    "title": "static let topTrailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/bottomleading",
+                    "title": "static let bottomLeading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/bottomtrailing",
+                    "title": "static let bottomTrailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "title": "Outer Alignments",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertopleading",
+                    "title": "static let outerTopLeading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertopcenter",
+                    "title": "static let outerTopCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertoptrailing",
+                    "title": "static let outerTopTrailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerbottomleading",
+                    "title": "static let outerBottomLeading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerbottomcenter",
+                    "title": "static let outerBottomCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerbottomtrailing",
+                    "title": "static let outerBottomTrailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerleadingabove",
+                    "title": "static let outerLeadingAbove: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerleadingtop",
+                    "title": "static let outerLeadingTop: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerleadingcenter",
+                    "title": "static let outerLeadingCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerleadingbottom",
+                    "title": "static let outerLeadingBottom: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerleadingunder",
+                    "title": "static let outerLeadingUnder: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertrailingabove",
+                    "title": "static let outerTrailingAbove: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertrailingtop",
+                    "title": "static let outerTrailingTop: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertrailingcenter",
+                    "title": "static let outerTrailingCenter: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertrailingbottom",
+                    "title": "static let outerTrailingBottom: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertrailingunder",
+                    "title": "static let outerTrailingUnder: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "title": "Outer Alignments Aliases",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertop",
+                    "title": "static let outerTop: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerbottom",
+                    "title": "static let outerBottom: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outerleading",
+                    "title": "static let outerLeading: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outertrailing",
+                    "title": "static let outerTrailing: FloatingAlignment",
+                    "type": "property"
+                  },
+                  {
+                    "title": "Structures",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/contentalignments",
+                    "title": "FloatingAlignment.ContentAlignments",
+                    "type": "struct"
+                  },
+                  {
+                    "children": [
+                      {
+                        "title": "Type Properties",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/allcases",
+                        "title": "static let allCases: [FloatingAlignment.InnerAlignment]",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/bottom",
+                        "title": "static let bottom: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/bottomcenter",
+                        "title": "static let bottomCenter: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/bottomleading",
+                        "title": "static let bottomLeading: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/bottomtrailing",
+                        "title": "static let bottomTrailing: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/center",
+                        "title": "static let center: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/leading",
+                        "title": "static let leading: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/leadingcenter",
+                        "title": "static let leadingCenter: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/top",
+                        "title": "static let top: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/topcenter",
+                        "title": "static let topCenter: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/topleading",
+                        "title": "static let topLeading: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/toptrailing",
+                        "title": "static let topTrailing: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/trailing",
+                        "title": "static let trailing: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/trailingcenter",
+                        "title": "static let trailingCenter: FloatingAlignment.InnerAlignment",
+                        "type": "property"
+                      }
+                    ],
+                    "path": "/documentation/previewutilities/floatingalignment/inneralignment",
+                    "title": "FloatingAlignment.InnerAlignment",
+                    "type": "struct"
+                  },
+                  {
+                    "title": "Enumeration Cases",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/inner(_:)",
+                    "title": "case inner(FloatingAlignment.InnerAlignment)",
+                    "type": "case"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outer(_:)",
+                    "title": "case outer(FloatingAlignment.OuterAlignment)",
+                    "type": "case"
+                  },
+                  {
+                    "title": "Type Properties",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/allcases",
+                    "title": "static let allCases: [FloatingAlignment]",
+                    "type": "property"
+                  },
+                  {
+                    "title": "Type Methods",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/allcases(outerwithmajor:)",
+                    "title": "static func allCases(outerWithMajor: FloatingAlignment.OuterAlignment.Key) -> [FloatingAlignment]",
+                    "type": "method"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/allcases(withhorizontal:)",
+                    "title": "static func allCases(withHorizontal: FloatingAlignment.HorizontalAlignment) -> [FloatingAlignment]",
+                    "type": "method"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/floatingalignment/outer(horizontal:)",
+                    "title": "static func outer(horizontal: FloatingAlignment.HorizontalAlignment) -> FloatingAlignment",
+                    "type": "method"
+                  },
+                  {
+                    "title": "Enumerations",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "children": [
+                      {
+                        "title": "Enumeration Cases",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/horizontalalignment/center",
+                        "title": "case center",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/horizontalalignment/leading",
+                        "title": "case leading",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/horizontalalignment/trailing",
+                        "title": "case trailing",
+                        "type": "case"
+                      },
+                      {
+                        "title": "Initializers",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/horizontalalignment/init(rawvalue:)",
+                        "title": "init?(rawValue: String)",
+                        "type": "init"
+                      }
+                    ],
+                    "path": "/documentation/previewutilities/floatingalignment/horizontalalignment",
+                    "title": "FloatingAlignment.HorizontalAlignment",
+                    "type": "enum"
+                  },
+                  {
+                    "children": [
+                      {
+                        "title": "Enumeration Cases",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottom(_:)",
+                        "title": "case bottom(FloatingAlignment.HorizontalAlignment)",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leading(_:)",
+                        "title": "case leading(FloatingAlignment.OuterVerticalAlignment)",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/top(_:)",
+                        "title": "case top(FloatingAlignment.HorizontalAlignment)",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailing(_:)",
+                        "title": "case trailing(FloatingAlignment.OuterVerticalAlignment)",
+                        "type": "case"
+                      },
+                      {
+                        "title": "Type Properties",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/allcases",
+                        "title": "static let allCases: [FloatingAlignment.OuterAlignment]",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottom",
+                        "title": "static let bottom: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottomcenter",
+                        "title": "static let bottomCenter: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottomleading",
+                        "title": "static let bottomLeading: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottomtrailing",
+                        "title": "static let bottomTrailing: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leading",
+                        "title": "static let leading: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingabove",
+                        "title": "static let leadingAbove: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingbottom",
+                        "title": "static let leadingBottom: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingcenter",
+                        "title": "static let leadingCenter: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingtop",
+                        "title": "static let leadingTop: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingunder",
+                        "title": "static let leadingUnder: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/top",
+                        "title": "static let top: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/topcenter",
+                        "title": "static let topCenter: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/topleading",
+                        "title": "static let topLeading: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/toptrailing",
+                        "title": "static let topTrailing: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailing",
+                        "title": "static let trailing: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingabove",
+                        "title": "static let trailingAbove: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingbottom",
+                        "title": "static let trailingBottom: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingcenter",
+                        "title": "static let trailingCenter: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingtop",
+                        "title": "static let trailingTop: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingunder",
+                        "title": "static let trailingUnder: FloatingAlignment.OuterAlignment",
+                        "type": "property"
+                      },
+                      {
+                        "title": "Enumerations",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "children": [
+                          {
+                            "title": "Enumeration Cases",
+                            "type": "groupMarker"
+                          },
+                          {
+                            "path": "/documentation/previewutilities/floatingalignment/outeralignment/key/bottom",
+                            "title": "case bottom",
+                            "type": "case"
+                          },
+                          {
+                            "path": "/documentation/previewutilities/floatingalignment/outeralignment/key/leading",
+                            "title": "case leading",
+                            "type": "case"
+                          },
+                          {
+                            "path": "/documentation/previewutilities/floatingalignment/outeralignment/key/top",
+                            "title": "case top",
+                            "type": "case"
+                          },
+                          {
+                            "path": "/documentation/previewutilities/floatingalignment/outeralignment/key/trailing",
+                            "title": "case trailing",
+                            "type": "case"
+                          },
+                          {
+                            "title": "Initializers",
+                            "type": "groupMarker"
+                          },
+                          {
+                            "path": "/documentation/previewutilities/floatingalignment/outeralignment/key/init(rawvalue:)",
+                            "title": "init?(rawValue: String)",
+                            "type": "init"
+                          }
+                        ],
+                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/key",
+                        "title": "FloatingAlignment.OuterAlignment.Key",
+                        "type": "enum"
+                      }
+                    ],
+                    "path": "/documentation/previewutilities/floatingalignment/outeralignment",
+                    "title": "FloatingAlignment.OuterAlignment",
+                    "type": "enum"
+                  },
+                  {
+                    "children": [
+                      {
+                        "title": "Enumeration Cases",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/above",
+                        "title": "case above",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/bottom",
+                        "title": "case bottom",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/center",
+                        "title": "case center",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/top",
+                        "title": "case top",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/under",
+                        "title": "case under",
+                        "type": "case"
+                      },
+                      {
+                        "title": "Initializers",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/init(rawvalue:)",
+                        "title": "init?(rawValue: String)",
+                        "type": "init"
+                      }
+                    ],
+                    "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment",
+                    "title": "FloatingAlignment.OuterVerticalAlignment",
+                    "type": "enum"
+                  },
+                  {
+                    "children": [
+                      {
+                        "title": "Enumeration Cases",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/verticalalignment/bottom",
+                        "title": "case bottom",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/verticalalignment/center",
+                        "title": "case center",
+                        "type": "case"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/verticalalignment/top",
+                        "title": "case top",
+                        "type": "case"
+                      },
+                      {
+                        "title": "Initializers",
+                        "type": "groupMarker"
+                      },
+                      {
+                        "path": "/documentation/previewutilities/floatingalignment/verticalalignment/init(rawvalue:)",
+                        "title": "init?(rawValue: String)",
+                        "type": "init"
+                      }
+                    ],
+                    "path": "/documentation/previewutilities/floatingalignment/verticalalignment",
+                    "title": "FloatingAlignment.VerticalAlignment",
+                    "type": "enum"
+                  }
+                ],
+                "path": "/documentation/previewutilities/floatingalignment",
+                "title": "FloatingAlignment",
+                "type": "enum"
+              },
+              {
                 "title": "Classes",
                 "type": "groupMarker"
               },
@@ -1483,6 +2155,22 @@
               {
                 "children": [
                   {
+                    "title": "Initializers",
+                    "type": "groupMarker"
+                  },
+                  {
+                    "path": "/documentation/previewutilities/documentationillustration/init(height:content:)",
+                    "title": "init<Content>(height: CGFloat, content: () -> Content)",
+                    "type": "init"
+                  }
+                ],
+                "path": "/documentation/previewutilities/documentationillustration",
+                "title": "DocumentationIllustration",
+                "type": "struct"
+              },
+              {
+                "children": [
+                  {
                     "title": "Instance Properties",
                     "type": "groupMarker"
                   },
@@ -2146,569 +2834,6 @@
               {
                 "children": [
                   {
-                    "title": "Structures",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "children": [
-                      {
-                        "title": "Type Properties",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/allcases",
-                        "title": "static let allCases: [FloatingAlignment.InnerAlignment]",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/bottom",
-                        "title": "static let bottom: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/bottomcenter",
-                        "title": "static let bottomCenter: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/bottomleading",
-                        "title": "static let bottomLeading: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/bottomtrailing",
-                        "title": "static let bottomTrailing: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/center",
-                        "title": "static let center: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/leading",
-                        "title": "static let leading: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/leadingcenter",
-                        "title": "static let leadingCenter: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/top",
-                        "title": "static let top: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/topcenter",
-                        "title": "static let topCenter: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/topleading",
-                        "title": "static let topLeading: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/toptrailing",
-                        "title": "static let topTrailing: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/trailing",
-                        "title": "static let trailing: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/inneralignment/trailingcenter",
-                        "title": "static let trailingCenter: FloatingAlignment.InnerAlignment",
-                        "type": "property"
-                      }
-                    ],
-                    "path": "/documentation/previewutilities/floatingalignment/inneralignment",
-                    "title": "FloatingAlignment.InnerAlignment",
-                    "type": "struct"
-                  },
-                  {
-                    "title": "Enumeration Cases",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/inner(_:)",
-                    "title": "case inner(FloatingAlignment.InnerAlignment)",
-                    "type": "case"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outer(_:)",
-                    "title": "case outer(FloatingAlignment.OuterAlignment)",
-                    "type": "case"
-                  },
-                  {
-                    "title": "Type Properties",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/allcases",
-                    "title": "static let allCases: [FloatingAlignment]",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/bottom",
-                    "title": "static let bottom: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/bottomleading",
-                    "title": "static let bottomLeading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/bottomtrailing",
-                    "title": "static let bottomTrailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/center",
-                    "title": "static let center: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innerbottom",
-                    "title": "static let innerBottom: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innerbottomcenter",
-                    "title": "static let innerBottomCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innerbottomleading",
-                    "title": "static let innerBottomLeading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innerbottomtrailing",
-                    "title": "static let innerBottomTrailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innercenter",
-                    "title": "static let innerCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innerleading",
-                    "title": "static let innerLeading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innerleadingcenter",
-                    "title": "static let innerLeadingCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innertop",
-                    "title": "static let innerTop: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innertopcenter",
-                    "title": "static let innerTopCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innertopleading",
-                    "title": "static let innerTopLeading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innertoptrailing",
-                    "title": "static let innerTopTrailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innertrailing",
-                    "title": "static let innerTrailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/innertrailingcenter",
-                    "title": "static let innerTrailingCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/leading",
-                    "title": "static let leading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerbottom",
-                    "title": "static let outerBottom: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerbottomcenter",
-                    "title": "static let outerBottomCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerbottomleading",
-                    "title": "static let outerBottomLeading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerbottomtrailing",
-                    "title": "static let outerBottomTrailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerleading",
-                    "title": "static let outerLeading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerleadingabove",
-                    "title": "static let outerLeadingAbove: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerleadingbottom",
-                    "title": "static let outerLeadingBottom: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerleadingcenter",
-                    "title": "static let outerLeadingCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerleadingtop",
-                    "title": "static let outerLeadingTop: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outerleadingunder",
-                    "title": "static let outerLeadingUnder: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertop",
-                    "title": "static let outerTop: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertopcenter",
-                    "title": "static let outerTopCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertopleading",
-                    "title": "static let outerTopLeading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertoptrailing",
-                    "title": "static let outerTopTrailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertrailing",
-                    "title": "static let outerTrailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertrailingabove",
-                    "title": "static let outerTrailingAbove: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertrailingbottom",
-                    "title": "static let outerTrailingBottom: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertrailingcenter",
-                    "title": "static let outerTrailingCenter: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertrailingtop",
-                    "title": "static let outerTrailingTop: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outertrailingunder",
-                    "title": "static let outerTrailingUnder: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/top",
-                    "title": "static let top: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/topleading",
-                    "title": "static let topLeading: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/toptrailing",
-                    "title": "static let topTrailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/trailing",
-                    "title": "static let trailing: FloatingAlignment",
-                    "type": "property"
-                  },
-                  {
-                    "title": "Type Methods",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/allcases(withhorizontal:)",
-                    "title": "static func allCases(withHorizontal: FloatingAlignment.HorizontalAlignment) -> [FloatingAlignment]",
-                    "type": "method"
-                  },
-                  {
-                    "path": "/documentation/previewutilities/floatingalignment/outer(horizontal:)",
-                    "title": "static func outer(horizontal: FloatingAlignment.HorizontalAlignment) -> FloatingAlignment",
-                    "type": "method"
-                  },
-                  {
-                    "title": "Enumerations",
-                    "type": "groupMarker"
-                  },
-                  {
-                    "children": [
-                      {
-                        "title": "Enumeration Cases",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/horizontalalignment/center",
-                        "title": "case center",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/horizontalalignment/leading",
-                        "title": "case leading",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/horizontalalignment/trailing",
-                        "title": "case trailing",
-                        "type": "case"
-                      },
-                      {
-                        "title": "Initializers",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/horizontalalignment/init(rawvalue:)",
-                        "title": "init?(rawValue: String)",
-                        "type": "init"
-                      }
-                    ],
-                    "path": "/documentation/previewutilities/floatingalignment/horizontalalignment",
-                    "title": "FloatingAlignment.HorizontalAlignment",
-                    "type": "enum"
-                  },
-                  {
-                    "children": [
-                      {
-                        "title": "Enumeration Cases",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottom(_:)",
-                        "title": "case bottom(FloatingAlignment.HorizontalAlignment)",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leading(_:)",
-                        "title": "case leading(FloatingAlignment.OuterVerticalAlignment)",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/top(_:)",
-                        "title": "case top(FloatingAlignment.HorizontalAlignment)",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailing(_:)",
-                        "title": "case trailing(FloatingAlignment.OuterVerticalAlignment)",
-                        "type": "case"
-                      },
-                      {
-                        "title": "Type Properties",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/allcases",
-                        "title": "static let allCases: [FloatingAlignment.OuterAlignment]",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottom",
-                        "title": "static let bottom: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottomcenter",
-                        "title": "static let bottomCenter: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottomleading",
-                        "title": "static let bottomLeading: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/bottomtrailing",
-                        "title": "static let bottomTrailing: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leading",
-                        "title": "static let leading: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingabove",
-                        "title": "static let leadingAbove: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingbottom",
-                        "title": "static let leadingBottom: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingcenter",
-                        "title": "static let leadingCenter: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingtop",
-                        "title": "static let leadingTop: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/leadingunder",
-                        "title": "static let leadingUnder: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/top",
-                        "title": "static let top: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/topcenter",
-                        "title": "static let topCenter: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/topleading",
-                        "title": "static let topLeading: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/toptrailing",
-                        "title": "static let topTrailing: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailing",
-                        "title": "static let trailing: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingabove",
-                        "title": "static let trailingAbove: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingbottom",
-                        "title": "static let trailingBottom: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingcenter",
-                        "title": "static let trailingCenter: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingtop",
-                        "title": "static let trailingTop: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outeralignment/trailingunder",
-                        "title": "static let trailingUnder: FloatingAlignment.OuterAlignment",
-                        "type": "property"
-                      }
-                    ],
-                    "path": "/documentation/previewutilities/floatingalignment/outeralignment",
-                    "title": "FloatingAlignment.OuterAlignment",
-                    "type": "enum"
-                  },
-                  {
-                    "children": [
-                      {
-                        "title": "Enumeration Cases",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/above",
-                        "title": "case above",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/bottom",
-                        "title": "case bottom",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/center",
-                        "title": "case center",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/top",
-                        "title": "case top",
-                        "type": "case"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/under",
-                        "title": "case under",
-                        "type": "case"
-                      },
-                      {
-                        "title": "Initializers",
-                        "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment/init(rawvalue:)",
-                        "title": "init?(rawValue: String)",
-                        "type": "init"
-                      }
-                    ],
-                    "path": "/documentation/previewutilities/floatingalignment/outerverticalalignment",
-                    "title": "FloatingAlignment.OuterVerticalAlignment",
-                    "type": "enum"
-                  }
-                ],
-                "path": "/documentation/previewutilities/floatingalignment",
-                "title": "FloatingAlignment",
-                "type": "enum"
-              },
-              {
-                "children": [
-                  {
                     "title": "Type Properties",
                     "type": "groupMarker"
                   },
@@ -3064,6 +3189,11 @@
                         "type": "groupMarker"
                       },
                       {
+                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsillustration",
+                        "title": "static var docsIllustration: PreviewTrait<Preview.ViewTraits>",
+                        "type": "property"
+                      },
+                      {
                         "path": "/documentation/previewutilities/developertoolssupport/previewtrait/fixedheader",
                         "title": "static var fixedHeader: PreviewTrait<Preview.ViewTraits>",
                         "type": "property"
@@ -3111,16 +3241,6 @@
                       {
                         "title": "Type Methods",
                         "type": "groupMarker"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsrender(height:)",
-                        "title": "static func docsRender(height: Double) -> PreviewTrait<T>",
-                        "type": "method"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/developertoolssupport/previewtrait/docsrender(size:)",
-                        "title": "static func docsRender(size: CGSize) -> PreviewTrait<T>",
-                        "type": "method"
                       },
                       {
                         "path": "/documentation/previewutilities/developertoolssupport/previewtrait/fixedheader(_:)",
@@ -3615,11 +3735,6 @@
                       {
                         "path": "/documentation/previewutilities/swiftuicore/view/debugoverlay(traits:)",
                         "title": "func debugOverlay(traits: [DebugOverlayModifier.Configuration.Trait]) -> some View",
-                        "type": "method"
-                      },
-                      {
-                        "path": "/documentation/previewutilities/swiftuicore/view/docrender(size:)",
-                        "title": "func docRender(size: CGSize) -> some View",
                         "type": "method"
                       },
                       {

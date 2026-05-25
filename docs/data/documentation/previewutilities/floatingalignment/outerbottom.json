@@ -118,7 +118,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -185,6 +190,126 @@
       "title": "outerBottom",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outerbottom"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeading": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerLeading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerLeading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerleading"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTop": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTop"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTop",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTop",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertop"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailing": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTrailing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailing",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTrailing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertrailing"
     }
   },
   "schemaVersion": {
@@ -193,6 +318,18 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Outer-Alignments-Aliases",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTop",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailing"
+      ],
+      "title": "Outer Alignments Aliases"
+    }
+  ],
   "variants": [
     {
       "paths": [

@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "All floating alignment cases.",
+      "text": "All floating alignments.",
       "type": "text"
     }
   ],
@@ -132,7 +132,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -163,7 +168,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/allCases": {
       "abstract": [
         {
-          "text": "All floating alignment cases.",
+          "text": "All floating alignments.",
           "type": "text"
         }
       ],

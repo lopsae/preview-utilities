@@ -1,15 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Returns an outer floating alignment with the given horizontal alignment, and vertically",
-      "type": "text"
-    },
-    {
-      "text": " ",
-      "type": "text"
-    },
-    {
-      "text": "aligned to the center.",
+      "text": "Returns an outer floating alignment with the given horizontal major component, centered.",
       "type": "text"
     }
   ],
@@ -192,8 +184,9 @@
               "type": "text"
             },
             {
-              "code": "outerLeadingCenter",
-              "type": "codeVoice"
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingCenter",
+              "isActive": true,
+              "type": "reference"
             },
             {
               "text": ".",
@@ -209,16 +202,18 @@
               "type": "text"
             },
             {
-              "code": "center",
-              "type": "codeVoice"
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/center",
+              "isActive": true,
+              "type": "reference"
             },
             {
-              "text": " horizontal alignment, defaults to returning ",
+              "text": ", defaults to return ",
               "type": "text"
             },
             {
-              "code": "outerTrailingCenter",
-              "type": "codeVoice"
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingCenter",
+              "isActive": true,
+              "type": "reference"
             },
             {
               "text": ".",
@@ -247,7 +242,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -276,7 +276,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Horizontal alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -304,18 +309,33 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/horizontalalignment"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/center": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "center"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment/center",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "FloatingAlignment.HorizontalAlignment.center",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/horizontalalignment/center"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outer(horizontal:)": {
       "abstract": [
         {
-          "text": "Returns an outer floating alignment with the given horizontal alignment, and vertically",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "aligned to the center.",
+          "text": "Returns an outer floating alignment with the given horizontal major component, centered.",
           "type": "text"
         }
       ],
@@ -382,6 +402,86 @@
       "title": "outer(horizontal:)",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outer(horizontal:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingCenter": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerLeadingCenter"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingCenter",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerLeadingCenter",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerleadingcenter"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingCenter": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTrailingCenter"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingCenter",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTrailingCenter",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertrailingcenter"
     }
   },
   "schemaVersion": {

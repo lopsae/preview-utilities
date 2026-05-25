@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Alignment positions for outer floating content.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -80,6 +86,107 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "An outer alignments is composed by a major component and a minor component. ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "defines the major components and identifies the edge to which the content will be primarily",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "aligned: top, leading, bottom, or trailing. The minor component determines the secondary",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "direction along that edge where the content will be aligned.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Outer alignments with a vertical major (top and bottom) support three minor components: leading,",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "center, and trailing.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-alignment-outer-with-vertical-major",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Outer alignments with a horizontal major (leading and trailing) support five minor components:",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "above, top, center, bottom, and under.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "floating-alignment-outer-with-horizontal-major",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -108,7 +215,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -137,7 +249,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for outer floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -164,6 +281,40 @@
       "title": "FloatingAlignment.OuterAlignment",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outeralignment"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Key": {
+      "abstract": [
+        {
+          "text": "Identifier of the major component of an outer alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Key"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Key",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Key"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.OuterAlignment.Key",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outeralignment/key"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/allCases": {
       "abstract": [],
@@ -268,7 +419,12 @@
       "url": "/documentation/previewutilities/floatingalignment/outeralignment/bottom"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/bottom(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Outer alignment with a bottom major component.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -509,7 +665,12 @@
       "url": "/documentation/previewutilities/floatingalignment/outeralignment/leading"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/leading(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Outer alignment with a leading major component.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -848,7 +1009,12 @@
       "url": "/documentation/previewutilities/floatingalignment/outeralignment/top"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/top(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Outer alignment with a top major component.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -1089,7 +1255,12 @@
       "url": "/documentation/previewutilities/floatingalignment/outeralignment/trailing"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/trailing(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Outer alignment with a trailing major component.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -1447,6 +1618,48 @@
       "identifier": "doc://PreviewUtilities/s8SendableP",
       "title": "Swift.Sendable",
       "type": "unresolvable"
+    },
+    "floating-alignment-outer-with-horizontal-major": {
+      "alt": "Outer floating alignments with a horizontal major.",
+      "identifier": "floating-alignment-outer-with-horizontal-major",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-outer-with-horizontal-major@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-outer-with-horizontal-major~dark@3x.png"
+        }
+      ]
+    },
+    "floating-alignment-outer-with-vertical-major": {
+      "alt": "Outer floating alignments with a vertical major.",
+      "identifier": "floating-alignment-outer-with-vertical-major",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-outer-with-vertical-major@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/floating-alignment-outer-with-vertical-major~dark@3x.png"
+        }
+      ]
     }
   },
   "relationshipsSections": [
@@ -1510,6 +1723,14 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/trailingUnder"
       ],
       "title": "Type Properties"
+    },
+    {
+      "anchor": "Enumerations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Key"
+      ],
+      "title": "Enumerations"
     }
   ],
   "variants": [

@@ -201,7 +201,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -230,7 +235,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Horizontal alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -259,7 +269,12 @@
       "url": "/documentation/previewutilities/floatingalignment/horizontalalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for inner floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -288,7 +303,12 @@
       "url": "/documentation/previewutilities/floatingalignment/inneralignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for outer floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -316,8 +336,47 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outeralignment"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Key": {
+      "abstract": [
+        {
+          "text": "Identifier of the major component of an outer alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Key"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Key",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Key"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.OuterAlignment.Key",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outeralignment/key"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Vertical alignment component of an outer floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -344,6 +403,40 @@
       "title": "FloatingAlignment.OuterVerticalAlignment",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment": {
+      "abstract": [
+        {
+          "text": "Vertical alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.VerticalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable": {
       "abstract": [
@@ -473,7 +566,9 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment",
         "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/Key",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment"
       ],
       "kind": "relationships",
       "title": "Conforming Types",

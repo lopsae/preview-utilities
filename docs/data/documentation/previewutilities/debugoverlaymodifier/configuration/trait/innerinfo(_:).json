@@ -457,7 +457,12 @@
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/innerinfo(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -486,7 +491,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for inner floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

@@ -1,15 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Inherited from ",
-      "type": "text"
-    },
-    {
-      "code": "CaseIterable.allCases",
-      "type": "codeVoice"
-    },
-    {
-      "text": ".",
+      "text": "All inner alignments.",
       "type": "text"
     }
   ],
@@ -160,7 +152,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -189,7 +186,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for inner floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -218,7 +220,12 @@
       "url": "/documentation/previewutilities/floatingalignment/inneralignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/allCases": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "All inner alignments.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

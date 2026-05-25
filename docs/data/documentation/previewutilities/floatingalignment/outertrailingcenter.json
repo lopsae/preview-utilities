@@ -118,7 +118,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -145,6 +150,526 @@
       "title": "FloatingAlignment",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomCenter": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerBottomCenter"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomCenter",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerBottomCenter",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerbottomcenter"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomLeading": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerBottomLeading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomLeading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerBottomLeading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerbottomleading"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomTrailing": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerBottomTrailing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomTrailing",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerBottomTrailing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerbottomtrailing"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingAbove": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerLeadingAbove"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingAbove",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerLeadingAbove",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerleadingabove"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingBottom": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerLeadingBottom"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingBottom",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerLeadingBottom",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerleadingbottom"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingCenter": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerLeadingCenter"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingCenter",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerLeadingCenter",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerleadingcenter"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingTop": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerLeadingTop"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingTop",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerLeadingTop",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerleadingtop"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingUnder": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerLeadingUnder"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingUnder",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerLeadingUnder",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerleadingunder"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopCenter": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTopCenter"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopCenter",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTopCenter",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertopcenter"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopLeading": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTopLeading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopLeading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTopLeading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertopleading"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopTrailing": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTopTrailing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopTrailing",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTopTrailing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertoptrailing"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingAbove": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTrailingAbove"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingAbove",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTrailingAbove",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertrailingabove"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingBottom": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTrailingBottom"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingBottom",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTrailingBottom",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertrailingbottom"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingCenter": {
       "abstract": [],
@@ -185,6 +710,86 @@
       "title": "outerTrailingCenter",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outertrailingcenter"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingTop": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTrailingTop"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingTop",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTrailingTop",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertrailingtop"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingUnder": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "outerTrailingUnder"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingUnder",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "outerTrailingUnder",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outertrailingunder"
     }
   },
   "schemaVersion": {
@@ -193,6 +798,30 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Outer-Alignments",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerBottomTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingAbove",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingTop",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingBottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerLeadingUnder",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingAbove",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingTop",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingBottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTrailingUnder"
+      ],
+      "title": "Outer Alignments"
+    }
+  ],
   "variants": [
     {
       "paths": [

@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Outer alignment with a leading major component.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -130,7 +136,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -159,7 +170,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for outer floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -188,7 +204,12 @@
       "url": "/documentation/previewutilities/floatingalignment/outeralignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/leading(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Outer alignment with a leading major component.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -233,7 +254,12 @@
       "url": "/documentation/previewutilities/floatingalignment/outeralignment/leading(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Vertical alignment component of an outer floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

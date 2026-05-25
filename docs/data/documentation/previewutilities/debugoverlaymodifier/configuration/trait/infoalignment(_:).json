@@ -429,7 +429,12 @@
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/infoalignment(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

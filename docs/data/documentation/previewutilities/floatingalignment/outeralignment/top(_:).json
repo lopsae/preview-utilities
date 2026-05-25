@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Outer alignment with a top major component.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -130,7 +136,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -159,7 +170,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Horizontal alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -188,7 +204,12 @@
       "url": "/documentation/previewutilities/floatingalignment/horizontalalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for outer floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -217,7 +238,12 @@
       "url": "/documentation/previewutilities/floatingalignment/outeralignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/top(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Outer alignment with a top major component.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Applies the preview traits needed for documentation illustration.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -10,7 +16,7 @@
   },
   "identifier": {
     "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(size:)"
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsIllustration"
   },
   "kind": "symbol",
   "metadata": {
@@ -47,7 +53,7 @@
       ]
     },
     "extendedModule": "DeveloperToolsSupport",
-    "externalID": "s:21DeveloperToolsSupport12PreviewTraitV0D9UtilitiesAA0D0V10ViewTraitsORszlE10docsRender4sizeACyAHGSo6CGSizeV_tFZ",
+    "externalID": "s:21DeveloperToolsSupport12PreviewTraitV0D9UtilitiesAA0D0V10ViewTraitsORszlE16docsIllustrationACyAHGvpZ",
     "fragments": [
       {
         "kind": "keyword",
@@ -59,7 +65,7 @@
       },
       {
         "kind": "keyword",
-        "text": "func"
+        "text": "var"
       },
       {
         "kind": "text",
@@ -67,28 +73,11 @@
       },
       {
         "kind": "identifier",
-        "text": "docsRender"
-      },
-      {
-        "kind": "text",
-        "text": "("
-      },
-      {
-        "kind": "externalParam",
-        "text": "size"
+        "text": "docsIllustration"
       },
       {
         "kind": "text",
         "text": ": "
-      },
-      {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "c:@S@CGSize",
-        "text": "CGSize"
-      },
-      {
-        "kind": "text",
-        "text": ") -> "
       },
       {
         "kind": "typeIdentifier",
@@ -101,7 +90,17 @@
       },
       {
         "kind": "typeIdentifier",
-        "text": "T"
+        "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV",
+        "text": "Preview"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
+        "text": "ViewTraits"
       },
       {
         "kind": "text",
@@ -117,9 +116,9 @@
       }
     ],
     "role": "symbol",
-    "roleHeading": "Type Method",
-    "symbolKind": "method",
-    "title": "docsRender(size:)"
+    "roleHeading": "Type Property",
+    "symbolKind": "property",
+    "title": "docsIllustration"
   },
   "primaryContentSections": [
     {
@@ -155,7 +154,7 @@
             },
             {
               "kind": "keyword",
-              "text": "func"
+              "text": "var"
             },
             {
               "kind": "text",
@@ -163,28 +162,11 @@
             },
             {
               "kind": "identifier",
-              "text": "docsRender"
-            },
-            {
-              "kind": "text",
-              "text": "("
-            },
-            {
-              "kind": "externalParam",
-              "text": "size"
+              "text": "docsIllustration"
             },
             {
               "kind": "text",
               "text": ": "
-            },
-            {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "c:@S@CGSize",
-              "text": "CGSize"
-            },
-            {
-              "kind": "text",
-              "text": ") -> "
             },
             {
               "kind": "typeIdentifier",
@@ -197,11 +179,29 @@
             },
             {
               "kind": "typeIdentifier",
-              "text": "T"
+              "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV",
+              "text": "Preview"
             },
             {
               "kind": "text",
-              "text": ">"
+              "text": "."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
+              "text": "ViewTraits"
+            },
+            {
+              "kind": "text",
+              "text": "> { "
+            },
+            {
+              "kind": "keyword",
+              "text": "get"
+            },
+            {
+              "kind": "text",
+              "text": " }"
             }
           ]
         }
@@ -263,8 +263,13 @@
       "type": "topic",
       "url": "/documentation/previewutilities/developertoolssupport/previewtrait"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(size:)": {
-      "abstract": [],
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsIllustration": {
+      "abstract": [
+        {
+          "text": "Applies the preview traits needed for documentation illustration.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -308,7 +313,7 @@
         },
         {
           "kind": "keyword",
-          "text": "func"
+          "text": "var"
         },
         {
           "kind": "text",
@@ -316,28 +321,11 @@
         },
         {
           "kind": "identifier",
-          "text": "docsRender"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "size"
+          "text": "docsIllustration"
         },
         {
           "kind": "text",
           "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@S@CGSize",
-          "text": "CGSize"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
         },
         {
           "kind": "typeIdentifier",
@@ -350,19 +338,29 @@
         },
         {
           "kind": "typeIdentifier",
-          "text": "T"
+          "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV",
+          "text": "Preview"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
+          "text": "ViewTraits"
         },
         {
           "kind": "text",
           "text": ">"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsRender(size:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsIllustration",
       "kind": "symbol",
       "role": "symbol",
-      "title": "docsRender(size:)",
+      "title": "docsIllustration",
       "type": "topic",
-      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsrender(size:)"
+      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsillustration"
     }
   },
   "schemaVersion": {
@@ -374,7 +372,7 @@
   "variants": [
     {
       "paths": [
-        "/documentation/previewutilities/developertoolssupport/previewtrait/docsrender(size:)"
+        "/documentation/previewutilities/developertoolssupport/previewtrait/docsillustration"
       ],
       "traits": [
         {

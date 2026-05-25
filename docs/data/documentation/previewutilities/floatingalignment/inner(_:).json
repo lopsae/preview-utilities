@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "An inner floating alignment.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -129,7 +135,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -158,7 +169,12 @@
       "url": "/documentation/previewutilities/floatingalignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Alignment positions for inner floating content.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -187,7 +203,12 @@
       "url": "/documentation/previewutilities/floatingalignment/inneralignment"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/inner(_:)": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "An inner floating alignment.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
