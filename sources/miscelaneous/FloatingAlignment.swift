@@ -39,13 +39,18 @@ import SwiftUI
 ///
 /// Outer alignments are composed by a mayor component and a minor component. ``OuterAlignment``
 /// defines the mayor components and identifies the edge to which the content will be primarily
-/// aligned: top, leading, bottom, or trailing.
+/// aligned: top, leading, bottom, or trailing. The minor component determines the secondary
+/// direction along that edge where the content will be aligned.
 ///
-/// The minor component determines the secondary direction in an edge where the content will be
-/// aligned. For top and bottom the minor components can be: leading, center, or trailing. For
-/// leading and trailing the minor components can be: above, top, center, bottom, or under.
+/// Outer alignments with a vertical major (top and bottom) support the minor components: leading,
+/// center, and trailing.
 ///
-/// ![Illustration of all outer floating alignments.](floating-alignment-outer-alignments)
+/// ![Outer floating alignments with a vertical major.](floating-alignment-outer-with-vertical-major)
+///
+/// Outer alignments with a horizontal major (leading and trailing) support the minor components:
+/// above, top, center, bottom, and under.
+///
+/// ![Outer floating alignments with a horizontal major.](floating-alignment-outer-with-horizontal-major)
 ///
 ///
 /// ### Implementing floating content
