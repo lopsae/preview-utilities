@@ -15,14 +15,14 @@ Debug Overlay
 -------------
 Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.
 
-Apply the `debugOverlay()` modifier to any view to overlay the debug visualization, the original
+Apply the [`debugOverlay()`](docs-debug-overlay-function) modifier to any view to overlay the debug visualization, the original
 layout of the parent view is never modified.
 
-See the [`DebugOverlayModifier` documentation](https://lopsae.com/preview-utilities/documentation/previewutilities/debugoverlaymodifier). 
+See the [`DebugOverlayModifier` documentation](docs-debug-overlay-modifier). 
 
 ```swift
 Text("Sphinx of Black Quartz")
-   .font(.title)
+    .font(.title)
 Text("Judge my Vow")
     .font(.title)
     .debugOverlay()
@@ -35,15 +35,19 @@ Text("Judge my Vow")
 />
 
 
+[docs-debug-overlay-function]: https://lopsae.com/preview-utilities/documentation/previewutilities/swiftuicore/view/debugoverlay()
+[docs-debug-overlay-modifier]: https://lopsae.com/preview-utilities/documentation/previewutilities/debugoverlaymodifier
+
+
 
 Floating Caption
 ----------------
 Add a floating caption, border, and size information to any view, without impacting its layout.
 
-Apply the `floatingCaption(_:_:)` modifier to any view to overlay a floating caption, and optionally
+Apply the [`floatingCaption(_:_:)`](docs-floating-caption-function) modifier to any view to overlay a floating caption, and optionally
 draw a border over the parent view. The original layout of the parent view is never modified.
 
-See the [`FloatingCaptionModifier` documentation](https://lopsae.com/preview-utilities/documentation/previewutilities/floatingcaptionmodifier).
+See the [`FloatingCaptionModifier` documentation](docs-floating-caption-modifier).
 
 ```swift
 Circle()
@@ -64,6 +68,10 @@ Circle()
     alt="Floating caption with example traits and explanations."
 />
 
+
+
+[docs-floating-caption-function]: https://lopsae.com/preview-utilities/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
+[docs-floating-caption-modifier]: https://lopsae.com/preview-utilities/documentation/previewutilities/floatingcaptionmodifier
 
 
 Other utilities
