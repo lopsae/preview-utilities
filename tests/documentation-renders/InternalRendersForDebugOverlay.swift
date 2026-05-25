@@ -20,11 +20,11 @@ import Testing
 @Suite(.tags(.documentationRender))
 struct InternalRendersForDebugOverlay {
 
-    @Test func components() throws {
-        let resource = try DocumentationRenderer.render("debug-overlay", "components", height: 200) {
+    @Test(.tags(.documentationRender))
+    func components() throws {
+        try DocumentationResources.renderAndStore("debug-overlay", "components") {
             IllustrationsForDebugOverlay.components
         }
-        try DocumentationResources.store(resource: resource)
     }
 
 }

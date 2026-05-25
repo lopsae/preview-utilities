@@ -20,35 +20,40 @@ import Testing
 @Suite(.tags(.documentationRender))
 struct InternalRendersForFloatingAlignment {
 
-    @Test func alignmentExamples() throws {
+    @Test(.tags(.documentationRender))
+    func alignmentExamples() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "alignment-examples") {
             IllustrationsForFloatingAlignment.alignmentExamples
         }
     }
 
 
-    @Test func innerAlignments() throws {
+    @Test(.tags(.documentationRender))
+    func innerAlignments() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "inner-alignments") {
             IllustrationsForFloatingAlignment.innerAlignments
         }
     }
 
 
-    @Test func outerAlignments() throws {
+    @Test(.tags(.documentationRender))
+    func outerAlignments() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "outer-alignments") {
             IllustrationsForFloatingAlignment.outerAlignments
         }
     }
 
 
-    @Test func outerWithVerticalMajor() throws {
+    @Test(.tags(.documentationRender))
+    func outerWithVerticalMajor() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "outer-with-vertical-major") {
             IllustrationsForFloatingAlignment.outerAlignmentWithVerticalMajor
         }
     }
 
 
-    @Test func outerWithHorizontalMajor() throws {
+    @Test(.tags(.documentationRender))
+    func outerWithHorizontalMajor() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "outer-with-horizontal-major") {
             IllustrationsForFloatingAlignment.outerAlignmentWithHorizontalMajor
         }

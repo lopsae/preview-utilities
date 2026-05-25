@@ -18,37 +18,6 @@ struct DocumentationRenderer {
     static let defaultScale: CGFloat = 3
     static let defaultColorSchemes: Set<ColorScheme> = [.light, .dark]
 
-    /// Renders a SwiftUI view configured as a documentation image.
-    ///
-    /// The name components determine the folder location and name of the image. Every name
-    /// component except the last is treated as the folder path where the image will be saved. The
-    /// name of the image is all the name components joined with hyphens (`-`).
-    static func render<Content: View>(
-        nameComponents: [String],
-        size: CGSize,
-        scale: CGFloat = defaultScale,
-        colorSchemes: Set<ColorScheme> = defaultColorSchemes,
-        @ViewBuilder content: () -> Content
-    ) throws -> RenderResource {
-        var images: [ColorScheme: CGImage] = [:]
-
-        for scheme in colorSchemes {
-            let renderer = ImageRenderer(scale: scale) {
-                content()
-                .docRender(size: size)
-                .environment(\.colorScheme, scheme)
-            }
-
-            guard let cgImage = renderer.cgImage else {
-                let resourceName = RenderResource.resourceName(components: nameComponents)
-                throw RendererError.renderingFailed(resourceName)
-            }
-            images[scheme] = cgImage
-        }
-
-        return RenderResource(nameComponents: nameComponents, scale: scale, images: images)
-    }
-
 
     /// Renders a SwiftUI view configured as a documentation image.
     ///
@@ -77,39 +46,6 @@ struct DocumentationRenderer {
         }
 
         return RenderResource(nameComponents: nameComponents, scale: scale, images: images)
-    }
-
-
-    /// Renders a SwiftUI view configured as a documentation image.
-    static func render<Content: View>(
-        nameComponents: String...,
-        size: CGSize,
-        scale: CGFloat = defaultScale,
-        colorSchemes: Set<ColorScheme> = defaultColorSchemes,
-        @ViewBuilder content: () -> Content
-    ) throws -> RenderResource {
-        try render(
-            nameComponents: nameComponents,
-            size: size, scale: scale, colorSchemes: colorSchemes,
-            content: content
-        )
-    }
-
-    /// Renders a SwiftUI view configured as a documentation image, using the default width.
-    static func render<Content: View>(
-        _ nameComponents: String...,
-        height: CGFloat,
-        scale: CGFloat = defaultScale,
-        colorSchemes: Set<ColorScheme> = defaultColorSchemes,
-        @ViewBuilder content: () -> Content
-    ) throws -> RenderResource {
-        try render(
-            nameComponents: nameComponents,
-            size: [Self.defaultWidth, height],
-            scale: scale,
-            colorSchemes: colorSchemes,
-            content: content
-        )
     }
 
 

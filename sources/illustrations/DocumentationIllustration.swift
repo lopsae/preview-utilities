@@ -15,7 +15,7 @@ public struct DocumentationIllustration: View {
     let size: CGSize
     let content: AnyView
 
-    init<Content: View>(height: CGFloat, @ViewBuilder content: @escaping () -> Content) {
+    public init<Content: View>(height: CGFloat, @ViewBuilder content: @escaping () -> Content) {
         self.size = [Self.defaultWidth, height]
         self.content = AnyView(content())
     }
