@@ -7,13 +7,94 @@
 import SwiftUI
 
 
-/// Draws in an overlay of the content view visual representations of the view's boundaries and safe
-/// areas. Optionally can display additional information like size, origin, and the safe area insets.
+/// Overlays a visual representations of a view's boundaries, origin, and safe areas.
+///
+/// Displays in an overlay a visual representation of a view's boundaries, its origin point, and any
+/// applied safe area insets. The overlay can be configured to also display geometry information
+/// like size, global origin coordinates, safe area insets, or a given text caption.
+///
+/// All content added by this modifier is layered in an overlay of the parent view, the original
+/// layout is never modified.
+///
+/// Apply this modifier using ``SwiftUICore/View/debugOverlay()``:
+///
+/// ```swift
+/// Text("Sphinx of Black Quartz")
+///    .font(.title)
+/// Text("Judge my Vow")
+///     .font(.title)
+///     .debugOverlay()
+/// ```
+/// ![Debug overlay with default configuration.](debug-overlay-default)
+///
+///
+/// ### Traits and Configuration
+///
+/// The overlay can be configured by passing [`Trait`](doc:Configuration/Trait) instances to
+/// ``SwiftUICore/View/debugOverlay(_:)``:
+///
+/// ```swift
+/// Rectangle()
+/// .fill(.yellow.gradient.secondary)
+/// .frame(width: 200, height: 80)
+/// .debugOverlay(
+///     .size,                     // prints the size of the parent view
+///     .bordersWidth(2),          // sets debug borders width to 2
+///     .alignment(.innerTrailing) // aligns caption to trailing-center
+/// )
+/// ```
+/// ![Debug overlay using traits.](debug-overlay-simple-traits)
+///
+///
+/// ### Visual Components
+///
+/// The boundaries of the parent view are visualized using two strokes: a dashed inner stroke (by
+/// default red) drawn inset of the view's boundaries, and a solid outer stroke (by default blue)
+/// drawn outside. A cross `+` marks the origin point, and green rectangles represent safe area
+/// insets applied to the view.
+///
+/// ![Visual components of the debug overlay.](debug-overlay-components)
+///
+///
+/// ### Caption Alignment
+///
+/// The overlay uses ``FloatingAlignment`` to determine the position of the debug caption,
+/// supporting positions both inside and outside of the parent view. When an ``FloatingAlignment/OuterAlignment``
+/// is used, the space occupied by the parent view does not change, even if the caption is
+/// displayed outside of its boundaries:
+/// ```swift
+/// HStack(spacing: 16) {
+///     Rectangle()
+///         .fill(.green.gradient)
+///         .frame(width: 100, height: 60)
+///         .debugOverlay(.caption("Inner Top"), .alignment(.innerTop))
+///     Rectangle()
+///         .fill(.mint.gradient)
+///         .frame(width: 100, height: 60)
+///         .debugOverlay(.caption("Outer Bottom\nLeading"), .alignment(.outerBottomLeading))
+///     Rectangle()
+///         .fill(.teal.gradient)
+///         .frame(width: 100, height: 60)
+///         .debugOverlay(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
+/// }
+/// ```
+/// ![Debug overlay example alignments.](debug-overlay-alignments)
+///
+///
+/// ## Topics
+///
+/// ### Configuration
+///
+/// + ``Configuration``
+/// + ``Configuration/Trait``
 public struct DebugOverlayModifier: ViewModifier {
 
-    /// The borders width is limited to a minimum of 1 so that there is always a visual overlay even
-    /// on zero sizes. Smaller values are overridden with the minimum.
+    /// Minimum limit for the border width. Ensures there is always a visual overlay even on sizes
+    /// approaching zero. Smaller values are overridden with the minimum.
     private static let minBordersWidth: CGFloat = 1
+
+    /// Minimum limit for the reticule length. Ensures there is always a visual reticule even on
+    /// sizes approaching zero. Smaller values are overridden with the minimum.
     private static let minReticuleLength: CGFloat = 2
 
     private static let outerShapeStyle:     some ShapeStyle = .blue.tertiary
@@ -29,6 +110,7 @@ public struct DebugOverlayModifier: ViewModifier {
     }
 
 
+    @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
         content.overlay {
             GeometryReader { geometry in
@@ -36,10 +118,10 @@ public struct DebugOverlayModifier: ViewModifier {
                 outerStrokeRect(geometry: geometry)
                 innerStrokeRect(geometry: geometry)
                 originReticuleRects(geometry: geometry)
-                geometryInfoView(geometry)
-            } // GeometryReader
+                debugCaptionView(geometry)
+            }
             .allowsHitTesting(false)
-        } // overlay
+        }
     }
 
 
@@ -158,23 +240,47 @@ public struct DebugOverlayModifier: ViewModifier {
 
 
     @ViewBuilder
-    private func geometryInfoView(_ geometry: GeometryProxy) -> some View {
+    private func debugCaptionView(_ geometry: GeometryProxy) -> some View {
         if configuration.containsInfoCaptionElements {
             let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
+            // At most, the caption sits 4 points away from the borders.
+            let maxSpacingFromBoundary = boundedBordersWidth + 4
+            // At smaller sizes, the spacing is reduced along the borders width,
+            // with a different ratio for each axis.
+            let horizontalSpacingFromBoundary = (boundedBordersWidth * 2.0).clamped(to: ...maxSpacingFromBoundary)
+            let verticalSpacingFromBoundary = (boundedBordersWidth * 1.2).clamped(to: ...maxSpacingFromBoundary)
+
+            let outerAlignment = configuration.infoAlignment.outerAlignment
+            let verticalSpacing = verticalSpacingFromBoundary
+
+            // For outer alignment with top-or-bottom major, the caption is aligned 2 points from
+            // the edge of the content. Otherwise it looks misaligned.
+            let horizontalSpacing = outerAlignment?.key.isEqual(toAny: .top, .bottom) ?? false
+                ? 2
+                : horizontalSpacingFromBoundary
+
             FloatingAlignedContainer(
                 alignment: configuration.infoAlignment,
-                spacing: boundedBordersWidth * 1.5
+                horizontalSpacing: horizontalSpacing,
+                verticalSpacing: verticalSpacing,
             ) { alignments in
                 Group {
                     let globalFrame = geometry.frame(in: .global)
                     let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
                     // Caption.
-                    if let caption = configuration.caption {
-                        Text(caption)
+                    switch configuration.captionSource {
+                    case .localizedKey(let localizedStringKey):
+                        Text(localizedStringKey)
                         .font(.caption)
                         .multilineTextAlignment(alignments.text)
+                    case .verbatim(let string):
+                        Text(verbatim: string)
+                        .font(.caption)
+                        .multilineTextAlignment(alignments.text)
+                    case .none:
+                        EmptyView()
                     }
 
                     // Width, Height, or Size.
@@ -216,7 +322,7 @@ public struct DebugOverlayModifier: ViewModifier {
     ///
     /// Minimum size at which a `Rectangle` is found to be drawn:
     /// + `0.17` in iPhone 17 Pro simulator; however this was found to jump to `0.35` when running
-    ///   in the MacBook Pro Retina display, and if might depend on display resolution.
+    ///   in the MacBook Pro Retina display, and it might depend on display resolution.
     /// + `0.25` in macOS 26 in preview canvas.
     /// + `0.39` when preview in an iPad Pro 11-inch M4.
     ///
@@ -239,6 +345,16 @@ extension View {
 
     /// Layers in front of this view a debug overlay using the default configuration.
     ///
+    /// Applies the ``DebugOverlayModifier``, overlaying a visual representation of the views
+    /// boundaries, origin point, and safe area insets.
+    ///
+    /// ```swift
+    /// Text("a sort of splendid torch")
+    ///     .debugOverlay()
+    /// Text("which I have got hold of for the moment")
+    /// ```
+    /// ![Debug overlay with default configuration applied to a single Text.](debug-overlay-torch-default)
+    ///
     /// - Returns: A view with a debug overlay as foreground.
     public func debugOverlay() -> some View {
         let configuration = DebugOverlayModifier.Configuration()
@@ -248,21 +364,24 @@ extension View {
 
     /// Layers in front of this view a debug overlay configured using the given traits.
     ///
+    /// Applies the ``DebugOverlayModifier`` configured with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// instances, overlaying a visual representation of the views boundaries, origin point, and
+    /// safe area insets.
+    ///
+    /// The traits are applied in the order they are passed to a default configuration. Later
+    /// traits may override earlier ones depending on the configuration each trait modifies.
+    ///
+    /// ```swift
+    /// Text("a sort of splendid torch")
+    ///     .debugOverlay(.width, .alignment(.outerTop))
+    /// Text("which I have got hold of for the moment")
+    /// ```
+    /// ![Debug overlay with traits applied to a single Text.](debug-overlay-torch-traits)
+    ///
     /// - Parameters:
     ///   - traits: The traits to modify the default configuration.
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
-    /// 
-    /// Example usage:
-    /// ```swift
-    /// // Hairline outline.
-    /// Text("Hello")
-    ///     .debugOutline(.hairline)
-    ///
-    /// // Outlines along size and origin info.
-    /// Text("Hello")
-    ///     .debugOutline(.size, .origin)
-    /// ```
     public func debugOverlay(_ traits: DebugOverlayModifier.Configuration.Trait...) -> some View {
         let configuration = DebugOverlayModifier.Configuration(traits: traits)
         return modifier(DebugOverlayModifier(configuration: configuration))
@@ -270,6 +389,13 @@ extension View {
 
 
     /// Layers in front of this view a debug overlay configured using the given traits.
+    ///
+    /// Applies the ``DebugOverlayModifier`` configured with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// instances, overlaying a visual representation of the views boundaries, origin point, and
+    /// safe area insets.
+    ///
+    /// The traits are applied in the order they are passed to a default configuration. Later
+    /// traits may override earlier ones depending on the configuration each trait modifies.
     ///
     /// - Parameters:
     ///   - traits: The traits to modify the default configuration.
@@ -402,7 +528,7 @@ private struct PreviewContent {
     @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
 
-    @Previewable @State var outerMayorAlignment: FloatingAlignment.OuterAlignment.Key = .top
+    @Previewable @State var outerMajorAlignment: FloatingAlignment.OuterAlignment.Key = .top
     @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
 
@@ -419,7 +545,7 @@ private struct PreviewContent {
         case .inner:
             positionTrait = .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
         case .outer:
-            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMayorAlignment {
+            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMajorAlignment {
             case .top:      .top(     outerMinorHorizontalAlignment)
             case .bottom:   .bottom(  outerMinorHorizontalAlignment)
             case .leading:  .leading( outerMinorVerticalAlignment)
@@ -445,10 +571,10 @@ private struct PreviewContent {
                 .pickerStyle(.segmented)
 
         case .outer:
-            Picker("Outer Mayor Alignment", selection: $outerMayorAlignment, caseFormat: .rawValueCapitalized())
+            Picker("Outer Major Alignment", selection: $outerMajorAlignment, caseFormat: .rawValueCapitalized())
                 .pickerStyle(.segmented)
 
-            switch outerMayorAlignment {
+            switch outerMajorAlignment {
             case .top, .bottom:
                 Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment, caseFormat: .rawValueCapitalized())
                     .pickerStyle(.segmented)
@@ -459,7 +585,7 @@ private struct PreviewContent {
         }
 
         Slider.captioned(
-            "Line Width", value: $bordersWidth, in: 0...15,
+            "Line Width", value: $bordersWidth, in: 0...30,
             currentValueFormat: .fractionLength(2),
             boundsValueFormat: .arithmeticRoundedInteger)
 
@@ -569,13 +695,34 @@ private struct PreviewContent {
 
 
 #Preview("All Alignments", traits: PreviewContent.layout) {
-    let size: CGSize = .init(width: 300, height: 150)
-    PreviewContent.star
-    .frame(size: size)
-    .overlay {
-        ForEach(FloatingAlignment.allCases) { alignment in
-            ClearRectangle()
-                .debugOverlay(.width, .infoAlignment(alignment))
+    ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
+        DashedDivider()
+        Text(horizontalAlignment.displayName, format: .capitalized)
+
+        PreviewContent.star
+        .frame(size: [100, 130])
+        .overlay {
+            let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
+            ForEach(alignments) { alignment in
+                ClearRectangle()
+                    .debugOverlay(
+                        .width, .caption(verbatim: alignment.hyphenatedName),
+                        .infoAlignment(alignment))
+            }
         }
+        .padding(.vertical, 30)
     }
+    DashedDivider()
 }
+
+
+extension Hashable {
+
+    nonisolated
+    func isEqual(toAny others: Self...) -> Bool {
+        let set = Set(others)
+        return set.contains(self)
+    }
+
+}
+

@@ -1,0 +1,525 @@
+{
+  "abstract": [
+    {
+      "text": "Experimental view that displays the given content overlaid on a parent view that is hidden.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19HiddenParentOverlayV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "HiddenParentOverlay"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "HiddenParentOverlay"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Structure",
+    "symbolKind": "struct",
+    "title": "HiddenParentOverlay"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "HiddenParentOverlay"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "Parent"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "genericParameter",
+              "text": "Overlaid"
+            },
+            {
+              "kind": "text",
+              "text": "> "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Parent"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Overlaid"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The parent content is hidden visually and for accessibility, but still occupies space normally",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "for layout purpouses.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The parent content determines the space that will be used. The overlaid content is aligned in",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "this space. Overlaid content larger that the parent content does not modify the size occupied by",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "the parent content, the overlaid content just overflows.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This has the practical result of displaying the overlaid content aligned to the space occupied",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "by the parent view, while using exactly the size of the parent view irregardless of the size of",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "the overlaid content.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/7SwiftUI4ViewP": {
+      "identifier": "doc://PreviewUtilities/7SwiftUI4ViewP",
+      "title": "SwiftUICore.View",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
+      "abstract": [
+        {
+          "text": "Experimental view that displays the given content overlaid on a parent view that is hidden.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "role": "symbol",
+      "title": "HiddenParentOverlay",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/body": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "body"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/body",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "body",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay/body"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/init(alignment:parent:overlaid:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "alignment"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI9AlignmentV",
+          "text": "Alignment"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "parent"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Parent"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "overlaid"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Overlaid"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/init(alignment:parent:overlaid:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(alignment:parent:overlaid:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay/init(alignment:parent:overlaid:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)": {
+      "abstract": [
+        {
+          "text": "Returns the view with the parent visible.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "visibleParent"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19HiddenParentOverlayV",
+          "text": "HiddenParentOverlay"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Parent"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Overlaid"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "visibleParent(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay/visibleparent(_:)"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP",
+        "doc://PreviewUtilities/7SwiftUI4ViewP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/init(alignment:parent:overlaid:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/body"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay/visibleParent(_:)"
+      ],
+      "title": "Instance Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/hiddenparentoverlay"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

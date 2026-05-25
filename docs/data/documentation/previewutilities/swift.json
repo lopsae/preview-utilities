@@ -1,0 +1,364 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:m:s:e:s:SK16PreviewUtilitiesE10clampIndexy0D0QzSgADF",
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "collection",
+    "roleHeading": "Extended Module",
+    "symbolKind": "extension",
+    "title": "Swift"
+  },
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Swift",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:SK",
+          "text": "BidirectionalCollection"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "BidirectionalCollection"
+        }
+      ],
+      "role": "symbol",
+      "title": "BidirectionalCollection",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/bidirectionalcollection"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:Sl",
+          "text": "Collection"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Collection"
+        }
+      ],
+      "role": "symbol",
+      "title": "Collection",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/collection"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Comparable": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:SL",
+          "text": "Comparable"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Comparable",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Comparable"
+        }
+      ],
+      "role": "symbol",
+      "title": "Comparable",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/comparable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:s26DefaultStringInterpolationV",
+          "text": "DefaultStringInterpolation"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DefaultStringInterpolation"
+        }
+      ],
+      "role": "symbol",
+      "title": "DefaultStringInterpolation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/defaultstringinterpolation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Double"
+        }
+      ],
+      "role": "symbol",
+      "title": "Double",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/double"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:s8DurationV",
+          "text": "Duration"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Duration"
+        }
+      ],
+      "role": "symbol",
+      "title": "Duration",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/duration"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Numeric": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:Sj",
+          "text": "Numeric"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Numeric",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Numeric"
+        }
+      ],
+      "role": "symbol",
+      "title": "Numeric",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/numeric"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:ST",
+          "text": "Sequence"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Sequence"
+        }
+      ],
+      "role": "symbol",
+      "title": "Sequence",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/sequence"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:Sx",
+          "text": "Strideable"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Strideable"
+        }
+      ],
+      "role": "symbol",
+      "title": "Strideable",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/strideable"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Extended-Protocols",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/BidirectionalCollection",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Comparable",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Numeric",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Sequence",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable"
+      ],
+      "title": "Extended Protocols"
+    },
+    {
+      "anchor": "Extended-Structures",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration"
+      ],
+      "title": "Extended Structures"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swift"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

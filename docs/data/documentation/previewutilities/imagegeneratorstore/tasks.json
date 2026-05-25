@@ -1,0 +1,525 @@
+{
+  "abstract": [
+    {
+      "text": "Stores the internal task generating the image.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/tasks"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19ImageGeneratorStoreC5tasksSDySSScTy7SwiftUI0C0VSgs5NeverOGGvp",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "var"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "tasks"
+      },
+      {
+        "kind": "text",
+        "text": ": ["
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": " : "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC",
+        "text": "ImageGeneratorStore"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Generator"
+      },
+      {
+        "kind": "text",
+        "text": ">."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC0C4Taska",
+        "text": "ImageTask"
+      },
+      {
+        "kind": "text",
+        "text": "]"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Property",
+    "symbolKind": "property",
+    "title": "tasks"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "var"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "tasks"
+            },
+            {
+              "kind": "text",
+              "text": ": ["
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC",
+              "text": "ImageGeneratorStore"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Generator"
+            },
+            {
+              "kind": "text",
+              "text": ">."
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/ImageTask",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC0C4Taska",
+              "text": "ImageTask"
+            },
+            {
+              "kind": "text",
+              "text": "] { "
+            },
+            {
+              "kind": "keyword",
+              "text": "get"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "set"
+            },
+            {
+              "kind": "text",
+              "text": " }"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Only one task per text is kept at any time. This task can be cancelled both directly or",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "through the cancelation of the task context calling ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/generateImage(with:)",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "Since cancelation can happen even after the image generation is done, it is possible to have",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "a cancelled task for an image that has successfully generated and stored. The",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "source-of-truth for the success of an image generation is if the image exists in ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/images",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/ImageTask": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageTask"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/ImageTask",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageTask"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore.ImageTask",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/imagetask"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/generateImage(with:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generateImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI5ImageV",
+          "text": "Image"
+        },
+        {
+          "kind": "text",
+          "text": "?"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/generateImage(with:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generateImage(with:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generateimage(with:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/images": {
+      "abstract": [
+        {
+          "text": "Stores the generated images for each text.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "images"
+        },
+        {
+          "kind": "text",
+          "text": ": ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI5ImageV",
+          "text": "Image"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/images",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "images",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/images"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/tasks": {
+      "abstract": [
+        {
+          "text": "Stores the internal task generating the image.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "tasks"
+        },
+        {
+          "kind": "text",
+          "text": ": ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC",
+          "text": "ImageGeneratorStore"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Generator"
+        },
+        {
+          "kind": "text",
+          "text": ">."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC0C4Taska",
+          "text": "ImageTask"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/tasks",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "tasks",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/tasks"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/imagegeneratorstore/tasks"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

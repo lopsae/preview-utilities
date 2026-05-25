@@ -1,0 +1,641 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUI",
+    "externalID": "s:e:s:7SwiftUI6SliderV16PreviewUtilitiesE9captioned_5value2in4step18currentValueFormat06boundskL016onEditingChangedQrAA18LocalizedStringKeyV_AA7BindingVyqd__GSNyqd__G6StrideQyd__qd_0_qd_1_ySbctAA4TextVRszAURs_SBRd__0L5InputQyd_0_Rsd__10Foundation0L5StyleRd_0_AxYRd_1_SBASRQAVQyd_1_AWRSSS0L6OutputRtd_0_SSA_Rtd_1_r1_lFZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:7SwiftUI6SliderV",
+        "text": "Slider"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUI"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "Slider"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "Slider"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI6SliderV",
+              "text": "Slider"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUI",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6SliderV",
+          "text": "Slider"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Slider"
+        }
+      ],
+      "role": "symbol",
+      "title": "Slider",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/slider"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider/captioned(_:value:in:step:currentValueFormat:boundsValueFormat:onEditingChanged:)": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Label",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": " and ",
+            "type": "text"
+          },
+          {
+            "code": "ValueLabel",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "captioned"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "text": "CurrentFormat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "text": "BoundsFormat"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+          "text": "LocalizedStringKey"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "value"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI7BindingV",
+          "text": "Binding"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "in"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SN",
+          "text": "ClosedRange"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "step"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sx6StrideQa",
+          "text": "Stride"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "currentValueFormat"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "CurrentFormat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "boundsValueFormat"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "BoundsFormat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "onEditingChanged"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s4Voida",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider/captioned(_:value:in:step:currentValueFormat:boundsValueFormat:onEditingChanged:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "captioned(_:value:in:step:currentValueFormat:boundsValueFormat:onEditingChanged:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/slider/captioned(_:value:in:step:currentvalueformat:boundsvalueformat:oneditingchanged:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider/captioned(_:value:in:valueFormat:onEditingChanged:)": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Label",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": " and ",
+            "type": "text"
+          },
+          {
+            "code": "ValueLabel",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "captioned"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Format"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
+          "text": "LocalizedStringKey"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "value"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI7BindingV",
+          "text": "Binding"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "in"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SN",
+          "text": "ClosedRange"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "valueFormat"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Format"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "onEditingChanged"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s4Voida",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider/captioned(_:value:in:valueFormat:onEditingChanged:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "captioned(_:value:in:valueFormat:onEditingChanged:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/slider/captioned(_:value:in:valueformat:oneditingchanged:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider/captioned(_:value:in:step:currentValueFormat:boundsValueFormat:onEditingChanged:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider/captioned(_:value:in:valueFormat:onEditingChanged:)"
+      ],
+      "title": "Type Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftui/slider"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Swift",
+    "externalID": "s:e:s:Sd16PreviewUtilitiesE3tauSdvpZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:Sd",
+        "text": "Double"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Swift"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "Double"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "Double"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sd",
+              "text": "Double"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Swift",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Double"
+        }
+      ],
+      "role": "symbol",
+      "title": "Double",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/double"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double/asDouble": {
+      "abstract": [],
+      "deprecated": true,
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "asDouble"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double/asDouble",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "asDouble",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/double/asdouble"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Double/asDouble"
+      ],
+      "title": "Instance Properties"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swift/double"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

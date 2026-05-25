@@ -1,0 +1,202 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities16IdentifiableCaseP0D0Qa",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "associatedtype"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "Case"
+      },
+      {
+        "kind": "text",
+        "text": " : "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SH",
+        "text": "Hashable"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "required": true,
+    "role": "symbol",
+    "roleHeading": "Associated Type",
+    "symbolKind": "associatedtype",
+    "title": "Case"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "associatedtype"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "Case"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SH",
+              "text": "Hashable"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase": {
+      "abstract": [
+        {
+          "text": "Protocol that provides a ",
+          "type": "text"
+        },
+        {
+          "code": "case",
+          "type": "codeVoice"
+        },
+        {
+          "text": " property to identify each case of an ",
+          "type": "text"
+        },
+        {
+          "code": "Enum",
+          "type": "codeVoice"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "IdentifiableCase"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IdentifiableCase"
+        }
+      ],
+      "role": "symbol",
+      "title": "IdentifiableCase",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identifiablecase"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "associatedtype"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Case"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SH",
+          "text": "Hashable"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase/Case-swift.associatedtype",
+      "kind": "symbol",
+      "required": true,
+      "role": "symbol",
+      "title": "Case",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identifiablecase/case-swift.associatedtype"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/identifiablecase/case-swift.associatedtype"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

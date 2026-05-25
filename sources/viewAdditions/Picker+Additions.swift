@@ -12,9 +12,9 @@ import SwiftUI
 // `RandomAccessCollection` and `Hashable` are not not strictly necessary (the initializers would
 // still work without them) but are made implicit for completeness.
 
-// For the initializers that use self-identified elements: an `Elent: Identifiable` constraint along
-// an `ID: Element` is preferred over a constraint to `SelfIdentifiable`. With the preferred
-// constraint the compiler checks for the constraint that `SelfIndentifible` implicitly requires,
+// For the initializers that use self-identified elements: an `Element: Identifiable` constraint
+// along an `ID: Element` is preferred over a constraint to `SelfIdentifiable`. With the preferred
+// constraint the compiler checks for the constraint that `SelfIdentifiable` implicitly requires,
 // and will also detect if a type overrides the default `id` provided by `SelfIdentifiable`.
 
 
@@ -30,7 +30,7 @@ extension Picker {
     /// of the given collection. The collection contains the possible selection values, and each
     /// element is identified with the given keypath.
     ///
-    /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
+    /// This initializer creates a `SwiftUI/Text` view on your behalf as the picker label, using
     /// the given localized key.
     ///
     /// The views created by `elementContent` are automatically tagged with their corresponding
@@ -100,7 +100,7 @@ extension Picker {
     /// of a given collection of `Identifiable` elements. The collection contains the possible
     /// selection values
     ///
-    /// This initializer creates a ``SwiftUI/Text`` view on your behalf as the picker label, using
+    /// This initializer creates a `SwiftUI/Text` view on your behalf as the picker label, using
     /// the given localized key.
     ///
     /// The views created by `elementContent` are automatically tagged with their corresponding
@@ -242,7 +242,7 @@ extension Picker {
     /// the given collection. The collection contains the possible selection values, and each
     /// element is identified with the given keypath.
     ///
-    /// This initializer creates ``SwiftUI/Text`` views on your behalf using the localized key for
+    /// This initializer creates `SwiftUI/Text` views on your behalf using the localized key for
     /// the picker label, and transforming the collection elements through a format style for their
     /// respective labels.
     public init<ValuesCollection, ElementID>(

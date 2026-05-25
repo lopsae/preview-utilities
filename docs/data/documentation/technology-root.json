@@ -1,0 +1,87 @@
+{
+  "abstract": [
+    {
+      "text": "Technology Root Catalogue",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      []
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/technology-root"
+  },
+  "kind": "article",
+  "metadata": {
+    "role": "collection",
+    "title": "Package Documentation"
+  },
+  "primaryContentSections": [
+    {
+      "content": [
+        {
+          "anchor": "Overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This documentation archive contains documentation for multiple utility packages.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Frameworks",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ],
+      "title": "Frameworks"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/technology-root"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "abstract": [
+    {
+      "text": "Given that the class uses the default ",
+      "type": "text"
+    },
+    {
+      "code": "MainActor",
+      "type": "codeVoice"
+    },
+    {
+      "text": " isolation, this function will always be",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "called in ",
+      "type": "text"
+    },
+    {
+      "code": "MainActor",
+      "type": "codeVoice"
+    },
+    {
+      "text": ", irregardless of the parent isolation context.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DefaultIsolationThreadChecker"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/DefaultIsolationThreadChecker/defaultIsolationThreadInfo()"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities29DefaultIsolationThreadCheckerC07defaultdE4InfoAA0eH0VyYaF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "defaultIsolationThreadInfo"
+      },
+      {
+        "kind": "text",
+        "text": "() "
+      },
+      {
+        "kind": "keyword",
+        "text": "async"
+      },
+      {
+        "kind": "text",
+        "text": " -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+        "text": "ThreadInfo"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "defaultIsolationThreadInfo()"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "defaultIsolationThreadInfo"
+            },
+            {
+              "kind": "text",
+              "text": "() "
+            },
+            {
+              "kind": "keyword",
+              "text": "async"
+            },
+            {
+              "kind": "text",
+              "text": " -> "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+              "text": "ThreadInfo"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DefaultIsolationThreadChecker": {
+      "abstract": [
+        {
+          "text": "Sendable object that uses the default project isolation context, which is configured to",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "code": "MainActor",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DefaultIsolationThreadChecker"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DefaultIsolationThreadChecker",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DefaultIsolationThreadChecker"
+        }
+      ],
+      "role": "symbol",
+      "title": "DefaultIsolationThreadChecker",
+      "type": "topic",
+      "url": "/documentation/previewutilities/defaultisolationthreadchecker"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DefaultIsolationThreadChecker/defaultIsolationThreadInfo()": {
+      "abstract": [
+        {
+          "text": "Given that the class uses the default ",
+          "type": "text"
+        },
+        {
+          "code": "MainActor",
+          "type": "codeVoice"
+        },
+        {
+          "text": " isolation, this function will always be",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "called in ",
+          "type": "text"
+        },
+        {
+          "code": "MainActor",
+          "type": "codeVoice"
+        },
+        {
+          "text": ", irregardless of the parent isolation context.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "defaultIsolationThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": "() "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DefaultIsolationThreadChecker/defaultIsolationThreadInfo()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "defaultIsolationThreadInfo()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/defaultisolationthreadchecker/defaultisolationthreadinfo()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ThreadInfo"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ThreadInfo"
+        }
+      ],
+      "role": "symbol",
+      "title": "ThreadInfo",
+      "type": "topic",
+      "url": "/documentation/previewutilities/threadinfo"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/defaultisolationthreadchecker/defaultisolationthreadinfo()"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

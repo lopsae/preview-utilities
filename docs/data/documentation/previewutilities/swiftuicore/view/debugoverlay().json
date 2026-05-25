@@ -1,0 +1,766 @@
+{
+  "abstract": [
+    {
+      "text": "Layers in front of this view a debug overlay using the default configuration.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "conformance": {
+      "availabilityPrefix": [
+        {
+          "text": "Available when",
+          "type": "text"
+        }
+      ],
+      "conformancePrefix": [
+        {
+          "text": "Conforms when",
+          "type": "text"
+        }
+      ],
+      "constraints": [
+        {
+          "code": "Self",
+          "type": "codeVoice"
+        },
+        {
+          "text": " is ",
+          "type": "text"
+        },
+        {
+          "code": "View",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ]
+    },
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI4ViewP16PreviewUtilitiesE12debugOverlayQryF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "debugOverlay"
+      },
+      {
+        "kind": "text",
+        "text": "() -> "
+      },
+      {
+        "kind": "keyword",
+        "text": "some"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI4ViewP",
+        "text": "View"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "debugOverlay()"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "debugOverlay"
+            },
+            {
+              "kind": "text",
+              "text": "() -> "
+            },
+            {
+              "kind": "keyword",
+              "text": "some"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": "\n"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "return-value",
+          "level": 2,
+          "text": "Return Value",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "A view with a debug overlay as foreground.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Applies the ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ", overlaying a visual representation of the views",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "boundaries, origin point, and safe area insets.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "Text(\"a sort of splendid torch\")",
+            "    .debugOverlay()",
+            "Text(\"which I have got hold of for the moment\")"
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        },
+        {
+          "inlineContent": [
+            {
+              "identifier": "debug-overlay-torch-default",
+              "type": "image"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "debug-overlay-torch-default": {
+      "alt": "Debug overlay with default configuration applied to a single Text.",
+      "identifier": "debug-overlay-torch-default",
+      "type": "image",
+      "variants": [
+        {
+          "traits": [
+            "3x",
+            "light"
+          ],
+          "url": "/images/PreviewUtilities/debug-overlay-torch-default@3x.png"
+        },
+        {
+          "traits": [
+            "3x",
+            "dark"
+          ],
+          "url": "/images/PreviewUtilities/debug-overlay-torch-default~dark@3x.png"
+        }
+      ]
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier": {
+      "abstract": [
+        {
+          "text": "Overlays a visual representations of a view’s boundaries, origin, and safe areas.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DebugOverlayModifier"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DebugOverlayModifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "DebugOverlayModifier",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration": {
+      "abstract": [
+        {
+          "text": "Configuration of a ",
+          "type": "text"
+        },
+        {
+          "code": "DebugOverlayModifier",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Configuration"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Configuration"
+        }
+      ],
+      "role": "symbol",
+      "title": "DebugOverlayModifier.Configuration",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier/configuration"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait": {
+      "abstract": [
+        {
+          "text": "Customizations that can be applied to the ",
+          "type": "text"
+        },
+        {
+          "code": "Configuration",
+          "type": "codeVoice"
+        },
+        {
+          "text": " of a ",
+          "type": "text"
+        },
+        {
+          "code": "DebugOverlayModifier",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "role": "symbol",
+      "title": "DebugOverlayModifier.Configuration.Trait",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUICore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "View"
+        }
+      ],
+      "role": "symbol",
+      "title": "View",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/view"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()": {
+      "abstract": [
+        {
+          "text": "Layers in front of this view a debug overlay using the default configuration.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "debugOverlay"
+        },
+        {
+          "kind": "text",
+          "text": "() -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "debugOverlay()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/view/debugoverlay()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)": {
+      "abstract": [
+        {
+          "text": "Layers in front of this view a debug overlay configured using the given traits.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "debugOverlay"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV",
+          "text": "DebugOverlayModifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV",
+          "text": "Configuration"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV5TraitO",
+          "text": "Trait"
+        },
+        {
+          "kind": "text",
+          "text": "...) -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "debugOverlay(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/view/debugoverlay(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(traits:)": {
+      "abstract": [
+        {
+          "text": "Layers in front of this view a debug overlay configured using the given traits.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "debugOverlay"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "traits"
+        },
+        {
+          "kind": "text",
+          "text": ": ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV",
+          "text": "DebugOverlayModifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV",
+          "text": "Configuration"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV5TraitO",
+          "text": "Trait"
+        },
+        {
+          "kind": "text",
+          "text": "]) -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(traits:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "debugOverlay(traits:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/view/debugoverlay(traits:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Debug-Overlay",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(traits:)"
+      ],
+      "title": "Debug Overlay"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftuicore/view/debugoverlay()"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

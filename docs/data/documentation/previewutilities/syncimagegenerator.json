@@ -1,0 +1,715 @@
+{
+  "abstract": [
+    {
+      "text": "Synchronous image generator. Can be instantiated to produce any number of images of a given",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "size, or used statically to produce the same images.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities18SyncImageGeneratorV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "SyncImageGenerator"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "SyncImageGenerator"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Structure",
+    "symbolKind": "struct",
+    "title": "SyncImageGenerator"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "SyncImageGenerator"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This generator only provides synchronous api to run in any isolation context.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator": {
+      "abstract": [
+        {
+          "text": "Synchronous image generator. Can be instantiated to produce any number of images of a given",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "size, or used statically to produce the same images.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "SyncImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SyncImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "SyncImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PlatformImage"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PlatformImage"
+        }
+      ],
+      "role": "symbol",
+      "title": "SyncImageGenerator.PlatformImage",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/platformimage"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generateImage(with:caption:border:)": {
+      "abstract": [
+        {
+          "text": "Synchronously generates an image with the given strings.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generateImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "caption"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "border"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI5ImageV",
+          "text": "Image"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generateImage(with:caption:border:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generateImage(with:caption:border:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/generateimage(with:caption:border:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generateImage(with:caption:size:border:)": {
+      "abstract": [
+        {
+          "text": "Synchronously generates an image with the given strings and size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generateImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "caption"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "border"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI5ImageV",
+          "text": "Image"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generateImage(with:caption:size:border:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generateImage(with:caption:size:border:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/generateimage(with:caption:size:border:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)": {
+      "abstract": [
+        {
+          "text": "Synchronously generates a platform image with the given strings.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generatePlatformImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "caption"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "border"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV",
+          "text": "SyncImageGenerator"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a",
+          "text": "PlatformImage"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generatePlatformImage(with:caption:border:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/generateplatformimage(with:caption:border:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:size:border:)": {
+      "abstract": [
+        {
+          "text": "Synchronously generates a platform image with the given strings and size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generatePlatformImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "caption"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "border"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV",
+          "text": "SyncImageGenerator"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities18SyncImageGeneratorV08PlatformD0a",
+          "text": "PlatformImage"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:size:border:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generatePlatformImage(with:caption:size:border:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/generateplatformimage(with:caption:size:border:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/size": {
+      "abstract": [
+        {
+          "text": "Size of the generated images.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/size",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "size",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator/size"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/size"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generateImage(with:caption:border:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:border:)"
+      ],
+      "title": "Instance Methods"
+    },
+    {
+      "anchor": "Type-Aliases",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/PlatformImage"
+      ],
+      "title": "Type Aliases"
+    },
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generateImage(with:caption:size:border:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator/generatePlatformImage(with:caption:size:border:)"
+      ],
+      "title": "Type Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/syncimagegenerator"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -179,12 +179,12 @@ private struct PreviewContent {
         .background {
             let padding: CGFloat = 12
             let minorRadius: CGFloat = 4
-            let mayorRadius: CGFloat = 55
+            let majorRadius: CGFloat = 55
             UnevenRoundedRectangle(
-                topLeadingRadius: mayorRadius,
+                topLeadingRadius: majorRadius,
                 bottomLeadingRadius: minorRadius,
                 bottomTrailingRadius: minorRadius,
-                topTrailingRadius: mayorRadius
+                topTrailingRadius: majorRadius
             )
             .fill(.gray.quaternary)
             .padding(.init(top: padding, leading: padding, bottom: .zero, trailing: padding))
@@ -229,11 +229,11 @@ private struct PreviewContent {
             let padding: CGFloat = 12
             let minorRadius: CGFloat = 4
             // There not enough bottom space so shoot it up!
-            let mayorRadius: CGFloat = .infinity
+            let majorRadius: CGFloat = .infinity
             UnevenRoundedRectangle(
                 topLeadingRadius: minorRadius,
-                bottomLeadingRadius: mayorRadius,
-                bottomTrailingRadius: mayorRadius,
+                bottomLeadingRadius: majorRadius,
+                bottomTrailingRadius: majorRadius,
                 topTrailingRadius: minorRadius
             )
             .fill(.gray.quaternary)

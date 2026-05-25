@@ -1,0 +1,248 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum/cancelled"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19ImageGeneratorStoreC16GenerationStatusO4CaseO9cancelledyAGyx__GAImAA0cD8ProtocolRzlF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "case"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "cancelled"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Case",
+    "symbolKind": "case",
+    "title": "ImageGeneratorStore.GenerationStatus.Case.cancelled"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "case"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "cancelled"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Generator",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "ImageGeneratorProtocol",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "GenerationStatus"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "GenerationStatus"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Case"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Case"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus.Case",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/case-swift.enum"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum/cancelled": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "cancelled"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum/cancelled",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus.Case.cancelled",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/case-swift.enum/cancelled"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/imagegeneratorstore/generationstatus/case-swift.enum/cancelled"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

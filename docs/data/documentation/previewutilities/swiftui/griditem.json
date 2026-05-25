@@ -1,0 +1,273 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUI",
+    "externalID": "s:e:s:7SwiftUI8GridItemV16PreviewUtilitiesE8adaptive7minimum7maximum7spacing9alignmentAC14CoreFoundation7CGFloatV_A2LSgAA9AlignmentVSgtFZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:7SwiftUI8GridItemV",
+        "text": "GridItem"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUI"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "GridItem"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "GridItem"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI8GridItemV",
+              "text": "GridItem"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUI",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI8GridItemV",
+          "text": "GridItem"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "GridItem"
+        }
+      ],
+      "role": "symbol",
+      "title": "GridItem",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/griditem"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem/adaptive(minimum:maximum:spacing:alignment:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "adaptive"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "minimum"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "maximum"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "spacing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "alignment"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI9AlignmentV",
+          "text": "Alignment"
+        },
+        {
+          "kind": "text",
+          "text": "?) -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI8GridItemV",
+          "text": "GridItem"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem/adaptive(minimum:maximum:spacing:alignment:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "adaptive(minimum:maximum:spacing:alignment:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/griditem/adaptive(minimum:maximum:spacing:alignment:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem/adaptive(minimum:maximum:spacing:alignment:)"
+      ],
+      "title": "Type Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftui/griditem"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,275 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:e:s:7SwiftUI4EdgeO3SetV16PreviewUtilitiesE3notyA2EFZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:7SwiftUI4EdgeO",
+        "text": "Edge"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
+        "text": "Set"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "Set"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "Edge.Set"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4EdgeO",
+              "text": "Edge"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
+              "text": "Set"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUICore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Edge"
+        }
+      ],
+      "role": "symbol",
+      "title": "Edge",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edge"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI4EdgeO",
+          "text": "Edge"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
+          "text": "Set"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Set"
+        }
+      ],
+      "role": "symbol",
+      "title": "Edge.Set",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edge/set"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set/not(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "not"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4EdgeO",
+          "text": "Edge"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
+          "text": "Set"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4EdgeO",
+          "text": "Edge"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
+          "text": "Set"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set/not(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "not(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/edge/set/not(_:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set/not(_:)"
+      ],
+      "title": "Type Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftuicore/edge/set"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

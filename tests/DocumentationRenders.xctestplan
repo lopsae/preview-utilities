@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "A2F6940E-5AB3-49FC-873F-1B7124AF7C6C",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "selectedTags" : {
+        "tags" : [
+          ".documentationRender"
+        ]
+      },
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "PreviewUtilitiesTests",
+        "name" : "PreviewUtilitiesTests"
+      }
+    }
+  ],
+  "version" : 2
+}

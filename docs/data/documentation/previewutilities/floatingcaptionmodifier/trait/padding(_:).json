@@ -1,0 +1,315 @@
+{
+  "abstract": [
+    {
+      "text": "Pads the caption from the aligned edge.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/padding(_:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO7paddingyAE14CoreFoundation7CGFloatVSgcAEmF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "case"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "padding"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+        "text": "CGFloat"
+      },
+      {
+        "kind": "text",
+        "text": "?)"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Case",
+    "symbolKind": "case",
+    "title": "FloatingCaptionModifier.Trait.padding(_:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "case"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "padding"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+              "text": "CGFloat"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil)"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "When omitted, a default padding of ",
+              "type": "text"
+            },
+            {
+              "code": "2",
+              "type": "codeVoice"
+            },
+            {
+              "text": " is used.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Providing a float value uses that value as padding, or using ",
+              "type": "text"
+            },
+            {
+              "code": "nil",
+              "type": "codeVoice"
+            },
+            {
+              "text": " uses the default",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "system padding.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
+      "abstract": [
+        {
+          "text": "Overlays a floating caption aligned to a ",
+          "type": "text"
+        },
+        {
+          "code": "FloatingAlignment",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "FloatingCaptionModifier"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "FloatingCaptionModifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingCaptionModifier",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait": {
+      "abstract": [
+        {
+          "text": "Customizations that can be applied to a ",
+          "type": "text"
+        },
+        {
+          "code": "FloatingCaptionModifier",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingCaptionModifier.Trait",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/padding(_:)": {
+      "abstract": [
+        {
+          "text": "Pads the caption from the aligned edge.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "padding"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/padding(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "FloatingCaptionModifier.Trait.padding(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/padding(_:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/floatingcaptionmodifier/trait/padding(_:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

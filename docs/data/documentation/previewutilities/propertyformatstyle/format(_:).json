@@ -1,0 +1,242 @@
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "FormatStyle.format(_:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19PropertyFormatStyleV6formatySSxF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "format"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "Input"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "format(_:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "format"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "value"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Input"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that returns a string property referenced by a key path.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "PropertyFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "format"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle/format(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "format(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle/format(_:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/propertyformatstyle/format(_:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

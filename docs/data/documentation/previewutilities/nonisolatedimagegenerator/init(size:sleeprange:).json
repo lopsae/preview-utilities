@@ -1,0 +1,294 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities25NonisolatedImageGeneratorC4size10sleepRangeACSo6CGSizeV_SNys8DurationVGSgtcfc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "size"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "c:@S@CGSize",
+        "text": "CGSize"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "sleepRange"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SN",
+        "text": "ClosedRange"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s8DurationV",
+        "text": "Duration"
+      },
+      {
+        "kind": "text",
+        "text": ">?)"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(size:sleepRange:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "size"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:@S@CGSize",
+              "text": "CGSize"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "sleepRange"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SN",
+              "text": "ClosedRange"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s8DurationV",
+              "text": "Duration"
+            },
+            {
+              "kind": "text",
+              "text": ">? = ImageGeneratorDefaults.sleepRange)"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator": {
+      "abstract": [
+        {
+          "text": "Nonisolated ImageGenerator with a ",
+          "type": "text"
+        },
+        {
+          "code": "nonisolated generateImage",
+          "type": "codeVoice"
+        },
+        {
+          "text": " function that will inherit the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "isolation context of the caller.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "NonisolatedImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "NonisolatedImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "NonisolatedImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "sleepRange"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SN",
+          "text": "ClosedRange"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8DurationV",
+          "text": "Duration"
+        },
+        {
+          "kind": "text",
+          "text": ">?)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator/init(size:sleepRange:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(size:sleepRange:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/nonisolatedimagegenerator/init(size:sleeprange:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/nonisolatedimagegenerator/init(size:sleeprange:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

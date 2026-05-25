@@ -1,0 +1,10 @@
+{
+  "theme": {
+    "color": {
+      "aside-note-background": {
+        "dark": "#000000",
+        "light": "#f0f0f0"
+      }
+    }
+  }
+}

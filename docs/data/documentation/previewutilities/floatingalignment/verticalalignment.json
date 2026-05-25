@@ -1,0 +1,420 @@
+{
+  "abstract": [
+    {
+      "text": "Vertical alignment component of a floating alignment.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "PreviewUtilities",
+    "externalID": "s:16PreviewUtilities17FloatingAlignmentO08VerticalD0O",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "enum"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "VerticalAlignment"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "VerticalAlignment"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Enumeration",
+    "symbolKind": "enum",
+    "title": "FloatingAlignment.VerticalAlignment"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "enum"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "VerticalAlignment"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/SH": {
+      "identifier": "doc://PreviewUtilities/SH",
+      "title": "Swift.Hashable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SQ": {
+      "identifier": "doc://PreviewUtilities/SQ",
+      "title": "Swift.Equatable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/SY": {
+      "identifier": "doc://PreviewUtilities/SY",
+      "title": "Swift.RawRepresentable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment": {
+      "abstract": [
+        {
+          "text": "Alignment positions for floating content.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "FloatingAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment": {
+      "abstract": [
+        {
+          "text": "Vertical alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.VerticalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/bottom": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "bottom"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/bottom",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "FloatingAlignment.VerticalAlignment.bottom",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment/bottom"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/center": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "center"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/center",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "FloatingAlignment.VerticalAlignment.center",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment/center"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/init(rawValue:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "?("
+        },
+        {
+          "kind": "externalParam",
+          "text": "rawValue"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/init(rawValue:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(rawValue:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment/init(rawvalue:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/top": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "top"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/top",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "FloatingAlignment.VerticalAlignment.top",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment/top"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable": {
+      "abstract": [
+        {
+          "text": "Experimental protocol that provides a default implementation of ",
+          "type": "text"
+        },
+        {
+          "code": "Identifiable",
+          "type": "codeVoice"
+        },
+        {
+          "text": " by returning",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "itself.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "SelfIdentifiable"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SelfIdentifiable"
+        }
+      ],
+      "role": "symbol",
+      "title": "SelfIdentifiable",
+      "type": "topic",
+      "url": "/documentation/previewutilities/selfidentifiable"
+    },
+    "doc://PreviewUtilities/s12CaseIterableP": {
+      "identifier": "doc://PreviewUtilities/s12CaseIterableP",
+      "title": "Swift.CaseIterable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s12IdentifiableP": {
+      "identifier": "doc://PreviewUtilities/s12IdentifiableP",
+      "title": "Swift.Identifiable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable",
+        "doc://PreviewUtilities/s12CaseIterableP",
+        "doc://PreviewUtilities/SQ",
+        "doc://PreviewUtilities/SH",
+        "doc://PreviewUtilities/s12IdentifiableP",
+        "doc://PreviewUtilities/SY",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Enumeration-Cases",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/bottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/center",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/top"
+      ],
+      "title": "Enumeration Cases"
+    },
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment/init(rawValue:)"
+      ],
+      "title": "Initializers"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/floatingalignment/verticalalignment"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

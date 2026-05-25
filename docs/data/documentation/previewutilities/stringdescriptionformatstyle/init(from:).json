@@ -1,0 +1,234 @@
+{
+  "abstract": [
+    {
+      "text": "Inherited from ",
+      "type": "text"
+    },
+    {
+      "code": "Decodable.init(from:)",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/init(from:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities28StringDescriptionFormatStyleV4fromACyxGs7Decoder_p_tKcfc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "from"
+      },
+      {
+        "kind": "text",
+        "text": ": any "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s7DecoderP",
+        "text": "Decoder"
+      },
+      {
+        "kind": "text",
+        "text": ") "
+      },
+      {
+        "kind": "keyword",
+        "text": "throws"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(from:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "from"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "decoder"
+            },
+            {
+              "kind": "text",
+              "text": ": any "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s7DecoderP",
+              "text": "Decoder"
+            },
+            {
+              "kind": "text",
+              "text": ") "
+            },
+            {
+              "kind": "keyword",
+              "text": "throws"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
+      "abstract": [
+        {
+          "text": "A structure that converts any instance to its string description.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "StringDescriptionFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "StringDescriptionFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "StringDescriptionFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/stringdescriptionformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/init(from:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "from"
+        },
+        {
+          "kind": "text",
+          "text": ": any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7DecoderP",
+          "text": "Decoder"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/init(from:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(from:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/stringdescriptionformatstyle/init(from:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/stringdescriptionformatstyle/init(from:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

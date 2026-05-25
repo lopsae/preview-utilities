@@ -4,6 +4,14 @@
 //
 
 
+extension String {
+
+    nonisolated static var space:  Self { " " }
+    nonisolated static var hyphen: Self { "-" }
+
+}
+
+
 /// Container of convenience strings and utilities.
 nonisolated
 public enum Strings {
