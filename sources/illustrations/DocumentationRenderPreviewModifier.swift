@@ -7,6 +7,10 @@
 import SwiftUI
 
 
+// TODO: Move all documentation illustrations to use DocumentationIllustration instead of the
+// utilities in this file. Once migrated, this file can be deleted.
+
+
 struct DocumentationRenderPreviewModifier: PreviewModifier {
 
     static let defaultWidth: Double = 400
@@ -33,6 +37,7 @@ struct DocumentationRenderPreviewModifier: PreviewModifier {
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
+    @available(*, deprecated, message: "Use instead `DocumentationIllustration` and `docsIllustration` trait")
     public static func docsRender(size: CGSize) -> PreviewTrait {
         .init(
             .modifier(DocumentationRenderPreviewModifier(size: size)),
@@ -41,6 +46,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
     }
 
 
+    @available(*, deprecated, message: "Use instead `DocumentationIllustration` and `docsIllustration` trait")
     public static func docsRender(height: Double) -> PreviewTrait {
         .init(
             .modifier(DocumentationRenderPreviewModifier(height: height)),
@@ -54,6 +60,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 // MARK: - DocumentationRenderModifier
 
 
+@available(*, deprecated, message: "Use instead `DocumentationIllustration`")
 struct DocumentationRenderModifier: ViewModifier {
 
     let size: CGSize
@@ -75,6 +82,7 @@ struct DocumentationRenderModifier: ViewModifier {
 
 extension View {
 
+    @available(*, deprecated, message: "Use instead `DocumentationIllustration`")
     public func docRender(size: CGSize) -> some View {
         return modifier(DocumentationRenderModifier(size: size))
     }
