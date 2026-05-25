@@ -40,4 +40,18 @@ struct InternalRendersForFloatingAlignment {
         }
     }
 
+
+    @Test func outerWithVerticalMajor() throws {
+        try DocumentationResources.renderAndStore("floating-alignment", "outer-with-vertical-major") {
+            IllustrationsForFloatingAlignment.outerAlignmentWithVerticalMajor
+        }
+    }
+
+
+    @Test func outerWithHorizontalMajor() throws {
+        try DocumentationResources.renderAndStore("floating-alignment", "outer-with-horizontal-major") {
+            IllustrationsForFloatingAlignment.outerAlignmentWithHorizontalMajor
+        }
+    }
+
 }

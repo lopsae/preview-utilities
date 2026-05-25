@@ -133,6 +133,116 @@ struct IllustrationsForFloatingAlignment {
         } // DocumentationIllustration
     }
 
+
+    /// Illustration of the outer alignments of ``FloatingAlignment`` with a vertical major: top and
+    /// bottom.
+    static var outerAlignmentWithVerticalMajor: DocumentationIllustration {
+        DocumentationIllustration(height: 200) {
+            Rectangle()
+            .fill(.orange.gradient.secondary)
+            .frame(size: [200, 80])
+            .overlay {
+                let alignments = FloatingAlignment.allCases(outerWithMajor: .top)
+                               + FloatingAlignment.allCases(outerWithMajor: .bottom)
+                ForEach(alignments) { alignment in
+                    let alignmentName = alignment.displayNameComponents
+                        .suffix(2)
+                        .map(formatting: .capitalized)
+                        .joined(separator: "\n")
+
+                    FloatingAlignedContainer(
+                        alignment: alignment,
+                        horizontalSpacing: 4,
+                        verticalSpacing: 2
+                    ) { contentAlignments in
+                        Text.caption("\(alignmentName)")
+                            .multilineTextAlignment(contentAlignments.text)
+                    }
+                }
+
+                FloatingAlignedContainer(
+                    alignment: .center,
+                    spacing: 4
+                ) { contentAlignments in
+                    Text.caption("Top and Bottom\nOuter Alignments")
+                    .multilineTextAlignment(contentAlignments.text)
+                    .foregroundStyle(.orange)
+                }
+
+                // Dashed dividers.
+                let dividersWidth: CGFloat = 280
+                let dividersHeight: CGFloat = 160
+                FloatingAlignedContainer(alignment: .top, spacing: .zero) { contentAlignments in
+                    DashedDivider().frame(width: dividersWidth)
+                }
+                FloatingAlignedContainer(alignment: .bottom, spacing: .zero) { contentAlignments in
+                    DashedDivider().frame(width: dividersWidth)
+                }
+                FloatingAlignedContainer(alignment: .leading, spacing: .zero) { contentAlignments in
+                    DashedDivider(axis: .vertical).frame(height: dividersHeight)
+                }
+                FloatingAlignedContainer(alignment: .trailing, spacing: .zero) { contentAlignments in
+                    DashedDivider(axis: .vertical).frame(height: dividersHeight)
+                }
+            } // overlay
+        } // DocumentationIllustration
+    }
+
+
+    /// Illustration of the outer alignments of ``FloatingAlignment`` with a horizontal major:
+    /// leading and trailing.
+    static var outerAlignmentWithHorizontalMajor: DocumentationIllustration {
+        DocumentationIllustration(height: 260) {
+            Rectangle()
+            .fill(.orange.gradient.secondary)
+            .frame(size: [160, 140])
+            .overlay {
+                let alignments = FloatingAlignment.allCases(outerWithMajor: .leading)
+                               + FloatingAlignment.allCases(outerWithMajor: .trailing)
+                ForEach(alignments) { alignment in
+                    let alignmentName = alignment.displayNameComponents
+                        .suffix(2)
+                        .map(formatting: .capitalized)
+                        .joined(separator: "\n")
+
+                    FloatingAlignedContainer(
+                        alignment: alignment,
+                        horizontalSpacing: 4,
+                        verticalSpacing: 2
+                    ) { contentAlignments in
+                        Text.caption("\(alignmentName)")
+                            .multilineTextAlignment(contentAlignments.text)
+                    }
+                }
+
+                FloatingAlignedContainer(
+                    alignment: .center,
+                    spacing: 4
+                ) { contentAlignments in
+                    Text.caption("Leading and Trailing\nOuter Alignments")
+                    .multilineTextAlignment(contentAlignments.text)
+                    .foregroundStyle(.orange)
+                }
+
+                // Dashed dividers.
+                let dividersWidth: CGFloat = 300
+                let dividersHeight: CGFloat = 220
+                FloatingAlignedContainer(alignment: .top, spacing: .zero) { contentAlignments in
+                    DashedDivider().frame(width: dividersWidth)
+                }
+                FloatingAlignedContainer(alignment: .bottom, spacing: .zero) { contentAlignments in
+                    DashedDivider().frame(width: dividersWidth)
+                }
+                FloatingAlignedContainer(alignment: .leading, spacing: .zero) { contentAlignments in
+                    DashedDivider(axis: .vertical).frame(height: dividersHeight)
+                }
+                FloatingAlignedContainer(alignment: .trailing, spacing: .zero) { contentAlignments in
+                    DashedDivider(axis: .vertical).frame(height: dividersHeight)
+                }
+            } // overlay
+        } // DocumentationIllustration
+    }
+
 }
 
 
@@ -151,4 +261,14 @@ struct IllustrationsForFloatingAlignment {
 
 #Preview("outer-alignments", traits: .docsIllustration) {
     IllustrationsForFloatingAlignment.outerAlignments
+}
+
+
+#Preview("outer-with-vertical-major", traits: .docsIllustration) {
+    IllustrationsForFloatingAlignment.outerAlignmentWithVerticalMajor
+}
+
+
+#Preview("outer-with-horizontal-major", traits: .docsIllustration) {
+    IllustrationsForFloatingAlignment.outerAlignmentWithHorizontalMajor
 }
