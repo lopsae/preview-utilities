@@ -32,7 +32,7 @@ import SwiftUI
 ///     source: "floating-alignment-inner-alignments",
 ///     alt: "Illustration of all inner floating alignments."
 /// ) {
-///     Available inner alignments.
+///     All inner alignments.
 /// }
 ///
 /// ### Outer Alignments
@@ -42,12 +42,12 @@ import SwiftUI
 /// aligned: top, leading, bottom, or trailing. The minor component determines the secondary
 /// direction along that edge where the content will be aligned.
 ///
-/// Outer alignments with a vertical major (top and bottom) support the minor components: leading,
+/// Outer alignments with a vertical major (top and bottom) support three minor components: leading,
 /// center, and trailing.
 ///
 /// ![Outer floating alignments with a vertical major.](floating-alignment-outer-with-vertical-major)
 ///
-/// Outer alignments with a horizontal major (leading and trailing) support the minor components:
+/// Outer alignments with a horizontal major (leading and trailing) support five minor components:
 /// above, top, center, bottom, and under.
 ///
 /// ![Outer floating alignments with a horizontal major.](floating-alignment-outer-with-horizontal-major)
@@ -144,13 +144,11 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     // MARK: Shorthand functions
 
 
-    /// Returns an outer floating alignment with the given horizontal major component, and the
-    /// the center minor component.
+    /// Returns an outer floating alignment with the given horizontal major component, centered.
     ///
     /// E.g.: `outer(horizontal: .leading)` returns ``outerLeadingCenter``.
     ///
-    /// For the ``HorizontalAlignment/center`` horizontal alignment, defaults to returning
-    /// ``outerTrailingCenter``.
+    /// For ``HorizontalAlignment/center``, defaults to return ``outerTrailingCenter``.
     public static func outer(horizontal: HorizontalAlignment) -> Self {
         switch horizontal {
         case .leading:  .outer(.leadingCenter)
@@ -235,7 +233,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     // MARK: All Cases
 
 
-    /// All floating alignment cases.
+    /// All floating alignments.
     public static let allCases: [FloatingAlignment] = {
         let innerCases: [FloatingAlignment] = FloatingAlignment.InnerAlignment.allCases.map {
             .inner($0)
@@ -247,7 +245,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     }()
 
 
-    /// Returns all floating alignment cases that use the given horizontal component.
+    /// Returns all floating alignment with the given horizontal component.
     public static func allCases(
         withHorizontal horizontalAlignment: HorizontalAlignment
     ) -> [FloatingAlignment] {
@@ -257,7 +255,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     }
 
 
-    /// Returns all floating alignment cases that use the given major component.
+    /// Returns all floating alignment with the given major component.
     public static func allCases(
         outerWithMajor majorKey: OuterAlignment.Key
     ) -> [FloatingAlignment] {
@@ -283,18 +281,20 @@ extension FloatingAlignment {
     /// An inner alignments is composed by a ``FloatingAlignment/HorizontalAlignment`` and a ``FloatingAlignment/VerticalAlignment``.
     /// These are intended to work as equivalents of the SwiftUI alignments of the same names, for
     /// example aligning content to ``InnerAlignment/topLeading`` would be equivalent to aligning
-    /// the same content using a `SwiftUICore/Alignment/topLeading`.
+    /// the same content using `SwiftUICore/Alignment/topLeading`.
     ///
     /// @Image(
     ///     source: "floating-alignment-inner-alignments",
     ///     alt: "Illustration of all inner floating alignments."
     /// ) {
-    ///     Available inner alignments.
+    ///     All inner alignments.
     /// }
     public nonisolated
     struct InnerAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
+        /// Horizontal component of the alignment.
         let horizontal: HorizontalAlignment
+        /// Vertical component of the alignment.
         let vertical: VerticalAlignment
 
 
@@ -329,6 +329,7 @@ extension FloatingAlignment {
         public static let bottom:         Self = .bottomCenter
 
 
+        /// All inner alignments.
         public static let allCases: [FloatingAlignment.InnerAlignment] = [
             .topLeading, .topCenter, .topTrailing,
             .leadingCenter, .center, .trailingCenter,
@@ -345,6 +346,7 @@ extension FloatingAlignment {
 
 extension FloatingAlignment {
 
+    /// Horizontal alignment component of a floating alignment.
     public nonisolated
     enum HorizontalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
         case leading, center, trailing
@@ -388,6 +390,7 @@ extension FloatingAlignment {
 
 extension FloatingAlignment {
 
+    /// Vertical alignment component of a floating alignment.
     public nonisolated
     enum VerticalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
         case top, center, bottom
@@ -419,23 +422,34 @@ extension FloatingAlignment {
     /// aligned: top, leading, bottom, or trailing. The minor component determines the secondary
     /// direction along that edge where the content will be aligned.
     ///
-    /// Outer alignments with a vertical major (top and bottom) support the minor components: leading,
+    /// Outer alignments with a vertical major (top and bottom) support three minor components: leading,
     /// center, and trailing.
     ///
     /// ![Outer floating alignments with a vertical major.](floating-alignment-outer-with-vertical-major)
     ///
-    /// Outer alignments with a horizontal major (leading and trailing) support the minor components:
+    /// Outer alignments with a horizontal major (leading and trailing) support five minor components:
     /// above, top, center, bottom, and under.
     ///
     /// ![Outer floating alignments with a horizontal major.](floating-alignment-outer-with-horizontal-major)
     public nonisolated
     enum OuterAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
+        /// Outer alignment with a top major component.
         case top(HorizontalAlignment)
+        /// Outer alignment with a leading major component.
         case leading(OuterVerticalAlignment)
+        /// Outer alignment with a bottom major component.
         case bottom(HorizontalAlignment)
+        /// Outer alignment with a trailing major component.
         case trailing(OuterVerticalAlignment)
 
+        /// Identifier of the major component of an outer alignment.
+        ///
+        /// Enumeration with equivalent cases to each ``FloatingAlignment/OuterAlignment`` case
+        /// without its associated value.
+        ///
+        /// Allows identification of each outer alignment major component (its case) irregardless
+        /// of its minor component (its associated value).
         public enum Key: String, CaseIterable, SelfIdentifiable, Sendable {
             case top, leading, bottom, trailing
 
@@ -580,6 +594,12 @@ extension FloatingAlignment {
 
 extension FloatingAlignment {
 
+    /// Vertical alignment component of an outer floating alignment.
+    ///
+    /// Vertical alignment component of an outer alignment with a horizontal major component
+    /// (leading or trailing).
+    ///
+    /// Adds `above` and `under` to the usual vertical components.
     public nonisolated
     enum OuterVerticalAlignment: String, CaseIterable, SelfIdentifiable, Sendable {
         case above, top, center, bottom, under
@@ -593,15 +613,14 @@ extension FloatingAlignment {
 
 extension FloatingAlignment {
 
-    /// Container of alignments that can be applied to content that is aligned using a
-    /// `FloatingAlignment`.
+    /// Container of alignments that can be applied to content aligned using a `FloatingAlignment`.
     ///
     /// Use the contained `content` and `text` alignments to align content to the appropriate edge
-    /// that the content will be touching.
+    /// that the content will be leaning towards.
     ///
-    /// For example, content aligned to ``FloatingAlignment/outerTrailing`` will use the content
-    /// alignments `SwiftUI/HorizontalAlignment/leading` and for text `SwiftUI/TextAlignment/leading`
-    /// so that the content itself leans towards towards the trailing edge from the outside.
+    /// For example, content aligned to ``FloatingAlignment/outerTrailing`` will use alignments
+    /// `SwiftUI/HorizontalAlignment/leading` for content,  and `SwiftUI/TextAlignment/leading` for
+    /// text, so that the content itself leans towards the trailing edge from the outside.
     public nonisolated
     struct ContentAlignments {
         let content: SwiftUI.Alignment
@@ -622,10 +641,6 @@ extension FloatingAlignment {
 private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
-
-    enum ContentOption: String, SelfIdentifiable, CaseIterable {
-        case text, vertical, multiline
-    }
 
 }
 

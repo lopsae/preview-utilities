@@ -27,8 +27,8 @@
 
 + ``innerTop``
 + ``innerLeading``
-+ ``innerTrailing``
 + ``innerBottom``
++ ``innerTrailing``
 
 + ``topLeading``
 + ``topTrailing``
