@@ -9,34 +9,41 @@ import SwiftUI
 
 /// Alignment positions for floating content.
 ///
-/// Identifies the alignment positions for aligning floating content to a parent view. Floating
-/// content is content overlaid a parent view and aligned to a position relative to the
-/// view's boundaries, either inside or outside.
+/// Identifies the alignment positions for floating content over a parent view. Floating content is
+/// content overlaid a parent view and aligned to an edge of its boundaries, either inside or
+/// outside.
 ///
-/// For example, _Inner Top Leading_, and _Outer Bottom Trailing_:
-///
-/// **TODO: ADD IMAGE**
+/// @Image(
+///     source: "floating-alignment-alignment-examples",
+///     alt: "Example floating alignments for inner top leading and outer bottom trailing"
+/// ) {
+///     Two possible floating alignments are _Inner Top Leading_ and _Outer Bottom Trailing_.
+/// }
 ///
 ///
 /// ### Inner Alignments
 ///
-/// The inner alignments are identified by the possible combinations of a ``FloatingAlignment/HorizontalAlignment``
-/// and a ``FloatingAlignment/VerticalAlignment``. These are intended to work as equivalent of the
-/// SwiftUI alignments of the same names, for example aligning content to a ``InnerAlignment/topLeading``
-/// would be equivalent to aligning content using an `SwiftUICore/Alignment/topLeading`.
+/// The inner alignments are composed by a ``FloatingAlignment/HorizontalAlignment`` and a ``FloatingAlignment/VerticalAlignment``.
+/// These are intended to work as equivalents of the SwiftUI alignments of the same names, for
+/// example aligning content to a ``InnerAlignment/topLeading`` would be equivalent to aligning
+/// the same content using a `SwiftUICore/Alignment/topLeading`.
 ///
-/// ![Illustration of all inner floating alignments.](floating-alignment-inner-alignments)
-///
+/// @Image(
+///     source: "floating-alignment-inner-alignments",
+///     alt: "Illustration of all inner floating alignments."
+/// ) {
+///     Available inner alignments.
+/// }
 ///
 /// ### Outer Alignments
 ///
-/// Outer alignments are identified by a mayor and minor components. The mayor component is defined
-/// through the ``OuterAlignment`` cases and identifies the edge to which the content will be
+/// Outer alignments are composed by a mayor component and a minor component. ``OuterAlignment``
+/// defines the mayor components and identifies the edge to which the content will be primarily
 /// aligned: top, leading, bottom, or trailing.
 ///
-/// The minor component determines the direction in an edge where the content will be aligned. For
-/// top and bottom the minor components can be: leading, center, or trailing. For leading and
-/// trailing the minor components can be: above, top, center, bottom, or under.
+/// The minor component determines the secondary direction in an edge where the content will be
+/// aligned. For top and bottom the minor components can be: leading, center, or trailing. For
+/// leading and trailing the minor components can be: above, top, center, bottom, or under.
 ///
 /// ![Illustration of all outer floating alignments.](floating-alignment-outer-alignments)
 ///
@@ -46,6 +53,8 @@ import SwiftUI
 /// This type only identifies the different positions for floating content. Consumers use this
 /// information to align their own content though their own implementation. Each floating alignment
 /// provides the appropriate ``ContentAlignments`` for content to align itself to the attached edge.
+///
+/// Two examples of this implementations are ``DebugOverlayModifier`` and ``FloatingCaptionModifier``.
 public nonisolated
 enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
