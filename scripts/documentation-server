@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 
-# Serves a local folder with a given path prefix. This mimics how the documentation is served in
-# GitHub pages, where the content in `docs` is served in the subdirectory `preview-utilities`.
+# Serves a local folder with a given path prefix. This mimics the documentation served through
+# GitHub pages, where the content in `docs` is served in the project subdirectory.
 
 import http.server
 import socketserver
