@@ -30,7 +30,12 @@ let package = Package(
         .testTarget(
             name: "PreviewUtilitiesTests",
             dependencies: ["PreviewUtilities"],
-            path: "tests"
+            path: "tests",
+            exclude: [
+                "UnitTests.xctestplan",
+                "DocumentationRenders.xctestplan",
+                "documentation-renders"
+            ]
         ),
     ]
 )
