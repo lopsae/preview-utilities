@@ -16,6 +16,7 @@ Build the package:
 swift build
 ```
 
+
 Run package tests, note this runs all tests included in the package test target:
 ```zsh
 swift test
@@ -31,14 +32,10 @@ xcodebuild test \
 ```
 
 
-platform:iOS Simulator, arch:arm64, id:6DCC4B42-FF29-4F59-AF33-684223C2DEC7, OS:26.4.1, name:iPhone 17 Pro
-
 To see the available destinations for testing:
 ```zsh
 xcodebuild -scheme PreviewUtilities -showdestinations
 ```
-
-
 
 
 
