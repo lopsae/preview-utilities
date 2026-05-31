@@ -13,15 +13,10 @@
   },
   "testTargets" : [
     {
-      "selectedTags" : {
-        "tags" : [
-          ".documentationRender"
-        ]
-      },
       "target" : {
         "containerPath" : "container:",
-        "identifier" : "PreviewUtilitiesTests",
-        "name" : "PreviewUtilitiesTests"
+        "identifier" : "DocumentationRenders",
+        "name" : "DocumentationRenders"
       }
     }
   ],

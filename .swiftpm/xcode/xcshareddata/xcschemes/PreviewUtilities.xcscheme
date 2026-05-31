@@ -21,6 +21,34 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "UnitTests"
+               BuildableName = "UnitTests"
+               BlueprintName = "UnitTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DocumentationRenders"
+               BuildableName = "DocumentationRenders"
+               BlueprintName = "DocumentationRenders"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -34,7 +62,7 @@
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:tests/DocumentationRenders.xctestplan">
+            reference = "container:renders/DocumentationRenders.xctestplan">
          </TestPlanReference>
       </TestPlans>
    </TestAction>

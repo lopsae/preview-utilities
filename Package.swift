@@ -28,13 +28,19 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "PreviewUtilitiesTests",
+            name: "UnitTests",
             dependencies: ["PreviewUtilities"],
             path: "tests",
             exclude: [
                 "UnitTests.xctestplan",
+            ]
+        ),
+        .testTarget(
+            name: "DocumentationRenders",
+            dependencies: ["PreviewUtilities"],
+            path: "renders",
+            exclude: [
                 "DocumentationRenders.xctestplan",
-                "documentation-renders"
             ]
         ),
     ]
