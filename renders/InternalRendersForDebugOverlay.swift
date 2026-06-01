@@ -17,11 +17,17 @@ import Testing
 ///
 /// This file has testable access to PreviewUtilities. This code should not be used in documentation
 /// snippets.
-@Suite
 struct InternalRendersForDebugOverlay {
 
+    let storage: IllustrationStorage
+
+    init() throws {
+        self.storage = try DocumentationResources.storage
+    }
+
+
     @Test func components() throws {
-        try DocumentationResources.renderAndStore("debug-overlay", "components") {
+        try storage.renderAndStore("debug-overlay", "components") {
             IllustrationsForDebugOverlay.components
         }
     }

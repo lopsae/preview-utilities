@@ -17,39 +17,45 @@ import Testing
 ///
 /// This file has testable access to PreviewUtilities. This code should not be used in documentation
 /// snippets.
-@Suite
 struct InternalRendersForFloatingAlignment {
 
+    let storage: IllustrationStorage
+
+    init() throws {
+        self.storage = try DocumentationResources.storage
+    }
+
+
     @Test func alignmentExamples() throws {
-        try DocumentationResources.renderAndStore("floating-alignment", "alignment-examples") {
+        try storage.renderAndStore("floating-alignment", "alignment-examples") {
             IllustrationsForFloatingAlignment.alignmentExamples
         }
     }
 
 
     @Test func innerAlignments() throws {
-        try DocumentationResources.renderAndStore("floating-alignment", "inner-alignments") {
+        try storage.renderAndStore("floating-alignment", "inner-alignments") {
             IllustrationsForFloatingAlignment.innerAlignments
         }
     }
 
 
     @Test func outerAlignments() throws {
-        try DocumentationResources.renderAndStore("floating-alignment", "outer-alignments") {
+        try storage.renderAndStore("floating-alignment", "outer-alignments") {
             IllustrationsForFloatingAlignment.outerAlignments
         }
     }
 
 
     @Test func outerWithVerticalMajor() throws {
-        try DocumentationResources.renderAndStore("floating-alignment", "outer-with-vertical-major") {
+        try storage.renderAndStore("floating-alignment", "outer-with-vertical-major") {
             IllustrationsForFloatingAlignment.outerAlignmentWithVerticalMajor
         }
     }
 
 
     @Test func outerWithHorizontalMajor() throws {
-        try DocumentationResources.renderAndStore("floating-alignment", "outer-with-horizontal-major") {
+        try storage.renderAndStore("floating-alignment", "outer-with-horizontal-major") {
             IllustrationsForFloatingAlignment.outerAlignmentWithHorizontalMajor
         }
     }
