@@ -20,8 +20,19 @@ import Testing
 @Suite
 struct RendersForDebugOverlay {
 
+    let storage: IllustrationStorage
+
+    init() throws {
+        self.storage = try .init(
+            filePath: #filePath,
+            droppingComponents: 2, // filename, renders
+            appendingComponents: ["sources", "documentation.docc", "resources"]
+        )
+    }
+
+
     @Test func `default`() throws {
-        try DocumentationResources.renderAndStore("debug-overlay", "default") {
+        try storage.renderAndStore("debug-overlay", "default") {
             DocumentationIllustration(height: 160) {
                 Text("Sphinx of Black Quartz")
                     .font(.title)
