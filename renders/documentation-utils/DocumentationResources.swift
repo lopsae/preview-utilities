@@ -7,14 +7,6 @@
 import PreviewUtilities
 
 
-//import CoreGraphics
-//import ImageIO
-//import Foundation
-//import SwiftUI
-//import Testing
-//import UniformTypeIdentifiers.UTType
-
-
 /// Utility structure to access the documentation catalog resources.
 struct DocumentationResources {
 
