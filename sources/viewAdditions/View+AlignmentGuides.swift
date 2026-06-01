@@ -14,8 +14,8 @@ extension View {
         moveTo target: VerticalAlignment? = nil,
         offsetBy offset: CGFloat = .zero
     ) -> some View {
-        self.alignmentGuide(alignment) { dimentions in
-            dimentions[target ?? alignment] + offset
+        self.alignmentGuide(alignment) { dimensions in
+            dimensions[target ?? alignment] + offset
         }
     }
 
@@ -26,8 +26,8 @@ extension View {
         moveTo target: HorizontalAlignment? = nil,
         offsetBy offset: CGFloat = .zero
     ) -> some View {
-        self.alignmentGuide(alignment) { dimentions in
-            dimentions[target ?? alignment] + offset
+        self.alignmentGuide(alignment) { dimensions in
+            dimensions[target ?? alignment] + offset
         }
     }
 
