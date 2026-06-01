@@ -17,11 +17,21 @@ import Testing
 ///
 /// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
 /// each function is also used in code snippets.
-@Suite
 struct RendersForFloatingCaption {
 
+    let storage: IllustrationStorage
+
+    init() throws {
+        self.storage = try .init(
+            filePath: #filePath,
+            droppingComponents: 2, // filename, renders
+            appendingComponents: ["sources", "documentation.docc", "resources"]
+        )
+    }
+
+
     @Test func `default`() throws {
-        try DocumentationResources.renderAndStore("floating-caption", "default") {
+        try storage.renderAndStore("floating-caption", "default") {
             DocumentationIllustration(height: 160) {
                 HStack {
                     Rectangle()
@@ -38,7 +48,7 @@ struct RendersForFloatingCaption {
 
 
     @Test func traitsExplained() throws {
-        try DocumentationResources.renderAndStore("floating-caption", "traits-explained") {
+        try storage.renderAndStore("floating-caption", "traits-explained") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
                 .fill(.purple.gradient)
@@ -54,7 +64,7 @@ struct RendersForFloatingCaption {
 
 
     @Test func styleAndBorder() throws {
-        try DocumentationResources.renderAndStore("floating-caption", "style-and-border") {
+        try storage.renderAndStore("floating-caption", "style-and-border") {
             DocumentationIllustration(height: 160) {
                 Circle()
                 .fill(.tertiary)
@@ -72,7 +82,7 @@ struct RendersForFloatingCaption {
 
 
     @Test func simpleTraits() throws {
-        try DocumentationResources.renderAndStore("floating-caption", "simple-traits") {
+        try storage.renderAndStore("floating-caption", "simple-traits") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
                 .fill(.purple.gradient)
@@ -84,7 +94,7 @@ struct RendersForFloatingCaption {
 
 
     @Test func readmeTraits() throws {
-        try DocumentationResources.renderAndStore(
+        try storage.renderAndStore(
             "floating-caption", "readme-traits",
             colorSchemes: [.light]
         ) {

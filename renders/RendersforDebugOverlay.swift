@@ -17,7 +17,6 @@ import Testing
 ///
 /// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
 /// each function is also used in code snippets.
-@Suite
 struct RendersForDebugOverlay {
 
     let storage: IllustrationStorage
@@ -45,7 +44,7 @@ struct RendersForDebugOverlay {
 
 
     @Test func simpleTraits() throws {
-        try DocumentationResources.renderAndStore("debug-overlay", "simple-traits") {
+        try storage.renderAndStore("debug-overlay", "simple-traits") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
                 .fill(.yellow.gradient.secondary)
@@ -61,7 +60,7 @@ struct RendersForDebugOverlay {
 
 
     @Test func alignments() throws {
-        try DocumentationResources.renderAndStore("debug-overlay", "alignments") {
+        try storage.renderAndStore("debug-overlay", "alignments") {
             DocumentationIllustration(height: 180) {
                 HStack(spacing: 16) {
                     Rectangle()
@@ -83,7 +82,7 @@ struct RendersForDebugOverlay {
 
 
     @Test func torchDefault() throws {
-        try DocumentationResources.renderAndStore("debug-overlay", "torch-default") {
+        try storage.renderAndStore("debug-overlay", "torch-default") {
             DocumentationIllustration(height: 100) {
                 Text("a sort of splendid torch")
                     .debugOverlay()
@@ -94,7 +93,7 @@ struct RendersForDebugOverlay {
 
 
     @Test func torchTraits() throws {
-        try DocumentationResources.renderAndStore("debug-overlay", "torch-traits") {
+        try storage.renderAndStore("debug-overlay", "torch-traits") {
             DocumentationIllustration(height: 100) {
                 Text("a sort of splendid torch")
                     .debugOverlay(.width, .alignment(.outerTop))
