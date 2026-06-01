@@ -17,11 +17,10 @@ import Testing
 ///
 /// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
 /// each function is also used in code snippets.
-@Suite(.tags(.documentationRender))
+@Suite
 struct RendersForDebugOverlay {
 
-    @Test(.tags(.documentationRender))
-    func `default`() throws {
+    @Test func `default`() throws {
         try DocumentationResources.renderAndStore("debug-overlay", "default") {
             DocumentationIllustration(height: 160) {
                 Text("Sphinx of Black Quartz")
@@ -34,8 +33,7 @@ struct RendersForDebugOverlay {
     }
 
 
-    @Test(.tags(.documentationRender))
-    func simpleTraits() throws {
+    @Test func simpleTraits() throws {
         try DocumentationResources.renderAndStore("debug-overlay", "simple-traits") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
@@ -51,8 +49,7 @@ struct RendersForDebugOverlay {
     }
 
 
-    @Test(.tags(.documentationRender))
-    func alignments() throws {
+    @Test func alignments() throws {
         try DocumentationResources.renderAndStore("debug-overlay", "alignments") {
             DocumentationIllustration(height: 180) {
                 HStack(spacing: 16) {
@@ -74,8 +71,7 @@ struct RendersForDebugOverlay {
     }
 
 
-    @Test(.tags(.documentationRender))
-    func torchDefault() throws {
+    @Test func torchDefault() throws {
         try DocumentationResources.renderAndStore("debug-overlay", "torch-default") {
             DocumentationIllustration(height: 100) {
                 Text("a sort of splendid torch")
@@ -86,8 +82,7 @@ struct RendersForDebugOverlay {
     }
 
 
-    @Test(.tags(.documentationRender))
-    func torchTraits() throws {
+    @Test func torchTraits() throws {
         try DocumentationResources.renderAndStore("debug-overlay", "torch-traits") {
             DocumentationIllustration(height: 100) {
                 Text("a sort of splendid torch")

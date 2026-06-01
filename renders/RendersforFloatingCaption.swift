@@ -17,11 +17,10 @@ import Testing
 ///
 /// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
 /// each function is also used in code snippets.
-@Suite(.tags(.documentationRender))
+@Suite
 struct RendersForFloatingCaption {
 
-    @Test(.tags(.documentationRender))
-    func `default`() throws {
+    @Test func `default`() throws {
         try DocumentationResources.renderAndStore("floating-caption", "default") {
             DocumentationIllustration(height: 160) {
                 HStack {
@@ -38,8 +37,7 @@ struct RendersForFloatingCaption {
     }
 
 
-    @Test(.tags(.documentationRender))
-    func traitsExplained() throws {
+    @Test func traitsExplained() throws {
         try DocumentationResources.renderAndStore("floating-caption", "traits-explained") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
@@ -55,8 +53,7 @@ struct RendersForFloatingCaption {
     }
 
 
-    @Test(.tags(.documentationRender))
-    func styleAndBorder() throws {
+    @Test func styleAndBorder() throws {
         try DocumentationResources.renderAndStore("floating-caption", "style-and-border") {
             DocumentationIllustration(height: 160) {
                 Circle()
@@ -74,8 +71,7 @@ struct RendersForFloatingCaption {
     }
 
 
-    @Test(.tags(.documentationRender))
-    func simpleTraits() throws {
+    @Test func simpleTraits() throws {
         try DocumentationResources.renderAndStore("floating-caption", "simple-traits") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
@@ -87,8 +83,7 @@ struct RendersForFloatingCaption {
     }
 
 
-    @Test(.tags(.documentationRender))
-    func readmeTraits() throws {
+    @Test func readmeTraits() throws {
         try DocumentationResources.renderAndStore(
             "floating-caption", "readme-traits",
             colorSchemes: [.light]

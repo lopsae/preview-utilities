@@ -17,11 +17,10 @@ import Testing
 ///
 /// This file has testable access to PreviewUtilities. This code should not be used in documentation
 /// snippets.
-@Suite(.tags(.documentationRender))
+@Suite
 struct InternalRendersForDebugOverlay {
 
-    @Test(.tags(.documentationRender))
-    func components() throws {
+    @Test func components() throws {
         try DocumentationResources.renderAndStore("debug-overlay", "components") {
             IllustrationsForDebugOverlay.components
         }

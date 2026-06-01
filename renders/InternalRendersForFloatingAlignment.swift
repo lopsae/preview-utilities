@@ -17,43 +17,38 @@ import Testing
 ///
 /// This file has testable access to PreviewUtilities. This code should not be used in documentation
 /// snippets.
-@Suite(.tags(.documentationRender))
+@Suite
 struct InternalRendersForFloatingAlignment {
 
-    @Test(.tags(.documentationRender))
-    func alignmentExamples() throws {
+    @Test func alignmentExamples() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "alignment-examples") {
             IllustrationsForFloatingAlignment.alignmentExamples
         }
     }
 
 
-    @Test(.tags(.documentationRender))
-    func innerAlignments() throws {
+    @Test func innerAlignments() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "inner-alignments") {
             IllustrationsForFloatingAlignment.innerAlignments
         }
     }
 
 
-    @Test(.tags(.documentationRender))
-    func outerAlignments() throws {
+    @Test func outerAlignments() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "outer-alignments") {
             IllustrationsForFloatingAlignment.outerAlignments
         }
     }
 
 
-    @Test(.tags(.documentationRender))
-    func outerWithVerticalMajor() throws {
+    @Test func outerWithVerticalMajor() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "outer-with-vertical-major") {
             IllustrationsForFloatingAlignment.outerAlignmentWithVerticalMajor
         }
     }
 
 
-    @Test(.tags(.documentationRender))
-    func outerWithHorizontalMajor() throws {
+    @Test func outerWithHorizontalMajor() throws {
         try DocumentationResources.renderAndStore("floating-alignment", "outer-with-horizontal-major") {
             IllustrationsForFloatingAlignment.outerAlignmentWithHorizontalMajor
         }
