@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-/// Wraps content for rendering a documentation illustration.
+/// Wraps content for rendering an illustration generated from a SwiftUI view body.
 public struct DocumentationIllustration: View {
 
     static var defaultWidth: CGFloat { 400 }
