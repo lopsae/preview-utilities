@@ -18,6 +18,18 @@ import UniformTypeIdentifiers.UTType
 /// Utility structure to store images into the documentation catalog resources.
 struct DocumentationResources {
 
+    /// Returns an illustration storage configured to the resources folder of the package
+    /// documentation catalog.
+    static var storage: IllustrationStorage {
+        get throws {
+            try .init(
+                filePath: #filePath,
+                droppingComponents: 3, // filename, utils, renders
+                appendingComponents: ["sources", "documentation.docc", "resources"]
+            )
+        }
+    }
+
     static func store(resource: DocumentationRenderer.RenderResource) throws {
         // TODO: could check path components until `tests` is found
         // TODO: if more that X last components are checked, also throw an error

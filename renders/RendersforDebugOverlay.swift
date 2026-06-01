@@ -22,11 +22,7 @@ struct RendersForDebugOverlay {
     let storage: IllustrationStorage
 
     init() throws {
-        self.storage = try .init(
-            filePath: #filePath,
-            droppingComponents: 2, // filename, renders
-            appendingComponents: ["sources", "documentation.docc", "resources"]
-        )
+        self.storage = try DocumentationResources.storage
     }
 
 
