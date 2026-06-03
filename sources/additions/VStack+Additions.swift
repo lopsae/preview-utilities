@@ -24,3 +24,38 @@ extension VStack {
     }
 
 }
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+    let content = Group {
+        CaptionRectangle("First", color: .mint, size: [100, 50])
+        CaptionRectangle("Second", color: .mint, size: [200, 50])
+        CaptionRectangle("Third", color: .mint, size: [150, 50])
+    }
+
+    VStack.maxWidth(alignment: .leading) {
+        content
+    }
+    .floatingCaption("VStack.maxWidth", .colorStyle(.orange), .alignment(.topTrailing))
+
+    DashedDivider()
+
+    VStack(alignment: .leading) {
+        content
+    }
+    .floatingCaption("VStack", .colorStyle(.orange), .alignment(.topTrailing))
+}
