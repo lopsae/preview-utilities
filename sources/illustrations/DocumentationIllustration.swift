@@ -13,10 +13,27 @@ public struct DocumentationIllustration: View {
     static var defaultWidth: CGFloat { 400 }
 
     let size: CGSize
+    let drawsBorder: Bool
     let content: AnyView
 
-    public init<Content: View>(height: CGFloat, @ViewBuilder content: @escaping () -> Content) {
+    public init<Content: View>(
+        height: CGFloat,
+        drawsBorder: Bool = true,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
         self.size = [Self.defaultWidth, height]
+        self.drawsBorder = drawsBorder
+        self.content = AnyView(content())
+    }
+
+
+    public init<Content: View>(
+        size: CGSize,
+        drawsBorder: Bool = true,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.size = size
+        self.drawsBorder = drawsBorder
         self.content = AnyView(content())
     }
 
@@ -27,7 +44,7 @@ public struct DocumentationIllustration: View {
         }
         .frame(size: size)
         .background(.background, in: .rect)
-        .border(.tertiary, width: 1)
+        .border(.tertiary, width: drawsBorder ? 1 : .zero)
     }
 
 }
@@ -43,4 +60,31 @@ extension PreviewTrait where T == Preview.ViewTraits {
         .sizeThatFitsLayout
     }
 
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .docsIllustration) {
+    DocumentationIllustration(height: 160) {
+        Text("Documentation Illustration")
+    }
+    .padding()
+}
+
+
+#Preview("Size", traits: .docsIllustration) {
+    DocumentationIllustration(size: [160, 160]) {
+        Text("Custom Size\nIllustration")
+    }
+    .padding()
+}
+
+
+#Preview("NoBorder", traits: .docsIllustration) {
+    DocumentationIllustration(height: 160, drawsBorder : false) {
+        Text("No Border Illustration")
+    }
+    .padding()
 }
