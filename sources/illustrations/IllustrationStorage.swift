@@ -41,7 +41,7 @@ public struct IllustrationStorage {
     }
 
 
-    func store(resource: IllustrationRenderer.RenderResource) throws {
+    public func store(resource: IllustrationRenderer.RenderResource) throws {
         for (scheme, cgImage) in resource.images {
             let scaleInt = resource.scale.arithmeticRoundedInt
             let filename = switch scheme {
