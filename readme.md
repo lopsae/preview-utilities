@@ -9,16 +9,14 @@ A collection of modifiers, additions, views, and other utilities usually useful 
 
 > [!NOTE]
 > Package documentation is currently a work in progress. Many of the utilities in this package
-> have not been documented thoroughly.
+> have not been documented thoroughly yet.
 
 Debug Overlay
 -------------
-Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.
+Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.
 
-Apply the [`debugOverlay()`][docs-debug-overlay-function] modifier to any view to overlay the debug visualization, the original
-layout of the parent view is never modified.
-
-See the [`DebugOverlayModifier` documentation][docs-debug-overlay-modifier]. 
+Apply the [`debugOverlay()`][docs-debug-overlay-function] modifier to a view to overlay the debug 
+visualization, the layout of the owner view is never modified.
 
 ```swift
 Text("Sphinx of Black Quartz")
@@ -34,6 +32,8 @@ Text("Judge my Vow")
     alt="Debug overlay with default configuration."
 />
 
+See the [`DebugOverlayModifier` documentation][docs-debug-overlay-modifier] for further details.
+
 
 [docs-debug-overlay-function]: https://lopsae.com/preview-utilities/documentation/previewutilities/swiftuicore/view/debugoverlay()
 [docs-debug-overlay-modifier]: https://lopsae.com/preview-utilities/documentation/previewutilities/debugoverlaymodifier
@@ -42,12 +42,11 @@ Text("Judge my Vow")
 
 Floating Caption
 ----------------
-Add a floating caption, border, and size information to any view, without impacting its layout.
+Add a floating caption, border, and size information to a view, without impacting its layout.
 
-Apply the [`floatingCaption(_:_:)`][docs-floating-caption-function] modifier to any view to overlay a floating caption, and optionally
-draw a border over the parent view. The original layout of the parent view is never modified.
-
-See the [`FloatingCaptionModifier` documentation][docs-floating-caption-modifier].
+Apply the [`floatingCaption(_:_:)`][docs-floating-caption-function] modifier to a view to overlay a 
+floating caption, and optionally draw a border over the owner view. The original layout of the owner
+view is never modified.
 
 ```swift
 Circle()
@@ -68,10 +67,12 @@ Circle()
     alt="Floating caption with example traits and explanations."
 />
 
+See the [`FloatingCaptionModifier` documentation][docs-floating-caption-modifier] for further details.
 
 
 [docs-floating-caption-function]: https://lopsae.com/preview-utilities/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
 [docs-floating-caption-modifier]: https://lopsae.com/preview-utilities/documentation/previewutilities/floatingcaptionmodifier
+
 
 
 Other utilities
