@@ -23,7 +23,7 @@ public struct IllustrationRenderer {
     /// The name components determine the folder location and name of the image. Every name
     /// component except the last is treated as the folder path where the image will be saved. The
     /// name of the image is all the name components joined with hyphens (`-`).
-    static func render(
+    public static func render(
         nameComponents: [String],
         scale: CGFloat = defaultScale,
         colorSchemes: Set<ColorScheme> = defaultColorSchemes,
@@ -52,7 +52,7 @@ public struct IllustrationRenderer {
     ///
     /// Contains the information needed to store a rendered documentation illustration: the name
     /// components, image scale, and the images for each rendered color scheme.
-    struct RenderResource {
+    public struct RenderResource {
 
         /// Components of the resource name.
         ///
