@@ -99,6 +99,20 @@ public struct IllustrationStorage {
         try store(resource: resource)
     }
 
+
+    public func renderAndStore(
+        _ nameComponents: String...,
+        colorScheme: ColorScheme,
+        illustration: () -> DocumentationIllustration
+    ) throws {
+        let resource = try IllustrationRenderer.render(
+            nameComponents: nameComponents,
+            colorSchemes: [colorScheme],
+            illustration: illustration
+        )
+        try store(resource: resource)
+    }
+
 }
 
 

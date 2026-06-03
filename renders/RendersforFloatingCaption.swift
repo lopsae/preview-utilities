@@ -92,7 +92,7 @@ struct RendersForFloatingCaption {
     @Test func readmeTraits() throws {
         try storage.renderAndStore(
             "floating-caption", "readme-traits",
-            colorSchemes: [.light]
+            colorScheme: .light
         ) {
             DocumentationIllustration(height: 160) {
                 Circle()
