@@ -41,18 +41,25 @@ public struct IllustrationStorage {
     }
 
 
-    public func store(resource: IllustrationRenderer.RenderResource) throws {
+    public func store(
+        resource: IllustrationRenderer.RenderResource,
+        usesFullComponentName: Bool = true
+    ) throws {
         for (scheme, cgImage) in resource.images {
             let scaleInt = resource.scale.arithmeticRoundedInt
+            let resourceName = usesFullComponentName
+                ? resource.fullResourceName
+                : resource.shortResourceName
+
             let filename = switch scheme {
             case .light:
                 // Light scheme requires NO scheme in the filename.
                 // Eg: image-name@3x.png
-                "\(resource.resourceName)@\(scaleInt)x.png"
+                "\(resourceName)@\(scaleInt)x.png"
             case .dark:
                 // Dark scheme requires the scheme in the filename.
                 // Eg: image-name~dark@3x.png
-                "\(resource.resourceName)~dark@\(scaleInt)x.png"
+                "\(resourceName)~dark@\(scaleInt)x.png"
             @unknown default:
                 throw StorageError.unknownColorScheme
             }
@@ -88,7 +95,38 @@ public struct IllustrationStorage {
 
     public func renderAndStore(
         _ nameComponents: String...,
+        usesFullComponentName: Bool = true,
         colorSchemes: Set<ColorScheme> = IllustrationRenderer.defaultColorSchemes,
+        illustration: () -> DocumentationIllustration
+    ) throws {
+        try renderAndStore(
+            nameComponents: nameComponents,
+            usesFullComponentName: usesFullComponentName,
+            colorSchemes: colorSchemes,
+            illustration: illustration
+        )
+    }
+
+
+    public func renderAndStore(
+        _ nameComponents: String...,
+        usesFullComponentName: Bool = true,
+        colorScheme: ColorScheme,
+        illustration: () -> DocumentationIllustration
+    ) throws {
+        try renderAndStore(
+            nameComponents: nameComponents,
+            usesFullComponentName: usesFullComponentName,
+            colorSchemes: [colorScheme],
+            illustration: illustration
+        )
+    }
+
+
+    public func renderAndStore(
+        nameComponents: [String],
+        usesFullComponentName: Bool,
+        colorSchemes: Set<ColorScheme>,
         illustration: () -> DocumentationIllustration
     ) throws {
         let resource = try IllustrationRenderer.render(
@@ -96,21 +134,10 @@ public struct IllustrationStorage {
             colorSchemes: colorSchemes,
             illustration: illustration
         )
-        try store(resource: resource)
-    }
-
-
-    public func renderAndStore(
-        _ nameComponents: String...,
-        colorScheme: ColorScheme,
-        illustration: () -> DocumentationIllustration
-    ) throws {
-        let resource = try IllustrationRenderer.render(
-            nameComponents: nameComponents,
-            colorSchemes: [colorScheme],
-            illustration: illustration
+        try store(
+            resource: resource,
+            usesFullComponentName: usesFullComponentName
         )
-        try store(resource: resource)
     }
 
 }

@@ -38,7 +38,7 @@ public struct IllustrationRenderer {
             }
 
             guard let cgImage = renderer.cgImage else {
-                let resourceName = RenderResource.resourceName(components: nameComponents)
+                let resourceName = RenderResource.fullResourceName(components: nameComponents)
                 throw RendererError.renderingFailed(resourceName)
             }
             images[scheme] = cgImage
@@ -85,13 +85,21 @@ public struct IllustrationRenderer {
         }
 
         /// Returns the resource name, all the given components joined by hyphens (`-`).
-        static func resourceName(components: [String]) -> String {
+        static func fullResourceName(components: [String]) -> String {
             components.joined(separator: "-")
         }
 
-        /// Returns the resource name, all the `nameComponents` joined by hyphens (`-`).
-        var resourceName: String {
-            Self.resourceName(components: nameComponents)
+        /// Returns the full resource name: all the `nameComponents` joined by hyphens (`-`).
+        var fullResourceName: String {
+            Self.fullResourceName(components: nameComponents)
+        }
+
+        /// Returns the short resource name: the last element of `nameComponents`.
+        var shortResourceName: String {
+            guard let lastComponent = nameComponents.last else {
+                preconditionFailure("nameComponents must contain at least one element")
+            }
+            return lastComponent
         }
     }
 
