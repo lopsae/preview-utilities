@@ -97,8 +97,6 @@ public struct DebugOverlayModifier: ViewModifier {
     /// sizes approaching zero. Smaller values are overridden with the minimum.
     private static let minReticuleLength: CGFloat = 2
 
-    private static let outerShapeStyle:     some ShapeStyle = .blue.tertiary
-    private static let innerShapeStyle:     some ShapeStyle = .red.tertiary
 
     @Environment(\.colorScheme) private var colorScheme
 
@@ -193,7 +191,9 @@ public struct DebugOverlayModifier: ViewModifier {
         Rectangle()
             // Stroke draws over the view's boundary, half inside half outside.
             // Drawn with double width and masked to remove the inner half.
-            .stroke(Self.outerShapeStyle, lineWidth: boundedBordersWidth * 2)
+        // FIXME: Test if inset achieves the same behavior as mask.
+//            .inset(by: -boundedBordersWidth/2)
+            .stroke(outerStrokeShapeStyle, lineWidth: boundedBordersWidth * 2)
             .mask {
                 Path { path in
                     path.addRect(correctedFrame.inset(by: -boundedBordersWidth))
@@ -226,7 +226,7 @@ public struct DebugOverlayModifier: ViewModifier {
 
         Rectangle()
             // Stroke border draws an inset stroke.
-            .strokeBorder(Self.innerShapeStyle, style: strokeStyle)
+            .strokeBorder(innerStrokeShapeStyle, style: strokeStyle)
     }
 
 
@@ -356,6 +356,26 @@ public struct DebugOverlayModifier: ViewModifier {
         case .light:      .green.tertiary
         case .dark:       .green.secondary
         @unknown default: .green.tertiary
+        }
+        return AnyShapeStyle(shapeStyle)
+    }
+
+
+    private var outerStrokeShapeStyle: AnyShapeStyle {
+        let shapeStyle: any ShapeStyle = switch colorScheme {
+        case .light:      .blue.tertiary
+        case .dark:       .blue.secondary
+        @unknown default: .blue.tertiary
+        }
+        return AnyShapeStyle(shapeStyle)
+    }
+
+
+    private var innerStrokeShapeStyle: AnyShapeStyle {
+        let shapeStyle: any ShapeStyle = switch colorScheme {
+        case .light:      .red.tertiary
+        case .dark:       .red.secondary
+        @unknown default: .red.tertiary
         }
         return AnyShapeStyle(shapeStyle)
     }
