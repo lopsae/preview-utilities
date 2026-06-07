@@ -99,7 +99,8 @@ public struct DebugOverlayModifier: ViewModifier {
 
     private static let outerShapeStyle:     some ShapeStyle = .blue.tertiary
     private static let innerShapeStyle:     some ShapeStyle = .red.tertiary
-    private static let safeAreasShapeStyle: some ShapeStyle = .green.tertiary
+
+    @Environment(\.colorScheme) private var colorScheme
 
     let configuration: Configuration
 
@@ -125,6 +126,8 @@ public struct DebugOverlayModifier: ViewModifier {
     }
 
 
+    // MARK: Safe Area Rects
+
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let size = geometry.size
@@ -145,24 +148,26 @@ public struct DebugOverlayModifier: ViewModifier {
         let bottomInset   = geometry.safeAreaInsets.bottom
         let trailingInset = geometry.safeAreaInsets.trailing
 
+        let fillShapeStyle = safeAreasShapeStyle
+
         // Top.
         if topInset != .zero {
             Rectangle()
-                .fill(Self.safeAreasShapeStyle)
+                .fill(fillShapeStyle)
                 .frame(width: minWidth, height: topInset)
                 .offset(x: xOffset, y: -topInset)
         }
         // Leading.
         if leadingInset != .zero {
             Rectangle()
-                .fill(Self.safeAreasShapeStyle)
+                .fill(fillShapeStyle)
                 .frame(width: leadingInset, height: minHeight)
                 .offset(x: -leadingInset, y: yOffset)
         }
         // Bottom.
         if bottomInset != .zero {
             Rectangle()
-                .fill(Self.safeAreasShapeStyle)
+                .fill(fillShapeStyle)
                 .frame(width: minWidth, height: bottomInset)
                 .offset(x: xOffset, y: size.height)
         }
@@ -170,12 +175,14 @@ public struct DebugOverlayModifier: ViewModifier {
         // Trailing.
         if trailingInset != .zero {
             Rectangle()
-                .fill(Self.safeAreasShapeStyle)
+                .fill(fillShapeStyle)
                 .frame(width: trailingInset, height: minHeight)
                 .offset(x: size.width, y: yOffset)
         }
     }
 
+
+    // MARK: Outer Stroke
 
     @ViewBuilder
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
@@ -202,6 +209,8 @@ public struct DebugOverlayModifier: ViewModifier {
     }
 
 
+    // MARK: Inner Stroke
+
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
         let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
@@ -221,6 +230,8 @@ public struct DebugOverlayModifier: ViewModifier {
     }
 
 
+    // MARK: Origin Reticule
+
     @ViewBuilder
     private func originReticuleRects(geometry: GeometryProxy) -> some View {
         let thickness: CGFloat = 1
@@ -238,6 +249,8 @@ public struct DebugOverlayModifier: ViewModifier {
             .offset(x: -boundedLength)
     }
 
+
+    // MARK: Debug Caption
 
     @ViewBuilder
     private func debugCaptionView(_ geometry: GeometryProxy) -> some View {
@@ -333,6 +346,18 @@ public struct DebugOverlayModifier: ViewModifier {
         mutableRect.size.width  = max(minSideLength, rect.width)
         mutableRect.size.height = max(minSideLength, rect.height)
         return mutableRect
+    }
+
+
+    // MARK: Fill Styles
+
+    private var safeAreasShapeStyle: AnyShapeStyle {
+        let shapeStyle: any ShapeStyle = switch colorScheme {
+        case .light:      .green.tertiary
+        case .dark:       .green.secondary
+        @unknown default: .green.tertiary
+        }
+        return AnyShapeStyle(shapeStyle)
     }
 
 }
@@ -672,6 +697,25 @@ private struct PreviewContent {
         ))
         .border(.gray.tertiary)
         .padding(.vertical)
+}
+
+
+#Preview("ColorSchemes", traits: .headerFooter(.showDividers), PreviewContent.layout) {
+    let content = HStack {
+        PreviewContent.star
+        Text("Preview Text").font(.title)
+    }
+    .frame(height: 100)
+    .debugOverlay()
+    .safeAreaPadding(.horizontal(40))
+    .padding()
+    .background(.background)
+
+    content
+    .colorScheme(.light)
+
+    content
+    .colorScheme(.dark)
 }
 
 
