@@ -551,6 +551,15 @@ extension FloatingAlignment {
         }
 
 
+        var outerVerticalComponent: OuterVerticalAlignment? {
+            switch self {
+            case .top, .bottom: nil
+            case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
+                outerVerticalAlignment
+            }
+        }
+
+
         // MARK: Shorthand properties
         public static let topLeading:     Self = .top(.leading)
         public static let topCenter:      Self = .top(.center)

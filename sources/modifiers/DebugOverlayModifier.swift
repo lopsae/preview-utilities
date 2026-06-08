@@ -191,16 +191,8 @@ public struct DebugOverlayModifier: ViewModifier {
         Rectangle()
             // Stroke draws over the view's boundary, half inside half outside.
             // Drawn with double width and masked to remove the inner half.
-        // FIXME: Test if inset achieves the same behavior as mask.
-//            .inset(by: -boundedBordersWidth/2)
-            .stroke(outerStrokeShapeStyle, lineWidth: boundedBordersWidth * 2)
-            .mask {
-                Path { path in
-                    path.addRect(correctedFrame.inset(by: -boundedBordersWidth))
-                    path.addRect(correctedFrame)
-                }
-                .fill(style: .init(eoFill: true))
-            }
+            .inset(by: -boundedBordersWidth/2)
+            .stroke(outerStrokeShapeStyle, lineWidth: boundedBordersWidth)
             // Setting this frame is important to force the view to draw. If `content` size is too
             // close to zero, that same size will be adopted by this view through the overlay, and
             // nothing in the view will draw, including paths larger that the view. This frame prevents
@@ -255,28 +247,12 @@ public struct DebugOverlayModifier: ViewModifier {
     @ViewBuilder
     private func debugCaptionView(_ geometry: GeometryProxy) -> some View {
         if configuration.containsInfoCaptionElements {
-            let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
-            // At most, the caption sits 4 points away from the borders.
-            let maxSpacingFromBoundary = boundedBordersWidth + 4
-            // At smaller sizes, the spacing is reduced along the borders width,
-            // with a different ratio for each axis.
-            let horizontalSpacingFromBoundary = (boundedBordersWidth * 2.0).clamped(to: ...maxSpacingFromBoundary)
-            let verticalSpacingFromBoundary = (boundedBordersWidth * 1.2).clamped(to: ...maxSpacingFromBoundary)
-
-            let outerAlignment = configuration.infoAlignment.outerAlignment
-            let verticalSpacing = verticalSpacingFromBoundary
-
-            // For outer alignment with top-or-bottom major, the caption is aligned 2 points from
-            // the edge of the content. Otherwise it looks misaligned.
-            let horizontalSpacing = outerAlignment?.key.isEqual(toAny: .top, .bottom) ?? false
-                ? 2
-                : horizontalSpacingFromBoundary
-
+            let spacing = captionSpacing
             FloatingAlignedContainer(
                 alignment: configuration.infoAlignment,
-                horizontalSpacing: horizontalSpacing,
-                verticalSpacing: verticalSpacing,
+                horizontalSpacing: spacing.width,
+                verticalSpacing: spacing.height,
             ) { alignments in
                 Group {
                     let globalFrame = geometry.frame(in: .global)
@@ -346,6 +322,35 @@ public struct DebugOverlayModifier: ViewModifier {
         mutableRect.size.width  = max(minSideLength, rect.width)
         mutableRect.size.height = max(minSideLength, rect.height)
         return mutableRect
+    }
+
+
+    private var captionSpacing: CGSize {
+        let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
+
+        // At most, the caption sits 4 points away from the borders.
+        let maxSpacingFromBoundary = boundedBordersWidth + 4
+        // At smaller sizes, the spacing is reduced along the borders width,
+        // with a different ratio for each axis.
+        let horizontalSpacingFromBoundary = (boundedBordersWidth * 2.0).clamped(to: ...maxSpacingFromBoundary)
+        let verticalSpacingFromBoundary = (boundedBordersWidth * 1.2).clamped(to: ...maxSpacingFromBoundary)
+
+        var horizontalSpacing = horizontalSpacingFromBoundary
+        var verticalSpacing = verticalSpacingFromBoundary
+
+        if let outerAlignment = configuration.infoAlignment.outerAlignment {
+            // For outer alignment with top/bottom major, the caption is always aligned 2 points
+            // from the edge of the content. Otherwise it looks misaligned.
+            if outerAlignment.key.isEqual(toAny: .top, .bottom) {
+                horizontalSpacing = 2
+            }
+            // For outer alignment with leading/trailing major, and top-or-bottom minor, the caption
+            // is aligned to the edge of the content. Otherwise it looks misaligned.
+            if outerAlignment.outerVerticalComponent?.isEqual(toAny: .top, .bottom) ?? false {
+                verticalSpacing = 0
+            }
+        }
+        return CGSize(width: horizontalSpacing, height: verticalSpacing)
     }
 
 
@@ -492,8 +497,12 @@ private struct PreviewContent {
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
     static var star: some View {
+        star(.pink.gradient)
+    }
+
+    static func star(_ fill: some ShapeStyle) -> some View {
         StarShape(points: 6, concaveVertexRatio: 0.8)
-            .fill(.pink.gradient)
+            .fill(fill)
     }
 
 }
@@ -630,7 +639,7 @@ private struct PreviewContent {
         }
 
         Slider.captioned(
-            "Line Width", value: $bordersWidth, in: 0...30,
+            "Borders Width", value: $bordersWidth, in: 0...30,
             currentValueFormat: .fractionLength(2),
             boundsValueFormat: .arithmeticRoundedInteger)
 
@@ -758,7 +767,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("All Alignments", traits: PreviewContent.layout) {
+#Preview("Grouped Alignments", traits: PreviewContent.layout) {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
         Text(horizontalAlignment.displayName, format: .capitalized)
@@ -769,15 +778,60 @@ private struct PreviewContent {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
                 ClearRectangle()
-                    .debugOverlay(
-                        .width, .caption(verbatim: alignment.hyphenatedName),
-                        .infoAlignment(alignment))
+                .debugOverlay(
+                    .width, .caption(verbatim: alignment.hyphenatedName),
+                    .infoAlignment(alignment)
+                )
             }
         }
         .padding(.vertical, 30)
     }
     DashedDivider()
 }
+
+
+#Preview("Alignments Guides", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var bordersWidth: Double = 5
+
+    Slider.captioned(
+        "Borders Width", value: $bordersWidth, in: 0...30,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger)
+
+    ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
+        DashedDivider()
+        Text(horizontalAlignment.displayName, format: .capitalized)
+
+        PreviewContent.star(.pink.gradient.tertiary)
+        .frame(size: [100, 100])
+        .overlay {
+            let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
+            ForEach(alignments) { alignment in
+                ClearRectangle()
+                    .debugOverlay(.caption("Ag"), .infoAlignment(alignment), .bordersWidth(bordersWidth))
+            }
+        }
+        // TODO: use debug overlay alignment guides
+        .overlay(alignment: .top) {
+            Rectangle()
+            .fill(.red.tertiary)
+            .frame(width: 200, height: 2)
+        }
+        .overlay(alignment: .bottom) {
+            Rectangle()
+            .fill(.red.tertiary)
+            .frame(width: 200, height: 2)
+        }
+        .overlay(alignment: .center) {
+            Rectangle()
+            .fill(.red.tertiary)
+            .frame(width: 2, height: 140)
+        }
+        .padding(.vertical, 20)
+    }
+    DashedDivider()
+}
+
 
 
 extension Hashable {
