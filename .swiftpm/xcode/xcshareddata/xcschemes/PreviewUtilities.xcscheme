@@ -62,7 +62,7 @@
             default = "YES">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:renders/DocumentationRenders.xctestplan">
+            reference = "container:illustrations/DocumentationRenders.xctestplan">
          </TestPlanReference>
       </TestPlans>
       <Testables>
@@ -83,6 +83,16 @@
                BlueprintIdentifier = "UnitTests"
                BuildableName = "UnitTests"
                BlueprintName = "UnitTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Illustrations"
+               BuildableName = "Illustrations"
+               BlueprintName = "Illustrations"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>

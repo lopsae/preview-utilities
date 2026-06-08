@@ -36,9 +36,9 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "DocumentationRenders",
+            name: "Illustrations",
             dependencies: ["PreviewUtilities"],
-            path: "renders",
+            path: "illustrations",
             exclude: [
                 "DocumentationRenders.xctestplan",
             ]
