@@ -28,7 +28,7 @@ struct InternalRendersForDebugOverlay {
 
     @Test func components() throws {
         try storage.renderAndStore("debug-overlay", "components") {
-            IllustrationsForDebugOverlay.components
+            DebugOverlayModifier.Illustrations.components
         }
     }
 

@@ -7,7 +7,15 @@
 import SwiftUI
 
 
-struct IllustrationsForDebugOverlay {
+extension DebugOverlayModifier {
+
+    /// Container of specialized illustrations for `DebugOverlayModifier`.
+    enum Illustrations {}
+
+}
+
+
+extension DebugOverlayModifier.Illustrations {
 
     /// Illustration of the components of the `debugOverlay`.
     static var components: DocumentationIllustration {
@@ -120,7 +128,6 @@ struct IllustrationsForDebugOverlay {
             .offset(y: 20)
         } // DocumentationIllustration
     }
-
 }
 
 
@@ -128,5 +135,5 @@ struct IllustrationsForDebugOverlay {
 
 
 #Preview("components", traits: .docsIllustration) {
-    IllustrationsForDebugOverlay.components
+    DebugOverlayModifier.Illustrations.components
 }

@@ -11,13 +11,13 @@ import SwiftUI
 import Testing
 
 
-/// Rendering functions for documentation images for `DebugOverlayModifier`.
+/// Rendering functions for documentation illustrations for `DebugOverlayModifier`.
 ///
 /// Each test produces an image saved to the package documentation catalog.
 ///
 /// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
 /// each function is also used in code snippets.
-struct RendersForDebugOverlay {
+struct IllustrationsForDebugOverlay {
 
     let storage: IllustrationStorage
 
