@@ -4,4 +4,5 @@ set -v
 
 # Resets and clean the docs folder from any workspace changes.
 
-git 
+git checkout HEAD -- ./docs
+git clean --force -d ./docs
