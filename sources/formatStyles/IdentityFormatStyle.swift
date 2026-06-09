@@ -5,15 +5,24 @@
 
 
 import SwiftUI
+import Playgrounds
 
 
-/// A structure that performs an identity transformation, always returns the input as output with no
+/// A structure that performs an identity transformation, returns the input as output with no
 /// modifications.
-nonisolated
-public struct IdentityFormatStyle<T>: FormatStyle, Sendable {
+///
+/// Use this format style through the convenience ``Foundation/FormatStyle/identity``:
+///..
+/// ```swift
+/// "black quartz".formatted(.identity) // "black quartz"
+/// ```
+public nonisolated
+struct IdentityFormatStyle<T>: FormatStyle, Sendable {
 
-    public init() { }
+    /// Creates an identity format style.
+    public init() {}
 
+    @_documentation(visibility: internal)
     public func format(_ value: T) -> T { value }
 
 }
@@ -21,26 +30,16 @@ public struct IdentityFormatStyle<T>: FormatStyle, Sendable {
 
 extension FormatStyle where Self == IdentityFormatStyle<String> {
 
-    nonisolated
-    public static var identity: IdentityFormatStyle<String> { .init() }
+    /// Returns an identity format style that outputs its input with no modifications.
+    public nonisolated
+    static var identity: IdentityFormatStyle<String> { .init() }
 
 }
 
 
-// MARK: - PreviewContent
+// MARK: - Playgrounds
 
 
-@MainActor
-private struct PreviewContent {
-
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
-
-}
-
-
-// MARK: - Previews
-
-
-#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
-    Text("Identity: `\("lorem ipsum", format: .identity)`")
+#Playground("Default") {
+    _ = "lorem ipsum".formatted(.identity)
 }
