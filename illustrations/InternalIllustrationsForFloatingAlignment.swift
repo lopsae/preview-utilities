@@ -11,13 +11,13 @@ import SwiftUI
 import Testing
 
 
-/// Rendering functions for documentation images for `FloatingAlignment`.
+/// Rendering functions for documentation illustrations for `FloatingAlignment`.
 ///
 /// Each test produces an image saved to the package documentation catalog.
 ///
 /// This file has testable access to PreviewUtilities. This code should not be used in documentation
 /// snippets.
-struct InternalRendersForFloatingAlignment {
+struct InternalIllustrationsForFloatingAlignment {
 
     let storage: IllustrationStorage
 

@@ -15,8 +15,8 @@
     {
       "target" : {
         "containerPath" : "container:",
-        "identifier" : "DocumentationRenders",
-        "name" : "DocumentationRenders"
+        "identifier" : "Illustrations",
+        "name" : "Illustrations"
       }
     }
   ],
