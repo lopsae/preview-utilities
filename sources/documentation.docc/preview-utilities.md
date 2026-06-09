@@ -1,10 +1,14 @@
 # ``PreviewUtilities``
 
+@Options {
+    @TopicsVisualStyle(detailedGrid)
+}
+
 Utilities for SwiftUI previews.
 
 ## Overview
 
-A collection of modifiers, additions, views, and other utilities usually useful for building
+A collection of modifiers, views, extensions, and other utilities useful for building
 previews in SwiftUI.
 
 ## Topics
@@ -36,3 +40,14 @@ Add a floating caption, border, and size information to any view, without impact
 ### Floating Alignment
 
 + ``FloatingAlignment``
+
+
+### Format Styles
+
++ ``IdentityFormatStyle``
++ ``FirstCharacterFormatStyle``
++ ``CapitalizedFormatStyle``
++ ``RawValueFormatStyle``
++ ``StringDescriptionFormatStyle``
++ ``PropertyFormatStyle``
++ ``CompositeFormatStyle``
