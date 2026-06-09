@@ -5,42 +5,67 @@
 
 
 import Foundation
+import Playgrounds
 
 
 /// A structure that converts a string to its first character, optionally capitalized.
-nonisolated
-struct FirstCharacterFormatStyle: FormatStyle {
+///
+/// Use this format style through the factory methods ``Foundation/FormatStyle/firstCharacter`` or
+/// ``Foundation/FormatStyle/firstCharacterCapitalized``:
+///
+/// ```swift
+/// "black quartz".formatted(.firstCharacter)            // "b"
+/// "black quartz".formatted(.firstCharacterCapitalized) // "B"
+/// ```
+///
+/// ## See Also
+///
+/// + ``Foundation/FormatStyle/firstCharacter``
+/// + ``Foundation/FormatStyle/firstCharacterCapitalized``
+/// + ``Foundation/FormatStyle/firstCharacter(capitalized:)``
+/// + ``Foundation/FormatStyle/firstCharacter(capitalized:input:)``
+public nonisolated
+struct FirstCharacterFormatStyle: FormatStyle, Sendable {
 
     let capitalized: Bool
 
+
+    /// Creates a format style that converts a string to its first character.
+    /// - Parameter capitalized: Indicates if the converted string is capitalized; defaults to
+    ///   `false`.
     init(capitalized: Bool = false) {
         self.capitalized = capitalized
     }
 
-    func format(_ value: String) -> String {
-        let firstCharacted = value.first?.description ?? .init()
+
+    @_documentation(visibility: internal)
+    public func format(_ value: String) -> String {
+        let firstCharacter = value.first?.description ?? .init()
         return capitalized
-            ? firstCharacted.capitalized
-            : firstCharacted
+            ? firstCharacter.capitalized
+            : firstCharacter
     }
 
 }
 
 
+// FUTURE: single static var firstCharacter, and make capitalized and capitalized(bool) modifier
+// functions.
 extension FormatStyle where Self == FirstCharacterFormatStyle {
 
     /// Returns a format style that outputs first character of a string.
-    nonisolated
+    public nonisolated
     static var firstCharacter: Self { .init() }
 
     /// Returns a format style that outputs first character of a string, capitalized.
-    nonisolated
+    public nonisolated
     static var firstCharacterCapitalized: Self {
         .init(capitalized: true)
     }
 
     /// Returns a format style that outputs first character of a string, optionally capitalized.
-    nonisolated
+    /// - Parameter capitalized: Indicates if the converted string is capitalized.
+    public nonisolated
     static func firstCharacter(capitalized: Bool) -> Self {
         .init(capitalized: capitalized)
     }
@@ -52,7 +77,7 @@ extension FormatStyle {
 
     /// Returns a format style that uses the string output of another formatter and outputs the
     /// first character, optionally capitalized.
-    nonisolated
+    public nonisolated
     static func firstCharacter<InputFormat: FormatStyle>(
         capitalized: Bool = false,
         input: InputFormat
@@ -65,4 +90,12 @@ extension FormatStyle {
         return .init(input: input, output: output)
     }
 
+}
+
+
+#Playground("Default") {
+    _ = "black quartz".formatted(.firstCharacter)
+    _ = "black quartz".formatted(.firstCharacterCapitalized)
+
+    _ = "black quartz".formatted(.firstCharacter(capitalized: true, input: .identity))
 }
