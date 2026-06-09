@@ -40,7 +40,7 @@ let package = Package(
             dependencies: ["PreviewUtilities"],
             path: "illustrations",
             exclude: [
-                "DocumentationRenders.xctestplan",
+                "Illustrations.xctestplan",
             ]
         ),
     ]
