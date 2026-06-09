@@ -21,7 +21,7 @@ extension DebugOverlayModifier.Illustrations {
     static var components: DocumentationIllustration {
         DocumentationIllustration(height: 200) {
             Capsule()
-            .fill(.quaternary)
+            .fill(.gray.secondary)
             .frame(width: 140, height: 60)
             .debugOverlay(.caption("A `Capsule` shape"), .size, .alignment(.outerTop))
             .overlay {
