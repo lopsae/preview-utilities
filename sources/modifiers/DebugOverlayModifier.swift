@@ -80,13 +80,6 @@ import SwiftUI
 /// ```
 /// ![Debug overlay example alignments.](debug-overlay-alignments)
 ///
-///
-/// ## Topics
-///
-/// ### Configuration
-///
-/// + ``Configuration``
-/// + ``Configuration/Trait``
 public struct DebugOverlayModifier: ViewModifier {
 
     /// Minimum limit for the border width. Ensures there is always a visual overlay even on sizes

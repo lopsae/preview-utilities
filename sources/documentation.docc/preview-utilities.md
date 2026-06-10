@@ -1,8 +1,5 @@
 # ``PreviewUtilities``
 
-@Options {
-    @TopicsVisualStyle(detailedGrid)
-}
 
 Utilities for SwiftUI previews.
 
@@ -11,18 +8,16 @@ Utilities for SwiftUI previews.
 A collection of modifiers, views, extensions, and other utilities useful for building
 previews in SwiftUI.
 
+
+### Essentials
+@Links(visualStyle: detailedGrid) {
+    + <doc:debug-overlay>
+}
+
+
+
 ## Topics
 
-### Debug Overlay
-
-Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.
-
-+ ``DebugOverlayModifier``
-+ ``DebugOverlayModifier/Configuration``
-+ ``DebugOverlayModifier/Configuration/Trait``
-+ ``SwiftUICore/View/debugOverlay()``
-+ ``SwiftUICore/View/debugOverlay(_:)``
-+ ``SwiftUICore/View/debugOverlay(traits:)``
 
 
 
@@ -51,3 +46,8 @@ Add a floating caption, border, and size information to any view, without impact
 + ``StringDescriptionFormatStyle``
 + ``PropertyFormatStyle``
 + ``CompositeFormatStyle``
+
+
+### API Collections
+
++ <doc:debug-overlay>
