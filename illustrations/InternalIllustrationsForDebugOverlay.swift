@@ -26,6 +26,13 @@ struct InternalIllustrationsForDebugOverlay {
     }
 
 
+    @Test func card() throws {
+        try storage.renderAndStore("debug-overlay", "card") {
+            DebugOverlayModifier.Illustrations.card
+        }
+    }
+
+
     @Test func components() throws {
         try storage.renderAndStore("debug-overlay", "components") {
             DebugOverlayModifier.Illustrations.components

@@ -17,6 +17,24 @@ extension DebugOverlayModifier {
 
 extension DebugOverlayModifier.Illustrations {
 
+    /// Card illustration for `DebugOverlayModifier`.
+    static var card: DocumentationIllustration {
+        DocumentationIllustration(size: [320, 180]) {
+            Capsule()
+            .fill(.gray.secondary)
+            .frame(width: 320, height: 180)
+            .debugOverlay(.bordersWidth(10))
+            .safeAreaInset(edge: .top, spacing: .zero) {
+                ClearRectangle().frame(squareOf: 80)
+            }
+            .safeAreaInset(edge: .leading, spacing: .zero) {
+                ClearRectangle().frame(squareOf: 60)
+            }
+            .offset(x: 320/5, y: 180/3)
+        } // DocumentationIllustration
+    }
+
+
     /// Illustration of the components of the `debugOverlay`.
     static var components: DocumentationIllustration {
         DocumentationIllustration(height: 200) {
@@ -132,6 +150,11 @@ extension DebugOverlayModifier.Illustrations {
 
 
 // MARK: Previews
+
+
+#Preview("card", traits: .docsIllustration) {
+    DebugOverlayModifier.Illustrations.card
+}
 
 
 #Preview("components", traits: .docsIllustration) {
