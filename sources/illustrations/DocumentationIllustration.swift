@@ -29,11 +29,22 @@ public struct DocumentationIllustration: View {
 
 
     public init<Content: View>(
-        size: Size,
+        size: CGSize,
         drawsBorder: Bool = true,
         @ViewBuilder content: @escaping () -> Content
     ) {
-        self.size = size.size
+        self.size = size
+        self.drawsBorder = drawsBorder
+        self.content = AnyView(content())
+    }
+
+
+    public init<Content: View>(
+        sizing: Sizing,
+        drawsBorder: Bool = true,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.size = sizing.size
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
     }
@@ -54,11 +65,15 @@ public struct DocumentationIllustration: View {
 
 extension DocumentationIllustration {
 
-    public struct Size {
+    /// Size in points of a documentation illustration.
+    ///
+    /// This structure contains static members with the recommended sizes for illustrations, like
+    /// ``regular`` or ``card``.
+    public struct Sizing {
 
         let size: CGSize
 
-        init(_ size: CGSize) {
+        init(size: CGSize) {
             self.size = size
         }
 
@@ -66,12 +81,15 @@ extension DocumentationIllustration {
             self.size = CGSize(width: width, height: height)
         }
 
-        var half: Self { .init(size.multiplying(by: 0.5)) }
+        var half: Self {
+            let halfSize = size.multiplying(by: 0.5)
+            return .init(size: halfSize)
+        }
 
         /// Size for card illustrations.
         ///
         /// This is the expected size for images setup with the `@PageImage(purpose: card, [...])`
-        /// docc directive.
+        /// Docc directive. Use `card.half` to create illustrations with a zoomed in effect.
         public static let card: Self = .init(640, 360)
 
         /// Regular size for snippet illustrations
@@ -100,7 +118,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("Default", traits: .docsIllustration) {
-    DocumentationIllustration(size: .regular) {
+    DocumentationIllustration(sizing: .regular) {
         Text("Documentation Illustration")
     }
     .padding()
@@ -108,7 +126,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("Card", traits: .docsIllustration) {
-    DocumentationIllustration(size: .card.half) {
+    DocumentationIllustration(sizing: .card.half) {
         // Half card is 320 x 180.
         // Recommended content size is 220 x 100.
         // Distance from edge is 50 x 40.
@@ -144,7 +162,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("Size", traits: .docsIllustration) {
-    DocumentationIllustration(size: .init([160, 160])) {
+    DocumentationIllustration(size: [160, 160]) {
         Text("Custom Size\nIllustration")
     }
     .padding()
@@ -152,7 +170,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("NoBorder", traits: .docsIllustration) {
-    DocumentationIllustration(size: .regular, drawsBorder : false) {
+    DocumentationIllustration(sizing: .regular, drawsBorder : false) {
         Text("No Border Illustration")
     }
     .padding()

@@ -19,7 +19,7 @@ extension FloatingAlignment.Illustrations {
 
     /// Card illustration for <doc:debug-overlay>.
     static var card: DocumentationIllustration {
-        DocumentationIllustration(size: .card.half) {
+        DocumentationIllustration(sizing: .card.half) {
             RoundedRectangle(cornerRadius: 4)
             .stroke(.orange.gradient, lineWidth: 2)
             .fill(.orange.gradient.secondary)
