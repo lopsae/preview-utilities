@@ -9,8 +9,8 @@ import SwiftUI
 
 /// Alignment positions for floating content.
 ///
-/// Identifies the alignment positions for floating content over a parent view. Floating content is
-/// content overlaid a parent view and aligned to an edge of its boundaries, either inside or
+/// Identifies the alignment positions for floating content over an owner view. Floating content is
+/// content overlaid an owner view and aligned to an edge of its boundaries, either inside or
 /// outside.
 ///
 /// @Image(
@@ -289,6 +289,31 @@ extension FloatingAlignment {
     /// ) {
     ///     All inner alignments.
     /// }
+    ///
+    ///
+    /// ## Topics
+    ///
+    /// ### Alignments
+    ///
+    /// + ``topLeading``
+    /// + ``topCenter``
+    /// + ``topTrailing``
+    ///
+    /// + ``leadingCenter``
+    /// + ``center``
+    /// + ``trailingCenter``
+    ///
+    /// + ``bottomLeading``
+    /// + ``bottomCenter``
+    /// + ``bottomTrailing``
+    ///
+    /// ### Alignment Aliases
+    ///
+    /// + ``top``
+    /// + ``leading``
+    /// + ``bottom``
+    /// + ``trailing``
+    ///
     public nonisolated
     struct InnerAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
@@ -431,6 +456,39 @@ extension FloatingAlignment {
     /// above, top, center, bottom, and under.
     ///
     /// ![Outer floating alignments with a horizontal major.](floating-alignment-outer-with-horizontal-major)
+    ///
+    ///
+    /// ## Topics
+    ///
+    /// ### Alignments
+    ///
+    /// + ``topLeading``
+    /// + ``topCenter``
+    /// + ``topTrailing``
+    ///
+    /// + ``bottomLeading``
+    /// + ``bottomCenter``
+    /// + ``bottomTrailing``
+    ///
+    /// + ``leadingAbove``
+    /// + ``leadingTop``
+    /// + ``leadingCenter``
+    /// + ``leadingBottom``
+    /// + ``leadingUnder``
+    ///
+    /// + ``trailingAbove``
+    /// + ``trailingTop``
+    /// + ``trailingCenter``
+    /// + ``trailingBottom``
+    /// + ``trailingUnder``
+    ///
+    /// ### Alignment Aliases
+    ///
+    /// + ``top``
+    /// + ``bottom``
+    /// + ``leading``
+    /// + ``trailing``
+    ///
     public nonisolated
     enum OuterAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
@@ -561,6 +619,7 @@ extension FloatingAlignment {
 
 
         // MARK: Shorthand properties
+
         public static let topLeading:     Self = .top(.leading)
         public static let topCenter:      Self = .top(.center)
         public static let topTrailing:    Self = .top(.trailing)
