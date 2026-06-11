@@ -12,7 +12,7 @@ import Playgrounds
 /// modifications.
 ///
 /// Use this format style through the convenience ``Foundation/FormatStyle/identity``:
-///..
+///
 /// ```swift
 /// "black quartz".formatted(.identity) // "black quartz"
 /// ```

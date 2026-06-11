@@ -11,6 +11,7 @@ previews in SwiftUI.
 @Links(visualStyle: detailedGrid) {
     + <doc:debug-overlay-api>
     + <doc:floating-alignment-api>
+    + <doc:format-styles-api>
 }
 
 
@@ -28,18 +29,8 @@ Add a floating caption, border, and size information to any view, without impact
 + ``SwiftUICore/View/floatingCaption(_:traits:)``
 
 
-### Format Styles
-
-+ ``IdentityFormatStyle``
-+ ``FirstCharacterFormatStyle``
-+ ``CapitalizedFormatStyle``
-+ ``RawValueFormatStyle``
-+ ``StringDescriptionFormatStyle``
-+ ``PropertyFormatStyle``
-+ ``CompositeFormatStyle``
-
-
 ### API Collections
 
 + <doc:debug-overlay-api>
 + <doc:floating-alignment-api>
++ <doc:format-styles-api>
