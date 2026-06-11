@@ -10,13 +10,13 @@ import SwiftUI
 import Testing
 
 
-/// Rendering functions for documentation illustrations for `DebugOverlayModifier`.
+/// Rendering functions for documentation illustrations for general cards.
 ///
 /// Each test produces an image saved to the package documentation catalog.
 ///
 /// This file has testable access to PreviewUtilities. This code should not be used in documentation
 /// snippets.
-struct InternalIllustrationsForDebugOverlay {
+struct InternalIllustrationsForCards {
 
     let storage: IllustrationStorage
 
@@ -26,15 +26,8 @@ struct InternalIllustrationsForDebugOverlay {
 
 
     @Test func card() throws {
-        try storage.renderAndStore("debug-overlay", "card") {
-            DebugOverlayModifier.Illustrations.card
-        }
-    }
-
-
-    @Test func components() throws {
-        try storage.renderAndStore("debug-overlay", "components") {
-            DebugOverlayModifier.Illustrations.components
+        try storage.renderAndStore("cards", "format-styles") {
+            CardIllustrations.formatStyles
         }
     }
 

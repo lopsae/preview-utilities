@@ -6,7 +6,6 @@
 
 import PreviewUtilities
 
-
 import SwiftUI
 import Testing
 
