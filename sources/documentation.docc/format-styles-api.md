@@ -6,8 +6,8 @@
 
 Implementations of `FormatStyle` to transform data into an output type. 
 
-PreviewUtilities include a number of handy FormatStyle to format strings, enumerations with a string
-raw values, and any type with string description into a string ready to display. 
+PreviewUtilities includes implementations of `FormatStyle` to format strings, enumerations with a
+string raw value, and any type with string description into a string ready to display. 
 
 
 
