@@ -4,13 +4,15 @@
 //
 
 
+import Playgrounds
 import SwiftUI
 
 
-/// A structure that capitalizes a string.
+/// A structure that capitalizes an input string.
 nonisolated
 public struct CapitalizedFormatStyle: FormatStyle, Sendable {
 
+    @_documentation(visibility: internal)
     public func format(_ value: String) -> String {
         return value.capitalized
     }
@@ -29,8 +31,10 @@ extension FormatStyle where Self == CapitalizedFormatStyle {
 
 extension FormatStyle {
 
-    /// Returns a format style that uses the string output of another formatter and outputs the
-    /// capitalized string.
+    /// Returns a format style that first formats the data through an input formatter, and then
+    /// capitalizes its output.
+    /// - Parameters:
+    ///   - input: The format style that produces a string from the input data.
     nonisolated
     public static func capitalized<InputFormat: FormatStyle>(
         input: InputFormat
@@ -48,7 +52,8 @@ extension FormatStyle {
 nonisolated
 extension FormatStyle {
 
-    /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable`.
+    /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable` with
+    /// a string representation.
     nonisolated
     public static func rawValueCapitalized<Value: RawRepresentable>() -> Self
     where
@@ -64,7 +69,8 @@ extension FormatStyle {
 nonisolated
 extension FormatStyle {
 
-    /// Returns a format style that outputs a capitalized string property from the input object.
+    /// Returns a format style that outputs a capitalized string value retrieved through a key path.
+    /// - Parameter property: The key path to a string property to capitalize.
     nonisolated
     public static func capitalized<Input>(
         property: KeyPath<Input, String> & Sendable
@@ -79,6 +85,40 @@ extension FormatStyle {
 
 
 // MARK: - PreviewContent
+
+
+private enum ExampleEnum: String {
+    case alfa, bravo, charlie
+
+    func format<Output, Formatter>(_ formatter: Formatter) -> Output
+    where
+        Formatter: FormatStyle,
+        Formatter.FormatInput == Self,
+        Formatter.FormatOutput == Output
+    {
+        formatter.format(self)
+    }
+
+}
+
+
+nonisolated
+private struct ExampleStruct {
+    let firstString = "first"
+    let secondString = "second"
+    let thirdInteger: Int = 3
+    let fourthInteger: Int = 3
+
+    func format<Output, Formatter>(_ formatter: Formatter) -> Output
+    where
+        Formatter: FormatStyle,
+        Formatter.FormatInput == Self,
+        Formatter.FormatOutput == Output
+    {
+        formatter.format(self)
+    }
+
+}
 
 
 @MainActor
@@ -101,11 +141,23 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
+// FIXME: Delete previews, playground are enough.
 #Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable let dummy = PreviewContent.Dummy()
     Text("String: `\("lorem ipsum", format: .capitalized)`")
     Text("Raw Value: `\(dummy, format: .rawValueCapitalized())`")
     Text("Property: `\(dummy, format: .capitalized(property: \.value))`")
     Text("Input Format: `\(dummy, format: .capitalized(input: .description()))`")
+}
+
+
+// MARK: - Playgrounds
+
+
+#Playground("Default") {
+    _ = "black quartz".formatted(.capitalized)
+    _ = "black quartz".formatted(.capitalized(input: .firstCharacter))
+    _ = ExampleEnum.alfa.format(.rawValueCapitalized())
+    _ = ExampleStruct().format(.capitalized(property: \.firstString))
 }
 

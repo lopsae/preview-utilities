@@ -19,6 +19,7 @@ where
     let input: InputFormat
     let output: OutputFormat
 
+    @_documentation(visibility: internal)
     public func format(_ value: InputFormat.FormatInput) -> OutputFormat.FormatOutput {
         let intermediate = input.format(value)
         return output.format(intermediate)

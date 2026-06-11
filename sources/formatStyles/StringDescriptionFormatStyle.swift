@@ -13,6 +13,7 @@ public struct StringDescriptionFormatStyle<Input>: FormatStyle, Sendable {
 
     public init() { }
 
+    @_documentation(visibility: internal)
     public func format(_ value: Input) -> String {
         String(describing: value)
     }

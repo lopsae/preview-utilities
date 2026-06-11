@@ -21,6 +21,7 @@ nonisolated
 public struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
     let property: KeyPath<Input, String> & Sendable
 
+    @_documentation(visibility: internal)
     public func format(_ value: Input) -> String {
         return value[keyPath: property]
     }

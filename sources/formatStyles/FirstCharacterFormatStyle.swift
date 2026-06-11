@@ -64,7 +64,7 @@ extension FormatStyle where Self == FirstCharacterFormatStyle {
     }
 
     /// Returns a format style that outputs first character of a string, optionally capitalized.
-    /// - Parameter capitalized: Indicates if the converted string is capitalized.
+    /// - Parameter capitalized: Indicates if the output string is capitalized.
     public nonisolated
     static func firstCharacter(capitalized: Bool) -> Self {
         .init(capitalized: capitalized)
@@ -75,8 +75,11 @@ extension FormatStyle where Self == FirstCharacterFormatStyle {
 
 extension FormatStyle {
 
-    /// Returns a format style that uses the string output of another formatter and outputs the
-    /// first character, optionally capitalized.
+    /// Returns a format style that first formats the data through an input formatter, and then
+    /// outputs only the first character optionally capitalized.
+    /// - Parameters:
+    ///   - capitalized: Indicates if the output string is capitalized.
+    ///   - input: The format style that produces a string from the input data.
     public nonisolated
     static func firstCharacter<InputFormat: FormatStyle>(
         capitalized: Bool = false,
@@ -96,6 +99,5 @@ extension FormatStyle {
 #Playground("Default") {
     _ = "black quartz".formatted(.firstCharacter)
     _ = "black quartz".formatted(.firstCharacterCapitalized)
-
     _ = "black quartz".formatted(.firstCharacter(capitalized: true, input: .identity))
 }
