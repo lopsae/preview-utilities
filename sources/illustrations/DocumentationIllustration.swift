@@ -16,6 +16,7 @@ public struct DocumentationIllustration: View {
     let drawsBorder: Bool
     let content: AnyView
 
+    // FIXME: replace with a size .height, that uses the default width.
     public init<Content: View>(
         height: CGFloat,
         drawsBorder: Bool = true,
@@ -28,14 +29,15 @@ public struct DocumentationIllustration: View {
 
 
     public init<Content: View>(
-        size: CGSize,
+        size: Size,
         drawsBorder: Bool = true,
         @ViewBuilder content: @escaping () -> Content
     ) {
-        self.size = size
+        self.size = size.size
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
     }
+
 
     @_documentation(visibility: internal)
     public var body: some View {
@@ -45,6 +47,37 @@ public struct DocumentationIllustration: View {
         .frame(size: size)
         .background(.background, in: .rect)
         .border(.tertiary, width: drawsBorder ? 1 : .zero)
+    }
+
+}
+
+
+extension DocumentationIllustration {
+
+    public struct Size {
+
+        let size: CGSize
+
+        init(_ size: CGSize) {
+            self.size = size
+        }
+
+        init(_ width: CGFloat, _ height: CGFloat) {
+            self.size = CGSize(width: width, height: height)
+        }
+
+        var half: Self { .init(size.multiplying(by: 0.5)) }
+
+        /// Size for card illustrations.
+        ///
+        /// This is the expected size for images setup with the `@PageImage(purpose: card, [...])`
+        /// docc directive.
+        public static let card: Self = .init(640, 360)
+
+        /// Regular size for snippet illustrations
+        ///
+        /// This illustration size uses the default width (`400`) and an aspect ration of `5/2`.
+        public static let regular: Self = .init(DocumentationIllustration.defaultWidth, 160)
     }
 
 }
@@ -67,7 +100,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("Default", traits: .docsIllustration) {
-    DocumentationIllustration(height: 160) {
+    DocumentationIllustration(size: .regular) {
         Text("Documentation Illustration")
     }
     .padding()
@@ -75,7 +108,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("Size", traits: .docsIllustration) {
-    DocumentationIllustration(size: [160, 160]) {
+    DocumentationIllustration(size: .init([160, 160])) {
         Text("Custom Size\nIllustration")
     }
     .padding()
@@ -83,7 +116,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("NoBorder", traits: .docsIllustration) {
-    DocumentationIllustration(height: 160, drawsBorder : false) {
+    DocumentationIllustration(size: .regular, drawsBorder : false) {
         Text("No Border Illustration")
     }
     .padding()

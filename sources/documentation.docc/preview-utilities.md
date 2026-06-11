@@ -3,8 +3,6 @@
 
 Utilities for SwiftUI previews.
 
-## Overview
-
 A collection of modifiers, views, extensions, and other utilities useful for building
 previews in SwiftUI.
 
@@ -17,8 +15,6 @@ previews in SwiftUI.
 
 
 ## Topics
-
-
 
 
 ### Floating Caption
