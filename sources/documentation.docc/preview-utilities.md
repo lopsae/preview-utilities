@@ -9,8 +9,8 @@ previews in SwiftUI.
 
 ### Essentials
 @Links(visualStyle: detailedGrid) {
-    + <doc:debug-overlay>
-    + <doc:floating-alignment>
+    + <doc:debug-overlay-api>
+    + <doc:floating-alignment-api>
 }
 
 
@@ -41,5 +41,5 @@ Add a floating caption, border, and size information to any view, without impact
 
 ### API Collections
 
-+ <doc:debug-overlay>
-+ <doc:floating-alignment>
++ <doc:debug-overlay-api>
++ <doc:floating-alignment-api>
