@@ -14,15 +14,18 @@ public struct DocumentationIllustration: View {
 
     let size: CGSize
     let drawsBorder: Bool
+    let alignment: Alignment
     let content: AnyView
 
     // FIXME: replace with a size .height, that uses the default width.
     public init<Content: View>(
         height: CGFloat,
         drawsBorder: Bool = true,
+        alignment: Alignment = .center,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = [Self.defaultWidth, height]
+        self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
     }
@@ -30,10 +33,12 @@ public struct DocumentationIllustration: View {
 
     public init<Content: View>(
         size: CGSize,
+        alignment: Alignment = .center,
         drawsBorder: Bool = true,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = size
+        self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
     }
@@ -41,10 +46,12 @@ public struct DocumentationIllustration: View {
 
     public init<Content: View>(
         sizing: Sizing,
+        alignment: Alignment = .center,
         drawsBorder: Bool = true,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = sizing.size
+        self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
     }
@@ -55,7 +62,7 @@ public struct DocumentationIllustration: View {
         VStack {
             content
         }
-        .frame(size: size)
+        .frame(size: size, alignment: alignment)
         .background(.background, in: .rect)
         .border(.tertiary, width: drawsBorder ? 1 : .zero)
     }
@@ -156,6 +163,15 @@ extension PreviewTrait where T == Preview.ViewTraits {
             CaptionRectangle("Api Collection Card", color: .orange, size: [220, 100], traits: .size)
         }
 
+    }
+    .padding()
+}
+
+
+#Preview("Aligned", traits: .docsIllustration) {
+    DocumentationIllustration(sizing: .regular, alignment: .top) {
+        Text("Top Aligned Content")
+        Text("with regular sizing")
     }
     .padding()
 }
