@@ -28,35 +28,35 @@ struct InternalIllustrationsForFloatingAlignment {
 
     @Test func alignmentExamples() throws {
         try storage.renderAndStore("floating-alignment", "alignment-examples") {
-            IllustrationsForFloatingAlignment.alignmentExamples
+            FloatingAlignment.Illustrations.alignmentExamples
         }
     }
 
 
     @Test func innerAlignments() throws {
         try storage.renderAndStore("floating-alignment", "inner-alignments") {
-            IllustrationsForFloatingAlignment.innerAlignments
+            FloatingAlignment.Illustrations.innerAlignments
         }
     }
 
 
     @Test func outerAlignments() throws {
         try storage.renderAndStore("floating-alignment", "outer-alignments") {
-            IllustrationsForFloatingAlignment.outerAlignments
+            FloatingAlignment.Illustrations.outerAlignments
         }
     }
 
 
     @Test func outerWithVerticalMajor() throws {
         try storage.renderAndStore("floating-alignment", "outer-with-vertical-major") {
-            IllustrationsForFloatingAlignment.outerAlignmentWithVerticalMajor
+            FloatingAlignment.Illustrations.outerAlignmentWithVerticalMajor
         }
     }
 
 
     @Test func outerWithHorizontalMajor() throws {
         try storage.renderAndStore("floating-alignment", "outer-with-horizontal-major") {
-            IllustrationsForFloatingAlignment.outerAlignmentWithHorizontalMajor
+            FloatingAlignment.Illustrations.outerAlignmentWithHorizontalMajor
         }
     }
 

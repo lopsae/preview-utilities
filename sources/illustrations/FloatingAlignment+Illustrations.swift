@@ -7,7 +7,15 @@
 import SwiftUI
 
 
-struct IllustrationsForFloatingAlignment {
+extension FloatingAlignment {
+
+    /// Container of specialized illustrations for `FloatingAlignment`.
+    enum Illustrations {}
+
+}
+
+
+extension FloatingAlignment.Illustrations {
 
     /// Illustration of ``FloatingAlignment`` examples.
     static var alignmentExamples: DocumentationIllustration {
@@ -37,6 +45,7 @@ struct IllustrationsForFloatingAlignment {
             .offset(y: 10)
         }
     }
+
 
     /// Illustration of the inner alignments of ``FloatingAlignment``.
     static var innerAlignments: DocumentationIllustration {
@@ -250,25 +259,25 @@ struct IllustrationsForFloatingAlignment {
 
 
 #Preview("alignment-examples", traits: .docsIllustration) {
-    IllustrationsForFloatingAlignment.alignmentExamples
+    FloatingAlignment.Illustrations.alignmentExamples
 }
 
 
 #Preview("inner-alignments", traits: .docsIllustration) {
-    IllustrationsForFloatingAlignment.innerAlignments
+    FloatingAlignment.Illustrations.innerAlignments
 }
 
 
 #Preview("outer-alignments", traits: .docsIllustration) {
-    IllustrationsForFloatingAlignment.outerAlignments
+    FloatingAlignment.Illustrations.outerAlignments
 }
 
 
 #Preview("outer-with-vertical-major", traits: .docsIllustration) {
-    IllustrationsForFloatingAlignment.outerAlignmentWithVerticalMajor
+    FloatingAlignment.Illustrations.outerAlignmentWithVerticalMajor
 }
 
 
 #Preview("outer-with-horizontal-major", traits: .docsIllustration) {
-    IllustrationsForFloatingAlignment.outerAlignmentWithHorizontalMajor
+    FloatingAlignment.Illustrations.outerAlignmentWithHorizontalMajor
 }
