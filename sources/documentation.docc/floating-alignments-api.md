@@ -1,4 +1,4 @@
-# Floating Alignment
+# Floating Alignments
 
 @Metadata {
     @PageImage(purpose: card, source: "floating-alignment-card")
