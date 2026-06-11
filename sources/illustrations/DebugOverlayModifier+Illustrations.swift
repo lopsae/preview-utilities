@@ -19,18 +19,18 @@ extension DebugOverlayModifier.Illustrations {
 
     /// Card illustration for <doc:debug-overlay>.
     static var card: DocumentationIllustration {
-        DocumentationIllustration(sizing: .card.half) {
+        DocumentationIllustration(sizing: .card.half, alignment: .topLeading) {
             Capsule()
-            .fill(.gray.secondary)
+            .fill(.gray.gradient.secondary)
             .frame(width: 320, height: 180)
             .debugOverlay(.bordersWidth(10))
             .safeAreaInset(edge: .top, spacing: .zero) {
-                ClearRectangle().frame(squareOf: 80)
+                ClearRectangle().frame(squareOf: 40)
             }
             .safeAreaInset(edge: .leading, spacing: .zero) {
-                ClearRectangle().frame(squareOf: 60)
+                ClearRectangle().frame(squareOf: 50)
             }
-            .offset(x: 320/5, y: 180/3)
+            .offset(x: 50, y: 40)
         } // DocumentationIllustration
     }
 
