@@ -26,6 +26,13 @@ struct InternalIllustrationsForFloatingAlignment {
     }
 
 
+    @Test func card() throws {
+        try storage.renderAndStore("floating-alignment", "card") {
+            FloatingAlignment.Illustrations.card
+        }
+    }
+
+
     @Test func alignmentExamples() throws {
         try storage.renderAndStore("floating-alignment", "alignment-examples") {
             FloatingAlignment.Illustrations.alignmentExamples

@@ -17,6 +17,45 @@ extension FloatingAlignment {
 
 extension FloatingAlignment.Illustrations {
 
+    /// Card illustration for <doc:debug-overlay>.
+    static var card: DocumentationIllustration {
+        DocumentationIllustration(size: .card.half) {
+            RoundedRectangle(cornerRadius: 4)
+            .stroke(.orange.gradient, lineWidth: 2)
+            .fill(.orange.gradient.secondary)
+            .frame(size: [220, 180])
+            .overlay {
+                FloatingAlignedContainer(
+                    alignment: .outerTopLeading,
+                    horizontalSpacing: 2,
+                    verticalSpacing: 3
+                ) { contentAlignments in
+                    Text("Floating")
+                }
+                FloatingAlignedContainer(
+                    alignment: .topTrailing,
+                    spacing: 4
+                ) { contentAlignments in
+                    Text("Alignment")
+                }
+            }
+            .background {
+                // Dashed dividers.
+                FloatingAlignedContainer(alignment: .top, spacing: .zero) { contentAlignments in
+                    DashedDivider().frame(width: 280)
+                }
+                FloatingAlignedContainer(alignment: .leading, spacing: .zero) { contentAlignments in
+                    DashedDivider(axis: .vertical).frame(height: 240)
+                }
+                FloatingAlignedContainer(alignment: .trailing, spacing: .zero) { contentAlignments in
+                    DashedDivider(axis: .vertical).frame(height: 240)
+                }
+            }
+            .offset(y: 80)
+        } // DocumentationIllustration
+    }
+
+
     /// Illustration of ``FloatingAlignment`` examples.
     static var alignmentExamples: DocumentationIllustration {
         DocumentationIllustration(height: 160) {
@@ -256,6 +295,11 @@ extension FloatingAlignment.Illustrations {
 
 
 // MARK: Previews
+
+
+#Preview("card", traits: .docsIllustration) {
+    FloatingAlignment.Illustrations.card
+}
 
 
 #Preview("alignment-examples", traits: .docsIllustration) {
