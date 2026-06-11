@@ -36,7 +36,7 @@ extension FloatingAlignment.Illustrations {
                     alignment: .topTrailing,
                     spacing: 4
                 ) { contentAlignments in
-                    Text("Alignment")
+                    Text("Alignments")
                 }
             }
             .background {
