@@ -12,7 +12,7 @@ struct CardIllustrations {
     static var formatStyles: DocumentationIllustration {
         DocumentationIllustration(sizing: .card.half, drawsBorder: false) {
             VStack {
-                Text("alfa, bravo, charlie")
+                Text("alice, bob, carlos")
                     .monospaced()
                 Image(systemName: "arrow.down")
                     .font(.caption)
