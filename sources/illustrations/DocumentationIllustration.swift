@@ -107,6 +107,42 @@ extension PreviewTrait where T == Preview.ViewTraits {
 }
 
 
+#Preview("Card", traits: .docsIllustration) {
+    DocumentationIllustration(size: .card.half) {
+        // Half card is 320 x 180.
+        // Recommended content size is 220 x 100.
+        // Distance from edge is 50 x 40.
+        ZStack {
+            // FUTURE: A expanding view that supports drawing guidelines inset of any edge or alignment.
+            ClearRectangle()
+            .overlay(alignment: .top) {
+                VStack(alignment: .leading, spacing: 2) {
+                    DashedDivider(axis: .horizontal)
+                    Text("40")
+                    .font(.caption.pointSize(8))
+                    .foregroundStyle(.secondary)
+                    .padding(.leading, 2)
+                }
+                .alignmentGuide(.top, insetBy: 40)
+            }
+            .overlay(alignment: .leading) {
+                HStack(alignment: .top, spacing: 2) {
+                    DashedDivider(axis: .vertical)
+                    Text("50")
+                    .font(.caption.pointSize(8))
+                    .foregroundStyle(.secondary)
+                    .padding(.top, 2)
+                }
+                .alignmentGuide(.leading, insetBy: 50)
+            }
+            CaptionRectangle("Api Collection Card", color: .orange, size: [220, 100], traits: .size)
+        }
+
+    }
+    .padding()
+}
+
+
 #Preview("Size", traits: .docsIllustration) {
     DocumentationIllustration(size: .init([160, 160])) {
         Text("Custom Size\nIllustration")
