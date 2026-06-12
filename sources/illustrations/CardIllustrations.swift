@@ -52,10 +52,19 @@ struct CardIllustrations {
         }
     }
 
+
     static var floatingCaption: DocumentationIllustration {
         DocumentationIllustration(sizing: .card.half, drawsBorder: false) {
-            Capsule()
+            RoundedRectangle(cornerRadius: 44)
+                .fill(.tertiary)
             .frame(size: contentSize)
+            .floatingCaption(
+                "Floating Caption",
+                .captionStyle(.purple),
+                .borderStyle(.purple.secondary),
+                .borderWidth(4),
+                .alignment(.outerBottomTrailing)
+            )
         }
     }
 
