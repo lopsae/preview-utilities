@@ -15,6 +15,43 @@ struct CardIllustrations {
     /// The content distance from the edge is 50 x 40.
     static let contentSize: CGSize = [220, 100]
 
+
+    /// Recommended card layout.
+    static var recommended: DocumentationIllustration {
+        DocumentationIllustration(sizing: .card.half) {
+            ZStack {
+                // FUTURE: A expanding view that supports drawing guidelines inset of any edge or alignment.
+                ClearRectangle()
+                .overlay(alignment: .top) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        DashedDivider(axis: .horizontal)
+                        Text("40")
+                        .font(.caption.pointSize(8))
+                        .foregroundStyle(.secondary)
+                        .padding(.leading, 2)
+                    }
+                    .alignmentGuide(.top, insetBy: 40)
+                }
+                .overlay(alignment: .leading) {
+                    HStack(alignment: .top, spacing: 2) {
+                        DashedDivider(axis: .vertical)
+                        Text("50")
+                        .font(.caption.pointSize(8))
+                        .foregroundStyle(.secondary)
+                        .padding(.top, 2)
+                    }
+                    .alignmentGuide(.leading, insetBy: 50)
+                }
+                CaptionRectangle(
+                    "Recommended Content Size\nUsing `card.half`",
+                    color: .orange, size: CardIllustrations.contentSize,
+                    traits: .size
+                )
+            }
+
+        }
+    }
+
     static var floatingCaption: DocumentationIllustration {
         DocumentationIllustration(sizing: .card.half, drawsBorder: false) {
             Capsule()
@@ -55,34 +92,7 @@ struct CardIllustrations {
 
 
 #Preview("Recommended", traits: .docsIllustration) {
-    DocumentationIllustration(sizing: .card.half) {
-        ZStack {
-            // FUTURE: A expanding view that supports drawing guidelines inset of any edge or alignment.
-            ClearRectangle()
-            .overlay(alignment: .top) {
-                VStack(alignment: .leading, spacing: 2) {
-                    DashedDivider(axis: .horizontal)
-                    Text("40")
-                    .font(.caption.pointSize(8))
-                    .foregroundStyle(.secondary)
-                    .padding(.leading, 2)
-                }
-                .alignmentGuide(.top, insetBy: 40)
-            }
-            .overlay(alignment: .leading) {
-                HStack(alignment: .top, spacing: 2) {
-                    DashedDivider(axis: .vertical)
-                    Text("50")
-                    .font(.caption.pointSize(8))
-                    .foregroundStyle(.secondary)
-                    .padding(.top, 2)
-                }
-                .alignmentGuide(.leading, insetBy: 50)
-            }
-            CaptionRectangle("Recommended Content Size\nUsing `card.half`", color: .orange, size: CardIllustrations.contentSize, traits: .size)
-        }
-
-    }
+    CardIllustrations.recommended
     .padding()
 }
 
