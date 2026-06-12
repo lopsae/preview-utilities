@@ -51,4 +51,12 @@ struct CapitalizeFormatStyleTests {
         #expect(style.format("a") == "A")
     }
 
+    @Test func nonLetters() {
+        let style = CapitalizeFormatStyle()
+        #expect(style.format("123") == "123")
+        #expect(style.format("🔡") == "🔡")
+        #expect(style.format("🔠") == "🔠")
+        #expect(style.format("✴️") == "✴️")
+    }
+
 }
