@@ -34,7 +34,7 @@ struct LastWordFormatStyle: FormatStyle, Sendable {
     @_documentation(visibility: internal)
     public func format(_ value: String) -> String {
         guard let lastNonSpace = value.lastIndex(where: { !$0.isWhitespace }) else {
-            return ""
+            return .empty
         }
         let trimmed = value[...lastNonSpace]
         guard let lastSpace = trimmed.lastIndex(where: { $0.isWhitespace }) else {
