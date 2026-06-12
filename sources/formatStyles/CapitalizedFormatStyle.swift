@@ -22,7 +22,6 @@ import SwiftUI
 /// + ``Foundation/FormatStyle/capitalized``
 /// + ``Foundation/FormatStyle/capitalized(of:)``
 /// + ``Foundation/FormatStyle/capitalized(property:)``
-/// + ``Foundation/FormatStyle/rawValueCapitalized()``
 ///
 nonisolated
 public struct CapitalizedFormatStyle: FormatStyle, Sendable {
@@ -106,33 +105,6 @@ extension FormatStyle {
 }
 
 
-nonisolated
-extension FormatStyle {
-
-    /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable` with
-    /// a string representation.
-    ///
-    /// Returns a ``CompositeFormatStyle`` that retrieves the string raw value of a
-    /// `RawRepresentable` and formats it with a ``CapitalizedFormatStyle``.
-    ///
-    /// ```swift
-    /// enum Quartz: String { case black, rose, amethyst }
-    ///
-    /// Text(Quartz.rose, format: .rawValueCapitalized()) // Displays "Rose"
-    /// ```
-    nonisolated
-    public static func rawValueCapitalized<Value: RawRepresentable>() -> Self
-    where
-        Value.RawValue: StringProtocol,
-        Self == CompositeFormatStyle<RawValueFormatStyle<Value>, CapitalizedFormatStyle>
-    {
-        return .init(input: RawValueFormatStyle(), output: CapitalizedFormatStyle())
-    }
-
-}
-
-
-
 // MARK: - PreviewContent
 
 
@@ -146,7 +118,6 @@ private typealias Quartz = FormatStyleExamples.Quartz
 #Playground("Default") {
     _ = "black quartz".formatted(.capitalized)
     _ = "black quartz".formatted(.capitalized(of: .firstCharacter))
-    _ = Quartz.rose.formatted(.rawValueCapitalized())
     _ = Sphinx().formatted(.capitalized(property: \.material))
 }
 
@@ -160,7 +131,5 @@ private typealias Quartz = FormatStyleExamples.Quartz
     Text("black quartz", format: .capitalized(of: .firstWord)) // Displays "Black"
 
     Text(Sphinx(), format: .capitalized(property: \.material)) // Displays "Quartz"
-
-    Text(Quartz.rose, format: .rawValueCapitalized()) // Displays "Rose"
 }
 

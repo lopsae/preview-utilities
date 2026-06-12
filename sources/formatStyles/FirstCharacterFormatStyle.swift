@@ -106,7 +106,7 @@ extension FormatStyle {
     /// the first character, optionally capitalized.
     ///
     /// Returns a ``CompositeFormatStyle`` configured with the given input format style, and a
-    /// ``FirstCharacterFormatStyle`` as output.
+    /// ``FirstCharacterFormatStyle`` to output the first character, optionally capitalized.
     ///
     /// ```swift
     /// Text("black quartz", format: .firstCharacter(of: .lastWord)) // Displays "q"
