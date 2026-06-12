@@ -14,8 +14,10 @@ string raw value, and any type into a string ready to display.
 ## Topics
 
 + ``IdentityFormatStyle``
-+ ``FirstCharacterFormatStyle``
 + ``CapitalizedFormatStyle``
++ ``FirstCharacterFormatStyle``
++ ``FirstWordFormatStyle``
++ ``LastWordFormatStyle``
 + ``RawValueFormatStyle``
 + ``StringDescriptionFormatStyle``
 + ``PropertyFormatStyle``
