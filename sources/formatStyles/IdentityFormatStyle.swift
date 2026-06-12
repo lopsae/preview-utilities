@@ -16,6 +16,12 @@ import Playgrounds
 /// ```swift
 /// Text("black quartz", format: .identity) // Displays "black quartz"
 /// ```
+///
+/// ## Topics
+///
+/// ### FormatStyle Extensions
+/// + ``Foundation/FormatStyle/identity``
+///
 public nonisolated
 struct IdentityFormatStyle<T>: FormatStyle, Sendable {
 
