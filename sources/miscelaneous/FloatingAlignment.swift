@@ -11,7 +11,8 @@ import SwiftUI
 ///
 /// Identifies the alignment positions for floating content over an owner view. Floating content is
 /// content overlaid an owner view and aligned to an edge of its boundaries, either inside or
-/// outside.
+/// outside. The layout of the owner view is never modified since the content is overlaid, hence the
+/// content _floats_ over the owner view.
 ///
 /// @Image(
 ///     source: "floating-alignment-alignment-examples",
@@ -45,12 +46,22 @@ import SwiftUI
 /// Outer alignments with a vertical major (top and bottom) support three minor components: leading,
 /// center, and trailing.
 ///
-/// ![Outer floating alignments with a vertical major.](floating-alignment-outer-with-vertical-major)
+/// @Image(
+///     source: "floating-alignment-outer-with-vertical-major",
+///     alt: "Outer floating alignments with a vertical major."
+/// ) {
+///     Outer floating alignments with a vertical major: top or bottom.
+/// }
 ///
 /// Outer alignments with a horizontal major (leading and trailing) support five minor components:
 /// above, top, center, bottom, and under.
 ///
-/// ![Outer floating alignments with a horizontal major.](floating-alignment-outer-with-horizontal-major)
+/// @Image(
+///     source: "floating-alignment-outer-with-horizontal-major",
+///     alt: "Outer floating alignments with a horizontal major."
+/// ) {
+///     Outer floating alignments with a horizontal major: leading or trailing.
+/// }
 ///
 ///
 /// ### Implementing floating content
