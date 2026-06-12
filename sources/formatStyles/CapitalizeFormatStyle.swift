@@ -64,12 +64,12 @@ extension FormatStyle {
     /// - Parameters:
     ///   - input: The format style that produces a string from the input data.
     public nonisolated
-    static func capitalize<InputFormat: FormatStyle>(
-        _ input: InputFormat
+    static func capitalize<InputStyle: FormatStyle>(
+        _ input: InputStyle
     ) -> Self
     where
-        InputFormat.FormatOutput == String,
-        Self == CompositeFormatStyle<InputFormat, CapitalizeFormatStyle>
+        InputStyle.FormatOutput == String,
+        Self == CompositeFormatStyle<InputStyle, CapitalizeFormatStyle>
     {
         return .init(input: input, output: CapitalizeFormatStyle())
     }
