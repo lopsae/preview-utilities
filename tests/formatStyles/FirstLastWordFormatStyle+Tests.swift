@@ -49,6 +49,14 @@ struct FirstWordFormatStyleTests {
         #expect(style.format("newline\nhere") == "newline")
     }
 
+    @Test func nonLetters() {
+        let style = FirstWordFormatStyle()
+        #expect(style.format("123 456") == "123")
+        #expect(style.format("✴️⚛️✳️") == "✴️⚛️✳️")
+        #expect(style.format("✴️⚛️ ✳️") == "✴️⚛️")
+        #expect(style.format("✴️") == "✴️")
+    }
+
 }
 
 
@@ -89,6 +97,14 @@ struct LastWordFormatStyleTests {
         let style = LastWordFormatStyle()
         #expect(style.format("tab\there") == "here")
         #expect(style.format("newline\nhere") == "here")
+    }
+
+    @Test func nonLetters() {
+        let style = LastWordFormatStyle()
+        #expect(style.format("123 456") == "456")
+        #expect(style.format("✴️⚛️✳️") == "✴️⚛️✳️")
+        #expect(style.format("✴️⚛️ ✳️") == "✳️")
+        #expect(style.format("✴️") == "✴️")
     }
 
 }
