@@ -28,7 +28,7 @@ public nonisolated
 struct FirstWordFormatStyle: FormatStyle, Sendable {
 
     /// Creates a format style that outputs the first word of a string.
-    init() {}
+    public init() {}
 
 
     @_documentation(visibility: internal)

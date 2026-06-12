@@ -28,7 +28,7 @@ public nonisolated
 struct LastWordFormatStyle: FormatStyle, Sendable {
 
     /// Creates a format style that outputs the last word of a string.
-    init() {}
+    public init() {}
 
 
     @_documentation(visibility: internal)

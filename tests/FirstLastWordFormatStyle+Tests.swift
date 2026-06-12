@@ -4,12 +4,17 @@
 //
 
 
-@testable import PreviewUtilities
+import PreviewUtilities
 
+import Foundation
 import Testing
 
 
 struct FirstWordFormatStyleTests {
+
+    @Test func extensions() {
+        #expect("black quartz".formatted(.firstWord) == "black")
+    }
 
     @Test func multipleWords() {
         let style = FirstWordFormatStyle()
@@ -48,6 +53,10 @@ struct FirstWordFormatStyleTests {
 
 
 struct LastWordFormatStyleTests {
+
+    @Test func extensions() {
+        #expect("black quartz".formatted(.lastWord) == "quartz")
+    }
 
     @Test func multipleWords() {
         let style = LastWordFormatStyle()
