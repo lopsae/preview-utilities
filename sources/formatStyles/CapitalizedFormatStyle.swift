@@ -116,7 +116,8 @@ extension FormatStyle {
     /// `RawRepresentable` and formats it with a ``CapitalizedFormatStyle``.
     ///
     /// ```swift
-    /// enum Quartz: String { case black, rose }
+    /// enum Quartz: String { case black, rose, amethyst }
+    ///
     /// Text(Quartz.rose, format: .rawValueCapitalized()) // Displays "Rose"
     /// ```
     nonisolated
@@ -135,68 +136,8 @@ extension FormatStyle {
 // MARK: - PreviewContent
 
 
-private enum ExampleEnum: String {
-    case alfa, bravo, charlie
-
-    func format<Output, Formatter>(_ formatter: Formatter) -> Output
-    where
-        Formatter: FormatStyle,
-        Formatter.FormatInput == Self,
-        Formatter.FormatOutput == Output
-    {
-        formatter.format(self)
-    }
-
-}
-
-
-nonisolated
-private struct ExampleStruct {
-    let firstString = "first"
-    let secondString = "second"
-    let thirdInteger: Int = 3
-    let fourthInteger: Int = 3
-
-    func format<Output, Formatter>(_ formatter: Formatter) -> Output
-    where
-        Formatter: FormatStyle,
-        Formatter.FormatInput == Self,
-        Formatter.FormatOutput == Output
-    {
-        formatter.format(self)
-    }
-
-}
-
-
-@MainActor
-private struct PreviewContent {
-
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
-
-    nonisolated
-    struct Dummy: RawRepresentable, CustomStringConvertible {
-        let value = "instance property"
-        let rawValue = "instance raw value"
-        init?(rawValue: String) {}
-        init() {}
-        var description: String { "string description" }
-    }
-
-}
-
-
-// MARK: - Previews
-
-
-// FIXME: Delete previews, playground are enough.
-#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable let dummy = PreviewContent.Dummy()
-    Text("String: `\("lorem ipsum", format: .capitalized)`")
-    Text("Raw Value: `\(dummy, format: .rawValueCapitalized())`")
-    Text("Property: `\(dummy, format: .capitalized(property: \.value))`")
-    Text("Input Format: `\(dummy, format: .capitalized(of: .description()))`")
-}
+private typealias Sphinx = FormatStyleExamples.Sphinx
+private typealias Quartz = FormatStyleExamples.Quartz
 
 
 // MARK: - Playgrounds
@@ -205,22 +146,15 @@ private struct PreviewContent {
 #Playground("Default") {
     _ = "black quartz".formatted(.capitalized)
     _ = "black quartz".formatted(.capitalized(of: .firstCharacter))
-    _ = ExampleEnum.alfa.format(.rawValueCapitalized())
-    _ = ExampleStruct().format(.capitalized(property: \.firstString))
+    _ = Quartz.rose.formatted(.rawValueCapitalized())
+    _ = Sphinx().formatted(.capitalized(property: \.material))
 }
 
 
 // MARK: - Previews
 
-private
-nonisolated struct Sphinx: Equatable {
-    let material = "quartz"
-}
 
-private
-enum Quartz: String { case black, rose }
-
-#Preview("Default") {
+#Preview("Snippets") {
     Text("black quartz", format: .capitalized) // Displays "Black Quartz"
 
     Text("black quartz", format: .capitalized(of: .firstWord)) // Displays "Black"
