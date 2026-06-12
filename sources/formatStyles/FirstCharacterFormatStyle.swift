@@ -34,7 +34,7 @@ struct FirstCharacterFormatStyle: FormatStyle, Sendable {
     /// capitalized.
     ///
     /// - Parameter capitalize: Enables capitalization of the output; defaults to `false`.
-    init(capitalize: Bool = false) {
+    public init(capitalize: Bool = false) {
         self.capitalize = capitalize
     }
 
