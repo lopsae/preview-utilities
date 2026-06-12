@@ -427,7 +427,7 @@ private struct PreviewContent {
         ]
         ForEach(indices, id: \.self) { index in
             let string  = strings[index]
-            Button(string.formatted(.firstCharacterCapitalized)) {
+            Button(string.formatted(.firstCharacter.capitalized)) {
                 withAnimation {
                     scrollPosition.scrollTo(id: string)
                 }
@@ -451,7 +451,7 @@ private struct PreviewContent {
         ForEach(strings.columnMajorReordered(columns: columns), id: \.self) { item in
             let generationStatus = imageGenerator.status[item]
             HStack {
-                Text(item.formatted(.firstCharacter(capitalized: true)))
+                Text(item.formatted(.firstCharacter.capitalized))
                     .frame(width: 15, alignment: .leading)
                 Circle()
                     .fill(generationStatus?.statusColor ?? .gray)

@@ -568,7 +568,7 @@ where Content: View, Tag: Hashable
         Picker(
             "Formatted Picker",
             selection: $values,
-            caseFormat: .firstCharacter(of: .rawValue(), capitalized: true)
+            caseFormat: .firstCharacter(of: .rawValue(), capitalize: true)
         ).pickerStyle(.segmented)
 
         DashedDivider()
