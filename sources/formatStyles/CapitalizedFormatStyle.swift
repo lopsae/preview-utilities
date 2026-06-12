@@ -63,8 +63,8 @@ extension FormatStyle {
     ///
     /// - Parameters:
     ///   - input: The format style that produces a string from the input data.
-    nonisolated
-    public static func capitalized<InputFormat: FormatStyle>(
+    public nonisolated
+    static func capitalized<InputFormat: FormatStyle>(
         of input: InputFormat
     ) -> Self
     where
@@ -74,10 +74,6 @@ extension FormatStyle {
         return .init(input: input, output: CapitalizedFormatStyle())
     }
 
-}
-
-
-extension FormatStyle {
 
     /// Returns a format style that outputs a capitalized string value retrieved through a key path.
     ///
@@ -92,8 +88,8 @@ extension FormatStyle {
     /// ```
     ///
     /// - Parameter property: The key path to a string property to capitalize.
-    nonisolated
-    public static func capitalized<Input>(
+    public nonisolated
+    static func capitalized<Input>(
         property: KeyPath<Input, String> & Sendable
     ) -> Self
     where
