@@ -12,13 +12,13 @@ import Testing
 struct CapitalizeFormatStyleTests {
 
     nonisolated struct Sample: Equatable, FormatStyleFormattable {
-        let label = "lorem"
+        let label = "agate"
     }
 
     @Test func extensions() {
         #expect("black quartz".formatted(.capitalize) == "Black Quartz")
         #expect("black quartz".formatted(.capitalize(.firstWord)) == "Black")
-        #expect(Sample().formatted(.capitalize(property: \.label)) == "Lorem")
+        #expect(Sample().formatted(.capitalize(property: \.label)) == "Agate")
     }
 
     @Test func words() {
