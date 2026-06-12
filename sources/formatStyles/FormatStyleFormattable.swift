@@ -15,6 +15,10 @@ public protocol FormatStyleFormattable {}
 
 extension FormatStyleFormattable {
 
+    
+    /// Formats self through the given format style.
+    /// - Parameter style: The format style to format self.
+    /// - Returns: The output of the format style.
     public func formatted<Output, Style>(_ style: Style) -> Output
     where
         Style: FormatStyle,

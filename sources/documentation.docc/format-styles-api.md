@@ -13,6 +13,8 @@ string raw value, and any type into a string ready to display.
 
 ## Topics
 
+### FormatStyle Implementations
+
 + ``IdentityFormatStyle``
 + ``CapitalizeFormatStyle``
 + ``FirstCharacterFormatStyle``
@@ -22,3 +24,8 @@ string raw value, and any type into a string ready to display.
 + ``StringDescriptionFormatStyle``
 + ``PropertyFormatStyle``
 + ``CompositeFormatStyle``
+
+
+### Convenience Protocols
+
++ ``FormatStyleFormattable``
