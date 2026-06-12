@@ -6,9 +6,23 @@
 
 import Foundation
 import Playgrounds
+import SwiftUI
 
 
-/// A structure that converts an input `RawRepresentable` to its raw value.
+/// A format style that outputs the string raw value of a `RawRepresentable`.
+///
+/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/rawValue()``:
+///
+/// ```swift
+/// enum Quartz: String { case black, rose, amethyst }
+/// Text(Quartz.rose, format: .rawValue()) // Displays "rose"
+/// ```
+///
+/// ## Topics
+///
+/// ### FormatStyle Extensions
+/// + ``Foundation/FormatStyle/rawValue()``
+///
 nonisolated
 public struct RawValueFormatStyle<Value: RawRepresentable>: FormatStyle, Sendable
 where Value.RawValue: StringProtocol {
@@ -23,40 +37,44 @@ where Value.RawValue: StringProtocol {
 
 extension FormatStyle {
 
-    /// Returns a format style that outputs the raw value of a `RawRepresentable` with
-    /// a string representation.
+    /// Returns a format style that outputs the string raw value of a `RawRepresentable`.
+    ///
+    /// Returns a ``RawValueFormatStyle`` that outputs the string raw value of a `RawRepresentable`.
+    ///
+    /// ```swift
+    /// enum Quartz: String { case black, rose, amethyst }
+    /// Text(Quartz.rose, format: .rawValue()) // Displays "rose"
+    /// ```
     nonisolated
     public static func rawValue<Value: RawRepresentable>() -> RawValueFormatStyle<Value>
     where
         Value.RawValue: StringProtocol,
         Self == RawValueFormatStyle<Value>
     {
-        .init()
+        RawValueFormatStyle()
     }
 
 }
+
+
+// MARK: - PreviewContent
+
+
+private typealias Quartz = FormatStyleExamples.Quartz
 
 
 // MARK: - Playgrounds
 
 
-// FIXME: move to a shared example enum in FormatStyle.
-private enum ExampleEnum: String {
-    case alfa, bravo, charlie
-
-    func format<Output, Formatter>(_ formatter: Formatter) -> Output
-    where
-        Formatter: FormatStyle,
-        Formatter.FormatInput == Self,
-        Formatter.FormatOutput == Output
-    {
-        formatter.format(self)
-    }
-
+#Playground("Default") {
+    _ = Quartz.amethyst.formatted(.rawValue())
 }
 
 
-#Playground("Default") {
-    _ = ExampleEnum.bravo.format(.rawValue())
-    _ = ExampleEnum.charlie.format(.rawValueCapitalized())
+// MARK: - Previews
+
+
+#Preview("Snippets", traits: .sizeThatFitsLayout) {
+    Text(Quartz.rose, format: .rawValue()) // Displays "rose"
+    .padding()
 }
