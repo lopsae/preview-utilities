@@ -6,32 +6,37 @@
 
 import Foundation
 import Playgrounds
+import SwiftUI
 
 
-/// A structure that converts a string to its first character, optionally capitalized.
+
+/// A format style that outputs the first character of a string, optionally capitalized.
 ///
-/// Use this format style through the factory methods ``Foundation/FormatStyle/firstCharacter`` or
-/// ``Foundation/FormatStyle/firstCharacterCapitalized``:
+/// Use this format style through the available `FormatStyle` extensions like ``Foundation/FormatStyle/firstCharacter``
+/// or ``Foundation/FormatStyle/firstCharacterCapitalized``:
 ///
 /// ```swift
-/// "black quartz".formatted(.firstCharacter)            // "b"
-/// "black quartz".formatted(.firstCharacterCapitalized) // "B"
+/// Text("black quartz", format: .firstCharacter)            // Displays "b"
+/// Text("black quartz", format: .firstCharacterCapitalized) // Displays "B"
 /// ```
 ///
-/// ## See Also
+/// ## Topics
 ///
+/// ### FormatStyle Extensions
 /// + ``Foundation/FormatStyle/firstCharacter``
 /// + ``Foundation/FormatStyle/firstCharacterCapitalized``
 /// + ``Foundation/FormatStyle/firstCharacter(capitalized:)``
-/// + ``Foundation/FormatStyle/firstCharacter(capitalized:input:)``
+/// + ``Foundation/FormatStyle/firstCharacter(of:capitalized:)``
 public nonisolated
 struct FirstCharacterFormatStyle: FormatStyle, Sendable {
 
     let capitalized: Bool
 
 
-    /// Creates a format style that converts a string to its first character.
-    /// - Parameter capitalized: Indicates if the converted string is capitalized; defaults to
+    /// Creates a format style that outputs the first character of a string, optionally
+    /// capitalized.
+    ///
+    /// - Parameter capitalized: Indicates if the output string is capitalized; defaults to
     ///   `false`.
     init(capitalized: Bool = false) {
         self.capitalized = capitalized
@@ -54,16 +59,38 @@ struct FirstCharacterFormatStyle: FormatStyle, Sendable {
 extension FormatStyle where Self == FirstCharacterFormatStyle {
 
     /// Returns a format style that outputs first character of a string.
+    ///
+    /// Returns a ``FirstCharacterFormatStyle`` configured to output the first character of the
+    /// input string.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .firstCharacter) // Displays "b"
+    /// ```
     public nonisolated
     static var firstCharacter: Self { .init() }
 
     /// Returns a format style that outputs first character of a string, capitalized.
+    ///
+    /// Returns a ``FirstCharacterFormatStyle`` configured to output the first character of the
+    /// input string, capitalized.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .firstCharacterCapitalized) // Displays "B"
+    /// ```
     public nonisolated
     static var firstCharacterCapitalized: Self {
         .init(capitalized: true)
     }
 
     /// Returns a format style that outputs first character of a string, optionally capitalized.
+    ///
+    /// Returns a ``FirstCharacterFormatStyle`` configured to output the first character of the
+    /// input string, optionally capitalized.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .firstCharacter(capitalized: true)) // Displays "B"
+    /// ```
+    ///
     /// - Parameter capitalized: Indicates if the output string is capitalized.
     public nonisolated
     static func firstCharacter(capitalized: Bool) -> Self {
@@ -75,11 +102,19 @@ extension FormatStyle where Self == FirstCharacterFormatStyle {
 
 extension FormatStyle {
 
-    /// Returns a format style that first formats the data through an input formatter, and then
-    /// outputs only the first character optionally capitalized.
+    /// Returns a composite format style that formats the data with a given formatter and outputs
+    /// the first character, optionally capitalized.
+    ///
+    /// Returns a ``CompositeFormatStyle`` configured with the given input format style, and a
+    /// ``FirstCharacterFormatStyle`` as output.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .firstCharacter(of: .lastWord)) // Displays "q"
+    /// ```
+    ///
     /// - Parameters:
-    ///   - capitalized: Indicates if the output string is capitalized.
     ///   - input: The format style that produces a string from the input data.
+    ///   - capitalized: Indicates if the output string is capitalized.
     public nonisolated
     static func firstCharacter<InputFormat: FormatStyle>(
         of input: InputFormat,
@@ -96,8 +131,24 @@ extension FormatStyle {
 }
 
 
+// MARK: - Playgrounds
+
+
 #Playground("Default") {
     _ = "black quartz".formatted(.firstCharacter)
     _ = "black quartz".formatted(.firstCharacterCapitalized)
-    _ = "black quartz".formatted(.firstCharacter(capitalized: true, input: .identity))
+    _ = "black quartz".formatted(.firstCharacter(of: .identity, capitalized: true))
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Snippet") {
+    Text("black quartz", format: .firstCharacter)            // Displays "b"
+    Text("black quartz", format: .firstCharacterCapitalized) // Displays "B"
+
+    Text("black quartz", format: .firstCharacter(capitalized: true)) // Displays "B"
+
+    Text("black quartz", format: .firstCharacter(of: .lastWord)) // Displays "q"
 }
