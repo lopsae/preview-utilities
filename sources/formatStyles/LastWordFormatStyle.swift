@@ -22,7 +22,7 @@ import SwiftUI
 /// ## Topics
 ///
 /// ### FormatStyle Extensions
-/// + ``Foundation/FormatStyle/lastWord``\
+/// + ``Foundation/FormatStyle/lastWord``
 ///
 public nonisolated
 struct LastWordFormatStyle: FormatStyle, Sendable {
