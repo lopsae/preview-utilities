@@ -35,18 +35,16 @@ import SwiftUI
 ///
 public nonisolated
 struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
+
     let property: KeyPath<Input, String> & Sendable
 
-    @_documentation(visibility: internal)
-    public func format(_ value: Input) -> String {
-        return value[keyPath: property]
-    }
 
     /// Creates a format style that outputs a string property retrieved through a key path.
     /// - Parameter property: The key path of the string property to output.
-    init(_ property: KeyPath<Input, String> & Sendable) {
+    public init(_ property: KeyPath<Input, String> & Sendable) {
         self.property = property
     }
+
 
     /// `PropertyFormatStyle` cannot be meaningfully encoded/decoded. This function will always
     /// throw `DecodingError.dataCorrupted`.
@@ -56,11 +54,18 @@ struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
         )
     }
 
+
     /// `PropertyFormatStyle` cannot be meaningfully encoded/decoded. This function stores a dummy
     /// value and succeeds.
     public func encode(to encoder: any Encoder) throws {
         var container = encoder.singleValueContainer()
         try container.encode("PropertyFormatStyle")
+    }
+
+
+    @_documentation(visibility: internal)
+    public func format(_ value: Input) -> String {
+        return value[keyPath: property]
     }
 
 }
