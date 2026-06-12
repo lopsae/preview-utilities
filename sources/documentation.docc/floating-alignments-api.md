@@ -6,11 +6,23 @@
 
 Alignment positions for floating content.
 
-Identifies the alignment positions for floating content over a parent view. Floating content is
-content overlaid an owner view and aligned to an edge of its boundaries, either inside or
-outside.
+Floating content is content overlaid an owner view and aligned to an edge of its boundaries, either
+inside or outside. Since the content is overlaid, the layout of the owner view is never modified,
+hence the content _floats_ over the owner view.
 
-Inner alignments identify the inner positions along an owner view. These work as equivalent to the 
+@Image(
+    source: "floating-alignment-alignment-examples",
+    alt: "Example floating alignments for inner top leading and outer bottom trailing"
+) {
+    Example floating alignments: _Outer Top Leading_ and _Inner Bottom Trailing_.
+}
+
+``FloatingAlignment`` identifies the available alignment positions for floating content. Use it on 
+views that support floating content by building an instance, or using the available static 
+properties like ``FloatingAlignment/outerTopLeading`` or ``FloatingAlignment/innerBottomTrailing``. 
+See ``FloatingAlignment`` for the list of all convenience properties available.
+
+Inner alignments identify the inner positions along the owner view. These work as equivalent to the 
 SwiftUI alignments with the same names.
 
 @Image(
@@ -20,7 +32,7 @@ SwiftUI alignments with the same names.
     All inner alignments.
 }
 
-Outer alignments identify the outer positions along an owners view's boundaries, and are defined
+Outer alignments identify the outer positions along the owner view's boundaries, and are defined
 through a major component (top, leading, bottom, and trailing) and a minor component (top, leading,
 bottom, trailing, center, above, and under, depending on the major).
 
@@ -30,9 +42,6 @@ bottom, trailing, center, above, and under, depending on the major).
 ) {
     All outer alignments.
 }
-
-See ``FloatingAlignment`` for the list of static properties available with all the
-alignment permutations, like ``FloatingAlignment/outerLeadingTop`` or ``FloatingAlignment/outerTrailingUnder``.
 
 
 
