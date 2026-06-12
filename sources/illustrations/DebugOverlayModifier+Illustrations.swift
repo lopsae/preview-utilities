@@ -19,7 +19,7 @@ extension DebugOverlayModifier.Illustrations {
 
     /// Card illustration for <doc:debug-overlay>.
     static var card: DocumentationIllustration {
-        DocumentationIllustration(sizing: .card.half, alignment: .topLeading) {
+        DocumentationIllustration(sizing: .card.half, alignment: .topLeading, drawsBorder: false) {
             Capsule()
             .fill(.gray.gradient.secondary)
             .frame(width: 320, height: 180)
