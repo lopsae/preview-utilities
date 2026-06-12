@@ -16,6 +16,9 @@ import SwiftUI
 /// Text("black quartz", format: .lastWord) // Displays "quartz"
 /// ```
 ///
+/// Any trailing whitespace in the input string is ignored and only the last word, trimmed from
+/// whitespace, is output.
+///
 /// ## Topics
 ///
 /// ### FormatStyle Extensions
@@ -30,10 +33,16 @@ struct LastWordFormatStyle: FormatStyle, Sendable {
 
     @_documentation(visibility: internal)
     public func format(_ value: String) -> String {
-        guard let lastSpace = value.lastIndex(where: { $0.isWhitespace }) else {
-            return value
+        guard let lastNonSpace = value.lastIndex(where: { !$0.isWhitespace }) else {
+            return ""
         }
-        return String(value[value.index(after: lastSpace)...])
+        let trimmed = value[...lastNonSpace]
+        guard let lastSpace = trimmed.lastIndex(where: { $0.isWhitespace }) else {
+            return String(trimmed)
+        }
+        let afterLastSpace = trimmed.index(after: lastSpace)
+        let lastWord = trimmed[afterLastSpace...]
+        return String(lastWord)
     }
 
 }
@@ -55,6 +64,8 @@ extension FormatStyle where Self == LastWordFormatStyle {
 
 #Playground("Default") {
     _ = "black quartz".formatted(.lastWord)
+    _ = "black quartz   ".formatted(.lastWord)
+    _ = "".formatted(.lastWord)
 }
 
 

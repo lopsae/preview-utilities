@@ -16,6 +16,9 @@ import SwiftUI
 /// Text("black quartz", format: .firstWord) // Displays "black"
 /// ```
 ///
+/// Any leading whitespace in the input string is ignored and only the first word, trimmed from
+/// whitespace, is output.
+///
 /// ## Topics
 ///
 /// ### FormatStyle Extensions
@@ -30,7 +33,9 @@ struct FirstWordFormatStyle: FormatStyle, Sendable {
 
     @_documentation(visibility: internal)
     public func format(_ value: String) -> String {
-        String(value.prefix(while: { !$0.isWhitespace }))
+        let trimmed = value.drop(while: { $0.isWhitespace })
+        let firstWord = trimmed.prefix(while: { !$0.isWhitespace })
+        return String(firstWord)
     }
 
 }
@@ -52,6 +57,8 @@ extension FormatStyle where Self == FirstWordFormatStyle {
 
 #Playground("Default") {
     _ = "black quartz".formatted(.firstWord)
+    _ = "   black quartz".formatted(.firstWord)
+    _ = "".formatted(.firstWord)
 }
 
 
