@@ -10,6 +10,7 @@ previews in SwiftUI.
 ### Essentials
 @Links(visualStyle: detailedGrid) {
     + <doc:debug-overlay-api>
+    + <doc:floating-caption-api>
     + <doc:floating-alignments-api>
     + <doc:format-styles-api>
 }
@@ -18,19 +19,9 @@ previews in SwiftUI.
 
 ## Topics
 
-
-### Floating Caption
-
-Add a floating caption, border, and size information to any view, without impacting its layout.
-
-+ ``FloatingCaptionModifier``
-+ ``FloatingCaptionModifier/Trait``
-+ ``SwiftUICore/View/floatingCaption(_:_:)``
-+ ``SwiftUICore/View/floatingCaption(_:traits:)``
-
-
 ### API Collections
 
 + <doc:debug-overlay-api>
++ <doc:floating-caption-api>
 + <doc:floating-alignments-api>
 + <doc:format-styles-api>
