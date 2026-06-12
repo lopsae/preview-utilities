@@ -4,13 +4,30 @@
 //
 
 
+import Playgrounds
 import SwiftUI
 
 
-/// A structure that converts any instance to its string description.
-nonisolated
-public struct StringDescriptionFormatStyle<Input>: FormatStyle, Sendable {
+/// A format style that outputs the string description of the input.
+///
+/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/description()``:
+///
+/// ```swift
+/// nonisolated struct Sphinx: Equatable {
+///     let material = "quartz"
+/// }
+/// Text(Sphinx(), format: .description()) // Displays "Sphinx(material: "quartz")"
+/// ```
+///
+/// ## Topics
+///
+/// ### FormatStyle Extensions
+/// + ``Foundation/FormatStyle/description()``
+///
+public nonisolated
+struct StringDescriptionFormatStyle<Input>: FormatStyle, Sendable {
 
+    /// Creates format style that outputs the string description of the input.
     public init() { }
 
     @_documentation(visibility: internal)
@@ -23,13 +40,23 @@ public struct StringDescriptionFormatStyle<Input>: FormatStyle, Sendable {
 
 extension FormatStyle {
 
-    /// Returns a format style that outputs the string description of the input.
-    nonisolated
+    /// A format style that outputs the string description of the input.
+    ///
+    /// ```swift
+    /// nonisolated struct Sphinx: Equatable {
+    ///     let material = "quartz"
+    /// }
+    /// Text(Sphinx(), format: .description()) // Displays "Sphinx(material: "quartz")"
+    /// ```
+    ///
+    /// - Returns: A ``StringDescriptionFormatStyle`` that outputs the string description of the
+    ///   input.
+    public nonisolated
     static func description<Input>() -> Self
     where
         Self == StringDescriptionFormatStyle<Input>
     {
-        return .init()
+        return StringDescriptionFormatStyle()
     }
 
 }
@@ -38,25 +65,23 @@ extension FormatStyle {
 // MARK: - PreviewContent
 
 
-@MainActor
-private struct PreviewContent {
+private typealias Sphinx = FormatStyleExamples.Sphinx
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
-    nonisolated
-    struct Dummy: CustomStringConvertible {
-        var description: String { "string description" }
-    }
+// MARK: - Playgrounds
 
+
+#Playground("Default") {
+    _ = Sphinx().formatted(.description())
+    _ = 987.formatted(.description())
+    _ = 1.2345.formatted(.description())
 }
 
 
 // MARK: - Previews
 
 
-#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
-    @Previewable let dummy = PreviewContent.Dummy()
-    Text("Integer: `\(987, format: .description())`")
-    Text("Double: `\(1.2345, format: .description())`")
-    Text("Custom: `\(dummy, format: .description())`")
+#Preview("Snippets", traits: .sizeThatFitsLayout) {
+    Text(Sphinx(), format: .description()) // Displays "Sphinx(material: "quartz")"
+    .padding()
 }

@@ -69,7 +69,7 @@ extension FormatStyle where Self == FirstWordFormatStyle {
 // MARK: - Previews
 
 
-#Preview("Snippet", traits: .sizeThatFitsLayout) {
+#Preview("Snippets", traits: .sizeThatFitsLayout) {
     Text("black quartz", format: .firstWord) // Displays "black"
     .padding()
 }

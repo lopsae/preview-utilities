@@ -76,7 +76,7 @@ extension FormatStyle where Self == LastWordFormatStyle {
 // MARK: - Previews
 
 
-#Preview("Snippet", traits: .sizeThatFitsLayout) {
+#Preview("Snippets", traits: .sizeThatFitsLayout) {
     Text("black quartz", format: .lastWord) // Displays "quartz"
     .padding()
 }
