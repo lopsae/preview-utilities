@@ -10,7 +10,7 @@ import SwiftUI
 
 /// A format style that outputs the first word of a string.
 ///
-/// Use this format style through the available `FormatStyle` extensions ``Foundation/FormatStyle/firstWord``:
+/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/firstWord``:
 ///
 /// ```swift
 /// Text("black quartz", format: .firstWord) // Displays "black"

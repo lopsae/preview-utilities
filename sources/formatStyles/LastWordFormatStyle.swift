@@ -10,7 +10,7 @@ import SwiftUI
 
 /// A format style that outputs the last word of a string.
 ///
-/// Use this format style through the available `FormatStyle` extensions ``Foundation/FormatStyle/lastWord``:
+/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/lastWord``:
 ///
 /// ```swift
 /// Text("black quartz", format: .lastWord) // Displays "quartz"
