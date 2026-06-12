@@ -8,7 +8,7 @@ import Playgrounds
 import SwiftUI
 
 
-/// A format style that outputs the input capitalized.
+/// A format style that outputs a capitalized string.
 ///
 /// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/capitalize``:
 ///
@@ -26,7 +26,12 @@ import SwiftUI
 nonisolated
 public struct CapitalizeFormatStyle: FormatStyle, Sendable {
 
-    @_documentation(visibility: internal)
+    /// Creates a format style that outputs a capitalized string.
+    public init() {}
+
+    /// Formats a string value, using this style
+    /// - Parameter value: The string value to format.
+    /// - Returns: A capitalized `value`.
     public func format(_ value: String) -> String {
         return value.capitalized
     }
@@ -38,7 +43,7 @@ extension FormatStyle where Self == CapitalizeFormatStyle {
 
     /// Returns a format style that outputs a capitalized string.
     ///
-    /// Returns a ``CapitalizeFormatStyle`` that outputs the input string capitalized.
+    /// Returns a ``CapitalizeFormatStyle`` that outputs a capitalized string.
     ///
     /// ```swift
     /// Text("black quartz", format: .capitalize) // Displays "Black Quartz"
@@ -78,8 +83,8 @@ extension FormatStyle {
     /// Returns a composite format style that outputs a capitalized string value retrieved through a
     /// key path.
     ///
-    /// Returns a ``CompositeFormatStyle`` configured to retrieve a string property with a ``PropertyFormatStyle``
-    /// and capitalize it through a ``CapitalizeFormatStyle``.
+    /// Returns a ``CompositeFormatStyle`` configured to retrieve a string property using a ``PropertyFormatStyle``
+    /// and capitalize its output through a ``CapitalizeFormatStyle``.
     ///
     /// ```swift
     /// nonisolated struct Sphinx: Equatable {
