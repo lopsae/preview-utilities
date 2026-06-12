@@ -8,13 +8,13 @@ import SwiftUI
 import Playgrounds
 
 
-/// A structure that performs an identity transformation, returns the input as output with no
+/// A format style that performs an identity transformation, returns the input as output with no
 /// modifications.
 ///
-/// Use this format style through the convenience ``Foundation/FormatStyle/identity``:
+/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/identity``:
 ///
 /// ```swift
-/// "black quartz".formatted(.identity) // "black quartz"
+/// Text("black quartz", format: .identity) // Displays "black quartz"
 /// ```
 public nonisolated
 struct IdentityFormatStyle<T>: FormatStyle, Sendable {
@@ -42,4 +42,12 @@ extension FormatStyle where Self == IdentityFormatStyle<String> {
 
 #Playground("Default") {
     _ = "lorem ipsum".formatted(.identity)
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Snippet") {
+    Text("black quartz", format: .identity) // Displays "black quartz"
 }
