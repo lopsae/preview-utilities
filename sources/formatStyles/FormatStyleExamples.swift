@@ -19,21 +19,5 @@ enum FormatStyleExamples {
 }
 
 
-protocol StyleFormattable {}
-
-extension StyleFormattable {
-
-    func formatted<Output, Style>(_ style: Style) -> Output
-    where
-        Style: FormatStyle,
-        Style.FormatInput == Self,
-        Style.FormatOutput == Output
-    {
-        style.format(self)
-    }
-
-}
-
-
-extension FormatStyleExamples.Sphinx: StyleFormattable {}
-extension FormatStyleExamples.Quartz: StyleFormattable {}
+extension FormatStyleExamples.Sphinx: FormatStyleFormattable {}
+extension FormatStyleExamples.Quartz: FormatStyleFormattable {}
