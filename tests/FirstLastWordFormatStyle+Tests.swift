@@ -25,11 +25,17 @@ struct FirstWordFormatStyleTests {
     @Test func emptyString() {
         let style = FirstWordFormatStyle()
         #expect(style.format("") == "")
+        #expect(style.format(" ") == "")
+        #expect(style.format("   ") == "")
+        #expect(style.format(" \t\n ") == "")
     }
 
     @Test func leadingWhitespace() {
         let style = FirstWordFormatStyle()
-        #expect(style.format(" leading") == "")
+        #expect(style.format(" leading") == "leading")
+        #expect(style.format("   leading") == "leading")
+        #expect(style.format(" \t leading") == "leading")
+        #expect(style.format("  two words") == "two")
     }
 
     @Test func multipleWhitespaceTypes() {
@@ -55,13 +61,19 @@ struct LastWordFormatStyleTests {
     }
 
     @Test func emptyString() {
-        let style = LastWordFormatStyle()
+        let style = FirstWordFormatStyle()
         #expect(style.format("") == "")
+        #expect(style.format(" ") == "")
+        #expect(style.format("   ") == "")
+        #expect(style.format(" \t\n ") == "")
     }
 
     @Test func trailingWhitespace() {
         let style = LastWordFormatStyle()
-        #expect(style.format("trailing ") == "")
+        #expect(style.format("trailing ") == "trailing")
+        #expect(style.format("trailing   ") == "trailing")
+        #expect(style.format("trailing \t ") == "trailing")
+        #expect(style.format("two words  ") == "words")
     }
 
     @Test func multipleWhitespaceTypes() {
