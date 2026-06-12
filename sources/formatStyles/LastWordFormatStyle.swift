@@ -53,6 +53,10 @@ extension FormatStyle where Self == LastWordFormatStyle {
     /// Returns a format style that outputs the last word of a string.
     ///
     /// Returns a ``LastWordFormatStyle`` that outputs the last word of the input string.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .lastWord) // Displays "quartz"
+    /// ```
     public nonisolated
     static var lastWord: Self { LastWordFormatStyle() }
 

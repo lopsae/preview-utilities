@@ -46,6 +46,10 @@ extension FormatStyle where Self == FirstWordFormatStyle {
     /// Returns a format style that outputs first word of a string.
     ///
     /// Returns a ``FirstWordFormatStyle`` that outputs the first word of the input string.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .firstWord) // Displays "black"
+    /// ```
     public nonisolated
     static var firstWord: Self { FirstWordFormatStyle() }
 
