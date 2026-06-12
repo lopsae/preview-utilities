@@ -38,7 +38,7 @@ where
 
 
     /// Creates format style that joins two format styles.
-    init(input: InputStyle, output: OutputStyle) {
+    public init(input: InputStyle, output: OutputStyle) {
         self.input = input
         self.output = output
     }
