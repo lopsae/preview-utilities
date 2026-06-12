@@ -82,15 +82,15 @@ extension FormatStyle {
     ///   - input: The format style that produces a string from the input data.
     public nonisolated
     static func firstCharacter<InputFormat: FormatStyle>(
-        capitalized: Bool = false,
-        input: InputFormat
+        of input: InputFormat,
+        capitalized: Bool = false
     ) -> Self
     where
         InputFormat.FormatOutput == String,
         Self == CompositeFormatStyle<InputFormat, FirstCharacterFormatStyle>
     {
         let output = FirstCharacterFormatStyle(capitalized: capitalized)
-        return .init(input: input, output: output)
+        return CompositeFormatStyle(input: input, output: output)
     }
 
 }
