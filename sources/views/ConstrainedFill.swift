@@ -110,14 +110,14 @@ private struct PreviewContent {
         "Horizontal",
         selection: $horizontalAlignment,
         selectables: HorizontalAlignmentEnum.allCases,
-        elementFormat: .capitalized(property: \.displayName)
+        elementFormat: .capitalize(property: \.displayName)
     ).pickerStyle(.segmented)
 
     Picker(
         "Vertical",
         selection: $verticalAlignment,
         selectables: VerticalAlignmentEnum.allCases,
-        elementFormat: .capitalized(property: \.displayName)
+        elementFormat: .capitalize(property: \.displayName)
     ).pickerStyle(.segmented)
 
     VisibleSpacer()
@@ -167,7 +167,7 @@ private struct PreviewContent {
         selection: $fitOrFill,
         collection: ["fit", "fill"],
         id: \.self,
-        elementFormat: .capitalized
+        elementFormat: .capitalize
     ).pickerStyle(.segmented)
 
     VisibleSpacer()

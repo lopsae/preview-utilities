@@ -49,8 +49,8 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable let dummy = PreviewContent.Dummy()
-    Text("Identity + Capitalized: `\("lorem ipsum", format: CompositeFormatStyle(input: .identity, output: .capitalized))`")
-    Text("First Letter + Capitalized: `\("lorem ipsum", format: CompositeFormatStyle(input: .firstCharacter, output: .capitalized))`")
-    Text("Description + Capitalized: `\(dummy, format: CompositeFormatStyle(input: .description(), output: .capitalized))`")
+    Text("Identity + Capitalized: `\("lorem ipsum", format: CompositeFormatStyle(input: .identity, output: .capitalize))`")
+    Text("First Letter + Capitalized: `\("lorem ipsum", format: CompositeFormatStyle(input: .firstCharacter, output: .capitalize))`")
+    Text("Description + Capitalized: `\(dummy, format: CompositeFormatStyle(input: .description(), output: .capitalize))`")
 }
 

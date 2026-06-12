@@ -763,7 +763,7 @@ private struct PreviewContent {
 #Preview("Grouped Alignments", traits: PreviewContent.layout) {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
-        Text(horizontalAlignment.displayName, format: .capitalized)
+        Text(horizontalAlignment.displayName, format: .capitalize)
 
         PreviewContent.star
         .frame(size: [100, 130])
@@ -793,7 +793,7 @@ private struct PreviewContent {
 
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
-        Text(horizontalAlignment.displayName, format: .capitalized)
+        Text(horizontalAlignment.displayName, format: .capitalize)
 
         PreviewContent.star(.pink.gradient.tertiary)
         .frame(size: [100, 100])

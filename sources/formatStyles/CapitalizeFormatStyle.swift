@@ -10,21 +10,21 @@ import SwiftUI
 
 /// A format style that outputs the input capitalized.
 ///
-/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/capitalized``:
+/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/capitalize``:
 ///
 /// ```swift
-/// Text("black quartz", format: .capitalized) // Displays "Black Quartz"
+/// Text("black quartz", format: .capitalize) // Displays "Black Quartz"
 /// ```
 ///
 /// ## Topics
 ///
 /// ### FormatStyle Extensions
-/// + ``Foundation/FormatStyle/capitalized``
-/// + ``Foundation/FormatStyle/capitalized(of:)``
-/// + ``Foundation/FormatStyle/capitalized(property:)``
+/// + ``Foundation/FormatStyle/capitalize``
+/// + ``Foundation/FormatStyle/capitalize(_:)``
+/// + ``Foundation/FormatStyle/capitalize(property:)``
 ///
 nonisolated
-public struct CapitalizedFormatStyle: FormatStyle, Sendable {
+public struct CapitalizeFormatStyle: FormatStyle, Sendable {
 
     @_documentation(visibility: internal)
     public func format(_ value: String) -> String {
@@ -34,68 +34,69 @@ public struct CapitalizedFormatStyle: FormatStyle, Sendable {
 }
 
 
-extension FormatStyle where Self == CapitalizedFormatStyle {
+extension FormatStyle where Self == CapitalizeFormatStyle {
 
     /// Returns a format style that outputs a capitalized string.
     ///
-    /// Returns a ``CapitalizedFormatStyle`` that outputs the input string capitalized.
+    /// Returns a ``CapitalizeFormatStyle`` that outputs the input string capitalized.
     ///
     /// ```swift
-    /// Text("black quartz", format: .capitalized) // Displays "Black Quartz"
+    /// Text("black quartz", format: .capitalize) // Displays "Black Quartz"
     /// ```
     public nonisolated
-    static var capitalized: Self { CapitalizedFormatStyle() }
+    static var capitalize: Self { CapitalizeFormatStyle() }
 
 }
 
 
 extension FormatStyle {
 
-    /// Returns a composite format style that formats the data with a given formatter and
-    /// capitalizes the output.
+    /// Returns a composite format style that formats the data with a given style and capitalizes
+    /// the output.
     ///
-    /// Returns a ``CompositeFormatStyle`` configured with the given input format style, and a
-    /// ``CapitalizedFormatStyle`` as output.
+    /// Returns a ``CompositeFormatStyle`` configured with the given input style, and a
+    /// ``CapitalizeFormatStyle`` to capitalize the output.
     ///
     /// ```swift
-    /// Text("black quartz", format: .capitalized(of: .firstWord)) // Displays "Black"
+    /// Text("black quartz", format: .capitalize(.firstWord)) // Displays "Black"
     /// ```
     ///
     /// - Parameters:
     ///   - input: The format style that produces a string from the input data.
     public nonisolated
-    static func capitalized<InputFormat: FormatStyle>(
-        of input: InputFormat
+    static func capitalize<InputFormat: FormatStyle>(
+        _ input: InputFormat
     ) -> Self
     where
         InputFormat.FormatOutput == String,
-        Self == CompositeFormatStyle<InputFormat, CapitalizedFormatStyle>
+        Self == CompositeFormatStyle<InputFormat, CapitalizeFormatStyle>
     {
-        return .init(input: input, output: CapitalizedFormatStyle())
+        return .init(input: input, output: CapitalizeFormatStyle())
     }
 
 
-    /// Returns a format style that outputs a capitalized string value retrieved through a key path.
+    /// Returns a composite format style that outputs a capitalized string value retrieved through a
+    /// key path.
     ///
-    /// Returns a ``CompositeFormatStyle`` that retrieves a string property through a key path and
-    /// formats it with a ``CapitalizedFormatStyle``.
+    /// Returns a ``CompositeFormatStyle`` configured to retrieve a string property with a ``PropertyFormatStyle``
+    /// and capitalize it through a ``CapitalizeFormatStyle``.
     ///
     /// ```swift
     /// nonisolated struct Sphinx: Equatable {
     ///     let material = "quartz"
     /// }
-    /// Text(Sphinx(), format: .capitalized(property: \.material)) // Displays "Quartz"
+    /// Text(Sphinx(), format: .capitalize(property: \.material)) // Displays "Quartz"
     /// ```
     ///
     /// - Parameter property: The key path to a string property to capitalize.
     public nonisolated
-    static func capitalized<Input>(
+    static func capitalize<Input>(
         property: KeyPath<Input, String> & Sendable
     ) -> Self
     where
-        Self == CompositeFormatStyle<PropertyFormatStyle<Input>, CapitalizedFormatStyle>
+        Self == CompositeFormatStyle<PropertyFormatStyle<Input>, CapitalizeFormatStyle>
     {
-        return .init(input: PropertyFormatStyle(property), output: CapitalizedFormatStyle())
+        return .init(input: PropertyFormatStyle(property), output: CapitalizeFormatStyle())
     }
 
 }
@@ -112,9 +113,9 @@ private typealias Quartz = FormatStyleExamples.Quartz
 
 
 #Playground("Default") {
-    _ = "black quartz".formatted(.capitalized)
-    _ = "black quartz".formatted(.capitalized(of: .firstCharacter))
-    _ = Sphinx().formatted(.capitalized(property: \.material))
+    _ = "black quartz".formatted(.capitalize)
+    _ = "black quartz".formatted(.capitalize(.firstCharacter))
+    _ = Sphinx().formatted(.capitalize(property: \.material))
 }
 
 
@@ -122,10 +123,10 @@ private typealias Quartz = FormatStyleExamples.Quartz
 
 
 #Preview("Snippets") {
-    Text("black quartz", format: .capitalized) // Displays "Black Quartz"
+    Text("black quartz", format: .capitalize) // Displays "Black Quartz"
 
-    Text("black quartz", format: .capitalized(of: .firstWord)) // Displays "Black"
+    Text("black quartz", format: .capitalize(.firstWord)) // Displays "Black"
 
-    Text(Sphinx(), format: .capitalized(property: \.material)) // Displays "Quartz"
+    Text(Sphinx(), format: .capitalize(property: \.material)) // Displays "Quartz"
 }
 

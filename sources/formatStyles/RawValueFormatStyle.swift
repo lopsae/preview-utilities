@@ -59,7 +59,7 @@ extension FormatStyle {
     /// Returns a format style that outputs the capitalized string raw value of a `RawRepresentable`.
     ///
     /// Returns a ``CompositeFormatStyle`` configured to retrieve the string raw value with ``RawValueFormatStyle``
-    /// and capitalize it through ``CapitalizedFormatStyle``.
+    /// and capitalize it through a ``CapitalizeFormatStyle``.
     ///
     /// ```swift
     /// enum Quartz: String { case black, rose, amethyst }
@@ -69,9 +69,9 @@ extension FormatStyle {
     public static func rawValueCapitalized<Value: RawRepresentable>() -> Self
     where
         Value.RawValue: StringProtocol,
-        Self == CompositeFormatStyle<RawValueFormatStyle<Value>, CapitalizedFormatStyle>
+        Self == CompositeFormatStyle<RawValueFormatStyle<Value>, CapitalizeFormatStyle>
     {
-        return .init(input: RawValueFormatStyle(), output: CapitalizedFormatStyle())
+        return .init(input: RawValueFormatStyle(), output: CapitalizeFormatStyle())
     }
 
 }

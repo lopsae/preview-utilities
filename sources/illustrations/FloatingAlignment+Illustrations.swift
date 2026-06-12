@@ -102,7 +102,7 @@ extension FloatingAlignment.Illustrations {
                                 ))
                                 let alignmentName = alignment.displayNameComponents
                                     .suffix(2)
-                                    .map(formatting: .capitalized)
+                                    .map(formatting: .capitalize)
                                     .joined(separator: "\n")
 
                                 FloatingAlignedContainer(
@@ -143,7 +143,7 @@ extension FloatingAlignment.Illustrations {
                     ForEach(alignments) { alignment in
                         let alignmentName = alignment.displayNameComponents
                             .suffix(2)
-                            .map(formatting: .capitalized)
+                            .map(formatting: .capitalize)
                             .joined(separator: "\n")
 
                         FloatingAlignedContainer(
@@ -195,7 +195,7 @@ extension FloatingAlignment.Illustrations {
                 ForEach(alignments) { alignment in
                     let alignmentName = alignment.displayNameComponents
                         .suffix(2)
-                        .map(formatting: .capitalized)
+                        .map(formatting: .capitalize)
                         .joined(separator: "\n")
 
                     FloatingAlignedContainer(
@@ -250,7 +250,7 @@ extension FloatingAlignment.Illustrations {
                 ForEach(alignments) { alignment in
                     let alignmentName = alignment.displayNameComponents
                         .suffix(2)
-                        .map(formatting: .capitalized)
+                        .map(formatting: .capitalize)
                         .joined(separator: "\n")
 
                     FloatingAlignedContainer(
