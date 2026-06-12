@@ -8,7 +8,22 @@ import Playgrounds
 import SwiftUI
 
 
-/// A structure that capitalizes an input string.
+/// A format style that outputs the input capitalized.
+///
+/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/capitalized``:
+///
+/// ```swift
+/// Text("black quartz", format: .capitalized) // Displays "Black Quartz"
+/// ```
+///
+/// ## Topics
+///
+/// ### FormatStyle Extensions
+/// + ``Foundation/FormatStyle/capitalized``
+/// + ``Foundation/FormatStyle/capitalized(input:)``
+/// + ``Foundation/FormatStyle/capitalized(property:)``
+/// + ``Foundation/FormatStyle/rawValueCapitalized()``
+///
 nonisolated
 public struct CapitalizedFormatStyle: FormatStyle, Sendable {
 
@@ -23,16 +38,26 @@ public struct CapitalizedFormatStyle: FormatStyle, Sendable {
 extension FormatStyle where Self == CapitalizedFormatStyle {
 
     /// Returns a format style that outputs a capitalized string.
-    nonisolated
-    static var capitalized: Self { .init() }
+    ///
+    /// Returns a ``CapitalizedFormatStyle`` that outputs the input string capitalized.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .capitalized) // Displays "Black Quartz"
+    /// ```
+    public nonisolated
+    static var capitalized: Self { CapitalizedFormatStyle() }
 
 }
 
-
+// NEXT: rename to capitalized(of:) and add snippet.
 extension FormatStyle {
 
-    /// Returns a format style that first formats the data through an input formatter, and then
-    /// capitalizes its output.
+    /// Returns a composite format style that formats the data with a given formatter and
+    /// capitalizes the output.
+    ///
+    /// Returns a ``CompositeFormatStyle`` configured with the given input format style, and a
+    /// ``CapitalizedFormatStyle`` as output.
+    ///
     /// - Parameters:
     ///   - input: The format style that produces a string from the input data.
     nonisolated
@@ -49,27 +74,20 @@ extension FormatStyle {
 }
 
 
-nonisolated
-extension FormatStyle {
-
-    /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable` with
-    /// a string representation.
-    nonisolated
-    public static func rawValueCapitalized<Value: RawRepresentable>() -> Self
-    where
-        Value.RawValue: StringProtocol,
-        Self == CompositeFormatStyle<RawValueFormatStyle<Value>, CapitalizedFormatStyle>
-    {
-        return .init(input: RawValueFormatStyle(), output: CapitalizedFormatStyle())
-    }
-
-}
-
-
-nonisolated
 extension FormatStyle {
 
     /// Returns a format style that outputs a capitalized string value retrieved through a key path.
+    ///
+    /// Returns a ``CompositeFormatStyle`` that retrieves a string property through a key path and
+    /// formats it with a ``CapitalizedFormatStyle``.
+    ///
+    /// ```swift
+    /// nonisolated struct Sphinx: Equatable {
+    ///     let material = "quartz"
+    /// }
+    /// Text(Sphinx(), format: .capitalized(property: \.material)) // Displays "Quartz"
+    /// ```
+    ///
     /// - Parameter property: The key path to a string property to capitalize.
     nonisolated
     public static func capitalized<Input>(
@@ -82,6 +100,32 @@ extension FormatStyle {
     }
 
 }
+
+
+nonisolated
+extension FormatStyle {
+
+    /// Returns a format style that outputs the capitalized raw value of a `RawRepresentable` with
+    /// a string representation.
+    ///
+    /// Returns a ``CompositeFormatStyle`` that retrieves the string raw value of a
+    /// `RawRepresentable` and formats it with a ``CapitalizedFormatStyle``.
+    ///
+    /// ```swift
+    /// enum Quartz: String { case black, rose }
+    /// Text(Quartz.rose, format: .rawValueCapitalized()) // Displays "Rose"
+    /// ```
+    nonisolated
+    public static func rawValueCapitalized<Value: RawRepresentable>() -> Self
+    where
+        Value.RawValue: StringProtocol,
+        Self == CompositeFormatStyle<RawValueFormatStyle<Value>, CapitalizedFormatStyle>
+    {
+        return .init(input: RawValueFormatStyle(), output: CapitalizedFormatStyle())
+    }
+
+}
+
 
 
 // MARK: - PreviewContent
@@ -159,5 +203,26 @@ private struct PreviewContent {
     _ = "black quartz".formatted(.capitalized(input: .firstCharacter))
     _ = ExampleEnum.alfa.format(.rawValueCapitalized())
     _ = ExampleStruct().format(.capitalized(property: \.firstString))
+}
+
+
+// MARK: - Previews
+
+private
+nonisolated struct Sphinx: Equatable {
+    let material = "quartz"
+}
+
+private
+enum Quartz: String { case black, rose }
+
+#Preview("Default") {
+    Text("black quartz", format: .capitalized) // Displays "Black Quartz"
+
+    Text("black quartz", format: .capitalized(input: .firstWord)) // Displays "Black"
+
+    Text(Sphinx(), format: .capitalized(property: \.material)) // Displays "Quartz"
+
+    Text(Quartz.rose, format: .rawValueCapitalized()) // Displays "Rose"
 }
 
