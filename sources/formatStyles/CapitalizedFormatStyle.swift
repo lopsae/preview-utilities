@@ -20,7 +20,7 @@ import SwiftUI
 ///
 /// ### FormatStyle Extensions
 /// + ``Foundation/FormatStyle/capitalized``
-/// + ``Foundation/FormatStyle/capitalized(input:)``
+/// + ``Foundation/FormatStyle/capitalized(of:)``
 /// + ``Foundation/FormatStyle/capitalized(property:)``
 /// + ``Foundation/FormatStyle/rawValueCapitalized()``
 ///
@@ -49,7 +49,7 @@ extension FormatStyle where Self == CapitalizedFormatStyle {
 
 }
 
-// NEXT: rename to capitalized(of:) and add snippet.
+
 extension FormatStyle {
 
     /// Returns a composite format style that formats the data with a given formatter and
@@ -58,11 +58,15 @@ extension FormatStyle {
     /// Returns a ``CompositeFormatStyle`` configured with the given input format style, and a
     /// ``CapitalizedFormatStyle`` as output.
     ///
+    /// ```swift
+    /// Text("black quartz", format: .capitalized(of: .firstWord)) // Displays "Black"
+    /// ```
+    ///
     /// - Parameters:
     ///   - input: The format style that produces a string from the input data.
     nonisolated
     public static func capitalized<InputFormat: FormatStyle>(
-        input: InputFormat
+        of input: InputFormat
     ) -> Self
     where
         InputFormat.FormatOutput == String,
@@ -191,7 +195,7 @@ private struct PreviewContent {
     Text("String: `\("lorem ipsum", format: .capitalized)`")
     Text("Raw Value: `\(dummy, format: .rawValueCapitalized())`")
     Text("Property: `\(dummy, format: .capitalized(property: \.value))`")
-    Text("Input Format: `\(dummy, format: .capitalized(input: .description()))`")
+    Text("Input Format: `\(dummy, format: .capitalized(of: .description()))`")
 }
 
 
@@ -200,7 +204,7 @@ private struct PreviewContent {
 
 #Playground("Default") {
     _ = "black quartz".formatted(.capitalized)
-    _ = "black quartz".formatted(.capitalized(input: .firstCharacter))
+    _ = "black quartz".formatted(.capitalized(of: .firstCharacter))
     _ = ExampleEnum.alfa.format(.rawValueCapitalized())
     _ = ExampleStruct().format(.capitalized(property: \.firstString))
 }
@@ -219,7 +223,7 @@ enum Quartz: String { case black, rose }
 #Preview("Default") {
     Text("black quartz", format: .capitalized) // Displays "Black Quartz"
 
-    Text("black quartz", format: .capitalized(input: .firstWord)) // Displays "Black"
+    Text("black quartz", format: .capitalized(of: .firstWord)) // Displays "Black"
 
     Text(Sphinx(), format: .capitalized(property: \.material)) // Displays "Quartz"
 
