@@ -26,6 +26,13 @@ string raw value, and any type into a string ready to display.
 + ``CompositeFormatStyle``
 
 
+### FormatStyle Extensions
+
++ ``Foundation/FormatStyle/arithmeticRoundedInteger-2pjod``
++ ``Foundation/FormatStyle/arithmeticRoundedInteger-33pn8``
++ ``Foundation/FormatStyle/fractionLength(_:)``
+
+
 ### Convenience Protocols
 
 + ``FormatStyleFormattable``

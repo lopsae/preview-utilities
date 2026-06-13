@@ -11,8 +11,18 @@ import SwiftUI
 
 extension FormatStyle {
 
-    @inlinable nonisolated
-    public static func fractionLength<Value: BinaryFloatingPoint>(_ length: Int) -> Self
+    /// A floating point format style that constrains formatted values to a given number of allowed
+    /// digits in the fraction part.
+    ///
+    /// Shorthand for a `FloatingPointFormatStyle` configured to the given number of fraction length
+    /// precision.
+    ///
+    /// - Parameter length: The number of digits to use when formatting the fraction part of a number.
+    /// - Returns: A format style that constrains formatted values to a given number of allowed
+    ///   digits in the fraction part.
+    @inlinable
+    public nonisolated
+    static func fractionLength<Value: BinaryFloatingPoint>(_ length: Int) -> Self
     where Self == FloatingPointFormatStyle<Value>
     {
         .init().precision(.fractionLength(length))
@@ -22,15 +32,21 @@ extension FormatStyle {
 
 
 // MARK: - Convenience Properties
-// Most of these could be defined as functions to allow a single generic implementation for
-// `BinaryFloatingPoint`. However, these are kept deliberately as vars to eschew the terminating
+
+// `arithmeticRoundedInteger` could be defined as functions to allow a single generic implementation
+// for `BinaryFloatingPoint`. However, these are kept deliberately as vars to eschew the terminating
 // parenthesis of the function call.
 
 
 extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
 
-    @inlinable nonisolated
-    public static var arithmeticRoundedInteger: Self {
+    /// A `Double` format style that rounds formatted values to the nearest-or-even integer.
+    ///
+    /// Shorthand for a `FloatingPointFormatStyle<Double>` configured to round to the nearest-or-even
+    /// integer.
+    @inlinable
+    public nonisolated
+    static var arithmeticRoundedInteger: Self {
         .number.rounded(rule: .toNearestOrEven, increment: 1)
     }
 
@@ -39,8 +55,13 @@ extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
 
 extension FormatStyle where Self == FloatingPointFormatStyle<CGFloat> {
 
-    @inlinable nonisolated
-    public static var arithmeticRoundedInteger: Self {
+    /// A `CGFloat` format style that rounds formatted values to the nearest-or-even integer.
+    ///
+    /// Shorthand for a `FloatingPointFormatStyle<CGFloat>` configured to round to the nearest-or-even
+    /// integer.
+    @inlinable
+    public nonisolated
+    static var arithmeticRoundedInteger: Self {
         .init().rounded(rule: .toNearestOrEven, increment: 1)
     }
 
