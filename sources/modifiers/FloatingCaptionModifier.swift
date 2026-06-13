@@ -16,7 +16,7 @@ import SwiftUI
 /// Displays in an overlay a caption text aligned to a specified ``FloatingAlignment``. The caption
 /// text is configured to use its preferred size, not constrained to the size of the parent view. It
 /// can be aligned to the center, any edge or corner, inside or outside, of the view's boundaries:
-/// hence it _floats_ over the parent view attached to relative position.
+/// hence it _floats_ over the parent view attached to a relative position.
 ///
 /// All content added by this modifier is layered in an overlay of the parent view, the original
 /// layout is never modified.
