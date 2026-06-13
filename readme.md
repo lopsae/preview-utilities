@@ -16,7 +16,7 @@ Debug Overlay
 Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.
 
 Apply the [`debugOverlay()`][docs-debug-overlay-function] modifier to a view to overlay the debug 
-visualization, the layout of the owner view is never modified.
+visualization:
 
 ```swift
 Text("Sphinx of Black Quartz")
@@ -45,8 +45,7 @@ Floating Caption
 Add a floating caption, border, and size information to a view, without impacting its layout.
 
 Apply the [`floatingCaption(_:_:)`][docs-floating-caption-function] modifier to a view to overlay a 
-floating caption, and optionally draw a border over the owner view. The original layout of the owner
-view is never modified.
+floating caption, and optionally draw a border over the owner view:
 
 ```swift
 Circle()
