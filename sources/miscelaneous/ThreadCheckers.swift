@@ -10,8 +10,9 @@ import SwiftUI
 /// Nonisolated sendable object that contains a concurrent async function, a explicit nonisolated
 /// async function, and an async function with the default isolation; to inspect the thread running
 /// in each function.
-nonisolated
-public final class NonisolatedThreadChecker: Sendable {
+@_documentation(visibility: internal)
+nonisolated public
+final class NonisolatedThreadChecker: Sendable {
 
     public init() {}
 
@@ -116,6 +117,7 @@ public final class NonisolatedThreadChecker: Sendable {
 
 /// Sendable object that uses the default project isolation context, which is configured to
 /// `MainActor`.
+@_documentation(visibility: internal)
 public final class DefaultIsolationThreadChecker: Sendable {
 
     public init() {}
