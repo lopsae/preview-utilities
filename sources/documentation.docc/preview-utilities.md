@@ -19,6 +19,35 @@ previews in SwiftUI.
 
 ## Topics
 
+### Views
+
++ ``CaptionRectangle``
++ ``ClearRectangle``
++ ``DashedDivider``
++ ``VisibleSpacer``
++ ``TaskView``
++ ``HiddenParentOverlay``
++ ``HistoricValue``
++ ``TaggedText``
++ ``TaggedView``
++ ``ViewWithOpacity``
++ ````
++ ````
+
+
+### Image Generation
+
++ ``MainActorImageGenerator``
++ ``ConcurrentImageGenerator``
++ ``NonisolatedImageGenerator``
++ ``SyncImageGenerator``
++ ``ImageGeneratorStore``
++ ``ImageGeneratorProtocol``
++ ``ImageGeneratorDefaults``
++ ``ImageGeneratorError``
++ ``ThreadInfo``
+
+
 ### API Collections
 
 + <doc:debug-overlay-api>
