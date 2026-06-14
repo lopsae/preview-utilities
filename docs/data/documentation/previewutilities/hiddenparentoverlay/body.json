@@ -158,7 +158,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
       "abstract": [
         {
-          "text": "Experimental view that displays the given content overlaid on a parent view that is hidden.",
+          "text": "View that displays the given content overlaid on a parent view that is hidden.",
           "type": "text"
         }
       ],

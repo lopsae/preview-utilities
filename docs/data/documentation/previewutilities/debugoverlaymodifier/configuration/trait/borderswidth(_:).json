@@ -426,6 +426,77 @@
       "title": "bordersWidth(_:)",
       "type": "topic",
       "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/borderswidth(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/hairline": {
+      "abstract": [
+        {
+          "text": "Sets the debug overlay borders to a width of ",
+          "type": "text"
+        },
+        {
+          "code": "1",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "hairline"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV",
+          "text": "DebugOverlayModifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV",
+          "text": "Configuration"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV5TraitO",
+          "text": "Trait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/hairline",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "hairline",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait/hairline"
     }
   },
   "schemaVersion": {
@@ -434,6 +505,16 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Visual-Traits",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/hairline"
+      ],
+      "title": "Visual Traits"
+    }
+  ],
   "variants": [
     {
       "paths": [

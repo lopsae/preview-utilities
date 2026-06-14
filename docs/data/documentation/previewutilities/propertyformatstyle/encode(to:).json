@@ -161,7 +161,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle": {
       "abstract": [
         {
-          "text": "A format style that returns a string property referenced by a key path.",
+          "text": "A format style that outputs a string property retrieved through a key path.",
           "type": "text"
         }
       ],

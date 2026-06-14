@@ -133,7 +133,99 @@
       "type": "topic",
       "url": "/documentation/previewutilities/swiftuicore/view"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)-6xbdi": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "alignmentGuide"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19InsettableAlignmentV",
+          "text": "InsettableAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI19HorizontalAlignmentV",
+          "text": "HorizontalAlignment"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "moveTo"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI19HorizontalAlignmentV",
+          "text": "HorizontalAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "insetBy"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)-6xbdi",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "alignmentGuide(_:moveTo:insetBy:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/view/alignmentguide(_:moveto:insetby:)-6xbdi"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)-7anp5": {
       "abstract": [],
       "fragments": [
         {
@@ -218,12 +310,12 @@
           "text": "View"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)-7anp5",
       "kind": "symbol",
       "role": "symbol",
       "title": "alignmentGuide(_:moveTo:insetBy:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/view/alignmentguide(_:moveto:insetby:)"
+      "url": "/documentation/previewutilities/swiftuicore/view/alignmentguide(_:moveto:insetby:)-7anp5"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:offsetBy:)-5jdxp": {
       "abstract": [],
@@ -391,7 +483,99 @@
       "type": "topic",
       "url": "/documentation/previewutilities/swiftuicore/view/alignmentguide(_:moveto:offsetby:)-7yr7e"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)-68hu9": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "alignmentGuide"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19InsettableAlignmentV",
+          "text": "InsettableAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI19HorizontalAlignmentV",
+          "text": "HorizontalAlignment"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "moveTo"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI19HorizontalAlignmentV",
+          "text": "HorizontalAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "outsetBy"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "keyword",
+          "text": "some"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI4ViewP",
+          "text": "View"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)-68hu9",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "alignmentGuide(_:moveTo:outsetBy:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/view/alignmentguide(_:moveto:outsetby:)-68hu9"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)-78969": {
       "abstract": [],
       "fragments": [
         {
@@ -476,12 +660,12 @@
           "text": "View"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)-78969",
       "kind": "symbol",
       "role": "symbol",
       "title": "alignmentGuide(_:moveTo:outsetBy:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/view/alignmentguide(_:moveto:outsetby:)"
+      "url": "/documentation/previewutilities/swiftuicore/view/alignmentguide(_:moveto:outsetby:)-78969"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/contentMargins(_:for:)": {
       "abstract": [],
@@ -2897,10 +3081,12 @@
       "anchor": "Instance-Methods",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)-6xbdi",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:insetBy:)-7anp5",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:offsetBy:)-5jdxp",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:offsetBy:)-7yr7e",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)-68hu9",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:outsetBy:)-78969",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/contentMargins(_:for:)",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)",

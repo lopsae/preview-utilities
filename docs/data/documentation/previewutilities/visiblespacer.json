@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "A visible spacer view that expands to all available space in an specific axis.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -105,8 +111,359 @@
       "type": "topic",
       "url": "/documentation/previewutilities"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle": {
+      "abstract": [
+        {
+          "text": "Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CaptionRectangle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CaptionRectangle"
+        }
+      ],
+      "role": "symbol",
+      "title": "CaptionRectangle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/captionrectangle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle": {
+      "abstract": [
+        {
+          "text": "Convenience view that contains an invisible rectangle framed to a given size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ClearRectangle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ClearRectangle"
+        }
+      ],
+      "role": "symbol",
+      "title": "ClearRectangle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/clearrectangle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider": {
+      "abstract": [
+        {
+          "text": "A divider line with a dashed line style.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DashedDivider"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DashedDivider"
+        }
+      ],
+      "role": "symbol",
+      "title": "DashedDivider",
+      "type": "topic",
+      "url": "/documentation/previewutilities/dasheddivider"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
+      "abstract": [
+        {
+          "text": "View that displays the given content overlaid on a parent view that is hidden.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "role": "symbol",
+      "title": "HiddenParentOverlay",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue": {
+      "abstract": [
+        {
+          "text": "Displays a value, along a history of previous values offset from the view.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HistoricValue"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HistoricValue"
+        }
+      ],
+      "role": "symbol",
+      "title": "HistoricValue",
+      "type": "topic",
+      "url": "/documentation/previewutilities/historicvalue"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText": {
+      "abstract": [
+        {
+          "text": "Text with a tag. Used instead of the ",
+          "type": "text"
+        },
+        {
+          "code": ".tag",
+          "type": "codeVoice"
+        },
+        {
+          "text": " modifier when a concrete type is necessary.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaggedText"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaggedText"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaggedText",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taggedtext"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView": {
+      "abstract": [
+        {
+          "text": "View with a tag. Used instead of the ",
+          "type": "text"
+        },
+        {
+          "code": ".tag",
+          "type": "codeVoice"
+        },
+        {
+          "text": " modifier when a concrete type is necessary.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaggedView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaggedView"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaggedView",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taggedview"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
+      "abstract": [
+        {
+          "text": "View that runs a task displaying content while task runs, and displaying different content when",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "the task completes.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaskView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaskView"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaskView",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity": {
+      "abstract": [
+        {
+          "text": "View with an opacity modifier. Used instead of the ",
+          "type": "text"
+        },
+        {
+          "code": ".opacity",
+          "type": "codeVoice"
+        },
+        {
+          "text": " modifier when a concrete type is",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "necessary.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ViewWithOpacity"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ViewWithOpacity"
+        }
+      ],
+      "role": "symbol",
+      "title": "ViewWithOpacity",
+      "type": "topic",
+      "url": "/documentation/previewutilities/viewwithopacity"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "A visible spacer view that expands to all available space in an specific axis.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",
@@ -239,6 +596,24 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Views",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity"
+      ],
+      "title": "Views"
+    }
+  ],
   "topicSections": [
     {
       "anchor": "Initializers",

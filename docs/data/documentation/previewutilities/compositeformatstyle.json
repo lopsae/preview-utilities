@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "A Structure that joins two format styles.",
+      "text": "A format style that joins two format styles.",
       "type": "text"
     }
   ],
@@ -86,7 +86,7 @@
             },
             {
               "kind": "genericParameter",
-              "text": "InputFormat"
+              "text": "InputStyle"
             },
             {
               "kind": "text",
@@ -94,7 +94,7 @@
             },
             {
               "kind": "genericParameter",
-              "text": "OutputFormat"
+              "text": "OutputStyle"
             },
             {
               "kind": "text",
@@ -110,7 +110,7 @@
             },
             {
               "kind": "typeIdentifier",
-              "text": "InputFormat"
+              "text": "InputStyle"
             },
             {
               "kind": "text",
@@ -127,7 +127,7 @@
             },
             {
               "kind": "typeIdentifier",
-              "text": "InputFormat"
+              "text": "InputStyle"
             },
             {
               "kind": "text",
@@ -144,7 +144,7 @@
             },
             {
               "kind": "typeIdentifier",
-              "text": "OutputFormat"
+              "text": "OutputStyle"
             },
             {
               "kind": "text",
@@ -161,7 +161,7 @@
             },
             {
               "kind": "typeIdentifier",
-              "text": "OutputFormat"
+              "text": "OutputStyle"
             },
             {
               "kind": "text",
@@ -178,7 +178,7 @@
             },
             {
               "kind": "typeIdentifier",
-              "text": "InputFormat"
+              "text": "InputStyle"
             },
             {
               "kind": "text",
@@ -195,7 +195,7 @@
             },
             {
               "kind": "typeIdentifier",
-              "text": "OutputFormat"
+              "text": "OutputStyle"
             },
             {
               "kind": "text",
@@ -210,6 +210,76 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The ",
+              "type": "text"
+            },
+            {
+              "code": "CompositeFormatStyle",
+              "type": "codeVoice"
+            },
+            {
+              "text": " joins two format styles into a single one, routing the input data",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "first into the input format style, and then through the output format style.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Use this format style through the ",
+              "type": "text"
+            },
+            {
+              "code": "FormatStyle",
+              "type": "codeVoice"
+            },
+            {
+              "text": " extension ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/composite(input:output:)",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ":",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "// Displays \"Quartz\"",
+            "Text(\"black quartz\", format: .composite(input: .lastWord, output: .capitalize))"
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -252,10 +322,44 @@
       "type": "topic",
       "url": "/documentation/previewutilities"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs a capitalized string.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CapitalizeFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CapitalizeFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "CapitalizeFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/capitalizeformatstyle"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle": {
       "abstract": [
         {
-          "text": "A Structure that joins two format styles.",
+          "text": "A format style that joins two format styles.",
           "type": "text"
         }
       ],
@@ -285,63 +389,6 @@
       "title": "CompositeFormatStyle",
       "type": "topic",
       "url": "/documentation/previewutilities/compositeformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/format(_:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "format"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "InputFormat"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11FormatStyleP0B5InputQa",
-          "text": "FormatInput"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "OutputFormat"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:10Foundation11FormatStyleP0B6OutputQa",
-          "text": "FormatOutput"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/format(_:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "format(_:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/compositeformatstyle/format(_:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/init(from:)": {
       "abstract": [],
@@ -383,6 +430,440 @@
       "type": "topic",
       "url": "/documentation/previewutilities/compositeformatstyle/init(from:)"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/init(input:output:)": {
+      "abstract": [
+        {
+          "text": "Creates format style that joins two format styles.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "input"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "InputStyle"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "output"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "OutputStyle"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/init(input:output:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(input:output:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/compositeformatstyle/init(input:output:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs the first character of a string, optionally capitalized.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "FirstCharacterFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "FirstCharacterFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "FirstCharacterFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/firstcharacterformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs the first word of a string.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "FirstWordFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "FirstWordFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "FirstWordFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/firstwordformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/composite(input:output:)": {
+      "abstract": [
+        {
+          "text": "A format style that joins two format styles.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "composite"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "InputStyle"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "text": "OutputStyle"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "input"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "InputStyle"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "output"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "OutputStyle"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/composite(input:output:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "composite(input:output:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/composite(input:output:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that performs an identity transformation, returns the input as output with no",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "modifications.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "IdentityFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IdentityFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "IdentityFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identityformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs the last word of a string.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "LastWordFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "LastWordFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "LastWordFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/lastwordformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs a string property retrieved through a key path.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PropertyFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "PropertyFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/propertyformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs the string raw value of a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "RawValueFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "RawValueFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "RawValueFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/rawvalueformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs the string description of the input.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "StringDescriptionFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "StringDescriptionFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "StringDescriptionFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/stringdescriptionformatstyle"
+    },
     "doc://PreviewUtilities/s16SendableMetatypeP": {
       "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
       "title": "Swift.SendableMetatype",
@@ -416,22 +897,39 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "FormatStyle-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle"
+      ],
+      "title": "FormatStyle Implementations"
+    }
+  ],
   "topicSections": [
+    {
+      "anchor": "FormatStyle-Extensions",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/composite(input:output:)"
+      ],
+      "title": "FormatStyle Extensions"
+    },
     {
       "anchor": "Initializers",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/init(from:)"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/init(from:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/init(input:output:)"
       ],
       "title": "Initializers"
-    },
-    {
-      "anchor": "Instance-Methods",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle/format(_:)"
-      ],
-      "title": "Instance Methods"
     }
   ],
   "variants": [

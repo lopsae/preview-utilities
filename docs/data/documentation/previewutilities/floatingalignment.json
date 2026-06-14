@@ -96,7 +96,7 @@
         {
           "inlineContent": [
             {
-              "text": "Identifies the alignment positions for floating content over a parent view. Floating content is",
+              "text": "Identifies the alignment positions for floating content over an owner view. Floating content is",
               "type": "text"
             },
             {
@@ -104,7 +104,7 @@
               "type": "text"
             },
             {
-              "text": "content overlaid a parent view and aligned to an edge of its boundaries, either inside or",
+              "text": "content overlaid an owner view and aligned to an edge of its boundaries, either inside or",
               "type": "text"
             },
             {
@@ -112,7 +112,28 @@
               "type": "text"
             },
             {
-              "text": "outside.",
+              "text": "outside. The layout of the owner view is never modified since the content is overlaid, hence the",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "content ",
+              "type": "text"
+            },
+            {
+              "inlineContent": [
+                {
+                  "text": "floats",
+                  "type": "text"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "text": " over the owner view.",
               "type": "text"
             }
           ],
@@ -317,6 +338,14 @@
           "inlineContent": [
             {
               "identifier": "floating-alignment-outer-with-vertical-major",
+              "metadata": {
+                "abstract": [
+                  {
+                    "text": "Outer floating alignments with a vertical major: top or bottom.",
+                    "type": "text"
+                  }
+                ]
+              },
               "type": "image"
             }
           ],
@@ -343,6 +372,14 @@
           "inlineContent": [
             {
               "identifier": "floating-alignment-outer-with-horizontal-major",
+              "metadata": {
+                "abstract": [
+                  {
+                    "text": "Outer floating alignments with a horizontal major: leading or trailing.",
+                    "type": "text"
+                  }
+                ]
+              },
               "type": "image"
             }
           ],
@@ -3051,6 +3088,17 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Inner-and-Outer-Alignments",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment"
+      ],
+      "title": "Inner and Outer Alignments"
+    }
+  ],
   "topicSections": [
     {
       "anchor": "Inner-Alignments",

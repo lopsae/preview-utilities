@@ -152,6 +152,74 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment": {
+      "abstract": [
+        {
+          "text": "Horizontal alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HorizontalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HorizontalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.HorizontalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/horizontalalignment"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment": {
+      "abstract": [
+        {
+          "text": "Vertical alignment component of an outer floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "OuterVerticalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "OuterVerticalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.OuterVerticalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment": {
       "abstract": [
         {
@@ -385,6 +453,17 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Alignment-Components",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment"
+      ],
+      "title": "Alignment Components"
+    }
+  ],
   "topicSections": [
     {
       "anchor": "Enumeration-Cases",

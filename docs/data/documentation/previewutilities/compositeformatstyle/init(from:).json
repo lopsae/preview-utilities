@@ -141,7 +141,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle": {
       "abstract": [
         {
-          "text": "A Structure that joins two format styles.",
+          "text": "A format style that joins two format styles.",
           "type": "text"
         }
       ],

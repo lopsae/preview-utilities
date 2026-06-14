@@ -155,7 +155,7 @@
               "type": "emphasis"
             },
             {
-              "text": " over the parent view attached to relative position.",
+              "text": " over the parent view attached to a relative position.",
               "type": "text"
             }
           ],
@@ -870,118 +870,6 @@
       "type": "topic",
       "url": "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)": {
-      "abstract": [
-        {
-          "text": "Layers in front of this view a floating caption.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Self",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "View",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "floatingCaption"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
-          "text": "LocalizedStringKey"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "traits"
-        },
-        {
-          "kind": "text",
-          "text": ": ["
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-          "text": "FloatingCaptionModifier"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-          "text": "Trait"
-        },
-        {
-          "kind": "text",
-          "text": "]) -> "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4ViewP",
-          "text": "View"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "floatingCaption(_:traits:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:traits:)"
-    },
     "doc://PreviewUtilities/s16SendableMetatypeP": {
       "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
       "title": "Swift.SendableMetatype",
@@ -1076,14 +964,12 @@
   "sections": [],
   "seeAlsoSections": [
     {
-      "anchor": "Floating-Caption",
+      "anchor": "Modifier-and-Traits",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait"
       ],
-      "title": "Floating Caption"
+      "title": "Modifier and Traits"
     }
   ],
   "topicSections": [

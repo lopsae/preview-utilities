@@ -1,4 +1,18 @@
 {
+  "abstract": [
+    {
+      "text": "A ",
+      "type": "text"
+    },
+    {
+      "code": "CGFloat",
+      "type": "codeVoice"
+    },
+    {
+      "text": " format style that rounds formatted values to the nearest-or-even integer.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -38,6 +52,14 @@
         },
         {
           "code": "FloatingPointFormatStyle<CGFloat>",
+          "type": "codeVoice"
+        },
+        {
+          "text": " and ",
+          "type": "text"
+        },
+        {
+          "code": "FormatStyle",
           "type": "codeVoice"
         },
         {
@@ -178,6 +200,42 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Shorthand for a ",
+              "type": "text"
+            },
+            {
+              "code": "FloatingPointFormatStyle<CGFloat>",
+              "type": "codeVoice"
+            },
+            {
+              "text": " configured to round to the nearest-or-even",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "integer.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -234,8 +292,127 @@
       "type": "topic",
       "url": "/documentation/previewutilities/foundation/formatstyle"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod": {
+      "abstract": [
+        {
+          "text": "A ",
+          "type": "text"
+        },
+        {
+          "code": "Double",
+          "type": "codeVoice"
+        },
+        {
+          "text": " format style that rounds formatted values to the nearest-or-even integer.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FloatingPointFormatStyle<Double>",
+            "type": "codeVoice"
+          },
+          {
+            "text": " and ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "arithmeticRoundedInteger"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation24FloatingPointFormatStyleV",
+          "text": "FloatingPointFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sd",
+          "text": "Double"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "arithmeticRoundedInteger",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/arithmeticroundedinteger-2pjod"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-33pn8": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "A ",
+          "type": "text"
+        },
+        {
+          "code": "CGFloat",
+          "type": "codeVoice"
+        },
+        {
+          "text": " format style that rounds formatted values to the nearest-or-even integer.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -260,6 +437,14 @@
           },
           {
             "code": "FloatingPointFormatStyle<CGFloat>",
+            "type": "codeVoice"
+          },
+          {
+            "text": " and ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
             "type": "codeVoice"
           },
           {
@@ -318,6 +503,107 @@
       "title": "arithmeticRoundedInteger",
       "type": "topic",
       "url": "/documentation/previewutilities/foundation/formatstyle/arithmeticroundedinteger-33pn8"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)": {
+      "abstract": [
+        {
+          "text": "A floating point format style that constrains formatted values to a given number of allowed",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "digits in the fraction part.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "fractionLength"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Si",
+          "text": "Int"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "fractionLength(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/fractionlength(_:)"
     }
   },
   "schemaVersion": {
@@ -326,6 +612,17 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "FormatStyle-Extensions",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/arithmeticRoundedInteger-2pjod",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/fractionLength(_:)"
+      ],
+      "title": "FormatStyle Extensions"
+    }
+  ],
   "variants": [
     {
       "paths": [

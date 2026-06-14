@@ -205,6 +205,104 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outeralignment"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/bottom": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "bottom"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO05OuterD0O",
+          "text": "OuterAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/bottom",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "bottom",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outeralignment/bottom"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/leading": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "leading"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO05OuterD0O",
+          "text": "OuterAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/leading",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "leading",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outeralignment/leading"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/top": {
       "abstract": [],
       "fragments": [
@@ -253,6 +351,55 @@
       "title": "top",
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outeralignment/top"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/trailing": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "trailing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO",
+          "text": "FloatingAlignment"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities17FloatingAlignmentO05OuterD0O",
+          "text": "OuterAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/trailing",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "trailing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outeralignment/trailing"
     }
   },
   "schemaVersion": {
@@ -261,6 +408,18 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Alignment-Aliases",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/bottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/leading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment/trailing"
+      ],
+      "title": "Alignment Aliases"
+    }
+  ],
   "variants": [
     {
       "paths": [

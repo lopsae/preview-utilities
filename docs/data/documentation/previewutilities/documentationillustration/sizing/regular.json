@@ -1,0 +1,336 @@
+{
+  "abstract": [
+    {
+      "text": "Regular size for snippet illustrations",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities25DocumentationIllustrationV6SizingV7regularAEvpZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "static"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "let"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "regular"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
+        "text": "DocumentationIllustration"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
+        "text": "Sizing"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Property",
+    "symbolKind": "property",
+    "title": "regular"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "static"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "let"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "regular"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
+              "text": "DocumentationIllustration"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
+              "text": "Sizing"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "This illustration size uses the default width (",
+              "type": "text"
+            },
+            {
+              "code": "400",
+              "type": "codeVoice"
+            },
+            {
+              "text": ") and an aspect ration of ",
+              "type": "text"
+            },
+            {
+              "code": "5/2",
+              "type": "codeVoice"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration": {
+      "abstract": [
+        {
+          "text": "Wraps content for rendering an illustration generated from a SwiftUI view body.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DocumentationIllustration"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DocumentationIllustration"
+        }
+      ],
+      "role": "symbol",
+      "title": "DocumentationIllustration",
+      "type": "topic",
+      "url": "/documentation/previewutilities/documentationillustration"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing": {
+      "abstract": [
+        {
+          "text": "Size in points of a documentation illustration.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Sizing"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Sizing"
+        }
+      ],
+      "role": "symbol",
+      "title": "DocumentationIllustration.Sizing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/documentationillustration/sizing"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular": {
+      "abstract": [
+        {
+          "text": "Regular size for snippet illustrations",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "regular"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
+          "text": "DocumentationIllustration"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
+          "text": "Sizing"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "regular",
+      "type": "topic",
+      "url": "/documentation/previewutilities/documentationillustration/sizing/regular"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/documentationillustration/sizing/regular"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

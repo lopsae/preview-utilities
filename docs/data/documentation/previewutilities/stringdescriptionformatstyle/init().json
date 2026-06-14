@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Creates format style that outputs the string description of the input.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -77,7 +83,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
       "abstract": [
         {
-          "text": "A structure that converts any instance to its string description.",
+          "text": "A format style that outputs the string description of the input.",
           "type": "text"
         }
       ],
@@ -109,7 +115,12 @@
       "url": "/documentation/previewutilities/stringdescriptionformatstyle"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle/init()": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Creates format style that outputs the string description of the input.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "identifier",

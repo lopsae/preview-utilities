@@ -868,16 +868,13 @@
   "sections": [],
   "seeAlsoSections": [
     {
-      "anchor": "Debug-Overlay",
+      "anchor": "View-Extensions",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(traits:)"
       ],
-      "title": "Debug Overlay"
+      "title": "View Extensions"
     }
   ],
   "variants": [

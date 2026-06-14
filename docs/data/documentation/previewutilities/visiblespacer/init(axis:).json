@@ -122,7 +122,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "A visible spacer view that expands to all available space in an specific axis.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

@@ -141,7 +141,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
       "abstract": [
         {
-          "text": "A structure that converts any instance to its string description.",
+          "text": "A format style that outputs the string description of the input.",
           "type": "text"
         }
       ],

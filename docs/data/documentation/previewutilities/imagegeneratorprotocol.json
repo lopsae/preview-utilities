@@ -276,6 +276,64 @@
       "type": "topic",
       "url": "/documentation/previewutilities/concurrentimagegenerator"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorDefaults"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorDefaults"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorDefaults",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratordefaults"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorError"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorError"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorError",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorerror"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
       "abstract": [
         {
@@ -733,6 +791,35 @@
       "type": "topic",
       "url": "/documentation/previewutilities/imagegeneratorprotocol/size"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator": {
       "abstract": [
         {
@@ -824,6 +911,48 @@
       "title": "NonisolatedImageGenerator",
       "type": "topic",
       "url": "/documentation/previewutilities/nonisolatedimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator": {
+      "abstract": [
+        {
+          "text": "Synchronous image generator. Can be instantiated to produce any number of images of a given",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "size, or used statically to produce the same images.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "SyncImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "SyncImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "SyncImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/syncimagegenerator"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
       "abstract": [],
@@ -922,6 +1051,23 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Image-Generation",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo"
+      ],
+      "title": "Image Generation"
+    }
+  ],
   "topicSections": [
     {
       "anchor": "Instance-Properties",
