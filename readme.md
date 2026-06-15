@@ -5,7 +5,7 @@ Utilities for SwiftUI previews.
 
 A collection of modifiers, additions, views, and other utilities usually useful for building previews in SwiftUI.
 
-[Package Documentation](https://lopsae.com/preview-utilities/documentation/previewutilities)
+[Package Documentation](https://lopsae.github.io/preview-utilities/documentation/previewutilities)
 
 > [!NOTE]
 > Package documentation is currently a work in progress. Many of the utilities in this package
@@ -35,8 +35,8 @@ Text("Judge my Vow")
 See the [`DebugOverlayModifier` documentation][docs-debug-overlay-modifier] for further details.
 
 
-[docs-debug-overlay-function]: https://lopsae.com/preview-utilities/documentation/previewutilities/swiftuicore/view/debugoverlay()
-[docs-debug-overlay-modifier]: https://lopsae.com/preview-utilities/documentation/previewutilities/debugoverlaymodifier
+[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/documentation/previewutilities/swiftuicore/view/debugoverlay()
+[docs-debug-overlay-modifier]: https://lopsae.github.io/preview-utilities/documentation/previewutilities/debugoverlaymodifier
 
 
 
@@ -69,8 +69,8 @@ Circle()
 See the [`FloatingCaptionModifier` documentation][docs-floating-caption-modifier] for further details.
 
 
-[docs-floating-caption-function]: https://lopsae.com/preview-utilities/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
-[docs-floating-caption-modifier]: https://lopsae.com/preview-utilities/documentation/previewutilities/floatingcaptionmodifier
+[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
+[docs-floating-caption-modifier]: https://lopsae.github.io/preview-utilities/documentation/previewutilities/floatingcaptionmodifier
 
 
 
