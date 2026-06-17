@@ -5,6 +5,7 @@
 
 
 import PreviewUtilities
+import Testing
 
 
 /// Utility structure to access the documentation catalog resources.
@@ -18,7 +19,11 @@ struct DocumentationResources {
                 filePath: #filePath,
                 droppingComponents: 3, // filename, utils, illustrations
                 appendingComponents: ["sources", "documentation.docc", "resources"]
-            )
+            ) {
+                // onImageStored
+                cgImage, filename in
+                Attachment.record(cgImage, named: filename, as: .png)
+            }
         }
     }
 

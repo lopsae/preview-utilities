@@ -7,19 +7,20 @@
 import Foundation
 import SwiftUI
 import UniformTypeIdentifiers.UTType
-import Testing
 
 
 /// Utility structure to store documentation illustrations into a local folder.
 public struct IllustrationStorage {
 
     let storageDirectory: URL
+    let onImageStored: (_ image: CGImage, _ filename: String) -> Void
 
     public init(
         filePath: String,
         droppingComponents: Int,
         appendingComponents: [String],
-        folderMustExist: Bool = true
+        folderMustExist: Bool = true,
+        onImageStored: @escaping (CGImage, String) -> Void
     ) throws {
         let baseDirectory = URL(fileURLWithPath: filePath)
             .deletingPathComponents(count: droppingComponents)
@@ -38,6 +39,7 @@ public struct IllustrationStorage {
         }
 
         self.storageDirectory = outputDirectory
+        self.onImageStored = onImageStored
     }
 
 
@@ -87,8 +89,7 @@ public struct IllustrationStorage {
                 throw StorageError.fileCreationFailed(path: fileURL.path)
             }
 
-            // Attach image to test.
-            Attachment.record(cgImage, named: filename, as: .png)
+            onImageStored(cgImage, filename)
         }
     }
 
