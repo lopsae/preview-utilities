@@ -2,7 +2,7 @@
 
 set -v
 
-# Resets and clean the docs folder from any workspace changes.
+# Resets and clean the docs folder of any workspace changes.
 
 git checkout HEAD -- ./docs
 git clean --force -d ./docs
