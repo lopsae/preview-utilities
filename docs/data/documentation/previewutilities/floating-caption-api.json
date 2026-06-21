@@ -8,7 +8,6 @@
   "hierarchy": {
     "paths": [
       [
-        "doc://PreviewUtilities/documentation/technology-root",
         "doc://PreviewUtilities/documentation/PreviewUtilities"
       ]
     ]
@@ -576,20 +575,6 @@
       "title": "Format Styles",
       "type": "topic",
       "url": "/documentation/previewutilities/format-styles-api"
-    },
-    "doc://PreviewUtilities/documentation/technology-root": {
-      "abstract": [
-        {
-          "text": "Technology Root Catalogue",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/technology-root",
-      "kind": "article",
-      "role": "collection",
-      "title": "Package Documentation",
-      "type": "topic",
-      "url": "/documentation/technology-root"
     },
     "floating-alignment-card.png": {
       "alt": null,
