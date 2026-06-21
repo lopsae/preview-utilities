@@ -31,8 +31,6 @@ previews in SwiftUI.
 + ``TaggedText``
 + ``TaggedView``
 + ``ViewWithOpacity``
-+ ````
-+ ````
 
 
 ### Image Generation
