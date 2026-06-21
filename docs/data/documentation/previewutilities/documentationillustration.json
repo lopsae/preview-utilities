@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Wraps content for rendering a documentation illustration.",
+      "text": "Wraps content for rendering an illustration generated from a SwiftUI view body.",
       "type": "text"
     }
   ],
@@ -114,7 +114,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration": {
       "abstract": [
         {
-          "text": "Wraps content for rendering a documentation illustration.",
+          "text": "Wraps content for rendering an illustration generated from a SwiftUI view body.",
           "type": "text"
         }
       ],
@@ -145,7 +145,41 @@
       "type": "topic",
       "url": "/documentation/previewutilities/documentationillustration"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(height:content:)": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing": {
+      "abstract": [
+        {
+          "text": "Size in points of a documentation illustration.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Sizing"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Sizing"
+        }
+      ],
+      "role": "symbol",
+      "title": "DocumentationIllustration.Sizing",
+      "type": "topic",
+      "url": "/documentation/previewutilities/documentationillustration/sizing"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(height:drawsBorder:alignment:content:)": {
       "abstract": [],
       "fragments": [
         {
@@ -183,6 +217,40 @@
         },
         {
           "kind": "externalParam",
+          "text": "drawsBorder"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "alignment"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI9AlignmentV",
+          "text": "Alignment"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
           "text": "content"
         },
         {
@@ -198,12 +266,209 @@
           "text": ")"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(height:content:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(height:drawsBorder:alignment:content:)",
       "kind": "symbol",
       "role": "symbol",
-      "title": "init(height:content:)",
+      "title": "init(height:drawsBorder:alignment:content:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/documentationillustration/init(height:content:)"
+      "url": "/documentation/previewutilities/documentationillustration/init(height:drawsborder:alignment:content:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(size:alignment:drawsBorder:content:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Content"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "alignment"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI9AlignmentV",
+          "text": "Alignment"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "drawsBorder"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "content"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Content"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(size:alignment:drawsBorder:content:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(size:alignment:drawsBorder:content:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/documentationillustration/init(size:alignment:drawsborder:content:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(sizing:alignment:drawsBorder:content:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Content"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "sizing"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
+          "text": "DocumentationIllustration"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
+          "text": "Sizing"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "alignment"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI9AlignmentV",
+          "text": "Alignment"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "drawsBorder"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sb",
+          "text": "Bool"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "content"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Content"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(sizing:alignment:drawsBorder:content:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(sizing:alignment:drawsBorder:content:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/documentationillustration/init(sizing:alignment:drawsborder:content:)"
     },
     "doc://PreviewUtilities/s16SendableMetatypeP": {
       "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
@@ -236,10 +501,20 @@
   "sections": [],
   "topicSections": [
     {
+      "anchor": "Structures",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing"
+      ],
+      "title": "Structures"
+    },
+    {
       "anchor": "Initializers",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(height:content:)"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(height:drawsBorder:alignment:content:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(size:alignment:drawsBorder:content:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(sizing:alignment:drawsBorder:content:)"
       ],
       "title": "Initializers"
     }

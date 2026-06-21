@@ -94,7 +94,7 @@ private struct PreviewContent {
         "Horizontal",
         selection: $horizontalAlignment,
         selectables: HorizontalAlignmentEnum.allCases,
-        elementFormat: .capitalized(property: \.displayName)
+        elementFormat: .capitalize(property: \.displayName)
     ).pickerStyle(.segmented)
 
     VStack(alignment: horizontalAlignment.alignment) {
@@ -113,7 +113,7 @@ private struct PreviewContent {
         "Vertical",
         selection: $verticalAlignment,
         selectables: VerticalAlignmentEnum.allCases,
-        elementFormat: .capitalized(property: \.displayName)
+        elementFormat: .capitalize(property: \.displayName)
     ).pickerStyle(.segmented)
 
     HStack(alignment: verticalAlignment.alignment) {

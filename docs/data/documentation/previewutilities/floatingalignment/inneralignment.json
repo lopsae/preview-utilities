@@ -1006,6 +1006,40 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/inneralignment/trailingcenter"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment": {
+      "abstract": [
+        {
+          "text": "Alignment positions for outer floating content.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "OuterAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "OuterAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.OuterAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/outeralignment"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment": {
       "abstract": [
         {
@@ -1154,25 +1188,48 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Inner-and-Outer-Alignments",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterAlignment"
+      ],
+      "title": "Inner and Outer Alignments"
+    }
+  ],
   "topicSections": [
+    {
+      "anchor": "Alignments",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topTrailing",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/leadingCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/center",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/trailingCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/bottomLeading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/bottomCenter",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/bottomTrailing"
+      ],
+      "title": "Alignments"
+    },
+    {
+      "anchor": "Alignment-Aliases",
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/top",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/leading",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/bottom",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/trailing"
+      ],
+      "title": "Alignment Aliases"
+    },
     {
       "anchor": "Type-Properties",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/allCases",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/bottom",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/bottomCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/bottomLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/bottomTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/center",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/leading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/leadingCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/top",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topCenter",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topLeading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/topTrailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/trailing",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/trailingCenter"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/InnerAlignment/allCases"
       ],
       "title": "Type Properties"
     }

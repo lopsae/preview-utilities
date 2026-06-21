@@ -1018,7 +1018,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/iPhoneProSize": {
       "abstract": [
         {
-          "text": "Aproximate size of an iPhone Pro safe area: ",
+          "text": "Approximate size of an iPhone Pro safe area: ",
           "type": "text"
         },
         {

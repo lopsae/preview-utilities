@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+/// A divider line with a dashed line style.
 public struct DashedDivider: View {
 
     let axis: Axis

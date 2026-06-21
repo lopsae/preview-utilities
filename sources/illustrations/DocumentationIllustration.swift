@@ -7,27 +7,102 @@
 import SwiftUI
 
 
-/// Wraps content for rendering a documentation illustration.
+/// Wraps content for rendering an illustration generated from a SwiftUI view body.
 public struct DocumentationIllustration: View {
 
     static var defaultWidth: CGFloat { 400 }
 
     let size: CGSize
+    let drawsBorder: Bool
+    let alignment: Alignment
     let content: AnyView
 
-    public init<Content: View>(height: CGFloat, @ViewBuilder content: @escaping () -> Content) {
+    // FIXME: replace with a size .height, that uses the default width.
+    public init<Content: View>(
+        height: CGFloat,
+        drawsBorder: Bool = true,
+        alignment: Alignment = .center,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
         self.size = [Self.defaultWidth, height]
+        self.alignment = alignment
+        self.drawsBorder = drawsBorder
         self.content = AnyView(content())
     }
+
+
+    public init<Content: View>(
+        size: CGSize,
+        alignment: Alignment = .center,
+        drawsBorder: Bool = true,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.size = size
+        self.alignment = alignment
+        self.drawsBorder = drawsBorder
+        self.content = AnyView(content())
+    }
+
+
+    public init<Content: View>(
+        sizing: Sizing,
+        alignment: Alignment = .center,
+        drawsBorder: Bool = true,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.size = sizing.size
+        self.alignment = alignment
+        self.drawsBorder = drawsBorder
+        self.content = AnyView(content())
+    }
+
 
     @_documentation(visibility: internal)
     public var body: some View {
         VStack {
             content
         }
-        .frame(size: size)
+        .frame(size: size, alignment: alignment)
         .background(.background, in: .rect)
-        .border(.tertiary, width: 1)
+        .border(.tertiary, width: drawsBorder ? 1 : .zero)
+    }
+
+}
+
+
+extension DocumentationIllustration {
+
+    /// Size in points of a documentation illustration.
+    ///
+    /// This structure contains static members with the recommended sizes for illustrations, like
+    /// ``regular`` or ``card``.
+    public struct Sizing {
+
+        let size: CGSize
+
+        init(size: CGSize) {
+            self.size = size
+        }
+
+        init(_ width: CGFloat, _ height: CGFloat) {
+            self.size = CGSize(width: width, height: height)
+        }
+
+        var half: Self {
+            let halfSize = size.multiplying(by: 0.5)
+            return .init(size: halfSize)
+        }
+
+        /// Size for card illustrations.
+        ///
+        /// This is the expected size for images setup with the `@PageImage(purpose: card, [...])`
+        /// Docc directive. Use `card.half` to create illustrations with a zoomed in effect.
+        public static let card: Self = .init(640, 360)
+
+        /// Regular size for snippet illustrations
+        ///
+        /// This illustration size uses the default width (`400`) and an aspect ration of `5/2`.
+        public static let regular: Self = .init(DocumentationIllustration.defaultWidth, 160)
     }
 
 }
@@ -43,4 +118,49 @@ extension PreviewTrait where T == Preview.ViewTraits {
         .sizeThatFitsLayout
     }
 
+}
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .docsIllustration) {
+    DocumentationIllustration(sizing: .regular) {
+        Text("Documentation Illustration")
+    }
+    .padding()
+}
+
+
+#Preview("Card", traits: .docsIllustration) {
+    DocumentationIllustration(sizing: .card.half) {
+        CaptionRectangle("Api Collection Card\nUsing `half` size", color: .orange)
+        .padding(40)
+    }
+    .padding()
+}
+
+
+#Preview("Aligned", traits: .docsIllustration) {
+    DocumentationIllustration(sizing: .regular, alignment: .top) {
+        Text("Top Aligned Content")
+        Text("with regular sizing")
+    }
+    .padding()
+}
+
+
+#Preview("Size", traits: .docsIllustration) {
+    DocumentationIllustration(size: [160, 160]) {
+        Text("Custom Size\nIllustration")
+    }
+    .padding()
+}
+
+
+#Preview("NoBorder", traits: .docsIllustration) {
+    DocumentationIllustration(sizing: .regular, drawsBorder : false) {
+        Text("No Border Illustration")
+    }
+    .padding()
 }

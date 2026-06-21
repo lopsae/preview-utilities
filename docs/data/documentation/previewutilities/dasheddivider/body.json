@@ -156,7 +156,12 @@
       "url": "/documentation/previewutilities"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "A divider line with a dashed line style.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "keyword",

@@ -242,6 +242,36 @@
       "type": "topic",
       "url": "/documentation/previewutilities/swiftuicore/text"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/VStack": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6VStackV",
+          "text": "VStack"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/VStack",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "VStack"
+        }
+      ],
+      "role": "symbol",
+      "title": "VStack",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/vstack"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View": {
       "abstract": [],
       "fragments": [
@@ -297,7 +327,8 @@
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Text"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Text",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/VStack"
       ],
       "title": "Extended Structures"
     },

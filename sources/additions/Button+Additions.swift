@@ -480,7 +480,7 @@ public struct ViewWithOpacity<Content>: View where Content: View {
 }
 
 
-// TODO: Move to additions.
+// TODO: Move to additions, or add functionality to debugOverlay.
 
 extension View {
 

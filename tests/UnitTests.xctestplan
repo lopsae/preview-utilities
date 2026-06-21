@@ -13,15 +13,10 @@
   },
   "testTargets" : [
     {
-      "skippedTags" : {
-        "tags" : [
-          ".documentationRender"
-        ]
-      },
       "target" : {
         "containerPath" : "container:",
-        "identifier" : "PreviewUtilitiesTests",
-        "name" : "PreviewUtilitiesTests"
+        "identifier" : "UnitTests",
+        "name" : "UnitTests"
       }
     }
   ],

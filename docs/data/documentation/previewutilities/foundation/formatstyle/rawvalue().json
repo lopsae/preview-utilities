@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Returns a format style that outputs the raw value of a ",
+      "text": "Returns a format style that outputs the string raw value of a ",
       "type": "text"
     },
     {
@@ -28,6 +28,38 @@
   },
   "kind": "symbol",
   "metadata": {
+    "conformance": {
+      "availabilityPrefix": [
+        {
+          "text": "Available when",
+          "type": "text"
+        }
+      ],
+      "conformancePrefix": [
+        {
+          "text": "Conforms when",
+          "type": "text"
+        }
+      ],
+      "constraints": [
+        {
+          "code": "Self",
+          "type": "codeVoice"
+        },
+        {
+          "text": " is ",
+          "type": "text"
+        },
+        {
+          "code": "FormatStyle",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ]
+    },
     "extendedModule": "Foundation",
     "externalID": "s:10Foundation11FormatStyleP16PreviewUtilitiesE8rawValueAD03RawgbC0Vyqd__GyAHRszSYRd__Sy0hG0Rpd__lFZ",
     "fragments": [
@@ -240,6 +272,51 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Returns a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " that outputs the string raw value of a ",
+              "type": "text"
+            },
+            {
+              "code": "RawRepresentable",
+              "type": "codeVoice"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "enum Quartz: String { case black, rose, amethyst }",
+            "Text(Quartz.rose, format: .rawValue()) // Displays \"rose\""
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -299,7 +376,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()": {
       "abstract": [
         {
-          "text": "Returns a format style that outputs the raw value of a ",
+          "text": "Returns a format style that outputs the string raw value of a ",
           "type": "text"
         },
         {
@@ -311,6 +388,38 @@
           "type": "text"
         }
       ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
       "fragments": [
         {
           "kind": "keyword",
@@ -369,10 +478,10 @@
       "type": "topic",
       "url": "/documentation/previewutilities/foundation/formatstyle/rawvalue()"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()": {
       "abstract": [
         {
-          "text": "A structure that converts a ",
+          "text": "Returns a format style that outputs the capitalized string raw value of a ",
           "type": "text"
         },
         {
@@ -380,7 +489,99 @@
           "type": "codeVoice"
         },
         {
-          "text": " to its raw value.",
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "rawValueCapitalized"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "rawValueCapitalized()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/rawvaluecapitalized()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs the string raw value of a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
           "type": "text"
         }
       ],
@@ -418,6 +619,16 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "FormatStyle-Extensions",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()"
+      ],
+      "title": "FormatStyle Extensions"
+    }
+  ],
   "variants": [
     {
       "paths": [

@@ -100,6 +100,32 @@ extension DebugOverlayModifier.Configuration {
     /// traits are applied in order to a default configuration, each trait making a modification
     /// towards the final configuration. If multiple traits modify the same configuration
     /// properties, the last one applied may overwrite former traits.
+    ///
+    ///
+    /// ## Topics
+    ///
+    /// ### Geometry Traits
+    /// + ``allGeometry``
+    /// + ``safeAreaInsets``
+    /// + ``origin``
+    /// + ``size``
+    /// + ``height``
+    /// + ``width``
+    ///
+    /// ### Visual Traits
+    /// + ``bordersWidth(_:)``
+    /// + ``hairline``
+    ///
+    /// ### Caption Traits
+    /// + ``caption(_:)``
+    /// + ``caption(verbatim:)``
+    /// + ``alignment(_:)``
+    /// + ``infoAlignment(_:)``
+    /// + ``innerInfo``
+    /// + ``innerInfo(_:)``
+    /// + ``outerInfo``
+    /// + ``outerInfo(_:)``
+    ///
     public enum Trait: Sendable {
 
         /// Applies the associated modifier.

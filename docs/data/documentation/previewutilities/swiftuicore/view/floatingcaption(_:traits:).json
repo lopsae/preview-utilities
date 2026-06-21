@@ -728,14 +728,12 @@
   "sections": [],
   "seeAlsoSections": [
     {
-      "anchor": "Floating-Caption",
+      "anchor": "View-Extensions",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
         "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)"
       ],
-      "title": "Floating Caption"
+      "title": "View Extensions"
     }
   ],
   "variants": [

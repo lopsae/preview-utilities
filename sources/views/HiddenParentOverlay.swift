@@ -7,18 +7,18 @@
 import SwiftUI
 
 
-/// Experimental view that displays the given content overlaid on a parent view that is hidden.
+/// View that displays the given content overlaid on a parent view that is hidden.
 ///
-/// The parent content is hidden visually and for accessibility, but still occupies space normally
-/// for layout purpouses.
-///
-/// The parent content determines the space that will be used. The overlaid content is aligned in
-/// this space. Overlaid content larger that the parent content does not modify the size occupied by
-/// the parent content, the overlaid content just overflows.
+/// The parent content determines the space that the instance will use. The overlaid content is
+/// aligned and constrained to this space. Overlaid content larger that the parent content does not
+/// modify the size occupied by the parent content, the overlaid content just overflows.
 ///
 /// This has the practical result of displaying the overlaid content aligned to the space occupied
 /// by the parent view, while using exactly the size of the parent view irregardless of the size of
 /// the overlaid content.
+///
+/// While the parent content is hidden visually and in accessibility, ir still occupies space
+/// normally in the views layout.
 public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
 
     let parent: () -> Parent
@@ -68,7 +68,7 @@ public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
 
     /// Returns the view with the parent visible.
     ///
-    /// Intended for preview and troubleshooting.
+    /// Intended for previews and troubleshooting.
     public func visibleParent(_ visible: Bool = true) -> Self {
         .init(alignment: alignment, parent: parent, overlaid: overlaid, isParentVisible: visible)
     }
@@ -147,14 +147,14 @@ private struct PreviewContent {
         "Horizontal",
         selection: $horizontalAlignment,
         selectables: HorizontalAlignmentEnum.allCases,
-        elementFormat: .capitalized(property: \.displayName)
+        elementFormat: .capitalize(property: \.displayName)
     ).pickerStyle(.segmented)
 
     Picker(
         "Vertical",
         selection: $verticalAlignment,
         selectables: VerticalAlignmentEnum.allCases,
-        elementFormat: .capitalized(property: \.displayName)
+        elementFormat: .capitalize(property: \.displayName)
     ).pickerStyle(.segmented)
 
     let alignment = Alignment(
