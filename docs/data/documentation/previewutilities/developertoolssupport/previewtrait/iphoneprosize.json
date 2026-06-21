@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Aproximate size of an iPhone Pro safe area: ",
+      "text": "Approximate size of an iPhone Pro safe area: ",
       "type": "text"
     },
     {
@@ -197,6 +197,14 @@
             {
               "text": ".",
               "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "The width of the iPhone 17 Pro screen is 6.5 cm, approximately 6.185 points per mm.",
+              "type": "text"
             }
           ],
           "type": "paragraph"
@@ -262,7 +270,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/iPhoneProSize": {
       "abstract": [
         {
-          "text": "Aproximate size of an iPhone Pro safe area: ",
+          "text": "Approximate size of an iPhone Pro safe area: ",
           "type": "text"
         },
         {

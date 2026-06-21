@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Returns an identity format style that outputs its input with no modifications.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -38,6 +44,14 @@
         },
         {
           "code": "IdentityFormatStyle<String>",
+          "type": "codeVoice"
+        },
+        {
+          "text": " and ",
+          "type": "text"
+        },
+        {
+          "code": "FormatStyle",
           "type": "codeVoice"
         },
         {
@@ -236,7 +250,12 @@
       "url": "/documentation/previewutilities/foundation/formatstyle"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Returns an identity format style that outputs its input with no modifications.",
+          "type": "text"
+        }
+      ],
       "conformance": {
         "availabilityPrefix": [
           {
@@ -261,6 +280,14 @@
           },
           {
             "code": "IdentityFormatStyle<String>",
+            "type": "codeVoice"
+          },
+          {
+            "text": " and ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
             "type": "codeVoice"
           },
           {
@@ -323,7 +350,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle": {
       "abstract": [
         {
-          "text": "A structure that performs an identity transformation, always returns the input as output with no",
+          "text": "A format style that performs an identity transformation, returns the input as output with no",
           "type": "text"
         },
         {

@@ -30,6 +30,7 @@ import SwiftUI
 /// the content is smaller that the available space. However, if the content is larger, then the
 /// size of the frame will expand to the size of the content. This view **always** contrains the content
 /// to the available space.
+@_documentation(visibility: internal)
 public struct ConstrainedFill<Content>: View where Content : View {
     let alignment: Alignment
     let content: () -> Content
@@ -110,14 +111,14 @@ private struct PreviewContent {
         "Horizontal",
         selection: $horizontalAlignment,
         selectables: HorizontalAlignmentEnum.allCases,
-        elementFormat: .capitalized(property: \.displayName)
+        elementFormat: .capitalize(property: \.displayName)
     ).pickerStyle(.segmented)
 
     Picker(
         "Vertical",
         selection: $verticalAlignment,
         selectables: VerticalAlignmentEnum.allCases,
-        elementFormat: .capitalized(property: \.displayName)
+        elementFormat: .capitalize(property: \.displayName)
     ).pickerStyle(.segmented)
 
     VisibleSpacer()
@@ -167,7 +168,7 @@ private struct PreviewContent {
         selection: $fitOrFill,
         collection: ["fit", "fill"],
         id: \.self,
-        elementFormat: .capitalized
+        elementFormat: .capitalize
     ).pickerStyle(.segmented)
 
     VisibleSpacer()

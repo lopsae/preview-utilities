@@ -1,7 +1,7 @@
 {
   "abstract": [
     {
-      "text": "Returns a format style that outputs the capitalized raw value of a ",
+      "text": "Returns a format style that outputs the capitalized string raw value of a ",
       "type": "text"
     },
     {
@@ -28,8 +28,40 @@
   },
   "kind": "symbol",
   "metadata": {
+    "conformance": {
+      "availabilityPrefix": [
+        {
+          "text": "Available when",
+          "type": "text"
+        }
+      ],
+      "conformancePrefix": [
+        {
+          "text": "Conforms when",
+          "type": "text"
+        }
+      ],
+      "constraints": [
+        {
+          "code": "Self",
+          "type": "codeVoice"
+        },
+        {
+          "text": " is ",
+          "type": "text"
+        },
+        {
+          "code": "FormatStyle",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ]
+    },
     "extendedModule": "Foundation",
-    "externalID": "s:10Foundation11FormatStyleP16PreviewUtilitiesE19rawValueCapitalizedAD09CompositebC0VyAD03RawgbC0Vyqd__GAD0hbC0VGyAMRszSYRd__Sy0jG0Rpd__lFZ",
+    "externalID": "s:10Foundation11FormatStyleP16PreviewUtilitiesE19rawValueCapitalizedAD09CompositebC0VyAD03RawgbC0Vyqd__GAD010CapitalizebC0VGyAMRszSYRd__Sy0jG0Rpd__lFZ",
     "fragments": [
       {
         "kind": "keyword",
@@ -185,10 +217,10 @@
               "text": ">, "
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizedFormatStyle",
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
               "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities22CapitalizedFormatStyleV",
-              "text": "CapitalizedFormatStyle"
+              "preciseIdentifier": "s:16PreviewUtilities21CapitalizeFormatStyleV",
+              "text": "CapitalizeFormatStyle"
             },
             {
               "kind": "text",
@@ -237,6 +269,65 @@
         }
       ],
       "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Returns a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " configured to retrieve the string raw value with ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "and capitalize it through a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": ".",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "enum Quartz: String { case black, rose, amethyst }",
+            "Text(Quartz.rose, format: .rawValueCapitalized()) // Displays \"Rose\""
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        }
+      ],
+      "kind": "content"
     }
   ],
   "references": {
@@ -254,10 +345,10 @@
       "type": "topic",
       "url": "/documentation/previewutilities"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizedFormatStyle": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle": {
       "abstract": [
         {
-          "text": "A structure that capitalizes a string.",
+          "text": "A format style that outputs a capitalized string.",
           "type": "text"
         }
       ],
@@ -272,26 +363,26 @@
         },
         {
           "kind": "identifier",
-          "text": "CapitalizedFormatStyle"
+          "text": "CapitalizeFormatStyle"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizedFormatStyle",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
       "kind": "symbol",
       "navigatorTitle": [
         {
           "kind": "identifier",
-          "text": "CapitalizedFormatStyle"
+          "text": "CapitalizeFormatStyle"
         }
       ],
       "role": "symbol",
-      "title": "CapitalizedFormatStyle",
+      "title": "CapitalizeFormatStyle",
       "type": "topic",
-      "url": "/documentation/previewutilities/capitalizedformatstyle"
+      "url": "/documentation/previewutilities/capitalizeformatstyle"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle": {
       "abstract": [
         {
-          "text": "A Structure that joins two format styles.",
+          "text": "A format style that joins two format styles.",
           "type": "text"
         }
       ],
@@ -361,10 +452,10 @@
       "type": "topic",
       "url": "/documentation/previewutilities/foundation/formatstyle"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()": {
       "abstract": [
         {
-          "text": "Returns a format style that outputs the capitalized raw value of a ",
+          "text": "Returns a format style that outputs the string raw value of a ",
           "type": "text"
         },
         {
@@ -376,6 +467,143 @@
           "type": "text"
         }
       ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "rawValue"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19RawValueFormatStyleV",
+          "text": "RawValueFormatStyle"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Value"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "rawValue()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/rawvalue()"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs the capitalized string raw value of a ",
+          "type": "text"
+        },
+        {
+          "code": "RawRepresentable",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
       "fragments": [
         {
           "kind": "keyword",
@@ -424,7 +652,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle": {
       "abstract": [
         {
-          "text": "A structure that converts a ",
+          "text": "A format style that outputs the string raw value of a ",
           "type": "text"
         },
         {
@@ -432,7 +660,7 @@
           "type": "codeVoice"
         },
         {
-          "text": " to its raw value.",
+          "text": ".",
           "type": "text"
         }
       ],
@@ -470,6 +698,16 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "FormatStyle-Extensions",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()"
+      ],
+      "title": "FormatStyle Extensions"
+    }
+  ],
   "variants": [
     {
       "paths": [

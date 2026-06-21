@@ -7,8 +7,12 @@
 import SwiftUI
 
 
-/// Experimental view that starts a task when it appears and when the task completes displays the
-/// given content using the result.
+/// View that runs a task displaying content while task runs, and displaying different content when
+/// the task completes.
+///
+/// A `TaskView` instance starts a task with the given operation as soon as it is displayed. While
+/// the task is running, the `pendingContent` is displayed. Once the task completes, the result
+/// of the task is passed to `completedContent` and the produced content is displayed.
 ///
 /// The task is scheduled using the `.task` view modifier, if the view is removed while the task is
 /// still executing, the task is cancelled.
@@ -36,6 +40,8 @@ where Result: Sendable, PendingContent: View, CompletedContent: View
         self.completedContent = completedContent
     }
 
+
+    @_documentation(visibility: internal)
     public var body: some View {
         Group {
             if let result {
@@ -51,6 +57,7 @@ where Result: Sendable, PendingContent: View, CompletedContent: View
             result = await operation()
         }
     }
+
 }
 
 

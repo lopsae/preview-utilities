@@ -205,6 +205,40 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment": {
+      "abstract": [
+        {
+          "text": "Horizontal alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HorizontalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HorizontalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.HorizontalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/horizontalalignment"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/OuterVerticalAlignment": {
       "abstract": [
         {
@@ -390,6 +424,40 @@
       "type": "topic",
       "url": "/documentation/previewutilities/floatingalignment/outerverticalalignment/under"
     },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment": {
+      "abstract": [
+        {
+          "text": "Vertical alignment component of a floating alignment.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "VerticalAlignment"
+        }
+      ],
+      "role": "symbol",
+      "title": "FloatingAlignment.VerticalAlignment",
+      "type": "topic",
+      "url": "/documentation/previewutilities/floatingalignment/verticalalignment"
+    },
     "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable": {
       "abstract": [
         {
@@ -484,6 +552,17 @@
     "patch": 0
   },
   "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Alignment-Components",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/HorizontalAlignment",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/VerticalAlignment"
+      ],
+      "title": "Alignment Components"
+    }
+  ],
   "topicSections": [
     {
       "anchor": "Enumeration-Cases",

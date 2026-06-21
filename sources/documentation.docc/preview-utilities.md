@@ -1,38 +1,54 @@
 # ``PreviewUtilities``
 
+
 Utilities for SwiftUI previews.
 
-## Overview
-
-A collection of modifiers, additions, views, and other utilities usually useful for building
+A collection of modifiers, views, extensions, and other utilities useful for building
 previews in SwiftUI.
+
+
+### Essentials
+@Links(visualStyle: detailedGrid) {
+    + <doc:debug-overlay-api>
+    + <doc:floating-caption-api>
+    + <doc:floating-alignments-api>
+    + <doc:format-styles-api>
+}
+
+
 
 ## Topics
 
-### Debug Overlay
+### Views
 
-Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.
-
-+ ``DebugOverlayModifier``
-+ ``DebugOverlayModifier/Configuration``
-+ ``DebugOverlayModifier/Configuration/Trait``
-+ ``SwiftUICore/View/debugOverlay()``
-+ ``SwiftUICore/View/debugOverlay(_:)``
-+ ``SwiftUICore/View/debugOverlay(traits:)``
-
-
-
-### Floating Caption
-
-Add a floating caption, border, and size information to any view, without impacting its layout.
-
-+ ``FloatingCaptionModifier``
-+ ``FloatingCaptionModifier/Trait``
-+ ``SwiftUICore/View/floatingCaption(_:_:)``
-+ ``SwiftUICore/View/floatingCaption(_:traits:)``
++ ``CaptionRectangle``
++ ``ClearRectangle``
++ ``DashedDivider``
++ ``VisibleSpacer``
++ ``TaskView``
++ ``HiddenParentOverlay``
++ ``HistoricValue``
++ ``TaggedText``
++ ``TaggedView``
++ ``ViewWithOpacity``
 
 
+### Image Generation
 
-### Floating Alignment
++ ``MainActorImageGenerator``
++ ``ConcurrentImageGenerator``
++ ``NonisolatedImageGenerator``
++ ``SyncImageGenerator``
++ ``ImageGeneratorStore``
++ ``ImageGeneratorProtocol``
++ ``ImageGeneratorDefaults``
++ ``ImageGeneratorError``
++ ``ThreadInfo``
 
-+ ``FloatingAlignment``
+
+### API Collections
+
++ <doc:debug-overlay-api>
++ <doc:floating-caption-api>
++ <doc:floating-alignments-api>
++ <doc:format-styles-api>

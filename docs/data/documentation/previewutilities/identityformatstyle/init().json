@@ -1,4 +1,10 @@
 {
+  "abstract": [
+    {
+      "text": "Creates an identity format style.",
+      "type": "text"
+    }
+  ],
   "hierarchy": {
     "paths": [
       [
@@ -77,7 +83,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle": {
       "abstract": [
         {
-          "text": "A structure that performs an identity transformation, always returns the input as output with no",
+          "text": "A format style that performs an identity transformation, returns the input as output with no",
           "type": "text"
         },
         {
@@ -117,7 +123,12 @@
       "url": "/documentation/previewutilities/identityformatstyle"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle/init()": {
-      "abstract": [],
+      "abstract": [
+        {
+          "text": "Creates an identity format style.",
+          "type": "text"
+        }
+      ],
       "fragments": [
         {
           "kind": "identifier",

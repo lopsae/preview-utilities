@@ -6,6 +6,7 @@
 
 extension String {
 
+    nonisolated static var empty:  Self { .init() }
     nonisolated static var space:  Self { " " }
     nonisolated static var hyphen: Self { "-" }
 

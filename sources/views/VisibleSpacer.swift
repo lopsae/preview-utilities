@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+/// A visible spacer view that expands to all available space in an specific axis.
 public struct VisibleSpacer: View {
 
     let axis: Axis
@@ -46,10 +47,12 @@ public struct VisibleSpacer: View {
                 maxWidth: maxWidth,
                 minHeight: minHeight,
                 maxHeight: maxHeight,
-                alignment: .center)
+                alignment: .center
+            )
             .background(
                 .gray.quaternary,
-                in: RoundedRectangle(cornerRadius: Defaults.padding / 4))
+                in: RoundedRectangle(cornerRadius: Defaults.padding / 4)
+            )
     }
 
 }

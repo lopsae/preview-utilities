@@ -405,7 +405,7 @@ private struct PreviewContent {
             value: $value,
             mapped: $mapped,
             currentMappedFormat: .identity,
-            boundsMappedFormat: .firstCharacter(capitalized: true)
+            boundsMappedFormat: .firstCharacter.capitalized
         )
     }
 }

@@ -9,9 +9,10 @@ import SwiftUI
 
 /// Alignment positions for floating content.
 ///
-/// Identifies the alignment positions for floating content over a parent view. Floating content is
-/// content overlaid a parent view and aligned to an edge of its boundaries, either inside or
-/// outside.
+/// Identifies the alignment positions for floating content over an owner view. Floating content is
+/// content overlaid an owner view and aligned to an edge of its boundaries, either inside or
+/// outside. The layout of the owner view is never modified since the content is overlaid, hence the
+/// content _floats_ over the owner view.
 ///
 /// @Image(
 ///     source: "floating-alignment-alignment-examples",
@@ -45,12 +46,22 @@ import SwiftUI
 /// Outer alignments with a vertical major (top and bottom) support three minor components: leading,
 /// center, and trailing.
 ///
-/// ![Outer floating alignments with a vertical major.](floating-alignment-outer-with-vertical-major)
+/// @Image(
+///     source: "floating-alignment-outer-with-vertical-major",
+///     alt: "Outer floating alignments with a vertical major."
+/// ) {
+///     Outer floating alignments with a vertical major: top or bottom.
+/// }
 ///
 /// Outer alignments with a horizontal major (leading and trailing) support five minor components:
 /// above, top, center, bottom, and under.
 ///
-/// ![Outer floating alignments with a horizontal major.](floating-alignment-outer-with-horizontal-major)
+/// @Image(
+///     source: "floating-alignment-outer-with-horizontal-major",
+///     alt: "Outer floating alignments with a horizontal major."
+/// ) {
+///     Outer floating alignments with a horizontal major: leading or trailing.
+/// }
 ///
 ///
 /// ### Implementing floating content
@@ -289,6 +300,31 @@ extension FloatingAlignment {
     /// ) {
     ///     All inner alignments.
     /// }
+    ///
+    ///
+    /// ## Topics
+    ///
+    /// ### Alignments
+    ///
+    /// + ``topLeading``
+    /// + ``topCenter``
+    /// + ``topTrailing``
+    ///
+    /// + ``leadingCenter``
+    /// + ``center``
+    /// + ``trailingCenter``
+    ///
+    /// + ``bottomLeading``
+    /// + ``bottomCenter``
+    /// + ``bottomTrailing``
+    ///
+    /// ### Alignment Aliases
+    ///
+    /// + ``top``
+    /// + ``leading``
+    /// + ``bottom``
+    /// + ``trailing``
+    ///
     public nonisolated
     struct InnerAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
@@ -431,6 +467,39 @@ extension FloatingAlignment {
     /// above, top, center, bottom, and under.
     ///
     /// ![Outer floating alignments with a horizontal major.](floating-alignment-outer-with-horizontal-major)
+    ///
+    ///
+    /// ## Topics
+    ///
+    /// ### Alignments
+    ///
+    /// + ``topLeading``
+    /// + ``topCenter``
+    /// + ``topTrailing``
+    ///
+    /// + ``bottomLeading``
+    /// + ``bottomCenter``
+    /// + ``bottomTrailing``
+    ///
+    /// + ``leadingAbove``
+    /// + ``leadingTop``
+    /// + ``leadingCenter``
+    /// + ``leadingBottom``
+    /// + ``leadingUnder``
+    ///
+    /// + ``trailingAbove``
+    /// + ``trailingTop``
+    /// + ``trailingCenter``
+    /// + ``trailingBottom``
+    /// + ``trailingUnder``
+    ///
+    /// ### Alignment Aliases
+    ///
+    /// + ``top``
+    /// + ``bottom``
+    /// + ``leading``
+    /// + ``trailing``
+    ///
     public nonisolated
     enum OuterAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
@@ -551,7 +620,17 @@ extension FloatingAlignment {
         }
 
 
+        var outerVerticalComponent: OuterVerticalAlignment? {
+            switch self {
+            case .top, .bottom: nil
+            case .leading(let outerVerticalAlignment), .trailing(let outerVerticalAlignment):
+                outerVerticalAlignment
+            }
+        }
+
+
         // MARK: Shorthand properties
+
         public static let topLeading:     Self = .top(.leading)
         public static let topCenter:      Self = .top(.center)
         public static let topTrailing:    Self = .top(.trailing)
@@ -651,7 +730,7 @@ private struct PreviewContent {
 #Preview("All Alignments", traits: PreviewContent.layout) {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
-        Text(horizontalAlignment.displayName, format: .capitalized)
+        Text(horizontalAlignment.displayName, format: .capitalize)
         Rectangle()
             .fill(.teal.gradient.secondary)
         .frame(width: 100, height: 100)

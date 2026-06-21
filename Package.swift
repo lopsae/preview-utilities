@@ -28,9 +28,20 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "PreviewUtilitiesTests",
+            name: "UnitTests",
             dependencies: ["PreviewUtilities"],
-            path: "tests"
+            path: "tests",
+            exclude: [
+                "UnitTests.xctestplan",
+            ]
+        ),
+        .testTarget(
+            name: "Illustrations",
+            dependencies: ["PreviewUtilities"],
+            path: "illustrations",
+            exclude: [
+                "Illustrations.xctestplan",
+            ]
         ),
     ]
 )

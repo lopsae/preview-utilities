@@ -14,8 +14,8 @@ extension View {
         moveTo target: VerticalAlignment? = nil,
         offsetBy offset: CGFloat = .zero
     ) -> some View {
-        self.alignmentGuide(alignment) { dimentions in
-            dimentions[target ?? alignment] + offset
+        self.alignmentGuide(alignment) { dimensions in
+            dimensions[target ?? alignment] + offset
         }
     }
 
@@ -26,9 +26,29 @@ extension View {
         moveTo target: HorizontalAlignment? = nil,
         offsetBy offset: CGFloat = .zero
     ) -> some View {
-        self.alignmentGuide(alignment) { dimentions in
-            dimentions[target ?? alignment] + offset
+        self.alignmentGuide(alignment) { dimensions in
+            dimensions[target ?? alignment] + offset
         }
+    }
+
+    nonisolated
+    public func alignmentGuide(
+        _ alignment: InsettableAlignment<HorizontalAlignment>,
+        moveTo target: HorizontalAlignment? = nil,
+        insetBy inset: CGFloat
+    ) -> some View {
+        let signedInset = inset * alignment.insetDirection.multiplier
+        return self.alignmentGuide(alignment.baseAlignment, moveTo: target, offsetBy: signedInset)
+    }
+
+    nonisolated
+    public func alignmentGuide(
+        _ alignment: InsettableAlignment<HorizontalAlignment>,
+        moveTo target: HorizontalAlignment? = nil,
+        outsetBy outset: CGFloat
+    ) -> some View {
+        let signedOutset = outset * alignment.insetDirection.inverse.multiplier
+        return self.alignmentGuide(alignment.baseAlignment, moveTo: target, offsetBy: signedOutset)
     }
 
     nonisolated
@@ -80,6 +100,20 @@ public struct InsettableAlignment<AlignmentType: Sendable> {
 }
 
 
+// MARK: - Horizontal Insettable
+
+
+extension InsettableAlignment where AlignmentType == HorizontalAlignment {
+
+    public static let leading:  Self = .init(baseAlignment: .leading,  insetDirection: .negative)
+    public static let trailing: Self = .init(baseAlignment: .trailing, insetDirection: .positive)
+
+}
+
+
+// MARK: - Vertical Insettable
+
+
 extension InsettableAlignment where AlignmentType == VerticalAlignment {
 
     public static let top:    Self = .init(baseAlignment: .top,    insetDirection: .negative)
@@ -88,10 +122,71 @@ extension InsettableAlignment where AlignmentType == VerticalAlignment {
 }
 
 
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+
 // MARK: - Previews
 
 
-#Preview("Vertical Inset/Outset", traits: .iPhoneProSizeForcedLayout) {
+#Preview("Horizontal Inset/Outset", traits: PreviewContent.layout) {
+    let padding: CGFloat = 16
+    VStack(alignment: .leading) {
+        CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
+        .overlay(alignment: .topLeading) {
+            // TODO: replace with debugAlignmentOverlay or debugOverlay
+            // when alignment guides with size and alignment are supported.
+            Rectangle().fill(.red.secondary)
+                .frame(width: 2, height: 140)
+        }
+
+        Text("Leading Inset")
+            .alignmentGuide(.leading, insetBy: padding)
+        Text("Leading Outset")
+            .alignmentGuide(.leading, outsetBy: padding)
+
+        Text("Trailing Inset")
+            .alignmentGuide(.leading, moveTo: .trailing, insetBy: padding)
+        Text("Trailing Outset")
+            .alignmentGuide(.leading, moveTo: .trailing, outsetBy: padding)
+    }
+    .floatingCaption("Leading Aligned", .colorStyle(.mint), .alignment(.outerTopTrailing))
+
+    DashedDivider()
+        .frame(height: 40)
+
+    VStack(alignment: .trailing) {
+        CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
+        .overlay(alignment: .topTrailing) {
+            // TODO: replace with debugAlignmentOverlay or debugOverlay
+            // when alignment guides with size and alignment are supported.
+            Rectangle().fill(.red.secondary)
+                .frame(width: 2, height: 140)
+        }
+
+        Text("Trailing Inset")
+            .alignmentGuide(.trailing, insetBy: padding)
+        Text("Trailing Outset")
+            .alignmentGuide(.trailing, outsetBy: padding)
+
+        Text("Leading Inset")
+            .alignmentGuide(.trailing, moveTo: .leading, insetBy: padding)
+        Text("Leading Outset")
+            .alignmentGuide(.trailing, moveTo: .leading, outsetBy: padding)
+    }
+    .floatingCaption("Trailing Aligned", .colorStyle(.mint), .alignment(.outerTopTrailing))
+}
+
+
+#Preview("Vertical Inset/Outset", traits: PreviewContent.layout) {
     HStack(alignment: .top){
         Rectangle()
             .fill(.red.secondary)

@@ -330,7 +330,7 @@
     "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
       "abstract": [
         {
-          "text": "Experimental view that starts a task when it appears and when the task completes displays the",
+          "text": "View that runs a task displaying content while task runs, and displaying different content when",
           "type": "text"
         },
         {
@@ -338,7 +338,7 @@
           "type": "text"
         },
         {
-          "text": "given content using the result.",
+          "text": "the task completes.",
           "type": "text"
         }
       ],

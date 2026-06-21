@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "A2F6940E-5AB3-49FC-873F-1B7124AF7C6C",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "Illustrations",
+        "name" : "Illustrations"
+      }
+    }
+  ],
+  "version" : 2
+}
