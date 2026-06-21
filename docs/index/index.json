@@ -3288,8 +3288,8 @@
                     "type": "groupMarker"
                   },
                   {
-                    "path": "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:)",
-                    "title": "init(filePath: String, droppingComponents: Int, appendingComponents: [String], folderMustExist: Bool) throws",
+                    "path": "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)",
+                    "title": "init(filePath: String, droppingComponents: Int, appendingComponents: [String], folderMustExist: Bool, onImageStored: (CGImage, String) -> Void) throws",
                     "type": "init"
                   },
                   {

@@ -9,11 +9,11 @@
   },
   "identifier": {
     "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:)"
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
   },
   "kind": "symbol",
   "metadata": {
-    "externalID": "s:16PreviewUtilities19IllustrationStorageV8filePath18droppingComponents09appendingH015folderMustExistACSS_SiSaySSGSbtKcfc",
+    "externalID": "s:16PreviewUtilities19IllustrationStorageV8filePath18droppingComponents09appendingH015folderMustExist13onImageStoredACSS_SiSaySSGSbySo10CGImageRefa_SStctKcfc",
     "fragments": [
       {
         "kind": "identifier",
@@ -89,6 +89,41 @@
       },
       {
         "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "onImageStored"
+      },
+      {
+        "kind": "text",
+        "text": ": ("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "c:@T@CGImageRef",
+        "text": "CGImage"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s4Voida",
+        "text": "Void"
+      },
+      {
+        "kind": "text",
         "text": ") "
       },
       {
@@ -104,7 +139,7 @@
     "role": "symbol",
     "roleHeading": "Initializer",
     "symbolKind": "init",
-    "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:)"
+    "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
   },
   "primaryContentSections": [
     {
@@ -204,7 +239,50 @@
             },
             {
               "kind": "text",
-              "text": " = true) "
+              "text": " = true, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "onImageStored"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "attribute",
+              "text": "@escaping "
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:@T@CGImageRef",
+              "text": "CGImage"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s4Voida",
+              "text": "Void"
+            },
+            {
+              "kind": "text",
+              "text": ") "
             },
             {
               "kind": "keyword",
@@ -265,7 +343,7 @@
       "type": "topic",
       "url": "/documentation/previewutilities/illustrationstorage"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:)": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)": {
       "abstract": [],
       "fragments": [
         {
@@ -342,6 +420,41 @@
         },
         {
           "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "onImageStored"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@T@CGImageRef",
+          "text": "CGImage"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s4Voida",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
           "text": ") "
         },
         {
@@ -349,12 +462,12 @@
           "text": "throws"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
       "kind": "symbol",
       "role": "symbol",
-      "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:)",
+      "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:)"
+      "url": "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
     }
   },
   "schemaVersion": {
@@ -366,7 +479,7 @@
   "variants": [
     {
       "paths": [
-        "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:)"
+        "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
       ],
       "traits": [
         {

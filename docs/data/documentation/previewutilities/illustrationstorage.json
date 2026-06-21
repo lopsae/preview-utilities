@@ -127,7 +127,7 @@
       "type": "topic",
       "url": "/documentation/previewutilities/illustrationstorage"
     },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:)": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)": {
       "abstract": [],
       "fragments": [
         {
@@ -204,6 +204,41 @@
         },
         {
           "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "onImageStored"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@T@CGImageRef",
+          "text": "CGImage"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s4Voida",
+          "text": "Void"
+        },
+        {
+          "kind": "text",
           "text": ") "
         },
         {
@@ -211,12 +246,12 @@
           "text": "throws"
         }
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:)",
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
       "kind": "symbol",
       "role": "symbol",
-      "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:)",
+      "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
       "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:)"
+      "url": "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
     },
     "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)": {
       "abstract": [],
@@ -624,7 +659,7 @@
       "anchor": "Initializers",
       "generated": true,
       "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:)"
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
       ],
       "title": "Initializers"
     },
