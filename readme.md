@@ -73,7 +73,7 @@ Circle()
     alt="Floating caption with example traits and explanations."
 />
 
-See the [`FloatingCaptionModifier` documentation][docs-floating-caption-api] for further details.
+See the [Floating Caption documentation][docs-floating-caption-api] for further details.
 
 
 [docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
