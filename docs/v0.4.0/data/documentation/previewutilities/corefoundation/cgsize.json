@@ -1,0 +1,1143 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "CoreFoundation",
+    "externalID": "s:e:s:So6CGSizeV16PreviewUtilitiesE12arrayLiteralAB14CoreFoundation7CGFloatVd_tcfc",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "c:@S@CGSize",
+        "text": "CGSize"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "CoreFoundation"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "CGSize"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "CGSize"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:@S@CGSize",
+              "text": "CGSize"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "CoreFoundation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CGSize"
+        }
+      ],
+      "role": "symbol",
+      "title": "CGSize",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/ExpressibleByArrayLiteral-Implementations": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/ExpressibleByArrayLiteral-Implementations",
+      "kind": "article",
+      "role": "collectionGroup",
+      "title": "ExpressibleByArrayLiteral Implementations",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/expressiblebyarrayliteral-implementations"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/adding(size:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "adding"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/adding(size:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "adding(size:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/adding(size:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/adding(width:height:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "adding"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "width"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "height"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/adding(width:height:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "adding(width:height:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/adding(width:height:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/centered(in:)-2lsnz": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "centered"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "in"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/centered(in:)-2lsnz",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "centered(in:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/centered(in:)-2lsnz"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/centered(in:)-8mkod": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "centered"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "in"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/centered(in:)-8mkod",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "centered(in:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/centered(in:)-8mkod"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/envelop(_:)": {
+      "abstract": [
+        {
+          "text": "Updates this size to a size that can contain both ",
+          "type": "text"
+        },
+        {
+          "code": "self",
+          "type": "codeVoice"
+        },
+        {
+          "text": " and the given size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "envelop"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/envelop(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "envelop(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/envelop(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/enveloping(_:)": {
+      "abstract": [
+        {
+          "text": "Returns a size that can contain both ",
+          "type": "text"
+        },
+        {
+          "code": "self",
+          "type": "codeVoice"
+        },
+        {
+          "text": " and the given size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "enveloping"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/enveloping(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "enveloping(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/enveloping(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/init(squareOf:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "squareOf"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/init(squareOf:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(squareOf:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/init(squareof:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/max": {
+      "abstract": [
+        {
+          "text": "Returns the greater of the size components.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "max"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/max",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "max",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/max"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/min": {
+      "abstract": [
+        {
+          "text": "Returns the lesser of the size components.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "min"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/min",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "min",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/min"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/rect(origin:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "rect"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "origin"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGPoint",
+          "text": "CGPoint"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/rect(origin:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "rect(origin:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/rect(origin:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/rounded(_:)": {
+      "abstract": [
+        {
+          "text": "Returns a ",
+          "type": "text"
+        },
+        {
+          "code": "CGSize",
+          "type": "codeVoice"
+        },
+        {
+          "text": " with each component of ",
+          "type": "text"
+        },
+        {
+          "code": "self",
+          "type": "codeVoice"
+        },
+        {
+          "text": " rounded to an integral value using the",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "specified rounding rule.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "rounded"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s25FloatingPointRoundingRuleO",
+          "text": "FloatingPointRoundingRule"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/rounded(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "rounded(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/rounded(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/scaled(toFill:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "scaled"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "toFill"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/scaled(toFill:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "scaled(toFill:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/scaled(tofill:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/setting(width:height:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "setting"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "width"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "height"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?) -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/setting(width:height:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "setting(width:height:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/setting(width:height:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/square(of:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "square"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "of"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/square(of:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "square(of:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/square(of:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/subtracting(size:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "subtracting"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "size"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/subtracting(size:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "subtracting(size:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/subtracting(size:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/subtracting(width:height:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "subtracting"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "width"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "height"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/subtracting(width:height:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "subtracting(width:height:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/subtracting(width:height:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/toPoint": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "toPoint"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGPoint",
+          "text": "CGPoint"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/toPoint",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "toPoint",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/topoint"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/transposed": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "transposed"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGSize",
+          "text": "CGSize"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/transposed",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "transposed",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgsize/transposed"
+    },
+    "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP": {
+      "identifier": "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP",
+      "title": "Swift.ExpressibleByArrayLiteral",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8CopyableP": {
+      "identifier": "doc://PreviewUtilities/s8CopyableP",
+      "title": "Swift.Copyable",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s9EscapableP": {
+      "identifier": "doc://PreviewUtilities/s9EscapableP",
+      "title": "Swift.Escapable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s8CopyableP",
+        "doc://PreviewUtilities/s9EscapableP",
+        "doc://PreviewUtilities/s25ExpressibleByArrayLiteralP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/init(squareOf:)"
+      ],
+      "title": "Initializers"
+    },
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/max",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/min",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/toPoint",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/transposed"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/adding(size:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/adding(width:height:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/centered(in:)-2lsnz",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/centered(in:)-8mkod",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/envelop(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/enveloping(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/rect(origin:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/rounded(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/scaled(toFill:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/setting(width:height:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/subtracting(size:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/subtracting(width:height:)"
+      ],
+      "title": "Instance Methods"
+    },
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/square(of:)"
+      ],
+      "title": "Type Methods"
+    },
+    {
+      "anchor": "Default-Implementations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/ExpressibleByArrayLiteral-Implementations"
+      ],
+      "title": "Default Implementations"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/corefoundation/cgsize"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

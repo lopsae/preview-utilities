@@ -1,0 +1,731 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "conformance": {
+      "availabilityPrefix": [
+        {
+          "text": "Available when",
+          "type": "text"
+        }
+      ],
+      "conformancePrefix": [
+        {
+          "text": "Conforms when",
+          "type": "text"
+        }
+      ],
+      "constraints": [
+        {
+          "code": "Generator",
+          "type": "codeVoice"
+        },
+        {
+          "text": " conforms to ",
+          "type": "text"
+        },
+        {
+          "code": "ImageGeneratorProtocol",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ]
+    },
+    "extendedModule": "PreviewUtilities",
+    "externalID": "s:16PreviewUtilities19ImageGeneratorStoreC16GenerationStatusO",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "enum"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "GenerationStatus"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "GenerationStatus"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Enumeration",
+    "symbolKind": "enum",
+    "title": "ImageGeneratorStore.GenerationStatus"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "enum"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "GenerationStatus"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase": {
+      "abstract": [
+        {
+          "text": "Protocol that provides a ",
+          "type": "text"
+        },
+        {
+          "code": "case",
+          "type": "codeVoice"
+        },
+        {
+          "text": " property to identify each case of an ",
+          "type": "text"
+        },
+        {
+          "code": "Enum",
+          "type": "codeVoice"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "IdentifiableCase"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IdentifiableCase"
+        }
+      ],
+      "role": "symbol",
+      "title": "IdentifiableCase",
+      "type": "topic",
+      "url": "/documentation/previewutilities/identifiablecase"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus": {
+      "abstract": [],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Generator",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "ImageGeneratorProtocol",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "GenerationStatus"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "GenerationStatus"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Case"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Case"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus.Case",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/case-swift.enum"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/cancelled(threadInfo:requestThreadInfo:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "cancelled"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "threadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "requestThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/cancelled(threadInfo:requestThreadInfo:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus.cancelled(threadInfo:requestThreadInfo:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/cancelled(threadinfo:requestthreadinfo:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/case-swift.property": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "`case`"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC",
+          "text": "ImageGeneratorStore"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Generator"
+        },
+        {
+          "kind": "text",
+          "text": ">."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC16GenerationStatusO",
+          "text": "GenerationStatus"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorStoreC16GenerationStatusO4CaseO",
+          "text": "Case"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/case-swift.property",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "case",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/case-swift.property"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/compactStatusText": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "compactStatusText"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/compactStatusText",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "compactStatusText",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/compactstatustext"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/minimalStatusText": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "minimalStatusText"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/minimalStatusText",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "minimalStatusText",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/minimalstatustext"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/requested(threadInfo:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "requested"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "threadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/requested(threadInfo:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus.requested(threadInfo:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/requested(threadinfo:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/statusColor": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "statusColor"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI5ColorV",
+          "text": "Color"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/statusColor",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "statusColor",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/statuscolor"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/statusText": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "statusText"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/statusText",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "statusText",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/statustext"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/stored(threadInfo:requestThreadInfo:generationThreadInfo:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "case"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "stored"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "threadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "requestThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "generationThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
+          "text": "ThreadInfo"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/stored(threadInfo:requestThreadInfo:generationThreadInfo:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "ImageGeneratorStore.GenerationStatus.stored(threadInfo:requestThreadInfo:generationThreadInfo:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/generationstatus/stored(threadinfo:requestthreadinfo:generationthreadinfo:)"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase",
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Enumeration-Cases",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/cancelled(threadInfo:requestThreadInfo:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/requested(threadInfo:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/stored(threadInfo:requestThreadInfo:generationThreadInfo:)"
+      ],
+      "title": "Enumeration Cases"
+    },
+    {
+      "anchor": "Instance-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/case-swift.property",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/compactStatusText",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/minimalStatusText",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/statusColor",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/statusText"
+      ],
+      "title": "Instance Properties"
+    },
+    {
+      "anchor": "Enumerations",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/GenerationStatus/Case-swift.enum"
+      ],
+      "title": "Enumerations"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/imagegeneratorstore/generationstatus"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

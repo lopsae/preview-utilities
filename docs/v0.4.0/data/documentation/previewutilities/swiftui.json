@@ -1,0 +1,202 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:m:s:e:s:7SwiftUI6ButtonV16PreviewUtilitiesE_22constrainedSystemImage6actionACyAA5LabelVyAA4TextVAD19HiddenParentOverlayVyAA0H0VAD15ViewWithOpacityVyANGGGGAA18LocalizedStringKeyV_SSyyctcASRszrlufc",
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "collection",
+    "roleHeading": "Extended Module",
+    "symbolKind": "extension",
+    "title": "SwiftUI"
+  },
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUI",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6ButtonV",
+          "text": "Button"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Button"
+        }
+      ],
+      "role": "symbol",
+      "title": "Button",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/button"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI8GridItemV",
+          "text": "GridItem"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "GridItem"
+        }
+      ],
+      "role": "symbol",
+      "title": "GridItem",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/griditem"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Picker": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6PickerV",
+          "text": "Picker"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Picker",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Picker"
+        }
+      ],
+      "role": "symbol",
+      "title": "Picker",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/picker"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6SliderV",
+          "text": "Slider"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Slider"
+        }
+      ],
+      "role": "symbol",
+      "title": "Slider",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftui/slider"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Extended-Structures",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Button",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/GridItem",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Picker",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI/Slider"
+      ],
+      "title": "Extended Structures"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftui"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}
