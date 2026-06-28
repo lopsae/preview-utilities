@@ -1,0 +1,545 @@
+{
+  "abstract": [
+    {
+      "text": "Renders SwiftUI views to PNG files for documentation illustrations.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities20IllustrationRendererV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "IllustrationRenderer"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "IllustrationRenderer"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Structure",
+    "symbolKind": "struct",
+    "title": "IllustrationRenderer"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "IllustrationRenderer"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Rendered images are saved in the package ",
+              "type": "text"
+            },
+            {
+              "code": "documentation.docc/resources",
+              "type": "codeVoice"
+            },
+            {
+              "text": " folder.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer": {
+      "abstract": [
+        {
+          "text": "Renders SwiftUI views to PNG files for documentation illustrations.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "IllustrationRenderer"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "IllustrationRenderer"
+        }
+      ],
+      "role": "symbol",
+      "title": "IllustrationRenderer",
+      "type": "topic",
+      "url": "/documentation/previewutilities/illustrationrenderer"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/RenderResource": {
+      "abstract": [
+        {
+          "text": "Container of the rendered documentation illustrations.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "RenderResource"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/RenderResource",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "RenderResource"
+        }
+      ],
+      "role": "symbol",
+      "title": "IllustrationRenderer.RenderResource",
+      "type": "topic",
+      "url": "/documentation/previewutilities/illustrationrenderer/renderresource"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultColorSchemes": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "defaultColorSchemes"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sh",
+          "text": "Set"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI11ColorSchemeO",
+          "text": "ColorScheme"
+        },
+        {
+          "kind": "text",
+          "text": ">"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultColorSchemes",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "defaultColorSchemes",
+      "type": "topic",
+      "url": "/documentation/previewutilities/illustrationrenderer/defaultcolorschemes"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultScale": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "defaultScale"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultScale",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "defaultScale",
+      "type": "topic",
+      "url": "/documentation/previewutilities/illustrationrenderer/defaultscale"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultWidth": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "let"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "defaultWidth"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultWidth",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "defaultWidth",
+      "type": "topic",
+      "url": "/documentation/previewutilities/illustrationrenderer/defaultwidth"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/render(nameComponents:scale:colorSchemes:illustration:)": {
+      "abstract": [
+        {
+          "text": "Renders a SwiftUI view configured as a documentation illustration.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "render"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "nameComponents"
+        },
+        {
+          "kind": "text",
+          "text": ": ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "], "
+        },
+        {
+          "kind": "externalParam",
+          "text": "scale"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "colorSchemes"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:Sh",
+          "text": "Set"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI11ColorSchemeO",
+          "text": "ColorScheme"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "illustration"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
+          "text": "DocumentationIllustration"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20IllustrationRendererV",
+          "text": "IllustrationRenderer"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20IllustrationRendererV14RenderResourceV",
+          "text": "RenderResource"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/render(nameComponents:scale:colorSchemes:illustration:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "render(nameComponents:scale:colorSchemes:illustration:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/illustrationrenderer/render(namecomponents:scale:colorschemes:illustration:)"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Structures",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/RenderResource"
+      ],
+      "title": "Structures"
+    },
+    {
+      "anchor": "Type-Properties",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultColorSchemes",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultScale",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultWidth"
+      ],
+      "title": "Type Properties"
+    },
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/render(nameComponents:scale:colorSchemes:illustration:)"
+      ],
+      "title": "Type Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/illustrationrenderer"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

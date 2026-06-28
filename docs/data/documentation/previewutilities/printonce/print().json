@@ -1,0 +1,244 @@
+{
+  "abstract": [
+    {
+      "text": "Prints ",
+      "type": "text"
+    },
+    {
+      "code": "message",
+      "type": "codeVoice"
+    },
+    {
+      "text": " the only the first time it is called, always returns ",
+      "type": "text"
+    },
+    {
+      "code": "EmptyView",
+      "type": "codeVoice"
+    },
+    {
+      "text": ".",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities9PrintOnceC5print7SwiftUI9EmptyViewVyF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "print"
+      },
+      {
+        "kind": "text",
+        "text": "() -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI9EmptyViewV",
+        "text": "EmptyView"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "print()"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "print"
+            },
+            {
+              "kind": "text",
+              "text": "() -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI9EmptyViewV",
+              "text": "EmptyView"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce": {
+      "abstract": [
+        {
+          "text": "Experimental observable object to print a log message during the first request of views.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PrintOnce"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PrintOnce"
+        }
+      ],
+      "role": "symbol",
+      "title": "PrintOnce",
+      "type": "topic",
+      "url": "/documentation/previewutilities/printonce"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()": {
+      "abstract": [
+        {
+          "text": "Prints ",
+          "type": "text"
+        },
+        {
+          "code": "message",
+          "type": "codeVoice"
+        },
+        {
+          "text": " the only the first time it is called, always returns ",
+          "type": "text"
+        },
+        {
+          "code": "EmptyView",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "print"
+        },
+        {
+          "kind": "text",
+          "text": "() -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI9EmptyViewV",
+          "text": "EmptyView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce/print()",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "print()",
+      "type": "topic",
+      "url": "/documentation/previewutilities/printonce/print()"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/printonce/print()"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

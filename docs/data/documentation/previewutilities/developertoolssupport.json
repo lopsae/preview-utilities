@@ -1,0 +1,109 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:m:s:e:s:21DeveloperToolsSupport12PreviewTraitV0D9UtilitiesAA0D0V10ViewTraitsORszlE06scrollG4WrapACyAHGvpZ",
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "collection",
+    "roleHeading": "Extended Module",
+    "symbolKind": "extension",
+    "title": "DeveloperToolsSupport"
+  },
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "DeveloperToolsSupport",
+      "type": "topic",
+      "url": "/documentation/previewutilities/developertoolssupport"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:21DeveloperToolsSupport12PreviewTraitV",
+          "text": "PreviewTrait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PreviewTrait"
+        }
+      ],
+      "role": "symbol",
+      "title": "PreviewTrait",
+      "type": "topic",
+      "url": "/documentation/previewutilities/developertoolssupport/previewtrait"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Extended-Structures",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait"
+      ],
+      "title": "Extended Structures"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/developertoolssupport"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}
