@@ -10,7 +10,7 @@ import os
 
 PORT = 8000
 PATH_PREFIX = '/preview-utilities'
-LOCAL_DIRECTORY = 'docs'
+LOCAL_DIRECTORY = '../preview-utilities-docs/docs'
 DOCUMENTATION_ROOT = '/documentation/previewutilities'
 
 class PrefixedHandler(http.server.SimpleHTTPRequestHandler):
