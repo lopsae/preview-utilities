@@ -126,6 +126,13 @@
       "title" : "API Collections"
     },
     {
+      "anchor" : "Versioning",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/package-version"
+      ],
+      "title" : "Versioning"
+    },
+    {
       "anchor" : "Classes",
       "generated" : true,
       "identifiers" : [
@@ -1660,6 +1667,20 @@
   "title" : "Format Styles",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/format-styles-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/package-version": {
+  "abstract" : [
+    {
+      "text" : "Package version for which the documentation is generated.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/package-version",
+  "kind" : "article",
+  "role" : "article",
+  "title" : "Package Version",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/package-version"
 },
 "floating-alignment-card.png": {
   "alt" : null,
