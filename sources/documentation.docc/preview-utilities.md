@@ -52,3 +52,8 @@ previews in SwiftUI.
 + <doc:floating-caption-api>
 + <doc:floating-alignments-api>
 + <doc:format-styles-api>
+
+
+### Versioning
+
++ <doc:package-version>
