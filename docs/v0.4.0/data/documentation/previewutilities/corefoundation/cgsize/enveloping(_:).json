@@ -1,296 +1,303 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Returns a size that can contain both ",
-      "type": "text"
+      "text" : "Returns a size that can contain both ",
+      "type" : "text"
     },
     {
-      "code": "self",
-      "type": "codeVoice"
+      "code" : "self",
+      "type" : "codeVoice"
     },
     {
-      "text": " and the given size.",
-      "type": "text"
+      "text" : " and the given size.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGSize"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/enveloping(_:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGSize\/enveloping(_:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "extendedModule": "CoreFoundation",
-    "externalID": "s:So6CGSizeV16PreviewUtilitiesE10envelopingyA2BF",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "CoreFoundation",
+    "externalID" : "s:So6CGSizeV16PreviewUtilitiesE10envelopingyA2BF",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "func"
+        "kind" : "keyword",
+        "text" : "func"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "enveloping"
+        "kind" : "identifier",
+        "text" : "enveloping"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "c:@S@CGSize",
-        "text": "CGSize"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "c:@S@CGSize",
+        "text" : "CGSize"
       },
       {
-        "kind": "text",
-        "text": ") -> "
+        "kind" : "text",
+        "text" : ") -> "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "c:@S@CGSize",
-        "text": "CGSize"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "c:@S@CGSize",
+        "text" : "CGSize"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "CoreFoundation"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Instance Method",
-    "symbolKind": "method",
-    "title": "enveloping(_:)"
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "enveloping(_:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "nonisolated"
+              "kind" : "attribute",
+              "text" : "nonisolated"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "func"
+              "kind" : "keyword",
+              "text" : "func"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "enveloping"
+              "kind" : "identifier",
+              "text" : "enveloping"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "_"
+              "kind" : "externalParam",
+              "text" : "_"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "internalParam",
-              "text": "size"
+              "kind" : "internalParam",
+              "text" : "size"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "c:@S@CGSize",
-              "text": "CGSize"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "c:@S@CGSize",
+              "text" : "CGSize"
             },
             {
-              "kind": "text",
-              "text": ") -> "
+              "kind" : "text",
+              "text" : ") -> "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "c:@S@CGSize",
-              "text": "CGSize"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "c:@S@CGSize",
+              "text" : "CGSize"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "discussion",
-          "level": 2,
-          "text": "Discussion",
-          "type": "heading"
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "The returned size uses the largest of each component from both sizes.",
-              "type": "text"
+              "text" : "The returned size uses the largest of each component from both sizes.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "CoreFoundation",
-      "type": "topic",
-      "url": "/documentation/previewutilities/corefoundation"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "c:@S@CGSize",
-          "text": "CGSize"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "CGSize"
-        }
-      ],
-      "role": "symbol",
-      "title": "CGSize",
-      "type": "topic",
-      "url": "/documentation/previewutilities/corefoundation/cgsize"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/enveloping(_:)": {
-      "abstract": [
-        {
-          "text": "Returns a size that can contain both ",
-          "type": "text"
-        },
-        {
-          "code": "self",
-          "type": "codeVoice"
-        },
-        {
-          "text": " and the given size.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "enveloping"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@S@CGSize",
-          "text": "CGSize"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@S@CGSize",
-          "text": "CGSize"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/enveloping(_:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "enveloping(_:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/corefoundation/cgsize/enveloping(_:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/corefoundation/cgsize/enveloping(_:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/corefoundation\/cgsize\/enveloping(_:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "CoreFoundation",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "c:@S@CGSize",
+      "text" : "CGSize"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGSize",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CGSize"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CGSize",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgsize"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGSize/enveloping(_:)": {
+  "abstract" : [
+    {
+      "text" : "Returns a size that can contain both ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " and the given size.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "enveloping"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGSize",
+      "text" : "CGSize"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGSize",
+      "text" : "CGSize"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGSize\/enveloping(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "enveloping(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgsize\/enveloping(_:)"
+}
+}
 }

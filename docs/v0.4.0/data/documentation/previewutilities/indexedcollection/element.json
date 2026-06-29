@@ -1,233 +1,238 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Inherited from ",
-      "type": "text"
+      "text" : "Inherited from ",
+      "type" : "text"
     },
     {
-      "code": "Sequence.Element",
-      "type": "codeVoice"
+      "code" : "Sequence.Element",
+      "type" : "codeVoice"
     },
     {
-      "text": ".",
-      "type": "text"
+      "text" : ".",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IndexedCollection"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Element"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IndexedCollection\/Element"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities17IndexedCollectionV7Elementa",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities17IndexedCollectionV7Elementa",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "typealias"
+        "kind" : "keyword",
+        "text" : "typealias"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "Element"
+        "kind" : "identifier",
+        "text" : "Element"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "navigatorTitle": [
+    "navigatorTitle" : [
       {
-        "kind": "identifier",
-        "text": "Element"
+        "kind" : "identifier",
+        "text" : "Element"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Alias",
-    "symbolKind": "typealias",
-    "title": "IndexedCollection.Element"
+    "role" : "symbol",
+    "roleHeading" : "Type Alias",
+    "symbolKind" : "typealias",
+    "title" : "IndexedCollection.Element"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "typealias"
+              "kind" : "keyword",
+              "text" : "typealias"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "Element"
+              "kind" : "identifier",
+              "text" : "Element"
             },
             {
-              "kind": "text",
-              "text": " = (index"
+              "kind" : "text",
+              "text" : " = (index"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Base"
+              "kind" : "typeIdentifier",
+              "text" : "Base"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:Sl5IndexQa",
-              "text": "Index"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sl5IndexQa",
+              "text" : "Index"
             },
             {
-              "kind": "text",
-              "text": ", element"
+              "kind" : "text",
+              "text" : ", element"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Base"
+              "kind" : "typeIdentifier",
+              "text" : "Base"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:ST7ElementQa",
-              "text": "Element"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
+              "text" : "Element"
             },
             {
-              "kind": "text",
-              "text": ")"
+              "kind" : "text",
+              "text" : ")"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection": {
-      "abstract": [
-        {
-          "text": "A collection view that pairs each index and element of an underlying collection.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IndexedCollection"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IndexedCollection"
-        }
-      ],
-      "role": "symbol",
-      "title": "IndexedCollection",
-      "type": "topic",
-      "url": "/documentation/previewutilities/indexedcollection"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Element": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "typealias"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Element"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Element",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Element"
-        }
-      ],
-      "role": "symbol",
-      "title": "IndexedCollection.Element",
-      "type": "topic",
-      "url": "/documentation/previewutilities/indexedcollection/element"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/indexedcollection/element"
+      "paths" : [
+        "\/documentation\/previewutilities\/indexedcollection\/element"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection": {
+  "abstract" : [
+    {
+      "text" : "A collection view that pairs each index and element of an underlying collection.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IndexedCollection"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IndexedCollection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IndexedCollection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IndexedCollection",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/indexedcollection"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection/Element": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Element"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IndexedCollection\/Element",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Element"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IndexedCollection.Element",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/indexedcollection\/element"
+}
+}
 }

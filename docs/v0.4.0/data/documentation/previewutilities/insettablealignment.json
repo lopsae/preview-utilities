@@ -1,532 +1,545 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities19InsettableAlignmentV",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19InsettableAlignmentV",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "struct"
+        "kind" : "keyword",
+        "text" : "struct"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "InsettableAlignment"
+        "kind" : "identifier",
+        "text" : "InsettableAlignment"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "navigatorTitle": [
+    "navigatorTitle" : [
       {
-        "kind": "identifier",
-        "text": "InsettableAlignment"
+        "kind" : "identifier",
+        "text" : "InsettableAlignment"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Structure",
-    "symbolKind": "struct",
-    "title": "InsettableAlignment"
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "InsettableAlignment"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "nonisolated"
+              "kind" : "attribute",
+              "text" : "nonisolated"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "struct"
+              "kind" : "keyword",
+              "text" : "struct"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "InsettableAlignment"
+              "kind" : "identifier",
+              "text" : "InsettableAlignment"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "genericParameter",
-              "text": "AlignmentType"
+              "kind" : "genericParameter",
+              "text" : "AlignmentType"
             },
             {
-              "kind": "text",
-              "text": "> "
+              "kind" : "text",
+              "text" : "> "
             },
             {
-              "kind": "keyword",
-              "text": "where"
+              "kind" : "keyword",
+              "text" : "where"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "AlignmentType"
+              "kind" : "typeIdentifier",
+              "text" : "AlignmentType"
             },
             {
-              "kind": "text",
-              "text": " : "
+              "kind" : "text",
+              "text" : " : "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:s8SendableP",
-              "text": "Sendable"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s8SendableP",
+              "text" : "Sendable"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "InsettableAlignment"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "InsettableAlignment"
-        }
-      ],
-      "role": "symbol",
-      "title": "InsettableAlignment",
-      "type": "topic",
-      "url": "/documentation/previewutilities/insettablealignment"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/bottom": {
-      "abstract": [],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "AlignmentType",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "VerticalAlignment",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "bottom"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities19InsettableAlignmentV",
-          "text": "InsettableAlignment"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI17VerticalAlignmentV",
-          "text": "VerticalAlignment"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/bottom",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "bottom",
-      "type": "topic",
-      "url": "/documentation/previewutilities/insettablealignment/bottom"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/leading": {
-      "abstract": [],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "AlignmentType",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "HorizontalAlignment",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "leading"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities19InsettableAlignmentV",
-          "text": "InsettableAlignment"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI19HorizontalAlignmentV",
-          "text": "HorizontalAlignment"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/leading",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "leading",
-      "type": "topic",
-      "url": "/documentation/previewutilities/insettablealignment/leading"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/top": {
-      "abstract": [],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "AlignmentType",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "VerticalAlignment",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "top"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities19InsettableAlignmentV",
-          "text": "InsettableAlignment"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI17VerticalAlignmentV",
-          "text": "VerticalAlignment"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/top",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "top",
-      "type": "topic",
-      "url": "/documentation/previewutilities/insettablealignment/top"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/trailing": {
-      "abstract": [],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "AlignmentType",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "HorizontalAlignment",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "trailing"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities19InsettableAlignmentV",
-          "text": "InsettableAlignment"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI19HorizontalAlignmentV",
-          "text": "HorizontalAlignment"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/trailing",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "trailing",
-      "type": "topic",
-      "url": "/documentation/previewutilities/insettablealignment/trailing"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "topicSections": [
+  "sections" : [
+
+  ],
+  "topicSections" : [
     {
-      "anchor": "Type-Properties",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/bottom",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/leading",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/top",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/trailing"
+      "anchor" : "Type-Properties",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment\/bottom",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment\/leading",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment\/top",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment\/trailing"
       ],
-      "title": "Type Properties"
+      "title" : "Type Properties"
     }
   ],
-  "variants": [
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/insettablealignment"
+      "paths" : [
+        "\/documentation\/previewutilities\/insettablealignment"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InsettableAlignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InsettableAlignment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InsettableAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/insettablealignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/bottom": {
+  "abstract" : [
+
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "AlignmentType",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "VerticalAlignment",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "bottom"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities19InsettableAlignmentV",
+      "text" : "InsettableAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
+      "text" : "VerticalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment\/bottom",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "bottom",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/insettablealignment\/bottom"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/leading": {
+  "abstract" : [
+
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "AlignmentType",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "HorizontalAlignment",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "leading"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities19InsettableAlignmentV",
+      "text" : "InsettableAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+      "text" : "HorizontalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment\/leading",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "leading",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/insettablealignment\/leading"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/top": {
+  "abstract" : [
+
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "AlignmentType",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "VerticalAlignment",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "top"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities19InsettableAlignmentV",
+      "text" : "InsettableAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
+      "text" : "VerticalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment\/top",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "top",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/insettablealignment\/top"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment/trailing": {
+  "abstract" : [
+
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "AlignmentType",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "HorizontalAlignment",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "trailing"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities19InsettableAlignmentV",
+      "text" : "InsettableAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+      "text" : "HorizontalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment\/trailing",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "trailing",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/insettablealignment\/trailing"
+}
+}
 }

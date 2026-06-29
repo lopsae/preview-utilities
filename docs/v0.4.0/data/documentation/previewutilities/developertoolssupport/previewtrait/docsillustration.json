@@ -1,384 +1,391 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Applies the preview traits needed for documentation illustration.",
-      "type": "text"
+      "text" : "Applies the preview traits needed for documentation illustration.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsIllustration"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/docsIllustration"
   },
-  "kind": "symbol",
-  "metadata": {
-    "conformance": {
-      "availabilityPrefix": [
+  "kind" : "symbol",
+  "metadata" : {
+    "conformance" : {
+      "availabilityPrefix" : [
         {
-          "text": "Available when",
-          "type": "text"
+          "text" : "Available when",
+          "type" : "text"
         }
       ],
-      "conformancePrefix": [
+      "conformancePrefix" : [
         {
-          "text": "Conforms when",
-          "type": "text"
+          "text" : "Conforms when",
+          "type" : "text"
         }
       ],
-      "constraints": [
+      "constraints" : [
         {
-          "code": "T",
-          "type": "codeVoice"
+          "code" : "T",
+          "type" : "codeVoice"
         },
         {
-          "text": " is ",
-          "type": "text"
+          "text" : " is ",
+          "type" : "text"
         },
         {
-          "code": "Preview.ViewTraits",
-          "type": "codeVoice"
+          "code" : "Preview.ViewTraits",
+          "type" : "codeVoice"
         },
         {
-          "text": ".",
-          "type": "text"
+          "text" : ".",
+          "type" : "text"
         }
       ]
     },
-    "extendedModule": "DeveloperToolsSupport",
-    "externalID": "s:21DeveloperToolsSupport12PreviewTraitV0D9UtilitiesAA0D0V10ViewTraitsORszlE16docsIllustrationACyAHGvpZ",
-    "fragments": [
+    "extendedModule" : "DeveloperToolsSupport",
+    "externalID" : "s:21DeveloperToolsSupport12PreviewTraitV0D9UtilitiesAA0D0V10ViewTraitsORszlE16docsIllustrationACyAHGvpZ",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "static"
+        "kind" : "keyword",
+        "text" : "static"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "keyword",
-        "text": "var"
+        "kind" : "keyword",
+        "text" : "var"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "docsIllustration"
+        "kind" : "identifier",
+        "text" : "docsIllustration"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:21DeveloperToolsSupport12PreviewTraitV",
-        "text": "PreviewTrait"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:21DeveloperToolsSupport12PreviewTraitV",
+        "text" : "PreviewTrait"
       },
       {
-        "kind": "text",
-        "text": "<"
+        "kind" : "text",
+        "text" : "<"
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV",
-        "text": "Preview"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:21DeveloperToolsSupport7PreviewV",
+        "text" : "Preview"
       },
       {
-        "kind": "text",
-        "text": "."
+        "kind" : "text",
+        "text" : "."
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
-        "text": "ViewTraits"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
+        "text" : "ViewTraits"
       },
       {
-        "kind": "text",
-        "text": ">"
+        "kind" : "text",
+        "text" : ">"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "DeveloperToolsSupport"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Property",
-    "symbolKind": "property",
-    "title": "docsIllustration"
+    "role" : "symbol",
+    "roleHeading" : "Type Property",
+    "symbolKind" : "property",
+    "title" : "docsIllustration"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "@"
+              "kind" : "attribute",
+              "text" : "@"
             },
             {
-              "kind": "attribute",
-              "preciseIdentifier": "s:ScM",
-              "text": "MainActor"
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "static"
+              "kind" : "keyword",
+              "text" : "static"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "var"
+              "kind" : "keyword",
+              "text" : "var"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "docsIllustration"
+              "kind" : "identifier",
+              "text" : "docsIllustration"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:21DeveloperToolsSupport12PreviewTraitV",
-              "text": "PreviewTrait"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:21DeveloperToolsSupport12PreviewTraitV",
+              "text" : "PreviewTrait"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV",
-              "text": "Preview"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:21DeveloperToolsSupport7PreviewV",
+              "text" : "Preview"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
-              "text": "ViewTraits"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
+              "text" : "ViewTraits"
             },
             {
-              "kind": "text",
-              "text": "> { "
+              "kind" : "text",
+              "text" : "> { "
             },
             {
-              "kind": "keyword",
-              "text": "get"
+              "kind" : "keyword",
+              "text" : "get"
             },
             {
-              "kind": "text",
-              "text": " }"
+              "kind" : "text",
+              "text" : " }"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "DeveloperToolsSupport",
-      "type": "topic",
-      "url": "/documentation/previewutilities/developertoolssupport"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:21DeveloperToolsSupport12PreviewTraitV",
-          "text": "PreviewTrait"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PreviewTrait"
-        }
-      ],
-      "role": "symbol",
-      "title": "PreviewTrait",
-      "type": "topic",
-      "url": "/documentation/previewutilities/developertoolssupport/previewtrait"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsIllustration": {
-      "abstract": [
-        {
-          "text": "Applies the preview traits needed for documentation illustration.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "T",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "Preview.ViewTraits",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "docsIllustration"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:21DeveloperToolsSupport12PreviewTraitV",
-          "text": "PreviewTrait"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV",
-          "text": "Preview"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
-          "text": "ViewTraits"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsIllustration",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "docsIllustration",
-      "type": "topic",
-      "url": "/documentation/previewutilities/developertoolssupport/previewtrait/docsillustration"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/developertoolssupport/previewtrait/docsillustration"
+      "paths" : [
+        "\/documentation\/previewutilities\/developertoolssupport\/previewtrait\/docsillustration"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "DeveloperToolsSupport",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/developertoolssupport"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:21DeveloperToolsSupport12PreviewTraitV",
+      "text" : "PreviewTrait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "PreviewTrait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "PreviewTrait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/developertoolssupport\/previewtrait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/docsIllustration": {
+  "abstract" : [
+    {
+      "text" : "Applies the preview traits needed for documentation illustration.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "T",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "Preview.ViewTraits",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "docsIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:21DeveloperToolsSupport12PreviewTraitV",
+      "text" : "PreviewTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:21DeveloperToolsSupport7PreviewV",
+      "text" : "Preview"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:21DeveloperToolsSupport7PreviewV10ViewTraitsO",
+      "text" : "ViewTraits"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/docsIllustration",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "docsIllustration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/developertoolssupport\/previewtrait\/docsillustration"
+}
+}
 }

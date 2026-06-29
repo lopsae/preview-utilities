@@ -1,304 +1,311 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/init(size:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore\/init(size:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities19ImageGeneratorStoreC4sizeACyAA010ConcurrentcD0CGSo6CGSizeV_tcAFRszrlufc",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19ImageGeneratorStoreC4sizeACyAA010ConcurrentcD0CGSo6CGSizeV_tcAFRszrlufc",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "convenience"
+        "kind" : "keyword",
+        "text" : "convenience"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "init"
+        "kind" : "identifier",
+        "text" : "init"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "externalParam",
-        "text": "size"
+        "kind" : "externalParam",
+        "text" : "size"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "c:@S@CGSize",
-        "text": "CGSize"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "c:@S@CGSize",
+        "text" : "CGSize"
       },
       {
-        "kind": "text",
-        "text": ")"
+        "kind" : "text",
+        "text" : ")"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Initializer",
-    "symbolKind": "init",
-    "title": "init(size:)"
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init(size:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "@"
+              "kind" : "attribute",
+              "text" : "@"
             },
             {
-              "kind": "attribute",
-              "preciseIdentifier": "s:ScM",
-              "text": "MainActor"
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "convenience"
+              "kind" : "keyword",
+              "text" : "convenience"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "init"
+              "kind" : "keyword",
+              "text" : "init"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "size"
+              "kind" : "externalParam",
+              "text" : "size"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "c:@S@CGSize",
-              "text": "CGSize"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "c:@S@CGSize",
+              "text" : "CGSize"
             },
             {
-              "kind": "text",
-              "text": ") "
+              "kind" : "text",
+              "text" : ") "
             },
             {
-              "kind": "keyword",
-              "text": "where"
+              "kind" : "keyword",
+              "text" : "where"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Generator"
+              "kind" : "typeIdentifier",
+              "text" : "Generator"
             },
             {
-              "kind": "text",
-              "text": " == "
+              "kind" : "text",
+              "text" : " == "
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities24ConcurrentImageGeneratorC",
-              "text": "ConcurrentImageGenerator"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConcurrentImageGenerator",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities24ConcurrentImageGeneratorC",
+              "text" : "ConcurrentImageGenerator"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
-      "abstract": [
-        {
-          "text": "Nonisolated ImageGenerator with a ",
-          "type": "text"
-        },
-        {
-          "code": "@concurrent generateImage",
-          "type": "codeVoice"
-        },
-        {
-          "text": " function that will always be",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "called in the cooperative thread pool.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ConcurrentImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ConcurrentImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "ConcurrentImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/concurrentimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorStore"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorStore"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorStore",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorstore"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/init(size:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "convenience"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "size"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@S@CGSize",
-          "text": "CGSize"
-        },
-        {
-          "kind": "text",
-          "text": ")"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/init(size:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(size:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorstore/init(size:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/imagegeneratorstore/init(size:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/imagegeneratorstore\/init(size:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Nonisolated ImageGenerator with a ",
+      "type" : "text"
+    },
+    {
+      "code" : "@concurrent generateImage",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " function that will always be",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "called in the cooperative thread pool.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ConcurrentImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConcurrentImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ConcurrentImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ConcurrentImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/concurrentimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorStore"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorStore"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorStore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorstore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/init(size:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "convenience"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "size"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGSize",
+      "text" : "CGSize"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore\/init(size:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(size:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorstore\/init(size:)"
+}
+}
 }

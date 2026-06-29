@@ -1,312 +1,317 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ClearRectangle"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/init(width:height:fill:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ClearRectangle\/init(width:height:fill:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities14ClearRectangleV5width6height4fillACyxG14CoreFoundation7CGFloatVSg_AKxtcfc",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities14ClearRectangleV5width6height4fillACyxG14CoreFoundation7CGFloatVSg_AKxtcfc",
+    "fragments" : [
       {
-        "kind": "identifier",
-        "text": "init"
+        "kind" : "identifier",
+        "text" : "init"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "externalParam",
-        "text": "width"
+        "kind" : "externalParam",
+        "text" : "width"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
-        "text": "CGFloat"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+        "text" : "CGFloat"
       },
       {
-        "kind": "text",
-        "text": "?, "
+        "kind" : "text",
+        "text" : "?, "
       },
       {
-        "kind": "externalParam",
-        "text": "height"
+        "kind" : "externalParam",
+        "text" : "height"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
-        "text": "CGFloat"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+        "text" : "CGFloat"
       },
       {
-        "kind": "text",
-        "text": "?, "
+        "kind" : "text",
+        "text" : "?, "
       },
       {
-        "kind": "externalParam",
-        "text": "fill"
+        "kind" : "externalParam",
+        "text" : "fill"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "text": "S"
+        "kind" : "typeIdentifier",
+        "text" : "S"
       },
       {
-        "kind": "text",
-        "text": ")"
+        "kind" : "text",
+        "text" : ")"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Initializer",
-    "symbolKind": "init",
-    "title": "init(width:height:fill:)"
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init(width:height:fill:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "@"
+              "kind" : "attribute",
+              "text" : "@"
             },
             {
-              "kind": "attribute",
-              "preciseIdentifier": "s:ScM",
-              "text": "MainActor"
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "init"
+              "kind" : "keyword",
+              "text" : "init"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "width"
+              "kind" : "externalParam",
+              "text" : "width"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
-              "text": "CGFloat"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+              "text" : "CGFloat"
             },
             {
-              "kind": "text",
-              "text": "? = nil, "
+              "kind" : "text",
+              "text" : "? = nil, "
             },
             {
-              "kind": "externalParam",
-              "text": "height"
+              "kind" : "externalParam",
+              "text" : "height"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
-              "text": "CGFloat"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+              "text" : "CGFloat"
             },
             {
-              "kind": "text",
-              "text": "? = nil, "
+              "kind" : "text",
+              "text" : "? = nil, "
             },
             {
-              "kind": "externalParam",
-              "text": "fill"
+              "kind" : "externalParam",
+              "text" : "fill"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "S"
+              "kind" : "typeIdentifier",
+              "text" : "S"
             },
             {
-              "kind": "text",
-              "text": ")"
+              "kind" : "text",
+              "text" : ")"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle": {
-      "abstract": [
-        {
-          "text": "Convenience view that contains an invisible rectangle framed to a given size.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ClearRectangle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ClearRectangle"
-        }
-      ],
-      "role": "symbol",
-      "title": "ClearRectangle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/clearrectangle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/init(width:height:fill:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "width"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
-          "text": "CGFloat"
-        },
-        {
-          "kind": "text",
-          "text": "?, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "height"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
-          "text": "CGFloat"
-        },
-        {
-          "kind": "text",
-          "text": "?, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "fill"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "S"
-        },
-        {
-          "kind": "text",
-          "text": ")"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/init(width:height:fill:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(width:height:fill:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/clearrectangle/init(width:height:fill:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/clearrectangle/init(width:height:fill:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/clearrectangle\/init(width:height:fill:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle": {
+  "abstract" : [
+    {
+      "text" : "Convenience view that contains an invisible rectangle framed to a given size.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClearRectangle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ClearRectangle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ClearRectangle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ClearRectangle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/clearrectangle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle/init(width:height:fill:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "width"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "height"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "fill"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "S"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ClearRectangle\/init(width:height:fill:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(width:height:fill:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/clearrectangle\/init(width:height:fill:)"
+}
+}
 }

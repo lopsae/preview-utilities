@@ -1,1248 +1,1253 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Displays a value, along a history of previous values offset from the view.",
-      "type": "text"
+      "text" : "Displays a value, along a history of previous values offset from the view.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities13HistoricValueV",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities13HistoricValueV",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "struct"
+        "kind" : "keyword",
+        "text" : "struct"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "HistoricValue"
+        "kind" : "identifier",
+        "text" : "HistoricValue"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "navigatorTitle": [
+    "navigatorTitle" : [
       {
-        "kind": "identifier",
-        "text": "HistoricValue"
+        "kind" : "identifier",
+        "text" : "HistoricValue"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Structure",
-    "symbolKind": "struct",
-    "title": "HistoricValue"
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "HistoricValue"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "@"
+              "kind" : "attribute",
+              "text" : "@"
             },
             {
-              "kind": "attribute",
-              "preciseIdentifier": "s:ScM",
-              "text": "MainActor"
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "struct"
+              "kind" : "keyword",
+              "text" : "struct"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "HistoricValue"
+              "kind" : "identifier",
+              "text" : "HistoricValue"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "genericParameter",
-              "text": "Value"
+              "kind" : "genericParameter",
+              "text" : "Value"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "genericParameter",
-              "text": "Formatter"
+              "kind" : "genericParameter",
+              "text" : "Formatter"
             },
             {
-              "kind": "text",
-              "text": "> "
+              "kind" : "text",
+              "text" : "> "
             },
             {
-              "kind": "keyword",
-              "text": "where"
+              "kind" : "keyword",
+              "text" : "where"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Value"
+              "kind" : "typeIdentifier",
+              "text" : "Value"
             },
             {
-              "kind": "text",
-              "text": " : "
+              "kind" : "text",
+              "text" : " : "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SQ",
-              "text": "Equatable"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SQ",
+              "text" : "Equatable"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Value"
+              "kind" : "typeIdentifier",
+              "text" : "Value"
             },
             {
-              "kind": "text",
-              "text": " == "
+              "kind" : "text",
+              "text" : " == "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Formatter"
+              "kind" : "typeIdentifier",
+              "text" : "Formatter"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:10Foundation11FormatStyleP0B5InputQa",
-              "text": "FormatInput"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:10Foundation11FormatStyleP0B5InputQa",
+              "text" : "FormatInput"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Formatter"
+              "kind" : "typeIdentifier",
+              "text" : "Formatter"
             },
             {
-              "kind": "text",
-              "text": " : "
+              "kind" : "text",
+              "text" : " : "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:10Foundation11FormatStyleP",
-              "text": "FormatStyle"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:10Foundation11FormatStyleP",
+              "text" : "FormatStyle"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Formatter"
+              "kind" : "typeIdentifier",
+              "text" : "Formatter"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:10Foundation11FormatStyleP0B6OutputQa",
-              "text": "FormatOutput"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:10Foundation11FormatStyleP0B6OutputQa",
+              "text" : "FormatOutput"
             },
             {
-              "kind": "text",
-              "text": " == "
+              "kind" : "text",
+              "text" : " == "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SS",
-              "text": "String"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "overview",
-          "level": 2,
-          "text": "Overview",
-          "type": "heading"
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "Every time the displayed value changes the previous value is stored. All stored values are",
-              "type": "text"
+              "text" : "Every time the displayed value changes the previous value is stored. All stored values are",
+              "type" : "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "text" : " ",
+              "type" : "text"
             },
             {
-              "text": "displayed offset of the current value, towards an specified edgde.",
-              "type": "text"
+              "text" : "displayed offset of the current value, towards an specified edgde.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/7SwiftUI4ViewP": {
-      "identifier": "doc://PreviewUtilities/7SwiftUI4ViewP",
-      "title": "SwiftUICore.View",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+        "doc:\/\/PreviewUtilities\/7SwiftUI4ViewP"
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle": {
-      "abstract": [
-        {
-          "text": "Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "CaptionRectangle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "CaptionRectangle"
-        }
-      ],
-      "role": "symbol",
-      "title": "CaptionRectangle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/captionrectangle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle": {
-      "abstract": [
-        {
-          "text": "Convenience view that contains an invisible rectangle framed to a given size.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ClearRectangle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ClearRectangle"
-        }
-      ],
-      "role": "symbol",
-      "title": "ClearRectangle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/clearrectangle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider": {
-      "abstract": [
-        {
-          "text": "A divider line with a dashed line style.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "DashedDivider"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "DashedDivider"
-        }
-      ],
-      "role": "symbol",
-      "title": "DashedDivider",
-      "type": "topic",
-      "url": "/documentation/previewutilities/dasheddivider"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
-      "abstract": [
-        {
-          "text": "View that displays the given content overlaid on a parent view that is hidden.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HiddenParentOverlay"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HiddenParentOverlay"
-        }
-      ],
-      "role": "symbol",
-      "title": "HiddenParentOverlay",
-      "type": "topic",
-      "url": "/documentation/previewutilities/hiddenparentoverlay"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue": {
-      "abstract": [
-        {
-          "text": "Displays a value, along a history of previous values offset from the view.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HistoricValue"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HistoricValue"
-        }
-      ],
-      "role": "symbol",
-      "title": "HistoricValue",
-      "type": "topic",
-      "url": "/documentation/previewutilities/historicvalue"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/body": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "body"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4ViewP",
-          "text": "View"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/body",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "body",
-      "type": "topic",
-      "url": "/documentation/previewutilities/historicvalue/body"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)": {
-      "abstract": [
-        {
-          "text": "Configures the instance with the given parameters.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "configure"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "padding"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sd",
-          "text": "Double"
-        },
-        {
-          "kind": "text",
-          "text": "?, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "spacing"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sd",
-          "text": "Double"
-        },
-        {
-          "kind": "text",
-          "text": "?, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "edge"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4EdgeO",
-          "text": "Edge"
-        },
-        {
-          "kind": "text",
-          "text": "?) -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities13HistoricValueV",
-          "text": "HistoricValue"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Value"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Formatter"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "configure(padding:spacing:edge:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/historicvalue/configure(padding:spacing:edge:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)": {
-      "abstract": [
-        {
-          "text": "Creates a view which displays the string description of a value along its history of",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "previous values.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Value",
-            "type": "codeVoice"
-          },
-          {
-            "text": " conforms to ",
-            "type": "text"
-          },
-          {
-            "code": "Equatable",
-            "type": "codeVoice"
-          },
-          {
-            "text": ", ",
-            "type": "text"
-          },
-          {
-            "code": "Value",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "Formatter.FormatInput",
-            "type": "codeVoice"
-          },
-          {
-            "text": ", ",
-            "type": "text"
-          },
-          {
-            "code": "Formatter",
-            "type": "codeVoice"
-          },
-          {
-            "text": " conforms to ",
-            "type": "text"
-          },
-          {
-            "code": "FormatStyle",
-            "type": "codeVoice"
-          },
-          {
-            "text": ", and ",
-            "type": "text"
-          },
-          {
-            "code": "Formatter.FormatOutput",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "String",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "describingValue"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Value"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "isMarked"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI7BindingV",
-          "text": "Binding"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ">)"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(describingValue:isMarked:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/historicvalue/init(describingvalue:ismarked:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(value:isMarked:)": {
-      "abstract": [
-        {
-          "text": "Creates a view which displays a string value along its history of previous values.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Value",
-            "type": "codeVoice"
-          },
-          {
-            "text": " conforms to ",
-            "type": "text"
-          },
-          {
-            "code": "Equatable",
-            "type": "codeVoice"
-          },
-          {
-            "text": ", ",
-            "type": "text"
-          },
-          {
-            "code": "Value",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "Formatter.FormatInput",
-            "type": "codeVoice"
-          },
-          {
-            "text": ", ",
-            "type": "text"
-          },
-          {
-            "code": "Formatter",
-            "type": "codeVoice"
-          },
-          {
-            "text": " conforms to ",
-            "type": "text"
-          },
-          {
-            "code": "FormatStyle",
-            "type": "codeVoice"
-          },
-          {
-            "text": ", and ",
-            "type": "text"
-          },
-          {
-            "code": "Formatter.FormatOutput",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "String",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "value"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Value"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "isMarked"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI7BindingV",
-          "text": "Binding"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ">)"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(value:isMarked:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(value:isMarked:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/historicvalue/init(value:ismarked:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(value:isMarked:format:)": {
-      "abstract": [
-        {
-          "text": "Creates a view which displays a formatted value along its history of previous values.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "value"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Value"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "isMarked"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI7BindingV",
-          "text": "Binding"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ">, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "format"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Formatter"
-        },
-        {
-          "kind": "text",
-          "text": ")"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(value:isMarked:format:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(value:isMarked:format:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/historicvalue/init(value:ismarked:format:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText": {
-      "abstract": [
-        {
-          "text": "Text with a tag. Used instead of the ",
-          "type": "text"
-        },
-        {
-          "code": ".tag",
-          "type": "codeVoice"
-        },
-        {
-          "text": " modifier when a concrete type is necessary.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "TaggedText"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "TaggedText"
-        }
-      ],
-      "role": "symbol",
-      "title": "TaggedText",
-      "type": "topic",
-      "url": "/documentation/previewutilities/taggedtext"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView": {
-      "abstract": [
-        {
-          "text": "View with a tag. Used instead of the ",
-          "type": "text"
-        },
-        {
-          "code": ".tag",
-          "type": "codeVoice"
-        },
-        {
-          "text": " modifier when a concrete type is necessary.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "TaggedView"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "TaggedView"
-        }
-      ],
-      "role": "symbol",
-      "title": "TaggedView",
-      "type": "topic",
-      "url": "/documentation/previewutilities/taggedview"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
-      "abstract": [
-        {
-          "text": "View that runs a task displaying content while task runs, and displaying different content when",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "the task completes.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "TaskView"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "TaskView"
-        }
-      ],
-      "role": "symbol",
-      "title": "TaskView",
-      "type": "topic",
-      "url": "/documentation/previewutilities/taskview"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity": {
-      "abstract": [
-        {
-          "text": "View with an opacity modifier. Used instead of the ",
-          "type": "text"
-        },
-        {
-          "code": ".opacity",
-          "type": "codeVoice"
-        },
-        {
-          "text": " modifier when a concrete type is",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "necessary.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ViewWithOpacity"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ViewWithOpacity"
-        }
-      ],
-      "role": "symbol",
-      "title": "ViewWithOpacity",
-      "type": "topic",
-      "url": "/documentation/previewutilities/viewwithopacity"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer": {
-      "abstract": [
-        {
-          "text": "A visible spacer view that expands to all available space in an specific axis.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "VisibleSpacer"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "VisibleSpacer"
-        }
-      ],
-      "role": "symbol",
-      "title": "VisibleSpacer",
-      "type": "topic",
-      "url": "/documentation/previewutilities/visiblespacer"
-    },
-    "doc://PreviewUtilities/s16SendableMetatypeP": {
-      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
-      "title": "Swift.SendableMetatype",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/s8SendableP": {
-      "identifier": "doc://PreviewUtilities/s8SendableP",
-      "title": "Swift.Sendable",
-      "type": "unresolvable"
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
     }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "relationshipsSections": [
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
     {
-      "identifiers": [
-        "doc://PreviewUtilities/s8SendableP",
-        "doc://PreviewUtilities/s16SendableMetatypeP",
-        "doc://PreviewUtilities/7SwiftUI4ViewP"
+      "anchor" : "Views",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CaptionRectangle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ClearRectangle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DashedDivider",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/VisibleSpacer",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaskView",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HiddenParentOverlay",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaggedText",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaggedView",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ViewWithOpacity"
       ],
-      "kind": "relationships",
-      "title": "Conforms To",
-      "type": "conformsTo"
+      "title" : "Views"
     }
   ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "seeAlsoSections": [
+  "topicSections" : [
     {
-      "anchor": "Views",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity"
+      "anchor" : "Initializers",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/init(describingValue:isMarked:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/init(value:isMarked:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/init(value:isMarked:format:)"
       ],
-      "title": "Views"
-    }
-  ],
-  "topicSections": [
-    {
-      "anchor": "Initializers",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(value:isMarked:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(value:isMarked:format:)"
-      ],
-      "title": "Initializers"
+      "title" : "Initializers"
     },
     {
-      "anchor": "Instance-Properties",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/body"
+      "anchor" : "Instance-Properties",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/body"
       ],
-      "title": "Instance Properties"
+      "title" : "Instance Properties"
     },
     {
-      "anchor": "Instance-Methods",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)"
+      "anchor" : "Instance-Methods",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/configure(padding:spacing:edge:)"
       ],
-      "title": "Instance Methods"
+      "title" : "Instance Methods"
     }
   ],
-  "variants": [
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/historicvalue"
+      "paths" : [
+        "\/documentation\/previewutilities\/historicvalue"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/7SwiftUI4ViewP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/7SwiftUI4ViewP",
+  "title" : "SwiftUICore.View",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle": {
+  "abstract" : [
+    {
+      "text" : "Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "CaptionRectangle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CaptionRectangle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CaptionRectangle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CaptionRectangle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/captionrectangle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle": {
+  "abstract" : [
+    {
+      "text" : "Convenience view that contains an invisible rectangle framed to a given size.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClearRectangle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ClearRectangle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ClearRectangle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ClearRectangle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/clearrectangle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider": {
+  "abstract" : [
+    {
+      "text" : "A divider line with a dashed line style.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DashedDivider"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DashedDivider",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DashedDivider"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DashedDivider",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/dasheddivider"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
+  "abstract" : [
+    {
+      "text" : "View that displays the given content overlaid on a parent view that is hidden.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HiddenParentOverlay"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HiddenParentOverlay",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HiddenParentOverlay"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HiddenParentOverlay",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/hiddenparentoverlay"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue": {
+  "abstract" : [
+    {
+      "text" : "Displays a value, along a history of previous values offset from the view.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HistoricValue"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HistoricValue"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HistoricValue",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/historicvalue"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/body": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "body"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/body",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "body",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/historicvalue\/body"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/configure(padding:spacing:edge:)": {
+  "abstract" : [
+    {
+      "text" : "Configures the instance with the given parameters.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "configure"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "padding"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sd",
+      "text" : "Double"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "spacing"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sd",
+      "text" : "Double"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "edge"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4EdgeO",
+      "text" : "Edge"
+    },
+    {
+      "kind" : "text",
+      "text" : "?) -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities13HistoricValueV",
+      "text" : "HistoricValue"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Value"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Formatter"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/configure(padding:spacing:edge:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "configure(padding:spacing:edge:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/historicvalue\/configure(padding:spacing:edge:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(describingValue:isMarked:)": {
+  "abstract" : [
+    {
+      "text" : "Creates a view which displays the string description of a value along its history of",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "previous values.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Value",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "Equatable",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ", ",
+        "type" : "text"
+      },
+      {
+        "code" : "Value",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "Formatter.FormatInput",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ", ",
+        "type" : "text"
+      },
+      {
+        "code" : "Formatter",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "FormatStyle",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ", and ",
+        "type" : "text"
+      },
+      {
+        "code" : "Formatter.FormatOutput",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "String",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "describingValue"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Value"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "isMarked"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI7BindingV",
+      "text" : "Binding"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ">)"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/init(describingValue:isMarked:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(describingValue:isMarked:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/historicvalue\/init(describingvalue:ismarked:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(value:isMarked:)": {
+  "abstract" : [
+    {
+      "text" : "Creates a view which displays a string value along its history of previous values.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Value",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "Equatable",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ", ",
+        "type" : "text"
+      },
+      {
+        "code" : "Value",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "Formatter.FormatInput",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ", ",
+        "type" : "text"
+      },
+      {
+        "code" : "Formatter",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "FormatStyle",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ", and ",
+        "type" : "text"
+      },
+      {
+        "code" : "Formatter.FormatOutput",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "String",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "value"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Value"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "isMarked"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI7BindingV",
+      "text" : "Binding"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ">)"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/init(value:isMarked:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(value:isMarked:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/historicvalue\/init(value:ismarked:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue/init(value:isMarked:format:)": {
+  "abstract" : [
+    {
+      "text" : "Creates a view which displays a formatted value along its history of previous values.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "value"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Value"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "isMarked"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI7BindingV",
+      "text" : "Binding"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ">, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "format"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Formatter"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue\/init(value:isMarked:format:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(value:isMarked:format:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/historicvalue\/init(value:ismarked:format:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText": {
+  "abstract" : [
+    {
+      "text" : "Text with a tag. Used instead of the ",
+      "type" : "text"
+    },
+    {
+      "code" : ".tag",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " modifier when a concrete type is necessary.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TaggedText"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaggedText",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TaggedText"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TaggedText",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/taggedtext"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView": {
+  "abstract" : [
+    {
+      "text" : "View with a tag. Used instead of the ",
+      "type" : "text"
+    },
+    {
+      "code" : ".tag",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " modifier when a concrete type is necessary.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TaggedView"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaggedView",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TaggedView"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TaggedView",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/taggedview"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
+  "abstract" : [
+    {
+      "text" : "View that runs a task displaying content while task runs, and displaying different content when",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "the task completes.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TaskView"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaskView",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TaskView"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TaskView",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/taskview"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity": {
+  "abstract" : [
+    {
+      "text" : "View with an opacity modifier. Used instead of the ",
+      "type" : "text"
+    },
+    {
+      "code" : ".opacity",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " modifier when a concrete type is",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "necessary.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ViewWithOpacity"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ViewWithOpacity",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ViewWithOpacity"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ViewWithOpacity",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/viewwithopacity"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer": {
+  "abstract" : [
+    {
+      "text" : "A visible spacer view that expands to all available space in an specific axis.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "VisibleSpacer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/VisibleSpacer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "VisibleSpacer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "VisibleSpacer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/visiblespacer"
+},
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
 }

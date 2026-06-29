@@ -1,205 +1,212 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/init(generator:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore\/init(generator:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities19ImageGeneratorStoreC9generatorACyxGx_tcfc",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19ImageGeneratorStoreC9generatorACyxGx_tcfc",
+    "fragments" : [
       {
-        "kind": "identifier",
-        "text": "init"
+        "kind" : "identifier",
+        "text" : "init"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "externalParam",
-        "text": "generator"
+        "kind" : "externalParam",
+        "text" : "generator"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "text": "Generator"
+        "kind" : "typeIdentifier",
+        "text" : "Generator"
       },
       {
-        "kind": "text",
-        "text": ")"
+        "kind" : "text",
+        "text" : ")"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Initializer",
-    "symbolKind": "init",
-    "title": "init(generator:)"
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init(generator:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "@"
+              "kind" : "attribute",
+              "text" : "@"
             },
             {
-              "kind": "attribute",
-              "preciseIdentifier": "s:ScM",
-              "text": "MainActor"
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "init"
+              "kind" : "keyword",
+              "text" : "init"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "generator"
+              "kind" : "externalParam",
+              "text" : "generator"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Generator"
+              "kind" : "typeIdentifier",
+              "text" : "Generator"
             },
             {
-              "kind": "text",
-              "text": ")"
+              "kind" : "text",
+              "text" : ")"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorStore"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorStore"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorStore",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorstore"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/init(generator:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "generator"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Generator"
-        },
-        {
-          "kind": "text",
-          "text": ")"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/init(generator:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(generator:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorstore/init(generator:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/imagegeneratorstore/init(generator:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/imagegeneratorstore\/init(generator:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorStore"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorStore"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorStore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorstore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/init(generator:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "generator"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Generator"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore\/init(generator:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(generator:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorstore\/init(generator:)"
+}
+}
 }

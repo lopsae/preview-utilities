@@ -1,344 +1,355 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Edge",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Edge\/Set"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set/not(_:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Edge\/Set\/not(_:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "extendedModule": "SwiftUICore",
-    "externalID": "s:7SwiftUI4EdgeO3SetV16PreviewUtilitiesE3notyA2EFZ",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "SwiftUICore",
+    "externalID" : "s:7SwiftUI4EdgeO3SetV16PreviewUtilitiesE3notyA2EFZ",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "static"
+        "kind" : "keyword",
+        "text" : "static"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "keyword",
-        "text": "func"
+        "kind" : "keyword",
+        "text" : "func"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "not"
+        "kind" : "identifier",
+        "text" : "not"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:7SwiftUI4EdgeO",
-        "text": "Edge"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI4EdgeO",
+        "text" : "Edge"
       },
       {
-        "kind": "text",
-        "text": "."
+        "kind" : "text",
+        "text" : "."
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
-        "text": "Set"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI4EdgeO3SetV",
+        "text" : "Set"
       },
       {
-        "kind": "text",
-        "text": ") -> "
+        "kind" : "text",
+        "text" : ") -> "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:7SwiftUI4EdgeO",
-        "text": "Edge"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI4EdgeO",
+        "text" : "Edge"
       },
       {
-        "kind": "text",
-        "text": "."
+        "kind" : "text",
+        "text" : "."
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
-        "text": "Set"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI4EdgeO3SetV",
+        "text" : "Set"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "SwiftUICore"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Method",
-    "symbolKind": "method",
-    "title": "not(_:)"
+    "role" : "symbol",
+    "roleHeading" : "Type Method",
+    "symbolKind" : "method",
+    "title" : "not(_:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "static"
+              "kind" : "keyword",
+              "text" : "static"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "func"
+              "kind" : "keyword",
+              "text" : "func"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "not"
+              "kind" : "identifier",
+              "text" : "not"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "_"
+              "kind" : "externalParam",
+              "text" : "_"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "internalParam",
-              "text": "edges"
+              "kind" : "internalParam",
+              "text" : "edges"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:7SwiftUI4EdgeO",
-              "text": "Edge"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI4EdgeO",
+              "text" : "Edge"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
-              "text": "Set"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI4EdgeO3SetV",
+              "text" : "Set"
             },
             {
-              "kind": "text",
-              "text": ") -> "
+              "kind" : "text",
+              "text" : ") -> "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:7SwiftUI4EdgeO",
-              "text": "Edge"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI4EdgeO",
+              "text" : "Edge"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
-              "text": "Set"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI4EdgeO3SetV",
+              "text" : "Set"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "SwiftUICore",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Edge"
-        }
-      ],
-      "role": "symbol",
-      "title": "Edge",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/edge"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:7SwiftUI4EdgeO",
-          "text": "Edge"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
-          "text": "Set"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Set"
-        }
-      ],
-      "role": "symbol",
-      "title": "Edge.Set",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/edge/set"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set/not(_:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "not"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4EdgeO",
-          "text": "Edge"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
-          "text": "Set"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4EdgeO",
-          "text": "Edge"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4EdgeO3SetV",
-          "text": "Set"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set/not(_:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "not(_:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/edge/set/not(_:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/swiftuicore/edge/set/not(_:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/swiftuicore\/edge\/set\/not(_:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftUICore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Edge",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Edge"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Edge",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/edge"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI4EdgeO",
+      "text" : "Edge"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI4EdgeO3SetV",
+      "text" : "Set"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Edge\/Set",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Set"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Edge.Set",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/edge\/set"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Edge/Set/not(_:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "not"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4EdgeO",
+      "text" : "Edge"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4EdgeO3SetV",
+      "text" : "Set"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4EdgeO",
+      "text" : "Edge"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4EdgeO3SetV",
+      "text" : "Set"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Edge\/Set\/not(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "not(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/edge\/set\/not(_:)"
+}
+}
 }

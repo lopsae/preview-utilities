@@ -1,246 +1,253 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults/sleepRange"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults\/sleepRange"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities22ImageGeneratorDefaultsO10sleepRangeSNys8DurationVGvpZ",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities22ImageGeneratorDefaultsO10sleepRangeSNys8DurationVGvpZ",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "static"
+        "kind" : "keyword",
+        "text" : "static"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "keyword",
-        "text": "let"
+        "kind" : "keyword",
+        "text" : "let"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "sleepRange"
+        "kind" : "identifier",
+        "text" : "sleepRange"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:SN",
-        "text": "ClosedRange"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SN",
+        "text" : "ClosedRange"
       },
       {
-        "kind": "text",
-        "text": "<"
+        "kind" : "text",
+        "text" : "<"
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:s8DurationV",
-        "text": "Duration"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s8DurationV",
+        "text" : "Duration"
       },
       {
-        "kind": "text",
-        "text": ">"
+        "kind" : "text",
+        "text" : ">"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Property",
-    "symbolKind": "property",
-    "title": "sleepRange"
+    "role" : "symbol",
+    "roleHeading" : "Type Property",
+    "symbolKind" : "property",
+    "title" : "sleepRange"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "static"
+              "kind" : "keyword",
+              "text" : "static"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "let"
+              "kind" : "keyword",
+              "text" : "let"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "sleepRange"
+              "kind" : "identifier",
+              "text" : "sleepRange"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SN",
-              "text": "ClosedRange"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SN",
+              "text" : "ClosedRange"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:s8DurationV",
-              "text": "Duration"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s8DurationV",
+              "text" : "Duration"
             },
             {
-              "kind": "text",
-              "text": ">"
+              "kind" : "text",
+              "text" : ">"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorDefaults"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorDefaults"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorDefaults",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratordefaults"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults/sleepRange": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "sleepRange"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SN",
-          "text": "ClosedRange"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s8DurationV",
-          "text": "Duration"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults/sleepRange",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "sleepRange",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratordefaults/sleeprange"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/imagegeneratordefaults/sleeprange"
+      "paths" : [
+        "\/documentation\/previewutilities\/imagegeneratordefaults\/sleeprange"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorDefaults"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorDefaults"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorDefaults",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratordefaults"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults/sleepRange": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sleepRange"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SN",
+      "text" : "ClosedRange"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s8DurationV",
+      "text" : "Duration"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults\/sleepRange",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "sleepRange",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratordefaults\/sleeprange"
+}
+}
 }

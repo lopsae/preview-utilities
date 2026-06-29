@@ -1,264 +1,269 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultColorSchemes"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/defaultColorSchemes"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities20IllustrationRendererV19defaultColorSchemesShy7SwiftUI0F6SchemeOGvpZ",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities20IllustrationRendererV19defaultColorSchemesShy7SwiftUI0F6SchemeOGvpZ",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "static"
+        "kind" : "keyword",
+        "text" : "static"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "keyword",
-        "text": "let"
+        "kind" : "keyword",
+        "text" : "let"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "defaultColorSchemes"
+        "kind" : "identifier",
+        "text" : "defaultColorSchemes"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:Sh",
-        "text": "Set"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sh",
+        "text" : "Set"
       },
       {
-        "kind": "text",
-        "text": "<"
+        "kind" : "text",
+        "text" : "<"
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:7SwiftUI11ColorSchemeO",
-        "text": "ColorScheme"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI11ColorSchemeO",
+        "text" : "ColorScheme"
       },
       {
-        "kind": "text",
-        "text": ">"
+        "kind" : "text",
+        "text" : ">"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Property",
-    "symbolKind": "property",
-    "title": "defaultColorSchemes"
+    "role" : "symbol",
+    "roleHeading" : "Type Property",
+    "symbolKind" : "property",
+    "title" : "defaultColorSchemes"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "@"
+              "kind" : "attribute",
+              "text" : "@"
             },
             {
-              "kind": "attribute",
-              "preciseIdentifier": "s:ScM",
-              "text": "MainActor"
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "static"
+              "kind" : "keyword",
+              "text" : "static"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "let"
+              "kind" : "keyword",
+              "text" : "let"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "defaultColorSchemes"
+              "kind" : "identifier",
+              "text" : "defaultColorSchemes"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:Sh",
-              "text": "Set"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sh",
+              "text" : "Set"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:7SwiftUI11ColorSchemeO",
-              "text": "ColorScheme"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI11ColorSchemeO",
+              "text" : "ColorScheme"
             },
             {
-              "kind": "text",
-              "text": ">"
+              "kind" : "text",
+              "text" : ">"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer": {
-      "abstract": [
-        {
-          "text": "Renders SwiftUI views to PNG files for documentation illustrations.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IllustrationRenderer"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IllustrationRenderer"
-        }
-      ],
-      "role": "symbol",
-      "title": "IllustrationRenderer",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationrenderer"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultColorSchemes": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "defaultColorSchemes"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sh",
-          "text": "Set"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI11ColorSchemeO",
-          "text": "ColorScheme"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultColorSchemes",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "defaultColorSchemes",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationrenderer/defaultcolorschemes"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/illustrationrenderer/defaultcolorschemes"
+      "paths" : [
+        "\/documentation\/previewutilities\/illustrationrenderer\/defaultcolorschemes"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer": {
+  "abstract" : [
+    {
+      "text" : "Renders SwiftUI views to PNG files for documentation illustrations.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultColorSchemes": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "defaultColorSchemes"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sh",
+      "text" : "Set"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI11ColorSchemeO",
+      "text" : "ColorScheme"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/defaultColorSchemes",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "defaultColorSchemes",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/defaultcolorschemes"
+}
+}
 }

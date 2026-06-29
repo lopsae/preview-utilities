@@ -1,225 +1,234 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorError"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorError\/cancelled(_:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities19ImageGeneratorErrorO9cancelledyAcA10ThreadInfoVcACmF",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19ImageGeneratorErrorO9cancelledyAcA10ThreadInfoVcACmF",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "case"
+        "kind" : "keyword",
+        "text" : "case"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "cancelled"
+        "kind" : "identifier",
+        "text" : "cancelled"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
-        "text": "ThreadInfo"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities10ThreadInfoV",
+        "text" : "ThreadInfo"
       },
       {
-        "kind": "text",
-        "text": ")"
+        "kind" : "text",
+        "text" : ")"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Case",
-    "symbolKind": "case",
-    "title": "ImageGeneratorError.cancelled(_:)"
+    "role" : "symbol",
+    "roleHeading" : "Case",
+    "symbolKind" : "case",
+    "title" : "ImageGeneratorError.cancelled(_:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "case"
+              "kind" : "keyword",
+              "text" : "case"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "cancelled"
+              "kind" : "identifier",
+              "text" : "cancelled"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
-              "text": "ThreadInfo"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities10ThreadInfoV",
+              "text" : "ThreadInfo"
             },
             {
-              "kind": "text",
-              "text": ")"
+              "kind" : "text",
+              "text" : ")"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorError"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorError"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorError",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorerror"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "case"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "cancelled"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities10ThreadInfoV",
-          "text": "ThreadInfo"
-        },
-        {
-          "kind": "text",
-          "text": ")"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "ImageGeneratorError.cancelled(_:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorerror/cancelled(_:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ThreadInfo"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ThreadInfo"
-        }
-      ],
-      "role": "symbol",
-      "title": "ThreadInfo",
-      "type": "topic",
-      "url": "/documentation/previewutilities/threadinfo"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/imagegeneratorerror/cancelled(_:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/imagegeneratorerror\/cancelled(_:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorError"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorError",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorError"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorError",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorerror"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError/cancelled(_:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "cancelled"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities10ThreadInfoV",
+      "text" : "ThreadInfo"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorError\/cancelled(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "ImageGeneratorError.cancelled(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorerror\/cancelled(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ThreadInfo"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ThreadInfo"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ThreadInfo",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/threadinfo"
+}
+}
 }

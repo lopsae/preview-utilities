@@ -1,366 +1,373 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Generates a random Duration within a specified closed range.",
-      "type": "text"
+      "text" : "Generates a random Duration within a specified closed range.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Duration"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration/random(in:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Duration\/random(in:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "extendedModule": "Swift",
-    "externalID": "s:s8DurationV16PreviewUtilitiesE6random2inABSNyABG_tFZ",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "Swift",
+    "externalID" : "s:s8DurationV16PreviewUtilitiesE6random2inABSNyABG_tFZ",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "static"
+        "kind" : "keyword",
+        "text" : "static"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "keyword",
-        "text": "func"
+        "kind" : "keyword",
+        "text" : "func"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "random"
+        "kind" : "identifier",
+        "text" : "random"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "externalParam",
-        "text": "in"
+        "kind" : "externalParam",
+        "text" : "in"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:SN",
-        "text": "ClosedRange"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SN",
+        "text" : "ClosedRange"
       },
       {
-        "kind": "text",
-        "text": "<"
+        "kind" : "text",
+        "text" : "<"
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:s8DurationV",
-        "text": "Duration"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s8DurationV",
+        "text" : "Duration"
       },
       {
-        "kind": "text",
-        "text": ">) -> "
+        "kind" : "text",
+        "text" : ">) -> "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:s8DurationV",
-        "text": "Duration"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s8DurationV",
+        "text" : "Duration"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "Swift"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Method",
-    "symbolKind": "method",
-    "title": "random(in:)"
+    "role" : "symbol",
+    "roleHeading" : "Type Method",
+    "symbolKind" : "method",
+    "title" : "random(in:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "nonisolated"
+              "kind" : "attribute",
+              "text" : "nonisolated"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "static"
+              "kind" : "keyword",
+              "text" : "static"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "func"
+              "kind" : "keyword",
+              "text" : "func"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "random"
+              "kind" : "identifier",
+              "text" : "random"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "in"
+              "kind" : "externalParam",
+              "text" : "in"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "internalParam",
-              "text": "range"
+              "kind" : "internalParam",
+              "text" : "range"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SN",
-              "text": "ClosedRange"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SN",
+              "text" : "ClosedRange"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:s8DurationV",
-              "text": "Duration"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s8DurationV",
+              "text" : "Duration"
             },
             {
-              "kind": "text",
-              "text": ">) -> "
+              "kind" : "text",
+              "text" : ">) -> "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:s8DurationV",
-              "text": "Duration"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s8DurationV",
+              "text" : "Duration"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "kind": "parameters",
-      "parameters": [
+      "kind" : "parameters",
+      "parameters" : [
         {
-          "content": [
+          "content" : [
             {
-              "inlineContent": [
+              "inlineContent" : [
                 {
-                  "text": "The range of durations to choose from.",
-                  "type": "text"
+                  "text" : "The range of durations to choose from.",
+                  "type" : "text"
                 }
               ],
-              "type": "paragraph"
+              "type" : "paragraph"
             }
           ],
-          "name": "range"
+          "name" : "range"
         }
       ]
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "return-value",
-          "level": 2,
-          "text": "Return Value",
-          "type": "heading"
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "A random Duration within the range.",
-              "type": "text"
+              "text" : "A random Duration within the range.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "Swift",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:s8DurationV",
-          "text": "Duration"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Duration"
-        }
-      ],
-      "role": "symbol",
-      "title": "Duration",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift/duration"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration/random(in:)": {
-      "abstract": [
-        {
-          "text": "Generates a random Duration within a specified closed range.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "random"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "in"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SN",
-          "text": "ClosedRange"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s8DurationV",
-          "text": "Duration"
-        },
-        {
-          "kind": "text",
-          "text": ">) -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s8DurationV",
-          "text": "Duration"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration/random(in:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "random(in:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift/duration/random(in:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/swift/duration/random(in:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/swift\/duration\/random(in:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Swift",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:s8DurationV",
+      "text" : "Duration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Duration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Duration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Duration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift\/duration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration/random(in:)": {
+  "abstract" : [
+    {
+      "text" : "Generates a random Duration within a specified closed range.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "random"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "in"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SN",
+      "text" : "ClosedRange"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s8DurationV",
+      "text" : "Duration"
+    },
+    {
+      "kind" : "text",
+      "text" : ">) -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s8DurationV",
+      "text" : "Duration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Duration\/random(in:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "random(in:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift\/duration\/random(in:)"
+}
+}
 }

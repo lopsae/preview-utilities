@@ -1,230 +1,233 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Modifies the format style to always capitalize.",
-      "type": "text"
+      "text" : "Modifies the format style to always capitalize.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle/capitalized"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle\/capitalized"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities25FirstCharacterFormatStyleV11capitalizedACvp",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities25FirstCharacterFormatStyleV11capitalizedACvp",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "var"
+        "kind" : "keyword",
+        "text" : "var"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "capitalized"
+        "kind" : "identifier",
+        "text" : "capitalized"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:16PreviewUtilities25FirstCharacterFormatStyleV",
-        "text": "FirstCharacterFormatStyle"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities25FirstCharacterFormatStyleV",
+        "text" : "FirstCharacterFormatStyle"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Instance Property",
-    "symbolKind": "property",
-    "title": "capitalized"
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "capitalized"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "var"
+              "kind" : "keyword",
+              "text" : "var"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "capitalized"
+              "kind" : "identifier",
+              "text" : "capitalized"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities25FirstCharacterFormatStyleV",
-              "text": "FirstCharacterFormatStyle"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities25FirstCharacterFormatStyleV",
+              "text" : "FirstCharacterFormatStyle"
             },
             {
-              "kind": "text",
-              "text": " { "
+              "kind" : "text",
+              "text" : " { "
             },
             {
-              "kind": "keyword",
-              "text": "get"
+              "kind" : "keyword",
+              "text" : "get"
             },
             {
-              "kind": "text",
-              "text": " }"
+              "kind" : "text",
+              "text" : " }"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "discussion",
-          "level": 2,
-          "text": "Discussion",
-          "type": "heading"
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
         },
         {
-          "code": [
-            "Text(\"black quartz\", format: .firstCharacter.capitalized) // Displays \"B\""
+          "code" : [
+            "Text(\"black quartz\", format: .firstCharacter.capitalized) \/\/ Displays \"B\""
           ],
-          "syntax": "swift",
-          "type": "codeListing"
+          "syntax" : "swift",
+          "type" : "codeListing"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the first character of a string, optionally capitalized.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "FirstCharacterFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "FirstCharacterFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "FirstCharacterFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/firstcharacterformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle/capitalized": {
-      "abstract": [
-        {
-          "text": "Modifies the format style to always capitalize.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "capitalized"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities25FirstCharacterFormatStyleV",
-          "text": "FirstCharacterFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle/capitalized",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "capitalized",
-      "type": "topic",
-      "url": "/documentation/previewutilities/firstcharacterformatstyle/capitalized"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/firstcharacterformatstyle/capitalized"
+      "paths" : [
+        "\/documentation\/previewutilities\/firstcharacterformatstyle\/capitalized"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the first character of a string, optionally capitalized.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "FirstCharacterFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FirstCharacterFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FirstCharacterFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/firstcharacterformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle/capitalized": {
+  "abstract" : [
+    {
+      "text" : "Modifies the format style to always capitalize.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "capitalized"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25FirstCharacterFormatStyleV",
+      "text" : "FirstCharacterFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle\/capitalized",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "capitalized",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/firstcharacterformatstyle\/capitalized"
+}
+}
 }

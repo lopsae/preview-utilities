@@ -1,491 +1,496 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities19IllustrationStorageV8filePath18droppingComponents09appendingH015folderMustExist13onImageStoredACSS_SiSaySSGSbySo10CGImageRefa_SStctKcfc",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19IllustrationStorageV8filePath18droppingComponents09appendingH015folderMustExist13onImageStoredACSS_SiSaySSGSbySo10CGImageRefa_SStctKcfc",
+    "fragments" : [
       {
-        "kind": "identifier",
-        "text": "init"
+        "kind" : "identifier",
+        "text" : "init"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "externalParam",
-        "text": "filePath"
+        "kind" : "externalParam",
+        "text" : "filePath"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:SS",
-        "text": "String"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
       },
       {
-        "kind": "text",
-        "text": ", "
+        "kind" : "text",
+        "text" : ", "
       },
       {
-        "kind": "externalParam",
-        "text": "droppingComponents"
+        "kind" : "externalParam",
+        "text" : "droppingComponents"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:Si",
-        "text": "Int"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Si",
+        "text" : "Int"
       },
       {
-        "kind": "text",
-        "text": ", "
+        "kind" : "text",
+        "text" : ", "
       },
       {
-        "kind": "externalParam",
-        "text": "appendingComponents"
+        "kind" : "externalParam",
+        "text" : "appendingComponents"
       },
       {
-        "kind": "text",
-        "text": ": ["
+        "kind" : "text",
+        "text" : ": ["
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:SS",
-        "text": "String"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
       },
       {
-        "kind": "text",
-        "text": "], "
+        "kind" : "text",
+        "text" : "], "
       },
       {
-        "kind": "externalParam",
-        "text": "folderMustExist"
+        "kind" : "externalParam",
+        "text" : "folderMustExist"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:Sb",
-        "text": "Bool"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sb",
+        "text" : "Bool"
       },
       {
-        "kind": "text",
-        "text": ", "
+        "kind" : "text",
+        "text" : ", "
       },
       {
-        "kind": "externalParam",
-        "text": "onImageStored"
+        "kind" : "externalParam",
+        "text" : "onImageStored"
       },
       {
-        "kind": "text",
-        "text": ": ("
+        "kind" : "text",
+        "text" : ": ("
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "c:@T@CGImageRef",
-        "text": "CGImage"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "c:@T@CGImageRef",
+        "text" : "CGImage"
       },
       {
-        "kind": "text",
-        "text": ", "
+        "kind" : "text",
+        "text" : ", "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:SS",
-        "text": "String"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
       },
       {
-        "kind": "text",
-        "text": ") -> "
+        "kind" : "text",
+        "text" : ") -> "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:s4Voida",
-        "text": "Void"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s4Voida",
+        "text" : "Void"
       },
       {
-        "kind": "text",
-        "text": ") "
+        "kind" : "text",
+        "text" : ") "
       },
       {
-        "kind": "keyword",
-        "text": "throws"
+        "kind" : "keyword",
+        "text" : "throws"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Initializer",
-    "symbolKind": "init",
-    "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "@"
+              "kind" : "attribute",
+              "text" : "@"
             },
             {
-              "kind": "attribute",
-              "preciseIdentifier": "s:ScM",
-              "text": "MainActor"
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "init"
+              "kind" : "keyword",
+              "text" : "init"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "filePath"
+              "kind" : "externalParam",
+              "text" : "filePath"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SS",
-              "text": "String"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "externalParam",
-              "text": "droppingComponents"
+              "kind" : "externalParam",
+              "text" : "droppingComponents"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:Si",
-              "text": "Int"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Si",
+              "text" : "Int"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "externalParam",
-              "text": "appendingComponents"
+              "kind" : "externalParam",
+              "text" : "appendingComponents"
             },
             {
-              "kind": "text",
-              "text": ": ["
+              "kind" : "text",
+              "text" : ": ["
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SS",
-              "text": "String"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
             },
             {
-              "kind": "text",
-              "text": "], "
+              "kind" : "text",
+              "text" : "], "
             },
             {
-              "kind": "externalParam",
-              "text": "folderMustExist"
+              "kind" : "externalParam",
+              "text" : "folderMustExist"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:Sb",
-              "text": "Bool"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sb",
+              "text" : "Bool"
             },
             {
-              "kind": "text",
-              "text": " = true, "
+              "kind" : "text",
+              "text" : " = true, "
             },
             {
-              "kind": "externalParam",
-              "text": "onImageStored"
+              "kind" : "externalParam",
+              "text" : "onImageStored"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "attribute",
-              "text": "@escaping "
+              "kind" : "attribute",
+              "text" : "@escaping "
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "c:@T@CGImageRef",
-              "text": "CGImage"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "c:@T@CGImageRef",
+              "text" : "CGImage"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SS",
-              "text": "String"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
             },
             {
-              "kind": "text",
-              "text": ") -> "
+              "kind" : "text",
+              "text" : ") -> "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:s4Voida",
-              "text": "Void"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s4Voida",
+              "text" : "Void"
             },
             {
-              "kind": "text",
-              "text": ") "
+              "kind" : "text",
+              "text" : ") "
             },
             {
-              "kind": "keyword",
-              "text": "throws"
+              "kind" : "keyword",
+              "text" : "throws"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage": {
-      "abstract": [
-        {
-          "text": "Utility structure to store documentation illustrations into a local folder.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IllustrationStorage"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IllustrationStorage"
-        }
-      ],
-      "role": "symbol",
-      "title": "IllustrationStorage",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "filePath"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "droppingComponents"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Si",
-          "text": "Int"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "appendingComponents"
-        },
-        {
-          "kind": "text",
-          "text": ": ["
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": "], "
-        },
-        {
-          "kind": "externalParam",
-          "text": "folderMustExist"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "onImageStored"
-        },
-        {
-          "kind": "text",
-          "text": ": ("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@T@CGImageRef",
-          "text": "CGImage"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s4Voida",
-          "text": "Void"
-        },
-        {
-          "kind": "text",
-          "text": ") "
-        },
-        {
-          "kind": "keyword",
-          "text": "throws"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/illustrationstorage\/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage": {
+  "abstract" : [
+    {
+      "text" : "Utility structure to store documentation illustrations into a local folder.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationStorage",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "filePath"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "droppingComponents"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "appendingComponents"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "], "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "folderMustExist"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "onImageStored"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@T@CGImageRef",
+      "text" : "CGImage"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s4Voida",
+      "text" : "Void"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
+}
+}
 }

@@ -1,791 +1,798 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Layers in front of this view a floating caption.",
-      "type": "text"
+      "text" : "Layers in front of this view a floating caption.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/floatingCaption(_:_:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "conformance": {
-      "availabilityPrefix": [
+  "kind" : "symbol",
+  "metadata" : {
+    "conformance" : {
+      "availabilityPrefix" : [
         {
-          "text": "Available when",
-          "type": "text"
+          "text" : "Available when",
+          "type" : "text"
         }
       ],
-      "conformancePrefix": [
+      "conformancePrefix" : [
         {
-          "text": "Conforms when",
-          "type": "text"
+          "text" : "Conforms when",
+          "type" : "text"
         }
       ],
-      "constraints": [
+      "constraints" : [
         {
-          "code": "Self",
-          "type": "codeVoice"
+          "code" : "Self",
+          "type" : "codeVoice"
         },
         {
-          "text": " is ",
-          "type": "text"
+          "text" : " is ",
+          "type" : "text"
         },
         {
-          "code": "View",
-          "type": "codeVoice"
+          "code" : "View",
+          "type" : "codeVoice"
         },
         {
-          "text": ".",
-          "type": "text"
+          "text" : ".",
+          "type" : "text"
         }
       ]
     },
-    "extendedModule": "SwiftUICore",
-    "externalID": "s:7SwiftUI4ViewP16PreviewUtilitiesE15floatingCaptionyQrAA18LocalizedStringKeyV_AD08FloatingG8ModifierV5TraitOdtF",
-    "fragments": [
+    "extendedModule" : "SwiftUICore",
+    "externalID" : "s:7SwiftUI4ViewP16PreviewUtilitiesE15floatingCaptionyQrAA18LocalizedStringKeyV_AD08FloatingG8ModifierV5TraitOdtF",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "func"
+        "kind" : "keyword",
+        "text" : "func"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "floatingCaption"
+        "kind" : "identifier",
+        "text" : "floatingCaption"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
-        "text": "LocalizedStringKey"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI18LocalizedStringKeyV",
+        "text" : "LocalizedStringKey"
       },
       {
-        "kind": "text",
-        "text": ", "
+        "kind" : "text",
+        "text" : ", "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-        "text": "FloatingCaptionModifier"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV",
+        "text" : "FloatingCaptionModifier"
       },
       {
-        "kind": "text",
-        "text": "."
+        "kind" : "text",
+        "text" : "."
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-        "text": "Trait"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+        "text" : "Trait"
       },
       {
-        "kind": "text",
-        "text": "...) -> "
+        "kind" : "text",
+        "text" : "...) -> "
       },
       {
-        "kind": "keyword",
-        "text": "some"
+        "kind" : "keyword",
+        "text" : "some"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:7SwiftUI4ViewP",
-        "text": "View"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI4ViewP",
+        "text" : "View"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "SwiftUICore"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Instance Method",
-    "symbolKind": "method",
-    "title": "floatingCaption(_:_:)"
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "floatingCaption(_:_:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "@"
+              "kind" : "attribute",
+              "text" : "@"
             },
             {
-              "kind": "attribute",
-              "preciseIdentifier": "s:ScM",
-              "text": "MainActor"
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "func"
+              "kind" : "keyword",
+              "text" : "func"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "floatingCaption"
+              "kind" : "identifier",
+              "text" : "floatingCaption"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "_"
+              "kind" : "externalParam",
+              "text" : "_"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "internalParam",
-              "text": "key"
+              "kind" : "internalParam",
+              "text" : "key"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
-              "text": "LocalizedStringKey"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI18LocalizedStringKeyV",
+              "text" : "LocalizedStringKey"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "externalParam",
-              "text": "_"
+              "kind" : "externalParam",
+              "text" : "_"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "internalParam",
-              "text": "traits"
+              "kind" : "internalParam",
+              "text" : "traits"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-              "text": "FloatingCaptionModifier"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV",
+              "text" : "FloatingCaptionModifier"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-              "text": "Trait"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier\/Trait",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+              "text" : "Trait"
             },
             {
-              "kind": "text",
-              "text": "...) -> "
+              "kind" : "text",
+              "text" : "...) -> "
             },
             {
-              "kind": "keyword",
-              "text": "some"
+              "kind" : "keyword",
+              "text" : "some"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:7SwiftUI4ViewP",
-              "text": "View"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI4ViewP",
+              "text" : "View"
             },
             {
-              "kind": "text",
-              "text": "\n"
+              "kind" : "text",
+              "text" : "\n"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "kind": "parameters",
-      "parameters": [
+      "kind" : "parameters",
+      "parameters" : [
         {
-          "content": [
+          "content" : [
             {
-              "inlineContent": [
+              "inlineContent" : [
                 {
-                  "text": "Localized string key to display.",
-                  "type": "text"
+                  "text" : "Localized string key to display.",
+                  "type" : "text"
                 }
               ],
-              "type": "paragraph"
+              "type" : "paragraph"
             }
           ],
-          "name": "key"
+          "name" : "key"
         },
         {
-          "content": [
+          "content" : [
             {
-              "inlineContent": [
+              "inlineContent" : [
                 {
-                  "text": "The traits to modify the floating caption.",
-                  "type": "text"
+                  "text" : "The traits to modify the floating caption.",
+                  "type" : "text"
                 }
               ],
-              "type": "paragraph"
+              "type" : "paragraph"
             }
           ],
-          "name": "traits"
+          "name" : "traits"
         }
       ]
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "return-value",
-          "level": 2,
-          "text": "Return Value",
-          "type": "heading"
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "A view with a floating caption as foreground.",
-              "type": "text"
+              "text" : "A view with a floating caption as foreground.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "discussion",
-          "level": 2,
-          "text": "Discussion",
-          "type": "heading"
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "Applies the ",
-              "type": "text"
+              "text" : "Applies the ",
+              "type" : "text"
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
-              "isActive": true,
-              "type": "reference"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
-              "text": ", overlaying a floating caption configured with the",
-              "type": "text"
+              "text" : ", overlaying a floating caption configured with the",
+              "type" : "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "text" : " ",
+              "type" : "text"
             },
             {
-              "text": "given ",
-              "type": "text"
+              "text" : "given ",
+              "type" : "text"
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
-              "isActive": true,
-              "type": "reference"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier\/Trait",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
-              "text": " instances.",
-              "type": "text"
+              "text" : " instances.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         },
         {
-          "code": [
+          "code" : [
             "Rectangle()",
             ".fill(.indigo.gradient)",
             ".frame(width: 80, height: 80)",
             ".floatingCaption(\"A Square Rectangle\", .height, .alignment(.outerTrailingTop))"
           ],
-          "syntax": "swift",
-          "type": "codeListing"
+          "syntax" : "swift",
+          "type" : "codeListing"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "identifier": "floating-caption-simple-traits",
-              "type": "image"
+              "identifier" : "floating-caption-simple-traits",
+              "type" : "image"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "The traits are applied in the order they are passed. Later traits may override earlier ones",
-              "type": "text"
+              "text" : "The traits are applied in the order they are passed. Later traits may override earlier ones",
+              "type" : "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "text" : " ",
+              "type" : "text"
             },
             {
-              "text": "depending on the configuration each trait modifies.",
-              "type": "text"
+              "text" : "depending on the configuration each trait modifies.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
-      "abstract": [
-        {
-          "text": "Overlays a floating caption aligned to a ",
-          "type": "text"
-        },
-        {
-          "code": "FloatingAlignment",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "FloatingCaptionModifier"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "FloatingCaptionModifier"
-        }
-      ],
-      "role": "symbol",
-      "title": "FloatingCaptionModifier",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait": {
-      "abstract": [
-        {
-          "text": "Customizations that can be applied to a ",
-          "type": "text"
-        },
-        {
-          "code": "FloatingCaptionModifier",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Trait"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Trait"
-        }
-      ],
-      "role": "symbol",
-      "title": "FloatingCaptionModifier.Trait",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "SwiftUICore",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:7SwiftUI4ViewP",
-          "text": "View"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "View"
-        }
-      ],
-      "role": "symbol",
-      "title": "View",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/view"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)": {
-      "abstract": [
-        {
-          "text": "Layers in front of this view a floating caption.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Self",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "View",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "floatingCaption"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
-          "text": "LocalizedStringKey"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-          "text": "FloatingCaptionModifier"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-          "text": "Trait"
-        },
-        {
-          "kind": "text",
-          "text": "...) -> "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4ViewP",
-          "text": "View"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "floatingCaption(_:_:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)": {
-      "abstract": [
-        {
-          "text": "Layers in front of this view a floating caption.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Self",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "View",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "floatingCaption"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI18LocalizedStringKeyV",
-          "text": "LocalizedStringKey"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "traits"
-        },
-        {
-          "kind": "text",
-          "text": ": ["
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-          "text": "FloatingCaptionModifier"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-          "text": "Trait"
-        },
-        {
-          "kind": "text",
-          "text": "]) -> "
-        },
-        {
-          "kind": "keyword",
-          "text": "some"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI4ViewP",
-          "text": "View"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "floatingCaption(_:traits:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:traits:)"
-    },
-    "floating-caption-simple-traits": {
-      "alt": "Floating caption with traits applied to a rectangle.",
-      "identifier": "floating-caption-simple-traits",
-      "type": "image",
-      "variants": [
-        {
-          "traits": [
-            "3x",
-            "light"
-          ],
-          "url": "/images/PreviewUtilities/floating-caption-simple-traits@3x.png"
-        },
-        {
-          "traits": [
-            "3x",
-            "dark"
-          ],
-          "url": "/images/PreviewUtilities/floating-caption-simple-traits~dark@3x.png"
-        }
-      ]
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "seeAlsoSections": [
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
     {
-      "anchor": "View-Extensions",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)"
+      "anchor" : "View-Extensions",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/floatingCaption(_:traits:)"
       ],
-      "title": "View Extensions"
+      "title" : "View Extensions"
     }
   ],
-  "variants": [
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/swiftuicore\/view\/floatingcaption(_:_:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a floating caption aligned to a ",
+      "type" : "text"
+    },
+    {
+      "code" : "FloatingAlignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "FloatingCaptionModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FloatingCaptionModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FloatingCaptionModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floatingcaptionmodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to a ",
+      "type" : "text"
+    },
+    {
+      "code" : "FloatingCaptionModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FloatingCaptionModifier.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floatingcaptionmodifier\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftUICore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "View"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "View",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:_:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view a floating caption.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "floatingCaption"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI18LocalizedStringKeyV",
+      "text" : "LocalizedStringKey"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV",
+      "text" : "FloatingCaptionModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+      "text" : "Trait"
+    },
+    {
+      "kind" : "text",
+      "text" : "...) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/floatingCaption(_:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "floatingCaption(_:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/floatingcaption(_:_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/floatingCaption(_:traits:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view a floating caption.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "floatingCaption"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI18LocalizedStringKeyV",
+      "text" : "LocalizedStringKey"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "traits"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV",
+      "text" : "FloatingCaptionModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+      "text" : "Trait"
+    },
+    {
+      "kind" : "text",
+      "text" : "]) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/floatingCaption(_:traits:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "floatingCaption(_:traits:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/floatingcaption(_:traits:)"
+},
+"floating-caption-simple-traits": {
+  "alt" : "Floating caption with traits applied to a rectangle.",
+  "identifier" : "floating-caption-simple-traits",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/floating-caption-simple-traits@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/floating-caption-simple-traits~dark@3x.png"
+    }
+  ]
+}
+}
 }

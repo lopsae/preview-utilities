@@ -1,194 +1,203 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Image"
   },
-  "kind": "symbol",
-  "metadata": {
-    "extendedModule": "SwiftUICore",
-    "externalID": "s:e:s:7SwiftUI5ImageV16PreviewUtilitiesE08PlatformC0a",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "SwiftUICore",
+    "externalID" : "s:e:s:7SwiftUI5ImageV16PreviewUtilitiesE08PlatformC0a",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "extension"
+        "kind" : "keyword",
+        "text" : "extension"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "preciseIdentifier": "s:7SwiftUI5ImageV",
-        "text": "Image"
+        "kind" : "identifier",
+        "preciseIdentifier" : "s:7SwiftUI5ImageV",
+        "text" : "Image"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "SwiftUICore"
         ]
       }
     ],
-    "navigatorTitle": [
+    "navigatorTitle" : [
       {
-        "kind": "identifier",
-        "text": "Image"
+        "kind" : "identifier",
+        "text" : "Image"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Extended Structure",
-    "symbolKind": "extension",
-    "title": "Image"
+    "role" : "symbol",
+    "roleHeading" : "Extended Structure",
+    "symbolKind" : "extension",
+    "title" : "Image"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "extension"
+              "kind" : "keyword",
+              "text" : "extension"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:7SwiftUI5ImageV",
-              "text": "Image"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI5ImageV",
+              "text" : "Image"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "SwiftUICore",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:7SwiftUI5ImageV",
-          "text": "Image"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Image"
-        }
-      ],
-      "role": "symbol",
-      "title": "Image",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/image"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image/PlatformImage": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "typealias"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PlatformImage"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image/PlatformImage",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PlatformImage"
-        }
-      ],
-      "role": "symbol",
-      "title": "Image.PlatformImage",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore/image/platformimage"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "topicSections": [
+  "sections" : [
+
+  ],
+  "topicSections" : [
     {
-      "anchor": "Type-Aliases",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image/PlatformImage"
+      "anchor" : "Type-Aliases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Image\/PlatformImage"
       ],
-      "title": "Type Aliases"
+      "title" : "Type Aliases"
     }
   ],
-  "variants": [
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/swiftuicore/image"
+      "paths" : [
+        "\/documentation\/previewutilities\/swiftuicore\/image"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftUICore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI5ImageV",
+      "text" : "Image"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Image",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Image"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Image",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/image"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image/PlatformImage": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "PlatformImage"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Image\/PlatformImage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "PlatformImage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Image.PlatformImage",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/image\/platformimage"
+}
+}
 }

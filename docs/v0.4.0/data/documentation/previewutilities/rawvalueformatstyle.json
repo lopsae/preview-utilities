@@ -1,900 +1,907 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "A format style that outputs the string raw value of a ",
-      "type": "text"
+      "text" : "A format style that outputs the string raw value of a ",
+      "type" : "text"
     },
     {
-      "code": "RawRepresentable",
-      "type": "codeVoice"
+      "code" : "RawRepresentable",
+      "type" : "codeVoice"
     },
     {
-      "text": ".",
-      "type": "text"
+      "text" : ".",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/RawValueFormatStyle"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities19RawValueFormatStyleV",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19RawValueFormatStyleV",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "struct"
+        "kind" : "keyword",
+        "text" : "struct"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "RawValueFormatStyle"
+        "kind" : "identifier",
+        "text" : "RawValueFormatStyle"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "navigatorTitle": [
+    "navigatorTitle" : [
       {
-        "kind": "identifier",
-        "text": "RawValueFormatStyle"
+        "kind" : "identifier",
+        "text" : "RawValueFormatStyle"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Structure",
-    "symbolKind": "struct",
-    "title": "RawValueFormatStyle"
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "RawValueFormatStyle"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "nonisolated"
+              "kind" : "attribute",
+              "text" : "nonisolated"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "struct"
+              "kind" : "keyword",
+              "text" : "struct"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "RawValueFormatStyle"
+              "kind" : "identifier",
+              "text" : "RawValueFormatStyle"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "genericParameter",
-              "text": "Value"
+              "kind" : "genericParameter",
+              "text" : "Value"
             },
             {
-              "kind": "text",
-              "text": "> "
+              "kind" : "text",
+              "text" : "> "
             },
             {
-              "kind": "keyword",
-              "text": "where"
+              "kind" : "keyword",
+              "text" : "where"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Value"
+              "kind" : "typeIdentifier",
+              "text" : "Value"
             },
             {
-              "kind": "text",
-              "text": " : "
+              "kind" : "text",
+              "text" : " : "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SY",
-              "text": "RawRepresentable"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SY",
+              "text" : "RawRepresentable"
             },
             {
-              "kind": "text",
-              "text": ", "
+              "kind" : "text",
+              "text" : ", "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Value"
+              "kind" : "typeIdentifier",
+              "text" : "Value"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SY8RawValueQa",
-              "text": "RawValue"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SY8RawValueQa",
+              "text" : "RawValue"
             },
             {
-              "kind": "text",
-              "text": " : "
+              "kind" : "text",
+              "text" : " : "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:Sy",
-              "text": "StringProtocol"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sy",
+              "text" : "StringProtocol"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "overview",
-          "level": 2,
-          "text": "Overview",
-          "type": "heading"
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "Use this format style through the ",
-              "type": "text"
+              "text" : "Use this format style through the ",
+              "type" : "text"
             },
             {
-              "code": "FormatStyle",
-              "type": "codeVoice"
+              "code" : "FormatStyle",
+              "type" : "codeVoice"
             },
             {
-              "text": " extension ",
-              "type": "text"
+              "text" : " extension ",
+              "type" : "text"
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()",
-              "isActive": true,
-              "type": "reference"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/rawValue()",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
-              "text": ":",
-              "type": "text"
+              "text" : ":",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         },
         {
-          "code": [
+          "code" : [
             "enum Quartz: String { case black, rose, amethyst }",
-            "Text(Quartz.rose, format: .rawValue()) // Displays \"rose\""
+            "Text(Quartz.rose, format: .rawValue()) \/\/ Displays \"rose\""
           ],
-          "syntax": "swift",
-          "type": "codeListing"
+          "syntax" : "swift",
+          "type" : "codeListing"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/10Foundation11FormatStyleP": {
-      "identifier": "doc://PreviewUtilities/10Foundation11FormatStyleP",
-      "title": "Foundation.FormatStyle",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/SE": {
-      "identifier": "doc://PreviewUtilities/SE",
-      "title": "Swift.Encodable",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/SH": {
-      "identifier": "doc://PreviewUtilities/SH",
-      "title": "Swift.Hashable",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/SQ": {
-      "identifier": "doc://PreviewUtilities/SQ",
-      "title": "Swift.Equatable",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/Se": {
-      "identifier": "doc://PreviewUtilities/Se",
-      "title": "Swift.Decodable",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/10Foundation11FormatStyleP",
+        "doc:\/\/PreviewUtilities\/Se",
+        "doc:\/\/PreviewUtilities\/SE",
+        "doc:\/\/PreviewUtilities\/SQ",
+        "doc:\/\/PreviewUtilities\/SH",
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP"
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs a capitalized string.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "CapitalizeFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "CapitalizeFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "CapitalizeFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/capitalizeformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that joins two format styles.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "CompositeFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "CompositeFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "CompositeFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/compositeformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the first character of a string, optionally capitalized.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "FirstCharacterFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "FirstCharacterFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "FirstCharacterFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/firstcharacterformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the first word of a string.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "FirstWordFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "FirstWordFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "FirstWordFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/firstwordformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()": {
-      "abstract": [
-        {
-          "text": "Returns a format style that outputs the string raw value of a ",
-          "type": "text"
-        },
-        {
-          "code": "RawRepresentable",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Self",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "FormatStyle",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "rawValue"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "genericParameter",
-          "text": "Value"
-        },
-        {
-          "kind": "text",
-          "text": ">() -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities19RawValueFormatStyleV",
-          "text": "RawValueFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Value"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "rawValue()",
-      "type": "topic",
-      "url": "/documentation/previewutilities/foundation/formatstyle/rawvalue()"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()": {
-      "abstract": [
-        {
-          "text": "Returns a format style that outputs the capitalized string raw value of a ",
-          "type": "text"
-        },
-        {
-          "code": "RawRepresentable",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Self",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "FormatStyle",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "rawValueCapitalized"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "genericParameter",
-          "text": "Value"
-        },
-        {
-          "kind": "text",
-          "text": ">() -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "rawValueCapitalized()",
-      "type": "topic",
-      "url": "/documentation/previewutilities/foundation/formatstyle/rawvaluecapitalized()"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that performs an identity transformation, returns the input as output with no",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "modifications.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IdentityFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IdentityFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "IdentityFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/identityformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the last word of a string.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "LastWordFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "LastWordFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "LastWordFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/lastwordformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs a string property retrieved through a key path.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PropertyFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PropertyFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "PropertyFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/propertyformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the string raw value of a ",
-          "type": "text"
-        },
-        {
-          "code": "RawRepresentable",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "RawValueFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "RawValueFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "RawValueFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/rawvalueformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "()"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init()",
-      "type": "topic",
-      "url": "/documentation/previewutilities/rawvalueformatstyle/init()"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "from"
-        },
-        {
-          "kind": "text",
-          "text": ": any "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s7DecoderP",
-          "text": "Decoder"
-        },
-        {
-          "kind": "text",
-          "text": ") "
-        },
-        {
-          "kind": "keyword",
-          "text": "throws"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(from:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/rawvalueformatstyle/init(from:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the string description of the input.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "StringDescriptionFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "StringDescriptionFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "StringDescriptionFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/stringdescriptionformatstyle"
-    },
-    "doc://PreviewUtilities/s16SendableMetatypeP": {
-      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
-      "title": "Swift.SendableMetatype",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/s8SendableP": {
-      "identifier": "doc://PreviewUtilities/s8SendableP",
-      "title": "Swift.Sendable",
-      "type": "unresolvable"
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
     }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "relationshipsSections": [
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
     {
-      "identifiers": [
-        "doc://PreviewUtilities/10Foundation11FormatStyleP",
-        "doc://PreviewUtilities/Se",
-        "doc://PreviewUtilities/SE",
-        "doc://PreviewUtilities/SQ",
-        "doc://PreviewUtilities/SH",
-        "doc://PreviewUtilities/s8SendableP",
-        "doc://PreviewUtilities/s16SendableMetatypeP"
+      "anchor" : "FormatStyle-Implementations",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IdentityFormatStyle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CapitalizeFormatStyle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstWordFormatStyle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/LastWordFormatStyle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StringDescriptionFormatStyle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PropertyFormatStyle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CompositeFormatStyle"
       ],
-      "kind": "relationships",
-      "title": "Conforms To",
-      "type": "conformsTo"
+      "title" : "FormatStyle Implementations"
     }
   ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "seeAlsoSections": [
+  "topicSections" : [
     {
-      "anchor": "FormatStyle-Implementations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle"
+      "anchor" : "FormatStyle-Extensions",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/rawValue()",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/rawValueCapitalized()"
       ],
-      "title": "FormatStyle Implementations"
-    }
-  ],
-  "topicSections": [
-    {
-      "anchor": "FormatStyle-Extensions",
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()"
-      ],
-      "title": "FormatStyle Extensions"
+      "title" : "FormatStyle Extensions"
     },
     {
-      "anchor": "Initializers",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)"
+      "anchor" : "Initializers",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/RawValueFormatStyle\/init()",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/RawValueFormatStyle\/init(from:)"
       ],
-      "title": "Initializers"
+      "title" : "Initializers"
     }
   ],
-  "variants": [
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/rawvalueformatstyle"
+      "paths" : [
+        "\/documentation\/previewutilities\/rawvalueformatstyle"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/10Foundation11FormatStyleP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/10Foundation11FormatStyleP",
+  "title" : "Foundation.FormatStyle",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/SE": {
+  "identifier" : "doc:\/\/PreviewUtilities\/SE",
+  "title" : "Swift.Encodable",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/SH": {
+  "identifier" : "doc:\/\/PreviewUtilities\/SH",
+  "title" : "Swift.Hashable",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/SQ": {
+  "identifier" : "doc:\/\/PreviewUtilities\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/Se": {
+  "identifier" : "doc:\/\/PreviewUtilities\/Se",
+  "title" : "Swift.Decodable",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs a capitalized string.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "CapitalizeFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CapitalizeFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CapitalizeFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CapitalizeFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/capitalizeformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CompositeFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that joins two format styles.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "CompositeFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CompositeFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CompositeFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CompositeFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/compositeformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the first character of a string, optionally capitalized.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "FirstCharacterFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FirstCharacterFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FirstCharacterFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/firstcharacterformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the first word of a string.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "FirstWordFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstWordFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FirstWordFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FirstWordFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/firstwordformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValue()": {
+  "abstract" : [
+    {
+      "text" : "Returns a format style that outputs the string raw value of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "RawRepresentable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "FormatStyle",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "rawValue"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "Value"
+    },
+    {
+      "kind" : "text",
+      "text" : ">() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities19RawValueFormatStyleV",
+      "text" : "RawValueFormatStyle"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Value"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/rawValue()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "rawValue()",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/foundation\/formatstyle\/rawvalue()"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/rawValueCapitalized()": {
+  "abstract" : [
+    {
+      "text" : "Returns a format style that outputs the capitalized string raw value of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "RawRepresentable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "FormatStyle",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "rawValueCapitalized"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "Value"
+    },
+    {
+      "kind" : "text",
+      "text" : ">() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/rawValueCapitalized()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "rawValueCapitalized()",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/foundation\/formatstyle\/rawvaluecapitalized()"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that performs an identity transformation, returns the input as output with no",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "modifications.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IdentityFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IdentityFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IdentityFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IdentityFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/identityformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the last word of a string.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "LastWordFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/LastWordFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "LastWordFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "LastWordFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/lastwordformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/PropertyFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs a string property retrieved through a key path.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "PropertyFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PropertyFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "PropertyFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "PropertyFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/propertyformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the string raw value of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "RawRepresentable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RawValueFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/RawValueFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RawValueFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "RawValueFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/rawvalueformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init()": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "()"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/RawValueFormatStyle\/init()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init()",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/rawvalueformatstyle\/init()"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/RawValueFormatStyle/init(from:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "from"
+    },
+    {
+      "kind" : "text",
+      "text" : ": any "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s7DecoderP",
+      "text" : "Decoder"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/RawValueFormatStyle\/init(from:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(from:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/rawvalueformatstyle\/init(from:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the string description of the input.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "StringDescriptionFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StringDescriptionFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "StringDescriptionFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "StringDescriptionFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/stringdescriptionformatstyle"
+},
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
 }

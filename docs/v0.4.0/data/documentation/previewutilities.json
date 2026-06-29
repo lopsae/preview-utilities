@@ -1,1653 +1,1686 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Utilities for SwiftUI previews.",
-      "type": "text"
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
-      []
+  "hierarchy" : {
+    "paths" : [
+      [
+
+      ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "PreviewUtilities",
-    "modules": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "PreviewUtilities",
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "collection",
-    "roleHeading": "Framework",
-    "symbolKind": "module",
-    "title": "PreviewUtilities"
+    "role" : "collection",
+    "roleHeading" : "Framework",
+    "symbolKind" : "module",
+    "title" : "PreviewUtilities"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "overview",
-          "level": 2,
-          "text": "Overview",
-          "type": "heading"
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "A collection of modifiers, views, extensions, and other utilities useful for building",
-              "type": "text"
+              "text" : "A collection of modifiers, views, extensions, and other utilities useful for building",
+              "type" : "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "text" : " ",
+              "type" : "text"
             },
             {
-              "text": "previews in SwiftUI.",
-              "type": "text"
+              "text" : "previews in SwiftUI.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         },
         {
-          "anchor": "Essentials",
-          "level": 3,
-          "text": "Essentials",
-          "type": "heading"
+          "anchor" : "Essentials",
+          "level" : 3,
+          "text" : "Essentials",
+          "type" : "heading"
         },
         {
-          "items": [
-            "doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api",
-            "doc://PreviewUtilities/documentation/PreviewUtilities/floating-caption-api",
-            "doc://PreviewUtilities/documentation/PreviewUtilities/floating-alignments-api",
-            "doc://PreviewUtilities/documentation/PreviewUtilities/format-styles-api"
+          "items" : [
+            "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+            "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
+            "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
+            "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
           ],
-          "style": "detailedGrid",
-          "type": "links"
+          "style" : "detailedGrid",
+          "type" : "links"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "cards-floating-caption.png": {
-      "alt": null,
-      "identifier": "cards-floating-caption.png",
-      "type": "image",
-      "variants": [
-        {
-          "traits": [
-            "3x",
-            "light"
-          ],
-          "url": "/images/PreviewUtilities/cards-floating-caption@3x.png"
-        },
-        {
-          "traits": [
-            "3x",
-            "dark"
-          ],
-          "url": "/images/PreviewUtilities/cards-floating-caption~dark@3x.png"
-        }
-      ]
-    },
-    "cards-format-styles.png": {
-      "alt": null,
-      "identifier": "cards-format-styles.png",
-      "type": "image",
-      "variants": [
-        {
-          "traits": [
-            "3x",
-            "light"
-          ],
-          "url": "/images/PreviewUtilities/cards-format-styles@3x.png"
-        },
-        {
-          "traits": [
-            "3x",
-            "dark"
-          ],
-          "url": "/images/PreviewUtilities/cards-format-styles~dark@3x.png"
-        }
-      ]
-    },
-    "debug-overlay-card.png": {
-      "alt": null,
-      "identifier": "debug-overlay-card.png",
-      "type": "image",
-      "variants": [
-        {
-          "traits": [
-            "3x",
-            "light"
-          ],
-          "url": "/images/PreviewUtilities/debug-overlay-card@3x.png"
-        },
-        {
-          "traits": [
-            "3x",
-            "dark"
-          ],
-          "url": "/images/PreviewUtilities/debug-overlay-card~dark@3x.png"
-        }
-      ]
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "AppKit",
-      "type": "topic",
-      "url": "/documentation/previewutilities/appkit"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle": {
-      "abstract": [
-        {
-          "text": "Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "CaptionRectangle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "CaptionRectangle"
-        }
-      ],
-      "role": "symbol",
-      "title": "CaptionRectangle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/captionrectangle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle": {
-      "abstract": [
-        {
-          "text": "Convenience view that contains an invisible rectangle framed to a given size.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ClearRectangle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ClearRectangle"
-        }
-      ],
-      "role": "symbol",
-      "title": "ClearRectangle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/clearrectangle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
-      "abstract": [
-        {
-          "text": "Nonisolated ImageGenerator with a ",
-          "type": "text"
-        },
-        {
-          "code": "@concurrent generateImage",
-          "type": "codeVoice"
-        },
-        {
-          "text": " function that will always be",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "called in the cooperative thread pool.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ConcurrentImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ConcurrentImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "ConcurrentImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/concurrentimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "CoreFoundation",
-      "type": "topic",
-      "url": "/documentation/previewutilities/corefoundation"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider": {
-      "abstract": [
-        {
-          "text": "A divider line with a dashed line style.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "DashedDivider"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "DashedDivider"
-        }
-      ],
-      "role": "symbol",
-      "title": "DashedDivider",
-      "type": "topic",
-      "url": "/documentation/previewutilities/dasheddivider"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Defaults": {
-      "abstract": [
-        {
-          "text": "Container of default values.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Defaults"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Defaults",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Defaults"
-        }
-      ],
-      "role": "symbol",
-      "title": "Defaults",
-      "type": "topic",
-      "url": "/documentation/previewutilities/defaults"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "DeveloperToolsSupport",
-      "type": "topic",
-      "url": "/documentation/previewutilities/developertoolssupport"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration": {
-      "abstract": [
-        {
-          "text": "Wraps content for rendering an illustration generated from a SwiftUI view body.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "DocumentationIllustration"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "DocumentationIllustration"
-        }
-      ],
-      "role": "symbol",
-      "title": "DocumentationIllustration",
-      "type": "topic",
-      "url": "/documentation/previewutilities/documentationillustration"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HeaderFooterContainer"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HeaderFooterContainer"
-        }
-      ],
-      "role": "symbol",
-      "title": "HeaderFooterContainer",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontainer"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HeaderFooterContainerOptions"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HeaderFooterContainerOptions"
-        }
-      ],
-      "role": "symbol",
-      "title": "HeaderFooterContainerOptions",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontaineroptions"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HeaderFooterContainerTrait"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HeaderFooterContainerTrait"
-        }
-      ],
-      "role": "symbol",
-      "title": "HeaderFooterContainerTrait",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontainertrait"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
-      "abstract": [
-        {
-          "text": "View that displays the given content overlaid on a parent view that is hidden.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HiddenParentOverlay"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HiddenParentOverlay"
-        }
-      ],
-      "role": "symbol",
-      "title": "HiddenParentOverlay",
-      "type": "topic",
-      "url": "/documentation/previewutilities/hiddenparentoverlay"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue": {
-      "abstract": [
-        {
-          "text": "Displays a value, along a history of previous values offset from the view.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HistoricValue"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HistoricValue"
-        }
-      ],
-      "role": "symbol",
-      "title": "HistoricValue",
-      "type": "topic",
-      "url": "/documentation/previewutilities/historicvalue"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase": {
-      "abstract": [
-        {
-          "text": "Protocol that provides a ",
-          "type": "text"
-        },
-        {
-          "code": "case",
-          "type": "codeVoice"
-        },
-        {
-          "text": " property to identify each case of an ",
-          "type": "text"
-        },
-        {
-          "code": "Enum",
-          "type": "codeVoice"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IdentifiableCase"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IdentifiableCase"
-        }
-      ],
-      "role": "symbol",
-      "title": "IdentifiableCase",
-      "type": "topic",
-      "url": "/documentation/previewutilities/identifiablecase"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer": {
-      "abstract": [
-        {
-          "text": "Renders SwiftUI views to PNG files for documentation illustrations.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IllustrationRenderer"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IllustrationRenderer"
-        }
-      ],
-      "role": "symbol",
-      "title": "IllustrationRenderer",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationrenderer"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage": {
-      "abstract": [
-        {
-          "text": "Utility structure to store documentation illustrations into a local folder.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IllustrationStorage"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IllustrationStorage"
-        }
-      ],
-      "role": "symbol",
-      "title": "IllustrationStorage",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorDefaults"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorDefaults"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorDefaults",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratordefaults"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorError"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorError"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorError",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorerror"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
-      "abstract": [
-        {
-          "text": "Protocol for all image generators. Provides functions to generate images along the thread",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "information where the image was generated.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorProtocol"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorProtocol"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorProtocol",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorprotocol"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorStore"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorStore"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorStore",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorstore"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection": {
-      "abstract": [
-        {
-          "text": "A collection view that pairs each index and element of an underlying collection.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IndexedCollection"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IndexedCollection"
-        }
-      ],
-      "role": "symbol",
-      "title": "IndexedCollection",
-      "type": "topic",
-      "url": "/documentation/previewutilities/indexedcollection"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "InsettableAlignment"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "InsettableAlignment"
-        }
-      ],
-      "role": "symbol",
-      "title": "InsettableAlignment",
-      "type": "topic",
-      "url": "/documentation/previewutilities/insettablealignment"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator": {
-      "abstract": [
-        {
-          "text": "Nonisolated ImageGenerator with a ",
-          "type": "text"
-        },
-        {
-          "code": "generateImage",
-          "type": "codeVoice"
-        },
-        {
-          "text": " isolated to MainActor.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "MainActorImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "MainActorImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "MainActorImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/mainactorimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator": {
-      "abstract": [
-        {
-          "text": "Nonisolated ImageGenerator with a ",
-          "type": "text"
-        },
-        {
-          "code": "nonisolated generateImage",
-          "type": "codeVoice"
-        },
-        {
-          "text": " function that will inherit the",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "isolation context of the caller.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "NonisolatedImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "NonisolatedImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "NonisolatedImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/nonisolatedimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption": {
-      "abstract": [
-        {
-          "text": "Caption with a background similar to the header and footer created by",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
-          "isActive": true,
-          "type": "reference"
-        },
-        {
-          "text": ". Intended to provide additional detail along a preview.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PreviewCaption"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PreviewCaption"
-        }
-      ],
-      "role": "symbol",
-      "title": "PreviewCaption",
-      "type": "topic",
-      "url": "/documentation/previewutilities/previewcaption"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce": {
-      "abstract": [
-        {
-          "text": "Experimental observable object to print a log message during the first request of views.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "PrintOnce"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "PrintOnce"
-        }
-      ],
-      "role": "symbol",
-      "title": "PrintOnce",
-      "type": "topic",
-      "url": "/documentation/previewutilities/printonce"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable": {
-      "abstract": [
-        {
-          "text": "Experimental protocol that provides a default implementation of ",
-          "type": "text"
-        },
-        {
-          "code": "Identifiable",
-          "type": "codeVoice"
-        },
-        {
-          "text": " by returning",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "itself.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "SelfIdentifiable"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SelfIdentifiable"
-        }
-      ],
-      "role": "symbol",
-      "title": "SelfIdentifiable",
-      "type": "topic",
-      "url": "/documentation/previewutilities/selfidentifiable"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Strings": {
-      "abstract": [
-        {
-          "text": "Container of convenience strings and utilities.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Strings"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Strings",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Strings"
-        }
-      ],
-      "role": "symbol",
-      "title": "Strings",
-      "type": "topic",
-      "url": "/documentation/previewutilities/strings"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "Swift",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "SwiftUI",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftui"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "SwiftUICore",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swiftuicore"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator": {
-      "abstract": [
-        {
-          "text": "Synchronous image generator. Can be instantiated to produce any number of images of a given",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "size, or used statically to produce the same images.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "SyncImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SyncImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "SyncImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/syncimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText": {
-      "abstract": [
-        {
-          "text": "Text with a tag. Used instead of the ",
-          "type": "text"
-        },
-        {
-          "code": ".tag",
-          "type": "codeVoice"
-        },
-        {
-          "text": " modifier when a concrete type is necessary.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "TaggedText"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "TaggedText"
-        }
-      ],
-      "role": "symbol",
-      "title": "TaggedText",
-      "type": "topic",
-      "url": "/documentation/previewutilities/taggedtext"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView": {
-      "abstract": [
-        {
-          "text": "View with a tag. Used instead of the ",
-          "type": "text"
-        },
-        {
-          "code": ".tag",
-          "type": "codeVoice"
-        },
-        {
-          "text": " modifier when a concrete type is necessary.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "TaggedView"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "TaggedView"
-        }
-      ],
-      "role": "symbol",
-      "title": "TaggedView",
-      "type": "topic",
-      "url": "/documentation/previewutilities/taggedview"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
-      "abstract": [
-        {
-          "text": "View that runs a task displaying content while task runs, and displaying different content when",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "the task completes.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "TaskView"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "TaskView"
-        }
-      ],
-      "role": "symbol",
-      "title": "TaskView",
-      "type": "topic",
-      "url": "/documentation/previewutilities/taskview"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ThreadInfo"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ThreadInfo"
-        }
-      ],
-      "role": "symbol",
-      "title": "ThreadInfo",
-      "type": "topic",
-      "url": "/documentation/previewutilities/threadinfo"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity": {
-      "abstract": [
-        {
-          "text": "View with an opacity modifier. Used instead of the ",
-          "type": "text"
-        },
-        {
-          "code": ".opacity",
-          "type": "codeVoice"
-        },
-        {
-          "text": " modifier when a concrete type is",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "necessary.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ViewWithOpacity"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ViewWithOpacity"
-        }
-      ],
-      "role": "symbol",
-      "title": "ViewWithOpacity",
-      "type": "topic",
-      "url": "/documentation/previewutilities/viewwithopacity"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer": {
-      "abstract": [
-        {
-          "text": "A visible spacer view that expands to all available space in an specific axis.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "VisibleSpacer"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "VisibleSpacer"
-        }
-      ],
-      "role": "symbol",
-      "title": "VisibleSpacer",
-      "type": "topic",
-      "url": "/documentation/previewutilities/visiblespacer"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api": {
-      "abstract": [
-        {
-          "text": "Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api",
-      "images": [
-        {
-          "identifier": "debug-overlay-card.png",
-          "type": "card"
-        }
-      ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Debug Overlay",
-      "type": "topic",
-      "url": "/documentation/previewutilities/debug-overlay-api"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/floating-alignments-api": {
-      "abstract": [
-        {
-          "text": "Alignment positions for floating content.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/floating-alignments-api",
-      "images": [
-        {
-          "identifier": "floating-alignment-card.png",
-          "type": "card"
-        }
-      ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Floating Alignments",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floating-alignments-api"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/floating-caption-api": {
-      "abstract": [
-        {
-          "text": "Add a floating caption, border, and size information to any view, without impacting its layout.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/floating-caption-api",
-      "images": [
-        {
-          "identifier": "cards-floating-caption.png",
-          "type": "card"
-        }
-      ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Floating Caption",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floating-caption-api"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/format-styles-api": {
-      "abstract": [
-        {
-          "text": "Implementations of ",
-          "type": "text"
-        },
-        {
-          "code": "FormatStyle",
-          "type": "codeVoice"
-        },
-        {
-          "text": " to transform data into an output type.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/format-styles-api",
-      "images": [
-        {
-          "identifier": "cards-format-styles.png",
-          "type": "card"
-        }
-      ],
-      "kind": "article",
-      "role": "collectionGroup",
-      "title": "Format Styles",
-      "type": "topic",
-      "url": "/documentation/previewutilities/format-styles-api"
-    },
-    "floating-alignment-card.png": {
-      "alt": null,
-      "identifier": "floating-alignment-card.png",
-      "type": "image",
-      "variants": [
-        {
-          "traits": [
-            "3x",
-            "light"
-          ],
-          "url": "/images/PreviewUtilities/floating-alignment-card@3x.png"
-        },
-        {
-          "traits": [
-            "3x",
-            "dark"
-          ],
-          "url": "/images/PreviewUtilities/floating-alignment-card~dark@3x.png"
-        }
-      ]
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "topicSections": [
+  "sections" : [
+
+  ],
+  "topicSections" : [
     {
-      "anchor": "Views",
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity"
+      "anchor" : "Views",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CaptionRectangle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ClearRectangle",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DashedDivider",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/VisibleSpacer",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaskView",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HiddenParentOverlay",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaggedText",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaggedView",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ViewWithOpacity"
       ],
-      "title": "Views"
+      "title" : "Views"
     },
     {
-      "anchor": "Image-Generation",
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo"
+      "anchor" : "Image-Generation",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/MainActorImageGenerator",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConcurrentImageGenerator",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/NonisolatedImageGenerator",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SyncImageGenerator",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorProtocol",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorError",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo"
       ],
-      "title": "Image Generation"
+      "title" : "Image Generation"
     },
     {
-      "anchor": "API-Collections",
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/floating-caption-api",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/floating-alignments-api",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/format-styles-api"
+      "anchor" : "API-Collections",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
       ],
-      "title": "API Collections"
+      "title" : "API Collections"
     },
     {
-      "anchor": "Classes",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce"
+      "anchor" : "Classes",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PrintOnce"
       ],
-      "title": "Classes"
+      "title" : "Classes"
     },
     {
-      "anchor": "Protocols",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable"
+      "anchor" : "Protocols",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IdentifiableCase",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SelfIdentifiable"
       ],
-      "title": "Protocols"
+      "title" : "Protocols"
     },
     {
-      "anchor": "Structures",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption"
+      "anchor" : "Structures",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainer",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerTrait",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IndexedCollection",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PreviewCaption"
       ],
-      "title": "Structures"
+      "title" : "Structures"
     },
     {
-      "anchor": "Enumerations",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Defaults",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Strings"
+      "anchor" : "Enumerations",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Defaults",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Strings"
       ],
-      "title": "Enumerations"
+      "title" : "Enumerations"
     },
     {
-      "anchor": "Extended-Modules",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore"
+      "anchor" : "Extended-Modules",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AppKit",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUI",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore"
       ],
-      "title": "Extended Modules"
+      "title" : "Extended Modules"
     }
   ],
-  "variants": [
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities"
+      "paths" : [
+        "\/documentation\/previewutilities"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"cards-floating-caption.png": {
+  "alt" : null,
+  "identifier" : "cards-floating-caption.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-floating-caption@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-floating-caption~dark@3x.png"
+    }
+  ]
+},
+"cards-format-styles.png": {
+  "alt" : null,
+  "identifier" : "cards-format-styles.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-format-styles@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-format-styles~dark@3x.png"
+    }
+  ]
+},
+"debug-overlay-card.png": {
+  "alt" : null,
+  "identifier" : "debug-overlay-card.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-overlay-card@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-overlay-card~dark@3x.png"
+    }
+  ]
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/AppKit": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AppKit",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "AppKit",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/appkit"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle": {
+  "abstract" : [
+    {
+      "text" : "Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "CaptionRectangle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CaptionRectangle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CaptionRectangle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CaptionRectangle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/captionrectangle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle": {
+  "abstract" : [
+    {
+      "text" : "Convenience view that contains an invisible rectangle framed to a given size.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ClearRectangle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ClearRectangle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ClearRectangle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ClearRectangle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/clearrectangle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Nonisolated ImageGenerator with a ",
+      "type" : "text"
+    },
+    {
+      "code" : "@concurrent generateImage",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " function that will always be",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "called in the cooperative thread pool.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ConcurrentImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConcurrentImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ConcurrentImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ConcurrentImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/concurrentimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "CoreFoundation",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider": {
+  "abstract" : [
+    {
+      "text" : "A divider line with a dashed line style.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DashedDivider"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DashedDivider",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DashedDivider"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DashedDivider",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/dasheddivider"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Defaults": {
+  "abstract" : [
+    {
+      "text" : "Container of default values.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Defaults"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Defaults",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Defaults"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Defaults",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/defaults"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "DeveloperToolsSupport",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/developertoolssupport"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration": {
+  "abstract" : [
+    {
+      "text" : "Wraps content for rendering an illustration generated from a SwiftUI view body.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DocumentationIllustration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DocumentationIllustration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DocumentationIllustration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainer": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HeaderFooterContainer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HeaderFooterContainer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HeaderFooterContainer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/headerfootercontainer"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HeaderFooterContainerOptions"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HeaderFooterContainerOptions"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HeaderFooterContainerOptions",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/headerfootercontaineroptions"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerTrait": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HeaderFooterContainerTrait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerTrait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HeaderFooterContainerTrait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HeaderFooterContainerTrait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/headerfootercontainertrait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
+  "abstract" : [
+    {
+      "text" : "View that displays the given content overlaid on a parent view that is hidden.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HiddenParentOverlay"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HiddenParentOverlay",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HiddenParentOverlay"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HiddenParentOverlay",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/hiddenparentoverlay"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue": {
+  "abstract" : [
+    {
+      "text" : "Displays a value, along a history of previous values offset from the view.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HistoricValue"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HistoricValue",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HistoricValue"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HistoricValue",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/historicvalue"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IdentifiableCase": {
+  "abstract" : [
+    {
+      "text" : "Protocol that provides a ",
+      "type" : "text"
+    },
+    {
+      "code" : "case",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " property to identify each case of an ",
+      "type" : "text"
+    },
+    {
+      "code" : "Enum",
+      "type" : "codeVoice"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IdentifiableCase"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IdentifiableCase",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IdentifiableCase"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IdentifiableCase",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/identifiablecase"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer": {
+  "abstract" : [
+    {
+      "text" : "Renders SwiftUI views to PNG files for documentation illustrations.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage": {
+  "abstract" : [
+    {
+      "text" : "Utility structure to store documentation illustrations into a local folder.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationStorage",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorDefaults"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorDefaults"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorDefaults",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratordefaults"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorError"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorError",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorError"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorError",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorerror"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
+  "abstract" : [
+    {
+      "text" : "Protocol for all image generators. Provides functions to generate images along the thread",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "information where the image was generated.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorProtocol"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorProtocol",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorProtocol"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorProtocol",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorprotocol"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorStore"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorStore"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorStore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorstore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IndexedCollection": {
+  "abstract" : [
+    {
+      "text" : "A collection view that pairs each index and element of an underlying collection.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IndexedCollection"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IndexedCollection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IndexedCollection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IndexedCollection",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/indexedcollection"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "InsettableAlignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "InsettableAlignment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "InsettableAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/insettablealignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Nonisolated ImageGenerator with a ",
+      "type" : "text"
+    },
+    {
+      "code" : "generateImage",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " isolated to MainActor.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "MainActorImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/MainActorImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "MainActorImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "MainActorImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/mainactorimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Nonisolated ImageGenerator with a ",
+      "type" : "text"
+    },
+    {
+      "code" : "nonisolated generateImage",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " function that will inherit the",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "isolation context of the caller.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "NonisolatedImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/NonisolatedImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "NonisolatedImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "NonisolatedImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/nonisolatedimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption": {
+  "abstract" : [
+    {
+      "text" : "Caption with a background similar to the header and footer created by",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainer",
+      "isActive" : true,
+      "type" : "reference"
+    },
+    {
+      "text" : ". Intended to provide additional detail along a preview.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "PreviewCaption"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PreviewCaption",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "PreviewCaption"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "PreviewCaption",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/previewcaption"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/PrintOnce": {
+  "abstract" : [
+    {
+      "text" : "Experimental observable object to print a log message during the first request of views.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "PrintOnce"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PrintOnce",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "PrintOnce"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "PrintOnce",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/printonce"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SelfIdentifiable": {
+  "abstract" : [
+    {
+      "text" : "Experimental protocol that provides a default implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "Identifiable",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " by returning",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "itself.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "SelfIdentifiable"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SelfIdentifiable",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "SelfIdentifiable"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "SelfIdentifiable",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/selfidentifiable"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Strings": {
+  "abstract" : [
+    {
+      "text" : "Container of convenience strings and utilities.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Strings"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Strings",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Strings"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Strings",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/strings"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Swift",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUI": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUI",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftUI",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftui"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftUICore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Synchronous image generator. Can be instantiated to produce any number of images of a given",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "size, or used statically to produce the same images.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "SyncImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SyncImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "SyncImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "SyncImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/syncimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText": {
+  "abstract" : [
+    {
+      "text" : "Text with a tag. Used instead of the ",
+      "type" : "text"
+    },
+    {
+      "code" : ".tag",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " modifier when a concrete type is necessary.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TaggedText"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaggedText",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TaggedText"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TaggedText",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/taggedtext"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView": {
+  "abstract" : [
+    {
+      "text" : "View with a tag. Used instead of the ",
+      "type" : "text"
+    },
+    {
+      "code" : ".tag",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " modifier when a concrete type is necessary.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TaggedView"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaggedView",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TaggedView"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TaggedView",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/taggedview"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
+  "abstract" : [
+    {
+      "text" : "View that runs a task displaying content while task runs, and displaying different content when",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "the task completes.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TaskView"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TaskView",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TaskView"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TaskView",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/taskview"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ThreadInfo"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ThreadInfo"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ThreadInfo",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/threadinfo"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity": {
+  "abstract" : [
+    {
+      "text" : "View with an opacity modifier. Used instead of the ",
+      "type" : "text"
+    },
+    {
+      "code" : ".opacity",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " modifier when a concrete type is",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "necessary.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ViewWithOpacity"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ViewWithOpacity",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ViewWithOpacity"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ViewWithOpacity",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/viewwithopacity"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer": {
+  "abstract" : [
+    {
+      "text" : "A visible spacer view that expands to all available space in an specific axis.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "VisibleSpacer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/VisibleSpacer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "VisibleSpacer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "VisibleSpacer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/visiblespacer"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api": {
+  "abstract" : [
+    {
+      "text" : "Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+  "images" : [
+    {
+      "identifier" : "debug-overlay-card.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Debug Overlay",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debug-overlay-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/floating-alignments-api": {
+  "abstract" : [
+    {
+      "text" : "Alignment positions for floating content.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
+  "images" : [
+    {
+      "identifier" : "floating-alignment-card.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Floating Alignments",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floating-alignments-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/floating-caption-api": {
+  "abstract" : [
+    {
+      "text" : "Add a floating caption, border, and size information to any view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
+  "images" : [
+    {
+      "identifier" : "cards-floating-caption.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Floating Caption",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floating-caption-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/format-styles-api": {
+  "abstract" : [
+    {
+      "text" : "Implementations of ",
+      "type" : "text"
+    },
+    {
+      "code" : "FormatStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " to transform data into an output type.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api",
+  "images" : [
+    {
+      "identifier" : "cards-format-styles.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Format Styles",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/format-styles-api"
+},
+"floating-alignment-card.png": {
+  "alt" : null,
+  "identifier" : "floating-alignment-card.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/floating-alignment-card@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/floating-alignment-card~dark@3x.png"
+    }
+  ]
+}
+}
 }

@@ -1,242 +1,247 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Returns the number and name of the thread for display, with the number first.",
-      "type": "text"
+      "text" : "Returns the number and name of the thread for display, with the number first.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo/numberLeadingDisplayName"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo\/numberLeadingDisplayName"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities10ThreadInfoV24numberLeadingDisplayNameSSvp",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities10ThreadInfoV24numberLeadingDisplayNameSSvp",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "var"
+        "kind" : "keyword",
+        "text" : "var"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "numberLeadingDisplayName"
+        "kind" : "identifier",
+        "text" : "numberLeadingDisplayName"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:SS",
-        "text": "String"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Instance Property",
-    "symbolKind": "property",
-    "title": "numberLeadingDisplayName"
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "numberLeadingDisplayName"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "var"
+              "kind" : "keyword",
+              "text" : "var"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "numberLeadingDisplayName"
+              "kind" : "identifier",
+              "text" : "numberLeadingDisplayName"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SS",
-              "text": "String"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
             },
             {
-              "kind": "text",
-              "text": " { "
+              "kind" : "text",
+              "text" : " { "
             },
             {
-              "kind": "keyword",
-              "text": "get"
+              "kind" : "keyword",
+              "text" : "get"
             },
             {
-              "kind": "text",
-              "text": " }"
+              "kind" : "text",
+              "text" : " }"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "discussion",
-          "level": 2,
-          "text": "Discussion",
-          "type": "heading"
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "E.g.: ",
-              "type": "text"
+              "text" : "E.g.: ",
+              "type" : "text"
             },
             {
-              "code": "1 Main",
-              "type": "codeVoice"
+              "code" : "1 Main",
+              "type" : "codeVoice"
             },
             {
-              "text": " or ",
-              "type": "text"
+              "text" : " or ",
+              "type" : "text"
             },
             {
-              "code": "7 Background",
-              "type": "codeVoice"
+              "code" : "7 Background",
+              "type" : "codeVoice"
             },
             {
-              "text": ".",
-              "type": "text"
+              "text" : ".",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ThreadInfo"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ThreadInfo"
-        }
-      ],
-      "role": "symbol",
-      "title": "ThreadInfo",
-      "type": "topic",
-      "url": "/documentation/previewutilities/threadinfo"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo/numberLeadingDisplayName": {
-      "abstract": [
-        {
-          "text": "Returns the number and name of the thread for display, with the number first.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "numberLeadingDisplayName"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo/numberLeadingDisplayName",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "numberLeadingDisplayName",
-      "type": "topic",
-      "url": "/documentation/previewutilities/threadinfo/numberleadingdisplayname"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/threadinfo/numberleadingdisplayname"
+      "paths" : [
+        "\/documentation\/previewutilities\/threadinfo\/numberleadingdisplayname"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ThreadInfo"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ThreadInfo"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ThreadInfo",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/threadinfo"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo/numberLeadingDisplayName": {
+  "abstract" : [
+    {
+      "text" : "Returns the number and name of the thread for display, with the number first.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "numberLeadingDisplayName"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo\/numberLeadingDisplayName",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "numberLeadingDisplayName",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/threadinfo\/numberleadingdisplayname"
+}
+}
 }

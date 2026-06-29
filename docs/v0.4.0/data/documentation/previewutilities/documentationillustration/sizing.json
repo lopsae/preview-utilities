@@ -1,367 +1,370 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Size in points of a documentation illustration.",
-      "type": "text"
+      "text" : "Size in points of a documentation illustration.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing"
   },
-  "kind": "symbol",
-  "metadata": {
-    "extendedModule": "PreviewUtilities",
-    "externalID": "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "PreviewUtilities",
+    "externalID" : "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "struct"
+        "kind" : "keyword",
+        "text" : "struct"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "Sizing"
+        "kind" : "identifier",
+        "text" : "Sizing"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "navigatorTitle": [
+    "navigatorTitle" : [
       {
-        "kind": "identifier",
-        "text": "Sizing"
+        "kind" : "identifier",
+        "text" : "Sizing"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Structure",
-    "symbolKind": "struct",
-    "title": "DocumentationIllustration.Sizing"
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "DocumentationIllustration.Sizing"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "struct"
+              "kind" : "keyword",
+              "text" : "struct"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "Sizing"
+              "kind" : "identifier",
+              "text" : "Sizing"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "overview",
-          "level": 2,
-          "text": "Overview",
-          "type": "heading"
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "This structure contains static members with the recommended sizes for illustrations, like",
-              "type": "text"
+              "text" : "This structure contains static members with the recommended sizes for illustrations, like",
+              "type" : "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "text" : " ",
+              "type" : "text"
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular",
-              "isActive": true,
-              "type": "reference"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/regular",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
-              "text": " or ",
-              "type": "text"
+              "text" : " or ",
+              "type" : "text"
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/card",
-              "isActive": true,
-              "type": "reference"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/card",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
-              "text": ".",
-              "type": "text"
+              "text" : ".",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP"
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration": {
-      "abstract": [
-        {
-          "text": "Wraps content for rendering an illustration generated from a SwiftUI view body.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "DocumentationIllustration"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "DocumentationIllustration"
-        }
-      ],
-      "role": "symbol",
-      "title": "DocumentationIllustration",
-      "type": "topic",
-      "url": "/documentation/previewutilities/documentationillustration"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing": {
-      "abstract": [
-        {
-          "text": "Size in points of a documentation illustration.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Sizing"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Sizing"
-        }
-      ],
-      "role": "symbol",
-      "title": "DocumentationIllustration.Sizing",
-      "type": "topic",
-      "url": "/documentation/previewutilities/documentationillustration/sizing"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/card": {
-      "abstract": [
-        {
-          "text": "Size for card illustrations.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "card"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
-          "text": "DocumentationIllustration"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
-          "text": "Sizing"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/card",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "card",
-      "type": "topic",
-      "url": "/documentation/previewutilities/documentationillustration/sizing/card"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular": {
-      "abstract": [
-        {
-          "text": "Regular size for snippet illustrations",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "regular"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
-          "text": "DocumentationIllustration"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
-          "text": "Sizing"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "regular",
-      "type": "topic",
-      "url": "/documentation/previewutilities/documentationillustration/sizing/regular"
-    },
-    "doc://PreviewUtilities/s16SendableMetatypeP": {
-      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
-      "title": "Swift.SendableMetatype",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/s8SendableP": {
-      "identifier": "doc://PreviewUtilities/s8SendableP",
-      "title": "Swift.Sendable",
-      "type": "unresolvable"
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
     }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "relationshipsSections": [
+  "sections" : [
+
+  ],
+  "topicSections" : [
     {
-      "identifiers": [
-        "doc://PreviewUtilities/s8SendableP",
-        "doc://PreviewUtilities/s16SendableMetatypeP"
+      "anchor" : "Type-Properties",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/card",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/regular"
       ],
-      "kind": "relationships",
-      "title": "Conforms To",
-      "type": "conformsTo"
+      "title" : "Type Properties"
     }
   ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "topicSections": [
+  "variants" : [
     {
-      "anchor": "Type-Properties",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/card",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular"
+      "paths" : [
+        "\/documentation\/previewutilities\/documentationillustration\/sizing"
       ],
-      "title": "Type Properties"
-    }
-  ],
-  "variants": [
-    {
-      "paths": [
-        "/documentation/previewutilities/documentationillustration/sizing"
-      ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration": {
+  "abstract" : [
+    {
+      "text" : "Wraps content for rendering an illustration generated from a SwiftUI view body.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DocumentationIllustration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DocumentationIllustration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DocumentationIllustration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing": {
+  "abstract" : [
+    {
+      "text" : "Size in points of a documentation illustration.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Sizing"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Sizing"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DocumentationIllustration.Sizing",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/card": {
+  "abstract" : [
+    {
+      "text" : "Size for card illustrations.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "card"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
+      "text" : "Sizing"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/card",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "card",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/card"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular": {
+  "abstract" : [
+    {
+      "text" : "Regular size for snippet illustrations",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "regular"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
+      "text" : "Sizing"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/regular",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "regular",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/regular"
+},
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
 }

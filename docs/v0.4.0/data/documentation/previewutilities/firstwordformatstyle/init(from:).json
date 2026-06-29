@@ -1,234 +1,239 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Inherited from ",
-      "type": "text"
+      "text" : "Inherited from ",
+      "type" : "text"
     },
     {
-      "code": "Decodable.init(from:)",
-      "type": "codeVoice"
+      "code" : "Decodable.init(from:)",
+      "type" : "codeVoice"
     },
     {
-      "text": ".",
-      "type": "text"
+      "text" : ".",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstWordFormatStyle"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle/init(from:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstWordFormatStyle\/init(from:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities20FirstWordFormatStyleV4fromACs7Decoder_p_tKcfc",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities20FirstWordFormatStyleV4fromACs7Decoder_p_tKcfc",
+    "fragments" : [
       {
-        "kind": "identifier",
-        "text": "init"
+        "kind" : "identifier",
+        "text" : "init"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "externalParam",
-        "text": "from"
+        "kind" : "externalParam",
+        "text" : "from"
       },
       {
-        "kind": "text",
-        "text": ": any "
+        "kind" : "text",
+        "text" : ": any "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:s7DecoderP",
-        "text": "Decoder"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s7DecoderP",
+        "text" : "Decoder"
       },
       {
-        "kind": "text",
-        "text": ") "
+        "kind" : "text",
+        "text" : ") "
       },
       {
-        "kind": "keyword",
-        "text": "throws"
+        "kind" : "keyword",
+        "text" : "throws"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Initializer",
-    "symbolKind": "init",
-    "title": "init(from:)"
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init(from:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "init"
+              "kind" : "keyword",
+              "text" : "init"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "from"
+              "kind" : "externalParam",
+              "text" : "from"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "internalParam",
-              "text": "decoder"
+              "kind" : "internalParam",
+              "text" : "decoder"
             },
             {
-              "kind": "text",
-              "text": ": any "
+              "kind" : "text",
+              "text" : ": any "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:s7DecoderP",
-              "text": "Decoder"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s7DecoderP",
+              "text" : "Decoder"
             },
             {
-              "kind": "text",
-              "text": ") "
+              "kind" : "text",
+              "text" : ") "
             },
             {
-              "kind": "keyword",
-              "text": "throws"
+              "kind" : "keyword",
+              "text" : "throws"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the first word of a string.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "FirstWordFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "FirstWordFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "FirstWordFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/firstwordformatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle/init(from:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "from"
-        },
-        {
-          "kind": "text",
-          "text": ": any "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s7DecoderP",
-          "text": "Decoder"
-        },
-        {
-          "kind": "text",
-          "text": ") "
-        },
-        {
-          "kind": "keyword",
-          "text": "throws"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle/init(from:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(from:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/firstwordformatstyle/init(from:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/firstwordformatstyle/init(from:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/firstwordformatstyle\/init(from:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the first word of a string.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "FirstWordFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstWordFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FirstWordFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FirstWordFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/firstwordformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FirstWordFormatStyle/init(from:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "from"
+    },
+    {
+      "kind" : "text",
+      "text" : ": any "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s7DecoderP",
+      "text" : "Decoder"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstWordFormatStyle\/init(from:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(from:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/firstwordformatstyle\/init(from:)"
+}
+}
 }

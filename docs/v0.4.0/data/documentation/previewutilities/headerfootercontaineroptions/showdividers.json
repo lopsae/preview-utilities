@@ -1,208 +1,215 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions\/showDividers"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities28HeaderFooterContainerOptionsV12showDividersACvpZ",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities28HeaderFooterContainerOptionsV12showDividersACvpZ",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "static"
+        "kind" : "keyword",
+        "text" : "static"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "keyword",
-        "text": "let"
+        "kind" : "keyword",
+        "text" : "let"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "showDividers"
+        "kind" : "identifier",
+        "text" : "showDividers"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
-        "text": "HeaderFooterContainerOptions"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+        "text" : "HeaderFooterContainerOptions"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Property",
-    "symbolKind": "property",
-    "title": "showDividers"
+    "role" : "symbol",
+    "roleHeading" : "Type Property",
+    "symbolKind" : "property",
+    "title" : "showDividers"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "static"
+              "kind" : "keyword",
+              "text" : "static"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "let"
+              "kind" : "keyword",
+              "text" : "let"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "showDividers"
+              "kind" : "identifier",
+              "text" : "showDividers"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
-              "text": "HeaderFooterContainerOptions"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+              "text" : "HeaderFooterContainerOptions"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "HeaderFooterContainerOptions"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "HeaderFooterContainerOptions"
-        }
-      ],
-      "role": "symbol",
-      "title": "HeaderFooterContainerOptions",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontaineroptions"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "showDividers"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
-          "text": "HeaderFooterContainerOptions"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "showDividers",
-      "type": "topic",
-      "url": "/documentation/previewutilities/headerfootercontaineroptions/showdividers"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/headerfootercontaineroptions/showdividers"
+      "paths" : [
+        "\/documentation\/previewutilities\/headerfootercontaineroptions\/showdividers"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "HeaderFooterContainerOptions"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HeaderFooterContainerOptions"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HeaderFooterContainerOptions",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/headerfootercontaineroptions"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/HeaderFooterContainerOptions/showDividers": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "showDividers"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities28HeaderFooterContainerOptionsV",
+      "text" : "HeaderFooterContainerOptions"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions\/showDividers",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "showDividers",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/headerfootercontaineroptions\/showdividers"
+}
+}
 }

@@ -1,291 +1,294 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Applies the associated traits.",
-      "type": "text"
+      "text" : "Applies the associated traits.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier\/Trait"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/traits(_:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier\/Trait\/traits(_:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO6traitsyAESayAEGcAEmF",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO6traitsyAESayAEGcAEmF",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "case"
+        "kind" : "keyword",
+        "text" : "case"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "traits"
+        "kind" : "identifier",
+        "text" : "traits"
       },
       {
-        "kind": "text",
-        "text": "(["
+        "kind" : "text",
+        "text" : "(["
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-        "text": "FloatingCaptionModifier"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV",
+        "text" : "FloatingCaptionModifier"
       },
       {
-        "kind": "text",
-        "text": "."
+        "kind" : "text",
+        "text" : "."
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-        "text": "Trait"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+        "text" : "Trait"
       },
       {
-        "kind": "text",
-        "text": "])"
+        "kind" : "text",
+        "text" : "])"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Case",
-    "symbolKind": "case",
-    "title": "FloatingCaptionModifier.Trait.traits(_:)"
+    "role" : "symbol",
+    "roleHeading" : "Case",
+    "symbolKind" : "case",
+    "title" : "FloatingCaptionModifier.Trait.traits(_:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "case"
+              "kind" : "keyword",
+              "text" : "case"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "traits"
+              "kind" : "identifier",
+              "text" : "traits"
             },
             {
-              "kind": "text",
-              "text": "(["
+              "kind" : "text",
+              "text" : "(["
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-              "text": "FloatingCaptionModifier"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV",
+              "text" : "FloatingCaptionModifier"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-              "text": "Trait"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier\/Trait",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+              "text" : "Trait"
             },
             {
-              "kind": "text",
-              "text": "])"
+              "kind" : "text",
+              "text" : "])"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
-      "abstract": [
-        {
-          "text": "Overlays a floating caption aligned to a ",
-          "type": "text"
-        },
-        {
-          "code": "FloatingAlignment",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "FloatingCaptionModifier"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "FloatingCaptionModifier"
-        }
-      ],
-      "role": "symbol",
-      "title": "FloatingCaptionModifier",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait": {
-      "abstract": [
-        {
-          "text": "Customizations that can be applied to a ",
-          "type": "text"
-        },
-        {
-          "code": "FloatingCaptionModifier",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "Trait"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Trait"
-        }
-      ],
-      "role": "symbol",
-      "title": "FloatingCaptionModifier.Trait",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/traits(_:)": {
-      "abstract": [
-        {
-          "text": "Applies the associated traits.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "case"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "traits"
-        },
-        {
-          "kind": "text",
-          "text": "(["
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV",
-          "text": "FloatingCaptionModifier"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
-          "text": "Trait"
-        },
-        {
-          "kind": "text",
-          "text": "])"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/traits(_:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "FloatingCaptionModifier.Trait.traits(_:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/floatingcaptionmodifier/trait/traits(_:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/floatingcaptionmodifier/trait/traits(_:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/floatingcaptionmodifier\/trait\/traits(_:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a floating caption aligned to a ",
+      "type" : "text"
+    },
+    {
+      "code" : "FloatingAlignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "FloatingCaptionModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FloatingCaptionModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FloatingCaptionModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floatingcaptionmodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to a ",
+      "type" : "text"
+    },
+    {
+      "code" : "FloatingCaptionModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FloatingCaptionModifier.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floatingcaptionmodifier\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/traits(_:)": {
+  "abstract" : [
+    {
+      "text" : "Applies the associated traits.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "traits"
+    },
+    {
+      "kind" : "text",
+      "text" : "(["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV",
+      "text" : "FloatingCaptionModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities23FloatingCaptionModifierV5TraitO",
+      "text" : "Trait"
+    },
+    {
+      "kind" : "text",
+      "text" : "])"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingCaptionModifier\/Trait\/traits(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "FloatingCaptionModifier.Trait.traits(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floatingcaptionmodifier\/trait\/traits(_:)"
+}
+}
 }

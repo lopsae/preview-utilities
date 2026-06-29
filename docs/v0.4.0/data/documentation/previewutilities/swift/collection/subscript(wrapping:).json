@@ -1,380 +1,387 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Returns the element at the given distance from the start index, wrapping around through a",
-      "type": "text"
+      "text" : "Returns the element at the given distance from the start index, wrapping around through a",
+      "type" : "text"
     },
     {
-      "text": " ",
-      "type": "text"
+      "text" : " ",
+      "type" : "text"
     },
     {
-      "text": "modulo operation if the distance is greated that number of elements in the collection.",
-      "type": "text"
+      "text" : "modulo operation if the distance is greated that number of elements in the collection.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Collection"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection/subscript(wrapping:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Collection\/subscript(wrapping:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "conformance": {
-      "availabilityPrefix": [
+  "kind" : "symbol",
+  "metadata" : {
+    "conformance" : {
+      "availabilityPrefix" : [
         {
-          "text": "Available when",
-          "type": "text"
+          "text" : "Available when",
+          "type" : "text"
         }
       ],
-      "conformancePrefix": [
+      "conformancePrefix" : [
         {
-          "text": "Conforms when",
-          "type": "text"
+          "text" : "Conforms when",
+          "type" : "text"
         }
       ],
-      "constraints": [
+      "constraints" : [
         {
-          "code": "Self",
-          "type": "codeVoice"
+          "code" : "Self",
+          "type" : "codeVoice"
         },
         {
-          "text": " is ",
-          "type": "text"
+          "text" : " is ",
+          "type" : "text"
         },
         {
-          "code": "Collection",
-          "type": "codeVoice"
+          "code" : "Collection",
+          "type" : "codeVoice"
         },
         {
-          "text": ".",
-          "type": "text"
+          "text" : ".",
+          "type" : "text"
         }
       ]
     },
-    "extendedModule": "Swift",
-    "externalID": "s:Sl16PreviewUtilitiesE8wrapping7ElementQzSi_tcip",
-    "fragments": [
+    "extendedModule" : "Swift",
+    "externalID" : "s:Sl16PreviewUtilitiesE8wrapping7ElementQzSi_tcip",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "subscript"
+        "kind" : "keyword",
+        "text" : "subscript"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "externalParam",
-        "text": "wrapping"
+        "kind" : "externalParam",
+        "text" : "wrapping"
       },
       {
-        "kind": "text",
-        "text": " _: "
+        "kind" : "text",
+        "text" : " _: "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:Si",
-        "text": "Int"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Si",
+        "text" : "Int"
       },
       {
-        "kind": "text",
-        "text": ") -> "
+        "kind" : "text",
+        "text" : ") -> "
       },
       {
-        "kind": "typeIdentifier",
-        "text": "Self"
+        "kind" : "typeIdentifier",
+        "text" : "Self"
       },
       {
-        "kind": "text",
-        "text": "."
+        "kind" : "text",
+        "text" : "."
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:ST7ElementQa",
-        "text": "Element"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:ST7ElementQa",
+        "text" : "Element"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "Swift"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Instance Subscript",
-    "symbolKind": "subscript",
-    "title": "subscript(wrapping:)"
+    "role" : "symbol",
+    "roleHeading" : "Instance Subscript",
+    "symbolKind" : "subscript",
+    "title" : "subscript(wrapping:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "subscript"
+              "kind" : "keyword",
+              "text" : "subscript"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "wrapping"
+              "kind" : "externalParam",
+              "text" : "wrapping"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "internalParam",
-              "text": "wrappingDistance"
+              "kind" : "internalParam",
+              "text" : "wrappingDistance"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:Si",
-              "text": "Int"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Si",
+              "text" : "Int"
             },
             {
-              "kind": "text",
-              "text": ") -> "
+              "kind" : "text",
+              "text" : ") -> "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Self"
+              "kind" : "typeIdentifier",
+              "text" : "Self"
             },
             {
-              "kind": "text",
-              "text": "."
+              "kind" : "text",
+              "text" : "."
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:ST7ElementQa",
-              "text": "Element"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:ST7ElementQa",
+              "text" : "Element"
             },
             {
-              "kind": "text",
-              "text": " { "
+              "kind" : "text",
+              "text" : " { "
             },
             {
-              "kind": "keyword",
-              "text": "get"
+              "kind" : "keyword",
+              "text" : "get"
             },
             {
-              "kind": "text",
-              "text": " }"
+              "kind" : "text",
+              "text" : " }"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "overview",
-          "level": 2,
-          "text": "Overview",
-          "type": "heading"
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "The parameter must be positive. Negative values will produce a fatal error.",
-              "type": "text"
+              "text" : "The parameter must be positive. Negative values will produce a fatal error.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "Swift",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:Sl",
-          "text": "Collection"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Collection"
-        }
-      ],
-      "role": "symbol",
-      "title": "Collection",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift/collection"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection/subscript(wrapping:)": {
-      "abstract": [
-        {
-          "text": "Returns the element at the given distance from the start index, wrapping around through a",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "modulo operation if the distance is greated that number of elements in the collection.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Self",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "Collection",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "subscript"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "wrapping"
-        },
-        {
-          "kind": "text",
-          "text": " _: "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Si",
-          "text": "Int"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:ST7ElementQa",
-          "text": "Element"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection/subscript(wrapping:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "subscript(wrapping:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift/collection/subscript(wrapping:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/swift/collection/subscript(wrapping:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/swift\/collection\/subscript(wrapping:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Swift",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:Sl",
+      "text" : "Collection"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Collection",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Collection"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Collection",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift\/collection"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Collection/subscript(wrapping:)": {
+  "abstract" : [
+    {
+      "text" : "Returns the element at the given distance from the start index, wrapping around through a",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "modulo operation if the distance is greated that number of elements in the collection.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "Collection",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "subscript"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "wrapping"
+    },
+    {
+      "kind" : "text",
+      "text" : " _: "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:ST7ElementQa",
+      "text" : "Element"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Collection\/subscript(wrapping:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "subscript(wrapping:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift\/collection\/subscript(wrapping:)"
+}
+}
 }

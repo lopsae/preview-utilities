@@ -1,524 +1,531 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Returns the value of ",
-      "type": "text"
+      "text" : "Returns the value of ",
+      "type" : "text"
     },
     {
-      "code": "self",
-      "type": "codeVoice"
+      "code" : "self",
+      "type" : "codeVoice"
     },
     {
-      "text": " clamped to the given half-open ",
-      "type": "text"
+      "text" : " clamped to the given half-open ",
+      "type" : "text"
     },
     {
-      "code": "range",
-      "type": "codeVoice"
+      "code" : "range",
+      "type" : "codeVoice"
     },
     {
-      "text": ".",
-      "type": "text"
+      "text" : ".",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Strideable"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable/clamped(to:)"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Strideable\/clamped(to:)"
   },
-  "kind": "symbol",
-  "metadata": {
-    "conformance": {
-      "availabilityPrefix": [
+  "kind" : "symbol",
+  "metadata" : {
+    "conformance" : {
+      "availabilityPrefix" : [
         {
-          "text": "Available when",
-          "type": "text"
+          "text" : "Available when",
+          "type" : "text"
         }
       ],
-      "conformancePrefix": [
+      "conformancePrefix" : [
         {
-          "text": "Conforms when",
-          "type": "text"
+          "text" : "Conforms when",
+          "type" : "text"
         }
       ],
-      "constraints": [
+      "constraints" : [
         {
-          "code": "Stride",
-          "type": "codeVoice"
+          "code" : "Stride",
+          "type" : "codeVoice"
         },
         {
-          "text": " is ",
-          "type": "text"
+          "text" : " is ",
+          "type" : "text"
         },
         {
-          "code": "Int",
-          "type": "codeVoice"
+          "code" : "Int",
+          "type" : "codeVoice"
         },
         {
-          "text": ".",
-          "type": "text"
+          "text" : ".",
+          "type" : "text"
         }
       ]
     },
-    "extendedModule": "Swift",
-    "externalID": "s:Sx16PreviewUtilitiesSi6StrideRtzrlE7clamped2toxSgSnyxG_tF",
-    "fragments": [
+    "extendedModule" : "Swift",
+    "externalID" : "s:Sx16PreviewUtilitiesSi6StrideRtzrlE7clamped2toxSgSnyxG_tF",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "func"
+        "kind" : "keyword",
+        "text" : "func"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "clamped"
+        "kind" : "identifier",
+        "text" : "clamped"
       },
       {
-        "kind": "text",
-        "text": "("
+        "kind" : "text",
+        "text" : "("
       },
       {
-        "kind": "externalParam",
-        "text": "to"
+        "kind" : "externalParam",
+        "text" : "to"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:Sn",
-        "text": "Range"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sn",
+        "text" : "Range"
       },
       {
-        "kind": "text",
-        "text": "<"
+        "kind" : "text",
+        "text" : "<"
       },
       {
-        "kind": "typeIdentifier",
-        "text": "Self"
+        "kind" : "typeIdentifier",
+        "text" : "Self"
       },
       {
-        "kind": "text",
-        "text": ">) -> "
+        "kind" : "text",
+        "text" : ">) -> "
       },
       {
-        "kind": "typeIdentifier",
-        "text": "Self"
+        "kind" : "typeIdentifier",
+        "text" : "Self"
       },
       {
-        "kind": "text",
-        "text": "?"
+        "kind" : "text",
+        "text" : "?"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "Swift"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Instance Method",
-    "symbolKind": "method",
-    "title": "clamped(to:)"
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "clamped(to:)"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "func"
+              "kind" : "keyword",
+              "text" : "func"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "clamped"
+              "kind" : "identifier",
+              "text" : "clamped"
             },
             {
-              "kind": "text",
-              "text": "("
+              "kind" : "text",
+              "text" : "("
             },
             {
-              "kind": "externalParam",
-              "text": "to"
+              "kind" : "externalParam",
+              "text" : "to"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "internalParam",
-              "text": "range"
+              "kind" : "internalParam",
+              "text" : "range"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:Sn",
-              "text": "Range"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sn",
+              "text" : "Range"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Self"
+              "kind" : "typeIdentifier",
+              "text" : "Self"
             },
             {
-              "kind": "text",
-              "text": ">) -> "
+              "kind" : "text",
+              "text" : ">) -> "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Self"
+              "kind" : "typeIdentifier",
+              "text" : "Self"
             },
             {
-              "kind": "text",
-              "text": "?"
+              "kind" : "text",
+              "text" : "?"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "kind": "parameters",
-      "parameters": [
+      "kind" : "parameters",
+      "parameters" : [
         {
-          "content": [
+          "content" : [
             {
-              "inlineContent": [
+              "inlineContent" : [
                 {
-                  "text": "Half-open range to clamp ",
-                  "type": "text"
+                  "text" : "Half-open range to clamp ",
+                  "type" : "text"
                 },
                 {
-                  "code": "self",
-                  "type": "codeVoice"
+                  "code" : "self",
+                  "type" : "codeVoice"
                 },
                 {
-                  "text": " to.",
-                  "type": "text"
+                  "text" : " to.",
+                  "type" : "text"
                 }
               ],
-              "type": "paragraph"
+              "type" : "paragraph"
             }
           ],
-          "name": "range"
+          "name" : "range"
         }
       ]
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "return-value",
-          "level": 2,
-          "text": "Return Value",
-          "type": "heading"
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "The clamped value of ",
-              "type": "text"
+              "text" : "The clamped value of ",
+              "type" : "text"
             },
             {
-              "code": "self",
-              "type": "codeVoice"
+              "code" : "self",
+              "type" : "codeVoice"
             },
             {
-              "text": ", or ",
-              "type": "text"
+              "text" : ", or ",
+              "type" : "text"
             },
             {
-              "code": "nil",
-              "type": "codeVoice"
+              "code" : "nil",
+              "type" : "codeVoice"
             },
             {
-              "text": " for an empty ",
-              "type": "text"
+              "text" : " for an empty ",
+              "type" : "text"
             },
             {
-              "code": "range",
-              "type": "codeVoice"
+              "code" : "range",
+              "type" : "codeVoice"
             },
             {
-              "text": ".",
-              "type": "text"
+              "text" : ".",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "discussion",
-          "level": 2,
-          "text": "Discussion",
-          "type": "heading"
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "When ",
-              "type": "text"
+              "text" : "When ",
+              "type" : "text"
             },
             {
-              "code": "range",
-              "type": "codeVoice"
+              "code" : "range",
+              "type" : "codeVoice"
             },
             {
-              "text": " is an empty range (if ",
-              "type": "text"
+              "text" : " is an empty range (if ",
+              "type" : "text"
             },
             {
-              "code": "range.lowerBound",
-              "type": "codeVoice"
+              "code" : "range.lowerBound",
+              "type" : "codeVoice"
             },
             {
-              "text": " and ",
-              "type": "text"
+              "text" : " and ",
+              "type" : "text"
             },
             {
-              "code": "range.upperBound",
-              "type": "codeVoice"
+              "code" : "range.upperBound",
+              "type" : "codeVoice"
             },
             {
-              "text": " are the same)",
-              "type": "text"
+              "text" : " are the same)",
+              "type" : "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "text" : " ",
+              "type" : "text"
             },
             {
-              "code": "nil",
-              "type": "codeVoice"
+              "code" : "nil",
+              "type" : "codeVoice"
             },
             {
-              "text": " is always returned.",
-              "type": "text"
+              "text" : " is always returned.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "Swift",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:Sx",
-          "text": "Strideable"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "Strideable"
-        }
-      ],
-      "role": "symbol",
-      "title": "Strideable",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift/strideable"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable/clamped(to:)": {
-      "abstract": [
-        {
-          "text": "Returns the value of ",
-          "type": "text"
-        },
-        {
-          "code": "self",
-          "type": "codeVoice"
-        },
-        {
-          "text": " clamped to the given half-open ",
-          "type": "text"
-        },
-        {
-          "code": "range",
-          "type": "codeVoice"
-        },
-        {
-          "text": ".",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Stride",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "Int",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "clamped"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "to"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sn",
-          "text": "Range"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        },
-        {
-          "kind": "text",
-          "text": ">) -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        },
-        {
-          "kind": "text",
-          "text": "?"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable/clamped(to:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "clamped(to:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/swift/strideable/clamped(to:)"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/swift/strideable/clamped(to:)"
+      "paths" : [
+        "\/documentation\/previewutilities\/swift\/strideable\/clamped(to:)"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Swift",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:Sx",
+      "text" : "Strideable"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Strideable",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Strideable"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Strideable",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift\/strideable"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Strideable/clamped(to:)": {
+  "abstract" : [
+    {
+      "text" : "Returns the value of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " clamped to the given half-open ",
+      "type" : "text"
+    },
+    {
+      "code" : "range",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Stride",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "Int",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "clamped"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "to"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sn",
+      "text" : "Range"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : ">) -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    },
+    {
+      "kind" : "text",
+      "text" : "?"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Swift\/Strideable\/clamped(to:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "clamped(to:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swift\/strideable\/clamped(to:)"
+}
+}
 }

@@ -1,456 +1,463 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "A format style that outputs the string description of the input.",
-      "type": "text"
+      "text" : "A format style that outputs the string description of the input.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/description()"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/description()"
   },
-  "kind": "symbol",
-  "metadata": {
-    "conformance": {
-      "availabilityPrefix": [
+  "kind" : "symbol",
+  "metadata" : {
+    "conformance" : {
+      "availabilityPrefix" : [
         {
-          "text": "Available when",
-          "type": "text"
+          "text" : "Available when",
+          "type" : "text"
         }
       ],
-      "conformancePrefix": [
+      "conformancePrefix" : [
         {
-          "text": "Conforms when",
-          "type": "text"
+          "text" : "Conforms when",
+          "type" : "text"
         }
       ],
-      "constraints": [
+      "constraints" : [
         {
-          "code": "Self",
-          "type": "codeVoice"
+          "code" : "Self",
+          "type" : "codeVoice"
         },
         {
-          "text": " is ",
-          "type": "text"
+          "text" : " is ",
+          "type" : "text"
         },
         {
-          "code": "FormatStyle",
-          "type": "codeVoice"
+          "code" : "FormatStyle",
+          "type" : "codeVoice"
         },
         {
-          "text": ".",
-          "type": "text"
+          "text" : ".",
+          "type" : "text"
         }
       ]
     },
-    "extendedModule": "Foundation",
-    "externalID": "s:10Foundation11FormatStyleP16PreviewUtilitiesE11descriptionAD017StringDescriptionbC0Vyqd__GyAHRszlFZ",
-    "fragments": [
+    "extendedModule" : "Foundation",
+    "externalID" : "s:10Foundation11FormatStyleP16PreviewUtilitiesE11descriptionAD017StringDescriptionbC0Vyqd__GyAHRszlFZ",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "static"
+        "kind" : "keyword",
+        "text" : "static"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "keyword",
-        "text": "func"
+        "kind" : "keyword",
+        "text" : "func"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "description"
+        "kind" : "identifier",
+        "text" : "description"
       },
       {
-        "kind": "text",
-        "text": "<"
+        "kind" : "text",
+        "text" : "<"
       },
       {
-        "kind": "genericParameter",
-        "text": "Input"
+        "kind" : "genericParameter",
+        "text" : "Input"
       },
       {
-        "kind": "text",
-        "text": ">() -> "
+        "kind" : "text",
+        "text" : ">() -> "
       },
       {
-        "kind": "typeIdentifier",
-        "text": "Self"
+        "kind" : "typeIdentifier",
+        "text" : "Self"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "Foundation"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Method",
-    "symbolKind": "method",
-    "title": "description()"
+    "role" : "symbol",
+    "roleHeading" : "Type Method",
+    "symbolKind" : "method",
+    "title" : "description()"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "nonisolated"
+              "kind" : "attribute",
+              "text" : "nonisolated"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "static"
+              "kind" : "keyword",
+              "text" : "static"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "func"
+              "kind" : "keyword",
+              "text" : "func"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "description"
+              "kind" : "identifier",
+              "text" : "description"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "genericParameter",
-              "text": "Input"
+              "kind" : "genericParameter",
+              "text" : "Input"
             },
             {
-              "kind": "text",
-              "text": ">() -> "
+              "kind" : "text",
+              "text" : ">() -> "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Self"
+              "kind" : "typeIdentifier",
+              "text" : "Self"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "where"
+              "kind" : "keyword",
+              "text" : "where"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Self"
+              "kind" : "typeIdentifier",
+              "text" : "Self"
             },
             {
-              "kind": "text",
-              "text": " == "
+              "kind" : "text",
+              "text" : " == "
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities28StringDescriptionFormatStyleV",
-              "text": "StringDescriptionFormatStyle"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StringDescriptionFormatStyle",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities28StringDescriptionFormatStyleV",
+              "text" : "StringDescriptionFormatStyle"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "typeIdentifier",
-              "text": "Input"
+              "kind" : "typeIdentifier",
+              "text" : "Input"
             },
             {
-              "kind": "text",
-              "text": ">"
+              "kind" : "text",
+              "text" : ">"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "return-value",
-          "level": 2,
-          "text": "Return Value",
-          "type": "heading"
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
         },
         {
-          "inlineContent": [
+          "inlineContent" : [
             {
-              "text": "A ",
-              "type": "text"
+              "text" : "A ",
+              "type" : "text"
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
-              "isActive": true,
-              "type": "reference"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StringDescriptionFormatStyle",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
-              "text": " that outputs the string description of the",
-              "type": "text"
+              "text" : " that outputs the string description of the",
+              "type" : "text"
             },
             {
-              "text": " ",
-              "type": "text"
+              "text" : " ",
+              "type" : "text"
             },
             {
-              "text": "input.",
-              "type": "text"
+              "text" : "input.",
+              "type" : "text"
             }
           ],
-          "type": "paragraph"
+          "type" : "paragraph"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     },
     {
-      "content": [
+      "content" : [
         {
-          "anchor": "discussion",
-          "level": 2,
-          "text": "Discussion",
-          "type": "heading"
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
         },
         {
-          "code": [
+          "code" : [
             "nonisolated struct Sphinx: Equatable {",
             "    let material = \"quartz\"",
             "}",
-            "Text(Sphinx(), format: .description()) // Displays \"Sphinx(material: \"quartz\")\""
+            "Text(Sphinx(), format: .description()) \/\/ Displays \"Sphinx(material: \"quartz\")\""
           ],
-          "syntax": "swift",
-          "type": "codeListing"
+          "syntax" : "swift",
+          "type" : "codeListing"
         }
       ],
-      "kind": "content"
+      "kind" : "content"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "Foundation",
-      "type": "topic",
-      "url": "/documentation/previewutilities/foundation"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:10Foundation11FormatStyleP",
-          "text": "FormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "FormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "FormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/foundation/formatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/description()": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the string description of the input.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Self",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "FormatStyle",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "description"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "genericParameter",
-          "text": "Input"
-        },
-        {
-          "kind": "text",
-          "text": ">() -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "text": "Self"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/description()",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "description()",
-      "type": "topic",
-      "url": "/documentation/previewutilities/foundation/formatstyle/description()"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that outputs the string description of the input.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "StringDescriptionFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "StringDescriptionFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "StringDescriptionFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/stringdescriptionformatstyle"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/foundation/formatstyle/description()"
+      "paths" : [
+        "\/documentation\/previewutilities\/foundation\/formatstyle\/description()"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Foundation",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/foundation"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:10Foundation11FormatStyleP",
+      "text" : "FormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/foundation\/formatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/description()": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the string description of the input.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "FormatStyle",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "description"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "Input"
+    },
+    {
+      "kind" : "text",
+      "text" : ">() -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Self"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/description()",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "description()",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/foundation\/formatstyle\/description()"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/StringDescriptionFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the string description of the input.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "StringDescriptionFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StringDescriptionFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "StringDescriptionFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "StringDescriptionFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/stringdescriptionformatstyle"
+}
+}
 }

@@ -1,411 +1,418 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Returns an identity format style that outputs its input with no modifications.",
-      "type": "text"
+      "text" : "Returns an identity format style that outputs its input with no modifications.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/identity"
   },
-  "kind": "symbol",
-  "metadata": {
-    "conformance": {
-      "availabilityPrefix": [
+  "kind" : "symbol",
+  "metadata" : {
+    "conformance" : {
+      "availabilityPrefix" : [
         {
-          "text": "Available when",
-          "type": "text"
+          "text" : "Available when",
+          "type" : "text"
         }
       ],
-      "conformancePrefix": [
+      "conformancePrefix" : [
         {
-          "text": "Conforms when",
-          "type": "text"
+          "text" : "Conforms when",
+          "type" : "text"
         }
       ],
-      "constraints": [
+      "constraints" : [
         {
-          "code": "Self",
-          "type": "codeVoice"
+          "code" : "Self",
+          "type" : "codeVoice"
         },
         {
-          "text": " is ",
-          "type": "text"
+          "text" : " is ",
+          "type" : "text"
         },
         {
-          "code": "IdentityFormatStyle<String>",
-          "type": "codeVoice"
+          "code" : "IdentityFormatStyle<String>",
+          "type" : "codeVoice"
         },
         {
-          "text": " and ",
-          "type": "text"
+          "text" : " and ",
+          "type" : "text"
         },
         {
-          "code": "FormatStyle",
-          "type": "codeVoice"
+          "code" : "FormatStyle",
+          "type" : "codeVoice"
         },
         {
-          "text": ".",
-          "type": "text"
+          "text" : ".",
+          "type" : "text"
         }
       ]
     },
-    "extendedModule": "Foundation",
-    "externalID": "s:10Foundation11FormatStyleP16PreviewUtilitiesAD08IdentitybC0VySSGRszrlE8identityAGvpZ",
-    "fragments": [
+    "extendedModule" : "Foundation",
+    "externalID" : "s:10Foundation11FormatStyleP16PreviewUtilitiesAD08IdentitybC0VySSGRszrlE8identityAGvpZ",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "static"
+        "kind" : "keyword",
+        "text" : "static"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "keyword",
-        "text": "var"
+        "kind" : "keyword",
+        "text" : "var"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "identity"
+        "kind" : "identifier",
+        "text" : "identity"
       },
       {
-        "kind": "text",
-        "text": ": "
+        "kind" : "text",
+        "text" : ": "
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:16PreviewUtilities19IdentityFormatStyleV",
-        "text": "IdentityFormatStyle"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities19IdentityFormatStyleV",
+        "text" : "IdentityFormatStyle"
       },
       {
-        "kind": "text",
-        "text": "<"
+        "kind" : "text",
+        "text" : "<"
       },
       {
-        "kind": "typeIdentifier",
-        "preciseIdentifier": "s:SS",
-        "text": "String"
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:SS",
+        "text" : "String"
       },
       {
-        "kind": "text",
-        "text": ">"
+        "kind" : "text",
+        "text" : ">"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities",
-        "relatedModules": [
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
           "Foundation"
         ]
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Type Property",
-    "symbolKind": "property",
-    "title": "identity"
+    "role" : "symbol",
+    "roleHeading" : "Type Property",
+    "symbolKind" : "property",
+    "title" : "identity"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "nonisolated"
+              "kind" : "attribute",
+              "text" : "nonisolated"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "static"
+              "kind" : "keyword",
+              "text" : "static"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "var"
+              "kind" : "keyword",
+              "text" : "var"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "identity"
+              "kind" : "identifier",
+              "text" : "identity"
             },
             {
-              "kind": "text",
-              "text": ": "
+              "kind" : "text",
+              "text" : ": "
             },
             {
-              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle",
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:16PreviewUtilities19IdentityFormatStyleV",
-              "text": "IdentityFormatStyle"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IdentityFormatStyle",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities19IdentityFormatStyleV",
+              "text" : "IdentityFormatStyle"
             },
             {
-              "kind": "text",
-              "text": "<"
+              "kind" : "text",
+              "text" : "<"
             },
             {
-              "kind": "typeIdentifier",
-              "preciseIdentifier": "s:SS",
-              "text": "String"
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:SS",
+              "text" : "String"
             },
             {
-              "kind": "text",
-              "text": "> { "
+              "kind" : "text",
+              "text" : "> { "
             },
             {
-              "kind": "keyword",
-              "text": "get"
+              "kind" : "keyword",
+              "text" : "get"
             },
             {
-              "kind": "text",
-              "text": " }"
+              "kind" : "text",
+              "text" : " }"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation": {
-      "abstract": [],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "Foundation",
-      "type": "topic",
-      "url": "/documentation/previewutilities/foundation"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "extension"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "preciseIdentifier": "s:10Foundation11FormatStyleP",
-          "text": "FormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "FormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "FormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/foundation/formatstyle"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity": {
-      "abstract": [
-        {
-          "text": "Returns an identity format style that outputs its input with no modifications.",
-          "type": "text"
-        }
-      ],
-      "conformance": {
-        "availabilityPrefix": [
-          {
-            "text": "Available when",
-            "type": "text"
-          }
-        ],
-        "conformancePrefix": [
-          {
-            "text": "Conforms when",
-            "type": "text"
-          }
-        ],
-        "constraints": [
-          {
-            "code": "Self",
-            "type": "codeVoice"
-          },
-          {
-            "text": " is ",
-            "type": "text"
-          },
-          {
-            "code": "IdentityFormatStyle<String>",
-            "type": "codeVoice"
-          },
-          {
-            "text": " and ",
-            "type": "text"
-          },
-          {
-            "code": "FormatStyle",
-            "type": "codeVoice"
-          },
-          {
-            "text": ".",
-            "type": "text"
-          }
-        ]
-      },
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "var"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "identity"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities19IdentityFormatStyleV",
-          "text": "IdentityFormatStyle"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "identity",
-      "type": "topic",
-      "url": "/documentation/previewutilities/foundation/formatstyle/identity"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle": {
-      "abstract": [
-        {
-          "text": "A format style that performs an identity transformation, returns the input as output with no",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "modifications.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IdentityFormatStyle"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IdentityFormatStyle"
-        }
-      ],
-      "role": "symbol",
-      "title": "IdentityFormatStyle",
-      "type": "topic",
-      "url": "/documentation/previewutilities/identityformatstyle"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "variants": [
+  "sections" : [
+
+  ],
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/foundation/formatstyle/identity"
+      "paths" : [
+        "\/documentation\/previewutilities\/foundation\/formatstyle\/identity"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "Foundation",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/foundation"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:10Foundation11FormatStyleP",
+      "text" : "FormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/foundation\/formatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/identity": {
+  "abstract" : [
+    {
+      "text" : "Returns an identity format style that outputs its input with no modifications.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "IdentityFormatStyle<String>",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " and ",
+        "type" : "text"
+      },
+      {
+        "code" : "FormatStyle",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "identity"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities19IdentityFormatStyleV",
+      "text" : "IdentityFormatStyle"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Foundation\/FormatStyle\/identity",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "identity",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/foundation\/formatstyle\/identity"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IdentityFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that performs an identity transformation, returns the input as output with no",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "modifications.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IdentityFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IdentityFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IdentityFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IdentityFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/identityformatstyle"
+}
+}
 }

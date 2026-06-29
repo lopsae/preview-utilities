@@ -1,539 +1,552 @@
 {
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities22ImageGeneratorDefaultsO",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities22ImageGeneratorDefaultsO",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "enum"
+        "kind" : "keyword",
+        "text" : "enum"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "ImageGeneratorDefaults"
+        "kind" : "identifier",
+        "text" : "ImageGeneratorDefaults"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "navigatorTitle": [
+    "navigatorTitle" : [
       {
-        "kind": "identifier",
-        "text": "ImageGeneratorDefaults"
+        "kind" : "identifier",
+        "text" : "ImageGeneratorDefaults"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Enumeration",
-    "symbolKind": "enum",
-    "title": "ImageGeneratorDefaults"
+    "role" : "symbol",
+    "roleHeading" : "Enumeration",
+    "symbolKind" : "enum",
+    "title" : "ImageGeneratorDefaults"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "attribute",
-              "text": "nonisolated"
+              "kind" : "attribute",
+              "text" : "nonisolated"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "keyword",
-              "text": "enum"
+              "kind" : "keyword",
+              "text" : "enum"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "ImageGeneratorDefaults"
+              "kind" : "identifier",
+              "text" : "ImageGeneratorDefaults"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
-      "abstract": [
-        {
-          "text": "Nonisolated ImageGenerator with a ",
-          "type": "text"
-        },
-        {
-          "code": "@concurrent generateImage",
-          "type": "codeVoice"
-        },
-        {
-          "text": " function that will always be",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "called in the cooperative thread pool.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ConcurrentImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ConcurrentImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "ConcurrentImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/concurrentimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorDefaults"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorDefaults"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorDefaults",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratordefaults"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults/sleepRange": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "static"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "keyword",
-          "text": "let"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "sleepRange"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SN",
-          "text": "ClosedRange"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s8DurationV",
-          "text": "Duration"
-        },
-        {
-          "kind": "text",
-          "text": ">"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults/sleepRange",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "sleepRange",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratordefaults/sleeprange"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "enum"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorError"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorError"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorError",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorerror"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
-      "abstract": [
-        {
-          "text": "Protocol for all image generators. Provides functions to generate images along the thread",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "information where the image was generated.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "protocol"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorProtocol"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorProtocol"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorProtocol",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorprotocol"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorStore"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ImageGeneratorStore"
-        }
-      ],
-      "role": "symbol",
-      "title": "ImageGeneratorStore",
-      "type": "topic",
-      "url": "/documentation/previewutilities/imagegeneratorstore"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator": {
-      "abstract": [
-        {
-          "text": "Nonisolated ImageGenerator with a ",
-          "type": "text"
-        },
-        {
-          "code": "generateImage",
-          "type": "codeVoice"
-        },
-        {
-          "text": " isolated to MainActor.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "MainActorImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "MainActorImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "MainActorImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/mainactorimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator": {
-      "abstract": [
-        {
-          "text": "Nonisolated ImageGenerator with a ",
-          "type": "text"
-        },
-        {
-          "code": "nonisolated generateImage",
-          "type": "codeVoice"
-        },
-        {
-          "text": " function that will inherit the",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "isolation context of the caller.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "class"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "NonisolatedImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "NonisolatedImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "NonisolatedImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/nonisolatedimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator": {
-      "abstract": [
-        {
-          "text": "Synchronous image generator. Can be instantiated to produce any number of images of a given",
-          "type": "text"
-        },
-        {
-          "text": " ",
-          "type": "text"
-        },
-        {
-          "text": "size, or used statically to produce the same images.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "SyncImageGenerator"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "SyncImageGenerator"
-        }
-      ],
-      "role": "symbol",
-      "title": "SyncImageGenerator",
-      "type": "topic",
-      "url": "/documentation/previewutilities/syncimagegenerator"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "ThreadInfo"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "ThreadInfo"
-        }
-      ],
-      "role": "symbol",
-      "title": "ThreadInfo",
-      "type": "topic",
-      "url": "/documentation/previewutilities/threadinfo"
-    }
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "seeAlsoSections": [
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
     {
-      "anchor": "Image-Generation",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo"
+      "anchor" : "Image-Generation",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/MainActorImageGenerator",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConcurrentImageGenerator",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/NonisolatedImageGenerator",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SyncImageGenerator",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorProtocol",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorError",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo"
       ],
-      "title": "Image Generation"
+      "title" : "Image Generation"
     }
   ],
-  "topicSections": [
+  "topicSections" : [
     {
-      "anchor": "Type-Properties",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults/sleepRange"
+      "anchor" : "Type-Properties",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults\/sleepRange"
       ],
-      "title": "Type Properties"
+      "title" : "Type Properties"
     }
   ],
-  "variants": [
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/imagegeneratordefaults"
+      "paths" : [
+        "\/documentation\/previewutilities\/imagegeneratordefaults"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Nonisolated ImageGenerator with a ",
+      "type" : "text"
+    },
+    {
+      "code" : "@concurrent generateImage",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " function that will always be",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "called in the cooperative thread pool.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ConcurrentImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConcurrentImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ConcurrentImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ConcurrentImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/concurrentimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorDefaults"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorDefaults"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorDefaults",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratordefaults"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorDefaults/sleepRange": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "sleepRange"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SN",
+      "text" : "ClosedRange"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s8DurationV",
+      "text" : "Duration"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorDefaults\/sleepRange",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "sleepRange",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratordefaults\/sleeprange"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorError"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorError",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorError"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorError",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorerror"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol": {
+  "abstract" : [
+    {
+      "text" : "Protocol for all image generators. Provides functions to generate images along the thread",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "information where the image was generated.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorProtocol"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorProtocol",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorProtocol"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorProtocol",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorprotocol"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorStore"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ImageGeneratorStore",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ImageGeneratorStore"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ImageGeneratorStore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/imagegeneratorstore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Nonisolated ImageGenerator with a ",
+      "type" : "text"
+    },
+    {
+      "code" : "generateImage",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " isolated to MainActor.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "MainActorImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/MainActorImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "MainActorImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "MainActorImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/mainactorimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/NonisolatedImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Nonisolated ImageGenerator with a ",
+      "type" : "text"
+    },
+    {
+      "code" : "nonisolated generateImage",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " function that will inherit the",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "isolation context of the caller.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "class"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "NonisolatedImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/NonisolatedImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "NonisolatedImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "NonisolatedImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/nonisolatedimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SyncImageGenerator": {
+  "abstract" : [
+    {
+      "text" : "Synchronous image generator. Can be instantiated to produce any number of images of a given",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "size, or used statically to produce the same images.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "SyncImageGenerator"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SyncImageGenerator",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "SyncImageGenerator"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "SyncImageGenerator",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/syncimagegenerator"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ThreadInfo": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ThreadInfo"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ThreadInfo",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ThreadInfo"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ThreadInfo",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/threadinfo"
+}
+}
 }

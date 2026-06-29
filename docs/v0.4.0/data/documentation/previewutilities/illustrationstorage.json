@@ -1,690 +1,703 @@
 {
-  "abstract": [
+  "abstract" : [
     {
-      "text": "Utility structure to store documentation illustrations into a local folder.",
-      "type": "text"
+      "text" : "Utility structure to store documentation illustrations into a local folder.",
+      "type" : "text"
     }
   ],
-  "hierarchy": {
-    "paths": [
+  "hierarchy" : {
+    "paths" : [
       [
-        "doc://PreviewUtilities/documentation/PreviewUtilities"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities"
       ]
     ]
   },
-  "identifier": {
-    "interfaceLanguage": "swift",
-    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage"
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage"
   },
-  "kind": "symbol",
-  "metadata": {
-    "externalID": "s:16PreviewUtilities19IllustrationStorageV",
-    "fragments": [
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19IllustrationStorageV",
+    "fragments" : [
       {
-        "kind": "keyword",
-        "text": "struct"
+        "kind" : "keyword",
+        "text" : "struct"
       },
       {
-        "kind": "text",
-        "text": " "
+        "kind" : "text",
+        "text" : " "
       },
       {
-        "kind": "identifier",
-        "text": "IllustrationStorage"
+        "kind" : "identifier",
+        "text" : "IllustrationStorage"
       }
     ],
-    "modules": [
+    "modules" : [
       {
-        "name": "PreviewUtilities"
+        "name" : "PreviewUtilities"
       }
     ],
-    "navigatorTitle": [
+    "navigatorTitle" : [
       {
-        "kind": "identifier",
-        "text": "IllustrationStorage"
+        "kind" : "identifier",
+        "text" : "IllustrationStorage"
       }
     ],
-    "role": "symbol",
-    "roleHeading": "Structure",
-    "symbolKind": "struct",
-    "title": "IllustrationStorage"
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "IllustrationStorage"
   },
-  "primaryContentSections": [
+  "primaryContentSections" : [
     {
-      "declarations": [
+      "declarations" : [
         {
-          "languages": [
+          "languages" : [
             "swift"
           ],
-          "platforms": [
+          "platforms" : [
             "macOS"
           ],
-          "tokens": [
+          "tokens" : [
             {
-              "kind": "keyword",
-              "text": "struct"
+              "kind" : "keyword",
+              "text" : "struct"
             },
             {
-              "kind": "text",
-              "text": " "
+              "kind" : "text",
+              "text" : " "
             },
             {
-              "kind": "identifier",
-              "text": "IllustrationStorage"
+              "kind" : "identifier",
+              "text" : "IllustrationStorage"
             }
           ]
         }
       ],
-      "kind": "declarations"
+      "kind" : "declarations"
     }
   ],
-  "references": {
-    "doc://PreviewUtilities/documentation/PreviewUtilities": {
-      "abstract": [
-        {
-          "text": "Utilities for SwiftUI previews.",
-          "type": "text"
-        }
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP"
       ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
-      "kind": "symbol",
-      "role": "collection",
-      "title": "PreviewUtilities",
-      "type": "topic",
-      "url": "/documentation/previewutilities"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage": {
-      "abstract": [
-        {
-          "text": "Utility structure to store documentation illustrations into a local folder.",
-          "type": "text"
-        }
-      ],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "struct"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "IllustrationStorage"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage",
-      "kind": "symbol",
-      "navigatorTitle": [
-        {
-          "kind": "identifier",
-          "text": "IllustrationStorage"
-        }
-      ],
-      "role": "symbol",
-      "title": "IllustrationStorage",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "identifier",
-          "text": "init"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "filePath"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "droppingComponents"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Si",
-          "text": "Int"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "appendingComponents"
-        },
-        {
-          "kind": "text",
-          "text": ": ["
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": "], "
-        },
-        {
-          "kind": "externalParam",
-          "text": "folderMustExist"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "onImageStored"
-        },
-        {
-          "kind": "text",
-          "text": ": ("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "c:@T@CGImageRef",
-          "text": "CGImage"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": ") -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:s4Voida",
-          "text": "Void"
-        },
-        {
-          "kind": "text",
-          "text": ") "
-        },
-        {
-          "kind": "keyword",
-          "text": "throws"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "renderAndStore"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": "..., "
-        },
-        {
-          "kind": "externalParam",
-          "text": "usesFullComponentName"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "colorScheme"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI11ColorSchemeO",
-          "text": "ColorScheme"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "illustration"
-        },
-        {
-          "kind": "text",
-          "text": ": () -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
-          "text": "DocumentationIllustration"
-        },
-        {
-          "kind": "text",
-          "text": ") "
-        },
-        {
-          "kind": "keyword",
-          "text": "throws"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage/renderandstore(_:usesfullcomponentname:colorscheme:illustration:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "renderAndStore"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": "..., "
-        },
-        {
-          "kind": "externalParam",
-          "text": "usesFullComponentName"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "colorSchemes"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sh",
-          "text": "Set"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI11ColorSchemeO",
-          "text": "ColorScheme"
-        },
-        {
-          "kind": "text",
-          "text": ">, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "illustration"
-        },
-        {
-          "kind": "text",
-          "text": ": () -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
-          "text": "DocumentationIllustration"
-        },
-        {
-          "kind": "text",
-          "text": ") "
-        },
-        {
-          "kind": "keyword",
-          "text": "throws"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage/renderandstore(_:usesfullcomponentname:colorschemes:illustration:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "renderAndStore"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "nameComponents"
-        },
-        {
-          "kind": "text",
-          "text": ": ["
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:SS",
-          "text": "String"
-        },
-        {
-          "kind": "text",
-          "text": "], "
-        },
-        {
-          "kind": "externalParam",
-          "text": "usesFullComponentName"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "colorSchemes"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sh",
-          "text": "Set"
-        },
-        {
-          "kind": "text",
-          "text": "<"
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:7SwiftUI11ColorSchemeO",
-          "text": "ColorScheme"
-        },
-        {
-          "kind": "text",
-          "text": ">, "
-        },
-        {
-          "kind": "externalParam",
-          "text": "illustration"
-        },
-        {
-          "kind": "text",
-          "text": ": () -> "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities25DocumentationIllustrationV",
-          "text": "DocumentationIllustration"
-        },
-        {
-          "kind": "text",
-          "text": ") "
-        },
-        {
-          "kind": "keyword",
-          "text": "throws"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage/renderandstore(namecomponents:usesfullcomponentname:colorschemes:illustration:)"
-    },
-    "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/store(resource:usesFullComponentName:)": {
-      "abstract": [],
-      "fragments": [
-        {
-          "kind": "keyword",
-          "text": "func"
-        },
-        {
-          "kind": "text",
-          "text": " "
-        },
-        {
-          "kind": "identifier",
-          "text": "store"
-        },
-        {
-          "kind": "text",
-          "text": "("
-        },
-        {
-          "kind": "externalParam",
-          "text": "resource"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities20IllustrationRendererV",
-          "text": "IllustrationRenderer"
-        },
-        {
-          "kind": "text",
-          "text": "."
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:16PreviewUtilities20IllustrationRendererV14RenderResourceV",
-          "text": "RenderResource"
-        },
-        {
-          "kind": "text",
-          "text": ", "
-        },
-        {
-          "kind": "externalParam",
-          "text": "usesFullComponentName"
-        },
-        {
-          "kind": "text",
-          "text": ": "
-        },
-        {
-          "kind": "typeIdentifier",
-          "preciseIdentifier": "s:Sb",
-          "text": "Bool"
-        },
-        {
-          "kind": "text",
-          "text": ") "
-        },
-        {
-          "kind": "keyword",
-          "text": "throws"
-        }
-      ],
-      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/store(resource:usesFullComponentName:)",
-      "kind": "symbol",
-      "role": "symbol",
-      "title": "store(resource:usesFullComponentName:)",
-      "type": "topic",
-      "url": "/documentation/previewutilities/illustrationstorage/store(resource:usesfullcomponentname:)"
-    },
-    "doc://PreviewUtilities/s16SendableMetatypeP": {
-      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
-      "title": "Swift.SendableMetatype",
-      "type": "unresolvable"
-    },
-    "doc://PreviewUtilities/s8SendableP": {
-      "identifier": "doc://PreviewUtilities/s8SendableP",
-      "title": "Swift.Sendable",
-      "type": "unresolvable"
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
     }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
   },
-  "relationshipsSections": [
-    {
-      "identifiers": [
-        "doc://PreviewUtilities/s8SendableP",
-        "doc://PreviewUtilities/s16SendableMetatypeP"
-      ],
-      "kind": "relationships",
-      "title": "Conforms To",
-      "type": "conformsTo"
-    }
+  "sections" : [
+
   ],
-  "schemaVersion": {
-    "major": 0,
-    "minor": 3,
-    "patch": 0
-  },
-  "sections": [],
-  "topicSections": [
+  "topicSections" : [
     {
-      "anchor": "Initializers",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
+      "anchor" : "Initializers",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)"
       ],
-      "title": "Initializers"
+      "title" : "Initializers"
     },
     {
-      "anchor": "Instance-Methods",
-      "generated": true,
-      "identifiers": [
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
-        "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/store(resource:usesFullComponentName:)"
+      "anchor" : "Instance-Methods",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/store(resource:usesFullComponentName:)"
       ],
-      "title": "Instance Methods"
+      "title" : "Instance Methods"
     }
   ],
-  "variants": [
+  "variants" : [
     {
-      "paths": [
-        "/documentation/previewutilities/illustrationstorage"
+      "paths" : [
+        "\/documentation\/previewutilities\/illustrationstorage"
       ],
-      "traits": [
+      "traits" : [
         {
-          "interfaceLanguage": "swift"
+          "interfaceLanguage" : "swift"
         }
       ]
     }
   ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage": {
+  "abstract" : [
+    {
+      "text" : "Utility structure to store documentation illustrations into a local folder.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationStorage",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "filePath"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "droppingComponents"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "appendingComponents"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "], "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "folderMustExist"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "onImageStored"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@T@CGImageRef",
+      "text" : "CGImage"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s4Voida",
+      "text" : "Void"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(filePath:droppingComponents:appendingComponents:folderMustExist:onImageStored:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "renderAndStore"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "..., "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "usesFullComponentName"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "colorScheme"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI11ColorSchemeO",
+      "text" : "ColorScheme"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "illustration"
+    },
+    {
+      "kind" : "text",
+      "text" : ": () -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(_:usesfullcomponentname:colorscheme:illustration:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "renderAndStore"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "..., "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "usesFullComponentName"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "colorSchemes"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sh",
+      "text" : "Set"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI11ColorSchemeO",
+      "text" : "ColorScheme"
+    },
+    {
+      "kind" : "text",
+      "text" : ">, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "illustration"
+    },
+    {
+      "kind" : "text",
+      "text" : ": () -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(_:usesfullcomponentname:colorschemes:illustration:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "renderAndStore"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "nameComponents"
+    },
+    {
+      "kind" : "text",
+      "text" : ": ["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : "], "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "usesFullComponentName"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "colorSchemes"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sh",
+      "text" : "Set"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI11ColorSchemeO",
+      "text" : "ColorScheme"
+    },
+    {
+      "kind" : "text",
+      "text" : ">, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "illustration"
+    },
+    {
+      "kind" : "text",
+      "text" : ": () -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(namecomponents:usesfullcomponentname:colorschemes:illustration:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/store(resource:usesFullComponentName:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "store"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "resource"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV",
+      "text" : "IllustrationRenderer"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV14RenderResourceV",
+      "text" : "RenderResource"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "usesFullComponentName"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/store(resource:usesFullComponentName:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "store(resource:usesFullComponentName:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/store(resource:usesfullcomponentname:)"
+},
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
 }
