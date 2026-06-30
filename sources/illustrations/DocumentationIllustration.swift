@@ -10,6 +10,7 @@ import SwiftUI
 /// Wraps content for rendering an illustration generated from a SwiftUI view body.
 public struct DocumentationIllustration: View {
 
+    // FIXME: move to sizing
     static var defaultWidth: CGFloat { 400 }
 
     let size: CGSize
@@ -24,7 +25,7 @@ public struct DocumentationIllustration: View {
         alignment: Alignment = .center,
         @ViewBuilder content: @escaping () -> Content
     ) {
-        self.size = [Self.defaultWidth, height]
+        self.size = Sizing.height(height).size
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
@@ -103,6 +104,12 @@ extension DocumentationIllustration {
         ///
         /// This illustration size uses the default width (`400`) and an aspect ration of `5/2`.
         public static let regular: Self = .init(DocumentationIllustration.defaultWidth, 160)
+
+        // FIXME: document.
+        public static func height(_ illHeight: CGFloat) -> Self {
+            .init(DocumentationIllustration.defaultWidth, illHeight)
+        }
+
     }
 
 }
