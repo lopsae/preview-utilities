@@ -112,6 +112,7 @@ public struct DebugOverlayModifier: ViewModifier {
                 originReticuleRects(geometry: geometry)
                 debugCaptionView(geometry)
             }
+            .opacity(configuration.isVisible ? .one : .zero)
             .allowsHitTesting(false)
         }
     }
@@ -518,6 +519,7 @@ private struct PreviewContent {
         trait: DebugOverlayModifier.Configuration.Trait,
         enabled: Bool
     )] = [
+        ("Hidden",          .hidden,                                false),
         ("Caption",         .caption("Caption\nwith `formatting`"), false),
         ("Hairline",        .hairline,                              false),
         ("Width",           .width,                                 true),

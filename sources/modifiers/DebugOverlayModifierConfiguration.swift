@@ -18,6 +18,7 @@ extension DebugOverlayModifier {
     /// the [`Trait`](doc:Trait) instances passed to ``SwiftUICore/View/debugOverlay(_:)``.
     public struct Configuration {
 
+        var isVisible: Bool = true
         var captionSource: CaptionSource? = nil
         var bordersWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
@@ -147,6 +148,14 @@ extension DebugOverlayModifier.Configuration {
         }
 
 
+        // FIXME: document.
+        public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
+
+        // FIXME: document.
+        public static func visible(_ isVisible: Bool) -> Trait {
+            .modifier(VisibilityModifier(isVisible: isVisible))
+        }
+
         /// Sets the debug overlay borders to a width of `1`.
         public static let hairline: Trait = .modifier(HairlineModifier())
 
@@ -248,6 +257,14 @@ extension DebugOverlayModifier.Configuration {
     /// instances as building blocks for a configuration instance.
     public protocol Modifier: Sendable {
         func update(configuration: inout DebugOverlayModifier.Configuration)
+    }
+
+    struct VisibilityModifier: Modifier {
+        let isVisible: Bool
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.isVisible = isVisible
+        }
+
     }
 
     struct CaptionModifier: Modifier {
