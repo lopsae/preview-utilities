@@ -142,7 +142,7 @@ private struct PreviewContent {
     VStack(alignment: .leading) {
         CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
         .overlay(alignment: .topLeading) {
-            // TODO: replace with debugAlignmentOverlay or debugOverlay
+            // FIXME: replace with debugAlignmentOverlay or debugOverlay
             // when alignment guides with size and alignment are supported.
             Rectangle().fill(.red.secondary)
                 .frame(width: 2, height: 140)
@@ -166,7 +166,7 @@ private struct PreviewContent {
     VStack(alignment: .trailing) {
         CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
         .overlay(alignment: .topTrailing) {
-            // TODO: replace with debugAlignmentOverlay or debugOverlay
+            // FIXME: replace with debugAlignmentOverlay or debugOverlay
             // when alignment guides with size and alignment are supported.
             Rectangle().fill(.red.secondary)
                 .frame(width: 2, height: 140)

@@ -806,7 +806,7 @@ private struct PreviewContent {
                     .debugOverlay(.caption("Ag"), .infoAlignment(alignment), .bordersWidth(bordersWidth))
             }
         }
-        // TODO: use debug overlay alignment guides
+        // FIXME: use debug overlay alignment guides
         .overlay(alignment: .top) {
             Rectangle()
             .fill(.red.tertiary)
