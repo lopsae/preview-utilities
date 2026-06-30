@@ -13,7 +13,7 @@ See the [Package Documentation][documentation] for more details.
 > been documented thoroughly yet.
 
 
-[documentation]: https://lopsae.github.io/preview-utilities/documentation/previewutilities
+[documentation]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities
 
 
 

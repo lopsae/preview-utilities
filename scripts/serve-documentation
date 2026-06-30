@@ -15,7 +15,7 @@ PATH_PREFIX = '/preview-utilities'
 DOCS_DIRECTORY = '../preview-utilities-docs/docs'
 
 DOCUMENTATION_ROOT = '/documentation/previewutilities'
-DOCUMENTATION_VERSION = 'v0.4.0'
+DOCUMENTATION_VERSION = 'v0.4.1'
 
 
 class PrefixedHandler(http.server.SimpleHTTPRequestHandler):

@@ -31,6 +31,6 @@ swift package \
     --disable-indexing \
     --experimental-skip-synthesized-symbols \
     --transform-for-static-hosting \
-    --hosting-base-path "/preview-utilities/v0.4.0" \
-    --output-path "../preview-utilities-docs/docs/v0.4.0"
+    --hosting-base-path "/preview-utilities/v0.4.1" \
+    --output-path "../preview-utilities-docs/docs/v0.4.1"
 
