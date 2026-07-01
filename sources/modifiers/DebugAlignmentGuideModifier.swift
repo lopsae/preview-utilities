@@ -7,6 +7,19 @@
 import SwiftUI
 
 
+struct DebugAlignmentGuideModifier: ViewModifier {
+
+    let alignment: Alignment
+
+    func body(content: Content) -> some View {
+        content
+        .debugAlignmentGuide(horizontal: alignment.horizontal)
+        .debugAlignmentGuide(vertical:  alignment.vertical)
+    }
+
+}
+
+
 struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
 
     let horizontalAlignment: HorizontalAlignment
@@ -44,12 +57,15 @@ struct DebugVerticalAlignmentGuideModifier: ViewModifier {
 
 extension View {
 
-    public func debugAlignmentGuide(_ horizontalAlignment: HorizontalAlignment) -> some View {
+    public func debugAlignmentGuide(_ alignment: Alignment) -> some View {
+        return modifier(DebugAlignmentGuideModifier(alignment: alignment))
+    }
+
+    public func debugAlignmentGuide(horizontal horizontalAlignment: HorizontalAlignment) -> some View {
         return modifier(DebugHorizontalAlignmentGuideModifier(horizontalAlignment: horizontalAlignment))
     }
 
-
-    public func debugAlignmentGuide(_ verticalAlignment: VerticalAlignment) -> some View {
+    public func debugAlignmentGuide(vertical verticalAlignment: VerticalAlignment) -> some View {
         return modifier(DebugVerticalAlignmentGuideModifier(verticalAlignment: verticalAlignment))
     }
 
@@ -70,12 +86,34 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+    Text("Ag")
+    .font(.body.pointSize(60))
+    .debugAlignmentGuide(.topLeading)
+    .border(.green.tertiary, width: 8)
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(60))
+    .debugAlignmentGuide(.centerCenter)
+    .border(.green.tertiary, width: 8)
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(60))
+    .debugAlignmentGuide(.trailingLastTextBaseline)
+    .border(.green.tertiary, width: 8)
+}
+
+
 #Preview("Horizontal", traits: .headerFooter, PreviewContent.layout) {
     Text("Ag")
     .font(.title.pointSize(100))
-    .debugAlignmentGuide(.leading)
-    .debugAlignmentGuide(.horizontalCenter)
-    .debugAlignmentGuide(.trailing)
+    .debugAlignmentGuide(horizontal: .leading)
+    .debugAlignmentGuide(horizontal: .center)
+    .debugAlignmentGuide(horizontal: .trailing)
     .border(.green.tertiary, width: 8)
 }
 
@@ -83,22 +121,22 @@ private struct PreviewContent {
 #Preview("Vertical", traits: .fixedHeader, PreviewContent.layout) {
     Text("Ag")
     .font(.title.pointSize(100))
-    .debugAlignmentGuide(.top)
-    .debugAlignmentGuide(.firstTextBaseline)
-    .debugAlignmentGuide(.verticalCenter)
-    .debugAlignmentGuide(.lastTextBaseline)
-    .debugAlignmentGuide(.bottom)
+    .debugAlignmentGuide(vertical: .top)
+    .debugAlignmentGuide(vertical: .firstTextBaseline)
+    .debugAlignmentGuide(vertical: .verticalCenter)
+    .debugAlignmentGuide(vertical: .lastTextBaseline)
+    .debugAlignmentGuide(vertical: .bottom)
     .border(.green.tertiary, width: 8)
 
     DashedDivider()
 
     Text("Sphinx\nof Black\nQuartz")
     .font(.largeTitle)
-    .debugAlignmentGuide(.top)
-    .debugAlignmentGuide(.firstTextBaseline)
-    .debugAlignmentGuide(.verticalCenter)
-    .debugAlignmentGuide(.lastTextBaseline)
-    .debugAlignmentGuide(.bottom)
+    .debugAlignmentGuide(vertical: .top)
+    .debugAlignmentGuide(vertical: .firstTextBaseline)
+    .debugAlignmentGuide(vertical: .verticalCenter)
+    .debugAlignmentGuide(vertical: .lastTextBaseline)
+    .debugAlignmentGuide(vertical: .bottom)
     .border(.green.tertiary, width: 8)
 }
 

@@ -7,6 +7,12 @@
 import SwiftUI
 
 
+extension Alignment {
+    nonisolated
+    static var centerCenter: Self { .center }
+}
+
+
 extension VerticalAlignment {
     nonisolated
     static var verticalCenter: Self { .center }
