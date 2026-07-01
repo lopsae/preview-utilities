@@ -1,4 +1,6 @@
+# https://swiftpackageindex.com/swiftpackageindex/spimanifest/1.12.0/documentation/spimanifest
+
 version: 1
-builder:
-  configs:
-    - documentation_targets: [PreviewUtilities]
+external_links:
+  documentation: "https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities"
+
