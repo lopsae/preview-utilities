@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-struct DebugVerticalAlignmentGuideModifier: ViewModifier {
+struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
 
     let horizontalAlignment: HorizontalAlignment
 
@@ -29,7 +29,7 @@ struct DebugVerticalAlignmentGuideModifier: ViewModifier {
 extension View {
 
     public func debugAlignmentGuide(_ horizontalAlignment: HorizontalAlignment) -> some View {
-        return modifier(DebugVerticalAlignmentGuideModifier(horizontalAlignment: horizontalAlignment))
+        return modifier(DebugHorizontalAlignmentGuideModifier(horizontalAlignment: horizontalAlignment))
     }
 
 }
