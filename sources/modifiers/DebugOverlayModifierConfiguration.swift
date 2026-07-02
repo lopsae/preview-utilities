@@ -165,6 +165,8 @@ extension DebugOverlayModifier.Configuration {
             .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
         }
 
+        // FIXME: add noBorder
+
         /// Prints the width of the parent view in the debug caption.
         public static let width: Trait = .modifier(InfoElementsModifier(infoElements: .width))
 
