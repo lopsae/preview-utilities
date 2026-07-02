@@ -106,43 +106,69 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("ExtendedWidth", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Width", traits: .fixedHeader, PreviewContent.layout) {
     VStack(alignment: .leading) {
         ExtendedWidthLayout(extend: 50) {
             Rectangle()
-            .fill(.red)
-            .frame(height: 4)
+            .fill(.indigo)
+            .frame(height: 20)
         }
-        .alignmentGuide(.leading, offsetBy: -20)
+        .alignmentGuide(.leading, offsetBy: 20)
 
         ExtendedWidthLayout(extend: 50) {
             Rectangle()
-            .fill(.red)
-            .frame(height: 4)
+            .fill(.indigo)
+            .frame(height: 20)
         }
+        // FIXME: try to use debugAlignmentGuide
+        .overlay(alignment: .leading) {
+            Rectangle()
+            .fill(.red.secondary)
+            .frame(width: 4, height: 100)
+        }
+
+        ExtendedWidthLayout(extend: 50) {
+            Rectangle()
+            .fill(.indigo)
+            .frame(height: 20)
+        }
+        .alignmentGuide(.leading, offsetBy: -20)
     }
-    .floatingCaption("VStack", .colorStyle(.purple), .alignment(.outerTrailing))
+    .floatingCaption("VStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
     .frame(squareOf: 100, alignment: .leading)
     .debugOverlay(.hairline)
 }
 
 
-#Preview("ExtendedHeight", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Height", traits: .fixedHeader, PreviewContent.layout) {
     HStack(alignment: .top) {
         ExtendedHeightLayout(extend: 50) {
             Rectangle()
-            .fill(.red)
-            .frame(width: 4)
+            .fill(.indigo)
+            .frame(width: 20)
         }
-        .alignmentGuide(.top, offsetBy: -20)
+        .alignmentGuide(.top, offsetBy: 20)
 
         ExtendedHeightLayout(extend: 50) {
             Rectangle()
-            .fill(.red)
-            .frame(width: 4)
+            .fill(.indigo)
+            .frame(width: 20)
         }
+        // FIXME: try to use debugAlignmentGuide
+        .overlay(alignment: .top) {
+            Rectangle()
+            .fill(.red.secondary)
+            .frame(width: 100, height: 4)
+        }
+
+        ExtendedHeightLayout(extend: 50) {
+            Rectangle()
+            .fill(.indigo)
+            .frame(width: 20)
+        }
+        .alignmentGuide(.top, offsetBy: -20)
     }
-    .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerTrailing))
+    .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerTrailingBottom))
     .frame(squareOf: 100, alignment: .top)
     .debugOverlay(.hairline)
 }
