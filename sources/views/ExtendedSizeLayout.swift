@@ -106,6 +106,46 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
+#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
+    PreviewCaption("""
+        Subviews of the `ExtendedSizeLayout` are always placed with a size extended from the 
+        proposed size.
+        """)
+    .paragraph("""
+        This behavior is similar to adding padding to a view, with the difference that it allows
+        the view to use the extended space, for example a `Rectangle` will draw in the extended
+        size.
+        """)
+
+    HStack {
+        ExtendedWidthLayout(extend: 100) {
+            Text("Extended")
+                .floatingCaption("Text", .colorStyle(.green), .alignment(.outerTop))
+        }
+        .floatingCaption("Layout", .colorStyle(.blue), .alignment(.outerBottom))
+        .padding()
+
+        Text("Text")
+    }
+    .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
+
+    DashedDivider()
+    .padding(.vertical)
+
+    VStack {
+        ExtendedHeightLayout(extend: 100) {
+            Text("Extended")
+                .floatingCaption("Text", .colorStyle(.green), .alignment(.outerLeading))
+        }
+        .floatingCaption("Layout", .colorStyle(.blue), .alignment(.outerTrailing))
+        .padding()
+
+        Text("Text")
+    }
+    .floatingCaption("VStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
+}
+
+
 #Preview("Width", traits: .fixedHeader, PreviewContent.layout) {
     VStack(alignment: .leading) {
         ExtendedWidthLayout(extend: 50) {
