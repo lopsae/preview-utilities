@@ -23,13 +23,17 @@ struct DebugAlignmentGuideModifier: ViewModifier {
 struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
 
     let horizontalAlignment: HorizontalAlignment
+    let extend: CGFloat
+    let anchor: VerticalAlignment
 
     func body(content: Content) -> some View {
-        let alignment = Alignment(horizontal: horizontalAlignment, vertical: .center)
+        let alignment = Alignment(horizontal: horizontalAlignment, vertical: anchor)
         content.overlay(alignment: alignment) {
-            Rectangle()
-            .fill(.red.secondary)
-            .frame(width: 2)
+            ExtendedHeightLayout(extend: extend) {
+                Rectangle()
+                .fill(.red.secondary)
+                .frame(width: 2)
+            }
         }
     }
 
@@ -61,8 +65,17 @@ extension View {
         return modifier(DebugAlignmentGuideModifier(alignment: alignment))
     }
 
-    public func debugAlignmentGuide(horizontal horizontalAlignment: HorizontalAlignment) -> some View {
-        return modifier(DebugHorizontalAlignmentGuideModifier(horizontalAlignment: horizontalAlignment))
+    public func debugAlignmentGuide(
+        horizontal horizontalAlignment: HorizontalAlignment,
+        extend: CGFloat = .zero,
+        anchor: VerticalAlignment = .center
+    ) -> some View {
+        let guideModifier = DebugHorizontalAlignmentGuideModifier(
+            horizontalAlignment: horizontalAlignment,
+            extend: extend,
+            anchor: anchor
+        )
+        return modifier(guideModifier)
     }
 
     public func debugAlignmentGuide(vertical verticalAlignment: VerticalAlignment) -> some View {
@@ -112,8 +125,18 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .debugAlignmentGuide(horizontal: .leading)
-    .debugAlignmentGuide(horizontal: .center)
-    .debugAlignmentGuide(horizontal: .trailing)
+    .debugAlignmentGuide(horizontal: .center, extend: -50)
+    .debugAlignmentGuide(horizontal: .trailing, extend: 50)
+    .border(.green.tertiary, width: 8)
+}
+
+
+#Preview("Horizontal Anchored", traits: .headerFooter, PreviewContent.layout) {
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .debugAlignmentGuide(horizontal: .leading, extend: 50, anchor: .top)
+    .debugAlignmentGuide(horizontal: .center, extend: 50, anchor: .firstTextBaseline)
+    .debugAlignmentGuide(horizontal: .trailing, extend: 50, anchor: .bottom)
     .border(.green.tertiary, width: 8)
 }
 
