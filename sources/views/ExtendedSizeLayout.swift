@@ -6,13 +6,26 @@
 
 import SwiftUI
 
-
-// FIXME: generalize to both width and height
-
+/// A layout that always places its subviews with size extended from its proposed view.
+///
+/// Subviews of this layout are always placed with a size extended by a given width and height from
+/// its proposed size. This has the practical effect of adding spacing similar to a padding around
+/// the subviews that have an idea size. For views that can expand their width or height, the view
+/// can use the expanded size, drawing outside of its proposed size.
+///
+/// The subviews are arranged in the same manner as a centered `ZStack`.
 nonisolated
-struct ExtendedWidthLayout: Layout {
+struct ExtendedSizeLayout: Layout {
 
-    let extend: CGFloat
+    let widthAddition: CGFloat
+    let heightAddition: CGFloat
+
+
+    init(addWidth: CGFloat = .zero, addHeight: CGFloat = .zero) {
+        self.widthAddition = addWidth
+        self.heightAddition = addHeight
+    }
+
 
     func sizeThatFits(
         proposal: ProposedViewSize,
@@ -24,7 +37,7 @@ struct ExtendedWidthLayout: Layout {
             let size = subview.sizeThatFits(proposal)
             containerSize.envelop(size)
         }
-        let extended = containerSize.adding(width: extend)
+        let extended = containerSize.adding(width: widthAddition, height: heightAddition)
         return extended
     }
 
@@ -37,8 +50,13 @@ struct ExtendedWidthLayout: Layout {
     ) {
         for subview in subviews {
             var extended = proposal
+            // FIXME: is this the correct behavior when width or height is undefined?
+            // FIXME: double check this works with infinite width or height
             if let width = extended.width {
-                extended.width = width + extend
+                extended.width = width + widthAddition
+            }
+            if let height = extended.height {
+                extended.height = height + heightAddition
             }
             subview.place(
                 at: bounds.center,
@@ -49,6 +67,7 @@ struct ExtendedWidthLayout: Layout {
     }
 
 }
+
 
 nonisolated
 struct ExtendedHeightLayout: Layout {
@@ -106,7 +125,7 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Default", traits: .paddingSpacing, .fixedHeaderFooter, PreviewContent.layout) {
     PreviewCaption("""
         Subviews of the `ExtendedSizeLayout` are always placed with a size extended from the 
         proposed size.
@@ -118,9 +137,9 @@ private struct PreviewContent {
         """)
 
     HStack {
-        ExtendedWidthLayout(extend: 100) {
-            Text("Extended")
-                .floatingCaption("Text", .colorStyle(.green), .alignment(.outerTop))
+        ExtendedSizeLayout(addWidth: 100) {
+            Text("Extended\nWidth")
+            .floatingCaption("Text", .colorStyle(.green), .alignment(.outerTop))
         }
         .floatingCaption("Layout", .colorStyle(.blue), .alignment(.outerBottom))
         .padding()
@@ -133,9 +152,9 @@ private struct PreviewContent {
     .padding(.vertical)
 
     VStack {
-        ExtendedHeightLayout(extend: 100) {
-            Text("Extended")
-                .floatingCaption("Text", .colorStyle(.green), .alignment(.outerLeading))
+        ExtendedSizeLayout(addHeight: 60) {
+            Text("Extended\nHeigth")
+            .floatingCaption("Text", .colorStyle(.green), .alignment(.outerLeading))
         }
         .floatingCaption("Layout", .colorStyle(.blue), .alignment(.outerTrailing))
         .padding()
@@ -143,19 +162,37 @@ private struct PreviewContent {
         Text("Text")
     }
     .floatingCaption("VStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
+
+    DashedDivider()
+    .padding(.vertical)
+
+    HStack {
+        ExtendedSizeLayout(addWidth: 100, addHeight: 60) {
+            Text("Extended\nSize")
+            .floatingCaption("Text", .colorStyle(.green), .alignment(.outerTop))
+        }
+        .floatingCaption("Layout", .colorStyle(.blue), .alignment(.outerBottom))
+        .padding()
+
+        Text("Text")
+    }
+    .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
+
+    VisibleSpacer()
+
 }
 
 
 #Preview("Width", traits: .fixedHeader, PreviewContent.layout) {
     VStack(alignment: .leading) {
-        ExtendedWidthLayout(extend: 50) {
+        ExtendedSizeLayout(addWidth: 50) {
             Rectangle()
             .fill(.indigo)
             .frame(height: 20)
         }
         .alignmentGuide(.leading, offsetBy: 20)
 
-        ExtendedWidthLayout(extend: 50) {
+        ExtendedSizeLayout(addWidth: 50) {
             Rectangle()
             .fill(.indigo)
             .frame(height: 20)
@@ -167,7 +204,7 @@ private struct PreviewContent {
             .frame(width: 4, height: 100)
         }
 
-        ExtendedWidthLayout(extend: 50) {
+        ExtendedSizeLayout(addWidth: 50) {
             Rectangle()
             .fill(.indigo)
             .frame(height: 20)
