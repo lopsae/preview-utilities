@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A custom layout that transposes the width and height of its subviews.
 ///
-/// This layout swaps the width and height in both the size proposal sent to the subvies and the
+/// This layout swaps the width and height in both the size proposal sent to the subviews and the
 /// resulting size reported back to the parent. This enables the geometry of the rotated view to
 /// participate with the layout system.
 ///
@@ -192,4 +192,132 @@ private struct PreviewContent {
     }
     .debugOverlay(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
+}
+
+
+// FIXME: Move to its own file
+// FIXME: generalize to both width and height
+
+nonisolated
+struct ExtendedWidthLayout: Layout {
+
+    let extend: CGFloat
+
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) -> CGSize {
+        var containerSize: CGSize = .zero
+        for subview in subviews {
+            let size = subview.sizeThatFits(proposal)
+            containerSize.envelop(size)
+        }
+        let extended = containerSize.adding(width: extend)
+        return extended
+    }
+
+
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) {
+        for subview in subviews {
+            var extended = proposal
+            if let width = extended.width {
+                extended.width = width + extend
+            }
+            subview.place(
+                at: bounds.center,
+                anchor: .center,
+                proposal: extended
+            )
+        }
+    }
+
+}
+
+nonisolated
+struct ExtendedHeightLayout: Layout {
+
+    let extend: CGFloat
+
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) -> CGSize {
+        var containerSize: CGSize = .zero
+        for subview in subviews {
+            let size = subview.sizeThatFits(proposal)
+            containerSize.envelop(size)
+        }
+        let extended = containerSize.adding(height: extend)
+        return extended
+    }
+
+
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) {
+        for subview in subviews {
+            var extended = proposal
+            if let heigth = extended.height {
+                extended.height = heigth + extend
+            }
+            subview.place(
+                at: bounds.center,
+                anchor: .center,
+                proposal: extended
+            )
+        }
+    }
+
+}
+
+
+#Preview("ExtendedWidth", traits: .fixedHeader, PreviewContent.layout) {
+    VStack(alignment: .leading) {
+        ExtendedWidthLayout(extend: 50) {
+            Rectangle()
+            .fill(.red)
+            .frame(height: 4)
+        }
+        .alignmentGuide(.leading, offsetBy: -20)
+
+        ExtendedWidthLayout(extend: 50) {
+            Rectangle()
+            .fill(.red)
+            .frame(height: 4)
+        }
+    }
+    .floatingCaption("VStack", .colorStyle(.purple), .alignment(.outerTrailing))
+    .frame(squareOf: 100, alignment: .leading)
+    .debugOverlay(.hairline)
+}
+
+
+#Preview("ExtendedHeight", traits: .fixedHeader, PreviewContent.layout) {
+    HStack(alignment: .top) {
+        ExtendedHeightLayout(extend: 50) {
+            Rectangle()
+            .fill(.red)
+            .frame(width: 4)
+        }
+        .alignmentGuide(.top, offsetBy: -20)
+
+        ExtendedHeightLayout(extend: 50) {
+            Rectangle()
+            .fill(.red)
+            .frame(width: 4)
+        }
+    }
+    .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerTrailing))
+    .frame(squareOf: 100, alignment: .top)
+    .debugOverlay(.hairline)
 }
