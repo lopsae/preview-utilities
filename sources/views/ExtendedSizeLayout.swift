@@ -6,7 +6,8 @@
 
 import SwiftUI
 
-/// A layout that always places its subviews with size extended from its proposed view.
+
+/// A layout that always places its subviews with a size extended from its proposed view.
 ///
 /// Subviews of this layout are always placed with a size extended by a given width and height from
 /// its proposed size. This has the practical effect of adding spacing similar to a padding around
@@ -69,48 +70,6 @@ struct ExtendedSizeLayout: Layout {
 }
 
 
-nonisolated
-struct ExtendedHeightLayout: Layout {
-
-    let extend: CGFloat
-
-    func sizeThatFits(
-        proposal: ProposedViewSize,
-        subviews: Subviews,
-        cache: inout ()
-    ) -> CGSize {
-        var containerSize: CGSize = .zero
-        for subview in subviews {
-            let size = subview.sizeThatFits(proposal)
-            containerSize.envelop(size)
-        }
-        let extended = containerSize.adding(height: extend)
-        return extended
-    }
-
-
-    func placeSubviews(
-        in bounds: CGRect,
-        proposal: ProposedViewSize,
-        subviews: Subviews,
-        cache: inout ()
-    ) {
-        for subview in subviews {
-            var extended = proposal
-            if let height = extended.height {
-                extended.height = height + extend
-            }
-            subview.place(
-                at: bounds.center,
-                anchor: .center,
-                proposal: extended
-            )
-        }
-    }
-
-}
-
-
 // MARK: - PreviewContent
 
 
@@ -136,7 +95,7 @@ private struct PreviewContent {
         size.
         """)
 
-    HStack {
+    HStack(spacing: .zero) {
         ExtendedSizeLayout(addWidth: 100) {
             Text("Extended\nWidth")
             .floatingCaption("Text", .colorStyle(.green), .alignment(.outerTop))
@@ -151,7 +110,7 @@ private struct PreviewContent {
     DashedDivider()
     .padding(.vertical)
 
-    VStack {
+    VStack(spacing: .zero) {
         ExtendedSizeLayout(addHeight: 60) {
             Text("Extended\nHeigth")
             .floatingCaption("Text", .colorStyle(.green), .alignment(.outerLeading))
@@ -166,7 +125,7 @@ private struct PreviewContent {
     DashedDivider()
     .padding(.vertical)
 
-    HStack {
+    HStack(spacing: .zero) {
         ExtendedSizeLayout(addWidth: 100, addHeight: 60) {
             Text("Extended\nSize")
             .floatingCaption("Text", .colorStyle(.green), .alignment(.outerTop))
@@ -235,14 +194,14 @@ private struct PreviewContent {
 
 #Preview("Height", traits: .fixedHeader, PreviewContent.layout) {
     HStack(alignment: .top) {
-        ExtendedHeightLayout(extend: 50) {
+        ExtendedSizeLayout(addHeight: 50) {
             Rectangle()
             .fill(.indigo)
             .frame(width: 20)
         }
         .alignmentGuide(.top, offsetBy: 20)
 
-        ExtendedHeightLayout(extend: 50) {
+        ExtendedSizeLayout(addHeight: 50) {
             Rectangle()
             .fill(.indigo)
             .frame(width: 20)
@@ -254,7 +213,7 @@ private struct PreviewContent {
             .frame(width: 100, height: 4)
         }
 
-        ExtendedHeightLayout(extend: 50) {
+        ExtendedSizeLayout(addHeight: 50) {
             Rectangle()
             .fill(.indigo)
             .frame(width: 20)

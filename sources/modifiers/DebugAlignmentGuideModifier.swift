@@ -29,7 +29,7 @@ struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
     func body(content: Content) -> some View {
         let alignment = Alignment(horizontal: horizontalAlignment, vertical: anchor)
         content.overlay(alignment: alignment) {
-            ExtendedHeightLayout(extend: extend) {
+            ExtendedSizeLayout(addHeight: extend) {
                 Rectangle()
                 .fill(.red.secondary)
                 .frame(width: 2)
