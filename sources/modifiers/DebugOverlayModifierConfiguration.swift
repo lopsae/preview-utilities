@@ -25,7 +25,7 @@ extension DebugOverlayModifier {
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
 
 
-        init() { }
+        init() {}
 
 
         init(traits: [Trait]) {
@@ -266,7 +266,6 @@ extension DebugOverlayModifier.Configuration {
         func update(configuration: inout DebugOverlayModifier.Configuration) {
             configuration.isVisible = isVisible
         }
-
     }
 
     struct CaptionModifier: Modifier {

@@ -20,20 +20,104 @@ struct DebugAlignmentGuideModifier: ViewModifier {
 }
 
 
-struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
+public struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
 
     let horizontalAlignment: HorizontalAlignment
-    let extend: CGFloat
-    let anchor: VerticalAlignment
+    let configuration: Configuration
 
-    func body(content: Content) -> some View {
-        let alignment = Alignment(horizontal: horizontalAlignment, vertical: anchor)
+    public func body(content: Content) -> some View {
+        let alignment = Alignment(horizontal: horizontalAlignment, vertical: configuration.anchor)
         content.overlay(alignment: alignment) {
-            ExtendedSizeLayout(addHeight: extend) {
+            ExtendedSizeLayout(addHeight: configuration.heightAddition) {
                 Rectangle()
                 .fill(.red.secondary)
                 .frame(width: 2)
             }
+        }
+    }
+
+    public struct Configuration {
+
+        var isVisible: Bool = true
+        var heightAddition: CGFloat = .zero
+        var anchor: VerticalAlignment = .center
+
+        init() {}
+
+        init(traits: [Trait]) {
+            self.init()
+            for trait in traits {
+                trait.apply(to: &self)
+            }
+        }
+    }
+
+
+    public enum Trait: Sendable {
+
+        /// Applies the associated modifier.
+        case modifier(any Modifier)
+
+        /// Applies the associated traits.
+        case traits([Trait])
+
+
+        func apply(to configuration: inout Configuration) {
+            switch self {
+            case .modifier(let modifier):
+                modifier.update(configuration: &configuration)
+            case .traits(let traits):
+                for trait in traits {
+                    trait.apply(to: &configuration)
+                }
+            }
+        }
+
+
+        // FIXME: document.
+        public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
+
+        // FIXME: document.
+        public static func visible(_ isVisible: Bool) -> Trait {
+            .modifier(VisibilityModifier(isVisible: isVisible))
+        }
+
+        // FIXME: document.
+        public static func addHeight(_ addition: CGFloat) -> Trait {
+            .modifier(HeightAdditionModifier(heightAddition: addition))
+        }
+
+        // FIXME: document.
+        public static func anchor(_ anchor: VerticalAlignment) -> Trait {
+            .modifier(AnchorModifier(anchor: anchor))
+        }
+
+    }
+
+
+    public protocol Modifier: Sendable {
+        func update(configuration: inout Configuration)
+    }
+
+    struct VisibilityModifier: Modifier {
+        let isVisible: Bool
+        func update(configuration: inout Configuration) {
+            configuration.isVisible = isVisible
+        }
+    }
+
+
+    struct HeightAdditionModifier: Modifier {
+        let heightAddition: CGFloat
+        func update(configuration: inout Configuration) {
+            configuration.heightAddition = heightAddition
+        }
+    }
+
+    struct AnchorModifier: Modifier {
+        let anchor: VerticalAlignment
+        func update(configuration: inout Configuration) {
+            configuration.anchor = anchor
         }
     }
 
@@ -67,13 +151,12 @@ extension View {
 
     public func debugAlignmentGuide(
         horizontal horizontalAlignment: HorizontalAlignment,
-        extend: CGFloat = .zero,
-        anchor: VerticalAlignment = .center
+        _ traits: DebugHorizontalAlignmentGuideModifier.Trait...
     ) -> some View {
+        let configuration = DebugHorizontalAlignmentGuideModifier.Configuration(traits: traits)
         let guideModifier = DebugHorizontalAlignmentGuideModifier(
             horizontalAlignment: horizontalAlignment,
-            extend: extend,
-            anchor: anchor
+            configuration: configuration
         )
         return modifier(guideModifier)
     }
@@ -125,8 +208,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .debugAlignmentGuide(horizontal: .leading)
-    .debugAlignmentGuide(horizontal: .center, extend: -50)
-    .debugAlignmentGuide(horizontal: .trailing, extend: 50)
+    .debugAlignmentGuide(horizontal: .center, .addHeight(-50))
+    .debugAlignmentGuide(horizontal: .trailing, .addHeight(50))
     .border(.green.tertiary, width: 8)
 }
 
@@ -134,9 +217,9 @@ private struct PreviewContent {
 #Preview("Horizontal Anchored", traits: .headerFooter, PreviewContent.layout) {
     Text("Ag")
     .font(.title.pointSize(100))
-    .debugAlignmentGuide(horizontal: .leading, extend: 50, anchor: .top)
-    .debugAlignmentGuide(horizontal: .center, extend: 50, anchor: .firstTextBaseline)
-    .debugAlignmentGuide(horizontal: .trailing, extend: 50, anchor: .bottom)
+    .debugAlignmentGuide(horizontal: .leading, .addHeight(50), .anchor(.top))
+    .debugAlignmentGuide(horizontal: .center, .addHeight(50) , .anchor(.firstTextBaseline))
+    .debugAlignmentGuide(horizontal: .trailing, .addHeight(50), .anchor(.bottom))
     .border(.green.tertiary, width: 8)
 }
 
