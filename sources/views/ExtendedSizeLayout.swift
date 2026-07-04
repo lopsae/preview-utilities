@@ -175,8 +175,6 @@ private struct PreviewContent {
                 .padding(.bottom, 4)
             }
             .frame(height: 200)
-
-
         }
 
         ExtendedSizeLayout(addWidth: 50) {
@@ -200,6 +198,7 @@ private struct PreviewContent {
             .frame(width: 20)
         }
         .alignmentGuide(.top, offsetBy: 20)
+        .floatingCaption("Extended", .width, .captionStyle(.indigo), .alignment(.outerLeadingBottom))
 
         ExtendedSizeLayout(addHeight: 50) {
             Rectangle()
@@ -208,9 +207,19 @@ private struct PreviewContent {
         }
         // FIXME: try to use debugAlignmentGuide
         .overlay(alignment: .top) {
-            Rectangle()
-            .fill(.red.secondary)
-            .frame(width: 100, height: 4)
+            ZStack(alignment: .top) {
+                Rectangle()
+                .fill(.red.secondary)
+                .frame(height: 4)
+
+                Text("Top")
+                .font(.caption)
+                .foregroundStyle(.red)
+                .maxWidthFrame(alignment: .trailing)
+                .padding(.trailing, 4)
+                .padding(.top, 4)
+            }
+            .frame(width: 200)
         }
 
         ExtendedSizeLayout(addHeight: 50) {
@@ -221,6 +230,6 @@ private struct PreviewContent {
         .alignmentGuide(.top, offsetBy: -20)
     }
     .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerTrailingBottom))
-    .frame(squareOf: 100, alignment: .top)
-    .debugOverlay(.hairline)
+    .frame(squareOf: 200, alignment: .top)
+    .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
 }
