@@ -25,6 +25,8 @@ struct DebugAlignmentGuideModifier: ViewModifier {
 
 public struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
 
+    public typealias Trait = ConfigurationTrait<Configuration>
+
     let horizontalAlignment: HorizontalAlignment
     let configuration: Configuration
 
@@ -40,17 +42,36 @@ public struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
     }
 
     public struct Configuration: TraitConfigurable {
-
         var isVisible: Bool = true
         var heightAddition: CGFloat = .zero
         var anchor: VerticalAlignment = .center
-
         public init() {}
-
     }
 
+}
 
-    public typealias Trait = ConfigurationTrait<Configuration>
+
+extension DebugHorizontalAlignmentGuideModifier.Trait {
+
+    // FIXME: document.
+    public static var hidden: Self {
+        .modifier(VisibilityModifier(isVisible: false))
+    }
+
+    // FIXME: document.
+    public static func visible(_ isVisible: Bool) -> Self {
+           .modifier(VisibilityModifier(isVisible: isVisible))
+    }
+
+    // FIXME: document.
+    public static func addHeight(_ addition: CGFloat) -> Self {
+        .modifier(HeightAdditionModifier(heightAddition: addition))
+    }
+
+    // FIXME: document.
+    public static func anchor(_ anchor: VerticalAlignment) -> Self {
+        .modifier(AnchorModifier(anchor: anchor))
+    }
 
 
     struct VisibilityModifier: ConfigurationModifier {
@@ -72,32 +93,6 @@ public struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
         func update(configuration: inout Configuration) {
             configuration.anchor = anchor
         }
-    }
-
-}
-
-
-extension ConfigurationTrait
-where Configuration == DebugHorizontalAlignmentGuideModifier.Configuration {
-
-    // FIXME: document.
-    public static var hidden: Self {
-        .modifier(DebugHorizontalAlignmentGuideModifier.VisibilityModifier(isVisible: false))
-    }
-
-    // FIXME: document.
-    public static func visible(_ isVisible: Bool) -> Self {
-        .modifier(DebugHorizontalAlignmentGuideModifier.VisibilityModifier(isVisible: isVisible))
-    }
-
-    // FIXME: document.
-    public static func addHeight(_ addition: CGFloat) -> Self {
-        .modifier(DebugHorizontalAlignmentGuideModifier.HeightAdditionModifier(heightAddition: addition))
-    }
-
-    // FIXME: document.
-    public static func anchor(_ anchor: VerticalAlignment) -> Self {
-        .modifier(DebugHorizontalAlignmentGuideModifier.AnchorModifier(anchor: anchor))
     }
 
 }
