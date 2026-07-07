@@ -189,19 +189,77 @@ extension TraitConfigurable {
 // MARK: - Vertical
 
 
-struct DebugVerticalAlignmentGuideModifier: ViewModifier {
+public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier
+where AxisAlignment: AlignmentWithOrthogonal
+{
 
-    let verticalAlignment: VerticalAlignment
+    public typealias Trait = ConfigurationTrait<Configuration>
 
-    func body(content: Content) -> some View {
-        let alignment = Alignment(horizontal: .center, vertical: verticalAlignment)
+    let axisAlignment: AxisAlignment
+    let configuration: Configuration
+
+    public func body(content: Content) -> some View {
+        let alignment = axisAlignment.alignment(withOrthogonal: configuration.anchor)
         content.overlay(alignment: alignment) {
-            Rectangle()
-            .fill(.red.secondary)
-            .frame(height: 2)
+            let extendedSize = axisAlignment.unitSize.transposed.multiplying(by: configuration.lengthAddition)
+            ExtendedSizeLayout(addWidth: extendedSize.width , addHeight: extendedSize.height) {
+                let unitSize = axisAlignment.unitSize
+                // FIXME: actually draw a line instead of rectangle.
+                let lineWidth: CGFloat = 2
+                Rectangle()
+                .fill(.red.secondary)
+                .frame(
+                    width:  unitSize.width  == .zero ? nil : lineWidth,
+                    height: unitSize.height == .zero ? nil : lineWidth
+                )
+            }
+            .opacity(configuration.isVisible ? .one : .zero)
+            .allowsHitTesting(false)
         }
     }
 
+    public struct Configuration: TraitConfigurable {
+        var isVisible: Bool = true
+        var lengthAddition: CGFloat = .zero
+        var anchor: AxisAlignment.OrthogonalAlignment = .default
+        public init() {}
+    }
+
+}
+
+
+public protocol AlignmentWithOrthogonal {
+    associatedtype OrthogonalAlignment: AlignmentWithDefault
+    var unitSize: CGSize { get }
+    func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
+}
+
+public protocol AlignmentWithDefault {
+    static var `default`: Self { get }
+}
+
+extension HorizontalAlignment: AlignmentWithOrthogonal {
+    public typealias OrthogonalAlignment = VerticalAlignment
+    public var unitSize: CGSize { .init(width: CGFloat.one, height: .zero) }
+    public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
+        .init(horizontal: self, vertical: orthogonalAlignment)
+    }
+}
+
+extension HorizontalAlignment: AlignmentWithDefault {
+    public static var `default`: Self { .center }
+}
+
+extension VerticalAlignment: AlignmentWithOrthogonal {
+    public typealias OrthogonalAlignment = HorizontalAlignment
+    public var unitSize: CGSize { .init(width: CGFloat.zero, height: .one) }
+    public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
+        .init(horizontal: orthogonalAlignment, vertical: self)
+    }
+}
+
+extension VerticalAlignment: AlignmentWithDefault {
+    public static var `default`: Self { .center }
 }
 
 
@@ -227,7 +285,8 @@ extension View {
     }
 
     public func debugAlignmentGuide(vertical verticalAlignment: VerticalAlignment) -> some View {
-        return modifier(DebugVerticalAlignmentGuideModifier(verticalAlignment: verticalAlignment))
+//        return modifier(DebugVerticalAlignmentGuideModifier(verticalAlignment: verticalAlignment))
+        return modifier(DebugAxisAlignmentGuideModifier(axisAlignment: verticalAlignment, configuration: .init()))
     }
 
 }
