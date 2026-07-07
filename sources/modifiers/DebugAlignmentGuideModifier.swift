@@ -38,6 +38,8 @@ public struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
                 .fill(.red.secondary)
                 .frame(width: 2)
             }
+            .opacity(configuration.isVisible ? .one : .zero)
+            .allowsHitTesting(false)
         }
     }
 
