@@ -1,6 +1,16 @@
 Next Features
 =============
 
+For 0.4.1
+---------
++ Finish DebugAlignmentGuide funtions, and document.
++ Create ApiCollection for ConfigurationModifier/Trait
++ Migrate DebugOverlay to also use ConfigurationModifierTrait
+
+
+For 0.5.0
++ Rename DebugOverlay to DebugGeometry, to better match other possible debug modifiers.
+
 Possible new features for future versions.
 + Use FloatingCaption as the main text component in DebugOverlay.
 + Border element could be separated from floating caption, and used in cases where `.floatingCaption("", .colorStyle())` is used (just for the border).

@@ -4,6 +4,9 @@
 //
 
 
+// FIXME: add tests with a dummy configuration.
+
+
 /// Modifications to a configuration instance.
 ///
 /// Modifier instances apply a modification to an instance of type `Configuration`.
