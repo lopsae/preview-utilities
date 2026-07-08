@@ -14,7 +14,7 @@ struct DebugAlignmentGuideModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
         .debugAlignmentGuide(horizontal: alignment.horizontal)
-        .debugAlignmentGuide(vertical:  alignment.vertical)
+        .debugAlignmentGuide(vertical:   alignment.vertical)
     }
 
 }
@@ -107,10 +107,12 @@ extension DebugHorizontalAlignmentGuideModifier.Trait {
 
 
 public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier
-where AxisAlignment: AlignmentWithOrthogonal
+where
+    AxisAlignment: AlignmentWithOrthogonal,
+    AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
 {
 
-    public typealias Configuration = DebugAxisAlignmentGuideConfiguration<AxisAlignment.OrthogonalAlignment>
+    public typealias Configuration = DebugAxisAlignmentGuideConfiguration<AxisAlignment>
     public typealias Trait = ConfigurationTrait<Configuration>
 
     let axisAlignment: AxisAlignment
@@ -157,10 +159,12 @@ protocol DebugAxisAlignmentGuideConfigurationProtocol {
 }
 
 
-// FIXME: use AxisAlignment, and get from there the anchor alignment.
-public struct DebugAxisAlignmentGuideConfiguration<AnchorAlignment>: DebugAxisAlignmentGuideConfigurationProtocol, TraitConfigurable
-where AnchorAlignment: AlignmentWithDefault
+public struct DebugAxisAlignmentGuideConfiguration<AxisAlignment>: DebugAxisAlignmentGuideConfigurationProtocol, TraitConfigurable
+where
+    AxisAlignment: AlignmentWithOrthogonal,
+    AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
 {
+    typealias AnchorAlignment = AxisAlignment.OrthogonalAlignment
     var isVisible: Bool = true
     var lengthAddition: CGFloat = .zero
     var anchor: AnchorAlignment = .default
@@ -233,14 +237,11 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 
 // FIXME: Document these types and likely move to AlignmentAdditions
 public protocol AlignmentWithOrthogonal {
-    associatedtype OrthogonalAlignment: AlignmentWithDefault
+    associatedtype OrthogonalAlignment
     var unitSize: CGSize { get }
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
 }
 
-public protocol AlignmentWithDefault {
-    static var `default`: Self { get }
-}
 
 extension HorizontalAlignment: AlignmentWithOrthogonal {
     public typealias OrthogonalAlignment = VerticalAlignment
@@ -250,9 +251,6 @@ extension HorizontalAlignment: AlignmentWithOrthogonal {
     }
 }
 
-extension HorizontalAlignment: AlignmentWithDefault {
-    public static var `default`: Self { .center }
-}
 
 extension VerticalAlignment: AlignmentWithOrthogonal {
     public typealias OrthogonalAlignment = HorizontalAlignment
@@ -261,6 +259,16 @@ extension VerticalAlignment: AlignmentWithOrthogonal {
         .init(horizontal: orthogonalAlignment, vertical: self)
     }
 }
+
+
+public protocol AlignmentWithDefault {
+    static var `default`: Self { get }
+}
+
+extension HorizontalAlignment: AlignmentWithDefault {
+    public static var `default`: Self { .center }
+}
+
 
 extension VerticalAlignment: AlignmentWithDefault {
     public static var `default`: Self { .center }
