@@ -12,6 +12,11 @@
 /// Modifier instances apply a modification to an instance of type `Configuration`.
 ///
 /// ``ConfigurationTrait`` uses modifiers as building blocks for customizing a configuration instance.
+///
+/// Usually a modifier is created for each customizable property of a configuration. This modifiers
+/// should be defined along the configuration implementation, or in a container type to group them
+/// together. It is not advised to place the modifier implementation in the ``ConfigurationTrait``
+/// extension, as the type names may conflict easily with modifiers of other types.
 public protocol ConfigurationModifier<Configuration>: Sendable {
     associatedtype Configuration
     func update(configuration: inout Configuration)
