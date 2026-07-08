@@ -70,7 +70,7 @@ where
 /// for `DebugAxisAlignmentGuideModifier`.
 ///
 /// This protocol allows to define the same traits for both horizontal and vertical alignments.
-protocol DebugAxisAlignmentGuideConfigurationProtocol {
+public protocol DebugAxisAlignmentGuideConfigurationProtocol {
     associatedtype AnchorAlignment: AlignmentWithDefault
     var isVisible: Bool { get set }
     var lengthAddition: CGFloat { get set }
@@ -84,10 +84,10 @@ where
     AxisAlignment: AlignmentWithOrthogonal,
     AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
 {
-    typealias AnchorAlignment = AxisAlignment.OrthogonalAlignment
-    var isVisible: Bool = true
-    var lengthAddition: CGFloat = .zero
-    var anchor: AnchorAlignment = .default
+    public typealias AnchorAlignment = AxisAlignment.OrthogonalAlignment
+    public var isVisible: Bool = true
+    public var lengthAddition: CGFloat = .zero
+    public var anchor: AnchorAlignment = .default
     public init() {}
 }
 
@@ -100,22 +100,22 @@ where
 extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigurationProtocol {
 
     // FIXME: document.
-    static var hidden: Self {
+    public static var hidden: Self {
         .modifier(DebugAxisAlignmentModifiers.Visibility(isVisible: false))
     }
 
     // FIXME: document.
-    static func visible(_ isVisible: Bool) -> Self {
+    public static func visible(_ isVisible: Bool) -> Self {
            .modifier(DebugAxisAlignmentModifiers.Visibility(isVisible: isVisible))
     }
 
     // FIXME: document.
-    static func addLength(_ addition: CGFloat) -> Self {
+    public static func addLength(_ addition: CGFloat) -> Self {
         .modifier(DebugAxisAlignmentModifiers.LengthAddition(lengthAddition: addition))
     }
 
     // FIXME: document.
-    static func anchor(_ anchor: Configuration.AnchorAlignment) -> Self {
+    public static func anchor(_ anchor: Configuration.AnchorAlignment) -> Self {
         .modifier(DebugAxisAlignmentModifiers.Anchor(anchor: anchor))
     }
 
