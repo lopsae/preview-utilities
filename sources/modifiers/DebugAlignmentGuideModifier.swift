@@ -20,87 +20,7 @@ struct DebugAlignmentGuideModifier: ViewModifier {
 }
 
 
-// MARK: - Horizontal
-
-
-public struct DebugHorizontalAlignmentGuideModifier: ViewModifier {
-
-    public typealias Trait = ConfigurationTrait<Configuration>
-
-    let horizontalAlignment: HorizontalAlignment
-    let configuration: Configuration
-
-    public func body(content: Content) -> some View {
-        let alignment = Alignment(horizontal: horizontalAlignment, vertical: configuration.anchor)
-        content.overlay(alignment: alignment) {
-            ExtendedSizeLayout(addHeight: configuration.heightAddition) {
-                Rectangle()
-                .fill(.red.secondary)
-                .frame(width: 2)
-            }
-            .opacity(configuration.isVisible ? .one : .zero)
-            .allowsHitTesting(false)
-        }
-    }
-
-    public struct Configuration: TraitConfigurable {
-        var isVisible: Bool = true
-        var heightAddition: CGFloat = .zero
-        var anchor: VerticalAlignment = .center
-        public init() {}
-    }
-
-}
-
-
-extension DebugHorizontalAlignmentGuideModifier.Trait {
-
-    // FIXME: document.
-    public static var hidden: Self {
-        .modifier(VisibilityModifier(isVisible: false))
-    }
-
-    // FIXME: document.
-    public static func visible(_ isVisible: Bool) -> Self {
-           .modifier(VisibilityModifier(isVisible: isVisible))
-    }
-
-    // FIXME: document.
-    public static func addHeight(_ addition: CGFloat) -> Self {
-        .modifier(HeightAdditionModifier(heightAddition: addition))
-    }
-
-    // FIXME: document.
-    public static func anchor(_ anchor: VerticalAlignment) -> Self {
-        .modifier(AnchorModifier(anchor: anchor))
-    }
-
-
-    struct VisibilityModifier: ConfigurationModifier {
-        let isVisible: Bool
-        func update(configuration: inout Configuration) {
-            configuration.isVisible = isVisible
-        }
-    }
-
-    struct HeightAdditionModifier: ConfigurationModifier {
-        let heightAddition: CGFloat
-        func update(configuration: inout Configuration) {
-            configuration.heightAddition = heightAddition
-        }
-    }
-
-    struct AnchorModifier: ConfigurationModifier {
-        let anchor: VerticalAlignment
-        func update(configuration: inout Configuration) {
-            configuration.anchor = anchor
-        }
-    }
-
-}
-
-
-// MARK: - Vertical
+// MARK: - Single Axis
 
 
 // FIXME: Figure out final names for protocols.
@@ -286,11 +206,11 @@ extension View {
 
     public func debugAlignmentGuide(
         horizontal horizontalAlignment: HorizontalAlignment,
-        _ traits: DebugHorizontalAlignmentGuideModifier.Trait...
+        _ traits: DebugAxisAlignmentGuideModifier<HorizontalAlignment>.Trait...
     ) -> some View {
-        let configuration = DebugHorizontalAlignmentGuideModifier.Configuration(traits: traits)
-        let guideModifier = DebugHorizontalAlignmentGuideModifier(
-            horizontalAlignment: horizontalAlignment,
+        let configuration = DebugAxisAlignmentGuideModifier<HorizontalAlignment>.Configuration(traits: traits)
+        let guideModifier = DebugAxisAlignmentGuideModifier(
+            axisAlignment: horizontalAlignment,
             configuration: configuration
         )
         return modifier(guideModifier)
@@ -351,8 +271,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .debugAlignmentGuide(horizontal: .leading)
-    .debugAlignmentGuide(horizontal: .center, .addHeight(-50))
-    .debugAlignmentGuide(horizontal: .trailing, .addHeight(50))
+    .debugAlignmentGuide(horizontal: .center, .addLength(-50))
+    .debugAlignmentGuide(horizontal: .trailing, .addLength(50))
     .border(.green.tertiary, width: 8)
 
     DashedDivider()
@@ -362,7 +282,7 @@ private struct PreviewContent {
     .alignmentGuide(.leading, offsetBy: 10)
     .debugAlignmentGuide(horizontal: .leading)
     .alignmentGuide(.bottom, offsetBy: -10)
-    .debugAlignmentGuide(horizontal: .trailing, .addHeight(50))
+    .debugAlignmentGuide(horizontal: .trailing, .addLength(50))
     // FIXME: implement hidden/visibility trit
     .debugAlignmentGuide(horizontal: .center, .hidden)
     .border(.green.tertiary, width: 8)
@@ -373,9 +293,9 @@ private struct PreviewContent {
 #Preview("Horizontal Anchored", traits: .headerFooter, PreviewContent.layout) {
     Text("Ag")
     .font(.title.pointSize(100))
-    .debugAlignmentGuide(horizontal: .leading, .addHeight(50), .anchor(.top))
-    .debugAlignmentGuide(horizontal: .center, .addHeight(50) , .anchor(.firstTextBaseline))
-    .debugAlignmentGuide(horizontal: .trailing, .addHeight(50), .anchor(.bottom))
+    .debugAlignmentGuide(horizontal: .leading, .addLength(50), .anchor(.top))
+    .debugAlignmentGuide(horizontal: .center, .addLength(50) , .anchor(.firstTextBaseline))
+    .debugAlignmentGuide(horizontal: .trailing, .addLength(50), .anchor(.bottom))
     .border(.green.tertiary, width: 8)
 }
 
