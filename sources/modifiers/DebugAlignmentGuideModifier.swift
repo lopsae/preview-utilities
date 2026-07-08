@@ -187,7 +187,7 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
 
     // FIXME: document.
     static func addLength(_ addition: CGFloat) -> Self {
-        .modifier(DebugAxisAlignmentModifiers.HeightAddition(lengthAddition: addition))
+        .modifier(DebugAxisAlignmentModifiers.LengthAddition(lengthAddition: addition))
     }
 
     // FIXME: document.
@@ -211,7 +211,7 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
         }
     }
 
-    struct HeightAddition: ConfigurationModifier {
+    struct LengthAddition: ConfigurationModifier {
         let lengthAddition: CGFloat
         func update(configuration: inout Configuration) {
             configuration.lengthAddition = lengthAddition
