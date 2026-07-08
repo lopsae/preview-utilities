@@ -105,16 +105,12 @@ extension DebugHorizontalAlignmentGuideModifier.Trait {
 
 // FIXME: Figure out final names for protocols.
 
-protocol DAAGM {
-    associatedtype AxisAlignment: AlignmentWithOrthogonal
-}
 
-
-public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier, DAAGM
+public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier
 where AxisAlignment: AlignmentWithOrthogonal
 {
 
-    public typealias Configuration = DAAGMConfiguration<AxisAlignment.OrthogonalAlignment>
+    public typealias Configuration = DebugAxisAlignmentGuideConfiguration<AxisAlignment.OrthogonalAlignment>
     public typealias Trait = ConfigurationTrait<Configuration>
 
     let axisAlignment: AxisAlignment
@@ -140,12 +136,19 @@ where AxisAlignment: AlignmentWithOrthogonal
         }
     }
 
-
-
 }
 
 
-protocol DAAGMConfigProtocol {
+// MARK: - Configuration
+
+
+/// Protocol for the configuration of a `DebugAxisAlignmentGuideModifier`.
+///
+/// Provides the protocol for the configuration instance of both horizontal and vertical alignments
+/// for `DebugAxisAlignmentGuideModifier`.
+///
+/// This protocol allows to define the same traits for both horizontal and vertical alignments.
+protocol DebugAxisAlignmentGuideConfigurationProtocol {
     associatedtype AnchorAlignment: AlignmentWithDefault
     var isVisible: Bool { get set }
     var lengthAddition: CGFloat { get set }
@@ -154,21 +157,10 @@ protocol DAAGMConfigProtocol {
 }
 
 
-// FIXME: Move modifiers here, add note that modifiers should preferably live in its own container type or along the configuration.
-struct DAAGMModifiers<ConfigProtocol: DAAGMConfigProtocol> {
-
-    struct VisibilityModifier: ConfigurationModifier {
-        let isVisible: Bool
-        func update(configuration: inout ConfigProtocol) {
-            configuration.isVisible = isVisible
-        }
-    }
-
-}
-
-
-public struct DAAGMConfiguration<AnchorAlignment: AlignmentWithDefault>: TraitConfigurable, DAAGMConfigProtocol {
-    typealias AnchorAlignment = AnchorAlignment
+// FIXME: use AxisAlignment, and get from there the anchor alignment.
+public struct DebugAxisAlignmentGuideConfiguration<AnchorAlignment>: DebugAxisAlignmentGuideConfigurationProtocol, TraitConfigurable
+where AnchorAlignment: AlignmentWithDefault
+{
     var isVisible: Bool = true
     var lengthAddition: CGFloat = .zero
     var anchor: AnchorAlignment = .default
@@ -176,36 +168,57 @@ public struct DAAGMConfiguration<AnchorAlignment: AlignmentWithDefault>: TraitCo
 }
 
 
-extension ConfigurationTrait where Configuration: DAAGMConfigProtocol {
+// MARK: - ConfigurationTrait
+
+
+/// Contains the configuration traits that can be applied to the configuration of ``DebugAxisAlignmentGuideModifier``
+/// for both horizontal and vertical alignments.
+extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigurationProtocol {
 
     // FIXME: document.
     static var hidden: Self {
-        .modifier(DAAGMModifiers.VisibilityModifier(isVisible: false))
+        .modifier(DebugAxisAlignmentModifiers.Visibility(isVisible: false))
     }
 
     // FIXME: document.
     static func visible(_ isVisible: Bool) -> Self {
-           .modifier(DAAGMModifiers.VisibilityModifier(isVisible: isVisible))
+           .modifier(DebugAxisAlignmentModifiers.Visibility(isVisible: isVisible))
     }
 
     // FIXME: document.
     static func addLength(_ addition: CGFloat) -> Self {
-        .modifier(XHeightAdditionModifier(lengthAddition: addition))
+        .modifier(DebugAxisAlignmentModifiers.HeightAddition(lengthAddition: addition))
     }
 
     // FIXME: document.
     static func anchor(_ anchor: Configuration.AnchorAlignment) -> Self {
-        .modifier(XAnchorModifier(anchor: anchor))
+        .modifier(DebugAxisAlignmentModifiers.Anchor(anchor: anchor))
     }
 
-    struct XHeightAdditionModifier: ConfigurationModifier {
+}
+
+
+/// Container type for modifiers for `DebugAxisAlignmentGuideModifier` configurations.
+///
+/// Contains the modifiers for the configuration of `DebugAxisAlignmentGuideModifier` for both
+/// horizontal and vertical alignments.
+enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigurationProtocol> {
+
+    struct Visibility: ConfigurationModifier {
+        let isVisible: Bool
+        func update(configuration: inout Configuration) {
+            configuration.isVisible = isVisible
+        }
+    }
+
+    struct HeightAddition: ConfigurationModifier {
         let lengthAddition: CGFloat
         func update(configuration: inout Configuration) {
             configuration.lengthAddition = lengthAddition
         }
     }
 
-    struct XAnchorModifier: ConfigurationModifier {
+    struct Anchor: ConfigurationModifier {
         let anchor: Configuration.AnchorAlignment
         func update(configuration: inout Configuration) {
             configuration.anchor = anchor
@@ -215,6 +228,10 @@ extension ConfigurationTrait where Configuration: DAAGMConfigProtocol {
 }
 
 
+// MARK: - Alignment Protocols
+
+
+// FIXME: Document these types and likely move to AlignmentAdditions
 public protocol AlignmentWithOrthogonal {
     associatedtype OrthogonalAlignment: AlignmentWithDefault
     var unitSize: CGSize { get }
@@ -250,7 +267,7 @@ extension VerticalAlignment: AlignmentWithDefault {
 }
 
 
-// MARK: - View Extension
+// MARK: - View Extensions
 
 
 extension View {
@@ -273,7 +290,6 @@ extension View {
 
     public func debugAlignmentGuide(
         vertical verticalAlignment: VerticalAlignment,
-        // FIXME: Type should be VerticalAlignment too.
         _ traits: DebugAxisAlignmentGuideModifier<VerticalAlignment>.Trait...
     ) -> some View {
         let configuration = DebugAxisAlignmentGuideModifier<VerticalAlignment>.Configuration(traits: traits)
