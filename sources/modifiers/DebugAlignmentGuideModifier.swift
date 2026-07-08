@@ -189,10 +189,18 @@ extension TraitConfigurable {
 // MARK: - Vertical
 
 
-public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier
+// FIXME: Figure out final names for protocols.
+
+protocol DAAGM {
+    associatedtype AxisAlignment: AlignmentWithOrthogonal
+}
+
+
+public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier, DAAGM
 where AxisAlignment: AlignmentWithOrthogonal
 {
 
+    public typealias Configuration = DAAGMConfiguration<AxisAlignment.OrthogonalAlignment>
     public typealias Trait = ConfigurationTrait<Configuration>
 
     let axisAlignment: AxisAlignment
@@ -218,11 +226,76 @@ where AxisAlignment: AlignmentWithOrthogonal
         }
     }
 
-    public struct Configuration: TraitConfigurable {
-        var isVisible: Bool = true
-        var lengthAddition: CGFloat = .zero
-        var anchor: AxisAlignment.OrthogonalAlignment = .default
-        public init() {}
+
+
+}
+
+
+protocol DAAGMConfigProtocol {
+    associatedtype AnchorAlignment: AlignmentWithDefault
+    var isVisible: Bool { get set }
+    var lengthAddition: CGFloat { get set }
+    var anchor: AnchorAlignment { get set }
+
+}
+
+
+// FIXME: Move modifiers here, add note that modifiers should preferably live in its own container type or along the configuration.
+struct DAAGMModifiers<ConfigProtocol: DAAGMConfigProtocol> {
+
+    struct VisibilityModifier: ConfigurationModifier {
+        let isVisible: Bool
+        func update(configuration: inout ConfigProtocol) {
+            configuration.isVisible = isVisible
+        }
+    }
+
+}
+
+
+public struct DAAGMConfiguration<AnchorAlignment: AlignmentWithDefault>: TraitConfigurable, DAAGMConfigProtocol {
+    typealias AnchorAlignment = AnchorAlignment
+    var isVisible: Bool = true
+    var lengthAddition: CGFloat = .zero
+    var anchor: AnchorAlignment = .default
+    public init() {}
+}
+
+
+extension ConfigurationTrait where Configuration: DAAGMConfigProtocol {
+
+    // FIXME: document.
+    static var hidden: Self {
+        .modifier(DAAGMModifiers.VisibilityModifier(isVisible: false))
+    }
+
+    // FIXME: document.
+    static func visible(_ isVisible: Bool) -> Self {
+           .modifier(DAAGMModifiers.VisibilityModifier(isVisible: isVisible))
+    }
+
+    // FIXME: document.
+    static func addLength(_ addition: CGFloat) -> Self {
+        .modifier(XHeightAdditionModifier(lengthAddition: addition))
+    }
+
+    // FIXME: document.
+    static func anchor(_ anchor: Configuration.AnchorAlignment) -> Self {
+        .modifier(XAnchorModifier(anchor: anchor))
+    }
+
+    struct XHeightAdditionModifier: ConfigurationModifier {
+        let lengthAddition: CGFloat
+        func update(configuration: inout Configuration) {
+            configuration.lengthAddition = lengthAddition
+        }
+    }
+
+    struct XAnchorModifier: ConfigurationModifier {
+        let anchor: Configuration.AnchorAlignment
+        func update(configuration: inout Configuration) {
+            configuration.anchor = anchor
+        }
     }
 
 }
@@ -284,9 +357,17 @@ extension View {
         return modifier(guideModifier)
     }
 
-    public func debugAlignmentGuide(vertical verticalAlignment: VerticalAlignment) -> some View {
-//        return modifier(DebugVerticalAlignmentGuideModifier(verticalAlignment: verticalAlignment))
-        return modifier(DebugAxisAlignmentGuideModifier(axisAlignment: verticalAlignment, configuration: .init()))
+    public func debugAlignmentGuide(
+        vertical verticalAlignment: VerticalAlignment,
+        // FIXME: Type should be VerticalAlignment too.
+        _ traits: DebugAxisAlignmentGuideModifier<VerticalAlignment>.Trait...
+    ) -> some View {
+        let configuration = DebugAxisAlignmentGuideModifier<VerticalAlignment>.Configuration(traits: traits)
+        let guideModifier = DebugAxisAlignmentGuideModifier(
+            axisAlignment: verticalAlignment,
+            configuration: configuration
+        )
+        return modifier(guideModifier)
     }
 
 }
@@ -366,9 +447,9 @@ private struct PreviewContent {
     .font(.title.pointSize(100))
     .debugAlignmentGuide(vertical: .top)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
-    .debugAlignmentGuide(vertical: .verticalCenter)
+    .debugAlignmentGuide(vertical: .verticalCenter, .addLength(50))
     .debugAlignmentGuide(vertical: .lastTextBaseline)
-    .debugAlignmentGuide(vertical: .bottom)
+    .debugAlignmentGuide(vertical: .bottom, .addLength(-50))
     .border(.green.tertiary, width: 8)
 
     DashedDivider()
@@ -376,9 +457,9 @@ private struct PreviewContent {
     Text("Sphinx\nof Black\nQuartz")
     .font(.largeTitle)
     .debugAlignmentGuide(vertical: .top)
-    .debugAlignmentGuide(vertical: .firstTextBaseline)
-    .debugAlignmentGuide(vertical: .verticalCenter)
-    .debugAlignmentGuide(vertical: .lastTextBaseline)
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .addLength(50), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .verticalCenter, .hidden)
+    .debugAlignmentGuide(vertical: .lastTextBaseline, .addLength(50), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .bottom)
     .border(.green.tertiary, width: 8)
 }
