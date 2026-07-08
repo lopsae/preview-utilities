@@ -15,15 +15,13 @@ import SnapshotTesting
 struct DebugAlignmentGuideModifierSnapshots {
 
     @Test func horizontalAlignments() {
-        let view = Text("Ag")
-        .font(.title.pointSize(100))
-        .debugAlignmentGuide(horizontal: .leading)
-        .debugAlignmentGuide(horizontal: .center)
-        .debugAlignmentGuide(horizontal: .trailing)
-        .frame(squareOf: 200)
-
-        // FIXME: add a custom assert using verifySnapshot that builds a view and frames it.
-        assertSnapshot(of: view, as: .image, record: .never)
+        assertImageSnapshot(named: "alignments", record: .never) {
+            Text("Ag")
+            .font(.title.pointSize(100))
+            .debugAlignmentGuide(horizontal: .leading)
+            .debugAlignmentGuide(horizontal: .center)
+            .debugAlignmentGuide(horizontal: .trailing)
+        }
     }
 
 
