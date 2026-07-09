@@ -102,20 +102,20 @@ private extension View {
     func floatingHorizontalMarker() -> some View {
         // TODO: use floatingContent/FloatingAlignedContainer function when it actually uses alignment guides to position its content.
         self.overlay(alignment: .topLeading) {
-            Circle()
+            Image(systemName: "arrow.down")
             .foregroundStyle(.red.secondary)
-            .frame(squareOf: 4)
-            .offset(y: -10)
+            .alignmentGuide(.leading, moveTo: .center)
+            .alignmentGuide(.top, moveTo: .bottom, outsetBy: 8)
         }
     }
 
     func floatingVerticalMarker() -> some View {
         // TODO: use floatingContent/FloatingAlignedContainer function when it actually uses alignment guides to position its content.
         self.overlay(alignment: .topLeading) {
-            Circle()
+            Image(systemName: "arrow.forward")
             .foregroundStyle(.red.secondary)
-            .frame(squareOf: 4)
-            .offset(x: -10)
+            .alignmentGuide(.leading, moveTo: .trailing, outsetBy: 8)
+            .alignmentGuide(.top, moveTo: .center)
         }
     }
 
