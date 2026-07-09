@@ -43,38 +43,79 @@ struct DebugAlignmentGuideModifierSnapshots {
             Text("Ag")
             .font(.title.pointSize(100))
             .debugAlignmentGuide(horizontal: .leading)
+            .floatingHorizontalMarker()
+
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .visible(true))
+            .floatingHorizontalMarker()
+
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .visible(false))
+            .floatingHorizontalMarker()
+
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.half))
+            .floatingHorizontalMarker()
+
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .hidden)
+            .floatingHorizontalMarker()
+
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.one))
+            .floatingHorizontalMarker()
         }
 
         assertImageSnapshot(named: "vertical", record: .never) {
             Text("Ag")
             .font(.title.pointSize(100))
             .debugAlignmentGuide(vertical: .top)
-            // FIXME: make it into a local extension
-            .overlay {
-                FloatingAlignedContainer(alignment: .outerLeadingTop, horizontalSpacing: 4) { _ in
-                    Circle().foregroundStyle(.red).frame(squareOf: 4)
-                }
-            }
+            .floatingVerticalMarker()
+
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.half), .visible(true))
+            .floatingVerticalMarker()
+
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.half), .visible(false))
+            .floatingVerticalMarker()
+
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.half))
+            .floatingVerticalMarker()
+
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.half), .hidden)
+            .floatingVerticalMarker()
+
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.one))
+            .floatingVerticalMarker()
+        }
+    }
+
+}
+
+
+private extension View {
+
+    func floatingHorizontalMarker() -> some View {
+        // TODO: use floatingContent/FloatingAlignedContainer function when it actually uses alignment guides to position its content.
+        self.overlay(alignment: .topLeading) {
+            Circle()
+            .foregroundStyle(.red.secondary)
+            .frame(squareOf: 4)
+            .offset(y: -10)
+        }
+    }
+
+    func floatingVerticalMarker() -> some View {
+        // TODO: use floatingContent/FloatingAlignedContainer function when it actually uses alignment guides to position its content.
+        self.overlay(alignment: .topLeading) {
+            Circle()
+            .foregroundStyle(.red.secondary)
+            .frame(squareOf: 4)
+            .offset(x: -10)
         }
     }
 
