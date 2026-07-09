@@ -17,6 +17,7 @@ Possible new features for future versions.
 + Figure out vertical text views that comply with layouts.
 + Enable vertical texts in FloatingCaption and DebugOverlay.
 + Use SafeAreaPad for header and footers, add option to display safe area divider.
++ Reimplement FloatingContent to actually use the top/leading/bottom/trailing alingments to position its content.
 
 
 Library Separation
