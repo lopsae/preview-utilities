@@ -148,6 +148,7 @@ extension DebugOverlayModifier.Configuration {
         }
 
 
+        // FIMME: also implement opacity.
         // FIXME: document.
         public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
 
