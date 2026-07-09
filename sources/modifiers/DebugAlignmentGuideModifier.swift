@@ -53,7 +53,7 @@ where
                     height: unitSize.height == .zero ? nil : lineWidth
                 )
             }
-            .opacity(configuration.isVisible ? .one : .zero)
+            .opacity(configuration.opacity)
             .allowsHitTesting(false)
         }
     }
@@ -72,7 +72,7 @@ where
 /// This protocol allows to define the same traits for both horizontal and vertical alignments.
 public protocol DebugAxisAlignmentGuideConfigurationProtocol {
     associatedtype AnchorAlignment: AlignmentWithDefault
-    var isVisible: Bool { get set }
+    var opacity: Double { get set }
     var lengthAddition: CGFloat { get set }
     var anchor: AnchorAlignment { get set }
 
@@ -85,7 +85,7 @@ where
     AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
 {
     public typealias AnchorAlignment = AxisAlignment.OrthogonalAlignment
-    public var isVisible: Bool = true
+    public var opacity: Double = .one
     public var lengthAddition: CGFloat = .zero
     public var anchor: AnchorAlignment = .default
     public init() {}
@@ -101,12 +101,17 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
 
     // FIXME: document.
     public static var hidden: Self {
-        .modifier(DebugAxisAlignmentModifiers.Visibility(isVisible: false))
+        .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: .zero))
     }
 
     // FIXME: document.
     public static func visible(_ isVisible: Bool) -> Self {
-           .modifier(DebugAxisAlignmentModifiers.Visibility(isVisible: isVisible))
+        .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: .one))
+    }
+
+    // FIXME: document.
+    public static func opacity(_ opacity: Double) -> Self {
+        .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: opacity))
     }
 
     // FIXME: document.
@@ -128,10 +133,10 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
 /// horizontal and vertical alignments.
 enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigurationProtocol> {
 
-    struct Visibility: ConfigurationModifier {
-        let isVisible: Bool
+    struct Opacity: ConfigurationModifier {
+        let opacity: Double
         func update(configuration: inout Configuration) {
-            configuration.isVisible = isVisible
+            configuration.opacity = opacity
         }
     }
 
@@ -283,8 +288,7 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .leading)
     .alignmentGuide(.bottom, offsetBy: -10)
     .debugAlignmentGuide(horizontal: .trailing, .addLength(50))
-    // FIXME: implement hidden/visibility trit
-    .debugAlignmentGuide(horizontal: .center, .hidden)
+    .debugAlignmentGuide(horizontal: .center, .opacity(.half))
     .border(.green.tertiary, width: 8)
 
 }
@@ -316,7 +320,7 @@ private struct PreviewContent {
     .font(.largeTitle)
     .debugAlignmentGuide(vertical: .top)
     .debugAlignmentGuide(vertical: .firstTextBaseline, .addLength(50), .anchor(.leading))
-    .debugAlignmentGuide(vertical: .verticalCenter, .hidden)
+    .debugAlignmentGuide(vertical: .verticalCenter, .opacity(.half))
     .debugAlignmentGuide(vertical: .lastTextBaseline, .addLength(50), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .bottom)
     .border(.green.tertiary, width: 8)
