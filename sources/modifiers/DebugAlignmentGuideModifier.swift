@@ -276,8 +276,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .debugAlignmentGuide(horizontal: .leading)
-    .debugAlignmentGuide(horizontal: .center, .addLength(-50))
-    .debugAlignmentGuide(horizontal: .trailing, .addLength(50))
+    .debugAlignmentGuide(horizontal: .center)
+    .debugAlignmentGuide(horizontal: .trailing)
     .border(.green.tertiary, width: 8)
 
     DashedDivider()
@@ -285,33 +285,22 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .alignmentGuide(.leading, offsetBy: 10)
-    .debugAlignmentGuide(horizontal: .leading)
-    .alignmentGuide(.bottom, offsetBy: -10)
-    .debugAlignmentGuide(horizontal: .trailing, .addLength(50))
-    .debugAlignmentGuide(horizontal: .center, .opacity(.half))
-    .border(.green.tertiary, width: 8)
-
-}
-
-
-#Preview("Horizontal Anchored", traits: .headerFooter, PreviewContent.layout) {
-    Text("Ag")
-    .font(.title.pointSize(100))
-    .debugAlignmentGuide(horizontal: .leading, .addLength(50), .anchor(.top))
-    .debugAlignmentGuide(horizontal: .center, .addLength(50) , .anchor(.firstTextBaseline))
-    .debugAlignmentGuide(horizontal: .trailing, .addLength(50), .anchor(.bottom))
+    .debugAlignmentGuide(horizontal: .leading, .addLength(50), .anchor(.bottom))
+    .alignmentGuide(.trailing, offsetBy: -10)
+    .debugAlignmentGuide(horizontal: .trailing, .addLength(50), .anchor(.top))
+    .debugAlignmentGuide(horizontal: .center, .anchor(.firstTextBaseline))
     .border(.green.tertiary, width: 8)
 }
 
 
 #Preview("Vertical", traits: .fixedHeader, PreviewContent.layout) {
-    Text("Ag")
-    .font(.title.pointSize(100))
+    Text("Sphinx\nof Black\nQuartz")
+    .font(.largeTitle)
     .debugAlignmentGuide(vertical: .top)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
-    .debugAlignmentGuide(vertical: .verticalCenter, .addLength(50))
+    .debugAlignmentGuide(vertical: .verticalCenter)
     .debugAlignmentGuide(vertical: .lastTextBaseline)
-    .debugAlignmentGuide(vertical: .bottom, .addLength(-50))
+    .debugAlignmentGuide(vertical: .bottom)
     .border(.green.tertiary, width: 8)
 
     DashedDivider()
@@ -320,9 +309,8 @@ private struct PreviewContent {
     .font(.largeTitle)
     .debugAlignmentGuide(vertical: .top)
     .debugAlignmentGuide(vertical: .firstTextBaseline, .addLength(50), .anchor(.leading))
-    .debugAlignmentGuide(vertical: .verticalCenter, .opacity(.half))
+    .debugAlignmentGuide(vertical: .verticalCenter, .addLength(100))
     .debugAlignmentGuide(vertical: .lastTextBaseline, .addLength(50), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .bottom)
     .border(.green.tertiary, width: 8)
 }
-
