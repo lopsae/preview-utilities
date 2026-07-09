@@ -38,6 +38,13 @@ struct URLAdditionTests {
         #expect(fileUrl.deletingPathComponents(count: 4).path() == "/")
         #expect(fileUrl.deletingPathComponents(count: 5).path() == "/")
 
+        let directoryUrl = URL(filePath: "/one/two/dir/")
+        #expect(directoryUrl.deletingPathComponents(count: 0) == directoryUrl)
+        #expect(directoryUrl.deletingPathComponents(count: 1).path() == "/one/two/")
+        #expect(directoryUrl.deletingPathComponents(count: 2).path() == "/one/")
+        #expect(directoryUrl.deletingPathComponents(count: 3).path() == "/")
+        #expect(directoryUrl.deletingPathComponents(count: 4).path() == "/")
+
         let webUrl = URL(string: "http://www.example.com/one/two")!
         #expect(webUrl.deletingPathComponents(count: 0) == webUrl)
         #expect(webUrl.deletingPathComponents(count: 1).absoluteString == "http://www.example.com/one/")
@@ -49,6 +56,50 @@ struct URLAdditionTests {
         #expect(noPathWebUrl.deletingPathComponents(count: 0) == noPathWebUrl)
         #expect(noPathWebUrl.deletingPathComponents(count: 1).absoluteString == "http://www.example.com")
         #expect(noPathWebUrl.deletingPathComponents(count: 2).absoluteString == "http://www.example.com")
+    }
+
+
+    @Test func deletingPathComponentsUntil() async throws {
+        let fileUrl = URL(filePath: "/one/two/three")
+
+        #expect(fileUrl.deletingPathComponents(until: "three") == fileUrl)
+        #expect(fileUrl.deletingPathComponents(until: "two")?.path() == "/one/two/")
+        #expect(fileUrl.deletingPathComponents(until: "one")?.path() == "/one/")
+        #expect(fileUrl.deletingPathComponents(until: "missing") == nil)
+
+        let directoryUrl = URL(filePath: "/one/two/dir/")
+        #expect(directoryUrl.deletingPathComponents(until: "dir") == directoryUrl)
+        #expect(directoryUrl.deletingPathComponents(until: "two")?.path() == "/one/two/")
+        #expect(directoryUrl.deletingPathComponents(until: "one")?.path() == "/one/")
+        #expect(directoryUrl.deletingPathComponents(until: "missing") == nil)
+
+
+        let webUrl = URL(string: "http://www.example.com/one/two")!
+        #expect(webUrl.deletingPathComponents(until: "two") == webUrl)
+        #expect(webUrl.deletingPathComponents(until: "one")?.absoluteString == "http://www.example.com/one/")
+        #expect(webUrl.deletingPathComponents(until: "missing") == nil)
+    }
+
+
+    @Test func deletingPathComponentsUntilWithRepeatedComponents() async throws {
+        let repeatedUrl = URL(filePath: "/root/rep/rep/some")
+        #expect(repeatedUrl.deletingPathComponents(until: "rep")?.path() == "/root/rep/rep/")
+    }
+
+
+    @Test func deletingPathComponentsUntilWithMaxDeletions() async throws {
+        let fileUrl = URL(filePath: "/one/two/three")
+
+        // Deletions within `maxDeletions`.
+        #expect(fileUrl.deletingPathComponents(until: "three", maxDeletions: 0) == fileUrl)
+        #expect(fileUrl.deletingPathComponents(until: "two", maxDeletions: 1)?.path() == "/one/two/")
+        #expect(fileUrl.deletingPathComponents(until: "one", maxDeletions: 2)?.path() == "/one/")
+
+        // Deletions further that `maxDeletions`.
+        #expect(fileUrl.deletingPathComponents(until: "two", maxDeletions: 0) == nil)
+        #expect(fileUrl.deletingPathComponents(until: "one", maxDeletions: 1) == nil)
+
+        #expect(fileUrl.deletingPathComponents(until: "missing", maxDeletions: 10) == nil)
     }
 
 }

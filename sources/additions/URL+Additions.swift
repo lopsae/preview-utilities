@@ -37,4 +37,35 @@ extension URL {
         return result
     }
 
+
+    /// Returns a URL constructed by deleting all path components after `lastComponent`.
+    ///
+    /// If `lastComponent` appears multiple times in the path, the deepest occurrence is kept,
+    /// minimizing the number of deleted components.
+    ///
+    /// When components are deleted the returned URL is a directory-style URL, terminated with
+    /// a `/`.
+    ///
+    /// If `lastComponent` is already the last path component, the original URL is returned
+    /// unchanged.
+    ///
+    /// - Parameters:
+    ///   - lastComponent: The path component to keep as the last one of the returned URL.
+    ///   - maxDeletions: The maximum number of path components allowed to be deleted.
+    ///
+    /// - Returns: A URL with `lastComponent` as its last path component; `nil` if
+    ///   `lastComponent` is not in the path, or is only reachable by deleting more than
+    ///   `maxDeletions` components.
+    func deletingPathComponents(until lastComponent: String, maxDeletions: Int = .max) -> URL? {
+        guard let componentIndex = pathComponents.lastIndex(of: lastComponent) else {
+            return nil
+        }
+
+        let deletionCount = pathComponents.count - componentIndex - 1
+        guard deletionCount <= maxDeletions else {
+            return nil
+        }
+        return deletingPathComponents(count: deletionCount)
+    }
+
 }
