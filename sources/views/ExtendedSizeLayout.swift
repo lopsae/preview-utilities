@@ -11,10 +11,10 @@ import SwiftUI
 ///
 /// Subviews of this layout are always placed with a size extended by a given width and height from
 /// its proposed size. This has the practical effect of adding spacing similar to a padding around
-/// the subviews that have an idea size. For views that can expand their width or height, the view
-/// can use the expanded size, drawing outside of its proposed size.
+/// the subviews that have an ideal size. For views that can expand their width or height, the view
+/// can use the expanded placement size, drawing outside of its proposed size.
 ///
-/// The subviews are arranged in the same manner as a centered `ZStack`.
+/// The subviews are arranged centered with each other.
 nonisolated
 struct ExtendedSizeLayout: Layout {
 
@@ -28,6 +28,9 @@ struct ExtendedSizeLayout: Layout {
     }
 
 
+    /// Reports the extended size so the extension is reserved in layout space, similar to
+    /// padding. The envelope of all subviews plus additions is equal to the maximum size all views
+    /// will take in `placeSubviews`.
     func sizeThatFits(
         proposal: ProposedViewSize,
         subviews: Subviews,
@@ -43,26 +46,27 @@ struct ExtendedSizeLayout: Layout {
     }
 
 
+    /// Each subview is measured individually and placed with its own size extended by the
+    /// additions, so multiple subviews each expand relative to their own size.
     func placeSubviews(
         in bounds: CGRect,
         proposal: ProposedViewSize,
         subviews: Subviews,
         cache: inout ()
     ) {
+        // Un-extended size, recovered from the concrete bounds. Using `bounds` instead of
+        // `proposal` keeps placement consistent with the size reported by `sizeThatFits`, and
+        // avoids handling undefined or infinite proposal dimensions.
+        let contentSize = bounds.size.adding(width: -widthAddition, height: -heightAddition)
+        let contentProposal = ProposedViewSize(contentSize)
+
         for subview in subviews {
-            var extended = proposal
-            // FIXME: is this the correct behavior when width or height is undefined?
-            // FIXME: double check this works with infinite width or height
-            if let width = extended.width {
-                extended.width = width + widthAddition
-            }
-            if let height = extended.height {
-                extended.height = height + heightAddition
-            }
+            let subviewSize = subview.sizeThatFits(contentProposal)
+            let extendedSize = subviewSize.adding(width: widthAddition, height: heightAddition)
             subview.place(
                 at: bounds.center,
                 anchor: .center,
-                proposal: extended
+                proposal: ProposedViewSize(extendedSize)
             )
         }
     }
@@ -198,7 +202,7 @@ private struct PreviewContent {
             .frame(width: 20)
         }
         .alignmentGuide(.top, offsetBy: 20)
-        .floatingCaption("Extended", .width, .captionStyle(.indigo), .alignment(.outerLeadingBottom))
+        .floatingCaption("Extended", .height, .captionStyle(.indigo), .alignment(.outerLeadingBottom))
 
         ExtendedSizeLayout(addHeight: 50) {
             Rectangle()
@@ -232,4 +236,22 @@ private struct PreviewContent {
     .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerTrailingBottom))
     .frame(squareOf: 200, alignment: .top)
     .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
+}
+
+
+#Preview("Multiple", traits: .fixedHeader, PreviewContent.layout) {
+    ExtendedSizeLayout(addWidth: 50, addHeight: 50) {
+        Rectangle()
+        .fill(.indigo.secondary)
+        .frame(height: 20)
+        .floatingCaption("Fixed Height", .width, .captionStyle(.purple), .alignment(.outerBottomTrailing))
+
+        Rectangle()
+        .fill(.indigo.secondary)
+        .frame(width: 20)
+        .floatingCaption("Fixed Width", .height, .captionStyle(.purple), .alignment(.outerTrailingTop))
+    }
+    .frame(squareOf: 200)
+    .debugOverlay(.hairline, .size, .alignment(.outerBottomTrailing))
+
 }
