@@ -38,7 +38,48 @@ struct DebugAlignmentGuideModifierSnapshots {
         }
     }
 
+    @Test func axisAlignmentsWithOpacity() {
+        assertImageSnapshot(named: "horizontal", record: .never) {
+            Text("Ag")
+            .font(.title.pointSize(100))
+            .debugAlignmentGuide(horizontal: .leading)
+            .alignmentGuide(.leading, offsetBy: 20)
+            .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .visible(true))
+            .alignmentGuide(.leading, offsetBy: 20)
+            .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .visible(false))
+            .alignmentGuide(.leading, offsetBy: 20)
+            .debugAlignmentGuide(horizontal: .leading, .opacity(.half))
+            .alignmentGuide(.leading, offsetBy: 20)
+            .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .hidden)
+            .alignmentGuide(.leading, offsetBy: 20)
+            .debugAlignmentGuide(horizontal: .leading, .opacity(.one))
+        }
+
+        assertImageSnapshot(named: "vertical", record: .never) {
+            Text("Ag")
+            .font(.title.pointSize(100))
+            .debugAlignmentGuide(vertical: .top)
+            // FIXME: make it into a local extension
+            .overlay {
+                FloatingAlignedContainer(alignment: .outerLeadingTop, horizontalSpacing: 4) { _ in
+                    Circle().foregroundStyle(.red).frame(squareOf: 4)
+                }
+            }
+            .alignmentGuide(.top, offsetBy: 20)
+            .debugAlignmentGuide(vertical: .top, .opacity(.half), .visible(true))
+            .alignmentGuide(.top, offsetBy: 20)
+            .debugAlignmentGuide(vertical: .top, .opacity(.half), .visible(false))
+            .alignmentGuide(.top, offsetBy: 20)
+            .debugAlignmentGuide(vertical: .top, .opacity(.half))
+            .alignmentGuide(.top, offsetBy: 20)
+            .debugAlignmentGuide(vertical: .top, .opacity(.half), .hidden)
+            .alignmentGuide(.top, offsetBy: 20)
+            .debugAlignmentGuide(vertical: .top, .opacity(.one))
+        }
+    }
+
 }
+
 
 func assertImageSnapshot<Content: View>(
     named name: String? = nil,

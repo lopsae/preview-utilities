@@ -106,7 +106,7 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
 
     // FIXME: document.
     public static func visible(_ isVisible: Bool) -> Self {
-        .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: .one))
+        .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: isVisible ? .one : .zero))
     }
 
     // FIXME: document.
