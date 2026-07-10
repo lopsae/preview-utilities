@@ -13,34 +13,10 @@ public struct DashedDivider: View {
     let axis: Axis
     let lineWidth: CGFloat
 
-
     public init(axis: Axis = .horizontal, lineWidth: CGFloat = 1) {
         self.axis = axis
         self.lineWidth = lineWidth
     }
-
-
-    struct HorizontalLine: Shape {
-        let lineWidth: CGFloat
-        func path(in rect: CGRect) -> Path {
-            var path = Path()
-            path.moveTo(x: .zero, y: lineWidth/2)
-            path.addLineTo(x: rect.width, y: lineWidth/2)
-            return path
-        }
-    }
-
-
-    struct VerticalLine: Shape {
-        let lineWidth: CGFloat
-        func path(in rect: CGRect) -> Path {
-            var path = Path()
-            path.moveTo(x: lineWidth/2, y: .zero)
-            path.addLineTo(x: lineWidth/2, y: rect.height)
-            return path
-        }
-    }
-
 
     public var body: some View {
         let strokeStyle = StrokeStyle(
@@ -48,16 +24,17 @@ public struct DashedDivider: View {
             dash: [lineWidth*5, lineWidth*6])
         switch axis {
         case .horizontal:
-            HorizontalLine(lineWidth: lineWidth)
+            HorizontalLine()
             .stroke(.tertiary, style: strokeStyle)
             .frame(height: lineWidth)
         case .vertical:
-            VerticalLine(lineWidth: lineWidth)
+            VerticalLine()
             .stroke(.tertiary, style: strokeStyle)
             .frame(width: lineWidth)
         }
 
     }
+
 }
 
 
@@ -103,6 +80,29 @@ private struct PreviewContent {
         CaptionRectangle("Content", color: .red)
     }
     .floatingCaption("HStack", .colorStyle(.cyan), .alignment(.topLeading))
+}
+
+
+#Preview("Sizes", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
+    VStack(spacing: 32) {
+        DashedDivider()
+            .floatingCaption("Default", .height, .colorStyle(.brown))
+        DashedDivider(lineWidth: 10)
+            .floatingCaption("Large", .height, .colorStyle(.brown))
+        DashedDivider(lineWidth: 20)
+            .floatingCaption("Huge", .height, .colorStyle(.brown))
+    }
+
+    DashedDivider()
+
+    HStack(spacing: 32) {
+        DashedDivider(axis: .vertical)
+            .floatingCaption("Default", .width, .colorStyle(.brown), .alignment(.top))
+        DashedDivider(axis: .vertical, lineWidth: 10)
+            .floatingCaption("Large", .width, .colorStyle(.brown), .alignment(.center))
+        DashedDivider(axis: .vertical, lineWidth: 20)
+            .floatingCaption("Huge", .width, .colorStyle(.brown), .alignment(.bottom))
+    }
 }
 
 
