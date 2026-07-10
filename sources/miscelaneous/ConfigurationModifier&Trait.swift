@@ -48,6 +48,9 @@ public enum ConfigurationTrait<Configuration>: Sendable {
     /// Applies the associated modifier.
     case modifier(any ConfigurationModifier<Configuration>)
 
+    // FIXME: document.
+    case mutate((inout Configuration) -> Void)
+
     /// Applies the associated traits.
     case traits([ConfigurationTrait<Configuration>])
 
@@ -56,6 +59,8 @@ public enum ConfigurationTrait<Configuration>: Sendable {
         switch self {
         case .modifier(let modifier):
             modifier.update(configuration: &configuration)
+        case .mutate(let closure):
+            closure(&configuration)
         case .traits(let traits):
             for trait in traits {
                 trait.apply(to: &configuration)
