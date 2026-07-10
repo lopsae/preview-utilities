@@ -83,7 +83,14 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
 
     // FIXME: document.
     public static func lengthAddition(_ horizontalAddition: CGFloat, _ verticalAddition: CGFloat) -> Self {
-        .modifier(Modifiers.LengthAddition(horizontalAddition: horizontalAddition, verticalAddition: verticalAddition))
+        .mutate {
+            $0.horizontalAddition = horizontalAddition
+            $0.verticalAddition = verticalAddition
+        }
+    }
+
+    public static func lengthAddition(horz: CGFloat = .zero, vert: CGFloat = .zero) -> Self {
+        .lengthAddition(horz, vert)
     }
 
     // FIXME: document.
@@ -95,7 +102,6 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
 
 
 // FIXME: implement fixed length too.
-// FIXME: try adding a trait case with a modifier function.
 
 
 extension DebugAlignmentGuideModifier.Configuration.Modifiers {
@@ -106,15 +112,6 @@ extension DebugAlignmentGuideModifier.Configuration.Modifiers {
         let opacity: Double
         func update(configuration: inout Configuration) {
             configuration.opacity = opacity
-        }
-    }
-
-    struct LengthAddition: ConfigurationModifier {
-        let horizontalAddition: CGFloat
-        let verticalAddition: CGFloat
-        func update(configuration: inout Configuration) {
-            configuration.horizontalAddition = horizontalAddition
-            configuration.verticalAddition = verticalAddition
         }
     }
 
