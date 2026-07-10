@@ -7,23 +7,128 @@
 import SwiftUI
 
 
-struct DebugAlignmentGuideModifier: ViewModifier {
+public struct DebugAlignmentGuideModifier: ViewModifier {
+
+    public typealias Trait = ConfigurationTrait<Configuration>
 
     let alignment: Alignment
+    let configuration: Configuration
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
+        let horizontalModifier = DebugAxisAlignmentGuideModifier(
+            axisAlignment: alignment.horizontal,
+            configuration: configuration.horizontalConfiguration
+        )
+        let verticalModifier = DebugAxisAlignmentGuideModifier(
+            axisAlignment: alignment.vertical,
+            configuration: configuration.verticalConfiguration
+        )
         content
-        .debugAlignmentGuide(horizontal: alignment.horizontal)
-        .debugAlignmentGuide(vertical:   alignment.vertical)
+        .modifier(horizontalModifier)
+        .modifier(verticalModifier)
+    }
+
+
+    public struct Configuration: TraitConfigurable {
+
+        enum Modifiers {}
+
+        var opacity: Double = .one
+        var horizontalAddition: CGFloat = .zero
+        var verticalAddition: CGFloat = .zero
+        var anchor: Alignment = .center
+
+        public init() {}
+
+        var horizontalConfiguration: DebugAxisAlignmentGuideConfiguration<HorizontalAlignment> {
+            var resultConfiguration = DebugAxisAlignmentGuideConfiguration<HorizontalAlignment>()
+            resultConfiguration.opacity = opacity
+            resultConfiguration.lengthAddition = horizontalAddition
+            resultConfiguration.anchor = anchor.vertical
+            return resultConfiguration
+        }
+
+        var verticalConfiguration: DebugAxisAlignmentGuideConfiguration<VerticalAlignment> {
+            var resultConfiguration = DebugAxisAlignmentGuideConfiguration<VerticalAlignment>()
+            resultConfiguration.opacity = opacity
+            resultConfiguration.lengthAddition = verticalAddition
+            resultConfiguration.anchor = anchor.horizontal
+            return resultConfiguration
+        }
+
+    }
+
+}
+
+
+/// Contains the configuration traits that can be applied to the configuration of ``DebugAlignmentGuideModifier``.
+extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.Configuration {
+
+    typealias Modifiers = Configuration.Modifiers
+
+    // FIXME: document.
+    public static var hidden: Self {
+        .modifier(Modifiers.Opacity(opacity: .zero))
+    }
+
+    // FIXME: document.
+    public static func visible(_ isVisible: Bool) -> Self {
+        .modifier(Modifiers.Opacity(opacity: isVisible ? .one : .zero))
+    }
+
+    // FIXME: document.
+    public static func opacity(_ opacity: Double) -> Self {
+        .modifier(Modifiers.Opacity(opacity: opacity))
+    }
+
+    // FIXME: document.
+    public static func lengthAddition(_ horizontalAddition: CGFloat, _ verticalAddition: CGFloat) -> Self {
+        .modifier(Modifiers.LengthAddition(horizontalAddition: horizontalAddition, verticalAddition: verticalAddition))
+    }
+
+    // FIXME: document.
+    public static func anchor(_ anchor: Alignment) -> Self {
+        .modifier(Modifiers.Anchor(anchor: anchor))
+    }
+
+}
+
+
+// FIXME: implement fixed length too.
+// FIXME: try adding a trait case with a modifier function.
+
+
+extension DebugAlignmentGuideModifier.Configuration.Modifiers {
+
+    typealias Configuration = DebugAlignmentGuideModifier.Configuration
+
+    struct Opacity: ConfigurationModifier {
+        let opacity: Double
+        func update(configuration: inout Configuration) {
+            configuration.opacity = opacity
+        }
+    }
+
+    struct LengthAddition: ConfigurationModifier {
+        let horizontalAddition: CGFloat
+        let verticalAddition: CGFloat
+        func update(configuration: inout Configuration) {
+            configuration.horizontalAddition = horizontalAddition
+            configuration.verticalAddition = verticalAddition
+        }
+    }
+
+    struct Anchor: ConfigurationModifier {
+        let anchor: Alignment
+        func update(configuration: inout Configuration) {
+            configuration.anchor = anchor
+        }
     }
 
 }
 
 
 // MARK: - Single Axis
-
-
-// FIXME: Figure out final names for protocols.
 
 
 public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier
@@ -205,8 +310,16 @@ extension VerticalAlignment: AlignmentWithDefault {
 
 extension View {
 
-    public func debugAlignmentGuide(_ alignment: Alignment) -> some View {
-        return modifier(DebugAlignmentGuideModifier(alignment: alignment))
+    public func debugAlignmentGuide(
+        _ alignment: Alignment,
+        _ traits: DebugAlignmentGuideModifier.Trait...
+    ) -> some View {
+        let configuration = DebugAlignmentGuideModifier.Configuration(traits: traits)
+        let guideModifier = DebugAlignmentGuideModifier(
+            alignment: alignment,
+            configuration: configuration
+        )
+        return modifier(guideModifier)
     }
 
     public func debugAlignmentGuide(
@@ -252,22 +365,19 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     Text("Ag")
-    .font(.body.pointSize(60))
+    .font(.title.pointSize(100))
     .debugAlignmentGuide(.topLeading)
+    .debugAlignmentGuide(.centerFirstTextBaseline)
+    .debugAlignmentGuide(.bottomTrailing)
     .border(.green.tertiary, width: 8)
 
     DashedDivider()
 
     Text("Ag")
-    .font(.title.pointSize(60))
-    .debugAlignmentGuide(.centerCenter)
-    .border(.green.tertiary, width: 8)
-
-    DashedDivider()
-
-    Text("Ag")
-    .font(.title.pointSize(60))
-    .debugAlignmentGuide(.trailingLastTextBaseline)
+    .font(.title.pointSize(100))
+    .debugAlignmentGuide(.top, .lengthAddition(50, 50), .anchor(.centerFirstTextBaseline))
+    .debugAlignmentGuide(.bottomLeading, .lengthAddition(-50, -50), .anchor(.bottomLeading))
+    .debugAlignmentGuide(.trailing, .lengthAddition(-50, -50), .anchor(.trailing))
     .border(.green.tertiary, width: 8)
 }
 
