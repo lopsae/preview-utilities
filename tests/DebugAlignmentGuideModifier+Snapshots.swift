@@ -14,7 +14,7 @@ import Testing
 struct DebugAlignmentGuideModifierSnapshots {
 
     @Test func horizontalAlignments() {
-        assertImageSnapshot(named: "alignments", record: .never) {
+        Snapshots.assertView(named: "alignments", record: .never) {
             Text("Ag")
             .font(.title.pointSize(100))
             .debugAlignmentGuide(horizontal: .leading)
@@ -25,7 +25,7 @@ struct DebugAlignmentGuideModifierSnapshots {
 
 
     @Test func verticalAlignments() {
-        assertImageSnapshot(named: "alignments", record: .never) {
+        Snapshots.assertView(named: "alignments", record: .never) {
             Text("Sphinx\nof Black\nQuartz")
             .font(.largeTitle)
             .debugAlignmentGuide(vertical: .top)
@@ -37,7 +37,7 @@ struct DebugAlignmentGuideModifierSnapshots {
     }
 
     @Test func axisAlignmentsWithOpacity() {
-        assertImageSnapshot(named: "horizontal", record: .never) {
+        Snapshots.assertView(named: "horizontal", record: .never) {
             Text("Ag")
             .font(.title.pointSize(100))
             .debugAlignmentGuide(horizontal: .leading)
@@ -64,7 +64,7 @@ struct DebugAlignmentGuideModifierSnapshots {
             .floatingHorizontalMarker()
         }
 
-        assertImageSnapshot(named: "vertical", record: .never) {
+        Snapshots.assertView(named: "vertical", record: .never) {
             Text("Ag")
             .font(.title.pointSize(100))
             .debugAlignmentGuide(vertical: .top)
