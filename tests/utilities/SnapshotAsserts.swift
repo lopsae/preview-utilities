@@ -16,7 +16,7 @@ enum Snapshots {
     static let defaultColorSchemes: ColorScheme.AllCases = ColorScheme.allCases
 
     static func assertView<Content: View>(
-        named name: String? = nil,
+        _ name: String,
         layout: SwiftUISnapshotLayout = .fixed(width: 200, height: 200),
         record: SnapshotTestingConfiguration.Record? = nil,
         timeout: TimeInterval = 5,
