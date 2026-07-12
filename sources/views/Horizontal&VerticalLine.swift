@@ -20,12 +20,12 @@ struct AxialLine: Shape {
     }
 
     func path(in rect: CGRect) -> Path {
-        let halfPerpendicular = rect.size.length(on: axis.perpendicular) / 2
+        let halfPerpendicular = rect.size.length(on: axis.orthogonal) / 2
         let distanceToEdge = extendToEdges ? .zero : halfPerpendicular
         let length = rect.size.length(on: axis) - distanceToEdge * 2
 
-        let startPoint = CGPoint(on: axis, distance: distanceToEdge, perpendicular: halfPerpendicular)
-        let endPoint = startPoint.offset(on: axis, distance: length)
+        let startPoint = CGPoint(on: axis, along: distanceToEdge, across: halfPerpendicular)
+        let endPoint = startPoint.offset(along: axis, by: length)
 
         var path = Path()
         path.move(to: startPoint)
@@ -39,15 +39,15 @@ struct AxialLine: Shape {
 private extension CGPoint {
 
     nonisolated
-    init(on axis: Axis, distance: CGFloat, perpendicular: CGFloat) {
+    init(on axis: Axis, along: CGFloat, across: CGFloat) {
         switch axis {
-        case .horizontal: self.init(x: distance,      y: perpendicular)
-        case .vertical:   self.init(x: perpendicular, y: distance)
+        case .horizontal: self.init(x: along,  y: across)
+        case .vertical:   self.init(x: across, y: along)
         }
     }
 
     nonisolated
-    func offset(on axis: Axis, distance: CGFloat) -> Self {
+    func offset(along axis: Axis, by distance: CGFloat) -> Self {
         switch axis {
         case .horizontal: self.offset(x: distance)
         case .vertical:   self.offset(y: distance)
