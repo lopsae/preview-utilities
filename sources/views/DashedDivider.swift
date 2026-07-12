@@ -49,18 +49,6 @@ private extension View {
 }
 
 
-private extension Axis {
-
-    var perpendicular: Self {
-        switch self {
-        case .horizontal: .vertical
-        case .vertical:   .horizontal
-        }
-    }
-
-}
-
-
 // MARK: - PreviewContent
 
 
