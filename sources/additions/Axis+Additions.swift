@@ -9,6 +9,7 @@ import SwiftUI
 
 extension Axis {
 
+    @inlinable nonisolated
     var perpendicular: Self {
         switch self {
         case .horizontal: .vertical
