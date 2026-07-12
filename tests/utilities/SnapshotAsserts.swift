@@ -13,13 +13,14 @@ import Testing
 
 enum Snapshots {
 
-    static let defaultColorSchemes: ColorScheme.AllCases = ColorScheme.allCases
+    static let defaultColorSchemes: Set<ColorScheme> = ColorScheme.allCasesSet
 
     static func assertView<Content: View>(
         _ name: String,
-        layout: SwiftUISnapshotLayout = .fixed(width: 200, height: 200),
-        record: SnapshotTestingConfiguration.Record? = nil,
+        size: CGSize = .square(of: 200),
+        colorSchemes: Set<ColorScheme> = defaultColorSchemes,
         timeout: TimeInterval = 5,
+        record: SnapshotTestingConfiguration.Record? = nil,
         fileID: StaticString = #fileID,
         file filePath: StaticString = #filePath,
         testName: String = #function,
@@ -28,9 +29,9 @@ enum Snapshots {
         @ViewBuilder content: () -> Content
     ) {
         let fileURL = URL(fileURLWithPath: "\(filePath)")
-        let testFolderName = "testsx"
+        let testFolderName = "tests"
         let maxDeletions: Int = 4
-        guard let testsFolder = fileURL.deletingPathComponents(until: "tests", maxDeletions: maxDeletions) else {
+        guard let testsFolder = fileURL.deletingPathComponents(until: testFolderName, maxDeletions: maxDeletions) else {
             Issue.record(
               "The root tests folder `\(testFolderName)` could not be found within \(maxDeletions) folders of the test suite file",
               sourceLocation: SourceLocation(
@@ -52,29 +53,59 @@ enum Snapshots {
         let snapshotsFolderName = "recorded-snapshots"
         let snapshotsFolder = testsFolder.appending(pathComponents: [snapshotsFolderName, testSuiteName])
 
-        let failure = verifySnapshot(
-          of: content(),
-          as: .image(layout: layout),
-          named: name,
-          record: record,
-          snapshotDirectory: snapshotsFolder.path(),
-          timeout: timeout,
-          fileID: fileID,
-          file: filePath,
-          testName: testName,
-          line: line,
-          column: column
-        )
-        guard let message = failure else { return }
-        Issue.record(
-          Comment(rawValue: message),
-          sourceLocation: SourceLocation(
-            fileID: fileID.description,
-            filePath: filePath.description,
-            line: Int(line),
-            column: Int(column)
-          )
-        )
+        for scheme in colorSchemes {
+            let snapshotName: String
+            switch scheme {
+            case .light: snapshotName = name
+            case .dark: snapshotName = name + "~dark"
+            @unknown default:
+                Issue.record(
+                  "Unknown color scheme: \(scheme)",
+                  sourceLocation: SourceLocation(
+                    fileID: fileID.description,
+                    filePath: filePath.description,
+                    line: Int(line),
+                    column: Int(column)
+                  )
+                )
+                continue
+            }
+
+            let configuredContent = content()
+                .frame(size: size)
+                .background(.background)
+                .environment(\.colorScheme, scheme)
+
+            let layout:SwiftUISnapshotLayout = .fixed(width: size.width, height: size.height)
+
+            let failureMessage = verifySnapshot(
+              of: configuredContent,
+              as: .image(layout: layout),
+              named: snapshotName,
+              record: record,
+              snapshotDirectory: snapshotsFolder.path(),
+              timeout: timeout,
+              fileID: fileID,
+              file: filePath,
+              testName: testName,
+              line: line,
+              column: column
+            )
+
+            if let failureMessage {
+                Issue.record(
+                  Comment(rawValue: failureMessage),
+                  sourceLocation: SourceLocation(
+                    fileID: fileID.description,
+                    filePath: filePath.description,
+                    line: Int(line),
+                    column: Int(column)
+                  )
+                )
+            }
+
+            // Test succeeded!
+        }
     }
 
 }
