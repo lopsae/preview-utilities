@@ -26,24 +26,13 @@ public struct DashedDivider: View {
         case .horizontal:
             AxialLine(.horizontal)
             .stroke(.tertiary, style: strokeStyle)
-            .frame(length: lineWidth, on: axis.orthogonal)
+            .frame(length: lineWidth, along: axis.orthogonal)
         case .vertical:
             AxialLine(.vertical)
             .stroke(.tertiary, style: strokeStyle)
-            .frame(length: lineWidth, on: axis.orthogonal)
+            .frame(length: lineWidth, along: axis.orthogonal)
         }
 
-    }
-
-}
-
-
-private extension View {
-
-    func frame(length: CGFloat, on axis: Axis, alignment: Alignment = .center) -> some View {
-        let width = axis == .horizontal ? length : nil
-        let height = axis == .vertical ? length : nil
-        return self.frame(width: width, height: height, alignment: alignment)
     }
 
 }

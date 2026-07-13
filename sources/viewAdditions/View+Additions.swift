@@ -60,6 +60,16 @@ extension View {
         self.frame(width: size.width, height: size.height, alignment: alignment)
     }
 
+
+    // FIXME: use in AxialLine previews, use in debugAlignmentGuide
+    @inlinable nonisolated
+    func frame(length: CGFloat, along axis: Axis, alignment: Alignment = .center) -> some View {
+        let width = axis == .horizontal ? length : nil
+        let height = axis == .vertical ? length : nil
+        return self.frame(width: width, height: height, alignment: alignment)
+    }
+
+
 }
 
 
