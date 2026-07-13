@@ -24,11 +24,11 @@ public struct DashedDivider: View {
             dash: [lineWidth*5, lineWidth*6])
         switch axis {
         case .horizontal:
-            HorizontalLine()
+            AxialLine(.horizontal)
             .stroke(.tertiary, style: strokeStyle)
             .frame(length: lineWidth, on: axis.orthogonal)
         case .vertical:
-            VerticalLine()
+            AxialLine(.vertical)
             .stroke(.tertiary, style: strokeStyle)
             .frame(length: lineWidth, on: axis.orthogonal)
         }
