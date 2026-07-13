@@ -26,9 +26,9 @@ struct AxialLine: Shape {
     }
 
     func path(in rect: CGRect) -> Path {
-        let halfPerpendicular = rect.size.length(on: axis.orthogonal) / 2
+        let halfPerpendicular = rect.size.length(along: axis.orthogonal) / 2
         let distanceToEdge = extendToEdges ? .zero : halfPerpendicular
-        let length = rect.size.length(on: axis) - distanceToEdge * 2
+        let length = rect.size.length(along: axis) - distanceToEdge * 2
 
         let startPoint = CGPoint(on: axis, along: distanceToEdge, across: halfPerpendicular)
         let endPoint = startPoint.offset(along: axis, by: length)
@@ -66,7 +66,7 @@ private extension CGPoint {
 private extension CGSize {
 
     nonisolated
-    func length(on axis: Axis) -> CGFloat {
+    func length(along axis: Axis) -> CGFloat {
         switch axis {
         case .horizontal:
             width
@@ -95,12 +95,12 @@ private struct PreviewContent {
 #Preview("Default", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     AxialLine(.horizontal)
         .stroke(.red.secondary, lineWidth: 2)
-        .frame(height: 10)
+        .frame(length: 10, along: .vertical)
         .padding()
         .debugOverlay(.hairline)
     AxialLine(.vertical)
         .stroke(.red.secondary, lineWidth: 2)
-        .frame(width: 10)
+        .frame(length: 10, along: .horizontal)
         .padding()
         .debugOverlay(.hairline)
 }
