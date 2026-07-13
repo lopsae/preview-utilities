@@ -146,10 +146,9 @@ where
             let extendedSize = axisAlignment.unitSize.transposed.multiplying(by: configuration.lengthAddition)
             ExtendedSizeLayout(addWidth: extendedSize.width , addHeight: extendedSize.height) {
                 let unitSize = axisAlignment.unitSize
-                // FIXME: actually draw a line instead of rectangle.
                 let lineWidth: CGFloat = 2
-                Rectangle()
-                .fill(.red.secondary)
+                AxialLine(axisAlignment.axis.orthogonal, extendToEdges: true)
+                .stroke(.red.secondary, lineWidth: lineWidth)
                 .frame(
                     width:  unitSize.width  == .zero ? nil : lineWidth,
                     height: unitSize.height == .zero ? nil : lineWidth
@@ -265,6 +264,7 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 // FIXME: Document these types and likely move to AlignmentAdditions
 public protocol AlignmentWithOrthogonal {
     associatedtype OrthogonalAlignment
+    var axis: Axis { get }
     var unitSize: CGSize { get }
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
 }
@@ -272,6 +272,7 @@ public protocol AlignmentWithOrthogonal {
 
 extension HorizontalAlignment: AlignmentWithOrthogonal {
     public typealias OrthogonalAlignment = VerticalAlignment
+    public var axis: Axis { .horizontal }
     public var unitSize: CGSize { .init(width: CGFloat.one, height: .zero) }
     public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
         .init(horizontal: self, vertical: orthogonalAlignment)
@@ -281,6 +282,7 @@ extension HorizontalAlignment: AlignmentWithOrthogonal {
 
 extension VerticalAlignment: AlignmentWithOrthogonal {
     public typealias OrthogonalAlignment = HorizontalAlignment
+    public var axis: Axis { .vertical }
     public var unitSize: CGSize { .init(width: CGFloat.zero, height: .one) }
     public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
         .init(horizontal: orthogonalAlignment, vertical: self)
@@ -360,7 +362,7 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Default", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     Text("Ag")
     .font(.title.pointSize(100))
     .debugAlignmentGuide(.topLeading)
@@ -372,9 +374,38 @@ private struct PreviewContent {
 
     Text("Ag")
     .font(.title.pointSize(100))
-    .debugAlignmentGuide(.top, .lengthAddition(50, 50), .anchor(.centerFirstTextBaseline))
-    .debugAlignmentGuide(.bottomLeading, .lengthAddition(-50, -50), .anchor(.bottomLeading))
-    .debugAlignmentGuide(.trailing, .lengthAddition(-50, -50), .anchor(.trailing))
+    .debugAlignmentGuide(horizontal: .leading)
+    .debugAlignmentGuide(horizontal: .center)
+    .debugAlignmentGuide(horizontal: .trailing)
+    .border(.green.tertiary, width: 8)
+
+    DashedDivider()
+
+    Text("Sphinx\nof Black\nQuartz")
+    .fixedSize()
+    .font(.largeTitle)
+    .debugAlignmentGuide(vertical: .top)
+    .debugAlignmentGuide(vertical: .firstTextBaseline)
+    .debugAlignmentGuide(vertical: .verticalCenter)
+    .debugAlignmentGuide(vertical: .lastTextBaseline)
+    .debugAlignmentGuide(vertical: .bottom)
+    .border(.green.tertiary, width: 8)
+}
+
+
+#Preview("Traits", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .debugAlignmentGuide(.topLeading, .lengthAddition(20, 50), )
+    .debugAlignmentGuide(.bottomTrailing, .lengthAddition(-50, -50))
+    .border(.green.tertiary, width: 8)
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .debugAlignmentGuide(.topLeading, .lengthAddition(20, 50), .anchor(.topLeading))
+    .debugAlignmentGuide(.centerLastTextBaseline, .lengthAddition(-50, -50), .anchor(.bottomTrailing))
     .border(.green.tertiary, width: 8)
 }
 
