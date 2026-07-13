@@ -145,14 +145,8 @@ where
         content.overlay(alignment: alignment) {
             let extendedSize = axisAlignment.unitSize.transposed.multiplying(by: configuration.lengthAddition)
             ExtendedSizeLayout(addWidth: extendedSize.width , addHeight: extendedSize.height) {
-                let unitSize = axisAlignment.unitSize
                 let lineWidth: CGFloat = 2
-                AxialLine(axisAlignment.axis.orthogonal, extendToEdges: true)
-                .stroke(.red.secondary, lineWidth: lineWidth)
-                .frame(
-                    width:  unitSize.width  == .zero ? nil : lineWidth,
-                    height: unitSize.height == .zero ? nil : lineWidth
-                )
+                AxialLine(axisAlignment.axis.orthogonal, style: .red.secondary, lineWidth: lineWidth)
             }
             .opacity(configuration.opacity)
             .allowsHitTesting(false)
@@ -265,6 +259,8 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 public protocol AlignmentWithOrthogonal {
     associatedtype OrthogonalAlignment
     var axis: Axis { get }
+    // FIXME: move to axis.
+    /// A size with a value of `1` along the length of the alignment axis, and `zero` across.
     var unitSize: CGSize { get }
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
 }

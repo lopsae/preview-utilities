@@ -19,20 +19,11 @@ public struct DashedDivider: View {
     }
 
     public var body: some View {
-        let strokeStyle = StrokeStyle(
+        AxialLine(
+            axis, style: .tertiary,
             lineWidth: lineWidth, lineCap: .round,
-            dash: [lineWidth*5, lineWidth*6])
-        switch axis {
-        case .horizontal:
-            AxialLine(.horizontal)
-            .stroke(.tertiary, style: strokeStyle)
-            .frame(length: lineWidth, along: axis.orthogonal)
-        case .vertical:
-            AxialLine(.vertical)
-            .stroke(.tertiary, style: strokeStyle)
-            .frame(length: lineWidth, along: axis.orthogonal)
-        }
-
+            dash: [lineWidth*5, lineWidth*6]
+        )
     }
 
 }
