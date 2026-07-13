@@ -17,4 +17,12 @@ extension Axis {
         }
     }
 
+    /// A size with a value of `1` along the length of the axis, and `zero` across.
+    var unitSize: CGSize {
+        switch self {
+        case .horizontal: .init(width: CGFloat.one,  height: .zero)
+        case .vertical:   .init(width: CGFloat.zero, height: .one)
+        }
+    }
+
 }

@@ -143,7 +143,8 @@ where
     public func body(content: Content) -> some View {
         let alignment = axisAlignment.alignment(withOrthogonal: configuration.anchor)
         content.overlay(alignment: alignment) {
-            let extendedSize = axisAlignment.unitSize.transposed.multiplying(by: configuration.lengthAddition)
+            let axisUnitSize = axisAlignment.axis.unitSize
+            let extendedSize = axisUnitSize.transposed.multiplying(by: configuration.lengthAddition)
             ExtendedSizeLayout(addWidth: extendedSize.width , addHeight: extendedSize.height) {
                 let lineWidth: CGFloat = 2
                 AxialLine(axisAlignment.axis.orthogonal, style: .red.secondary, lineWidth: lineWidth)
@@ -259,9 +260,6 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 public protocol AlignmentWithOrthogonal {
     associatedtype OrthogonalAlignment
     var axis: Axis { get }
-    // FIXME: move to axis.
-    /// A size with a value of `1` along the length of the alignment axis, and `zero` across.
-    var unitSize: CGSize { get }
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
 }
 
@@ -269,7 +267,6 @@ public protocol AlignmentWithOrthogonal {
 extension HorizontalAlignment: AlignmentWithOrthogonal {
     public typealias OrthogonalAlignment = VerticalAlignment
     public var axis: Axis { .horizontal }
-    public var unitSize: CGSize { .init(width: CGFloat.one, height: .zero) }
     public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
         .init(horizontal: self, vertical: orthogonalAlignment)
     }
@@ -279,7 +276,6 @@ extension HorizontalAlignment: AlignmentWithOrthogonal {
 extension VerticalAlignment: AlignmentWithOrthogonal {
     public typealias OrthogonalAlignment = HorizontalAlignment
     public var axis: Axis { .vertical }
-    public var unitSize: CGSize { .init(width: CGFloat.zero, height: .one) }
     public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
         .init(horizontal: orthogonalAlignment, vertical: self)
     }
