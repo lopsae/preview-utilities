@@ -34,8 +34,8 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
         enum Modifiers {}
 
         var opacity: Double = .one
-        var horizontalAddition: CGFloat = .zero
-        var verticalAddition: CGFloat = .zero
+        var horizontalLength: DebugAxisAlignmentConfigurationLength = .container
+        var verticalLength: DebugAxisAlignmentConfigurationLength = .container
         var anchor: Alignment = .center
 
         public init() {}
@@ -43,7 +43,7 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
         var horizontalConfiguration: DebugAxisAlignmentGuideConfiguration<HorizontalAlignment> {
             var resultConfiguration = DebugAxisAlignmentGuideConfiguration<HorizontalAlignment>()
             resultConfiguration.opacity = opacity
-            resultConfiguration.lengthAddition = horizontalAddition
+            resultConfiguration.length = horizontalLength
             resultConfiguration.anchor = anchor.vertical
             return resultConfiguration
         }
@@ -51,7 +51,7 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
         var verticalConfiguration: DebugAxisAlignmentGuideConfiguration<VerticalAlignment> {
             var resultConfiguration = DebugAxisAlignmentGuideConfiguration<VerticalAlignment>()
             resultConfiguration.opacity = opacity
-            resultConfiguration.lengthAddition = verticalAddition
+            resultConfiguration.length = verticalLength
             resultConfiguration.anchor = anchor.horizontal
             return resultConfiguration
         }
@@ -81,16 +81,16 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
         .modifier(Modifiers.Opacity(opacity: opacity))
     }
 
+    // FIXME: Check if there are significant performance impacts between modifier and mutate
     // FIXME: document.
-    public static func lengthAddition(_ horizontalAddition: CGFloat, _ verticalAddition: CGFloat) -> Self {
+    public static func lengths(
+        horizontal: DebugAxisAlignmentConfigurationLength = .container,
+        vertical: DebugAxisAlignmentConfigurationLength = .container
+    ) -> Self {
         .mutate {
-            $0.horizontalAddition = horizontalAddition
-            $0.verticalAddition = verticalAddition
+            $0.horizontalLength = horizontal
+            $0.verticalLength = vertical
         }
-    }
-
-    public static func lengthAddition(horz: CGFloat = .zero, vert: CGFloat = .zero) -> Self {
-        .lengthAddition(horz, vert)
     }
 
     // FIXME: document.
@@ -99,9 +99,6 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
 }
-
-
-// FIXME: implement fixed length too.
 
 
 extension DebugAlignmentGuideModifier.Configuration.Modifiers {
@@ -143,11 +140,23 @@ where
     public func body(content: Content) -> some View {
         let alignment = axisAlignment.alignment(withOrthogonal: configuration.anchor)
         content.overlay(alignment: alignment) {
-            let axisUnitSize = axisAlignment.axis.unitSize
-            let extendedSize = axisUnitSize.transposed.multiplying(by: configuration.lengthAddition)
-            ExtendedSizeLayout(addWidth: extendedSize.width , addHeight: extendedSize.height) {
+            Group {
                 let lineWidth: CGFloat = 2
-                AxialLine(axisAlignment.axis.orthogonal, style: .red.secondary, lineWidth: lineWidth)
+                let axialLine = AxialLine(axisAlignment.axis.orthogonal, style: .red.secondary, lineWidth: lineWidth)
+
+                switch configuration.length {
+                case .container:
+                    axialLine
+                case .extended(let addition):
+                    let orthogonalUnitSize = axisAlignment.axis.orthogonal.unitSize
+                    let extendedSize = orthogonalUnitSize.multiplying(by: addition)
+                    ExtendedSizeLayout(addWidth: extendedSize.width, addHeight: extendedSize.height) {
+                        axialLine
+                    }
+                    // FIXME: ExtendedSizeLayout is having issues when contained in a Group+Switch
+                    // size is being recalculated multiple times, and thus being increased multiple times.
+                    .debugOverlay(.height)
+                }
             }
             .opacity(configuration.opacity)
             .allowsHitTesting(false)
@@ -169,7 +178,7 @@ where
 public protocol DebugAxisAlignmentGuideConfigurationProtocol {
     associatedtype AnchorAlignment: AlignmentWithDefault
     var opacity: Double { get set }
-    var lengthAddition: CGFloat { get set }
+    var length: DebugAxisAlignmentConfigurationLength { get set }
     var anchor: AnchorAlignment { get set }
 
 }
@@ -182,9 +191,24 @@ where
 {
     public typealias AnchorAlignment = AxisAlignment.OrthogonalAlignment
     public var opacity: Double = .one
-    public var lengthAddition: CGFloat = .zero
+    public var length: DebugAxisAlignmentConfigurationLength = .container
     public var anchor: AnchorAlignment = .default
     public init() {}
+}
+
+
+// MARK: - ConfigurationLength
+
+
+public enum DebugAxisAlignmentConfigurationLength {
+    case container
+    case extended(CGFloat)
+
+    // FIXME: implement.
+//    case fixed(CGFloat)
+
+    // FIXME: implement.
+//    case factor(CGFloat)
 }
 
 
@@ -211,8 +235,10 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
     }
 
     // FIXME: document.
-    public static func addLength(_ addition: CGFloat) -> Self {
-        .modifier(DebugAxisAlignmentModifiers.LengthAddition(lengthAddition: addition))
+    public static func length(_ length: DebugAxisAlignmentConfigurationLength) -> Self {
+        .mutate{
+            $0.length = length
+        }
     }
 
     // FIXME: document.
@@ -233,13 +259,6 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
         let opacity: Double
         func update(configuration: inout Configuration) {
             configuration.opacity = opacity
-        }
-    }
-
-    struct LengthAddition: ConfigurationModifier {
-        let lengthAddition: CGFloat
-        func update(configuration: inout Configuration) {
-            configuration.lengthAddition = lengthAddition
         }
     }
 
@@ -388,16 +407,16 @@ private struct PreviewContent {
 #Preview("Traits", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     Text("Ag")
     .font(.title.pointSize(100))
-    .debugAlignmentGuide(.topLeading, .lengthAddition(20, 50), )
-    .debugAlignmentGuide(.bottomTrailing, .lengthAddition(-50, -50))
+    .debugAlignmentGuide(.topLeading, .lengths(horizontal: .extended(20), vertical: .extended(50)))
+    .debugAlignmentGuide(.bottomTrailing, .lengths(horizontal: .extended(-50), vertical: .extended(-50)))
     .border(.green.tertiary, width: 8)
 
     DashedDivider()
 
     Text("Ag")
     .font(.title.pointSize(100))
-    .debugAlignmentGuide(.topLeading, .lengthAddition(20, 50), .anchor(.topLeading))
-    .debugAlignmentGuide(.centerLastTextBaseline, .lengthAddition(-50, -50), .anchor(.bottomTrailing))
+    .debugAlignmentGuide(.topLeading, .anchor(.topLeading), .lengths(horizontal: .extended(20), vertical: .extended(50)))
+    .debugAlignmentGuide(.centerLastTextBaseline, .anchor(.bottomTrailing), .lengths(horizontal: .extended(-50), vertical: .extended(-50)))
     .border(.green.tertiary, width: 8)
 }
 
@@ -415,11 +434,14 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .alignmentGuide(.leading, offsetBy: 10)
-    .debugAlignmentGuide(horizontal: .leading, .addLength(50), .anchor(.bottom))
-    .alignmentGuide(.trailing, offsetBy: -10)
-    .debugAlignmentGuide(horizontal: .trailing, .addLength(50), .anchor(.top))
-    .debugAlignmentGuide(horizontal: .center, .anchor(.firstTextBaseline))
+    // FIXME: .extended causes display issues, the alignment marker ends up with a 20 addition.
+    .debugAlignmentGuide(horizontal: .leading, .length(.extended(10)), .anchor(.bottom))
+//    .alignmentGuide(.trailing, offsetBy: -10)
+//    .debugAlignmentGuide(horizontal: .trailing, .length(.extended(50)), .anchor(.top))
+//    .debugAlignmentGuide(horizontal: .center, .anchor(.firstTextBaseline))
+    .floatingCaption("", .height, .alignment(.outerTrailingBottom))
     .border(.green.tertiary, width: 8)
+
 }
 
 
@@ -438,9 +460,9 @@ private struct PreviewContent {
     Text("Sphinx\nof Black\nQuartz")
     .font(.largeTitle)
     .debugAlignmentGuide(vertical: .top)
-    .debugAlignmentGuide(vertical: .firstTextBaseline, .addLength(50), .anchor(.leading))
-    .debugAlignmentGuide(vertical: .verticalCenter, .addLength(100))
-    .debugAlignmentGuide(vertical: .lastTextBaseline, .addLength(50), .anchor(.trailing))
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .length(.extended(50)), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .verticalCenter, .length(.extended(100)))
+    .debugAlignmentGuide(vertical: .lastTextBaseline, .length(.extended(50)), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .bottom)
     .border(.green.tertiary, width: 8)
 }
