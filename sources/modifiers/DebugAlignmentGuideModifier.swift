@@ -371,6 +371,17 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
+    static let single: some View =
+        Text("Ag")
+        .font(.title.pointSize(100))
+        .border(.green.tertiary, width: 8)
+
+    static let multi: some View =
+        Text("Sphinx\nof Black\nQuartz")
+        .fixedSize()
+        .font(.largeTitle)
+        .border(.green.tertiary, width: 8)
+
 }
 
 
@@ -378,91 +389,68 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
-    Text("Ag")
-    .font(.title.pointSize(100))
+    PreviewContent.single
     .debugAlignmentGuide(.topLeading)
     .debugAlignmentGuide(.centerFirstTextBaseline)
     .debugAlignmentGuide(.bottomTrailing)
-    .border(.green.tertiary, width: 8)
 
     DashedDivider()
 
-    Text("Ag")
-    .font(.title.pointSize(100))
+    PreviewContent.single
     .debugAlignmentGuide(horizontal: .leading)
     .debugAlignmentGuide(horizontal: .center)
     .debugAlignmentGuide(horizontal: .trailing)
-    .border(.green.tertiary, width: 8)
 
     DashedDivider()
 
-    Text("Sphinx\nof Black\nQuartz")
-    .fixedSize()
-    .font(.largeTitle)
+    PreviewContent.multi
     .debugAlignmentGuide(vertical: .top)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
     .debugAlignmentGuide(vertical: .verticalCenter)
     .debugAlignmentGuide(vertical: .lastTextBaseline)
     .debugAlignmentGuide(vertical: .bottom)
-    .border(.green.tertiary, width: 8)
 }
 
 
 #Preview("Traits", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
-    Text("Ag")
-    .font(.title.pointSize(100))
+    PreviewContent.single
     .debugAlignmentGuide(.topLeading, .lengths(horizontal: .extended(20), vertical: .extended(50)))
     .debugAlignmentGuide(.bottomTrailing, .lengths(horizontal: .extended(-50), vertical: .extended(-50)))
-    .border(.green.tertiary, width: 8)
 
     DashedDivider()
 
-    Text("Ag")
-    .font(.title.pointSize(100))
+    PreviewContent.single
     .debugAlignmentGuide(.topLeading, .anchor(.topLeading), .lengths(horizontal: .extended(20), vertical: .extended(50)))
     .debugAlignmentGuide(.centerLastTextBaseline, .anchor(.bottomTrailing), .lengths(horizontal: .extended(-50), vertical: .extended(-50)))
-    .border(.green.tertiary, width: 8)
 }
 
 
 #Preview("Horizontal", traits: .spacing(40), .headerFooter, PreviewContent.layout) {
-    Text("Ag")
-    .font(.title.pointSize(100))
+    PreviewContent.single
     .debugAlignmentGuide(horizontal: .leading)
     .debugAlignmentGuide(horizontal: .center)
     .debugAlignmentGuide(horizontal: .trailing)
-    .border(.green.tertiary, width: 8)
 
     DashedDivider()
 
-    Text("Ag")
-    .font(.title.pointSize(100))
+    PreviewContent.single
     .debugAlignmentGuide(horizontal: .leading, .length(.extended(40)), .anchor(.bottom))
     .debugAlignmentGuide(horizontal: .center, .length(.extended(20)), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .length(.extended(-40)), .anchor(.top))
-    .floatingCaption("", .height, .alignment(.outerTrailingBottom))
-    .border(.green.tertiary, width: 8)
-
 }
 
 
 #Preview("Vertical", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
-    Text("Sphinx\nof Black\nQuartz")
-    .font(.largeTitle)
-    .fixedSize()
+    PreviewContent.multi
     .debugAlignmentGuide(vertical: .top)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
     .debugAlignmentGuide(vertical: .verticalCenter)
     .debugAlignmentGuide(vertical: .lastTextBaseline)
     .debugAlignmentGuide(vertical: .bottom)
-    .border(.green.tertiary, width: 8)
 
     DashedDivider()
 
-    Text("Sphinx\nof Black\nQuartz")
-    .font(.largeTitle)
-    .fixedSize()
-    .border(.green.tertiary, width: 8)
+    PreviewContent.multi
     .debugAlignmentGuide(vertical: .top, .length(.extended(-40)))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .length(.extended(40)), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .verticalCenter, .length(.extended(40)))
@@ -471,11 +459,8 @@ private struct PreviewContent {
 }
 
 
-// FIXME: Move "Ag" and "multiline" text setup to PreviewContent
 #Preview("Offset", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
-    Text("Ag")
-    .font(.title.pointSize(100))
-    .border(.green.tertiary, width: 8)
+    PreviewContent.single
     .alignmentGuide(.leading, offsetBy: 10)
     .debugAlignmentGuide(horizontal: .leading)
     .alignmentGuide(.trailing, offsetBy: -10)
@@ -483,10 +468,8 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("Ag")
-    .font(.title.pointSize(100))
-    .border(.green.tertiary, width: 8)
-    .alignmentGuide(.leading, offsetBy: 10)
+    PreviewContent.single
+    .alignmentGuide(.top, offsetBy: 10)
     .debugAlignmentGuide(vertical: .top)
     .alignmentGuide(.firstTextBaseline, offsetBy: -10)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
