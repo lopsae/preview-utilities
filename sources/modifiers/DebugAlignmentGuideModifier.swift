@@ -466,3 +466,27 @@ private struct PreviewContent {
     .debugAlignmentGuide(vertical: .bottom)
     .border(.green.tertiary, width: 8)
 }
+
+
+// FIXME: Move "Ag" and "multiline" text setup to PreviewContent
+#Preview("Offset", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 8)
+    .alignmentGuide(.leading, offsetBy: 10)
+    .debugAlignmentGuide(horizontal: .leading)
+    .alignmentGuide(.trailing, offsetBy: -10)
+    .debugAlignmentGuide(horizontal: .trailing)
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 8)
+    .alignmentGuide(.leading, offsetBy: 10)
+    .debugAlignmentGuide(vertical: .top)
+    .alignmentGuide(.firstTextBaseline, offsetBy: -10)
+    .debugAlignmentGuide(vertical: .firstTextBaseline)
+    .alignmentGuide(.bottom, offsetBy: 10)
+    .debugAlignmentGuide(vertical: .bottom)
+}
