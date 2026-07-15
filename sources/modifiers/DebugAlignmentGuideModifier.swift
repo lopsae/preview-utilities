@@ -140,24 +140,21 @@ where
     public func body(content: Content) -> some View {
         let alignment = axisAlignment.alignment(withOrthogonal: configuration.anchor)
         content.overlay(alignment: alignment) {
-            Group {
-                let lineWidth: CGFloat = 2
-                let axialLine = AxialLine(axisAlignment.axis.orthogonal, style: .red.secondary, lineWidth: lineWidth)
-
-                switch configuration.length {
-                case .container:
-                    axialLine
+            let lineWidth: CGFloat = 2
+            let axis = axisAlignment.axis
+            let orthogonal = axis.orthogonal
+            GeometryReader { geometry in
+                let additionalSize: CGSize = switch configuration.length {
+                case .container: .zero
                 case .extended(let addition):
-                    let orthogonalUnitSize = axisAlignment.axis.orthogonal.unitSize
-                    let extendedSize = orthogonalUnitSize.multiplying(by: addition)
-                    ExtendedSizeLayout(addWidth: extendedSize.width, addHeight: extendedSize.height) {
-                        axialLine
-                    }
-                    // FIXME: ExtendedSizeLayout is having issues when contained in a Group+Switch
-                    // size is being recalculated multiple times, and thus being increased multiple times.
-                    .debugOverlay(.height)
+                    orthogonal.unitSize.multiplying(by: addition)
                 }
+
+                AxialLine(orthogonal, style: .red.secondary, lineWidth: lineWidth)
+                .frame(size: geometry.size.adding(size: additionalSize))
+                .frame(size: geometry.size, alignment: alignment)
             }
+            .frame(length: lineWidth, along: axisAlignment.axis)
             .opacity(configuration.opacity)
             .allowsHitTesting(false)
         }
@@ -421,7 +418,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Horizontal", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Horizontal", traits: .spacing(40), .headerFooter, PreviewContent.layout) {
     Text("Ag")
     .font(.title.pointSize(100))
     .debugAlignmentGuide(horizontal: .leading)
@@ -433,21 +430,19 @@ private struct PreviewContent {
 
     Text("Ag")
     .font(.title.pointSize(100))
-    .alignmentGuide(.leading, offsetBy: 10)
-    // FIXME: .extended causes display issues, the alignment marker ends up with a 20 addition.
-    .debugAlignmentGuide(horizontal: .leading, .length(.extended(10)), .anchor(.bottom))
-//    .alignmentGuide(.trailing, offsetBy: -10)
-//    .debugAlignmentGuide(horizontal: .trailing, .length(.extended(50)), .anchor(.top))
-//    .debugAlignmentGuide(horizontal: .center, .anchor(.firstTextBaseline))
+    .debugAlignmentGuide(horizontal: .leading, .length(.extended(40)), .anchor(.bottom))
+    .debugAlignmentGuide(horizontal: .center, .length(.extended(20)), .anchor(.firstTextBaseline))
+    .debugAlignmentGuide(horizontal: .trailing, .length(.extended(-40)), .anchor(.top))
     .floatingCaption("", .height, .alignment(.outerTrailingBottom))
     .border(.green.tertiary, width: 8)
 
 }
 
 
-#Preview("Vertical", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Vertical", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     Text("Sphinx\nof Black\nQuartz")
     .font(.largeTitle)
+    .fixedSize()
     .debugAlignmentGuide(vertical: .top)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
     .debugAlignmentGuide(vertical: .verticalCenter)
@@ -459,12 +454,13 @@ private struct PreviewContent {
 
     Text("Sphinx\nof Black\nQuartz")
     .font(.largeTitle)
-    .debugAlignmentGuide(vertical: .top)
-    .debugAlignmentGuide(vertical: .firstTextBaseline, .length(.extended(50)), .anchor(.leading))
-    .debugAlignmentGuide(vertical: .verticalCenter, .length(.extended(100)))
-    .debugAlignmentGuide(vertical: .lastTextBaseline, .length(.extended(50)), .anchor(.trailing))
-    .debugAlignmentGuide(vertical: .bottom)
+    .fixedSize()
     .border(.green.tertiary, width: 8)
+    .debugAlignmentGuide(vertical: .top, .length(.extended(-40)))
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .length(.extended(40)), .anchor(.trailing))
+    .debugAlignmentGuide(vertical: .verticalCenter, .length(.extended(40)))
+    .debugAlignmentGuide(vertical: .lastTextBaseline, .length(.extended(40)), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .bottom, .length(.extended(40)))
 }
 
 
