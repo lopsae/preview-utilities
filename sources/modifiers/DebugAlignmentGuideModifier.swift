@@ -170,7 +170,8 @@ where
 /// for `DebugAxisAlignmentGuideModifier`.
 ///
 /// This protocol allows to define the same traits for both horizontal and vertical alignments.
-public protocol DebugAxisAlignmentGuideConfigurationProtocol {
+nonisolated
+public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
     associatedtype AnchorAlignment: AlignmentWithDefault
     var opacity: Double { get set }
     var length: DebugAxisAlignmentConfigurationLength { get set }
@@ -179,6 +180,7 @@ public protocol DebugAxisAlignmentGuideConfigurationProtocol {
 }
 
 
+nonisolated
 public struct DebugAxisAlignmentGuideConfiguration<AxisAlignment>: DebugAxisAlignmentGuideConfigurationProtocol, TraitConfigurable
 where
     AxisAlignment: AlignmentWithOrthogonal,
@@ -271,13 +273,15 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 
 
 // FIXME: Document these types and likely move to AlignmentAdditions
-public protocol AlignmentWithOrthogonal {
-    associatedtype OrthogonalAlignment
+public nonisolated
+protocol AlignmentWithOrthogonal {
+    associatedtype OrthogonalAlignment: Sendable
     var axis: Axis { get }
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
 }
 
 
+nonisolated
 extension HorizontalAlignment: AlignmentWithOrthogonal {
     public typealias OrthogonalAlignment = VerticalAlignment
     public var axis: Axis { .horizontal }
@@ -287,6 +291,7 @@ extension HorizontalAlignment: AlignmentWithOrthogonal {
 }
 
 
+nonisolated
 extension VerticalAlignment: AlignmentWithOrthogonal {
     public typealias OrthogonalAlignment = HorizontalAlignment
     public var axis: Axis { .vertical }
@@ -296,15 +301,19 @@ extension VerticalAlignment: AlignmentWithOrthogonal {
 }
 
 
-public protocol AlignmentWithDefault {
+public nonisolated
+protocol AlignmentWithDefault {
     static var `default`: Self { get }
 }
 
+
+nonisolated
 extension HorizontalAlignment: AlignmentWithDefault {
     public static var `default`: Self { .center }
 }
 
 
+nonisolated
 extension VerticalAlignment: AlignmentWithDefault {
     public static var `default`: Self { .center }
 }

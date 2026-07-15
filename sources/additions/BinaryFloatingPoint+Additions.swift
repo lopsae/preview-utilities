@@ -4,6 +4,7 @@
 //
 
 
+nonisolated
 extension BinaryFloatingPoint {
 
     static var one: Self { Self(1) }

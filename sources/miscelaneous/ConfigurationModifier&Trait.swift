@@ -49,7 +49,7 @@ public enum ConfigurationTrait<Configuration>: Sendable {
     case modifier(any ConfigurationModifier<Configuration>)
 
     // FIXME: document.
-    case mutate((inout Configuration) -> Void)
+    case mutate(@Sendable (inout Configuration) -> Void)
 
     /// Applies the associated traits.
     case traits([ConfigurationTrait<Configuration>])
