@@ -13,10 +13,25 @@ import Testing
 @MainActor
 struct DebugAlignmentGuideModifierSnapshots {
 
-    @Test func horizontalAlignments() {
-        Snapshots.assertView("alignments", record: .missing) {
+    enum TestContent {
+        static let single: some View =
             Text("Ag")
             .font(.title.pointSize(100))
+
+        static let multi: some View =
+            Text("Sphinx\nof Black\nQuartz")
+            .font(.largeTitle)
+
+        static let square: some View =
+            Rectangle()
+            .fill(.gray)
+            .frame(squareOf: 100)
+
+    }
+
+    @Test func horizontalAlignments() {
+        Snapshots.assertView("alignments", record: .missing) {
+            TestContent.single
             .debugAlignmentGuide(horizontal: .leading)
             .debugAlignmentGuide(horizontal: .center)
             .debugAlignmentGuide(horizontal: .trailing)
@@ -26,8 +41,7 @@ struct DebugAlignmentGuideModifierSnapshots {
 
     @Test func verticalAlignments() {
         Snapshots.assertView("alignments", record: .missing) {
-            Text("Sphinx\nof Black\nQuartz")
-            .font(.largeTitle)
+            TestContent.multi
             .debugAlignmentGuide(vertical: .top)
             .debugAlignmentGuide(vertical: .firstTextBaseline)
             .debugAlignmentGuide(vertical: .center)
@@ -38,8 +52,7 @@ struct DebugAlignmentGuideModifierSnapshots {
 
     @Test func axisAlignmentsWithOpacity() {
         Snapshots.assertView("horizontal", record: .missing) {
-            Text("Ag")
-            .font(.title.pointSize(100))
+            TestContent.single
             .debugAlignmentGuide(horizontal: .leading)
             .floatingHorizontalMarker()
 
@@ -65,8 +78,7 @@ struct DebugAlignmentGuideModifierSnapshots {
         }
 
         Snapshots.assertView("vertical", record: .missing) {
-            Text("Ag")
-            .font(.title.pointSize(100))
+            TestContent.single
             .debugAlignmentGuide(vertical: .top)
             .floatingVerticalMarker()
 
@@ -89,6 +101,32 @@ struct DebugAlignmentGuideModifierSnapshots {
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.one))
             .floatingVerticalMarker()
+        }
+
+        // FIXME: add composite
+    }
+
+
+    @Test func alignmentsWithExtendedLength() {
+        Snapshots.assertView("horizontal", record: .missing) {
+            TestContent.square
+            .debugAlignmentGuide(horizontal: .leading, .extendLength(50))
+            .debugAlignmentGuide(horizontal: .center, .extendLength(0))
+            .debugAlignmentGuide(horizontal: .trailing, .extendLength(-50))
+        }
+
+        Snapshots.assertView("vertical", record: .missing) {
+            TestContent.square
+            .debugAlignmentGuide(vertical: .top, .extendLength(50))
+            .debugAlignmentGuide(vertical: .center, .extendLength(0))
+            .debugAlignmentGuide(vertical: .bottom, .extendLength(-50))
+        }
+
+        Snapshots.assertView("composite", record: .missing) {
+            TestContent.square
+            .debugAlignmentGuide(.topLeading, .lengths(.extended(50)))
+            .debugAlignmentGuide(.center, .lengths(.extended(0)))
+            .debugAlignmentGuide(.bottomTrailing, .lengths(.extended(-50)))
         }
     }
 

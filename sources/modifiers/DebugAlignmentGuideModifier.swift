@@ -61,6 +61,9 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
 }
 
 
+// MARK: - Composite Configuration
+
+
 /// Contains the configuration traits that can be applied to the configuration of ``DebugAlignmentGuideModifier``.
 extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.Configuration {
 
@@ -81,6 +84,7 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
         .modifier(Modifiers.Opacity(opacity: opacity))
     }
 
+    // FIXME: document.
     public static func lengths(
         horizontal: DebugAxisAlignmentConfigurationLength = .container,
         vertical: DebugAxisAlignmentConfigurationLength = .container
@@ -88,6 +92,14 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
         .mutate {
             $0.horizontalLength = horizontal
             $0.verticalLength = vertical
+        }
+    }
+
+    // FIXME: document.
+    public static func lengths(_ lengths: DebugAxisAlignmentConfigurationLength) -> Self {
+        .mutate {
+            $0.horizontalLength = lengths
+            $0.verticalLength = lengths
         }
     }
 
@@ -233,9 +245,12 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
 
     // FIXME: document.
     public static func length(_ length: DebugAxisAlignmentConfigurationLength) -> Self {
-        .mutate{
-            $0.length = length
-        }
+        .mutate{ $0.length = length }
+    }
+
+    // FIXME: document.
+    public static func extendLength(_ addition: CGFloat) -> Self {
+        .length(.extended(addition))
     }
 
     // FIXME: document.
