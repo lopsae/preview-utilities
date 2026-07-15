@@ -19,6 +19,21 @@ struct ZeroSpacingPreviewModifier: PreviewModifier {
 }
 
 
+// TODO: replace ZeroSpacingModifier and PaddingSpacingModifier with instances of this.
+/// Wraps the preview content in a `VStack` with the given spacing.
+struct SpacingPreviewModifier: PreviewModifier {
+
+    let spacing: CGFloat
+
+    func body(content: Content, context _: ()) -> some View {
+        VStack(spacing: spacing) {
+            content
+        }
+    }
+
+}
+
+
 /// Wraps the preview content in a `VStack` with zero spacing and surrounded by two additional views
 /// to visualize the order of preview trait application.
 private struct DebugZeroSpacingPreviewModifier: PreviewModifier {
@@ -39,6 +54,13 @@ extension PreviewTrait where T == Preview.ViewTraits {
     /// Wraps the preview content in a `VStack` with zero spacing.
     public static var zeroSpacing: PreviewTrait {
         .modifier(ZeroSpacingPreviewModifier())
+    }
+
+
+    /// Wraps the preview content in a `VStack` with the given spacing.
+    public static func spacing(_ spacing: CGFloat) -> Self {
+        let spacingModifier = SpacingPreviewModifier(spacing: spacing)
+        return .modifier(spacingModifier)
     }
 
 
@@ -78,6 +100,11 @@ private struct PreviewContent {
 
 
 #Preview("DebugDefault", traits: .debugZeroSpacing) {
+    PreviewContent.Items()
+}
+
+
+#Preview("Spacing", traits: .spacing(4)) {
     PreviewContent.Items()
 }
 
