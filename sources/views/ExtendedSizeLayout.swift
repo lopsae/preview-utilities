@@ -15,6 +15,11 @@ import SwiftUI
 /// can use the expanded placement size, drawing outside of its proposed size.
 ///
 /// The subviews are arranged centered with each other.
+///
+/// - Note: This layout is not proposal-stable, it proposes and lays out its views in a size larger
+///   that the received proposal. In some cases where the layout operations are performed more that
+///   once, the subviews may end with multiples of the size additions. See the file previews for
+///   an example.
 nonisolated
 struct ExtendedSizeLayout: Layout {
 
@@ -255,3 +260,150 @@ private struct PreviewContent {
     .debugOverlay(.hairline, .size, .alignment(.outerBottomTrailing))
 
 }
+
+
+#Preview("Overlay with Issue", traits: .fixedHeader, PreviewContent.layout) {
+    PreviewCaption("""
+        If `ExtendedSizeLayout` is placed within subviews that perform the layout operation more
+        that once, the proposed size might be reused, causing the layout to increase the size of the
+        subviews multiple times.
+        """)
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .overlay(alignment: .trailing) {
+        let string = "one"
+        Group {
+            switch string {
+            case "one":
+                ExtendedSizeLayout(addHeight: 50) {
+                    AxialLine(.vertical, style: .red.secondary, lineWidth: 4)
+                }
+            default:
+                Text("Not used")
+            }
+        }
+        .debugOverlay(.height, .alignment(.outerTrailing))
+    }
+    .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
+}
+
+
+// MARK: - OverflowSizeLayout
+
+
+/// A layout that places its subviews with a size extended from its proposed size, while occupying
+/// only the un-extended size.
+///
+/// Subviews of this layout are placed with a size extended by a given width and height from their
+/// own size, however the layout itself reports the un-extended size of its subviews. The extension
+/// overflows the layout bounds, drawing outside of them without displacing any surrounding views.
+///
+/// Unlike `ExtendedSizeLayout`, this layout is stable under repeated measurement: proposing back
+/// the size reported by `sizeThatFits` returns that same size. This makes it safe in containers
+/// that may measure a view more than once, like `overlay` with conditional content, where
+/// `ExtendedSizeLayout` inflates by its additions on each measurement pass.
+///
+/// The subviews are arranged centered with each other, each overflowing equally in both
+/// directions of the extended dimensions.
+nonisolated
+struct OverflowSizeLayout: Layout {
+
+    let widthAddition: CGFloat
+    let heightAddition: CGFloat
+
+    init(addWidth: CGFloat = .zero, addHeight: CGFloat = .zero) {
+        self.widthAddition = addWidth
+        self.heightAddition = addHeight
+    }
+
+    /// Reports only the envelope of the subviews, without the additions, keeping the reported
+    /// size idempotent under re-measurement.
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) -> CGSize {
+        var containerSize: CGSize = .zero
+        for subview in subviews {
+            let size = subview.sizeThatFits(proposal)
+            containerSize.envelop(size)
+        }
+        return containerSize
+    }
+
+
+    /// Each subview is measured individually and placed with its own size extended by the
+    /// additions, overflowing the layout bounds.
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) {
+        // Using `bounds` instead of `proposal` keeps placement consistent with the size reported
+        // by `sizeThatFits`, and avoids handling undefined or infinite proposal dimensions.
+        let contentProposal = ProposedViewSize(bounds.size)
+
+        for subview in subviews {
+            let subviewSize = subview.sizeThatFits(contentProposal)
+            let extendedSize = subviewSize.adding(width: widthAddition, height: heightAddition)
+            subview.place(
+                at: bounds.center,
+                anchor: .center,
+                proposal: ProposedViewSize(extendedSize)
+            )
+        }
+    }
+
+}
+
+
+#Preview("Overlay Overflow", traits: .fixedHeader, PreviewContent.layout) {
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .overlay(alignment: .trailing) {
+        let string = "one"
+        Group {
+            switch string {
+            case "one":
+                OverflowSizeLayout(addHeight: 50) {
+                    AxialLine(.vertical, style: .red.secondary, lineWidth: 4)
+                }
+            default:
+                AxialLine(.vertical, style: .red.secondary, lineWidth: 4)
+            }
+
+        }
+        .debugOverlay(.height, .alignment(.outerTrailing))
+
+    }
+    .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
+}
+
+
+#Preview("Overlay Geometry", traits: .fixedHeader, PreviewContent.layout) {
+    PreviewCaption("""
+        `GeometryReader` can also be used to achieve the same behavior as `ExtendedSizeLayout`.
+        """)
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .overlay(alignment: .trailing) {
+        let string = "one"
+        Group {
+            switch string {
+            case "one":
+                GeometryReader { geometry in
+                    AxialLine(.vertical, style: .red.secondary, lineWidth: 4)
+                    .frame(length: geometry.size.height + 20, along: .vertical)
+                    .frame(length: geometry.size.height, along: .vertical, alignment: .topTrailing)
+                }
+                .frame(length: 2, along: .horizontal)
+            default:
+                Text("Not Used")
+            }
+        }
+        .debugOverlay(.height, .alignment(.outerTrailing))
+    }
+    .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
+}
+
