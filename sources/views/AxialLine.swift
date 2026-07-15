@@ -164,24 +164,24 @@ private struct PreviewContent {
 
 
 #Preview("StrokeStyle", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
-    let lineWidth = 40
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: 40, lineCap: .butt)
+    let lineWidth: CGFloat = 40
+    AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: .butt)
     .floatingCaption("Butt", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottomTrailing))
 
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: 40, lineCap: .round)
+    AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: .round)
     .floatingCaption("Round", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottomTrailing))
 
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: 40, lineCap: .square)
+    AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: .square)
     .floatingCaption("Square", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottomTrailing))
 
     HStack(spacing: Defaults.padding) {
-        AxialLine(.vertical, style: .red.secondary, lineWidth: 40, lineCap: .butt)
+        AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: .butt)
         .floatingCaption("Butt", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottom))
 
-        AxialLine(.vertical, style: .red.secondary, lineWidth: 40, lineCap: .round)
+        AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: .round)
         .floatingCaption("Round", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottom))
 
-        AxialLine(.vertical, style: .red.secondary, lineWidth: 40, lineCap: .square)
+        AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: .square)
         .floatingCaption("Square", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottom))
     }
 }
