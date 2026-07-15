@@ -81,8 +81,6 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
         .modifier(Modifiers.Opacity(opacity: opacity))
     }
 
-    // FIXME: Check if there are significant performance impacts between modifier and mutate
-    // FIXME: document.
     public static func lengths(
         horizontal: DebugAxisAlignmentConfigurationLength = .container,
         vertical: DebugAxisAlignmentConfigurationLength = .container
