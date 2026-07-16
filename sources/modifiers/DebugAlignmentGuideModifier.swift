@@ -427,6 +427,7 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.single
+    .floatingCaption("Composite", .alignment(.outerLeading))
     .debugAlignmentGuide(.topLeading)
     .debugAlignmentGuide(.centerFirstTextBaseline)
     .debugAlignmentGuide(.bottomTrailing)
@@ -434,6 +435,7 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.single
+    .floatingCaption("All Horizontal", .alignment(.outerLeading))
     .debugAlignmentGuide(horizontal: .leading)
     .debugAlignmentGuide(horizontal: .center)
     .debugAlignmentGuide(horizontal: .trailing)
@@ -441,6 +443,7 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.multi
+    .floatingCaption("All Vertical", .alignment(.outerLeading))
     .debugAlignmentGuide(vertical: .top)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
     .debugAlignmentGuide(vertical: .verticalCenter)
@@ -451,12 +454,14 @@ private struct PreviewContent {
 
 #Preview("Traits", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.single
+    .floatingCaption("Extended", .alignment(.outerLeading))
     .debugAlignmentGuide(.topLeading, .lengths(horizontal: .extended(20), vertical: .extended(50)))
     .debugAlignmentGuide(.bottomTrailing, .lengths(horizontal: .extended(-50), vertical: .extended(-50)))
 
     DashedDivider()
 
     PreviewContent.single
+    .floatingCaption("Extended\n& Anchored", .alignment(.outerLeading))
     .debugAlignmentGuide(.topLeading, .anchor(.topLeading), .lengths(horizontal: .extended(20), vertical: .extended(50)))
     .debugAlignmentGuide(.centerLastTextBaseline, .anchor(.bottomTrailing), .lengths(horizontal: .extended(-50), vertical: .extended(-50)))
 }
@@ -464,6 +469,7 @@ private struct PreviewContent {
 
 #Preview("Horizontal", traits: .spacing(40), .headerFooter, PreviewContent.layout) {
     PreviewContent.single
+    .floatingCaption("Fixed", .alignment(.outerLeading))
     .debugAlignmentGuide(horizontal: .leading, .fixedLength(50))
     .debugAlignmentGuide(horizontal: .center, .fixedLength(50), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .fixedLength(150))
@@ -471,6 +477,7 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.single
+    .floatingCaption("Extended", .alignment(.outerLeading))
     .debugAlignmentGuide(horizontal: .leading, .extendLength(40), .anchor(.bottom))
     .debugAlignmentGuide(horizontal: .center, .extendLength(20), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .extendLength(-40), .anchor(.top))
@@ -479,6 +486,7 @@ private struct PreviewContent {
 
 #Preview("Vertical", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.multi
+    .floatingCaption("Fixed", .alignment(.outerLeading))
     .debugAlignmentGuide(vertical: .top, .fixedLength(50))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .fixedLength(150), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .verticalCenter, .fixedLength(50), .anchor(.trailing))
@@ -488,6 +496,7 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.multi
+    .floatingCaption("Extended", .alignment(.outerLeading))
     .debugAlignmentGuide(vertical: .top, .extendLength(-40))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .extendLength(40), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .verticalCenter, .extendLength(40))
@@ -498,6 +507,8 @@ private struct PreviewContent {
 
 #Preview("Offset", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.single
+    .floatingCaption("Horizontal", .alignment(.outerLeading))
+
     .debugAlignmentGuide(horizontal: .leading, .style(.mint.secondary))
     .alignmentGuide(.leading, offsetBy: 10)
     .debugAlignmentGuide(horizontal: .leading)
@@ -509,6 +520,7 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.single
+    .floatingCaption("Vertical", .alignment(.outerLeading))
     .debugAlignmentGuide(vertical: .top, .style(.mint.secondary))
     .alignmentGuide(.top, offsetBy: 10)
     .debugAlignmentGuide(vertical: .top)
@@ -518,6 +530,6 @@ private struct PreviewContent {
     .debugAlignmentGuide(vertical: .firstTextBaseline)
 
     .debugAlignmentGuide(vertical: .bottom, .style(.mint.secondary))
-    .alignmentGuide(.bottom, offsetBy: 10)
+    .alignmentGuide(.bottom, offsetBy: -10)
     .debugAlignmentGuide(vertical: .bottom)
 }
