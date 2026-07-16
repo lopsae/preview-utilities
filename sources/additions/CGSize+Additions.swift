@@ -5,6 +5,7 @@
 
 
 import CoreGraphics
+import SwiftUI
 
 
 extension CGSize {
@@ -28,6 +29,19 @@ extension CGSize {
         var mutableSize = self
         if let newWidth {  mutableSize.width  = newWidth }
         if let newHeight { mutableSize.height = newHeight }
+        return mutableSize
+    }
+
+
+    @inlinable func setting(
+        length: CGFloat,
+        along axis: Axis
+    ) -> Self {
+        var mutableSize = self
+        switch axis {
+        case .horizontal: mutableSize.width  = length
+        case .vertical:   mutableSize.height = length
+        }
         return mutableSize
     }
 
