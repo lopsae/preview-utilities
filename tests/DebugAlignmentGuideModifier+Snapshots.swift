@@ -103,7 +103,33 @@ struct DebugAlignmentGuideModifierSnapshots {
             .floatingVerticalMarker()
         }
 
-        // FIXME: add composite
+        Snapshots.assertView("composite", record: .missing) {
+            let offset: CGFloat = 20
+
+            TestContent.single
+            .debugAlignmentGuide(.topLeading)
+
+            .alignmentGuide(.top, offsetBy: offset)
+            .alignmentGuide(.leading, offsetBy: offset)
+            .debugAlignmentGuide(.topLeading, .opacity(.half), .visible(true))
+
+            .alignmentGuide(.top, offsetBy: offset)
+            .alignmentGuide(.leading, offsetBy: offset)
+            .debugAlignmentGuide(.topLeading, .opacity(.half), .visible(false))
+
+            .alignmentGuide(.top, offsetBy: offset)
+            .alignmentGuide(.leading, offsetBy: offset)
+            .debugAlignmentGuide(.topLeading, .opacity(.half))
+
+            .alignmentGuide(.top, offsetBy: offset)
+            .alignmentGuide(.leading, offsetBy: offset)
+            .debugAlignmentGuide(.topLeading, .opacity(.half), .hidden)
+
+            .alignmentGuide(.top, offsetBy: offset)
+            .alignmentGuide(.leading, offsetBy: offset)
+            .debugAlignmentGuide(.topLeading, .opacity(.one))
+        }
+
     }
 
 
@@ -129,6 +155,9 @@ struct DebugAlignmentGuideModifierSnapshots {
             .debugAlignmentGuide(.bottomTrailing, .lengths(.extended(-50)))
         }
     }
+
+
+    // FIXME: add tests for .anchor trait once the other lengths are implemented
 
 }
 
