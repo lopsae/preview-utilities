@@ -160,7 +160,7 @@ where
                     orthogonal.unitSize.multiplying(by: addition)
                 }
 
-                AxialLine(orthogonal, style: .red.secondary, lineWidth: lineWidth)
+                AxialLine(orthogonal, style: configuration.shapeStyle, lineWidth: lineWidth)
                 .frame(size: geometry.size.adding(size: additionalSize))
                 .frame(size: geometry.size, alignment: alignment)
             }
@@ -186,6 +186,7 @@ nonisolated
 public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
     associatedtype AnchorAlignment: AlignmentWithDefault
     var opacity: Double { get set }
+    var shapeStyle: AnyShapeStyle { get set }
     var length: DebugAxisAlignmentConfigurationLength { get set }
     var anchor: AnchorAlignment { get set }
 
@@ -200,6 +201,7 @@ where
 {
     public typealias AnchorAlignment = AxisAlignment.OrthogonalAlignment
     public var opacity: Double = .one
+    public var shapeStyle: AnyShapeStyle = AnyShapeStyle(.red.secondary)
     public var length: DebugAxisAlignmentConfigurationLength = .container
     public var anchor: AnchorAlignment = .default
     public init() {}
@@ -243,9 +245,15 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
         .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: opacity))
     }
 
+
+    // FIXME: document.
+    public static func style(_ style: some ShapeStyle) -> Self {
+        .mutate { $0.shapeStyle = AnyShapeStyle(style) }
+    }
+
     // FIXME: document.
     public static func length(_ length: DebugAxisAlignmentConfigurationLength) -> Self {
-        .mutate{ $0.length = length }
+        .mutate { $0.length = length }
     }
 
     // FIXME: document.
@@ -476,18 +484,26 @@ private struct PreviewContent {
 
 #Preview("Offset", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.single
+    .debugAlignmentGuide(horizontal: .leading, .style(.mint.secondary))
     .alignmentGuide(.leading, offsetBy: 10)
     .debugAlignmentGuide(horizontal: .leading)
+
+    .debugAlignmentGuide(horizontal: .trailing, .style(.mint.secondary))
     .alignmentGuide(.trailing, offsetBy: -10)
     .debugAlignmentGuide(horizontal: .trailing)
 
     DashedDivider()
 
     PreviewContent.single
+    .debugAlignmentGuide(vertical: .top, .style(.mint.secondary))
     .alignmentGuide(.top, offsetBy: 10)
     .debugAlignmentGuide(vertical: .top)
+
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .style(.mint.secondary))
     .alignmentGuide(.firstTextBaseline, offsetBy: -10)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
+
+    .debugAlignmentGuide(vertical: .bottom, .style(.mint.secondary))
     .alignmentGuide(.bottom, offsetBy: 10)
     .debugAlignmentGuide(vertical: .bottom)
 }
