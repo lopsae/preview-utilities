@@ -154,18 +154,19 @@ where
             let axis = axisAlignment.axis
             let orthogonal = axis.orthogonal
             GeometryReader { geometry in
-                let size: CGSize = switch configuration.length {
+                let markSize: CGSize = switch configuration.length {
                 case .container, .extended: geometry.size
                 case .fixed(let length): geometry.size.setting(length: length, along: orthogonal)
+                case .scaled(let multiplier): geometry.size.multiplying(by: multiplier)
                 }
                 let additionalSize: CGSize = switch configuration.length {
-                case .container, .fixed: .zero
+                case .container, .fixed, .scaled: .zero
                 case .extended(let addition):
                     orthogonal.unitSize.multiplying(by: addition)
                 }
 
                 AxialLine(orthogonal, style: configuration.shapeStyle, lineWidth: lineWidth)
-                .frame(size: size.adding(size: additionalSize))
+                .frame(size: markSize.adding(size: additionalSize))
                 .frame(size: geometry.size, alignment: alignment)
             }
             .frame(length: lineWidth, along: axisAlignment.axis)
@@ -220,10 +221,7 @@ public enum DebugAxisAlignmentConfigurationLength {
     case container
     case fixed(CGFloat)
     case extended(CGFloat)
-
-
-    // FIXME: implement.
-//    case factor(CGFloat)
+    case scaled(CGFloat)
 }
 
 
@@ -273,6 +271,11 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
     // FIXME: document.
     public static func extendLength(_ addition: CGFloat) -> Self {
         .length(.extended(addition))
+    }
+
+    // FIXME: document.
+    public static func scaleLength(_ factor: CGFloat) -> Self {
+        .length(.scaled(factor))
     }
 
     // FIXME: document.
@@ -481,12 +484,20 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .leading, .extendLength(40), .anchor(.bottom))
     .debugAlignmentGuide(horizontal: .center, .extendLength(20), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .extendLength(-40), .anchor(.top))
+
+    DashedDivider()
+
+    PreviewContent.single
+    .floatingCaption("Scaled", .alignment(.outerLeading))
+    .debugAlignmentGuide(horizontal: .leading, .scaleLength(1.2), .anchor(.firstTextBaseline))
+    .debugAlignmentGuide(horizontal: .center, .scaleLength(0.5), )
+    .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.2), .anchor(.top))
 }
 
 
 #Preview("Vertical", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.multi
-    .floatingCaption("Fixed", .alignment(.outerLeading))
+    .floatingCaption("Fixed", .alignment(.outerLeadingTop))
     .debugAlignmentGuide(vertical: .top, .fixedLength(50))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .fixedLength(150), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .verticalCenter, .fixedLength(50), .anchor(.trailing))
@@ -496,12 +507,22 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.multi
-    .floatingCaption("Extended", .alignment(.outerLeading))
+    .floatingCaption("Extended", .alignment(.outerLeadingTop))
     .debugAlignmentGuide(vertical: .top, .extendLength(-40))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .extendLength(40), .anchor(.trailing))
     .debugAlignmentGuide(vertical: .verticalCenter, .extendLength(40))
     .debugAlignmentGuide(vertical: .lastTextBaseline, .extendLength(40), .anchor(.leading))
     .debugAlignmentGuide(vertical: .bottom, .extendLength(40))
+
+    DashedDivider()
+
+    PreviewContent.multi
+    .floatingCaption("Scaled", .alignment(.outerLeadingTop))
+    .debugAlignmentGuide(vertical: .top, .scaleLength(1.5))
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .scaleLength(1.5), .anchor(.trailing))
+    .debugAlignmentGuide(vertical: .verticalCenter, .scaleLength(0.5))
+    .debugAlignmentGuide(vertical: .lastTextBaseline, .scaleLength(1.5), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .bottom, .scaleLength(0.5), .anchor(.leading))
 }
 
 
