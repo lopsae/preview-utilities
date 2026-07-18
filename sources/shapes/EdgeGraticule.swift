@@ -5,6 +5,7 @@
 
 
 import SwiftUI
+import Playgrounds
 
 
 struct EdgeGraticule: Shape {
@@ -20,8 +21,8 @@ struct EdgeGraticule: Shape {
 
         let outsetGraticule = OutsetEdgeGraticule(lineArguments: .init(all: .init(
             spacing: outerSpacing,
-            count: outerCount))
-        )
+            through: outerCount
+        )))
         path.addPath(outsetGraticule.path(in: rect))
 
         // Inner graticules.
@@ -63,40 +64,46 @@ struct OutsetEdgeGraticule: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        for index in 0 ..< lineArguments.top.count {
+        let topLastIndex      = lineArguments.top.indices.last ?? .zero
+        let leadingLastIndex  = lineArguments.leading.indices.last ?? .zero
+        let bottomLastIndex   = lineArguments.bottom.indices.last ?? .zero
+        let trailingLastIndex = lineArguments.trailing.indices.last ?? .zero
+
+        for index in lineArguments.top.indices {
             let outset = lineArguments.top.spacing * index.asDouble
-            let outerLeading = lineArguments.leading.spacing * (lineArguments.leading.count.asDouble - 1)
-            let outerTrailing = lineArguments.trailing.spacing * (lineArguments.trailing.count.asDouble - 1)
+            // FIXME: is last always the max/last index?
+            let outerLeading = lineArguments.leading.spacing * leadingLastIndex.asDouble
+            let outerTrailing = lineArguments.trailing.spacing * trailingLastIndex.asDouble
 
             let topY = rect.minY - outset
             path.moveTo(x: rect.minX - outerLeading, y: topY)
             path.addLineTo(x: rect.maxX + outerTrailing, y: topY)
         }
 
-        for index in 0 ..< lineArguments.leading.count {
+        for index in lineArguments.leading.indices {
             let outset = lineArguments.leading.spacing * index.asDouble
-            let outerTop = lineArguments.top.spacing * (lineArguments.top.count.asDouble - 1)
-            let outerBottom = lineArguments.bottom.spacing * (lineArguments.bottom.count.asDouble - 1)
+            let outerTop = lineArguments.top.spacing * topLastIndex.asDouble
+            let outerBottom = lineArguments.bottom.spacing * bottomLastIndex.asDouble
 
             let leadingX = rect.minX - outset
             path.moveTo(x: leadingX, y: rect.minY - outerTop)
             path.addLineTo(x: leadingX, y: rect.maxY + outerBottom)
         }
 
-        for index in 0 ..< lineArguments.bottom.count {
+        for index in lineArguments.bottom.indices {
             let outset = lineArguments.bottom.spacing * index.asDouble
-            let outerLeading = lineArguments.leading.spacing * (lineArguments.leading.count.asDouble - 1)
-            let outerTrailing = lineArguments.trailing.spacing * (lineArguments.trailing.count.asDouble - 1)
+            let outerLeading = lineArguments.leading.spacing * leadingLastIndex.asDouble
+            let outerTrailing = lineArguments.trailing.spacing * trailingLastIndex.asDouble
 
             let bottomY = rect.maxY + outset
             path.moveTo(x: rect.minX - outerLeading, y: bottomY)
             path.addLineTo(x: rect.maxX + outerTrailing, y: bottomY)
         }
 
-        for index in 0 ..< lineArguments.trailing.count {
+        for index in lineArguments.trailing.indices {
             let outset = lineArguments.trailing.spacing * index.asDouble
-            let outerTop = lineArguments.top.spacing * (lineArguments.top.count.asDouble - 1)
-            let outerBottom = lineArguments.bottom.spacing * (lineArguments.bottom.count.asDouble - 1)
+            let outerTop = lineArguments.top.spacing * topLastIndex.asDouble
+            let outerBottom = lineArguments.bottom.spacing * bottomLastIndex.asDouble
 
             let trailingX = rect.maxX + outset
             path.moveTo(x: trailingX, y: rect.minY - outerTop)
@@ -116,7 +123,17 @@ struct OutsetEdgeGraticule: Shape {
 nonisolated
 struct EdgeGraticuleLineArguments: Equatable, Sendable {
     let spacing: CGFloat
-    let count: Int
+    let indices: IndexSet
+
+    init(spacing: CGFloat, indices: IndexSet) {
+        self.spacing = spacing
+        self.indices = indices
+    }
+
+    init(spacing: CGFloat, through count: Int) {
+        self.spacing = spacing
+        self.indices = IndexSet(0...count)
+    }
 }
 
 
@@ -188,9 +205,10 @@ private struct PreviewContent {
     .border(.green.tertiary, width: 10)
     .frame(squareOf: 100)
     .overlay {
-        OutsetEdgeGraticule(
-            lineArguments: .init(all: .init(spacing: 20, count: 3))
-        )
+        OutsetEdgeGraticule(lineArguments: .init(all: .init(
+            spacing: 20,
+            through: 3
+        )))
         .stroke(.tertiary)
     }
 
@@ -201,12 +219,28 @@ private struct PreviewContent {
     .overlay {
         OutsetEdgeGraticule(
             lineArguments: .init(
-                top: .init(spacing: 5, count: 5),
-                leading: .init(spacing: 10, count: 4),
-                bottom: .init(spacing: 15, count: 3),
-                trailing: .init(spacing: 20, count: 2)
+                top: .init(spacing: 5, through: 5),
+                leading: .init(spacing: 10, through: 4),
+                bottom: .init(spacing: 15, through: 3),
+                trailing: .init(spacing: 20, through: 2)
             )
         )
         .stroke(.tertiary)
     }
+}
+
+
+#Playground("IndexSet") {
+    _ = IndexSet(0..<5).last
+    _ = IndexSet(0...5).last
+
+    var compositeWithHead = IndexSet(5..<10)
+    compositeWithHead.insert(1)
+    compositeWithHead.insert(2)
+    _ = compositeWithHead.last
+
+    var compositeWithTail = IndexSet(1..<5)
+    compositeWithTail.insert(8)
+    compositeWithTail.insert(9)
+    _ = compositeWithTail.last
 }
