@@ -18,10 +18,10 @@ struct EdgeGraticule: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        let outsetGraticule = OutsetEdgeGraticule(lineSet: .init(
-            spacing: .init(all: outerSpacing),
-            count: .init(all: outerCount)
-        ))
+        let outsetGraticule = OutsetEdgeGraticule(lineArguments: .init(all: .init(
+            spacing: outerSpacing,
+            count: outerCount))
+        )
         path.addPath(outsetGraticule.path(in: rect))
 
         // Inner graticules.
@@ -58,45 +58,45 @@ struct EdgeGraticule: Shape {
 
 struct OutsetEdgeGraticule: Shape {
 
-    let lineSet: EdgeGraticuleLineSets
+    let lineArguments: EdgeValues<EdgeGraticuleLineArguments>
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        for index in 0 ..< lineSet.count.top {
-            let outset = lineSet.spacing.top * index.asDouble
-            let outerLeading = lineSet.spacing.leading * (lineSet.count.leading.asDouble - 1)
-            let outerTrailing = lineSet.spacing.trailing * (lineSet.count.trailing.asDouble - 1)
+        for index in 0 ..< lineArguments.top.count {
+            let outset = lineArguments.top.spacing * index.asDouble
+            let outerLeading = lineArguments.leading.spacing * (lineArguments.leading.count.asDouble - 1)
+            let outerTrailing = lineArguments.trailing.spacing * (lineArguments.trailing.count.asDouble - 1)
 
             let topY = rect.minY - outset
             path.moveTo(x: rect.minX - outerLeading, y: topY)
             path.addLineTo(x: rect.maxX + outerTrailing, y: topY)
         }
 
-        for index in 0 ..< lineSet.count.leading {
-            let outset = lineSet.spacing.leading * index.asDouble
-            let outerTop = lineSet.spacing.top * (lineSet.count.top.asDouble - 1)
-            let outerBottom = lineSet.spacing.bottom * (lineSet.count.bottom.asDouble - 1)
+        for index in 0 ..< lineArguments.leading.count {
+            let outset = lineArguments.leading.spacing * index.asDouble
+            let outerTop = lineArguments.top.spacing * (lineArguments.top.count.asDouble - 1)
+            let outerBottom = lineArguments.bottom.spacing * (lineArguments.bottom.count.asDouble - 1)
 
             let leadingX = rect.minX - outset
             path.moveTo(x: leadingX, y: rect.minY - outerTop)
             path.addLineTo(x: leadingX, y: rect.maxY + outerBottom)
         }
 
-        for index in 0 ..< lineSet.count.bottom {
-            let outset = lineSet.spacing.bottom * index.asDouble
-            let outerLeading = lineSet.spacing.leading * (lineSet.count.leading.asDouble - 1)
-            let outerTrailing = lineSet.spacing.trailing * (lineSet.count.trailing.asDouble - 1)
+        for index in 0 ..< lineArguments.bottom.count {
+            let outset = lineArguments.bottom.spacing * index.asDouble
+            let outerLeading = lineArguments.leading.spacing * (lineArguments.leading.count.asDouble - 1)
+            let outerTrailing = lineArguments.trailing.spacing * (lineArguments.trailing.count.asDouble - 1)
 
             let bottomY = rect.maxY + outset
             path.moveTo(x: rect.minX - outerLeading, y: bottomY)
             path.addLineTo(x: rect.maxX + outerTrailing, y: bottomY)
         }
 
-        for index in 0 ..< lineSet.count.trailing {
-            let outset = lineSet.spacing.trailing * index.asDouble
-            let outerTop = lineSet.spacing.top * (lineSet.count.top.asDouble - 1)
-            let outerBottom = lineSet.spacing.bottom * (lineSet.count.bottom.asDouble - 1)
+        for index in 0 ..< lineArguments.trailing.count {
+            let outset = lineArguments.trailing.spacing * index.asDouble
+            let outerTop = lineArguments.top.spacing * (lineArguments.top.count.asDouble - 1)
+            let outerBottom = lineArguments.bottom.spacing * (lineArguments.bottom.count.asDouble - 1)
 
             let trailingX = rect.maxX + outset
             path.moveTo(x: trailingX, y: rect.minY - outerTop)
@@ -112,12 +112,11 @@ struct OutsetEdgeGraticule: Shape {
 // FIXME: Make count into IndexSet? so that the indexes to draw can be selected, and zero skipped.
 // FIXME: Consider making a LineSet struct, that contains the spacing and count and utilities for a single edge.
 
+
 nonisolated
-struct EdgeGraticuleLineSets : Equatable, Sendable {
-
-    let spacing: EdgeValues<CGFloat>
-    let count: EdgeValues<Int>
-
+struct EdgeGraticuleLineArguments: Equatable, Sendable {
+    let spacing: CGFloat
+    let count: Int
 }
 
 
@@ -190,10 +189,7 @@ private struct PreviewContent {
     .frame(squareOf: 100)
     .overlay {
         OutsetEdgeGraticule(
-            lineSet: .init(
-                spacing: .init(all: 20),
-                count: .init(all: 3)
-            )
+            lineArguments: .init(all: .init(spacing: 20, count: 3))
         )
         .stroke(.tertiary)
     }
@@ -204,9 +200,11 @@ private struct PreviewContent {
     .frame(squareOf: 100)
     .overlay {
         OutsetEdgeGraticule(
-            lineSet: .init(
-                spacing: .init(top: 5, leading: 10, bottom: 15, trailing: 20),
-                count: .init(top: 5, leading: 4, bottom: 3, trailing: 2)
+            lineArguments: .init(
+                top: .init(spacing: 5, count: 5),
+                leading: .init(spacing: 10, count: 4),
+                bottom: .init(spacing: 15, count: 3),
+                trailing: .init(spacing: 20, count: 2)
             )
         )
         .stroke(.tertiary)
