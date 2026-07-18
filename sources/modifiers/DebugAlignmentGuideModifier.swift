@@ -554,3 +554,68 @@ private struct PreviewContent {
     .alignmentGuide(.bottom, offsetBy: -10)
     .debugAlignmentGuide(vertical: .bottom)
 }
+
+
+// MARK: - ReticuleGrid
+
+// FIXME: Move to its own file.
+
+
+/// Shape that draws a grid of vertical and horizontal lines in all its available space.
+///
+/// The grid lines are drawn at multiples of `spacing`, with `spacing.width` separating the vertical
+/// lines and `spacing.height` the horizontal ones. The grid is anchored to the origin point of its
+/// coordinate system, not to the origin of the rect the path is provided; a rect with a non-zero
+/// origin draws the same grid lines that fall within it.
+struct ReticuleGrid: Shape {
+
+    let spacing: CGSize
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        if spacing.width > .zero {
+            let firstX = (rect.minX / spacing.width).rounded(.up) * spacing.width
+            for x in stride(from: firstX, through: rect.maxX, by: spacing.width) {
+                path.moveTo(x: x, y: rect.minY)
+                path.addLineTo(x: x, y: rect.maxY)
+            }
+        }
+
+        if spacing.height > .zero {
+            let firstY = (rect.minY / spacing.height).rounded(.up) * spacing.height
+            for y in stride(from: firstY, through: rect.maxY, by: spacing.height) {
+                path.moveTo(x: rect.minX, y: y)
+                path.addLineTo(x: rect.maxX, y: y)
+            }
+        }
+
+        return path
+    }
+
+}
+
+
+#Preview("Reticule", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    ReticuleGrid(spacing: .square(of: 50))
+    .stroke(.secondary)
+}
+
+
+#Preview("Reticule Offset", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    Canvas { context, size in
+        let fullRect = CGRect(origin: .zero, size: size)
+        let insetRect = fullRect.insetBy(dx: 40, dy: 40)
+        let grid = ReticuleGrid(spacing: .square(of: 50))
+
+        // Full-space grid, as reference.
+        context.stroke(grid.path(in: fullRect), with: .style(.quaternary))
+        // Same grid drawn in the offset rect.
+        context.stroke(grid.path(in: insetRect), with: .style(.red.secondary))
+        // Boundary of the offset rect.
+        let dashedStyle = StrokeStyle(lineWidth: 1, dash: [4, 4])
+        context.stroke(Path(insetRect), with: .style(.green.secondary), style: dashedStyle)
+    }
+}
+
+
