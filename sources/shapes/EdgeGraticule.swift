@@ -134,6 +134,11 @@ struct EdgeGraticuleLineArguments: Equatable, Sendable {
         self.spacing = spacing
         self.indices = IndexSet(0...count)
     }
+
+    init(spacing: CGFloat, range: ClosedRange<Int>) {
+        self.spacing = spacing
+        self.indices = IndexSet(range)
+    }
 }
 
 
@@ -225,6 +230,21 @@ private struct PreviewContent {
                 trailing: .init(spacing: 20, through: 2)
             )
         )
+        .stroke(.tertiary)
+    }
+}
+
+
+#Preview("IndexRange", traits: .spacing(100), .headerFooter, PreviewContent.layout) {
+    Rectangle()
+    .fill(.green.quinary)
+    .border(.green.tertiary, width: 10)
+    .frame(squareOf: 100)
+    .overlay {
+        OutsetEdgeGraticule(lineArguments: .init(
+            horizontal: .init(spacing: 20, range: 2...5),
+            vertical: .init(spacing: 20, range: 1...3)
+        ))
         .stroke(.tertiary)
     }
 }
