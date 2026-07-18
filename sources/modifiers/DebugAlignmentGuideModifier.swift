@@ -619,38 +619,63 @@ struct ReticuleGrid: Shape {
 }
 
 
+// MARK: - EdgesReticuleGrid
+
+// FIXME: move to its own file.
+
 struct EdgesReticuleGrid: Shape {
 
     let outerSpacing: CGSize
     let outerDistance: CGSize
 
+    let innerSpacing: CGSize
+    let innerDistance: CGSize
+
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        // Horizontal lines.
+        // Horizontal outer lines.
         for outset in stride(from: .zero, through: outerDistance.height, by: outerSpacing.height) {
-            // Top lines.
             let topY = rect.minY - outset
             path.moveTo(x: rect.minX - outerDistance.width, y: topY)
             path.addLineTo(x: rect.maxX + outerDistance.width, y: topY)
 
-            // Bottom lines.
             let bottomY = rect.maxY + outset
             path.moveTo(x: rect.minX - outerDistance.width, y: bottomY)
             path.addLineTo(x: rect.maxX + outerDistance.width, y: bottomY)
         }
 
-        // Vertical lines.
+        // Vertical outer lines.
         for outset in stride(from: .zero, through: outerDistance.width, by: outerSpacing.width) {
-            // Leading lines.
             let leadingX = rect.minX - outset
             path.moveTo(x: leadingX, y: rect.minY - outerDistance.height)
             path.addLineTo(x: leadingX, y: rect.maxY + outerDistance.height)
 
-            // Trailing lines.
             let trailingX = rect.maxX + outset
             path.moveTo(x: trailingX, y: rect.minY - outerDistance.height)
             path.addLineTo(x: trailingX, y: rect.maxY + outerDistance.height)
+        }
+
+        // Horizontal inner lines.
+        for inset in stride(from: innerSpacing.height, through: innerDistance.height, by: innerSpacing.height) {
+            let topY = rect.minY + inset
+            path.moveTo(x: rect.minX, y: topY)
+            path.addLineTo(x: rect.maxX, y: topY)
+
+            let bottomY = rect.maxY - inset
+            path.moveTo(x: rect.minX, y: bottomY)
+            path.addLineTo(x: rect.maxX, y: bottomY)
+        }
+
+        // Vertical inner lines.
+        for inset in stride(from: innerSpacing.width, through: innerDistance.width, by: innerSpacing.width) {
+            let leadingX = rect.minX + inset
+            path.moveTo(x: leadingX, y: rect.minY)
+            path.addLineTo(x: leadingX, y: rect.maxY)
+
+            let trailingX = rect.maxX - inset
+            path.moveTo(x: trailingX, y: rect.minY)
+            path.addLineTo(x: trailingX, y: rect.maxY)
         }
 
         return path
@@ -662,8 +687,13 @@ struct EdgesReticuleGrid: Shape {
 #Preview("EdgeGrid", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.single
     .overlay {
-        EdgesReticuleGrid(outerSpacing: .square(of: 20), outerDistance: .square(of: 100))
-        .stroke(.secondary)
+        EdgesReticuleGrid(
+            outerSpacing: .square(of: 20),
+            outerDistance: .square(of: 100),
+            innerSpacing: .square(of: 10),
+            innerDistance: .square(of: 40)
+        )
+        .stroke(.quaternary)
     }
 }
 
