@@ -71,7 +71,6 @@ struct OutsetEdgeGraticule: Shape {
 
         for index in lineArguments.top.indices {
             let outset = lineArguments.top.spacing * index.asDouble
-            // FIXME: is last always the max/last index?
             let outerLeading = lineArguments.leading.spacing * leadingLastIndex.asDouble
             let outerTrailing = lineArguments.trailing.spacing * trailingLastIndex.asDouble
 
@@ -116,7 +115,6 @@ struct OutsetEdgeGraticule: Shape {
 }
 
 
-// FIXME: Make count into IndexSet? so that the indexes to draw can be selected, and zero skipped.
 // FIXME: Consider making a LineSet struct, that contains the spacing and count and utilities for a single edge.
 
 
