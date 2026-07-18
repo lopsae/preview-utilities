@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-struct EdgesGraticule: Shape {
+struct EdgeGraticule: Shape {
 
     let outerSpacing: CGSize
     let outerCount: Int
@@ -90,7 +90,7 @@ private struct PreviewContent {
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
     .overlay {
-        EdgesGraticule(
+        EdgeGraticule(
             outerSpacing: .square(of: 20),
             outerCount: 3,
             innerSpacing: .square(of: 10),
