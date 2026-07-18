@@ -422,6 +422,12 @@ private struct PreviewContent {
         .font(.largeTitle)
         .border(.green.tertiary, width: 8)
 
+    static let square: some View =
+        Rectangle()
+        .fill(.green.quinary)
+        .border(.green.tertiary, width: 8)
+        .frame(squareOf: 100)
+
 }
 
 
@@ -470,7 +476,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Horizontal", traits: .spacing(40), .headerFooter, PreviewContent.layout) {
+#Preview("Horizontal", traits: .spacing(50), .headerFooter, PreviewContent.layout) {
     PreviewContent.single
     .floatingCaption("Fixed", .alignment(.outerLeading))
     .debugAlignmentGuide(horizontal: .leading, .fixedLength(50))
@@ -484,14 +490,32 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .leading, .extendLength(40), .anchor(.bottom))
     .debugAlignmentGuide(horizontal: .center, .extendLength(20), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .extendLength(-40), .anchor(.top))
+    .overlay {
+        EdgesReticuleGrid(
+            outerSpacing: .square(of: 20),
+            outerDistance: .square(of: 40),
+            innerSpacing: .square(of: 20),
+            innerDistance: .square(of: 40)
+        )
+        .stroke(.quaternary)
+    }
 
     DashedDivider()
 
-    PreviewContent.single
+    PreviewContent.square
     .floatingCaption("Scaled", .alignment(.outerLeading))
     .debugAlignmentGuide(horizontal: .leading, .scaleLength(1.2), .anchor(.firstTextBaseline))
-    .debugAlignmentGuide(horizontal: .center, .scaleLength(0.5), )
-    .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.2), .anchor(.top))
+    .debugAlignmentGuide(horizontal: .center, .scaleLength(0.6), )
+    .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.4), .anchor(.top))
+    .overlay {
+        EdgesReticuleGrid(
+            outerSpacing: .square(of: 20),
+            outerDistance: .square(of: 40),
+            innerSpacing: .square(of: 20),
+            innerDistance: .square(of: 40)
+        )
+        .stroke(.quaternary)
+    }
 }
 
 
