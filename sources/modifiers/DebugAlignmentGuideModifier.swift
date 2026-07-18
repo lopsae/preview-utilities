@@ -619,3 +619,52 @@ struct ReticuleGrid: Shape {
 }
 
 
+struct EdgesReticuleGrid: Shape {
+
+    let outerSpacing: CGSize
+    let outerDistance: CGSize
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        // Horizontal lines.
+        for outset in stride(from: .zero, through: outerDistance.height, by: outerSpacing.height) {
+            // Top lines.
+            let topY = rect.minY - outset
+            path.moveTo(x: rect.minX - outerDistance.width, y: topY)
+            path.addLineTo(x: rect.maxX + outerDistance.width, y: topY)
+
+            // Bottom lines.
+            let bottomY = rect.maxY + outset
+            path.moveTo(x: rect.minX - outerDistance.width, y: bottomY)
+            path.addLineTo(x: rect.maxX + outerDistance.width, y: bottomY)
+        }
+
+        // Vertical lines.
+        for outset in stride(from: .zero, through: outerDistance.width, by: outerSpacing.width) {
+            // Leading lines.
+            let leadingX = rect.minX - outset
+            path.moveTo(x: leadingX, y: rect.minY - outerDistance.height)
+            path.addLineTo(x: leadingX, y: rect.maxY + outerDistance.height)
+
+            // Trailing lines.
+            let trailingX = rect.maxX + outset
+            path.moveTo(x: trailingX, y: rect.minY - outerDistance.height)
+            path.addLineTo(x: trailingX, y: rect.maxY + outerDistance.height)
+        }
+
+        return path
+    }
+
+}
+
+
+#Preview("EdgeGrid", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    PreviewContent.single
+    .overlay {
+        EdgesReticuleGrid(outerSpacing: .square(of: 20), outerDistance: .square(of: 100))
+        .stroke(.secondary)
+    }
+}
+
+
