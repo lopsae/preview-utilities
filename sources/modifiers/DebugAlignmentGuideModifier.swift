@@ -491,7 +491,7 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .center, .extendLength(20), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .extendLength(-40), .anchor(.top))
     .overlay {
-        EdgesReticuleGrid(
+        EdgesGraticule(
             outerSpacing: .square(of: 20),
             outerDistance: .square(of: 40),
             innerSpacing: .square(of: 20),
@@ -508,7 +508,7 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .center, .scaleLength(0.6), )
     .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.4), .anchor(.top))
     .overlay {
-        EdgesReticuleGrid(
+        EdgesGraticule(
             outerSpacing: .square(of: 20),
             outerDistance: .square(of: 40),
             innerSpacing: .square(of: 20),
@@ -580,18 +580,20 @@ private struct PreviewContent {
 }
 
 
-// MARK: - ReticuleGrid
+// MARK: - GridGraticule
 
 // FIXME: Move to its own file.
 
 
-/// Shape that draws a grid of vertical and horizontal lines in all its available space.
+/// Shape that draws a grid of vertical and horizontal lines in its available space.
 ///
-/// The grid lines are drawn at multiples of `spacing`, with `spacing.width` separating the vertical
-/// lines and `spacing.height` the horizontal ones. The grid is anchored to the origin point of its
-/// coordinate system, not to the origin of the rect the path is provided; a rect with a non-zero
-/// origin draws the same grid lines that fall within it.
-struct ReticuleGrid: Shape {
+/// The grid is anchored to the origin point of its coordinate system, not to the origin of the
+/// provided rect: receiving a rect with a non-zero origin will path the graticule offset of the
+/// rect's origin, to anchor it to the coordinate system origin.
+///
+/// The spacing between the lines is determined by `spacing`, using `width` to separate vertical
+/// lines, and `height` for horizontal.
+struct GridGraticule: Shape {
 
     let spacing: CGSize
 
@@ -620,17 +622,17 @@ struct ReticuleGrid: Shape {
 }
 
 
-#Preview("Reticule", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
-    ReticuleGrid(spacing: .square(of: 50))
+#Preview("GridGraticule", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    GridGraticule(spacing: .square(of: 50))
     .stroke(.secondary)
 }
 
 
-#Preview("Reticule Offset", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("GridGraticule", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     Canvas { context, size in
         let fullRect = CGRect(origin: .zero, size: size)
         let insetRect = fullRect.insetBy(dx: 40, dy: 40)
-        let grid = ReticuleGrid(spacing: .square(of: 50))
+        let grid = GridGraticule(spacing: .square(of: 50))
 
         // Full-space grid, as reference.
         context.stroke(grid.path(in: fullRect), with: .style(.quaternary))
@@ -643,11 +645,11 @@ struct ReticuleGrid: Shape {
 }
 
 
-// MARK: - EdgesReticuleGrid
+// MARK: - EdgesGraticule
 
 // FIXME: move to its own file.
 
-struct EdgesReticuleGrid: Shape {
+struct EdgesGraticule: Shape {
 
     let outerSpacing: CGSize
     let outerDistance: CGSize
@@ -708,10 +710,10 @@ struct EdgesReticuleGrid: Shape {
 }
 
 
-#Preview("EdgeGrid", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("EdgesGraticule", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.single
     .overlay {
-        EdgesReticuleGrid(
+        EdgesGraticule(
             outerSpacing: .square(of: 20),
             outerDistance: .square(of: 100),
             innerSpacing: .square(of: 10),
