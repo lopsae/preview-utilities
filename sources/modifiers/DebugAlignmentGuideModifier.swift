@@ -493,9 +493,9 @@ private struct PreviewContent {
     .overlay {
         EdgesGraticule(
             outerSpacing: .square(of: 20),
-            outerDistance: .square(of: 40),
+            outerCount: 2,
             innerSpacing: .square(of: 20),
-            innerDistance: .square(of: 40)
+            innerCount: 2
         )
         .stroke(.quaternary)
     }
@@ -510,9 +510,9 @@ private struct PreviewContent {
     .overlay {
         EdgesGraticule(
             outerSpacing: .square(of: 20),
-            outerDistance: .square(of: 40),
+            outerCount: 2,
             innerSpacing: .square(of: 20),
-            innerDistance: .square(of: 40)
+            innerCount: 2
         )
         .stroke(.quaternary)
     }
@@ -652,38 +652,43 @@ struct GridGraticule: Shape {
 struct EdgesGraticule: Shape {
 
     let outerSpacing: CGSize
-    let outerDistance: CGSize
+    let outerCount: Int
 
     let innerSpacing: CGSize
-    let innerDistance: CGSize
+    let innerCount: Int
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        // Horizontal outer lines.
-        for outset in stride(from: .zero, through: outerDistance.height, by: outerSpacing.height) {
+        // Outer graticules.
+        for index in 0 ..< outerCount {
+            let outset = outerSpacing.height * index.asDouble
+            let outerDistance = outerSpacing.height * (outerCount.asDouble - 1)
+
+            // Horizontal.
             let topY = rect.minY - outset
-            path.moveTo(x: rect.minX - outerDistance.width, y: topY)
-            path.addLineTo(x: rect.maxX + outerDistance.width, y: topY)
+            path.moveTo(x: rect.minX - outerDistance, y: topY)
+            path.addLineTo(x: rect.maxX + outerDistance, y: topY)
 
             let bottomY = rect.maxY + outset
-            path.moveTo(x: rect.minX - outerDistance.width, y: bottomY)
-            path.addLineTo(x: rect.maxX + outerDistance.width, y: bottomY)
-        }
+            path.moveTo(x: rect.minX - outerDistance, y: bottomY)
+            path.addLineTo(x: rect.maxX + outerDistance, y: bottomY)
 
-        // Vertical outer lines.
-        for outset in stride(from: .zero, through: outerDistance.width, by: outerSpacing.width) {
+            // Vertical.
             let leadingX = rect.minX - outset
-            path.moveTo(x: leadingX, y: rect.minY - outerDistance.height)
-            path.addLineTo(x: leadingX, y: rect.maxY + outerDistance.height)
+            path.moveTo(x: leadingX, y: rect.minY - outerDistance)
+            path.addLineTo(x: leadingX, y: rect.maxY + outerDistance)
 
             let trailingX = rect.maxX + outset
-            path.moveTo(x: trailingX, y: rect.minY - outerDistance.height)
-            path.addLineTo(x: trailingX, y: rect.maxY + outerDistance.height)
+            path.moveTo(x: trailingX, y: rect.minY - outerDistance)
+            path.addLineTo(x: trailingX, y: rect.maxY + outerDistance)
         }
 
-        // Horizontal inner lines.
-        for inset in stride(from: innerSpacing.height, through: innerDistance.height, by: innerSpacing.height) {
+        // Inner graticules.
+        for index in 0 ..< innerCount {
+            let inset = innerSpacing.height * (index.asDouble + 1)
+
+            // Horizontal.
             let topY = rect.minY + inset
             path.moveTo(x: rect.minX, y: topY)
             path.addLineTo(x: rect.maxX, y: topY)
@@ -691,10 +696,8 @@ struct EdgesGraticule: Shape {
             let bottomY = rect.maxY - inset
             path.moveTo(x: rect.minX, y: bottomY)
             path.addLineTo(x: rect.maxX, y: bottomY)
-        }
 
-        // Vertical inner lines.
-        for inset in stride(from: innerSpacing.width, through: innerDistance.width, by: innerSpacing.width) {
+            // Vertical.
             let leadingX = rect.minX + inset
             path.moveTo(x: leadingX, y: rect.minY)
             path.addLineTo(x: leadingX, y: rect.maxY)
@@ -715,9 +718,9 @@ struct EdgesGraticule: Shape {
     .overlay {
         EdgesGraticule(
             outerSpacing: .square(of: 20),
-            outerDistance: .square(of: 100),
+            outerCount: 3,
             innerSpacing: .square(of: 10),
-            innerDistance: .square(of: 40)
+            innerCount: 3,
         )
         .stroke(.quaternary)
     }
