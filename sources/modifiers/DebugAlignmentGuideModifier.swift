@@ -492,7 +492,7 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .trailing, .extendLength(-40), .anchor(.top))
     .overlay {
         EdgeGraticule(
-            outerSpacing: .square(of: 20),
+            outerSpacing: 20,
             outerCount: 2,
             innerSpacing: .square(of: 20),
             innerCount: 2
@@ -509,7 +509,7 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.4), .anchor(.top))
     .overlay {
         EdgeGraticule(
-            outerSpacing: .square(of: 20),
+            outerSpacing: 20,
             outerCount: 2,
             innerSpacing: .square(of: 20),
             innerCount: 2
