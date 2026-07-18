@@ -233,7 +233,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("IndexRange", traits: .spacing(100), .headerFooter, PreviewContent.layout) {
+#Preview("IndexRange", traits: .spacing(80), .headerFooter, PreviewContent.layout) {
     Rectangle()
     .fill(.green.quinary)
     .border(.green.tertiary, width: 10)
@@ -241,6 +241,20 @@ private struct PreviewContent {
     .overlay {
         OutsetEdgeGraticule(lineArguments: .init(
             horizontal: .init(spacing: 20, range: 2...5),
+            vertical: .init(spacing: 20, range: 1...3)
+        ))
+        .stroke(.tertiary)
+    }
+
+    DashedDivider()
+
+    Rectangle()
+    .fill(.green.quinary)
+    .border(.green.tertiary, width: 10)
+    .frame(squareOf: 100)
+    .overlay {
+        OutsetEdgeGraticule(lineArguments: .init(
+            horizontal: .init(spacing: 20, indices: .init()),
             vertical: .init(spacing: 20, range: 1...3)
         ))
         .stroke(.tertiary)
