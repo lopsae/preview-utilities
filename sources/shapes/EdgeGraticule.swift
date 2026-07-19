@@ -63,57 +63,16 @@ struct OutsetEdgeGraticule: Shape {
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
-
         let lastOffsets = lineArguments.lastOffsets
 
-        for index in lineArguments.top.indices {
-            // FIXME: Evaluate this approaches, recode the rest to follow the same approach.
-            // FIXME: See if this can be done in a loop of Edge.allCases.
-//            rect.outset(edge: .top, by: lineArguments.top.spacing * index.asDouble)
-//                .outset(edge: .leading, by: lastOffsets.leading)
-//                .outset(edge: .trailing, by: lastOffsets.trailing)
-//                .addPath(edge: .top, to: &path)
-
-//            rect.outset(
-//                top: lineArguments.top.spacing * index.asDouble,
-//                leading: lastOffsets.leading,
-//                trailing: lastOffsets.trailing
-//            ).addPath(edge: .top, to: &path)
-
-            let edgeOffset = lineArguments.top.spacing * index.asDouble
-            rect.outset(edge: .top, by: edgeOffset)
-                .outset(edges: .horizontal, values: lastOffsets)
-                .addToPath(&path, edge: .top)
-        }
-
-        for index in lineArguments.leading.indices {
-            let leadingX = rect.minX - lineArguments.leading.spacing * index.asDouble
-            path.moveTo(
-                x: leadingX,
-                y: rect.minY - lastOffsets.top)
-            path.addLineTo(
-                x: leadingX,
-                y: rect.maxY + lastOffsets.bottom)
-        }
-
-        for index in lineArguments.bottom.indices {
-            let bottomY = rect.maxY + lineArguments.bottom.spacing * index.asDouble
-            path.moveTo(
-                x: rect.minX - lastOffsets.leading,
-                y: bottomY)
-            path.addLineTo(
-                x: rect.maxX + lastOffsets.trailing,
-                y: bottomY)
-        }
-
-        for index in lineArguments.trailing.indices {
-            let trailingX = rect.maxX + lineArguments.trailing.spacing * index.asDouble
-            path.moveTo(
-                x: trailingX,
-                y: rect.minY - lastOffsets.top)
-            path.addLineTo(
-                x: trailingX,
-                y: rect.maxY + lastOffsets.bottom)
+        for edge in Edge.allCases {
+            let spacing = lineArguments[edge].spacing
+            for index in lineArguments[edge].indices {
+                let edgeOffset = spacing * index.asDouble
+                rect.outset(edge: edge, by: edgeOffset)
+                    .outset(edges: edge.orthogonalSet, values: lastOffsets)
+                    .addToPath(&path, edge: edge)
+            }
         }
 
         return path
@@ -199,6 +158,24 @@ extension CGRect {
 }
 
 
+extension Edge {
+
+    nonisolated
+    var set: Edge.Set { .init(self) }
+
+    nonisolated
+    var orthogonalSet: Edge.Set {
+        switch self {
+        case .top:      .horizontal
+        case .leading:  .vertical
+        case .bottom:   .horizontal
+        case .trailing: .vertical
+        }
+    }
+
+}
+
+
 // MARK: - EdgeGraticuleLineArguments
 
 
@@ -235,14 +212,6 @@ extension EdgeValues where Value == EdgeGraticuleLineArguments {
     var lastOffsets: EdgeValues<CGFloat> {
         .init(edgeValues: self, property: \.lastOffset)
     }
-
-}
-
-
-extension Edge {
-
-    nonisolated
-    var set: Edge.Set { .init(self) }
 
 }
 
@@ -377,11 +346,11 @@ private struct PreviewContent {
     .border(.green.tertiary, width: 10)
     .frame(squareOf: 100)
     .floatingCaption("2...5", .alignment(.outerTrailing))
-    .floatingCaption("1...3", .alignment(.outerBottom))
+    .floatingCaption("1...2", .alignment(.outerBottom))
     .overlay {
         OutsetEdgeGraticule(lineArguments: .init(
             horizontal: .init(spacing: 20, range: 2...5),
-            vertical: .init(spacing: 20, range: 1...3)
+            vertical: .init(spacing: 30, range: 1...2)
         ))
         .stroke(.tertiary)
     }
@@ -417,4 +386,7 @@ private struct PreviewContent {
     compositeWithTail.insert(8)
     compositeWithTail.insert(9)
     _ = compositeWithTail.last
+
+    _ = Edge.Set.horizontal.contains(.top)
+    _ = Edge.Set.horizontal.contains(.leading)
 }
