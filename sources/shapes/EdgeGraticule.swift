@@ -64,17 +64,25 @@ struct OutsetEdgeGraticule: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        // FIXME: pull last lines out, since they are used multiple times, can it be an edge value itself?
         let lastPositions = lineArguments.lastPositions
 
         for index in lineArguments.top.indices {
-            let topY = rect.minY - lineArguments.top.spacing * index.asDouble
-            path.moveTo(
-                x: rect.minX - lastPositions.leading,
-                y: topY)
-            path.addLineTo(
-                x: rect.maxX + lastPositions.trailing,
-                y: topY)
+            // FIXME: Evaluate this approaches, recode the rest to follow the same approach.
+            // FIXME: See if this can be done in a loop of Edge.allCases.
+//            rect.outset(edge: .top, by: lineArguments.top.spacing * index.asDouble)
+//                .outset(edge: .leading, by: lastPositions.leading)
+//                .outset(edge: .trailing, by: lastPositions.trailing)
+//                .addPath(edge: .top, to: &path)
+
+//            rect.outset(
+//                top: lineArguments.top.spacing * index.asDouble,
+//                leading: lastPositions.leading,
+//                trailing: lastPositions.trailing
+//            ).addPath(edge: .top, to: &path)
+
+            rect.outset(edge: .top, by: lineArguments.top.spacing * index.asDouble)
+                .outset(edges: .horizontal, values: lastPositions)
+                .addPath(edge: .top, to: &path)
         }
 
         for index in lineArguments.leading.indices {
@@ -108,6 +116,83 @@ struct OutsetEdgeGraticule: Shape {
         }
 
         return path
+    }
+
+}
+
+
+// MARK: - Experimental Extensions
+
+
+extension CGRect {
+
+    @discardableResult
+    @inlinable nonisolated
+    func addPath(edge: Edge, to path: inout Path) -> Self {
+        // Rect by default is draw from origin towards the horizontal
+        // origin → maxX,minY → maxX,maxY → minX,maxY
+        switch edge {
+        case .top:
+            path.moveTo(x: minX, y: minY)
+            path.addLineTo(x: maxX, y: minY)
+        case .trailing:
+            path.moveTo(x: maxX, y: minY)
+            path.addLineTo(x: maxX, y: maxY)
+        case .bottom:
+            path.moveTo(x: maxX, y: maxY)
+            path.addLineTo(x: minX, y: maxY)
+        case .leading:
+            path.moveTo(x: minX, y: maxY)
+            path.addLineTo(x: minX, y: minY)
+        }
+        return self
+    }
+
+
+    nonisolated
+    func outset(edge: Edge, by value: CGFloat) -> Self {
+        var result = self
+        switch edge {
+        case .top:
+            result.origin.y    -= value
+            result.size.height += value
+        case .leading:
+            result.origin.x    -= value
+            result.size.width  += value
+        case .bottom:
+            result.size.height += value
+        case .trailing:
+            result.size.width  += value
+        }
+        return result
+    }
+
+
+    nonisolated
+    func outset(edges: Edge.Set, values: EdgeValues<CGFloat>) -> Self {
+        var result = self
+        for edge in Edge.allCases {
+            if edges.contains(edge.set) {
+                result = result.outset(edge: edge, by: values[edge])
+            }
+        }
+        return result
+    }
+
+
+    nonisolated
+    func outset(
+        top: CGFloat = .zero,
+        leading: CGFloat = .zero,
+        bottom: CGFloat = .zero,
+        trailing: CGFloat = .zero,
+    ) -> Self {
+        var result = self
+        result.origin.x -= leading
+        result.origin.y -= top
+        result.size.width += leading + trailing
+        result.size.height += top + bottom
+        return result
     }
 
 }
@@ -153,6 +238,17 @@ extension EdgeValues where Value == EdgeGraticuleLineArguments {
 }
 
 
+extension Edge {
+
+    nonisolated
+    var set: Edge.Set { .init(self) }
+
+}
+
+
+// MARK: - EdgeValues
+
+
 nonisolated
 struct EdgeValues<Value> {
 
@@ -193,6 +289,15 @@ struct EdgeValues<Value> {
     var lea: Value { leading }
     var bot: Value { bottom }
     var tra: Value { trailing }
+
+    subscript(_ edge: Edge) -> Value {
+        switch edge {
+        case .top:      self.top
+        case .leading:  self.leading
+        case .bottom:   self.bottom
+        case .trailing: self.trailing
+        }
+    }
 
 }
 
