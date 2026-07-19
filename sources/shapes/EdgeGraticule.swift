@@ -64,44 +64,45 @@ struct OutsetEdgeGraticule: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        let lastPositions = lineArguments.lastPositions
+        let lastOffsets = lineArguments.lastOffsets
 
         for index in lineArguments.top.indices {
             // FIXME: Evaluate this approaches, recode the rest to follow the same approach.
             // FIXME: See if this can be done in a loop of Edge.allCases.
 //            rect.outset(edge: .top, by: lineArguments.top.spacing * index.asDouble)
-//                .outset(edge: .leading, by: lastPositions.leading)
-//                .outset(edge: .trailing, by: lastPositions.trailing)
+//                .outset(edge: .leading, by: lastOffsets.leading)
+//                .outset(edge: .trailing, by: lastOffsets.trailing)
 //                .addPath(edge: .top, to: &path)
 
 //            rect.outset(
 //                top: lineArguments.top.spacing * index.asDouble,
-//                leading: lastPositions.leading,
-//                trailing: lastPositions.trailing
+//                leading: lastOffsets.leading,
+//                trailing: lastOffsets.trailing
 //            ).addPath(edge: .top, to: &path)
 
-            rect.outset(edge: .top, by: lineArguments.top.spacing * index.asDouble)
-                .outset(edges: .horizontal, values: lastPositions)
-                .addPath(edge: .top, to: &path)
+            let edgeOffset = lineArguments.top.spacing * index.asDouble
+            rect.outset(edge: .top, by: edgeOffset)
+                .outset(edges: .horizontal, values: lastOffsets)
+                .addToPath(&path, edge: .top)
         }
 
         for index in lineArguments.leading.indices {
             let leadingX = rect.minX - lineArguments.leading.spacing * index.asDouble
             path.moveTo(
                 x: leadingX,
-                y: rect.minY - lastPositions.top)
+                y: rect.minY - lastOffsets.top)
             path.addLineTo(
                 x: leadingX,
-                y: rect.maxY + lastPositions.bottom)
+                y: rect.maxY + lastOffsets.bottom)
         }
 
         for index in lineArguments.bottom.indices {
             let bottomY = rect.maxY + lineArguments.bottom.spacing * index.asDouble
             path.moveTo(
-                x: rect.minX - lastPositions.leading,
+                x: rect.minX - lastOffsets.leading,
                 y: bottomY)
             path.addLineTo(
-                x: rect.maxX + lastPositions.trailing,
+                x: rect.maxX + lastOffsets.trailing,
                 y: bottomY)
         }
 
@@ -109,10 +110,10 @@ struct OutsetEdgeGraticule: Shape {
             let trailingX = rect.maxX + lineArguments.trailing.spacing * index.asDouble
             path.moveTo(
                 x: trailingX,
-                y: rect.minY - lastPositions.top)
+                y: rect.minY - lastOffsets.top)
             path.addLineTo(
                 x: trailingX,
-                y: rect.maxY + lastPositions.bottom)
+                y: rect.maxY + lastOffsets.bottom)
         }
 
         return path
@@ -128,7 +129,7 @@ extension CGRect {
 
     @discardableResult
     @inlinable nonisolated
-    func addPath(edge: Edge, to path: inout Path) -> Self {
+    func addToPath(_ path: inout Path, edge: Edge) -> Self {
         // Rect by default is draw from origin towards the horizontal
         // origin → maxX,minY → maxX,maxY → minX,maxY
         switch edge {
@@ -198,7 +199,7 @@ extension CGRect {
 }
 
 
-// FIXME: Consider making a LineSet struct, that contains the spacing and count and utilities for a single edge.
+// MARK: - EdgeGraticuleLineArguments
 
 
 nonisolated
@@ -222,7 +223,7 @@ struct EdgeGraticuleLineArguments: Equatable, Sendable {
     }
 
     // FIXME: Better name.
-    var lastPosition: CGFloat {
+    var lastOffset: CGFloat {
         spacing * (indices.last ?? .zero).asDouble
     }
 }
@@ -231,8 +232,8 @@ struct EdgeGraticuleLineArguments: Equatable, Sendable {
 nonisolated
 extension EdgeValues where Value == EdgeGraticuleLineArguments {
 
-    var lastPositions: EdgeValues<CGFloat> {
-        .init(edgeValues: self, property: \.lastPosition)
+    var lastOffsets: EdgeValues<CGFloat> {
+        .init(edgeValues: self, property: \.lastOffset)
     }
 
 }
