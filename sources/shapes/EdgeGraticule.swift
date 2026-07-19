@@ -64,49 +64,46 @@ struct OutsetEdgeGraticule: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        let topLastIndex      = lineArguments.top.indices.last ?? .zero
-        let leadingLastIndex  = lineArguments.leading.indices.last ?? .zero
-        let bottomLastIndex   = lineArguments.bottom.indices.last ?? .zero
-        let trailingLastIndex = lineArguments.trailing.indices.last ?? .zero
+        // FIXME: pull last lines out, since they are used multiple times, can it be an edge value itself?
 
         for index in lineArguments.top.indices {
-            let outset = lineArguments.top.spacing * index.asDouble
-            let outerLeading = lineArguments.leading.spacing * leadingLastIndex.asDouble
-            let outerTrailing = lineArguments.trailing.spacing * trailingLastIndex.asDouble
-
-            let topY = rect.minY - outset
-            path.moveTo(x: rect.minX - outerLeading, y: topY)
-            path.addLineTo(x: rect.maxX + outerTrailing, y: topY)
+            let topY = rect.minY - lineArguments.top.spacing * index.asDouble
+            path.moveTo(
+                x: rect.minX - lineArguments.leading.lastLine,
+                y: topY)
+            path.addLineTo(
+                x: rect.maxX + lineArguments.trailing.lastLine,
+                y: topY)
         }
 
         for index in lineArguments.leading.indices {
-            let outset = lineArguments.leading.spacing * index.asDouble
-            let outerTop = lineArguments.top.spacing * topLastIndex.asDouble
-            let outerBottom = lineArguments.bottom.spacing * bottomLastIndex.asDouble
-
-            let leadingX = rect.minX - outset
-            path.moveTo(x: leadingX, y: rect.minY - outerTop)
-            path.addLineTo(x: leadingX, y: rect.maxY + outerBottom)
+            let leadingX = rect.minX - lineArguments.leading.spacing * index.asDouble
+            path.moveTo(
+                x: leadingX,
+                y: rect.minY - lineArguments.top.lastLine)
+            path.addLineTo(
+                x: leadingX,
+                y: rect.maxY + lineArguments.bottom.lastLine)
         }
 
         for index in lineArguments.bottom.indices {
-            let outset = lineArguments.bottom.spacing * index.asDouble
-            let outerLeading = lineArguments.leading.spacing * leadingLastIndex.asDouble
-            let outerTrailing = lineArguments.trailing.spacing * trailingLastIndex.asDouble
-
-            let bottomY = rect.maxY + outset
-            path.moveTo(x: rect.minX - outerLeading, y: bottomY)
-            path.addLineTo(x: rect.maxX + outerTrailing, y: bottomY)
+            let bottomY = rect.maxY + lineArguments.bottom.spacing * index.asDouble
+            path.moveTo(
+                x: rect.minX - lineArguments.leading.lastLine,
+                y: bottomY)
+            path.addLineTo(
+                x: rect.maxX + lineArguments.trailing.lastLine,
+                y: bottomY)
         }
 
         for index in lineArguments.trailing.indices {
-            let outset = lineArguments.trailing.spacing * index.asDouble
-            let outerTop = lineArguments.top.spacing * topLastIndex.asDouble
-            let outerBottom = lineArguments.bottom.spacing * bottomLastIndex.asDouble
-
-            let trailingX = rect.maxX + outset
-            path.moveTo(x: trailingX, y: rect.minY - outerTop)
-            path.addLineTo(x: trailingX, y: rect.maxY + outerBottom)
+            let trailingX = rect.maxX + lineArguments.trailing.spacing * index.asDouble
+            path.moveTo(
+                x: trailingX,
+                y: rect.minY - lineArguments.top.lastLine)
+            path.addLineTo(
+                x: trailingX,
+                y: rect.maxY + lineArguments.bottom.lastLine)
         }
 
         return path
@@ -136,6 +133,11 @@ struct EdgeGraticuleLineArguments: Equatable, Sendable {
     init(spacing: CGFloat, range: ClosedRange<Int>) {
         self.spacing = spacing
         self.indices = IndexSet(range)
+    }
+
+    // FIXME: Better name.
+    var lastLine: CGFloat {
+        spacing * (indices.last ?? .zero).asDouble
     }
 }
 
