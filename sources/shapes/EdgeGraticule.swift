@@ -65,14 +65,15 @@ struct OutsetEdgeGraticule: Shape {
         var path = Path()
 
         // FIXME: pull last lines out, since they are used multiple times, can it be an edge value itself?
+        let lastPositions = lineArguments.lastPositions
 
         for index in lineArguments.top.indices {
             let topY = rect.minY - lineArguments.top.spacing * index.asDouble
             path.moveTo(
-                x: rect.minX - lineArguments.leading.lastLine,
+                x: rect.minX - lastPositions.leading,
                 y: topY)
             path.addLineTo(
-                x: rect.maxX + lineArguments.trailing.lastLine,
+                x: rect.maxX + lastPositions.trailing,
                 y: topY)
         }
 
@@ -80,19 +81,19 @@ struct OutsetEdgeGraticule: Shape {
             let leadingX = rect.minX - lineArguments.leading.spacing * index.asDouble
             path.moveTo(
                 x: leadingX,
-                y: rect.minY - lineArguments.top.lastLine)
+                y: rect.minY - lastPositions.top)
             path.addLineTo(
                 x: leadingX,
-                y: rect.maxY + lineArguments.bottom.lastLine)
+                y: rect.maxY + lastPositions.bottom)
         }
 
         for index in lineArguments.bottom.indices {
             let bottomY = rect.maxY + lineArguments.bottom.spacing * index.asDouble
             path.moveTo(
-                x: rect.minX - lineArguments.leading.lastLine,
+                x: rect.minX - lastPositions.leading,
                 y: bottomY)
             path.addLineTo(
-                x: rect.maxX + lineArguments.trailing.lastLine,
+                x: rect.maxX + lastPositions.trailing,
                 y: bottomY)
         }
 
@@ -100,10 +101,10 @@ struct OutsetEdgeGraticule: Shape {
             let trailingX = rect.maxX + lineArguments.trailing.spacing * index.asDouble
             path.moveTo(
                 x: trailingX,
-                y: rect.minY - lineArguments.top.lastLine)
+                y: rect.minY - lastPositions.top)
             path.addLineTo(
                 x: trailingX,
-                y: rect.maxY + lineArguments.bottom.lastLine)
+                y: rect.maxY + lastPositions.bottom)
         }
 
         return path
@@ -136,9 +137,19 @@ struct EdgeGraticuleLineArguments: Equatable, Sendable {
     }
 
     // FIXME: Better name.
-    var lastLine: CGFloat {
+    var lastPosition: CGFloat {
         spacing * (indices.last ?? .zero).asDouble
     }
+}
+
+
+nonisolated
+extension EdgeValues where Value == EdgeGraticuleLineArguments {
+
+    var lastPositions: EdgeValues<CGFloat> {
+        .init(edgeValues: self, property: \.lastPosition)
+    }
+
 }
 
 
@@ -157,6 +168,10 @@ struct EdgeValues<Value> {
         self.trailing = trailing
     }
 
+    init(top: Value, lea: Value, bot: Value, tra: Value) {
+        self.init(top: top, leading: lea, bottom: bot, trailing: tra)
+    }
+
     init(all value: Value) {
         self.init(top: value, leading: value, bottom: value, trailing: value)
     }
@@ -164,6 +179,21 @@ struct EdgeValues<Value> {
     init(horizontal: Value, vertical: Value) {
         self.init(top: vertical, leading: horizontal, bottom: vertical, trailing: horizontal)
     }
+
+
+    init<OtherValue>(edgeValues: EdgeValues<OtherValue>, property: KeyPath<OtherValue, Value>) {
+        self.init(
+            top:      edgeValues.top[keyPath: property],
+            leading:  edgeValues.lea[keyPath: property],
+            bottom:   edgeValues.bot[keyPath: property],
+            trailing: edgeValues.tra[keyPath: property]
+        )
+    }
+
+    var lea: Value { leading }
+    var bot: Value { bottom }
+    var tra: Value { trailing }
+
 }
 
 
@@ -240,6 +270,8 @@ private struct PreviewContent {
     .fill(.green.quinary)
     .border(.green.tertiary, width: 10)
     .frame(squareOf: 100)
+    .floatingCaption("2...5", .alignment(.outerTrailing))
+    .floatingCaption("1...3", .alignment(.outerBottom))
     .overlay {
         OutsetEdgeGraticule(lineArguments: .init(
             horizontal: .init(spacing: 20, range: 2...5),
@@ -254,6 +286,8 @@ private struct PreviewContent {
     .fill(.green.quinary)
     .border(.green.tertiary, width: 10)
     .frame(squareOf: 100)
+    .floatingCaption("None", .alignment(.outerTrailing))
+    .floatingCaption("1...3", .alignment(.outerBottom))
     .overlay {
         OutsetEdgeGraticule(lineArguments: .init(
             horizontal: .init(spacing: 20, indices: .init()),
