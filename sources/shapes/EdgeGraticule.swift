@@ -97,6 +97,36 @@ extension EdgeValues where Value == EdgeGraticule.LineSet {
 }
 
 
+// MARK: - InsetShape
+
+
+extension EdgeGraticule {
+
+    struct InsetShape: Shape {
+
+        let lineSets: EdgeValues<LineSet>
+
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            let extents = lineSets.extents
+
+            for edge in Edge.allCases {
+                let spacing = lineSets[edge].spacing
+                for index in lineSets[edge].indices {
+                    let offset = spacing * index.asDouble
+                    rect.inset(edge: edge, by: offset)
+                        .addToPath(&path, edge: edge)
+                }
+            }
+
+            return path
+        }
+
+    }
+
+}
+
+
 // MARK: - OutsetShape
 
 
@@ -157,30 +187,36 @@ private extension CGRect {
 
 
     nonisolated
-    func outset(edge: Edge, by value: CGFloat) -> Self {
+    func inset(edge: Edge, by value: CGFloat) -> Self {
         var result = self
         switch edge {
         case .top:
-            result.origin.y    -= value
-            result.size.height += value
+            result.origin.y    += value
+            result.size.height -= value
         case .leading:
-            result.origin.x    -= value
-            result.size.width  += value
+            result.origin.x    += value
+            result.size.width  -= value
         case .bottom:
-            result.size.height += value
+            result.size.height -= value
         case .trailing:
-            result.size.width  += value
+            result.size.width  -= value
         }
         return result
     }
 
 
     nonisolated
-    func outset(edges: Edge.Set, values: EdgeValues<CGFloat>) -> Self {
+    func outset(edge: Edge, by value: CGFloat) -> Self {
+        inset(edge: edge, by: -value)
+    }
+
+
+    nonisolated
+    func inset(edges: Edge.Set, values: EdgeValues<CGFloat>) -> Self {
         var result = self
         for edge in Edge.allCases {
             if edges.contains(edge.set) {
-                result = result.outset(edge: edge, by: values[edge])
+                result = result.inset(edge: edge, by: values[edge])
             }
         }
         return result
@@ -188,16 +224,25 @@ private extension CGRect {
 
 
     nonisolated
+    func outset(edges: Edge.Set, values: EdgeValues<CGFloat>) -> Self {
+        // TODO: This map transform all values, even the ones not used. Having a protocol for
+        // EdgeValues, and an implementation that lazy maps to -1 would prevent all values having to
+        // be transformed by map.
+        inset(edges: edges, values: values.map { -$0 })
+    }
+
+
+    nonisolated
     func outset(
-        top: CGFloat = .zero,
-        leading: CGFloat = .zero,
-        bottom: CGFloat = .zero,
+        top:      CGFloat = .zero,
+        leading:  CGFloat = .zero,
+        bottom:   CGFloat = .zero,
         trailing: CGFloat = .zero,
     ) -> Self {
         var result = self
-        result.origin.x -= leading
-        result.origin.y -= top
-        result.size.width += leading + trailing
+        result.origin.x    -= leading
+        result.origin.y    -= top
+        result.size.width  += leading + trailing
         result.size.height += top + bottom
         return result
     }
@@ -276,6 +321,15 @@ struct EdgeValues<Value> {
         }
     }
 
+    func map<NewValue>(_ transform: (Value) throws -> NewValue) rethrows -> EdgeValues<NewValue> {
+        .init(
+            top:      try transform(top),
+            leading:  try transform(leading),
+            bottom:   try transform(bottom),
+            trailing: try transform(trailing)
+        )
+    }
+
 }
 
 
@@ -316,7 +370,46 @@ private struct PreviewContent {
 }
 
 
-#Preview("Outer", traits: .spacing(100), .headerFooter, PreviewContent.layout) {
+#Preview("Inset", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
+    Rectangle()
+    .fill(.green.quinary)
+    .border(.green.tertiary, width: 10)
+    .frame(squareOf: 150)
+    .floatingCaption("3", .alignment(.outerTrailing))
+    .floatingCaption("3", .alignment(.outerBottom))
+    .overlay {
+        EdgeGraticule.InsetShape(lineSets: .init(all: .init(
+            spacing: 10,
+            through: 3
+        )))
+        .stroke(.tertiary)
+    }
+
+    DashedDivider()
+
+    Rectangle()
+    .fill(.green.quinary)
+    .border(.green.tertiary, width: 10)
+    .frame(squareOf: 150)
+    .floatingCaption("5", .alignment(.outerTop))
+    .floatingCaption("4", .alignment(.outerLeading))
+    .floatingCaption("3", .alignment(.outerBottom))
+    .floatingCaption("2", .alignment(.outerTrailing))
+    .overlay {
+        EdgeGraticule.InsetShape(
+            lineSets: .init(
+                top: .init(spacing: 5, through: 5),
+                leading: .init(spacing: 10, through: 4),
+                bottom: .init(spacing: 15, through: 3),
+                trailing: .init(spacing: 20, through: 2)
+            )
+        )
+        .stroke(.tertiary)
+    }
+}
+
+
+#Preview("Outset", traits: .spacing(100), .headerFooter, PreviewContent.layout) {
     Rectangle()
     .fill(.green.quinary)
     .border(.green.tertiary, width: 10)
@@ -339,7 +432,6 @@ private struct PreviewContent {
     .floatingCaption("4", .alignment(.leading))
     .floatingCaption("3", .alignment(.bottom))
     .floatingCaption("2", .alignment(.trailing))
-
     .overlay {
         EdgeGraticule.OutsetShape(
             lineSets: .init(
@@ -354,7 +446,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("IndexRange", traits: .spacing(80), .headerFooter, PreviewContent.layout) {
+#Preview("OutsetRange", traits: .spacing(80), .headerFooter, PreviewContent.layout) {
     Rectangle()
     .fill(.green.quinary)
     .border(.green.tertiary, width: 10)
