@@ -20,17 +20,16 @@ struct EdgeGraticule: Shape {
 
     init(
         insetSpacing: CGFloat,
-        through insetThrough: Int,
+        through insetCount: Int,
         outsetSpacing: CGFloat,
-        through outsetThrough: Int
+        through outsetCount: Int
     ) {
-        if insetThrough > 0 {
-            self.insetLineSets = .init(spacing: insetSpacing, range: 1...insetThrough)
+        if insetCount > 0 {
+            self.insetLineSets = .init(spacing: insetSpacing, range: 1...insetCount)
         } else {
             self.insetLineSets = .init(spacing: insetSpacing, indices: .empty)
         }
-
-        self.outsetLineSets = .init(spacing: outsetSpacing, through: outsetThrough)
+        self.outsetLineSets = .init(spacing: outsetSpacing, through: outsetCount)
     }
 
     func path(in rect: CGRect) -> Path {
@@ -58,6 +57,11 @@ extension EdgeGraticule {
         let spacing: CGFloat
         let indices: IndexSet
 
+        init() {
+            self.spacing = 0
+            self.indices = .empty
+        }
+
         init(spacing: CGFloat, indices: IndexSet) {
             self.spacing = spacing
             self.indices = indices
@@ -73,6 +77,8 @@ extension EdgeGraticule {
             self.indices = IndexSet(range)
         }
 
+        static var empty: Self { .init() }
+
         var extent: CGFloat {
             spacing * (indices.last ?? .zero).asDouble
         }
@@ -83,6 +89,8 @@ extension EdgeGraticule {
 
 nonisolated
 extension EdgeValues where Value == EdgeGraticule.LineSet {
+
+    init() { self.init(all: .empty) }
 
     init(spacing: CGFloat, indices: IndexSet) {
         let lineSet = EdgeGraticule.LineSet(spacing: spacing, indices: indices)
@@ -98,6 +106,8 @@ extension EdgeValues where Value == EdgeGraticule.LineSet {
         let lineSet = EdgeGraticule.LineSet(spacing: spacing, range: range)
         self.init(all: lineSet)
     }
+
+    static var empty: Self { .init() }
 
     var extents: EdgeValues<CGFloat> {
         .init(edgeValues: self, property: \.extent)
@@ -402,7 +412,7 @@ private struct PreviewContent {
     .floatingCaption("3", .alignment(.outerTrailing))
     .overlay {
         EdgeGraticule(insetSpacing: 10, through: 2, outsetSpacing: 20, through: 3)
-        .stroke(.quaternary)
+        .stroke(.tertiary)
     }
 }
 
@@ -559,4 +569,97 @@ private struct PreviewContent {
 
     _ = Edge.Set.horizontal.contains(.top)
     _ = Edge.Set.horizontal.contains(.leading)
+}
+
+
+// MARK: - Modifier
+
+// FIXME: Move to its own file.
+
+
+public struct EdgeGraticuleModifier: ViewModifier {
+
+    let insetLineSets: EdgeValues<EdgeGraticule.LineSet>
+    let outsetLineSets: EdgeValues<EdgeGraticule.LineSet>
+
+    public func body(content: Content) -> some View {
+        content
+        .overlay {
+            EdgeGraticule(insetLineSets: insetLineSets, outsetLineSets: outsetLineSets)
+            .stroke(.quaternary)
+        }
+    }
+
+}
+
+
+// MARK: - View Extensions
+
+
+extension View {
+
+    public func edgeGraticule(
+        insetSpacing: CGFloat,
+        through insetCount: Int,
+        outsetSpacing: CGFloat,
+        through outsetCount: Int
+    ) -> some View {
+        // TODO: this logic is repeated in the initializer of EdgeGraticuleModifier, could it be DRYed?
+        let insetLineSets: EdgeValues<EdgeGraticule.LineSet>
+        if insetCount > 0 {
+            insetLineSets = .init(spacing: insetSpacing, range: 1...insetCount)
+        } else {
+            insetLineSets = .init(spacing: insetSpacing, indices: .empty)
+        }
+        let outsetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: outsetSpacing, through: outsetCount)
+        let graticuleModifier = EdgeGraticuleModifier(
+            insetLineSets: insetLineSets,
+            outsetLineSets: outsetLineSets
+        )
+        return modifier(graticuleModifier)
+    }
+
+
+    public func edgeGraticule(insetSpacing: CGFloat, through count: Int) -> some View {
+        let graticuleModifier = EdgeGraticuleModifier(
+            insetLineSets: .init(spacing: insetSpacing, through: count),
+            outsetLineSets: .empty
+        )
+        return modifier(graticuleModifier)
+    }
+
+
+    public func edgeGraticule(outsetSpacing: CGFloat, through count: Int) -> some View {
+        let graticuleModifier = EdgeGraticuleModifier(
+            insetLineSets: .empty,
+            outsetLineSets: .init(spacing: outsetSpacing, through: count)
+        )
+        return modifier(graticuleModifier)
+    }
+
+}
+
+
+#Preview("Modifier", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .edgeGraticule(insetSpacing: 10, through: 2, outsetSpacing: 20, through: 1)
+    .floatingCaption("Inset/Outset", .alignment(.outerTop))
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .edgeGraticule(insetSpacing: 10, through: 2)
+    .floatingCaption("Only Inset", .alignment(.outerTop))
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .edgeGraticule(outsetSpacing: 20, through: 1)
+    .floatingCaption("Only Outset", .alignment(.outerTop))
 }
