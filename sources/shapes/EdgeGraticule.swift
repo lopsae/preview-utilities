@@ -19,7 +19,7 @@ struct EdgeGraticule: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        let outsetGraticule = OutsetEdgeGraticule(lineArguments: .init(all: .init(
+        let outsetGraticule = OutsetShape(lineSets: .init(all: .init(
             spacing: outerSpacing,
             through: outerCount
         )))
@@ -54,28 +54,75 @@ struct EdgeGraticule: Shape {
 }
 
 
-// MARK: - OutsetEdgeGraticule
+// MARK: - LineSet
 
 
-struct OutsetEdgeGraticule: Shape {
+extension EdgeGraticule {
 
-    let lineArguments: EdgeValues<EdgeGraticuleLineArguments>
+    nonisolated
+    struct LineSet : Equatable, Sendable {
+        let spacing: CGFloat
+        let indices: IndexSet
 
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        let lastOffsets = lineArguments.lastOffsets
-
-        for edge in Edge.allCases {
-            let spacing = lineArguments[edge].spacing
-            for index in lineArguments[edge].indices {
-                let edgeOffset = spacing * index.asDouble
-                rect.outset(edge: edge, by: edgeOffset)
-                    .outset(edges: edge.orthogonalSet, values: lastOffsets)
-                    .addToPath(&path, edge: edge)
-            }
+        init(spacing: CGFloat, indices: IndexSet) {
+            self.spacing = spacing
+            self.indices = indices
         }
 
-        return path
+        init(spacing: CGFloat, through count: Int) {
+            self.spacing = spacing
+            self.indices = IndexSet(0...count)
+        }
+
+        init(spacing: CGFloat, range: ClosedRange<Int>) {
+            self.spacing = spacing
+            self.indices = IndexSet(range)
+        }
+
+        var extent: CGFloat {
+            spacing * (indices.last ?? .zero).asDouble
+        }
+    }
+
+}
+
+
+nonisolated
+extension EdgeValues where Value == EdgeGraticule.LineSet {
+
+    var extents: EdgeValues<CGFloat> {
+        .init(edgeValues: self, property: \.extent)
+    }
+
+}
+
+
+// MARK: - OutsetShape
+
+
+extension EdgeGraticule {
+
+    struct OutsetShape: Shape {
+
+        let lineSets: EdgeValues<LineSet>
+
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            let extents = lineSets.extents
+
+            for edge in Edge.allCases {
+                let spacing = lineSets[edge].spacing
+                for index in lineSets[edge].indices {
+                    let offset = spacing * index.asDouble
+                    rect.outset(edge: edge, by: offset)
+                        .outset(edges: edge.orthogonalSet, values: extents)
+                        .addToPath(&path, edge: edge)
+                }
+            }
+
+            return path
+        }
+
     }
 
 }
@@ -84,10 +131,10 @@ struct OutsetEdgeGraticule: Shape {
 // MARK: - Experimental Extensions
 
 
-extension CGRect {
+private extension CGRect {
 
     @discardableResult
-    @inlinable nonisolated
+    /*@inlinable*/ nonisolated
     func addToPath(_ path: inout Path, edge: Edge) -> Self {
         // Rect by default is draw from origin towards the horizontal
         // origin → maxX,minY → maxX,maxY → minX,maxY
@@ -158,7 +205,7 @@ extension CGRect {
 }
 
 
-extension Edge {
+private extension Edge {
 
     nonisolated
     var set: Edge.Set { .init(self) }
@@ -171,46 +218,6 @@ extension Edge {
         case .bottom:   .horizontal
         case .trailing: .vertical
         }
-    }
-
-}
-
-
-// MARK: - EdgeGraticuleLineArguments
-
-
-nonisolated
-struct EdgeGraticuleLineArguments: Equatable, Sendable {
-    let spacing: CGFloat
-    let indices: IndexSet
-
-    init(spacing: CGFloat, indices: IndexSet) {
-        self.spacing = spacing
-        self.indices = indices
-    }
-
-    init(spacing: CGFloat, through count: Int) {
-        self.spacing = spacing
-        self.indices = IndexSet(0...count)
-    }
-
-    init(spacing: CGFloat, range: ClosedRange<Int>) {
-        self.spacing = spacing
-        self.indices = IndexSet(range)
-    }
-
-    // FIXME: Better name.
-    var lastOffset: CGFloat {
-        spacing * (indices.last ?? .zero).asDouble
-    }
-}
-
-
-nonisolated
-extension EdgeValues where Value == EdgeGraticuleLineArguments {
-
-    var lastOffsets: EdgeValues<CGFloat> {
-        .init(edgeValues: self, property: \.lastOffset)
     }
 
 }
@@ -314,8 +321,10 @@ private struct PreviewContent {
     .fill(.green.quinary)
     .border(.green.tertiary, width: 10)
     .frame(squareOf: 100)
+    .floatingCaption("3", .alignment(.trailing))
+    .floatingCaption("3", .alignment(.bottom))
     .overlay {
-        OutsetEdgeGraticule(lineArguments: .init(all: .init(
+        EdgeGraticule.OutsetShape(lineSets: .init(all: .init(
             spacing: 20,
             through: 3
         )))
@@ -326,9 +335,14 @@ private struct PreviewContent {
     .fill(.green.quinary)
     .border(.green.tertiary, width: 10)
     .frame(squareOf: 100)
+    .floatingCaption("5", .alignment(.top))
+    .floatingCaption("4", .alignment(.leading))
+    .floatingCaption("3", .alignment(.bottom))
+    .floatingCaption("2", .alignment(.trailing))
+
     .overlay {
-        OutsetEdgeGraticule(
-            lineArguments: .init(
+        EdgeGraticule.OutsetShape(
+            lineSets: .init(
                 top: .init(spacing: 5, through: 5),
                 leading: .init(spacing: 10, through: 4),
                 bottom: .init(spacing: 15, through: 3),
@@ -348,7 +362,7 @@ private struct PreviewContent {
     .floatingCaption("2...5", .alignment(.outerTrailing))
     .floatingCaption("1...2", .alignment(.outerBottom))
     .overlay {
-        OutsetEdgeGraticule(lineArguments: .init(
+        EdgeGraticule.OutsetShape(lineSets: .init(
             horizontal: .init(spacing: 20, range: 2...5),
             vertical: .init(spacing: 30, range: 1...2)
         ))
@@ -364,7 +378,7 @@ private struct PreviewContent {
     .floatingCaption("None", .alignment(.outerTrailing))
     .floatingCaption("1...3", .alignment(.outerBottom))
     .overlay {
-        OutsetEdgeGraticule(lineArguments: .init(
+        EdgeGraticule.OutsetShape(lineSets: .init(
             horizontal: .init(spacing: 20, indices: .init()),
             vertical: .init(spacing: 20, range: 1...3)
         ))
