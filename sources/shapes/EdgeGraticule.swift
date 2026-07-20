@@ -10,27 +10,34 @@ import Playgrounds
 
 struct EdgeGraticule: Shape {
 
-    let outerSpacing: CGFloat
-    let outerCount: Int
+    let insetLineSets: EdgeValues<LineSet>
+    let outsetLineSets: EdgeValues<LineSet>
 
-    let innerSpacing: CGFloat
-    let innerCount: Int
+    init(
+        insetSpacing: CGFloat,
+        through insetThrough: Int,
+        outsetSpacing: CGFloat,
+        through outsetThrough: Int
+    ) {
+        self.insetLineSets = .init(all: .init(
+            spacing: insetSpacing,
+            through: insetThrough
+        ))
+        self.outsetLineSets = .init(all: .init(
+            spacing: outsetSpacing,
+            through: outsetThrough
+        ))
+    }
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
         // FIXME: code should take care of only drawing the border at 0 index once.
 
-        let insetGraticule = InsetShape(lineSets: .init(all: .init(
-            spacing: innerSpacing,
-            through: innerCount
-        )))
+        let insetGraticule = InsetShape(lineSets: insetLineSets)
         path.addPath(insetGraticule.path(in: rect))
 
-        let outsetGraticule = OutsetShape(lineSets: .init(all: .init(
-            spacing: outerSpacing,
-            through: outerCount
-        )))
+        let outsetGraticule = OutsetShape(lineSets: outsetLineSets)
         path.addPath(outsetGraticule.path(in: rect))
 
         return path
@@ -343,12 +350,7 @@ private struct PreviewContent {
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
     .overlay {
-        EdgeGraticule(
-            outerSpacing: 20,
-            outerCount: 3,
-            innerSpacing: 10,
-            innerCount: 3,
-        )
+        EdgeGraticule(insetSpacing: 10, through: 2, outsetSpacing: 20, through: 3)
         .stroke(.quaternary)
     }
 }

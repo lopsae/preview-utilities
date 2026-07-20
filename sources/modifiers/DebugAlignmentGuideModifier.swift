@@ -491,12 +491,7 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .center, .extendLength(20), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .extendLength(-40), .anchor(.top))
     .overlay {
-        EdgeGraticule(
-            outerSpacing: 20,
-            outerCount: 2,
-            innerSpacing: 20,
-            innerCount: 2
-        )
+        EdgeGraticule(insetSpacing: 20, through: 2, outsetSpacing: 20, through: 2)
         .stroke(.quaternary)
     }
 
@@ -508,12 +503,7 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .center, .scaleLength(0.6), )
     .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.4), .anchor(.top))
     .overlay {
-        EdgeGraticule(
-            outerSpacing: 20,
-            outerCount: 2,
-            innerSpacing: 20,
-            innerCount: 2
-        )
+        EdgeGraticule(insetSpacing: 20, through: 2, outsetSpacing: 20, through: 2)
         .stroke(.quaternary)
     }
 }
