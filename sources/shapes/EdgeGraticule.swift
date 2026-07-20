@@ -13,6 +13,11 @@ struct EdgeGraticule: Shape {
     let insetLineSets: EdgeValues<LineSet>
     let outsetLineSets: EdgeValues<LineSet>
 
+    init(insetLineSets: EdgeValues<LineSet>, outsetLineSets: EdgeValues<LineSet>) {
+        self.insetLineSets = insetLineSets
+        self.outsetLineSets = outsetLineSets
+    }
+
     init(
         insetSpacing: CGFloat,
         through insetThrough: Int,
@@ -98,6 +103,18 @@ extension EdgeGraticule {
 
         let lineSets: EdgeValues<LineSet>
 
+        init(lineSets: EdgeValues<LineSet>) {
+            self.lineSets = lineSets
+        }
+
+        init(horizontal: LineSet, vertical: LineSet) {
+            self.lineSets = .init(horizontal: horizontal, vertical: vertical)
+        }
+
+        init(spacing: CGFloat, through: Int) {
+            self.lineSets = .init(all: .init(spacing: spacing, through: through))
+        }
+
         func path(in rect: CGRect) -> Path {
             var path = Path()
 
@@ -126,6 +143,18 @@ extension EdgeGraticule {
     struct OutsetShape: Shape {
 
         let lineSets: EdgeValues<LineSet>
+
+        init(lineSets: EdgeValues<LineSet>) {
+            self.lineSets = lineSets
+        }
+
+        init(horizontal: LineSet, vertical: LineSet) {
+            self.lineSets = .init(horizontal: horizontal, vertical: vertical)
+        }
+
+        init(spacing: CGFloat, through: Int) {
+            self.lineSets = .init(all: .init(spacing: spacing, through: through))
+        }
 
         func path(in rect: CGRect) -> Path {
             var path = Path()
@@ -349,6 +378,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
+    .floatingCaption("2", .alignment(.top))
+    .floatingCaption("3", .alignment(.outerTrailing))
     .overlay {
         EdgeGraticule(insetSpacing: 10, through: 2, outsetSpacing: 20, through: 3)
         .stroke(.quaternary)
@@ -364,10 +395,7 @@ private struct PreviewContent {
     .floatingCaption("3", .alignment(.outerTrailing))
     .floatingCaption("3", .alignment(.outerBottom))
     .overlay {
-        EdgeGraticule.InsetShape(lineSets: .init(all: .init(
-            spacing: 10,
-            through: 3
-        )))
+        EdgeGraticule.InsetShape(spacing: 10, through: 3)
         .stroke(.tertiary)
     }
 
@@ -384,9 +412,9 @@ private struct PreviewContent {
     .overlay {
         EdgeGraticule.InsetShape(
             lineSets: .init(
-                top: .init(spacing: 5, through: 5),
-                leading: .init(spacing: 10, through: 4),
-                bottom: .init(spacing: 15, through: 3),
+                top:      .init(spacing: 5,  through: 5),
+                leading:  .init(spacing: 10, through: 4),
+                bottom:   .init(spacing: 15, through: 3),
                 trailing: .init(spacing: 20, through: 2)
             )
         )
@@ -403,10 +431,10 @@ private struct PreviewContent {
     .floatingCaption("2...5", .alignment(.outerTrailing))
     .floatingCaption("1...2", .alignment(.outerBottom))
     .overlay {
-        EdgeGraticule.InsetShape(lineSets: .init(
+        EdgeGraticule.InsetShape(
             horizontal: .init(spacing: 10, range: 2...5),
             vertical: .init(spacing: 10, range: 1...2)
-        ))
+        )
         .stroke(.tertiary)
     }
 
@@ -419,10 +447,10 @@ private struct PreviewContent {
     .floatingCaption("None", .alignment(.outerTrailing))
     .floatingCaption("1...3", .alignment(.outerBottom))
     .overlay {
-        EdgeGraticule.InsetShape(lineSets: .init(
+        EdgeGraticule.InsetShape(
             horizontal: .init(spacing: 10, indices: .init()),
             vertical: .init(spacing: 10, range: 1...3)
-        ))
+        )
         .stroke(.tertiary)
     }
 }
@@ -436,10 +464,7 @@ private struct PreviewContent {
     .floatingCaption("3", .alignment(.trailing))
     .floatingCaption("3", .alignment(.bottom))
     .overlay {
-        EdgeGraticule.OutsetShape(lineSets: .init(all: .init(
-            spacing: 20,
-            through: 3
-        )))
+        EdgeGraticule.OutsetShape(spacing: 20, through: 3)
         .stroke(.tertiary)
     }
 
@@ -473,10 +498,10 @@ private struct PreviewContent {
     .floatingCaption("2...5", .alignment(.outerTrailing))
     .floatingCaption("1...2", .alignment(.outerBottom))
     .overlay {
-        EdgeGraticule.OutsetShape(lineSets: .init(
+        EdgeGraticule.OutsetShape(
             horizontal: .init(spacing: 20, range: 2...5),
             vertical: .init(spacing: 30, range: 1...2)
-        ))
+        )
         .stroke(.tertiary)
     }
 
@@ -489,10 +514,10 @@ private struct PreviewContent {
     .floatingCaption("None", .alignment(.outerTrailing))
     .floatingCaption("1...3", .alignment(.outerBottom))
     .overlay {
-        EdgeGraticule.OutsetShape(lineSets: .init(
+        EdgeGraticule.OutsetShape(
             horizontal: .init(spacing: 20, indices: .init()),
             vertical: .init(spacing: 20, range: 1...3)
-        ))
+        )
         .stroke(.tertiary)
     }
 }
