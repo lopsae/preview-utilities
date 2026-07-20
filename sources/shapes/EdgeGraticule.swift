@@ -409,6 +409,39 @@ private struct PreviewContent {
 }
 
 
+#Preview("InsetRange", traits: .spacing(40), .headerFooter, PreviewContent.layout) {
+    Rectangle()
+    .fill(.green.quinary)
+    .border(.green.tertiary, width: 10)
+    .frame(squareOf: 150)
+    .floatingCaption("2...5", .alignment(.outerTrailing))
+    .floatingCaption("1...2", .alignment(.outerBottom))
+    .overlay {
+        EdgeGraticule.InsetShape(lineSets: .init(
+            horizontal: .init(spacing: 10, range: 2...5),
+            vertical: .init(spacing: 10, range: 1...2)
+        ))
+        .stroke(.tertiary)
+    }
+
+    DashedDivider()
+
+    Rectangle()
+    .fill(.green.quinary)
+    .border(.green.tertiary, width: 10)
+    .frame(squareOf: 150)
+    .floatingCaption("None", .alignment(.outerTrailing))
+    .floatingCaption("1...3", .alignment(.outerBottom))
+    .overlay {
+        EdgeGraticule.InsetShape(lineSets: .init(
+            horizontal: .init(spacing: 10, indices: .init()),
+            vertical: .init(spacing: 10, range: 1...3)
+        ))
+        .stroke(.tertiary)
+    }
+}
+
+
 #Preview("Outset", traits: .spacing(100), .headerFooter, PreviewContent.layout) {
     Rectangle()
     .fill(.green.quinary)
