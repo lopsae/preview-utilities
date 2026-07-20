@@ -13,40 +13,25 @@ struct EdgeGraticule: Shape {
     let outerSpacing: CGFloat
     let outerCount: Int
 
-    let innerSpacing: CGSize
+    let innerSpacing: CGFloat
     let innerCount: Int
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
+
+        // FIXME: code should take care of only drawing the border at 0 index once.
+
+        let insetGraticule = InsetShape(lineSets: .init(all: .init(
+            spacing: innerSpacing,
+            through: innerCount
+        )))
+        path.addPath(insetGraticule.path(in: rect))
 
         let outsetGraticule = OutsetShape(lineSets: .init(all: .init(
             spacing: outerSpacing,
             through: outerCount
         )))
         path.addPath(outsetGraticule.path(in: rect))
-
-        // Inner graticules.
-        for index in 0 ..< innerCount {
-            let inset = innerSpacing.height * (index.asDouble + 1)
-
-            // Horizontal.
-            let topY = rect.minY + inset
-            path.moveTo(x: rect.minX, y: topY)
-            path.addLineTo(x: rect.maxX, y: topY)
-
-            let bottomY = rect.maxY - inset
-            path.moveTo(x: rect.minX, y: bottomY)
-            path.addLineTo(x: rect.maxX, y: bottomY)
-
-            // Vertical.
-            let leadingX = rect.minX + inset
-            path.moveTo(x: leadingX, y: rect.minY)
-            path.addLineTo(x: leadingX, y: rect.maxY)
-
-            let trailingX = rect.maxX - inset
-            path.moveTo(x: trailingX, y: rect.minY)
-            path.addLineTo(x: trailingX, y: rect.maxY)
-        }
 
         return path
     }
@@ -108,7 +93,6 @@ extension EdgeGraticule {
 
         func path(in rect: CGRect) -> Path {
             var path = Path()
-            let extents = lineSets.extents
 
             for edge in Edge.allCases {
                 let spacing = lineSets[edge].spacing
@@ -362,7 +346,7 @@ private struct PreviewContent {
         EdgeGraticule(
             outerSpacing: 20,
             outerCount: 3,
-            innerSpacing: .square(of: 10),
+            innerSpacing: 10,
             innerCount: 3,
         )
         .stroke(.quaternary)

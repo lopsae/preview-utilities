@@ -494,7 +494,7 @@ private struct PreviewContent {
         EdgeGraticule(
             outerSpacing: 20,
             outerCount: 2,
-            innerSpacing: .square(of: 20),
+            innerSpacing: 20,
             innerCount: 2
         )
         .stroke(.quaternary)
@@ -511,7 +511,7 @@ private struct PreviewContent {
         EdgeGraticule(
             outerSpacing: 20,
             outerCount: 2,
-            innerSpacing: .square(of: 20),
+            innerSpacing: 20,
             innerCount: 2
         )
         .stroke(.quaternary)
