@@ -24,20 +24,17 @@ struct EdgeGraticule: Shape {
         outsetSpacing: CGFloat,
         through outsetThrough: Int
     ) {
-        self.insetLineSets = .init(all: .init(
-            spacing: insetSpacing,
-            through: insetThrough
-        ))
-        self.outsetLineSets = .init(all: .init(
-            spacing: outsetSpacing,
-            through: outsetThrough
-        ))
+        if insetThrough > 0 {
+            self.insetLineSets = .init(spacing: insetSpacing, range: 1...insetThrough)
+        } else {
+            self.insetLineSets = .init(spacing: insetSpacing, indices: .empty)
+        }
+
+        self.outsetLineSets = .init(spacing: outsetSpacing, through: outsetThrough)
     }
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
-
-        // FIXME: code should take care of only drawing the border at 0 index once.
 
         let insetGraticule = InsetShape(lineSets: insetLineSets)
         path.addPath(insetGraticule.path(in: rect))
@@ -86,6 +83,21 @@ extension EdgeGraticule {
 
 nonisolated
 extension EdgeValues where Value == EdgeGraticule.LineSet {
+
+    init(spacing: CGFloat, indices: IndexSet) {
+        let lineSet = EdgeGraticule.LineSet(spacing: spacing, indices: indices)
+        self.init(all: lineSet)
+    }
+
+    init(spacing: CGFloat, through count: Int) {
+        let lineSet = EdgeGraticule.LineSet(spacing: spacing, through: count)
+        self.init(all: lineSet)
+    }
+
+    init(spacing: CGFloat, range: ClosedRange<Int>) {
+        let lineSet = EdgeGraticule.LineSet(spacing: spacing, range: range)
+        self.init(all: lineSet)
+    }
 
     var extents: EdgeValues<CGFloat> {
         .init(edgeValues: self, property: \.extent)
@@ -284,6 +296,14 @@ private extension Edge {
         case .trailing: .vertical
         }
     }
+
+}
+
+
+private extension IndexSet {
+
+    nonisolated
+    static var empty: Self { .init() }
 
 }
 
@@ -523,7 +543,7 @@ private struct PreviewContent {
 }
 
 
-#Playground("IndexSet") {
+#Playground("IndexSet&Misc") {
     _ = IndexSet(0..<5).last
     _ = IndexSet(0...5).last
 
