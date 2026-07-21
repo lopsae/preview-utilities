@@ -91,6 +91,12 @@ extension TraitConfigurable {
     /// modify the same configuration properties, the last one applied may overwrite former traits.
     public init(traits: [ConfigurationTrait<Self>]) {
         self.init()
+        self.apply(traits: traits)
+    }
+
+
+    // FIXME: Document.
+    public mutating func apply(traits: [ConfigurationTrait<Self>]) {
         for trait in traits {
             trait.apply(to: &self)
         }
