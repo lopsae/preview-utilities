@@ -140,18 +140,17 @@ struct EdgeValuesProxy<Value> {
         get {
             values.first?.value[keyPath: keyPath]
         }
-        set {
+        set(newProperty) {
             // The return value of this subscript needs to be optional, to support creation of this
             // proxy with a empty Edge.Set. Given that it is optional, it is possible to set the
             // value of a property to nil, in which case the set is ignored.
             // However, if a property is itself optional, it seems not possible to set said property
             // to nil because the set is ignored through this interface.
-            guard let newValue else { return }
-            for key in values.keys {
-                // FIXME: use  for key,value
-                guard var value = values[key] else { continue }
-                value[keyPath: keyPath] = newValue
-                values[key] = value
+            guard let newProperty else { return }
+            for (edge, value) in values {
+                var newValue = value
+                newValue[keyPath: keyPath] = newProperty
+                values[edge] = newValue
             }
         }
     }
@@ -187,10 +186,14 @@ private struct Dummy {
 #Playground("Optionals") {
     var edgeValues = EdgeValues(all: Dummy(string: "one", optional: "maybe"))
 
+    // Set to an edgeSet.
     edgeValues[set: .leading].string = "leading"
+
+    // Nil is ignored.
     edgeValues[set: .trailing].string = nil
     _ = edgeValues
 
+    // Nil is valid, but is also ignored.
     edgeValues[set: .top].optional = nil
     _ = edgeValues
 }
