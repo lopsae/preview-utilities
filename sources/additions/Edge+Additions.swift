@@ -9,6 +9,21 @@ import SwiftUI
 
 extension Edge {
 
+    nonisolated
+    var set: Edge.Set { .init(self) }
+
+
+    nonisolated
+    var orthogonalSet: Edge.Set {
+        switch self {
+        case .top:      .horizontal
+        case .leading:  .vertical
+        case .bottom:   .horizontal
+        case .trailing: .vertical
+        }
+    }
+
+
     /// Returns a `GeometryProxy` keypath to the `safeAreaInset` of this edge.
     var geometryProxySafeAreaInsetKeyPath: KeyPath<GeometryProxy, CGFloat> & Sendable {
         switch self {
