@@ -61,9 +61,13 @@ extension EdgeGraticule {
         var spacing: CGFloat
         var indices: IndexSet
 
-        init() {
-            self.spacing = 0
-            self.indices = .empty
+        init(spacing: CGFloat, through count: Int) {
+            self.spacing = spacing
+            self.indices = IndexSet(0...count)
+        }
+
+        init(spacing: CGFloat) {
+            self.init(spacing: spacing, through: .one)
         }
 
         init(spacing: CGFloat, indices: IndexSet) {
@@ -71,17 +75,15 @@ extension EdgeGraticule {
             self.indices = indices
         }
 
-        init(spacing: CGFloat, through count: Int) {
-            self.spacing = spacing
-            self.indices = IndexSet(0...count)
-        }
-
         init(spacing: CGFloat, range: ClosedRange<Int>) {
             self.spacing = spacing
             self.indices = IndexSet(range)
         }
 
-        static var empty: Self { .init() }
+        // Draws no lines.
+        static var empty: Self { .init(spacing: .zero, indices: .empty) }
+
+        // Draws only the line at the edge of the shape.
         static var zero: Self { .init(spacing: .zero, indices: .zero) }
 
         var extent: CGFloat {
@@ -95,15 +97,17 @@ extension EdgeGraticule {
 nonisolated
 extension EdgeValues where Value == EdgeGraticule.LineSet {
 
-    init() { self.init(all: .empty) }
-
-    init(spacing: CGFloat, indices: IndexSet) {
-        let lineSet = EdgeGraticule.LineSet(spacing: spacing, indices: indices)
+    init(spacing: CGFloat, through count: Int) {
+        let lineSet = EdgeGraticule.LineSet(spacing: spacing, through: count)
         self.init(all: lineSet)
     }
 
-    init(spacing: CGFloat, through count: Int) {
-        let lineSet = EdgeGraticule.LineSet(spacing: spacing, through: count)
+    init(spacing: CGFloat) {
+        self.init(spacing: spacing, through: .one)
+    }
+
+    init(spacing: CGFloat, indices: IndexSet) {
+        let lineSet = EdgeGraticule.LineSet(spacing: spacing, indices: indices)
         self.init(all: lineSet)
     }
 
@@ -112,7 +116,7 @@ extension EdgeValues where Value == EdgeGraticule.LineSet {
         self.init(all: lineSet)
     }
 
-    static var empty: Self { .init() }
+    static var empty: Self { self.init(all: .empty) }
 
     var extents: EdgeValues<CGFloat> {
         .init(edgeValues: self, property: \.extent)
@@ -538,20 +542,33 @@ public struct EdgeGraticuleModifier: ViewModifier {
         }
     }
 
-    struct Configuration: TraitConfigurable {
+
+    // FIXME: Separate TraitConfigurable and TraitInitializable, because i dont want the default init here.
+    public struct Configuration: TraitConfigurable {
 
         var insetLineSets: EdgeValues<EdgeGraticule.LineSet>
         var outsetLineSets: EdgeValues<EdgeGraticule.LineSet>
 
-        init() {
-            insetLineSets = .init(all: .empty)
-            outsetLineSets = .init(all: .zero)
+        // FIXME: This is not to be used as the default configuration.
+        /// Creates a configuration with zero spacing and an empty indices for both line sets.
+        ///
+        /// When using this configuration `EdgeGraticule` produces an empty path.
+        public init() {
+            insetLineSets =  .init(spacing: .zero, indices: .empty)
+            outsetLineSets = .init(spacing: .zero, indices: .empty)
         }
 
         init(spacing: CGFloat) {
-            insetLineSets = .init(spacing: spacing, indices: .empty)
-            outsetLineSets = .init(spacing: spacing, indices: .zero)
+            insetLineSets =  .init(spacing: spacing)
+            outsetLineSets = .init(spacing: spacing)
         }
+
+        init(insetSpacing: CGFloat = .zero, outsetSpacing: CGFloat = .zero) {
+            insetLineSets  = .init(spacing: insetSpacing)
+            outsetLineSets = .init(spacing: outsetSpacing)
+        }
+
+        static var empty: Self { .init() }
 
     }
 
@@ -561,16 +578,15 @@ public struct EdgeGraticuleModifier: ViewModifier {
 // MARK: - Traits
 
 
-/// Contains the configuration traits that can be applied to the configuration of ``DebugAlignmentGuideModifier``.
-extension ConfigurationTrait where Configuration == EdgeGraticuleModifier.Configuration {
+/// Contains the configuration traits that can be applied to ``EdgeGraticuleModifier.Configuration``.
+extension EdgeGraticuleModifier.Trait {
 
     // FIXME: document.
-//    public static func inset(_ edgeSet: Edge.Set, _ count: Int): Self {
-//        .mutate {
-//            $0.insetLineSets[.top].spacing
-//        }
-//        .modifier(Modifiers.Opacity(opacity: .zero))
-//    }
+    public static func inset(_ edgeSet: Edge.Set, _ count: Int) -> Self {
+        .mutate {
+            $0.insetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
+        }
+    }
 
 }
 
@@ -580,6 +596,7 @@ extension ConfigurationTrait where Configuration == EdgeGraticuleModifier.Config
 
 extension View {
 
+    // FIXME: Delete.
     public func edgeGraticule(
         insetSpacing: CGFloat,
         through insetCount: Int,
@@ -596,18 +613,36 @@ extension View {
     }
 
 
-    public func edgeGraticule(insetSpacing: CGFloat, through count: Int) -> some View {
-        var configuration = EdgeGraticuleModifier.Configuration()
-        configuration.insetLineSets = .init(spacing: insetSpacing, through: count)
-        configuration.outsetLineSets = .empty
+    // FIXME: Document.
+    public func edgeGraticule(
+        insetSpacing: CGFloat,
+        outsetSpacing: CGFloat,
+        _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
+    ) -> some View {
+        var configuration = EdgeGraticuleModifier.Configuration(
+            insetSpacing: insetSpacing,
+            outsetSpacing: outsetSpacing
+        )
+        configuration.apply(traits: traits)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
 
 
+    // FIXME: Document.
+    public func edgeGraticule(insetSpacing: CGFloat, through count: Int) -> some View {
+        var configuration = EdgeGraticuleModifier.Configuration()
+        configuration.insetLineSets = .init(spacing: insetSpacing, through: count)
+        configuration.outsetLineSets = .empty // FIXME: Empty is used and valid here to not show any inset
+        let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
+        return modifier(graticuleModifier)
+    }
+
+
+    // FIXME: Document.
     public func edgeGraticule(outsetSpacing: CGFloat, through count: Int) -> some View {
         var configuration = EdgeGraticuleModifier.Configuration()
-        configuration.insetLineSets = .empty
+        configuration.insetLineSets = .empty  // FIXME: Empty is used and valid here to not show any inset
         configuration.outsetLineSets = .init(spacing: outsetSpacing, through: count)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
@@ -620,22 +655,22 @@ extension View {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .edgeGraticule(insetSpacing: 10, through: 2, outsetSpacing: 20, through: 1)
     .floatingCaption("Inset/Outset", .alignment(.outerTop))
+    .edgeGraticule(insetSpacing: 10, outsetSpacing: 20, .inset(.vertical, 3), .inset(.trailing, 5))
 
     DashedDivider()
 
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .edgeGraticule(insetSpacing: 10, through: 2)
     .floatingCaption("Only Inset", .alignment(.outerTop))
+    .edgeGraticule(insetSpacing: 10, through: 2)
 
     DashedDivider()
 
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .edgeGraticule(outsetSpacing: 20, through: 1)
     .floatingCaption("Only Outset", .alignment(.outerTop))
+    .edgeGraticule(outsetSpacing: 20, through: 2)
 }
