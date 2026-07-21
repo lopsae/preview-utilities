@@ -54,8 +54,8 @@ extension EdgeGraticule {
 
     nonisolated
     struct LineSet : Equatable, Sendable {
-        let spacing: CGFloat
-        let indices: IndexSet
+        var spacing: CGFloat
+        var indices: IndexSet
 
         init() {
             self.spacing = 0
@@ -78,6 +78,7 @@ extension EdgeGraticule {
         }
 
         static var empty: Self { .init() }
+        static var zero: Self { .init(spacing: .zero, indices: .zero) }
 
         var extent: CGFloat {
             spacing * (indices.last ?? .zero).asDouble
@@ -315,6 +316,9 @@ private extension IndexSet {
     nonisolated
     static var empty: Self { .init() }
 
+    nonisolated
+    static var zero: Self { .init(integer: .zero) }
+
 }
 
 
@@ -324,10 +328,10 @@ private extension IndexSet {
 nonisolated
 struct EdgeValues<Value> {
 
-    let top: Value
-    let leading: Value
-    let bottom: Value
-    let trailing: Value
+    var top: Value
+    var leading: Value
+    var bottom: Value
+    var trailing: Value
 
     init(top: Value, leading: Value, bottom: Value, trailing: Value) {
         self.top      = top
@@ -342,6 +346,21 @@ struct EdgeValues<Value> {
 
     init(all value: Value) {
         self.init(top: value, leading: value, bottom: value, trailing: value)
+    }
+
+    init(
+        top:      Value? = nil,
+        leading:  Value? = nil,
+        bottom:   Value? = nil,
+        trailing: Value? = nil,
+        default value: Value,
+    ) {
+        self.init(
+            top:      top      ?? value,
+            leading:  leading  ?? value,
+            bottom:   bottom   ?? value,
+            trailing: trailing ?? value
+        )
     }
 
     init(horizontal: Value, vertical: Value) {
@@ -363,14 +382,44 @@ struct EdgeValues<Value> {
     var tra: Value { trailing }
 
     subscript(_ edge: Edge) -> Value {
-        switch edge {
-        case .top:      self.top
-        case .leading:  self.leading
-        case .bottom:   self.bottom
-        case .trailing: self.trailing
+        get {
+            switch edge {
+            case .top:      self.top
+            case .leading:  self.leading
+            case .bottom:   self.bottom
+            case .trailing: self.trailing
+            }
+        }
+        set {
+            switch edge {
+            case .top:      self.top     = newValue
+            case .leading:  self.leading  = newValue
+            case .bottom:   self.bottom   = newValue
+            case .trailing: self.trailing = newValue
+            }
+        }
+
+    }
+
+
+    subscript(set edgeSet: Edge.Set) -> EdgeValuesProxy<Value> {
+        get {
+            var values: [Edge: Value] = [:]
+            for edge in Edge.allCases {
+                if edgeSet.contains(edge.set) {
+                    values[edge] = self[edge]
+                }
+            }
+            return .init(values: values)
+        }
+        set(newProxy) {
+            for (edge, newValue) in newProxy.values {
+                self[edge] = newValue
+            }
         }
     }
 
+    // TODO: could this be done lazily with a view of EdgeValues? This would require the EdgeValuesContainer protocol.
     func map<NewValue>(_ transform: (Value) throws -> NewValue) rethrows -> EdgeValues<NewValue> {
         .init(
             top:      try transform(top),
@@ -388,6 +437,30 @@ extension EdgeValues: Equatable where Value: Equatable {}
 
 nonisolated
 extension EdgeValues: Sendable where Value: Sendable {}
+
+
+@dynamicMemberLookup
+nonisolated
+struct EdgeValuesProxy<Value> {
+
+    var values: [Edge: Value]
+
+    subscript<Property>(dynamicMember keyPath: WritableKeyPath<Value, Property>) -> Property? {
+        get {
+            values.first?.value[keyPath: keyPath]
+        }
+        set {
+            // FIXME: what happens if the property itself of the object is optional? can it be nulled here?
+            guard let newValue else { return }
+            for key in values.keys {
+                guard var value = values[key] else { continue }
+                value[keyPath: keyPath] = newValue
+                values[key] = value
+            }
+        }
+    }
+
+}
 
 
 // MARK: - PreviewContent
@@ -579,16 +652,54 @@ private struct PreviewContent {
 
 public struct EdgeGraticuleModifier: ViewModifier {
 
-    let insetLineSets: EdgeValues<EdgeGraticule.LineSet>
-    let outsetLineSets: EdgeValues<EdgeGraticule.LineSet>
+    typealias Trait = ConfigurationTrait<Configuration>
+
+    let configuration: Configuration
 
     public func body(content: Content) -> some View {
         content
         .overlay {
-            EdgeGraticule(insetLineSets: insetLineSets, outsetLineSets: outsetLineSets)
+            EdgeGraticule(
+                insetLineSets: configuration.insetLineSets,
+                outsetLineSets: configuration.outsetLineSets
+            )
             .stroke(.quaternary)
         }
     }
+
+    struct Configuration: TraitConfigurable {
+
+        var insetLineSets: EdgeValues<EdgeGraticule.LineSet>
+        var outsetLineSets: EdgeValues<EdgeGraticule.LineSet>
+
+        init() {
+            insetLineSets = .init(all: .empty)
+            outsetLineSets = .init(all: .zero)
+        }
+
+        init(spacing: CGFloat) {
+            insetLineSets = .init(spacing: spacing, indices: .empty)
+            outsetLineSets = .init(spacing: spacing, indices: .zero)
+        }
+
+    }
+
+}
+
+
+// MARK: - Traits
+
+
+/// Contains the configuration traits that can be applied to the configuration of ``DebugAlignmentGuideModifier``.
+extension ConfigurationTrait where Configuration == EdgeGraticuleModifier.Configuration {
+
+    // FIXME: document.
+//    public static func inset(_ edgeSet: Edge.Set, _ count: Int): Self {
+//        .mutate {
+//            $0.insetLineSets[.top].spacing
+//        }
+//        .modifier(Modifiers.Opacity(opacity: .zero))
+//    }
 
 }
 
@@ -612,28 +723,28 @@ extension View {
             insetLineSets = .init(spacing: insetSpacing, indices: .empty)
         }
         let outsetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: outsetSpacing, through: outsetCount)
-        let graticuleModifier = EdgeGraticuleModifier(
-            insetLineSets: insetLineSets,
-            outsetLineSets: outsetLineSets
-        )
+        var configuration = EdgeGraticuleModifier.Configuration()
+        configuration.insetLineSets = insetLineSets
+        configuration.outsetLineSets = outsetLineSets
+        let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
 
 
     public func edgeGraticule(insetSpacing: CGFloat, through count: Int) -> some View {
-        let graticuleModifier = EdgeGraticuleModifier(
-            insetLineSets: .init(spacing: insetSpacing, through: count),
-            outsetLineSets: .empty
-        )
+        var configuration = EdgeGraticuleModifier.Configuration()
+        configuration.insetLineSets = .init(spacing: insetSpacing, through: count)
+        configuration.outsetLineSets = .empty
+        let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
 
 
     public func edgeGraticule(outsetSpacing: CGFloat, through count: Int) -> some View {
-        let graticuleModifier = EdgeGraticuleModifier(
-            insetLineSets: .empty,
-            outsetLineSets: .init(spacing: outsetSpacing, through: count)
-        )
+        var configuration = EdgeGraticuleModifier.Configuration()
+        configuration.insetLineSets = .empty
+        configuration.outsetLineSets = .init(spacing: outsetSpacing, through: count)
+        let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
 
@@ -662,4 +773,20 @@ extension View {
     .border(.green.tertiary, width: 10)
     .edgeGraticule(outsetSpacing: 20, through: 1)
     .floatingCaption("Only Outset", .alignment(.outerTop))
+}
+
+
+#Playground("EdgeSet Modification") {
+    var lineSet: EdgeValues<EdgeGraticule.LineSet> = .init(
+        top: .init(spacing: 5,  through: 4),
+        lea: .init(spacing: 10, through: 3),
+        bot: .init(spacing: 15, through: 2),
+        tra: .init(spacing: 20, through: 1)
+    )
+
+    _ = lineSet[.top].spacing
+    _ = lineSet[set: .horizontal]
+
+    lineSet[set: .vertical].spacing = 30
+    let modified = lineSet
 }

@@ -490,8 +490,19 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .leading, .extendLength(40), .anchor(.bottom))
     .debugAlignmentGuide(horizontal: .center, .extendLength(20), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .extendLength(-40), .anchor(.top))
+    // FIXME: Figure out these traits.
+    //.edgeGraticule(spacing: 20, .inset(.bottom, 2), .outset(.horizontal, 1), .outset(.vertical, 2))
     .overlay {
-        EdgeGraticule(insetSpacing: 20, through: 2, outsetSpacing: 20, through: 2)
+        EdgeGraticule(
+            insetLineSets: .init(
+                bottom: .init(spacing: 20, through: 2),
+                default: .empty
+            ),
+            outsetLineSets: .init(
+                horizontal: .init(spacing: 20, through: 1),
+                vertical: .init(spacing: 20, through: 2)
+            )
+        )
         .stroke(.quaternary)
     }
 
@@ -503,7 +514,16 @@ private struct PreviewContent {
     .debugAlignmentGuide(horizontal: .center, .scaleLength(0.6), )
     .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.4), .anchor(.top))
     .overlay {
-        EdgeGraticule(insetSpacing: 20, through: 2, outsetSpacing: 20, through: 2)
+        EdgeGraticule(
+            insetLineSets: .init(
+                horizontal: .init(spacing: 20, through: 0),
+                vertical: .init(spacing: 20, through: 2)
+            ),
+            outsetLineSets: .init(
+                horizontal: .init(spacing: 20, through: 1),
+                vertical: .init(spacing: 20, through: 2)
+            )
+        )
         .stroke(.quaternary)
     }
 }
