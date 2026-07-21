@@ -24,18 +24,22 @@ struct EdgeGraticule: Shape {
         outsetSpacing: CGFloat,
         through outsetCount: Int
     ) {
-        if insetCount > 0 {
-            self.insetLineSets = .init(spacing: insetSpacing, range: 1...insetCount)
-        } else {
-            self.insetLineSets = .init(spacing: insetSpacing, indices: .empty)
-        }
+        self.insetLineSets = .init(spacing: insetSpacing, through: insetCount)
         self.outsetLineSets = .init(spacing: outsetSpacing, through: outsetCount)
     }
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
 
-        let insetGraticule = InsetShape(lineSets: insetLineSets)
+        // Remove inset lines at zero, to prevent double drawing in the shape edge.
+        var correctedInsetLineSets = insetLineSets
+        for edge in Edge.allCases {
+            if outsetLineSets[edge].indices.contains(.zero) {
+                correctedInsetLineSets[edge].indices.remove(.zero)
+            }
+        }
+
+        let insetGraticule = InsetShape(lineSets: correctedInsetLineSets)
         path.addPath(insetGraticule.path(in: rect))
 
         let outsetGraticule = OutsetShape(lineSets: outsetLineSets)
@@ -490,6 +494,32 @@ private struct PreviewContent {
 }
 
 
+#Preview("ViewEdge", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    PreviewCaption("""
+        When inset and outset line sets contain the line at _zero_ index, those lines are removed
+        from the inset line set. Otherwise, like in this case, _zero_ index lines in the inset are
+        preserved.
+        """)
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .overlay {
+        EdgeGraticule(
+            insetLineSets: .init(
+                horizontal: .init(spacing: 10, range: 0...2),
+                vertical:   .init(spacing: 10, range: 2...3)
+            ),
+            outsetLineSets: .init(
+                horizontal: .init(spacing: 20, range: 2...3),
+                vertical:   .init(spacing: 20, range: 2...3)
+            )
+        )
+        .stroke(.tertiary, lineWidth: 2)
+    }
+}
+
+
 #Preview("Inset", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
     Rectangle()
     .fill(.green.quinary)
@@ -715,13 +745,7 @@ extension View {
         outsetSpacing: CGFloat,
         through outsetCount: Int
     ) -> some View {
-        // TODO: this logic is repeated in the initializer of EdgeGraticuleModifier, could it be DRYed?
-        let insetLineSets: EdgeValues<EdgeGraticule.LineSet>
-        if insetCount > 0 {
-            insetLineSets = .init(spacing: insetSpacing, range: 1...insetCount)
-        } else {
-            insetLineSets = .init(spacing: insetSpacing, indices: .empty)
-        }
+        let insetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: insetSpacing, through: insetCount)
         let outsetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: outsetSpacing, through: outsetCount)
         var configuration = EdgeGraticuleModifier.Configuration()
         configuration.insetLineSets = insetLineSets
