@@ -130,16 +130,25 @@ extension EdgeValues: Sendable where Value: Sendable {}
 nonisolated
 struct EdgeValuesProxy<Value> {
 
-    var values: [Edge: Value]
+    private(set) var values: [Edge: Value]
+
+    init(values: [Edge : Value]) {
+        self.values = values
+    }
 
     subscript<Property>(dynamicMember keyPath: WritableKeyPath<Value, Property>) -> Property? {
         get {
             values.first?.value[keyPath: keyPath]
         }
         set {
-            // FIXME: what happens if the property itself of the object is optional? can it be nulled here?
+            // The return value of this subscript needs to be optional, to support creation of this
+            // proxy with a empty Edge.Set. Given that it is optional, it is possible to set the
+            // value of a property to nil, in which case the set is ignored.
+            // However, if a property is itself optional, it seems not possible to set said property
+            // to nil because the set is ignored through this interface.
             guard let newValue else { return }
             for key in values.keys {
+                // FIXME: use  for key,value
                 guard var value = values[key] else { continue }
                 value[keyPath: keyPath] = newValue
                 values[key] = value
@@ -153,7 +162,13 @@ struct EdgeValuesProxy<Value> {
 // MARK: - Playgrounds
 
 
-#Playground("EdgeSet Modification") {
+private struct Dummy {
+    var string: String
+    var optional: String?
+}
+
+
+#Playground("Edge.Set Modification") {
     var lineSet: EdgeValues<EdgeGraticule.LineSet> = .init(
         top: .init(spacing: 5,  through: 4),
         lea: .init(spacing: 10, through: 3),
@@ -166,4 +181,16 @@ struct EdgeValuesProxy<Value> {
 
     lineSet[set: .vertical].spacing = 30
     _ = lineSet
+}
+
+
+#Playground("Optionals") {
+    var edgeValues = EdgeValues(all: Dummy(string: "one", optional: "maybe"))
+
+    edgeValues[set: .leading].string = "leading"
+    edgeValues[set: .trailing].string = nil
+    _ = edgeValues
+
+    edgeValues[set: .top].optional = nil
+    _ = edgeValues
 }
