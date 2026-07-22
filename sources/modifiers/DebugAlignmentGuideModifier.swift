@@ -416,15 +416,22 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
+    /// A single-line text that measures exactly 120 points per side.
     static let single: some View =
         Text("Ag")
-        .font(.title.pointSize(100))
+        .font(.title.pointSize(150))
+        .multilineTextAlignment(.leading)
+        .minimumScaleFactor(.leastNormalMagnitude)
+        .frame(squareOf: 120, alignment: .center)
         .border(.green.tertiary, width: 8)
 
+    /// A multi-line text that measures exactly 120 points per side.
     static let multi: some View =
         Text("Sphinx\nof Black\nQuartz")
-        .fixedSize()
-        .font(.largeTitle)
+        .font(.title.pointSize(50))
+        .multilineTextAlignment(.leading)
+        .minimumScaleFactor(.leastNormalMagnitude)
+        .frame(squareOf: 120, alignment: .leading)
         .border(.green.tertiary, width: 8)
 
     static let square: some View =
@@ -466,23 +473,43 @@ private struct PreviewContent {
 }
 
 
-#Preview("Traits", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("Traits", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
     PreviewContent.single
     .floatingCaption("Extended", .alignment(.outerLeading))
-    .edgeGraticule(spacing: 10,
+    .edgeGraticule(
+        spacing: 10,
         .outset(.horizontal, spacing: 25),
         .inset(.vertical, spacing: 20),
         .inset(.horizontal, spacing: 25)
     )
-    .debugAlignmentGuide(.topLeading, .lengths(horizontal: .extended(20), vertical: .extended(50)))
-    .debugAlignmentGuide(.bottomTrailing, .lengths(horizontal: .extended(-40), vertical: .extended(-50)))
+    .debugAlignmentGuide(
+        .topLeading,
+        .lengths(horizontal: .extended(20), vertical: .extended(50))
+    )
+    .debugAlignmentGuide(
+        .bottomTrailing,
+        .lengths(horizontal: .extended(-40), vertical: .extended(-50))
+    )
 
     DashedDivider()
 
     PreviewContent.single
     .floatingCaption("Extended\n& Anchored", .alignment(.outerLeading))
-    .debugAlignmentGuide(.topLeading, .anchor(.topLeading), .lengths(horizontal: .extended(20), vertical: .extended(50)))
-    .debugAlignmentGuide(.centerLastTextBaseline, .anchor(.bottomTrailing), .lengths(horizontal: .extended(-50), vertical: .extended(-50)))
+    .edgeGraticule(
+        spacing: 20,
+        .outset(.horizontal, spacing: 25, count: 2),
+        .inset(.all, spacing: 25, count: 2),
+    )
+    .debugAlignmentGuide(
+        .topLeading,
+        .anchor(.topLeading),
+        .lengths(horizontal: .extended(20), vertical: .extended(50))
+    )
+    .debugAlignmentGuide(
+        .centerLastTextBaseline,
+        .anchor(.bottomTrailing),
+        .lengths(horizontal: .extended(-50), vertical: .extended(-50))
+    )
 }
 
 
@@ -514,22 +541,33 @@ private struct PreviewContent {
 }
 
 
-#Preview("Vertical", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("Vertical", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
     PreviewContent.multi
     .floatingCaption("Fixed", .alignment(.outerLeadingTop))
-    .debugAlignmentGuide(vertical: .top, .fixedLength(50))
-    .debugAlignmentGuide(vertical: .firstTextBaseline, .fixedLength(150), .anchor(.trailing))
-    .debugAlignmentGuide(vertical: .verticalCenter, .fixedLength(50), .anchor(.trailing))
-    .debugAlignmentGuide(vertical: .lastTextBaseline)
-    .debugAlignmentGuide(vertical: .bottom)
+    .edgeGraticule(
+        spacing: 20,
+        // FIXME: implement trait both and use here.
+        .inset(.horizontal, count: 2),
+        .outset(.horizontal, count: 2)
+    )
+    .debugAlignmentGuide(vertical: .top, .fixedLength(80))
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .fixedLength(160), .anchor(.trailing))
+    .debugAlignmentGuide(vertical: .verticalCenter, .fixedLength(160), .anchor(.center))
+    .debugAlignmentGuide(vertical: .lastTextBaseline, .fixedLength(140), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .bottom, .fixedLength(40))
 
     DashedDivider()
 
     PreviewContent.multi
     .floatingCaption("Extended", .alignment(.outerLeadingTop))
+    .edgeGraticule(
+        spacing: 20,
+        .inset(.horizontal, count: 2),
+        .outset(.horizontal, count: 2)
+    )
     .debugAlignmentGuide(vertical: .top, .extendLength(-40))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .extendLength(40), .anchor(.trailing))
-    .debugAlignmentGuide(vertical: .verticalCenter, .extendLength(40))
+    .debugAlignmentGuide(vertical: .verticalCenter, .extendLength(40), .anchor(.center))
     .debugAlignmentGuide(vertical: .lastTextBaseline, .extendLength(40), .anchor(.leading))
     .debugAlignmentGuide(vertical: .bottom, .extendLength(40))
 
@@ -537,39 +575,47 @@ private struct PreviewContent {
 
     PreviewContent.multi
     .floatingCaption("Scaled", .alignment(.outerLeadingTop))
-    .debugAlignmentGuide(vertical: .top, .scaleLength(1.5))
-    .debugAlignmentGuide(vertical: .firstTextBaseline, .scaleLength(1.5), .anchor(.trailing))
-    .debugAlignmentGuide(vertical: .verticalCenter, .scaleLength(0.5))
-    .debugAlignmentGuide(vertical: .lastTextBaseline, .scaleLength(1.5), .anchor(.leading))
-    .debugAlignmentGuide(vertical: .bottom, .scaleLength(0.5), .anchor(.leading))
+    .edgeGraticule(
+        spacing: 24,
+        .inset(.horizontal, count: 2),
+        .outset(.horizontal, count: 3)
+    )
+    .debugAlignmentGuide(vertical: .top, .scaleLength(1.4))
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .scaleLength(1.6), .anchor(.trailing))
+    .debugAlignmentGuide(vertical: .verticalCenter, .scaleLength(0.6), .anchor(.center))
+    .debugAlignmentGuide(vertical: .lastTextBaseline, .scaleLength(1.4), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .bottom, .scaleLength(0.2))
 }
 
 
-#Preview("Offset", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("Offset", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
     PreviewContent.single
     .floatingCaption("Horizontal", .alignment(.outerLeading))
+    .edgeGraticule(spacing: 20)
 
     .debugAlignmentGuide(horizontal: .leading, .style(.mint.secondary))
-    .alignmentGuide(.leading, offsetBy: 10)
+    .alignmentGuide(.leading, offsetBy: 20)
     .debugAlignmentGuide(horizontal: .leading)
 
     .debugAlignmentGuide(horizontal: .trailing, .style(.mint.secondary))
-    .alignmentGuide(.trailing, offsetBy: -10)
+    .alignmentGuide(.trailing, offsetBy: 20)
     .debugAlignmentGuide(horizontal: .trailing)
 
     DashedDivider()
 
     PreviewContent.single
     .floatingCaption("Vertical", .alignment(.outerLeading))
+    .edgeGraticule(spacing: 20)
+
     .debugAlignmentGuide(vertical: .top, .style(.mint.secondary))
-    .alignmentGuide(.top, offsetBy: 10)
+    .alignmentGuide(.top, offsetBy: 20)
     .debugAlignmentGuide(vertical: .top)
 
     .debugAlignmentGuide(vertical: .firstTextBaseline, .style(.mint.secondary))
-    .alignmentGuide(.firstTextBaseline, offsetBy: -10)
+    .alignmentGuide(.firstTextBaseline, offsetBy: -20)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
 
     .debugAlignmentGuide(vertical: .bottom, .style(.mint.secondary))
-    .alignmentGuide(.bottom, offsetBy: -10)
+    .alignmentGuide(.bottom, offsetBy: 20)
     .debugAlignmentGuide(vertical: .bottom)
 }
