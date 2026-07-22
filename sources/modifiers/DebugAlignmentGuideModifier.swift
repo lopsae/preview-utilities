@@ -387,9 +387,9 @@ extension View {
 
     public func debugAlignmentGuide(
         horizontal horizontalAlignment: HorizontalAlignment,
-        _ traits: DebugAxisAlignmentGuideModifier<HorizontalAlignment>.Trait...
+        _ traits: DebugHorizontalAlignmentGuideModifier.Trait...
     ) -> some View {
-        let configuration = DebugAxisAlignmentGuideModifier<HorizontalAlignment>.Configuration(traits: traits)
+        let configuration = DebugHorizontalAlignmentGuideModifier.Configuration(traits: traits)
         let guideModifier = DebugAxisAlignmentGuideModifier(
             axisAlignment: horizontalAlignment,
             configuration: configuration
@@ -399,9 +399,9 @@ extension View {
 
     public func debugAlignmentGuide(
         vertical verticalAlignment: VerticalAlignment,
-        _ traits: DebugAxisAlignmentGuideModifier<VerticalAlignment>.Trait...
+        _ traits: DebugVerticalAlignmentGuideModifier.Trait...
     ) -> some View {
-        let configuration = DebugAxisAlignmentGuideModifier<VerticalAlignment>.Configuration(traits: traits)
+        let configuration = DebugVerticalAlignmentGuideModifier.Configuration(traits: traits)
         let guideModifier = DebugAxisAlignmentGuideModifier(
             axisAlignment: verticalAlignment,
             configuration: configuration
