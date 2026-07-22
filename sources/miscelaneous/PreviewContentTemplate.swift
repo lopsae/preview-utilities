@@ -21,7 +21,10 @@ private struct PreviewContent {
     struct Silver: View {
         var body: some View {
             Text("Ag")
-            .font(.title.pointSize(100))
+            .font(.title.pointSize(150))
+            .multilineTextAlignment(.leading)
+            .minimumScaleFactor(.leastNormalMagnitude)
+            .frame(squareOf: 120, alignment: .center)
             .border(.green.tertiary, width: 8)
         }
     }
@@ -34,5 +37,5 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.Silver()
-    .debugOverlay(.size)
+    .debugOverlay(.size, .noBorders)
 }
