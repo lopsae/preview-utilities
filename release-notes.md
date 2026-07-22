@@ -8,6 +8,7 @@ Upcoming Release.
 + Added `DebugAlignmentGuideModifier` and associated `View` extension functions.
 + Added `EdgeGraticuleModifier` and associated `View` extension functions.
 + Added `EdgeGraticule` shape.
++ Added `ConfigurationTrait`, `ConfigurationModifier`, and related types.
 
 
 
