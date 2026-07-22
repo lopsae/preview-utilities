@@ -469,8 +469,13 @@ private struct PreviewContent {
 #Preview("Traits", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.single
     .floatingCaption("Extended", .alignment(.outerLeading))
+    .edgeGraticule(spacing: 10,
+        .outset(.horizontal, spacing: 25),
+        .inset(.vertical, spacing: 20),
+        .inset(.horizontal, spacing: 25)
+    )
     .debugAlignmentGuide(.topLeading, .lengths(horizontal: .extended(20), vertical: .extended(50)))
-    .debugAlignmentGuide(.bottomTrailing, .lengths(horizontal: .extended(-50), vertical: .extended(-50)))
+    .debugAlignmentGuide(.bottomTrailing, .lengths(horizontal: .extended(-40), vertical: .extended(-50)))
 
     DashedDivider()
 
