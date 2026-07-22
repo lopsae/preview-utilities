@@ -30,6 +30,7 @@ public struct EdgeGraticuleModifier: ViewModifier {
         var insetLineSets: EdgeValues<EdgeGraticule.LineSet>
         var outsetLineSets: EdgeValues<EdgeGraticule.LineSet>
 
+        // FIXME: Rename back to inset/outsetLineSets.
         init(inset: EdgeValues<EdgeGraticule.LineSet>, outset: EdgeValues<EdgeGraticule.LineSet>) {
             self.insetLineSets  = inset
             self.outsetLineSets = outset
@@ -116,41 +117,51 @@ extension View {
     }
 
 
-    // FIXME: Add traits.
     // FIXME: Document.
-    public func edgeGraticule(insetSpacing: CGFloat, through count: Int) -> some View {
-        var configuration = EdgeGraticuleModifier.Configuration()
-        configuration.insetLineSets = .init(spacing: insetSpacing, through: count)
-        configuration.outsetLineSets = .empty // FIXME: Empty is used and valid here to not show any inset
+    public func edgeGraticule(
+        insetSpacing: CGFloat,
+        through count: Int,
+        _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
+    ) -> some View {
+        var configuration = EdgeGraticuleModifier.Configuration(
+            inset:  .init(spacing: insetSpacing, through: count),
+            outset: .empty
+        )
+        configuration.apply(traits: traits)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
 
 
-    // FIXME: Add traits.
     // FIXME: Document.
-    public func edgeGraticule(outsetSpacing: CGFloat, through count: Int) -> some View {
-        var configuration = EdgeGraticuleModifier.Configuration()
-        configuration.insetLineSets = .empty  // FIXME: Empty is used and valid here to not show any inset
-        configuration.outsetLineSets = .init(spacing: outsetSpacing, through: count)
+    public func edgeGraticule(
+        outsetSpacing: CGFloat,
+        through count: Int,
+        _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
+    ) -> some View {
+        var configuration = EdgeGraticuleModifier.Configuration(
+            inset:  .empty,
+            outset: .init(spacing: outsetSpacing, through: count)
+        )
+        configuration.apply(traits: traits)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
 
 
-    // FIXME: Add traits.
     // FIXME: Document.
     public func edgeGraticule(
         insetSpacing: CGFloat,
         through insetCount: Int,
         outsetSpacing: CGFloat,
-        through outsetCount: Int
+        through outsetCount: Int,
+        _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
     ) -> some View {
-        let insetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: insetSpacing, through: insetCount)
-        let outsetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: outsetSpacing, through: outsetCount)
-        var configuration = EdgeGraticuleModifier.Configuration()
-        configuration.insetLineSets = insetLineSets
-        configuration.outsetLineSets = outsetLineSets
+        var configuration = EdgeGraticuleModifier.Configuration(
+            inset:  .init(spacing: insetSpacing,  through: insetCount),
+            outset: .init(spacing: outsetSpacing, through: outsetCount)
+        )
+        configuration.apply(traits: traits)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
@@ -193,7 +204,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Only Outset - 2", .alignment(.outerTop))
+    .floatingCaption("Only Outset", .alignment(.outerTop))
+    .floatingCaption("2", .alignment(.outerTrailing))
     .edgeGraticule(outsetSpacing: 20, through: 2)
 
     DashedDivider()
@@ -201,7 +213,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Only Inset - 3", .alignment(.outerTop))
+    .floatingCaption("Only Inset", .alignment(.outerTop))
+    .floatingCaption("3", .alignment(.top))
     .edgeGraticule(insetSpacing: 10, through: 3)
 
     DashedDivider()
@@ -210,6 +223,8 @@ private struct PreviewContent {
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
     .floatingCaption("Inset & Outset", .alignment(.outerTop))
+    .floatingCaption("3", .alignment(.top))
+    .floatingCaption("2", .alignment(.outerTrailing))
     .edgeGraticule(insetSpacing: 10, through: 3, outsetSpacing: 20, through: 2)
 }
 
