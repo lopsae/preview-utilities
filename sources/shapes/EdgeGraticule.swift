@@ -13,6 +13,7 @@ struct EdgeGraticule: Shape {
     let insetLineSets: EdgeValues<LineSet>
     let outsetLineSets: EdgeValues<LineSet>
 
+    // FIXME: rename to inset/outset
     init(insetLineSets: EdgeValues<LineSet>, outsetLineSets: EdgeValues<LineSet>) {
         self.insetLineSets = insetLineSets
         self.outsetLineSets = outsetLineSets
@@ -58,6 +59,7 @@ extension EdgeGraticule {
 
     nonisolated
     struct LineSet : Equatable, Sendable {
+
         var spacing: CGFloat
         var indices: IndexSet
 
@@ -117,6 +119,7 @@ extension EdgeValues where Value == EdgeGraticule.LineSet {
     }
 
     static var empty: Self { self.init(all: .empty) }
+    static var zero: Self { self.init(all: .zero) }
 
     var extents: EdgeValues<CGFloat> {
         .init(edgeValues: self, property: \.extent)
@@ -349,6 +352,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
+    .floatingCaption("2...3", .alignment(.outerTop))
+    .floatingCaption("0...2", .alignment(.outerTrailing))
     .overlay {
         EdgeGraticule(
             insetLineSets: .init(
@@ -360,6 +365,36 @@ private struct PreviewContent {
                 vertical:   .init(spacing: 20, range: 2...3)
             )
         )
+        .stroke(.tertiary, lineWidth: 2)
+    }
+}
+
+
+#Preview("LineSets", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .floatingCaption("Empty", .alignment(.outerTop))
+    .overlay {
+        EdgeGraticule(insetLineSets: .empty, outsetLineSets: .empty)
+        .stroke(.tertiary, lineWidth: 2)
+    }
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .floatingCaption("Inset Zero", .alignment(.outerTop))
+    .overlay {
+        EdgeGraticule(insetLineSets: .zero, outsetLineSets: .empty)
+        .stroke(.tertiary, lineWidth: 2)
+    }
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .floatingCaption("Outset Zero", .alignment(.outerTop))
+    .overlay {
+        EdgeGraticule(insetLineSets: .empty, outsetLineSets: .zero)
         .stroke(.tertiary, lineWidth: 2)
     }
 }
@@ -543,24 +578,24 @@ public struct EdgeGraticuleModifier: ViewModifier {
     }
 
 
-    // FIXME: Separate TraitConfigurable and TraitInitializable, because i dont want the default init here.
     public struct Configuration: TraitConfigurable {
 
         var insetLineSets: EdgeValues<EdgeGraticule.LineSet>
         var outsetLineSets: EdgeValues<EdgeGraticule.LineSet>
 
-        // FIXME: This is not to be used as the default configuration.
-        /// Creates a configuration with zero spacing and an empty indices for both line sets.
-        ///
-        /// When using this configuration `EdgeGraticule` produces an empty path.
-        public init() {
-            insetLineSets =  .init(spacing: .zero, indices: .empty)
-            outsetLineSets = .init(spacing: .zero, indices: .empty)
+        init(inset: EdgeValues<EdgeGraticule.LineSet>, outset: EdgeValues<EdgeGraticule.LineSet>) {
+            self.insetLineSets  = inset
+            self.outsetLineSets = outset
         }
 
         init(spacing: CGFloat) {
-            insetLineSets =  .init(spacing: spacing)
+            insetLineSets  = .init(spacing: spacing)
             outsetLineSets = .init(spacing: spacing)
+        }
+
+        init(spacing: CGFloat, indices: IndexSet) {
+            insetLineSets  = .init(spacing: spacing, indices: indices)
+            outsetLineSets = .init(spacing: spacing, indices: indices)
         }
 
         init(insetSpacing: CGFloat = .zero, outsetSpacing: CGFloat = .zero) {
@@ -568,7 +603,10 @@ public struct EdgeGraticuleModifier: ViewModifier {
             outsetLineSets = .init(spacing: outsetSpacing)
         }
 
-        static var empty: Self { .init() }
+        /// A configuration with zero spacing and empty indices for both line sets.
+        ///
+        /// When using this configuration `EdgeGraticule` produces an empty path.
+        static var empty: Self { .init(inset: .empty, outset: .empty) }
 
     }
 
