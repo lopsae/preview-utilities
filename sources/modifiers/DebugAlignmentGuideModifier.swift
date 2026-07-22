@@ -29,7 +29,7 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
     }
 
 
-    public struct Configuration: TraitConfigurable {
+    public struct Configuration: TraitInitializable {
 
         enum Modifiers {}
 
@@ -199,7 +199,7 @@ public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
 
 
 nonisolated
-public struct DebugAxisAlignmentGuideConfiguration<AxisAlignment>: DebugAxisAlignmentGuideConfigurationProtocol, TraitConfigurable
+public struct DebugAxisAlignmentGuideConfiguration<AxisAlignment>: DebugAxisAlignmentGuideConfigurationProtocol
 where
     AxisAlignment: AlignmentWithOrthogonal,
     AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
@@ -210,6 +210,11 @@ where
     public var length: DebugAxisAlignmentConfigurationLength = .container
     public var anchor: AnchorAlignment = .default
     public init() {}
+}
+
+
+extension DebugAxisAlignmentGuideConfiguration: TraitInitializable {
+    // init() defined in struct declaration.
 }
 
 

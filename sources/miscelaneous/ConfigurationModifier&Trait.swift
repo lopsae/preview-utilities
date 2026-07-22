@@ -28,11 +28,11 @@
 /// ```
 public enum ConfigurationTrait<Configuration>: Sendable {
 
+    /// Applies the associated mutating closure.
+    case mutate(@Sendable (inout Configuration) -> Void)
+
     /// Applies the associated modifier.
     case modifier(any ConfigurationModifier<Configuration>)
-
-    // FIXME: document.
-    case mutate(@Sendable (inout Configuration) -> Void)
 
     /// Applies the associated traits.
     case traits([ConfigurationTrait<Configuration>])
@@ -77,19 +77,41 @@ public protocol ConfigurationModifier<Configuration>: Sendable {
 // MARK: - TraitConfigurable
 
 
+/// A configuration that can modified by applying ``ConfigurationTrait`` instances.
+///
+/// This protocol extends implementing types with a function that applies a collection of traits
+/// to an existing instance.
+public protocol TraitConfigurable {}
+extension TraitConfigurable {
+
+    /// Applies a collection of traits to `self`.
+    /// - Parameter traits: A collection of traits to apply.
+    public mutating func apply(traits: [ConfigurationTrait<Self>]) {
+        for trait in traits {
+            trait.apply(to: &self)
+        }
+    }
+
+}
+
+
+// MARK: - TraitInitializable
+
+
 /// A configuration that can be built by applying ``ConfigurationTrait`` instances to a
 /// default instance.
 ///
 /// This protocol extends implementing types with an initializer that builds an instance starting
 /// from a default configuration and applying a collection of traits.
-public protocol TraitConfigurable {
+public protocol TraitInitializable: TraitConfigurable {
 
     /// Creates a default configuration instance.
     init()
+
 }
 
 
-extension TraitConfigurable {
+extension TraitInitializable {
 
     /// Creates a configuration by applying the given traits, in order, to a default instance.
     ///
@@ -98,14 +120,6 @@ extension TraitConfigurable {
     public init(traits: [ConfigurationTrait<Self>]) {
         self.init()
         self.apply(traits: traits)
-    }
-
-
-    // FIXME: Document.
-    public mutating func apply(traits: [ConfigurationTrait<Self>]) {
-        for trait in traits {
-            trait.apply(to: &self)
-        }
     }
 
 }
