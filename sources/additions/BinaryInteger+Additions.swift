@@ -4,12 +4,9 @@
 //
 
 
-extension BinaryFloatingPoint {
+extension BinaryInteger {
 
     nonisolated
     static var one: Self { Self(1) }
-
-    nonisolated
-    static var half: Self { Self(0.5) }
 
 }
