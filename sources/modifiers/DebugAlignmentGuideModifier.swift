@@ -178,6 +178,10 @@ where
 }
 
 
+public typealias DebugHorizontalAlignmentGuideModifier = DebugAxisAlignmentGuideModifier<HorizontalAlignment>
+public typealias DebugVerticalAlignmentGuideModifier   = DebugAxisAlignmentGuideModifier<VerticalAlignment>
+
+
 // MARK: - Configuration
 
 
@@ -593,11 +597,11 @@ private struct PreviewContent {
     .floatingCaption("Horizontal", .alignment(.outerLeading))
     .edgeGraticule(spacing: 20)
 
-    .debugAlignmentGuide(horizontal: .leading, .style(.mint.secondary))
+    .debugAlignmentGuide(horizontal: .leading, .style(.indigo.secondary))
     .alignmentGuide(.leading, offsetBy: 20)
     .debugAlignmentGuide(horizontal: .leading)
 
-    .debugAlignmentGuide(horizontal: .trailing, .style(.mint.secondary))
+    .debugAlignmentGuide(horizontal: .trailing, .style(.indigo.secondary))
     .alignmentGuide(.trailing, offsetBy: 20)
     .debugAlignmentGuide(horizontal: .trailing)
 
@@ -607,15 +611,15 @@ private struct PreviewContent {
     .floatingCaption("Vertical", .alignment(.outerLeading))
     .edgeGraticule(spacing: 20)
 
-    .debugAlignmentGuide(vertical: .top, .style(.mint.secondary))
+    .debugAlignmentGuide(vertical: .top, .style(.indigo.secondary))
     .alignmentGuide(.top, offsetBy: 20)
     .debugAlignmentGuide(vertical: .top)
 
-    .debugAlignmentGuide(vertical: .firstTextBaseline, .style(.mint.secondary))
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .style(.indigo.secondary))
     .alignmentGuide(.firstTextBaseline, offsetBy: -20)
     .debugAlignmentGuide(vertical: .firstTextBaseline)
 
-    .debugAlignmentGuide(vertical: .bottom, .style(.mint.secondary))
+    .debugAlignmentGuide(vertical: .bottom, .style(.indigo.secondary))
     .alignmentGuide(.bottom, offsetBy: 20)
     .debugAlignmentGuide(vertical: .bottom)
 }
