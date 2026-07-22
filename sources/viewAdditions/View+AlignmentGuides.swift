@@ -141,21 +141,25 @@ private struct PreviewContent {
     let padding: CGFloat = 16
     VStack(alignment: .leading) {
         CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
-        .overlay(alignment: .topLeading) {
-            // FIXME: replace with debugAlignmentOverlay or debugOverlay
-            // when alignment guides with size and alignment are supported.
-            Rectangle().fill(.red.secondary)
-                .frame(width: 2, height: 140)
-        }
+        .debugAlignmentGuide(horizontal: .leading, .fixedLength(150), .anchor(.top))
+
+        let guideMarker: DebugHorizontalAlignmentGuideModifier.Trait  = [
+            .extendLength(10), .style(.mint)
+        ]
 
         Text("Leading Inset")
+            .debugAlignmentGuide(horizontal: .leading, guideMarker)
             .alignmentGuide(.leading, insetBy: padding)
+
         Text("Leading Outset")
+            .debugAlignmentGuide(horizontal: .leading, guideMarker)
             .alignmentGuide(.leading, outsetBy: padding)
 
         Text("Trailing Inset")
+            .debugAlignmentGuide(horizontal: .trailing, guideMarker)
             .alignmentGuide(.leading, moveTo: .trailing, insetBy: padding)
         Text("Trailing Outset")
+            .debugAlignmentGuide(horizontal: .trailing, guideMarker)
             .alignmentGuide(.leading, moveTo: .trailing, outsetBy: padding)
     }
     .floatingCaption("Leading Aligned", .colorStyle(.mint), .alignment(.outerTopTrailing))
@@ -165,21 +169,24 @@ private struct PreviewContent {
 
     VStack(alignment: .trailing) {
         CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
-        .overlay(alignment: .topTrailing) {
-            // FIXME: replace with debugAlignmentOverlay or debugOverlay
-            // when alignment guides with size and alignment are supported.
-            Rectangle().fill(.red.secondary)
-                .frame(width: 2, height: 140)
-        }
+        .debugAlignmentGuide(horizontal: .trailing, .fixedLength(150), .anchor(.top))
+
+        let guideMarker: DebugHorizontalAlignmentGuideModifier.Trait  = [
+            .extendLength(10), .style(.mint)
+        ]
 
         Text("Trailing Inset")
+            .debugAlignmentGuide(horizontal: .trailing, guideMarker)
             .alignmentGuide(.trailing, insetBy: padding)
         Text("Trailing Outset")
+            .debugAlignmentGuide(horizontal: .trailing, guideMarker)
             .alignmentGuide(.trailing, outsetBy: padding)
 
         Text("Leading Inset")
+            .debugAlignmentGuide(horizontal: .leading, guideMarker)
             .alignmentGuide(.trailing, moveTo: .leading, insetBy: padding)
         Text("Leading Outset")
+            .debugAlignmentGuide(horizontal: .leading, guideMarker)
             .alignmentGuide(.trailing, moveTo: .leading, outsetBy: padding)
     }
     .floatingCaption("Trailing Aligned", .colorStyle(.mint), .alignment(.outerTopTrailing))
