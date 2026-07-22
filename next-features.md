@@ -10,7 +10,7 @@ For 0.4.1
 
 For 0.5.0
 + Rename DebugOverlay to DebugGeometry, to better match other possible debug modifiers.
-+ Make alignment a parameter of FloatingCaption, instead of a trait.
++ Make alignment a parameter of FloatingCaption, CaptionRectangle, instead of a trait.
 
 Possible new features for future versions.
 + Use FloatingCaption as the main text component in DebugOverlay.

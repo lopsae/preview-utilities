@@ -298,7 +298,6 @@ public struct DebugOverlayModifier: ViewModifier {
                 .font(.caption.monospaced())
                 .foregroundStyle(.secondary)
                 .fixedSize()
-                // FIXME: Add captionBorder as trait.
                 .border(configuration.drawsCaptionBorder ? AnyShapeStyle(.secondary) : AnyShapeStyle(.clear))
             }// FloatingAlignedContainer
         } // if
