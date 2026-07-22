@@ -38,6 +38,7 @@ public enum ConfigurationTrait<Configuration>: Sendable {
     case traits([ConfigurationTrait<Configuration>])
 
 
+    // FIXME: Document.
     public func apply(to configuration: inout Configuration) {
         switch self {
         case .modifier(let modifier):
@@ -49,6 +50,16 @@ public enum ConfigurationTrait<Configuration>: Sendable {
                 trait.apply(to: &configuration)
             }
         }
+    }
+
+}
+
+
+extension ConfigurationTrait: ExpressibleByArrayLiteral {
+
+    // FIXME: Document.
+    public init(arrayLiteral elements: Self...) {
+        self = .traits(elements)
     }
 
 }
