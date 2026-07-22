@@ -30,10 +30,9 @@ public struct EdgeGraticuleModifier: ViewModifier {
         var insetLineSets: EdgeValues<EdgeGraticule.LineSet>
         var outsetLineSets: EdgeValues<EdgeGraticule.LineSet>
 
-        // FIXME: Rename back to inset/outsetLineSets.
-        init(inset: EdgeValues<EdgeGraticule.LineSet>, outset: EdgeValues<EdgeGraticule.LineSet>) {
-            self.insetLineSets  = inset
-            self.outsetLineSets = outset
+        init(insetLineSets: EdgeValues<EdgeGraticule.LineSet>, outsetLineSets: EdgeValues<EdgeGraticule.LineSet>) {
+            self.insetLineSets  = insetLineSets
+            self.outsetLineSets = outsetLineSets
         }
 
         init(spacing: CGFloat) {
@@ -54,7 +53,7 @@ public struct EdgeGraticuleModifier: ViewModifier {
         /// A configuration with zero spacing and empty indices for both line sets.
         ///
         /// When using this configuration `EdgeGraticule` produces an empty path.
-        static var empty: Self { .init(inset: .empty, outset: .empty) }
+        static var empty: Self { .init(insetLineSets: .empty, outsetLineSets: .empty) }
 
     }
 
@@ -124,8 +123,8 @@ extension View {
         _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
     ) -> some View {
         var configuration = EdgeGraticuleModifier.Configuration(
-            inset:  .init(spacing: insetSpacing, through: count),
-            outset: .empty
+            insetLineSets:  .init(spacing: insetSpacing, through: count),
+            outsetLineSets: .empty
         )
         configuration.apply(traits: traits)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
@@ -140,8 +139,8 @@ extension View {
         _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
     ) -> some View {
         var configuration = EdgeGraticuleModifier.Configuration(
-            inset:  .empty,
-            outset: .init(spacing: outsetSpacing, through: count)
+            insetLineSets:  .empty,
+            outsetLineSets: .init(spacing: outsetSpacing, through: count)
         )
         configuration.apply(traits: traits)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
@@ -158,8 +157,8 @@ extension View {
         _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
     ) -> some View {
         var configuration = EdgeGraticuleModifier.Configuration(
-            inset:  .init(spacing: insetSpacing,  through: insetCount),
-            outset: .init(spacing: outsetSpacing, through: outsetCount)
+            insetLineSets:  .init(spacing: insetSpacing,  through: insetCount),
+            outsetLineSets: .init(spacing: outsetSpacing, through: outsetCount)
         )
         configuration.apply(traits: traits)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
