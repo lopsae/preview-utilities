@@ -482,8 +482,9 @@ private struct PreviewContent {
 
 
 #Preview("Horizontal", traits: .spacing(50), .headerFooter, PreviewContent.layout) {
-    PreviewContent.single
+    PreviewContent.square
     .floatingCaption("Fixed", .alignment(.outerLeading))
+    .edgeGraticule(spacing: 25)
     .debugAlignmentGuide(horizontal: .leading, .fixedLength(50))
     .debugAlignmentGuide(horizontal: .center, .fixedLength(50), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .fixedLength(150))
@@ -492,45 +493,19 @@ private struct PreviewContent {
 
     PreviewContent.single
     .floatingCaption("Extended", .alignment(.outerLeading))
+    .edgeGraticule(spacing: 20, .inset(.bottom, count: 2), .outset(.top, count: 2))
     .debugAlignmentGuide(horizontal: .leading, .extendLength(40), .anchor(.bottom))
-    .debugAlignmentGuide(horizontal: .center, .extendLength(20), .anchor(.firstTextBaseline))
-    .debugAlignmentGuide(horizontal: .trailing, .extendLength(-40), .anchor(.top))
-    // FIXME: Figure out these traits.
-    //.edgeGraticule(spacing: 20, .inset(.bottom, 2), .outset(.horizontal, 1), .outset(.vertical, 2))
-    .overlay {
-        EdgeGraticule(
-            insetLineSets: .init(
-                bottom: .init(spacing: 20, through: 2),
-                default: .empty
-            ),
-            outsetLineSets: .init(
-                horizontal: .init(spacing: 20, through: 1),
-                vertical: .init(spacing: 20, through: 2)
-            )
-        )
-        .stroke(.quaternary)
-    }
+    .debugAlignmentGuide(horizontal: .center, .extendLength(-40), .anchor(.top))
+    .debugAlignmentGuide(horizontal: .trailing, .extendLength(20), .anchor(.firstTextBaseline))
 
     DashedDivider()
 
     PreviewContent.square
     .floatingCaption("Scaled", .alignment(.outerLeading))
+    .edgeGraticule(spacing: 20, .outset(.vertical, count: 2))
     .debugAlignmentGuide(horizontal: .leading, .scaleLength(1.2), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .center, .scaleLength(0.6), )
     .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.4), .anchor(.top))
-    .overlay {
-        EdgeGraticule(
-            insetLineSets: .init(
-                horizontal: .init(spacing: 20, through: 0),
-                vertical: .init(spacing: 20, through: 2)
-            ),
-            outsetLineSets: .init(
-                horizontal: .init(spacing: 20, through: 1),
-                vertical: .init(spacing: 20, through: 2)
-            )
-        )
-        .stroke(.quaternary)
-    }
 }
 
 
