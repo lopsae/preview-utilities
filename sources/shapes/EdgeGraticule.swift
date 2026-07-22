@@ -13,7 +13,6 @@ struct EdgeGraticule: Shape {
     let insetLineSets: EdgeValues<LineSet>
     let outsetLineSets: EdgeValues<LineSet>
 
-    // FIXME: rename to inset/outset
     init(insetLineSets: EdgeValues<LineSet>, outsetLineSets: EdgeValues<LineSet>) {
         self.insetLineSets = insetLineSets
         self.outsetLineSets = outsetLineSets
