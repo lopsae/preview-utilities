@@ -166,7 +166,7 @@ private struct PreviewContent {
             .fill(.indigo)
             .frame(height: 20)
         }
-        // FIXME: try to use debugAlignmentGuide
+        // TODO: Replace with debugAlignmentGuide when it has support for labels.
         .overlay(alignment: .leading) {
             ZStack(alignment: .leading) {
                 Rectangle()
@@ -214,7 +214,7 @@ private struct PreviewContent {
             .fill(.indigo)
             .frame(width: 20)
         }
-        // FIXME: try to use debugAlignmentGuide
+        // TODO: Replace with debugAlignmentGuide when it has support for labels.
         .overlay(alignment: .top) {
             ZStack(alignment: .top) {
                 Rectangle()
