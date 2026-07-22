@@ -58,13 +58,13 @@ struct EdgeValues<Value> {
     init<OtherValue>(edgeValues: EdgeValues<OtherValue>, property: KeyPath<OtherValue, Value>) {
         self.init(
             top:      edgeValues.top[keyPath: property],
-            leading:  edgeValues.lea[keyPath: property],
+            leading:  edgeValues.led[keyPath: property],
             bottom:   edgeValues.bot[keyPath: property],
             trailing: edgeValues.tra[keyPath: property]
         )
     }
 
-    var lea: Value { leading }
+    var led: Value { leading }
     var bot: Value { bottom }
     var tra: Value { trailing }
 
