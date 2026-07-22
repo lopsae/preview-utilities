@@ -23,7 +23,9 @@ extension DebugOverlayModifier {
         var areBordersEnabled: Bool = true
         var bordersWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
+        // TODO: Rename to captionAlignment.
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
+        var drawsCaptionBorder: Bool = false
 
 
         init() {}
@@ -250,6 +252,11 @@ extension DebugOverlayModifier.Configuration {
             .modifier(InfoAlignmentModifier(alignment: alignment))
         }
 
+        /// Enables drawing a border around the debug caption.
+        ///
+        /// Used internally for alignment visualization and debugging.
+        static var drawsCaptionBorder: Trait { .modifier(EnableCaptionBorder()) }
+
     }
 }
 
@@ -314,6 +321,12 @@ extension DebugOverlayModifier.Configuration {
         let alignment: FloatingAlignment
         func update(configuration: inout DebugOverlayModifier.Configuration) {
             configuration.infoAlignment = alignment
+        }
+    }
+
+    struct EnableCaptionBorder: Modifier {
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.drawsCaptionBorder = true
         }
     }
 

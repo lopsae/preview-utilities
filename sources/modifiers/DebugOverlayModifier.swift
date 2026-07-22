@@ -250,7 +250,8 @@ public struct DebugOverlayModifier: ViewModifier {
                 horizontalSpacing: spacing.width,
                 verticalSpacing: spacing.height,
             ) { alignments in
-                Group {
+                // Spacing derived from the contained Text elements, which so far works well.
+                VStack(alignment: alignments.content.horizontal) {
                     let globalFrame = geometry.frame(in: .global)
                     let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
 
@@ -297,6 +298,8 @@ public struct DebugOverlayModifier: ViewModifier {
                 .font(.caption.monospaced())
                 .foregroundStyle(.secondary)
                 .fixedSize()
+                // FIXME: Add captionBorder as trait.
+                .border(configuration.drawsCaptionBorder ? AnyShapeStyle(.secondary) : AnyShapeStyle(.clear))
             }// FloatingAlignedContainer
         } // if
     }
@@ -732,9 +735,10 @@ private struct PreviewContent {
         Text("Preview Text").font(.title)
     }
     .frame(height: 100)
-    .debugOverlay()
+    .debugOverlay(.caption("Caption text"), .size, .alignment(.outerBottom))
     .safeAreaPadding(.horizontal(40))
-    .padding()
+    .padding(.horizontal)
+    .padding(.vertical, 50)
     .background(.background)
 
     content
@@ -787,7 +791,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Alignments Guides", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Caption Alignment", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var bordersWidth: Double = 5
 
     Slider.captioned(
@@ -800,30 +804,17 @@ private struct PreviewContent {
         Text(horizontalAlignment.displayName, format: .capitalize)
 
         PreviewContent.star(.pink.gradient.tertiary)
-        .frame(size: [100, 100])
+        .frame(squareOf: 100)
         .overlay {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
                 ClearRectangle()
-                    .debugOverlay(.caption("Ag"), .infoAlignment(alignment), .bordersWidth(bordersWidth))
+                .debugOverlay(.caption("Ag"), .alignment(alignment), .drawsCaptionBorder, .bordersWidth(bordersWidth))
             }
         }
-        // FIXME: use debug overlay alignment guides
-        .overlay(alignment: .top) {
-            Rectangle()
-            .fill(.red.tertiary)
-            .frame(width: 200, height: 2)
-        }
-        .overlay(alignment: .bottom) {
-            Rectangle()
-            .fill(.red.tertiary)
-            .frame(width: 200, height: 2)
-        }
-        .overlay(alignment: .center) {
-            Rectangle()
-            .fill(.red.tertiary)
-            .frame(width: 2, height: 140)
-        }
+        .debugAlignmentGuide(vertical: .top, .extendLength(100))
+        .debugAlignmentGuide(vertical: .bottom, .extendLength(100))
+        .debugAlignmentGuide(horizontal: .center, .extendLength(40))
         .padding(.vertical, 20)
     }
     DashedDivider()
