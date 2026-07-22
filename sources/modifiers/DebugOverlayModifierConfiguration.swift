@@ -20,6 +20,7 @@ extension DebugOverlayModifier {
 
         var isVisible: Bool = true
         var captionSource: CaptionSource? = nil
+        var areBordersEnabled: Bool = true
         var bordersWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
@@ -157,16 +158,20 @@ extension DebugOverlayModifier.Configuration {
             .modifier(VisibilityModifier(isVisible: isVisible))
         }
 
+        /// Hides the debug overlay borders.
+        public static let noBorders: Trait = .modifier(HideBordersModifier())
+
         /// Sets the debug overlay borders to a width of `1`.
         public static let hairline: Trait = .modifier(HairlineModifier())
 
-        /// Sets the debug overlay borders to the given width
+        /// Sets the debug overlay borders to the given width.
+        ///
+        /// The debug overlay always draws with a minimal width of `1`, even if the width is set to
+        /// zero through this trait. To hide the borders use ``noBorders``.
         /// - Parameter bordersWidth: Width of the debug overlay borders.
         public static func bordersWidth(_ bordersWidth: CGFloat) -> Trait {
             .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
         }
-
-        // FIXME: add noBorder
 
         /// Prints the width of the parent view in the debug caption.
         public static let width: Trait = .modifier(InfoElementsModifier(infoElements: .width))
@@ -276,8 +281,16 @@ extension DebugOverlayModifier.Configuration {
         }
     }
 
+    struct HideBordersModifier: Modifier {
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.areBordersEnabled = false
+            configuration.bordersWidth = 1
+        }
+    }
+
     struct HairlineModifier: Modifier {
         func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.areBordersEnabled = true
             configuration.bordersWidth = 1
         }
     }
@@ -285,6 +298,7 @@ extension DebugOverlayModifier.Configuration {
     struct BordersWidthModifier: Modifier {
         let bordersWidth: CGFloat
         func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.areBordersEnabled = true
             configuration.bordersWidth = bordersWidth
         }
     }

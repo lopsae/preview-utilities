@@ -107,8 +107,10 @@ public struct DebugOverlayModifier: ViewModifier {
         content.overlay {
             GeometryReader { geometry in
                 safeAreaRects(geometry: geometry)
-                outerStrokeRect(geometry: geometry)
-                innerStrokeRect(geometry: geometry)
+                if configuration.areBordersEnabled {
+                    outerStrokeRect(geometry: geometry)
+                    innerStrokeRect(geometry: geometry)
+                }
                 originReticuleRects(geometry: geometry)
                 debugCaptionView(geometry)
             }
