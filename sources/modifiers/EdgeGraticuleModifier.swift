@@ -67,17 +67,35 @@ public struct EdgeGraticuleModifier: ViewModifier {
 extension EdgeGraticuleModifier.Trait {
 
     // FIXME: Document.
-    public static func inset(_ edgeSet: Edge.Set, count: Int) -> Self {
+    public static func inset(
+        _ edgeSet: Edge.Set,
+        spacing: CGFloat? = nil,
+        count: Int? = nil
+    ) -> Self {
         .mutate {
-            $0.insetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
+            if let count {
+                $0.insetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
+            }
+            if let spacing {
+                $0.insetLineSets[set: edgeSet].spacing = spacing
+            }
         }
     }
 
 
     // FIXME: Document.
-    public static func outset(_ edgeSet: Edge.Set, count: Int) -> Self {
+    public static func outset(
+        _ edgeSet: Edge.Set,
+        spacing: CGFloat? = nil,
+        count: Int? = nil
+    ) -> Self {
         .mutate {
-            $0.outsetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
+            if let count {
+                $0.outsetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
+            }
+            if let spacing {
+                $0.outsetLineSets[set: edgeSet].spacing = spacing
+            }
         }
     }
 
@@ -235,10 +253,10 @@ private struct PreviewContent {
     .border(.green.tertiary, width: 10)
     .floatingCaption("Only Inset", .alignment(.outerTop))
     .floatingCaption("3", .alignment(.top))
-    .floatingCaption("5", .alignment(.trailing))
+    .floatingCaption("5+SP", .alignment(.trailing))
     .edgeGraticule(insetSpacing: 10, outsetSpacing: 20,
         .inset(.vertical, count: 3),
-        .inset(.trailing, count: 5)
+        .inset(.trailing, spacing: 15, count: 5)
     )
 
     DashedDivider()
@@ -248,10 +266,10 @@ private struct PreviewContent {
     .border(.green.tertiary, width: 10)
     .floatingCaption("Only Outset", .alignment(.outerTop))
     .floatingCaption("2", .alignment(.outerBottom))
-    .floatingCaption("3", .alignment(.outerLeading))
+    .floatingCaption("3+SP", .alignment(.outerLeading))
     .edgeGraticule(insetSpacing: 10, outsetSpacing: 20,
         .outset(.vertical, count: 2),
-        .outset(.leading, count: 3)
+        .outset(.leading, spacing: 30, count: 3)
     )
 
     DashedDivider()
@@ -261,10 +279,10 @@ private struct PreviewContent {
     .foregroundStyle(.quinary)
     .border(.green.tertiary, width: 10)
     .floatingCaption("Only Outset", .alignment(.outerTop))
-    .floatingCaption("3", .alignment(.top))
+    .floatingCaption("3+SP", .alignment(.top))
     .floatingCaption("2", .alignment(.outerTrailing))
     .edgeGraticule(insetSpacing: 10, outsetSpacing: 20,
-        .inset(.vertical, count: 3),
+        .inset(.vertical, spacing: 15, count: 3),
         .outset(.horizontal, count: 2)
     )
 }
