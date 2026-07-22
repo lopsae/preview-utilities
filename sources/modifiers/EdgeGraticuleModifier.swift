@@ -66,10 +66,18 @@ public struct EdgeGraticuleModifier: ViewModifier {
 /// Contains the configuration traits that can be applied to ``EdgeGraticuleModifier.Configuration``.
 extension EdgeGraticuleModifier.Trait {
 
-    // FIXME: document.
-    public static func inset(_ edgeSet: Edge.Set, _ count: Int) -> Self {
+    // FIXME: Document.
+    public static func inset(_ edgeSet: Edge.Set, count: Int) -> Self {
         .mutate {
             $0.insetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
+        }
+    }
+
+
+    // FIXME: Document.
+    public static func outset(_ edgeSet: Edge.Set, count: Int) -> Self {
+        .mutate {
+            $0.outsetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
         }
     }
 
@@ -81,22 +89,16 @@ extension EdgeGraticuleModifier.Trait {
 
 extension View {
 
-    // FIXME: Delete.
+    // FIXME: Document.
     public func edgeGraticule(
-        insetSpacing: CGFloat,
-        through insetCount: Int,
-        outsetSpacing: CGFloat,
-        through outsetCount: Int
+        spacing: CGFloat,
+        _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
     ) -> some View {
-        let insetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: insetSpacing, through: insetCount)
-        let outsetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: outsetSpacing, through: outsetCount)
-        var configuration = EdgeGraticuleModifier.Configuration()
-        configuration.insetLineSets = insetLineSets
-        configuration.outsetLineSets = outsetLineSets
+        var configuration = EdgeGraticuleModifier.Configuration(spacing: spacing)
+        configuration.apply(traits: traits)
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
-
 
     // FIXME: Document.
     public func edgeGraticule(
@@ -114,6 +116,7 @@ extension View {
     }
 
 
+    // FIXME: Add traits.
     // FIXME: Document.
     public func edgeGraticule(insetSpacing: CGFloat, through count: Int) -> some View {
         var configuration = EdgeGraticuleModifier.Configuration()
@@ -124,11 +127,30 @@ extension View {
     }
 
 
+    // FIXME: Add traits.
     // FIXME: Document.
     public func edgeGraticule(outsetSpacing: CGFloat, through count: Int) -> some View {
         var configuration = EdgeGraticuleModifier.Configuration()
         configuration.insetLineSets = .empty  // FIXME: Empty is used and valid here to not show any inset
         configuration.outsetLineSets = .init(spacing: outsetSpacing, through: count)
+        let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
+        return modifier(graticuleModifier)
+    }
+
+
+    // FIXME: Add traits.
+    // FIXME: Document.
+    public func edgeGraticule(
+        insetSpacing: CGFloat,
+        through insetCount: Int,
+        outsetSpacing: CGFloat,
+        through outsetCount: Int
+    ) -> some View {
+        let insetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: insetSpacing, through: insetCount)
+        let outsetLineSets: EdgeValues<EdgeGraticule.LineSet> = .init(spacing: outsetSpacing, through: outsetCount)
+        var configuration = EdgeGraticuleModifier.Configuration()
+        configuration.insetLineSets = insetLineSets
+        configuration.outsetLineSets = outsetLineSets
         let graticuleModifier = EdgeGraticuleModifier(configuration: configuration)
         return modifier(graticuleModifier)
     }
@@ -154,8 +176,53 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
+    .floatingCaption("Only Spacing", .alignment(.outerTop))
+    .edgeGraticule(spacing: 20)
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .floatingCaption("Both Spacings", .alignment(.outerTop))
+    .edgeGraticule(insetSpacing: 10, outsetSpacing: 20)
+}
+
+
+#Preview("Through", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .floatingCaption("Only Outset - 2", .alignment(.outerTop))
+    .edgeGraticule(outsetSpacing: 20, through: 2)
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .floatingCaption("Only Inset - 3", .alignment(.outerTop))
+    .edgeGraticule(insetSpacing: 10, through: 3)
+
+    DashedDivider()
+
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
+    .floatingCaption("Both", .alignment(.outerTop))
+    .edgeGraticule(insetSpacing: 10, through: 3, outsetSpacing: 20, through: 2)
+}
+
+
+#Preview("Traits", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
+    Text("Ag")
+    .font(.title.pointSize(100))
+    .border(.green.tertiary, width: 10)
     .floatingCaption("Inset/Outset", .alignment(.outerTop))
-    .edgeGraticule(insetSpacing: 10, outsetSpacing: 20, .inset(.vertical, 3), .inset(.trailing, 5))
+    .edgeGraticule(insetSpacing: 10, outsetSpacing: 20,
+        .inset(.vertical, count: 3),
+        .inset(.trailing, count: 5)
+    )
 
     DashedDivider()
 
