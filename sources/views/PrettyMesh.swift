@@ -237,6 +237,7 @@ private struct MeshGradientEditor: View {
                     )
 
                     gridLines(in: geometry.size)
+                        .opacity(areGridLinesVisible ? 1 : 0)
 
                     ForEach(points.indices, id: \.self) { index in
                         pointHandle(index: index, in: geometry.size)
@@ -291,17 +292,23 @@ private struct MeshGradientEditor: View {
         let row = index / meshWidth
         let col = index % meshWidth
 
-        Circle()
-        .fill(.white.opacity(0.7))
+        Color.clear
         .overlay {
-            Circle().stroke(.black.opacity(0.4), lineWidth: 1)
-        }
-        .overlay {
-            Text("\(row),\(col)")
-            .font(.caption)
-            .foregroundStyle(.black)
+            if areHandlesVisible {
+                Circle()
+                .fill(.white.opacity(0.7))
+                .overlay {
+                    Circle().stroke(.black.opacity(0.4), lineWidth: 1)
+                }
+                .overlay {
+                    Text("\(row),\(col)")
+                    .font(.caption)
+                    .foregroundStyle(.black)
+                }
+            }
         }
         .frame(squareOf: 28)
+        .contentShape(Circle())
         .position(x: x, y: y)
         .gesture(
             DragGesture().onChanged { drag in
