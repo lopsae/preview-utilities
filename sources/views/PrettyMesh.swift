@@ -65,18 +65,20 @@ enum PrettyMesh {
     // TODO: generated, clean up, experiment and consider keeping.
     static var moltenHorizon: MeshGradient {
         MeshGradient(
-            width: 4, height: 4,
+            width: 6, height: 5,
             points: [
-                [0.0, 0.0],  [0.35, 0.0], [0.65, 0.0], [1.0, 0.0],
-                [0.0, 0.35], [0.4, 0.3],  [0.6, 0.3],  [1.0, 0.35],
-                [0.0, 0.65], [0.4, 0.7],  [0.6, 0.7],  [1.0, 0.65],
-                [0.0, 1.0],  [0.35, 1.0], [0.65, 1.0], [1.0, 1.0]
+                [0.00, 0.00], [0.10, 0.00], [0.26, 0.00], [0.57, 0.00], [0.80, 0.00], [1.00, 0.00],
+                [0.00, 0.25], [0.22, 0.25], [0.33, 0.16], [0.47, 0.24], [0.71, 0.17], [1.00, 0.25],
+                [0.00, 0.50], [0.44, 0.55], [0.48, 0.46], [0.56, 0.76], [0.64, 0.36], [1.00, 0.50],
+                [0.00, 0.75], [0.32, 0.86], [0.50, 0.66], [0.61, 0.90], [0.74, 0.66], [1.00, 0.75],
+                [0.00, 1.00], [0.10, 1.00], [0.33, 1.00], [0.66, 1.00], [0.90, 1.00], [1.00, 1.00],
             ],
             colors: [
-                .orange, .yellow, .yellow, .orange,
-                .red,    .orange, .orange, .red,
-                .red,    .orange, .orange, .red,
-                .orange, .yellow, .yellow, .orange,
+                .red,    .orange, .yellow, .yellow, .orange, .red,
+                .orange, .red,    .orange, .orange, .red,    .orange,
+                .orange, .red,    .orange, .orange, .red,    .orange,
+                .orange, .red,    .orange, .orange, .red,    .orange,
+                .red,    .orange, .yellow, .yellow, .orange, .red
             ]
         )
     }
@@ -142,24 +144,33 @@ enum PrettyMesh {
     }
 
 
-    // Just to explore color combinations.
-    fileprivate static var linear: MeshGradient {
+    // To explore color combinations.
+    fileprivate static var experiment: MeshGradient {
         MeshGradient(
-            width: 2, height: 5,
-            points: [
-                [0.0, 0.00], [1.0, 0.00],
-                [0.0, 0.25], [1.0, 0.25],
-                [0.0, 0.50], [1.0, 0.50],
-                [0.0, 0.75], [1.0, 0.75],
-                [0.0, 1.00], [1.0, 1.00]
-            ],
+            width: 6, height: 5,
+            points:
+                [0.0, 0.25, 0.5, 0.75, 1.0]
+                .flatMap { yPos in
+                    [0.0, 0.1, 0.33, 0.66, 0.9, 1.0].map { xPos in
+                        [xPos, yPos]
+                    }
+                },
             colors: [
-                .indigo, .indigo,
-                .purple, .purple,
-                .blue, .blue,
-                .green, .green,
-                .teal, .teal
+                .red,    .orange, .yellow, .yellow, .orange, .red,
+                .orange, .red,    .orange, .orange, .red, .orange,
+                .orange, .red,    .orange, .orange, .red, .orange,
+                .orange, .red,    .orange, .orange, .red, .orange,
+                .red,    .orange, .yellow, .yellow, .orange, .red
             ]
+//            colors: [
+//                .indigo,
+//                .purple,
+//                .blue,
+//                .green,
+//                .teal
+//            ].flatMap {
+//                Array(repeating: $0, count: 4)
+//            }
         )
     }
 
@@ -318,7 +329,7 @@ private struct PreviewContent {
 
 
 #Preview("Editor", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    MeshGradientEditor(mesh: PrettyMesh.summerDawnSplit)
+    MeshGradientEditor(mesh: PrettyMesh.experiment)
 }
 
 
@@ -364,7 +375,7 @@ private struct PreviewContent {
 }
 
 
-#Preview("Linear") {
-    PrettyMesh.linear
+#Preview("Experiment") {
+    PrettyMesh.experiment
         .ignoresSafeArea()
 }
