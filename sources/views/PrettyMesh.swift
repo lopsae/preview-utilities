@@ -187,6 +187,7 @@ private struct MeshGradientEditor: View {
 
     @State var areHandlesVisible = true
     @State var areGridLinesVisible = true
+    @State private var mirrorMode: MirrorMode = .none
 
     let meshWidth: Int
     let meshHeight: Int
@@ -221,6 +222,10 @@ private struct MeshGradientEditor: View {
 
                 Button("GridLines", systemImage: areGridLinesVisible ? "checkmark.circle.fill" : "circle.fill") {
                     areGridLinesVisible.toggle()
+                }
+
+                Button(mirrorMode.label, systemImage: mirrorMode.systemImage) {
+                    mirrorMode = mirrorMode.next
                 }
             }
             .buttonStyle(.bordered)
@@ -314,10 +319,16 @@ private struct MeshGradientEditor: View {
             DragGesture().onChanged { drag in
                 let newX = Float(drag.location.x / size.width)
                 let newY = Float(drag.location.y / size.height)
-                points[index] = SIMD2(
+                let newPoint = SIMD2<Float>(
                     min(max(newX, 0), 1),
                     min(max(newY, 0), 1)
                 )
+                points[index] = newPoint
+
+                // Apply the mirrored update to the partner handle, if any.
+                if let mirrorIndex = mirrorMode.mirrorIndex(of: index, width: meshWidth, height: meshHeight) {
+                    points[mirrorIndex] = mirrorMode.mirror(newPoint)
+                }
             }
             .onEnded { _ in
                 printPoints()
@@ -338,6 +349,83 @@ private struct MeshGradientEditor: View {
         output += "]"
         print(output)
     }
+}
+
+
+// MARK: - MirrorMode
+
+
+/// Mirroring applied to a partner handle.
+private enum MirrorMode {
+
+    /// No mirroring, only the dragged handle moves.
+    case none
+
+    /// Mirrors across the horizontal center line: the row-opposite handle.
+    case vertical
+
+    /// Mirrors through the center point: the diagonally-opposite handle.
+    case both
+
+
+    /// The next mode in the cycle: `none` → `vertical` → `both` → `none`.
+    var next: MirrorMode {
+        switch self {
+        case .none:     .vertical
+        case .vertical: .both
+        case .both:     .none
+        }
+    }
+
+    var label: String {
+        switch self {
+        case .none:     "Mirror Off"
+        case .vertical: "Mirror"
+        case .both:     "Mirror Both"
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .none:     "square"
+        case .vertical: "arrow.up.and.down"
+        case .both:     "arrow.up.and.down.and.arrow.left.and.right"
+        }
+    }
+
+
+    /// The index of the partner handle to mirror the dragged one to, or `nil` when there is no
+    /// mirroring or the handle mirrors onto itself (a handle on a central row/column).
+    func mirrorIndex(of index: Int, width: Int, height: Int) -> Int? {
+        let row = index / width
+        let col = index % width
+
+        let partnerRow: Int
+        let partnerCol: Int
+        switch self {
+        case .none:
+            return nil
+        case .vertical:
+            partnerRow = height - 1 - row
+            partnerCol = col
+        case .both:
+            partnerRow = height - 1 - row
+            partnerCol = width - 1 - col
+        }
+
+        let partner = partnerRow * width + partnerCol
+        return partner == index ? nil : partner
+    }
+
+    /// The position for the partner handle, mirroring along the axes affected by this mode.
+    func mirror(_ point: SIMD2<Float>) -> SIMD2<Float> {
+        switch self {
+        case .none:     point
+        case .vertical: SIMD2(point.x, 1 - point.y)
+        case .both:     SIMD2(1 - point.x, 1 - point.y)
+        }
+    }
+
 }
 
 
