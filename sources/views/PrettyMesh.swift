@@ -7,9 +7,9 @@
 import SwiftUI
 
 
-extension MeshGradient {
+enum PrettyMesh {
 
-    static var summerDawnSplit: Self {
+    static var summerDawnSplit: MeshGradient {
         MeshGradient(
             width: 3, height: 4,
             points: [
@@ -28,7 +28,7 @@ extension MeshGradient {
     }
 
 
-    static var wallOfIceAndFire: Self {
+    static var wallOfIceAndFire: MeshGradient {
         MeshGradient(
             width: 4, height: 3,
             points: [
@@ -45,7 +45,7 @@ extension MeshGradient {
     }
 
 
-    static var auroraEgg: Self {
+    static var auroraEgg: MeshGradient {
         MeshGradient(
             width: 4, height: 3,
             points: [
@@ -63,7 +63,7 @@ extension MeshGradient {
 
 
     // TODO: generated, clean up, experiment and consider keeping.
-    static var moltenHorizon: Self {
+    static var moltenHorizon: MeshGradient {
         MeshGradient(
             width: 4, height: 4,
             points: [
@@ -83,7 +83,7 @@ extension MeshGradient {
 
 
     // TODO: generated, clean up, experiment and consider keeping.
-    static var emberRibbon: Self {
+    static var emberRibbon: MeshGradient {
         MeshGradient(
             width: 3, height: 4,
             points: [
@@ -103,7 +103,7 @@ extension MeshGradient {
 
 
     // TODO: generated, clean up, experiment and consider keeping.
-    static var frozenDepth: Self {
+    static var frozenDepth: MeshGradient {
         MeshGradient(
             width: 4, height: 4,
             points: [
@@ -123,7 +123,7 @@ extension MeshGradient {
 
 
     // TODO: generated, clean up, experiment and consider keeping.
-    static var glacialVeil: Self {
+    static var glacialVeil: MeshGradient {
         MeshGradient(
             width: 3, height: 4,
             points: [
@@ -143,7 +143,7 @@ extension MeshGradient {
 
 
     // Just to explore color combinations.
-    fileprivate static var linear: Self {
+    fileprivate static var linear: MeshGradient {
         MeshGradient(
             width: 2, height: 5,
             points: [
@@ -318,53 +318,53 @@ private struct PreviewContent {
 
 
 #Preview("Editor", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    MeshGradientEditor(mesh: .summerDawnSplit)
+    MeshGradientEditor(mesh: PrettyMesh.summerDawnSplit)
 }
 
 
 #Preview("SummerDawnSplit") {
-    MeshGradient.summerDawnSplit
+    PrettyMesh.summerDawnSplit
         .ignoresSafeArea()
 }
 
 
 #Preview("WallOfIceAndFire") {
-    MeshGradient.wallOfIceAndFire
+    PrettyMesh.wallOfIceAndFire
         .ignoresSafeArea()
 }
 
 
 #Preview("AuroraEgg") {
-    MeshGradient.auroraEgg
+    PrettyMesh.auroraEgg
         .ignoresSafeArea()
 }
 
 
 #Preview("MoltenHorizon") {
-    MeshGradient.moltenHorizon
+    PrettyMesh.moltenHorizon
         .ignoresSafeArea()
 }
 
 
 #Preview("EmberRibbon") {
-    MeshGradient.emberRibbon
+    PrettyMesh.emberRibbon
         .ignoresSafeArea()
 }
 
 
 #Preview("FrozenDepth") {
-    MeshGradient.frozenDepth
+    PrettyMesh.frozenDepth
         .ignoresSafeArea()
 }
 
 
 #Preview("GlacialVeil") {
-    MeshGradient.glacialVeil
+    PrettyMesh.glacialVeil
         .ignoresSafeArea()
 }
 
 
 #Preview("Linear") {
-    MeshGradient.linear
+    PrettyMesh.linear
         .ignoresSafeArea()
 }
