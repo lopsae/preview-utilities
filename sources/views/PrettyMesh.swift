@@ -67,11 +67,11 @@ enum PrettyMesh {
         MeshGradient(
             width: 6, height: 5,
             points: [
-                [0.00, 0.00], [0.10, 0.00], [0.26, 0.00], [0.57, 0.00], [0.80, 0.00], [1.00, 0.00],
-                [0.00, 0.25], [0.22, 0.25], [0.33, 0.16], [0.47, 0.24], [0.71, 0.17], [1.00, 0.25],
-                [0.00, 0.50], [0.44, 0.55], [0.48, 0.46], [0.56, 0.76], [0.64, 0.36], [1.00, 0.50],
-                [0.00, 0.75], [0.32, 0.86], [0.50, 0.66], [0.61, 0.90], [0.74, 0.66], [1.00, 0.75],
-                [0.00, 1.00], [0.10, 1.00], [0.33, 1.00], [0.66, 1.00], [0.90, 1.00], [1.00, 1.00],
+                [0.00, 0.00], [0.10, 0.00], [0.19, 0.00], [0.46, 0.00], [0.75, 0.00], [1.00, 0.00],
+                [0.00, 0.25], [0.22, 0.24], [0.30, 0.13], [0.51, 0.31], [0.73, 0.16], [1.00, 0.25],
+                [0.00, 0.50], [0.37, 0.61], [0.46, 0.39], [0.54, 0.61], [0.63, 0.39], [1.00, 0.50],
+                [0.00, 0.75], [0.27, 0.84], [0.49, 0.69], [0.70, 0.87], [0.78, 0.76], [1.00, 0.75],
+                [0.00, 1.00], [0.25, 1.00], [0.54, 1.00], [0.81, 1.00], [0.90, 1.00], [1.00, 1.00],
             ],
             colors: [
                 .red,    .orange, .yellow, .yellow, .orange, .red,
@@ -362,34 +362,34 @@ private enum MirrorMode {
     case none
 
     /// Mirrors across the horizontal center line: the row-opposite handle.
-    case vertical
+    case horizontal
 
     /// Mirrors through the center point: the diagonally-opposite handle.
     case both
 
 
-    /// The next mode in the cycle: `none` → `vertical` → `both` → `none`.
+    /// The next mode in the cycle: `none` → `horizontal` → `both` → `none`.
     var next: MirrorMode {
         switch self {
-        case .none:     .vertical
-        case .vertical: .both
-        case .both:     .none
+        case .none:       .horizontal
+        case .horizontal: .both
+        case .both:       .none
         }
     }
 
     var label: String {
         switch self {
-        case .none:     "Mirror Off"
-        case .vertical: "Mirror"
-        case .both:     "Mirror Both"
+        case .none:       "Mirror Off"
+        case .horizontal: "Mirror"
+        case .both:       "Mirror Both"
         }
     }
 
     var systemImage: String {
         switch self {
-        case .none:     "square"
-        case .vertical: "arrow.up.and.down"
-        case .both:     "arrow.up.and.down.and.arrow.left.and.right"
+        case .none:       "square"
+        case .horizontal: "arrow.left.and.right"
+        case .both:       "arrow.up.and.down.and.arrow.left.and.right"
         }
     }
 
@@ -405,9 +405,9 @@ private enum MirrorMode {
         switch self {
         case .none:
             return nil
-        case .vertical:
-            partnerRow = height - 1 - row
-            partnerCol = col
+        case .horizontal:
+            partnerRow = row
+            partnerCol = width - 1 - col
         case .both:
             partnerRow = height - 1 - row
             partnerCol = width - 1 - col
@@ -420,9 +420,9 @@ private enum MirrorMode {
     /// The position for the partner handle, mirroring along the axes affected by this mode.
     func mirror(_ point: SIMD2<Float>) -> SIMD2<Float> {
         switch self {
-        case .none:     point
-        case .vertical: SIMD2(point.x, 1 - point.y)
-        case .both:     SIMD2(1 - point.x, 1 - point.y)
+        case .none:       point
+        case .horizontal: SIMD2(1 - point.x, point.y)
+        case .both:       SIMD2(1 - point.x, 1 - point.y)
         }
     }
 
@@ -444,7 +444,7 @@ private struct PreviewContent {
 
 
 #Preview("Editor", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    MeshGradientEditor(mesh: PrettyMesh.experiment)
+    MeshGradientEditor(mesh: PrettyMesh.moltenHorizon)
 }
 
 
