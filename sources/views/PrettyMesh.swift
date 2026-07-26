@@ -185,6 +185,9 @@ enum PrettyMesh {
 /// The point coordinates are printed to the console after each drag.
 private struct MeshGradientEditor: View {
 
+    @State var areHandlesVisible = true
+    @State var areGridLinesVisible = true
+
     let meshWidth: Int
     let meshHeight: Int
     let colors: [Color]
@@ -209,22 +212,39 @@ private struct MeshGradientEditor: View {
     }
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                MeshGradient(
-                    width: meshWidth,
-                    height: meshHeight,
-                    points: points,
-                    colors: colors
-                )
+        VStack {
+            // Controls.
+            HStack {
+                Button("Handles", systemImage: areHandlesVisible ? "checkmark.circle.fill" : "circle.fill") {
+                    areHandlesVisible.toggle()
+                }
 
-                gridLines(in: geometry.size)
+                Button("GridLines", systemImage: areGridLinesVisible ? "checkmark.circle.fill" : "circle.fill") {
+                    areGridLinesVisible.toggle()
+                }
+            }
+            .buttonStyle(.bordered)
+            .font(.caption)
 
-                ForEach(points.indices, id: \.self) { index in
-                    pointHandle(index: index, in: geometry.size)
+            // Mesh Grid.
+            GeometryReader { geometry in
+                ZStack {
+                    MeshGradient(
+                        width: meshWidth,
+                        height: meshHeight,
+                        points: points,
+                        colors: colors
+                    )
+
+                    gridLines(in: geometry.size)
+
+                    ForEach(points.indices, id: \.self) { index in
+                        pointHandle(index: index, in: geometry.size)
+                    }
                 }
             }
         }
+
     }
 
     private func gridLines(in size: CGSize) -> some View {
