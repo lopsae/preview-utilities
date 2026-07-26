@@ -162,15 +162,29 @@ enum PrettyMesh {
                 .orange, .red,    .orange, .orange, .red, .orange,
                 .red,    .orange, .yellow, .yellow, .orange, .red
             ]
-//            colors: [
-//                .indigo,
-//                .purple,
-//                .blue,
-//                .green,
-//                .teal
-//            ].flatMap {
-//                Array(repeating: $0, count: 4)
-//            }
+        )
+    }
+
+
+    // To test the editor.
+    fileprivate static var simple: MeshGradient {
+        MeshGradient(
+            width: 4, height: 4,
+            points:
+                [0.0, 0.33, 0.66, 1.0]
+                .flatMap { yPos in
+                    [0.0, 0.33, 0.66, 1.0].map { xPos in
+                        [xPos, yPos]
+                    }
+                },
+            colors: [
+                .yellow,
+                .orange,
+                .red,
+                .indigo,
+            ].flatMap {
+                Array(repeating: $0, count: 4)
+            }
         )
     }
 
@@ -444,7 +458,7 @@ private struct PreviewContent {
 
 
 #Preview("Editor", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    MeshGradientEditor(mesh: PrettyMesh.moltenHorizon)
+    MeshGradientEditor(mesh: PrettyMesh.simple)
 }
 
 
