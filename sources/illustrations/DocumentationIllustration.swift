@@ -17,44 +17,51 @@ public struct DocumentationIllustration: View {
     let drawsBorder: Bool
     let alignment: Alignment
     let content: AnyView
+    let background: AnyView
 
     // FIXME: replace with a size .height, that uses the default width.
-    public init<Content: View>(
+    public init<Content: View, Background: View>(
         height: CGFloat,
         drawsBorder: Bool = true,
         alignment: Alignment = .center,
+        background: Background = EmptyView(),
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = Sizing.height(height).size
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
+        self.background = AnyView(background)
     }
 
 
-    public init<Content: View>(
+    public init<Content: View, Background: View>(
         size: CGSize,
         alignment: Alignment = .center,
         drawsBorder: Bool = true,
+        background: Background = EmptyView(),
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = size
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
+        self.background = AnyView(background)
     }
 
 
-    public init<Content: View>(
+    public init<Content: View, Background: View>(
         sizing: Sizing,
         alignment: Alignment = .center,
         drawsBorder: Bool = true,
+        background: Background = EmptyView(),
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = sizing.size
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
+        self.background = AnyView(background)
     }
 
 
@@ -64,8 +71,9 @@ public struct DocumentationIllustration: View {
             content
         }
         .frame(size: size, alignment: alignment)
+        .background { background }
         .background(.background, in: .rect)
-        .border(.tertiary, width: drawsBorder ? 1 : .zero)
+        .border(.tertiary, width: drawsBorder ? .one : .zero)
     }
 
 }
@@ -143,6 +151,14 @@ extension PreviewTrait where T == Preview.ViewTraits {
     DocumentationIllustration(sizing: .card.half) {
         CaptionRectangle("Api Collection Card\nUsing `half` size", color: .orange)
         .padding(40)
+    }
+    .padding()
+}
+
+
+#Preview("Background", traits: .docsIllustration) {
+    DocumentationIllustration(sizing: .regular, background: PrettyMesh.moltenHorizon.rotated()) {
+        Text("Documentation Illustration\nWith Background")
     }
     .padding()
 }
