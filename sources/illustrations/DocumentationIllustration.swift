@@ -10,9 +10,6 @@ import SwiftUI
 /// Wraps content for rendering an illustration generated from a SwiftUI view body.
 public struct DocumentationIllustration: View {
 
-    // FIXME: move to sizing
-    static var defaultWidth: CGFloat { 400 }
-
     let size: CGSize
     let drawsBorder: Bool
     let alignment: Alignment
@@ -90,10 +87,22 @@ extension DocumentationIllustration {
     /// ``regular`` or ``card``.
     public struct Sizing {
 
+        /// The default width for illustrations of `regular` size.
+        ///
+        /// Sizes like ``regular`` and functions like ``height(_:)`` use this default width.
+        public static var defaultWidth: CGFloat = 400
+
         let size: CGSize
 
         init(size: CGSize) {
             self.size = size
+        }
+
+        init(height: CGFloat) {
+            self.size = CGSize(
+                width: Self.defaultWidth,
+                height: height
+            )
         }
 
         init(_ width: CGFloat, _ height: CGFloat) {
@@ -113,12 +122,14 @@ extension DocumentationIllustration {
 
         /// Regular size for snippet illustrations
         ///
-        /// This illustration size uses the default width (`400`) and an aspect ration of `5/2`.
-        public static let regular: Self = .init(DocumentationIllustration.defaultWidth, 160)
+        /// This illustration size uses the ``defaultWidth`` (`400`) and an aspect ration of `5/2`.
+        public static let regular: Self = .init(height: 160)
 
-        // FIXME: document.
+        /// Size for snippet illustrations with the default width and a given height.
+        ///
+        /// This illustration size uses the ``defaultWidth`` (`400`).
         public static func height(_ illHeight: CGFloat) -> Self {
-            .init(DocumentationIllustration.defaultWidth, illHeight)
+            .init(height: illHeight)
         }
 
     }
@@ -235,4 +246,5 @@ extension PreviewTrait where T == Preview.ViewTraits {
         Text("No Border Illustration")
     }
     .padding()
+    .background(.quinary)
 }
