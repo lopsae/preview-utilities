@@ -200,7 +200,7 @@ private struct MeshGradientEditor: View {
 
     @State var areHandlesVisible = true
     @State var areGridLinesVisible = true
-    @State private var mirrorMode: MirrorMode = .none
+    @State private var mirrorMode: MirrorMode = .both
 
     let meshWidth: Int
     let meshHeight: Int
