@@ -202,8 +202,11 @@ extension DocumentationIllustration {
 
         let makeView: @MainActor () -> AnyView
 
-        init(_ makeView: @escaping @MainActor () -> AnyView) {
-            self.makeView = makeView
+        init(_ makeView: @escaping @MainActor () -> some View) {
+            self.makeView = {
+                let view = makeView()
+                return AnyView(view)
+            }
         }
 
     }
@@ -213,20 +216,20 @@ extension DocumentationIllustration {
 
 extension DocumentationIllustration.Background {
 
-    /// An empty background that draws nothing.
+    /// An empty background.
     public static var emptyView: Self {
-        .init { AnyView(EmptyView()) }
+        .init { EmptyView() }
     }
 
-    /// A background built from an arbitrary view.
+    /// A background that uses the given view.
     /// - Parameter view: The view to use as the background.
     public static func view(_ view: @autoclosure @escaping @MainActor () -> some View) -> Self {
-        .init { AnyView(view()) }
+        .init { view() }
     }
 
-    /// A mes h gradient background using the `PrettyMesh` for `moltenHorizon`.
+    /// A mesh gradient background.
     public static var moltenHorizon: Self {
-        .init { AnyView(PrettyMesh.moltenHorizon.rotated()) }
+        .init { PrettyMesh.moltenHorizon.rotated() }
     }
 
 }
