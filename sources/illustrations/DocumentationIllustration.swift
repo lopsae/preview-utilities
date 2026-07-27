@@ -20,48 +20,48 @@ public struct DocumentationIllustration: View {
     let background: AnyView
 
     // FIXME: replace with a size .height, that uses the default width.
-    public init<Content: View, Background: View>(
+    public init<Content: View>(
         height: CGFloat,
         drawsBorder: Bool = true,
         alignment: Alignment = .center,
-        background: Background = EmptyView(),
+        background: Background = .emptyView,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = Sizing.height(height).size
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
-        self.background = AnyView(background)
+        self.background = background.makeView()
     }
 
 
-    public init<Content: View, Background: View>(
+    public init<Content: View>(
         size: CGSize,
         alignment: Alignment = .center,
         drawsBorder: Bool = true,
-        background: Background = EmptyView(),
+        background: Background = .emptyView,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = size
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
-        self.background = AnyView(background)
+        self.background = background.makeView()
     }
 
 
-    public init<Content: View, Background: View>(
+    public init<Content: View>(
         sizing: Sizing,
         alignment: Alignment = .center,
         drawsBorder: Bool = true,
-        background: Background = EmptyView(),
+        background: Background = .emptyView,
         @ViewBuilder content: @escaping () -> Content
     ) {
         self.size = sizing.size
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
-        self.background = AnyView(background)
+        self.background = background.makeView()
     }
 
 
@@ -157,7 +157,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("Background", traits: .docsIllustration) {
-    DocumentationIllustration(sizing: .regular, background: PrettyMesh.moltenHorizon.rotated()) {
+    DocumentationIllustration(sizing: .regular, background: .moltenHorizonMesh) {
         Text("Documentation Illustration\nWith Background")
     }
     .padding()
@@ -187,3 +187,49 @@ extension PreviewTrait where T == Preview.ViewTraits {
     }
     .padding()
 }
+
+
+// MARK: - Background
+
+
+extension DocumentationIllustration {
+
+    /// A background for a ``DocumentationIllustration``.
+    ///
+    /// Use a predefined background such as ``moltenHorizonMesh``, define your own as a static
+    /// member in an extension, or wrap an arbitrary view with ``view(_:)``.
+    public struct Background {
+
+        let makeView: @MainActor () -> AnyView
+
+        init(_ makeView: @escaping @MainActor () -> AnyView) {
+            self.makeView = makeView
+        }
+
+    }
+
+}
+
+
+extension DocumentationIllustration.Background {
+
+    /// An empty background that draws nothing.
+    public static var emptyView: Self {
+        .init { AnyView(EmptyView()) }
+    }
+
+    /// A background built from an arbitrary view.
+    /// - Parameter view: The view to use as the background.
+    public static func view(_ view: @autoclosure @escaping @MainActor () -> some View) -> Self {
+        .init { AnyView(view()) }
+    }
+
+    /// A mes h gradient background using the `PrettyMesh` for `moltenHorizon`.
+    public static var moltenHorizonMesh: Self {
+        .init { AnyView(PrettyMesh.moltenHorizon.rotated()) }
+    }
+
+}
+
+
+
