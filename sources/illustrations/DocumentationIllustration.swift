@@ -157,7 +157,7 @@ extension PreviewTrait where T == Preview.ViewTraits {
 
 
 #Preview("Background", traits: .docsIllustration) {
-    DocumentationIllustration(sizing: .regular, background: .moltenHorizonMesh) {
+    DocumentationIllustration(sizing: .regular, background: .moltenHorizon) {
         Text("Documentation Illustration\nWith Background")
     }
     .padding()
@@ -225,7 +225,7 @@ extension DocumentationIllustration.Background {
     }
 
     /// A mes h gradient background using the `PrettyMesh` for `moltenHorizon`.
-    public static var moltenHorizonMesh: Self {
+    public static var moltenHorizon: Self {
         .init { AnyView(PrettyMesh.moltenHorizon.rotated()) }
     }
 
