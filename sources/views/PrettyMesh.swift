@@ -62,23 +62,22 @@ enum PrettyMesh {
     }
 
 
-    // TODO: generated, clean up, experiment and consider keeping.
     static var moltenHorizon: MeshGradient {
         MeshGradient(
             width: 6, height: 5,
             points: [
-                [0.00, 0.00], [0.10, 0.00], [0.19, 0.00], [0.46, 0.00], [0.75, 0.00], [1.00, 0.00],
-                [0.00, 0.25], [0.22, 0.24], [0.30, 0.13], [0.51, 0.31], [0.73, 0.16], [1.00, 0.25],
-                [0.00, 0.50], [0.37, 0.61], [0.46, 0.39], [0.54, 0.61], [0.63, 0.39], [1.00, 0.50],
-                [0.00, 0.75], [0.27, 0.84], [0.49, 0.69], [0.70, 0.87], [0.78, 0.76], [1.00, 0.75],
-                [0.00, 1.00], [0.25, 1.00], [0.54, 1.00], [0.81, 1.00], [0.90, 1.00], [1.00, 1.00],
+                [0.00, 0.00], [0.10, 0.00], [0.19, 0.00], [0.50, 0.00], [0.69, 0.00], [1.00, 0.00],
+                [0.00, 0.44], [0.18, 0.23], [0.30, 0.14], [0.47, 0.08], [0.61, 0.08], [1.00, 0.12],
+                [0.00, 0.72], [0.46, 0.82], [0.50, 0.58], [0.50, 0.42], [0.54, 0.18], [1.00, 0.28],
+                [0.00, 0.88], [0.39, 0.92], [0.53, 0.92], [0.70, 0.86], [0.82, 0.77], [1.00, 0.56],
+                [0.00, 1.00], [0.31, 1.00], [0.50, 1.00], [0.81, 1.00], [0.90, 1.00], [1.00, 1.00],
             ],
             colors: [
-                .red,    .orange, .yellow, .yellow, .orange, .red,
+                .red,    .red, .orange, .yellow, .red,    .red,
+                .orange, .red,    .orange, .yellow, .red,    .orange,
                 .orange, .red,    .orange, .orange, .red,    .orange,
-                .orange, .red,    .orange, .orange, .red,    .orange,
-                .orange, .red,    .orange, .orange, .red,    .orange,
-                .red,    .orange, .yellow, .yellow, .orange, .red
+                .orange, .red,    .yellow, .orange, .red,    .orange,
+                .red,    .red,    .yellow, .orange, .red, .red
             ]
         )
     }
@@ -324,6 +323,13 @@ private struct MeshGradientEditor: View {
                     .font(.caption)
                     .foregroundStyle(.black)
                 }
+                .overlay(alignment: .bottom) {
+                    let pointString = String(format: "%.2f\n%.2f", point.x, point.y)
+                    Text(pointString)
+                    .font(.caption.monospaced().pointSize(8))
+                    .fixedSize()
+                    .alignmentGuide(.bottom, moveTo: .top)
+                }
             }
         }
         .frame(squareOf: 28)
@@ -458,7 +464,7 @@ private struct PreviewContent {
 
 
 #Preview("Editor", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    MeshGradientEditor(mesh: PrettyMesh.simple)
+    MeshGradientEditor(mesh: PrettyMesh.moltenHorizon)
 }
 
 
