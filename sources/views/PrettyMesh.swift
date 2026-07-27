@@ -83,66 +83,6 @@ enum PrettyMesh {
     }
 
 
-    // TODO: generated, clean up, experiment and consider keeping.
-    static var emberRibbon: MeshGradient {
-        MeshGradient(
-            width: 3, height: 4,
-            points: [
-                [0.0, 0.0], [0.5, 0.0], [1.0, 0.0],
-                [0.0, 0.3], [0.6, 0.4], [1.0, 0.3],
-                [0.0, 0.7], [0.4, 0.6], [1.0, 0.7],
-                [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
-            ],
-            colors: [
-                .yellow, .orange, .pink,
-                .orange, .red,    .orange,
-                .pink,   .red,    .orange,
-                .red,    .orange, .yellow,
-            ]
-        )
-    }
-
-
-    // TODO: generated, clean up, experiment and consider keeping.
-    static var frozenDepth: MeshGradient {
-        MeshGradient(
-            width: 4, height: 4,
-            points: [
-                [0.0, 0.0],  [0.35, 0.0], [0.65, 0.0], [1.0, 0.0],
-                [0.0, 0.35], [0.4, 0.4],  [0.6, 0.4],  [1.0, 0.35],
-                [0.0, 0.65], [0.4, 0.6],  [0.6, 0.6],  [1.0, 0.65],
-                [0.0, 1.0],  [0.35, 1.0], [0.65, 1.0], [1.0, 1.0]
-            ],
-            colors: [
-                .indigo, .blue, .blue, .indigo,
-                .blue,   .teal, .teal, .blue,
-                .blue,   .teal, .teal, .blue,
-                .indigo, .blue, .blue, .indigo,
-            ]
-        )
-    }
-
-
-    // TODO: generated, clean up, experiment and consider keeping.
-    static var glacialVeil: MeshGradient {
-        MeshGradient(
-            width: 3, height: 4,
-            points: [
-                [0.0, 0.0], [0.5, 0.0], [1.0, 0.0],
-                [0.0, 0.3], [0.4, 0.4], [1.0, 0.3],
-                [0.0, 0.7], [0.6, 0.6], [1.0, 0.7],
-                [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
-            ],
-            colors: [
-                .purple, .indigo, .blue,
-                .indigo, .cyan,   .indigo,
-                .blue,   .cyan,   .indigo,
-                .blue,   .indigo, .purple,
-            ]
-        )
-    }
-
-
     // To explore color combinations.
     fileprivate static var experiment: MeshGradient {
         MeshGradient(
@@ -488,24 +428,6 @@ private struct PreviewContent {
 
 #Preview("MoltenHorizon") {
     PrettyMesh.moltenHorizon
-        .ignoresSafeArea()
-}
-
-
-#Preview("EmberRibbon") {
-    PrettyMesh.emberRibbon
-        .ignoresSafeArea()
-}
-
-
-#Preview("FrozenDepth") {
-    PrettyMesh.frozenDepth
-        .ignoresSafeArea()
-}
-
-
-#Preview("GlacialVeil") {
-    PrettyMesh.glacialVeil
         .ignoresSafeArea()
 }
 
