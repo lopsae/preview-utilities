@@ -79,6 +79,9 @@ public struct DocumentationIllustration: View {
 }
 
 
+// MARK: - Sizing
+
+
 extension DocumentationIllustration {
 
     /// Size in points of a documentation illustration.
@@ -118,6 +121,52 @@ extension DocumentationIllustration {
             .init(DocumentationIllustration.defaultWidth, illHeight)
         }
 
+    }
+
+}
+
+
+// MARK: - Background
+
+
+extension DocumentationIllustration {
+
+    /// A background for a ``DocumentationIllustration``.
+    ///
+    /// Use a predefined background such as ``moltenHorizonMesh``, define your own as a static
+    /// member in an extension, or wrap an arbitrary view with ``view(_:)``.
+    public struct Background {
+
+        let makeView: @MainActor () -> AnyView
+
+        init(_ makeView: @escaping @MainActor () -> some View) {
+            self.makeView = {
+                let view = makeView()
+                return AnyView(view)
+            }
+        }
+
+    }
+
+}
+
+
+extension DocumentationIllustration.Background {
+
+    /// An empty background.
+    public static var emptyView: Self {
+        .init { EmptyView() }
+    }
+
+    /// A background that uses the given view.
+    /// - Parameter view: The view to use as the background.
+    public static func view(_ view: @autoclosure @escaping @MainActor () -> some View) -> Self {
+        .init { view() }
+    }
+
+    /// A mesh gradient background.
+    public static var moltenHorizon: Self {
+        .init { PrettyMesh.moltenHorizon.rotated() }
     }
 
 }
@@ -187,52 +236,3 @@ extension PreviewTrait where T == Preview.ViewTraits {
     }
     .padding()
 }
-
-
-// MARK: - Background
-
-
-extension DocumentationIllustration {
-
-    /// A background for a ``DocumentationIllustration``.
-    ///
-    /// Use a predefined background such as ``moltenHorizonMesh``, define your own as a static
-    /// member in an extension, or wrap an arbitrary view with ``view(_:)``.
-    public struct Background {
-
-        let makeView: @MainActor () -> AnyView
-
-        init(_ makeView: @escaping @MainActor () -> some View) {
-            self.makeView = {
-                let view = makeView()
-                return AnyView(view)
-            }
-        }
-
-    }
-
-}
-
-
-extension DocumentationIllustration.Background {
-
-    /// An empty background.
-    public static var emptyView: Self {
-        .init { EmptyView() }
-    }
-
-    /// A background that uses the given view.
-    /// - Parameter view: The view to use as the background.
-    public static func view(_ view: @autoclosure @escaping @MainActor () -> some View) -> Self {
-        .init { view() }
-    }
-
-    /// A mesh gradient background.
-    public static var moltenHorizon: Self {
-        .init { PrettyMesh.moltenHorizon.rotated() }
-    }
-
-}
-
-
-
