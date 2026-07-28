@@ -432,12 +432,6 @@ private struct PreviewContent {
 }
 
 
-#Preview("MoltenHorizon.rotated") {
-    PrettyMesh.moltenHorizon.rotated()
-        .ignoresSafeArea()
-}
-
-
 #Preview("Experiment") {
     PrettyMesh.experiment
         .ignoresSafeArea()

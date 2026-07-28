@@ -113,7 +113,13 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("MoltenHorizon") {
+#Preview("Rotated") {
+    PrettyMesh.moltenHorizon.rotated()
+    .ignoresSafeArea()
+}
+
+
+#Preview("Opacities") {
     PrettyMesh.moltenHorizon
     .applying(opacities: [
         .red:    0.9,
