@@ -9,6 +9,9 @@ Upcoming Release.
 + Added `EdgeGraticuleModifier` and associated `View` extension functions.
 + Added `EdgeGraticule` shape.
 + Added `ConfigurationTrait`, `ConfigurationModifier`, and related types.
++ Added Snapshot testing for several views and modifiers.
++ Added `PrettyMesh` with several ready-to-use meshes and preview editor.
++ Added `DocumentationIllustration.Background`.
 
 
 
