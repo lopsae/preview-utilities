@@ -16,9 +16,7 @@ extension MeshGradient {
     /// + Color grid: Each cell `(row, col)` maps to `(col, height - 1 - row)`.
     /// + Coordinate: Each point `(x, y)` maps to `(1 - y, x)`.
     ///
-    /// Meshes not built from explicit points and colors are returned unchanged, as there are no
-    /// stored values to rotate. Any `background`, `smoothsColors`, or `colorSpace` customization
-    /// is not preserved, reverting to the defaults.
+    /// Meshes not built from explicit points and colors are returned unchanged.
     public func rotated() -> MeshGradient {
         guard
             case .points(let points) = locations,
@@ -57,8 +55,72 @@ extension MeshGradient {
             smoothsColors: smoothsColors,
             colorSpace: colorSpace
         )
-
         return newMesh
     }
 
+
+    /// Returns the mesh with opacity applied to the colors present in the given dictionary.
+    ///
+    /// Each color that appears as a key in `opacities` is replaced with the same color at the
+    /// corresponding opacity. Matching uses `Color` equality. Colors not present in the dictionary
+    /// are left unchanged.
+    ///
+    /// Points and other properties of the mesh are copied to the resulting instance.
+    ///
+    /// Meshes not built from explicit points and colors are returned unchanged.
+    ///
+    /// - Parameter opacities: The opacity to apply to each matching color.
+    public func applying(opacities: [Color: CGFloat]) -> MeshGradient {
+        guard
+            case .points(let points) = locations,
+            case .colors(let colorValues) = colors
+        else {
+            return self
+        }
+
+        let modifiedColors = colorValues.map { color -> Color in
+            guard let opacity = opacities[color] else {
+                return color
+            }
+            return color.opacity(Double(opacity))
+        }
+
+        return MeshGradient(
+            width: width,
+            height: height,
+            points: points,
+            colors: modifiedColors,
+            background: background,
+            smoothsColors: smoothsColors,
+            colorSpace: colorSpace
+        )
+    }
+
+}
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("MoltenHorizon") {
+    PrettyMesh.moltenHorizon
+    .applying(opacities: [
+        .red:    0.9,
+        .yellow: 0.3,
+        .orange: 0.5
+
+    ])
+    .ignoresSafeArea()
+    .background(.background)
 }
