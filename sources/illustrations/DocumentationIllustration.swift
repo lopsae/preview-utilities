@@ -147,9 +147,9 @@ extension DocumentationIllustration {
     /// member in an extension, or wrap an arbitrary view with ``view(_:)``.
     public struct Background {
 
-        let makeView: @MainActor () -> AnyView
+        let makeView: () -> AnyView
 
-        init(_ makeView: @escaping @MainActor () -> some View) {
+        init(makeView: @escaping () -> some View) {
             self.makeView = {
                 let view = makeView()
                 return AnyView(view)
@@ -163,20 +163,20 @@ extension DocumentationIllustration {
 
 extension DocumentationIllustration.Background {
 
-    /// An empty background.
-    public static var emptyView: Self {
-        .init { EmptyView() }
-    }
-
     /// A background that uses the given view.
     /// - Parameter view: The view to use as the background.
-    public static func view(_ view: @autoclosure @escaping @MainActor () -> some View) -> Self {
-        .init { view() }
+    public static func view(@ViewBuilder view: @escaping () -> some View) -> Self {
+        .init(makeView: view)
+    }
+
+    /// An empty background.
+    public static var emptyView: Self {
+        .view { EmptyView() }
     }
 
     /// A mesh gradient background.
     public static var moltenHorizon: Self {
-        .init { PrettyMesh.moltenHorizon.rotated() }
+        .view { PrettyMesh.moltenHorizon.rotated() }
     }
 
 }
