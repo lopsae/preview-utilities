@@ -19,7 +19,7 @@ extension MeshGradient {
     /// Meshes not built from explicit points and colors are returned unchanged, as there are no
     /// stored values to rotate. Any `background`, `smoothsColors`, or `colorSpace` customization
     /// is not preserved, reverting to the defaults.
-    func rotated() -> MeshGradient {
+    public func rotated() -> MeshGradient {
         guard
             case .points(let points) = locations,
             case .colors(let colorValues) = colors

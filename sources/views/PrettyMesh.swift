@@ -7,9 +7,9 @@
 import SwiftUI
 
 
-enum PrettyMesh {
+public enum PrettyMesh {
 
-    static var summerDawnSplit: MeshGradient {
+    public static var summerDawnSplit: MeshGradient {
         MeshGradient(
             width: 3, height: 4,
             points: [
@@ -28,7 +28,7 @@ enum PrettyMesh {
     }
 
 
-    static var wallOfIceAndFire: MeshGradient {
+    public static var wallOfIceAndFire: MeshGradient {
         MeshGradient(
             width: 4, height: 3,
             points: [
@@ -45,7 +45,7 @@ enum PrettyMesh {
     }
 
 
-    static var auroraEgg: MeshGradient {
+    public static var auroraEgg: MeshGradient {
         MeshGradient(
             width: 4, height: 3,
             points: [
@@ -62,7 +62,7 @@ enum PrettyMesh {
     }
 
 
-    static var moltenHorizon: MeshGradient {
+    public static var moltenHorizon: MeshGradient {
         MeshGradient(
             width: 6, height: 5,
             points: [
