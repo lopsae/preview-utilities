@@ -10,13 +10,12 @@ import SwiftUI
 /// Wraps content for rendering an illustration generated from a SwiftUI view body.
 public struct DocumentationIllustration: View {
 
-    let size: CGSize
+    let sizing: Sizing
     let drawsBorder: Bool
     let alignment: Alignment
     let content: AnyView
     let background: AnyView
 
-    // FIXME: replace with a size .height, that uses the default width.
     public init<Content: View>(
         height: CGFloat,
         drawsBorder: Bool = true,
@@ -24,7 +23,7 @@ public struct DocumentationIllustration: View {
         background: Background = .emptyView,
         @ViewBuilder content: @escaping () -> Content
     ) {
-        self.size = Sizing.height(height).size
+        self.sizing = .height(height)
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
@@ -39,7 +38,7 @@ public struct DocumentationIllustration: View {
         background: Background = .emptyView,
         @ViewBuilder content: @escaping () -> Content
     ) {
-        self.size = size
+        self.sizing = .init(size: size)
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
@@ -54,7 +53,7 @@ public struct DocumentationIllustration: View {
         background: Background = .emptyView,
         @ViewBuilder content: @escaping () -> Content
     ) {
-        self.size = sizing.size
+        self.sizing = sizing
         self.alignment = alignment
         self.drawsBorder = drawsBorder
         self.content = AnyView(content())
@@ -67,7 +66,7 @@ public struct DocumentationIllustration: View {
         VStack {
             content
         }
-        .frame(size: size, alignment: alignment)
+        .frame(size: sizing.size, alignment: alignment)
         .background { background }
         .background(.background, in: .rect)
         .border(.tertiary, width: drawsBorder ? .one : .zero)
