@@ -98,12 +98,14 @@ public struct IllustrationStorage {
         _ nameComponents: String...,
         usesFullComponentName: Bool = true,
         colorSchemes: Set<ColorScheme> = IllustrationRenderer.defaultColorSchemes,
+        backend: IllustrationRenderer.Backend = .imageRenderer,
         illustration: () -> DocumentationIllustration
     ) throws {
         try renderAndStore(
             nameComponents: nameComponents,
             usesFullComponentName: usesFullComponentName,
             colorSchemes: colorSchemes,
+            backend: backend,
             illustration: illustration
         )
     }
@@ -113,12 +115,14 @@ public struct IllustrationStorage {
         _ nameComponents: String...,
         usesFullComponentName: Bool = true,
         colorScheme: ColorScheme,
+        backend: IllustrationRenderer.Backend = .imageRenderer,
         illustration: () -> DocumentationIllustration
     ) throws {
         try renderAndStore(
             nameComponents: nameComponents,
             usesFullComponentName: usesFullComponentName,
             colorSchemes: [colorScheme],
+            backend: backend,
             illustration: illustration
         )
     }
@@ -128,11 +132,13 @@ public struct IllustrationStorage {
         nameComponents: [String],
         usesFullComponentName: Bool,
         colorSchemes: Set<ColorScheme>,
+        backend: IllustrationRenderer.Backend,
         illustration: () -> DocumentationIllustration
     ) throws {
         let resource = try IllustrationRenderer.render(
             nameComponents: nameComponents,
             colorSchemes: colorSchemes,
+            backend: backend,
             illustration: illustration
         )
         try store(
