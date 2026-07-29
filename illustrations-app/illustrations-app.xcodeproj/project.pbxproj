@@ -32,9 +32,9 @@
 			path = sources;
 			sourceTree = "<group>";
 		};
-		2D45FE7E3018F972004DF806 /* Illustrations AppTests */ = {
+		2D45FE7E3018F972004DF806 /* illustrations */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Illustrations AppTests";
+			path = illustrations;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				2D45FE703018F971004DF806 /* sources */,
-				2D45FE7E3018F972004DF806 /* Illustrations AppTests */,
+				2D45FE7E3018F972004DF806 /* illustrations */,
 				2D45FE6F3018F971004DF806 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,7 +118,7 @@
 				2D45FE7D3018F972004DF806 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				2D45FE7E3018F972004DF806 /* Illustrations AppTests */,
+				2D45FE7E3018F972004DF806 /* illustrations */,
 			);
 			name = Illustrations;
 			packageProductDependencies = (
@@ -412,7 +412,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Illustrations App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Illustrations App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/App";
 			};
 			name = Debug;
 		};
@@ -433,7 +433,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Illustrations App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Illustrations App";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/App";
 			};
 			name = Release;
 		};
