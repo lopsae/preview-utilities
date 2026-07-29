@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D45FE9A3018FAD9004DF806 /* PreviewUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = 2D45FE993018FAD9004DF806 /* PreviewUtilities */; };
+		2D45FEB130198DBC004DF806 /* PreviewUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = 2D45FEB030198DBC004DF806 /* PreviewUtilities */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D45FEB130198DBC004DF806 /* PreviewUtilities in Frameworks */,
 				2D45FE9A3018FAD9004DF806 /* PreviewUtilities in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +98,7 @@
 			name = "Illustrations App";
 			packageProductDependencies = (
 				2D45FE993018FAD9004DF806 /* PreviewUtilities */,
+				2D45FEB030198DBC004DF806 /* PreviewUtilities */,
 			);
 			productName = "Illustrations App";
 			productReference = 2D45FE6E3018F971004DF806 /* Illustrations App.app */;
@@ -143,7 +146,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2D45FE693018F971004DF806 /* Build configuration list for PBXProject "Illustrations App" */;
+			buildConfigurationList = 2D45FE693018F971004DF806 /* Build configuration list for PBXProject "illustrations-app" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -153,7 +156,7 @@
 			mainGroup = 2D45FE653018F971004DF806;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				2D45FE983018FAD9004DF806 /* XCLocalSwiftPackageReference "../../../preview-utilities" */,
+				2D45FEAF30198DBC004DF806 /* XCLocalSwiftPackageReference "../../preview-utilities" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2D45FE6F3018F971004DF806 /* Products */;
@@ -435,7 +438,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2D45FE693018F971004DF806 /* Build configuration list for PBXProject "Illustrations App" */ = {
+		2D45FE693018F971004DF806 /* Build configuration list for PBXProject "illustrations-app" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D45FE8D3018F972004DF806 /* Debug */,
@@ -465,14 +468,18 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		2D45FE983018FAD9004DF806 /* XCLocalSwiftPackageReference "../../../preview-utilities" */ = {
+		2D45FEAF30198DBC004DF806 /* XCLocalSwiftPackageReference "../../preview-utilities" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../preview-utilities";
+			relativePath = "../../preview-utilities";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		2D45FE993018FAD9004DF806 /* PreviewUtilities */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PreviewUtilities;
+		};
+		2D45FEB030198DBC004DF806 /* PreviewUtilities */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PreviewUtilities;
 		};

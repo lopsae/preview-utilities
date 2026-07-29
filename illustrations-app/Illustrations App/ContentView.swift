@@ -1,11 +1,12 @@
 //
-//  ContentView.swift
 //  Illustrations App
-//
-//  Created by Maic Lopez Saenz on 2026-07-28.
+//  Created by Maic Lopez Saenz.
 //
 
+
+import PreviewUtilities
 import SwiftUI
+
 
 struct ContentView: View {
     var body: some View {
@@ -14,6 +15,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+                .debugOverlay(.size, .alignment(.outerBottomTrailing))
         }
         .padding()
     }
