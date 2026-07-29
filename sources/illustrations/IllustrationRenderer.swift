@@ -44,7 +44,6 @@ public struct IllustrationRenderer {
         ///
         /// Available only on platforms with UIKit; elsewhere it falls back to ``imageRenderer``.
         case windowHierarchy
-        // FIXME: fail if UIKit is not available.
     }
 
 
@@ -72,7 +71,9 @@ public struct IllustrationRenderer {
                     nameComponents: nameComponents, scheme: scheme,
                     scale: scale, illustration: illustration)
             case .windowHierarchy:
-                windowHierarchyCGImage(scheme: scheme, scale: scale, illustration: illustration)
+                try windowHierarchyCGImage(
+                    nameComponents: nameComponents, scheme: scheme,
+                    scale: scale, illustration: illustration)
             }
 
             images[scheme] = cgImage
@@ -96,7 +97,7 @@ public struct IllustrationRenderer {
 
         guard let image = renderer.cgImage else {
             let resourceName = RenderResource.fullResourceName(components: nameComponents)
-            throw RendererError.imageRendererFailed(resourceName)
+            throw RendererError.imageRendererRenderFailed(resourceName: resourceName)
         }
 
         return image
@@ -107,10 +108,11 @@ public struct IllustrationRenderer {
     /// Rasterizes the illustration by hosting it in an on-screen window and capturing its
     /// composited view hierarchy, so render-server effects like Liquid Glass are included.
     private static func windowHierarchyCGImage(
+        nameComponents: [String],
         scheme: ColorScheme,
         scale: CGFloat,
         illustration: () -> DocumentationIllustration
-    ) -> CGImage? {
+    ) throws -> CGImage {
         let illustration = illustration()
         let size = illustration.sizing.size
         let style = scheme.uiUserInterfaceStyle
@@ -125,14 +127,11 @@ public struct IllustrationRenderer {
         // window must belong to an active foreground scene, otherwise the render server refuses to
         // snapshot it (see the capture failure below). This requires the tests to be hosted by an
         // application; a host-less test bundle has no such scene.
-        
-
-        // FIXME: Fix warning.
-        let window = UIWindow(frame: host.view.frame)
-        if let windowScene = activeWindowScene {
-            // FIXME: What happens if there is no window scene?
-            window.windowScene = windowScene
+        guard let windowScene = activeWindowScene else {
+            throw RendererError.noActiveWindowScene
         }
+
+        let window = UIWindow(windowScene: windowScene)
         window.rootViewController = host
         window.overrideUserInterfaceStyle = style
         window.makeKeyAndVisible()
@@ -154,7 +153,12 @@ public struct IllustrationRenderer {
         window.isHidden = true
         window.rootViewController = nil
 
-        return didCapture ? uiImage.cgImage : nil
+        guard didCapture, let cgImage = uiImage.cgImage else {
+            let resourceName = RenderResource.fullResourceName(components: nameComponents)
+            throw RendererError.windowHierarchyRenderFailed(resourceName: resourceName)
+        }
+
+        return cgImage
     }
 
 
@@ -168,11 +172,12 @@ public struct IllustrationRenderer {
     /// Fallback for platforms without UIKit: the window hierarchy path is unavailable, so this
     /// rasterizes with `ImageRenderer` (which cannot capture render-server effects).
     private static func windowHierarchyCGImage(
+        nameComponents: [String],
         scheme: ColorScheme,
         scale: CGFloat,
         illustration: () -> DocumentationIllustration
-    ) -> CGImage? {
-        imageRendererCGImage(scheme: scheme, scale: scale, illustration: illustration)
+    ) throws -> CGImage {
+        throw RendererError.windowHierarchyStrategyUnavailable
     }
     #endif
 
@@ -234,12 +239,21 @@ public struct IllustrationRenderer {
 
 
     enum RendererError: LocalizedError {
-        case imageRendererFailed(String)
+        case imageRendererRenderFailed(resourceName: String)
+        case windowHierarchyRenderFailed(resourceName: String)
+        case noActiveWindowScene
+        case windowHierarchyStrategyUnavailable
 
         var errorDescription: String? {
             switch self {
-            case .imageRendererFailed(let name):
-                "DocumentationRenderer using ImageRenderer strategy failed to produce a CGImage for '\(name)'"
+            case .imageRendererRenderFailed(let resourceName):
+                "ImageRenderer strategy failed to produce a CGImage for '\(resourceName)'"
+            case .windowHierarchyRenderFailed(let resourceName):
+                "WindowHierarchy strategy failed to produce a CGImage for '\(resourceName)'"
+            case .noActiveWindowScene:
+                "WindowHierarchy strategy found no active window scene to render"
+            case .windowHierarchyStrategyUnavailable:
+                "WindowHierarchy strategy is not available on this platform"
             }
         }
     }

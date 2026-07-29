@@ -76,21 +76,40 @@ enum Snapshots {
                 .background(.background)
                 .environment(\.colorScheme, scheme)
 
-            let layout:SwiftUISnapshotLayout = .fixed(width: size.width, height: size.height)
+            #if canImport(UIKit)
+                let layout:SwiftUISnapshotLayout = .fixed(width: size.width, height: size.height)
+                let failureMessage = verifySnapshot(
+                  of: configuredContent,
+                  as: .image(layout: layout),
+                  named: snapshotName,
+                  record: record,
+                  snapshotDirectory: snapshotsFolder.path(),
+                  timeout: timeout,
+                  fileID: fileID,
+                  file: filePath,
+                  testName: testName,
+                  line: line,
+                  column: column
+                )
+            #endif
 
-            let failureMessage = verifySnapshot(
-              of: configuredContent,
-              as: .image(layout: layout),
-              named: snapshotName,
-              record: record,
-              snapshotDirectory: snapshotsFolder.path(),
-              timeout: timeout,
-              fileID: fileID,
-              file: filePath,
-              testName: testName,
-              line: line,
-              column: column
-            )
+            #if canImport(AppKit)
+                let hostingView = NSHostingView(rootView: configuredContent)
+                hostingView.frame = .init(origin: .zero, size: size)
+                let failureMessage = verifySnapshot(
+                  of: hostingView,
+                  as: .image,
+                  named: snapshotName,
+                  record: record,
+                  snapshotDirectory: snapshotsFolder.path(),
+                  timeout: timeout,
+                  fileID: fileID,
+                  file: filePath,
+                  testName: testName,
+                  line: line,
+                  column: column
+                )
+            #endif
 
             if let failureMessage {
                 Issue.record(
