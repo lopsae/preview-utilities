@@ -132,6 +132,7 @@ public struct IllustrationRenderer {
         }
 
         let window = UIWindow(windowScene: windowScene)
+        window.frame = .init(origin: .zero, size: size)
         window.rootViewController = host
         window.overrideUserInterfaceStyle = style
         window.makeKeyAndVisible()
