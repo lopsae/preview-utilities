@@ -24,15 +24,18 @@ struct IllustrationsForSnippetIllustrations {
     }
 
     @Test func glassWithWindowHierarchy() throws {
-        try storage.renderAndStore("snippet-illustrations", "glass-with-window-hierarchy", backend: .windowHierarchy) {
+        try storage.renderAndStore(
+            "snippet-illustrations", "glass-with-window-hierarchy",
+            strategy: .windowHierarchy
+        ) {
             DocumentationIllustration(sizing: .regular) {
                 VStack {
-                    Button("Bordered Button", systemImage: "circle", action: {})
+                    Button("Bordered Button", systemImage: "ladybug", action: {})
                     .buttonStyle(.bordered)
                     .padding(8)
                     .floatingCaption("Bordered", .colorStyle(.green), .alignment(.outerTrailing))
 
-                    Button("Glass Button", systemImage: "circle", action: {})
+                    Button("Glass Button", systemImage: "ladybug", action: {})
                     .buttonStyle(.glassProminent)
                     .padding(8)
                     .floatingCaption("Glass", .colorStyle(.green), .alignment(.outerTrailing))
