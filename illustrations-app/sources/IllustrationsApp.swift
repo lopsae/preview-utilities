@@ -1,5 +1,5 @@
 //
-//  Illustrations App
+//  illustrations-app
 //  Created by Maic Lopez Saenz.
 //
 
