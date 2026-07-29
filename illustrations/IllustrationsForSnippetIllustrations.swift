@@ -26,7 +26,7 @@ struct IllustrationsForSnippetIllustrations {
 
 
     @Test func glassWithImageRenderer() throws {
-        try storage.renderAndStore("snippet-illustrations", "glass-with-image-renderer", backend: .imageRenderer) {
+        try storage.renderAndStore("snippet-illustrations", "glass-with-image-renderer", strategy: .imageRenderer) {
             DocumentationIllustration(sizing: .regular) {
                 VStack {
                     Button("Bordered Button", systemImage: "circle", action: {})

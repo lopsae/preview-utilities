@@ -26,12 +26,14 @@ public struct IllustrationRenderer {
 
 
     /// The strategy used to rasterize an illustration.
-    public enum Backend {
+    public enum Strategy {
 
         /// Rasterizes with `ImageRenderer`.
         ///
-        /// Fast and headless software renderer: it cannot capture effects that depend on the render
-        /// server compositing the backdrop, such as materials, blurs, and Liquid Glass controls.
+        /// Fast and headless software renderer. However, it cannot capture effects that depend on
+        /// the render server compositing the backdrop, such as materials, blurs, and Liquid Glass
+        /// controls.
+        ///
         /// Unsupported views are rendered as blank or placeholders.
         case imageRenderer
 
@@ -48,21 +50,24 @@ public struct IllustrationRenderer {
 
 
     /// Renders a SwiftUI view configured as a documentation illustration.
-    ///
+    /// 
     /// The name components determine the folder location and name of the image. Every name
     /// component except the last is treated as the folder path where the image will be saved. The
     /// name of the image is all the name components joined with hyphens (`-`).
+    /// 
+    /// - Returns: A render resource contained the rendered images and can be stored using a
+    ///   ``IllustrationStorage``.
     public static func render(
         nameComponents: [String],
         scale: CGFloat = defaultScale,
         colorSchemes: Set<ColorScheme> = defaultColorSchemes,
-        backend: Backend = .imageRenderer,
+        strategy: Strategy = .imageRenderer,
         illustration: () -> DocumentationIllustration
     ) throws -> RenderResource {
         var images: [ColorScheme: CGImage] = [:]
 
         for scheme in colorSchemes {
-            let cgImage: CGImage? = switch backend {
+            let cgImage: CGImage? = switch strategy {
             case .imageRenderer:
                 imageRendererCGImage(scheme: scheme, scale: scale, illustration: illustration)
             case .windowHierarchy:
