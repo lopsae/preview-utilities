@@ -68,15 +68,13 @@ public struct IllustrationRenderer {
         for scheme in colorSchemes {
             let cgImage: CGImage? = switch strategy {
             case .imageRenderer:
-                imageRendererCGImage(scheme: scheme, scale: scale, illustration: illustration)
+                try imageRendererCGImage(
+                    nameComponents: nameComponents, scheme: scheme,
+                    scale: scale, illustration: illustration)
             case .windowHierarchy:
                 windowHierarchyCGImage(scheme: scheme, scale: scale, illustration: illustration)
             }
 
-            guard let cgImage else {
-                let resourceName = RenderResource.fullResourceName(components: nameComponents)
-                throw RendererError.renderingFailed(resourceName)
-            }
             images[scheme] = cgImage
         }
 
@@ -86,15 +84,22 @@ public struct IllustrationRenderer {
 
     /// Rasterizes the illustration with `ImageRenderer`.
     private static func imageRendererCGImage(
+        nameComponents: [String],
         scheme: ColorScheme,
         scale: CGFloat,
         illustration: () -> DocumentationIllustration
-    ) -> CGImage? {
+    ) throws -> CGImage {
         let renderer = ImageRenderer(scale: scale) {
             illustration()
             .environment(\.colorScheme, scheme)
         }
-        return renderer.cgImage
+
+        guard let image = renderer.cgImage else {
+            let resourceName = RenderResource.fullResourceName(components: nameComponents)
+            throw RendererError.imageRendererFailed(resourceName)
+        }
+
+        return image
     }
 
 
@@ -120,6 +125,8 @@ public struct IllustrationRenderer {
         // window must belong to an active foreground scene, otherwise the render server refuses to
         // snapshot it (see the capture failure below). This requires the tests to be hosted by an
         // application; a host-less test bundle has no such scene.
+        
+
         // FIXME: Fix warning.
         let window = UIWindow(frame: host.view.frame)
         if let windowScene = activeWindowScene {
@@ -227,12 +234,12 @@ public struct IllustrationRenderer {
 
 
     enum RendererError: LocalizedError {
-        case renderingFailed(String)
+        case imageRendererFailed(String)
 
         var errorDescription: String? {
             switch self {
-            case .renderingFailed(let name):
-                "DocumentationRenderer failed to produce a CGImage for '\(name)'"
+            case .imageRendererFailed(let name):
+                "DocumentationRenderer using ImageRenderer strategy failed to produce a CGImage for '\(name)'"
             }
         }
     }
