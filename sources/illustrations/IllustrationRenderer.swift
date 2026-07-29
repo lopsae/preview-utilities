@@ -11,12 +11,11 @@ import UIKit
 #endif
 
 
-// FIXME: Recheck documentation comment about where the images are saved. Isnt this responsibility of
-// Illustration storage?
-
 /// Renders SwiftUI views to PNG files for documentation illustrations.
 ///
-/// Rendered images are saved in the package `documentation.docc/resources` folder.
+/// The rendered produces ``RenderResource`` instances that contain the rendered images and
+/// naming information. Use ``IllustrationStorage`` to store this resources into files using
+/// the Docc naming format for images.
 @MainActor
 public struct IllustrationRenderer {
 
