@@ -1,12 +1,11 @@
 //
-//  illustrations-app
+//  PreviewUtilities
 //  Created by Maic Lopez Saenz.
 //
 
 
-@testable import Illustrations_App
-
 import PreviewUtilities
+
 import SwiftUI
 import Testing
 
@@ -14,7 +13,9 @@ import Testing
 /// Rendering functions for documentation illustrations for `DocumentationIllustration`.
 ///
 /// Each test produces an image saved to the package documentation catalog.
-@MainActor
+///
+/// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
+/// each function is also used in code snippets.
 struct IllustrationsForSnippetIllustrations {
 
     let storage: IllustrationStorage
@@ -23,8 +24,9 @@ struct IllustrationsForSnippetIllustrations {
         self.storage = try DocumentationResources.storage
     }
 
-    @Test func glassWithWindowHierarchy() throws {
-        try storage.renderAndStore("snippet-illustrations", "glass-with-window-hierarchy", backend: .windowHierarchy) {
+
+    @Test func glassWithImageRenderer() throws {
+        try storage.renderAndStore("snippet-illustrations", "glass-with-image-renderer", backend: .imageRenderer) {
             DocumentationIllustration(sizing: .regular) {
                 VStack {
                     Button("Bordered Button", systemImage: "circle", action: {})

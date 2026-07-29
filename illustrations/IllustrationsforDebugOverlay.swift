@@ -38,18 +38,6 @@ struct IllustrationsForDebugOverlay {
     }
 
 
-    // FIXME: Move out of glass, likely into snippet-illustrations.
-    @Test func glassHeadless() throws {
-        try storage.renderAndStore("debug-overlay", "glass-headless", backend: .imageRenderer) {
-            DocumentationIllustration(sizing: .regular) {
-                Button("Judge my Vow", systemImage: "circle", action: {})
-                .buttonStyle(.glassProminent)
-                .floatingCaption("Glass Button", .colorStyle(.red), .alignment(.outerBottom))
-            }
-        }
-    }
-
-
     @Test func simpleTraits() throws {
         try storage.renderAndStore("debug-overlay", "simple-traits") {
             DocumentationIllustration(height: 160) {
