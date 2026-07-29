@@ -10,20 +10,22 @@ import SwiftUI
 import Testing
 
 
+/// Rendering functions for documentation illustrations for `DocumentationIllustration`.
+///
+/// Each test produces an image saved to the package documentation catalog.
+///
+/// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
+/// each function is also used in code snippets.
 @MainActor
 struct IllustrationsForSnippetIllustrations {
 
-    @Test func glassWithWindowHierarchy() throws {
-        let storage = try IllustrationStorage(
-            filePath: #filePath,
-            droppingComponents: 3, // filename, tests, illustration-app
-            appendingComponents: ["sources", "documentation.docc", "resources"]
-        ) {
-            // onImageStored
-            cgImage, filename in
-            Attachment.record(cgImage, named: filename, as: .png)
-        }
+    let storage: IllustrationStorage
 
+    init() throws {
+        self.storage = try DocumentationResources.storage
+    }
+
+    @Test func glassWithWindowHierarchy() throws {
         try storage.renderAndStore("snippet-illustrations", "glass-with-window-hierarchy", backend: .windowHierarchy) {
             DocumentationIllustration(sizing: .regular) {
                 VStack {
