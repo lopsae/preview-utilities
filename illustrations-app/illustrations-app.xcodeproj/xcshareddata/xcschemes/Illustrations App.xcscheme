@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D45FE6D3018F971004DF806"
-               BuildableName = "Illustrations App.app"
-               BlueprintName = "Illustrations App"
+               BuildableName = "App.app"
+               BlueprintName = "App"
                ReferencedContainer = "container:illustrations-app.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -36,8 +36,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D45FE7A3018F972004DF806"
-               BuildableName = "Illustrations AppTests.xctest"
-               BlueprintName = "Illustrations AppTests"
+               BuildableName = "Illustrations.xctest"
+               BlueprintName = "Illustrations"
                ReferencedContainer = "container:illustrations-app.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -59,8 +59,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D45FE6D3018F971004DF806"
-            BuildableName = "Illustrations App.app"
-            BlueprintName = "Illustrations App"
+            BuildableName = "App.app"
+            BlueprintName = "App"
             ReferencedContainer = "container:illustrations-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -76,8 +76,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D45FE6D3018F971004DF806"
-            BuildableName = "Illustrations App.app"
-            BlueprintName = "Illustrations App"
+            BuildableName = "App.app"
+            BlueprintName = "App"
             ReferencedContainer = "container:illustrations-app.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

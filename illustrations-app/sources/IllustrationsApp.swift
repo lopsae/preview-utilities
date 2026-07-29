@@ -8,10 +8,18 @@ import PreviewUtilities
 import SwiftUI
 
 
+@main
+struct IllustrationsApp: App {
+    var body: some Scene {
+        WindowGroup { ContentView() }
+    }
+}
+
+
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "printer")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("PreviewUtilities")
@@ -22,6 +30,8 @@ struct ContentView: View {
     }
 }
 
+
 #Preview {
     ContentView()
 }
+
