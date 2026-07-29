@@ -24,6 +24,7 @@
 /* Begin PBXFileReference section */
 		2D45FE6E3018F971004DF806 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D45FE7B3018F972004DF806 /* Illustrations.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Illustrations.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D45FEBE3019D8AB004DF806 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -62,6 +63,7 @@
 		2D45FE653018F971004DF806 = {
 			isa = PBXGroup;
 			children = (
+				2D45FEBE3019D8AB004DF806 /* readme.md */,
 				2D45FE703018F971004DF806 /* sources */,
 				2D45FE7E3018F972004DF806 /* illustrations */,
 				2D45FE6F3018F971004DF806 /* Products */,
