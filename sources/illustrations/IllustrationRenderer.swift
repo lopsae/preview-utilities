@@ -22,8 +22,7 @@ public struct IllustrationRenderer {
 
     public static let defaultWidth: CGFloat = 400
     public static let defaultScale: CGFloat = 3
-    // TODO: could use ColorScheme.allCasesSet.
-    public static let defaultColorSchemes: Set<ColorScheme> = [.light, .dark]
+    public static let defaultColorSchemes: Set<ColorScheme> = ColorScheme.allCasesSet
 
 
     /// The strategy used to rasterize an illustration.
