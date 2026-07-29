@@ -16,7 +16,7 @@ struct Illustrations_AppTests {
     @Test func glass() throws {
         let storage = try IllustrationStorage(
             filePath: #filePath,
-            droppingComponents: 4, // filename, tests, Illustration App, illustration-app
+            droppingComponents: 3, // filename, tests, illustration-app
             appendingComponents: ["sources", "documentation.docc", "resources"]
         ) {
             // onImageStored
