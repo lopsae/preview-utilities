@@ -27,9 +27,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2D45FE703018F971004DF806 /* Illustrations App */ = {
+		2D45FE703018F971004DF806 /* sources */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Illustrations App";
+			path = sources;
 			sourceTree = "<group>";
 		};
 		2D45FE7E3018F972004DF806 /* Illustrations AppTests */ = {
@@ -62,7 +62,7 @@
 		2D45FE653018F971004DF806 = {
 			isa = PBXGroup;
 			children = (
-				2D45FE703018F971004DF806 /* Illustrations App */,
+				2D45FE703018F971004DF806 /* sources */,
 				2D45FE7E3018F972004DF806 /* Illustrations AppTests */,
 				2D45FE6F3018F971004DF806 /* Products */,
 			);
@@ -93,7 +93,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2D45FE703018F971004DF806 /* Illustrations App */,
+				2D45FE703018F971004DF806 /* sources */,
 			);
 			name = "Illustrations App";
 			packageProductDependencies = (

@@ -14,7 +14,8 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("PreviewUtilities")
+            Text("Illustrations App")
                 .debugOverlay(.size, .alignment(.outerBottomTrailing))
         }
         .padding()
