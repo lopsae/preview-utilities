@@ -4,7 +4,7 @@
 //
 
 
-@testable import Illustrations_App
+@testable import IllustrationsApp
 
 import PreviewUtilities
 import SwiftUI
