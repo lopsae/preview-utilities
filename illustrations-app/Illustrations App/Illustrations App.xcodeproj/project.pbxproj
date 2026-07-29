@@ -18,19 +18,11 @@
 			remoteGlobalIDString = 2D45FE6D3018F971004DF806;
 			remoteInfo = "Illustrations App";
 		};
-		2D45FE863018F972004DF806 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D45FE663018F971004DF806 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D45FE6D3018F971004DF806;
-			remoteInfo = "Illustrations App";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2D45FE6E3018F971004DF806 /* Illustrations App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Illustrations App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D45FE7B3018F972004DF806 /* Illustrations AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Illustrations AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D45FE853018F972004DF806 /* Illustrations AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Illustrations AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -42,11 +34,6 @@
 		2D45FE7E3018F972004DF806 /* Illustrations AppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Illustrations AppTests";
-			sourceTree = "<group>";
-		};
-		2D45FE883018F972004DF806 /* Illustrations AppUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Illustrations AppUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -67,13 +54,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D45FE823018F972004DF806 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,7 +62,6 @@
 			children = (
 				2D45FE703018F971004DF806 /* Illustrations App */,
 				2D45FE7E3018F972004DF806 /* Illustrations AppTests */,
-				2D45FE883018F972004DF806 /* Illustrations AppUITests */,
 				2D45FE6F3018F971004DF806 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,7 +71,6 @@
 			children = (
 				2D45FE6E3018F971004DF806 /* Illustrations App.app */,
 				2D45FE7B3018F972004DF806 /* Illustrations AppTests.xctest */,
-				2D45FE853018F972004DF806 /* Illustrations AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,29 +124,6 @@
 			productReference = 2D45FE7B3018F972004DF806 /* Illustrations AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2D45FE843018F972004DF806 /* Illustrations AppUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D45FE953018F972004DF806 /* Build configuration list for PBXNativeTarget "Illustrations AppUITests" */;
-			buildPhases = (
-				2D45FE813018F972004DF806 /* Sources */,
-				2D45FE823018F972004DF806 /* Frameworks */,
-				2D45FE833018F972004DF806 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D45FE873018F972004DF806 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				2D45FE883018F972004DF806 /* Illustrations AppUITests */,
-			);
-			name = "Illustrations AppUITests";
-			packageProductDependencies = (
-			);
-			productName = "Illustrations AppUITests";
-			productReference = 2D45FE853018F972004DF806 /* Illustrations AppUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -183,10 +138,6 @@
 						CreatedOnToolsVersion = 26.6;
 					};
 					2D45FE7A3018F972004DF806 = {
-						CreatedOnToolsVersion = 26.6;
-						TestTargetID = 2D45FE6D3018F971004DF806;
-					};
-					2D45FE843018F972004DF806 = {
 						CreatedOnToolsVersion = 26.6;
 						TestTargetID = 2D45FE6D3018F971004DF806;
 					};
@@ -211,7 +162,6 @@
 			targets = (
 				2D45FE6D3018F971004DF806 /* Illustrations App */,
 				2D45FE7A3018F972004DF806 /* Illustrations AppTests */,
-				2D45FE843018F972004DF806 /* Illustrations AppUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,13 +175,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D45FE793018F972004DF806 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D45FE833018F972004DF806 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,13 +198,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D45FE813018F972004DF806 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -269,11 +205,6 @@
 			isa = PBXTargetDependency;
 			target = 2D45FE6D3018F971004DF806 /* Illustrations App */;
 			targetProxy = 2D45FE7C3018F972004DF806 /* PBXContainerItemProxy */;
-		};
-		2D45FE873018F972004DF806 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D45FE6D3018F971004DF806 /* Illustrations App */;
-			targetProxy = 2D45FE863018F972004DF806 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -501,44 +432,6 @@
 			};
 			name = Release;
 		};
-		2D45FE963018F972004DF806 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lopsae.Illustrations-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Illustrations App";
-			};
-			name = Debug;
-		};
-		2D45FE973018F972004DF806 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lopsae.Illustrations-AppUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Illustrations App";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -565,15 +458,6 @@
 			buildConfigurations = (
 				2D45FE933018F972004DF806 /* Debug */,
 				2D45FE943018F972004DF806 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D45FE953018F972004DF806 /* Build configuration list for PBXNativeTarget "Illustrations AppUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D45FE963018F972004DF806 /* Debug */,
-				2D45FE973018F972004DF806 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
