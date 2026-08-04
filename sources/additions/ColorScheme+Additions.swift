@@ -12,3 +12,10 @@ extension ColorScheme {
     static var allCasesSet: Set<Self> { Set(Self.allCases) }
 
 }
+
+
+extension Set<ColorScheme> {
+
+    static var all: Self { ColorScheme.allCasesSet }
+
+}

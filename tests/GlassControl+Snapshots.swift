@@ -4,6 +4,8 @@
 //
 
 
+@testable import PreviewUtilities
+
 import Testing
 import SwiftUI
 
@@ -14,7 +16,7 @@ struct GlassControlSnapshots {
     /// uses a hosting app to render its snapshots, so it is unable to render composite effects
     /// like glass. This test is kept as example of a snapshot with glass controls.
     @Test func glassControlsRendering() {
-        Snapshots.assertView("glass-control", size: [400,160], record: .missing) {
+        Snapshots.assertView("glass-control", size: [400,160], colorSchemes: .all, record: .missing) {
             VStack {
                 Button("Bordered Button", systemImage: "circle", action: {})
                 .buttonStyle(.bordered)

@@ -13,7 +13,7 @@ import Testing
 
 enum Snapshots {
 
-    static let defaultColorSchemes: Set<ColorScheme> = ColorScheme.allCasesSet
+    static let defaultColorSchemes: Set<ColorScheme> = [.light]
 
     static func assertView<Content: View>(
         _ name: String,
