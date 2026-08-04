@@ -24,7 +24,7 @@ struct DebugAlignmentGuideModifierSnapshots {
 
         static let square: some View =
             Rectangle()
-            .fill(.gray)
+            .fill(.gray.quinary)
             .frame(squareOf: 100)
 
     }
@@ -170,6 +170,57 @@ struct DebugAlignmentGuideModifierSnapshots {
             TestContent.single
             .debugAlignmentGuide(.topLeading, .style(horizontal: .green.secondary, vertical: .blue.secondary))
             .debugAlignmentGuide(.bottomTrailing, .style(horizontal: .orange.secondary, vertical: .purple.secondary))
+        }
+    }
+
+
+    @Test func alignmentsWithLengths() {
+        Snapshots.assertView("compositeEach", record: .missing) {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(.topLeading, .length(horizontal: .extended(50)))
+            .debugAlignmentGuide(.bottomTrailing, .length(vertical: .fixed(70)))
+        }
+
+        Snapshots.assertView("compositeBoth", record: .missing) {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(.center, .length(horizontal: .extended(50), vertical: .fixed(70)))
+        }
+    }
+
+
+    @Test func alignmentsWithFixedLength() {
+        Snapshots.assertView("horizontal", record: .missing) {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(horizontal: .leading,  .fixedLength(150))
+            .debugAlignmentGuide(horizontal: .center,   .fixedLength(.zero))
+            .debugAlignmentGuide(horizontal: .trailing, .fixedLength(70))
+        }
+
+        Snapshots.assertView("vertical", record: .missing) {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(vertical: .top,    .fixedLength(150))
+            .debugAlignmentGuide(vertical: .center, .fixedLength(.zero))
+            .debugAlignmentGuide(vertical: .bottom, .fixedLength(70))
+        }
+
+        Snapshots.assertView("compositeBoth", record: .missing) {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(.topLeading,     .fixedLength(150))
+            .debugAlignmentGuide(.center,         .fixedLength(.zero))
+            .debugAlignmentGuide(.bottomTrailing, .fixedLength(70))
+        }
+
+
+        Snapshots.assertView("compositeEach", record: .missing) {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(.topLeading, .fixedLength(horizontal: 150))
+            .debugAlignmentGuide(.bottomTrailing, .fixedLength(vertical: -70))
         }
     }
 
