@@ -43,7 +43,7 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
 }
 
 
-// MARK: - Composite Configuration
+// MARK: - Composite Traits
 
 
 /// Contains the configuration traits that can be applied to the configuration of ``DebugAlignmentGuideModifier``.
@@ -92,7 +92,7 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     ) -> Self {
         .mutate {
             if let horizontal { $0.horizontalConfiguration.length = horizontal }
-            if let vertical   { $0.verticalConfiguration.length = vertical }
+            if let vertical   { $0.verticalConfiguration.length   = vertical }
         }
     }
 
@@ -101,6 +101,49 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
         .mutate {
             $0.horizontalConfiguration.length = lengths
             $0.verticalConfiguration.length = lengths
+        }
+    }
+
+    // FIXME: document.
+    public static var containerLength: Self {
+        .length(.container)
+    }
+
+    // FIXME: document.
+    public static func fixedLength(_ length: CGFloat) -> Self {
+        .length(.fixed(length))
+    }
+
+    public static func fixedLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> Self {
+        .mutate {
+            if let horizontal { $0.horizontalConfiguration.length = .fixed(horizontal) }
+            if let vertical   { $0.verticalConfiguration.length =   .fixed(vertical) }
+        }
+    }
+
+    // FIXME: document.
+    public static func extendLength(_ addition: CGFloat) -> Self {
+        .length(.extended(addition))
+    }
+
+    // FIXME: document.
+    public static func extendLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> Self {
+        .mutate {
+            if let horizontal { $0.horizontalConfiguration.length = .extended(horizontal) }
+            if let vertical   { $0.verticalConfiguration.length =   .extended(vertical) }
+        }
+    }
+
+    // FIXME: document.
+    public static func scaleLength(_ factor: CGFloat) -> Self {
+        .length(.scaled(factor))
+    }
+
+    // FIXME: document.
+    public static func scaleLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> Self {
+        .mutate {
+            if let horizontal { $0.horizontalConfiguration.length = .scaled(horizontal) }
+            if let vertical   { $0.verticalConfiguration.length =   .scaled(vertical) }
         }
     }
 
@@ -237,7 +280,7 @@ public enum DebugAxisAlignmentConfigurationLength {
 }
 
 
-// MARK: - ConfigurationTrait
+// MARK: - Single Axis Traits
 
 
 /// Contains the configuration traits that can be applied to the configuration of ``DebugAxisAlignmentGuideModifier``
