@@ -71,7 +71,7 @@ struct DebugAlignmentGuideModifierSnapshots {
         }
     }
 
-    @Test func axisAlignmentsWithOpacity() {
+    @Test func alignmentsWithOpacity() {
         Snapshots.assertView("horizontal", record: .missing) {
             TestContent.single
             .debugAlignmentGuide(horizontal: .leading)
@@ -157,22 +157,22 @@ struct DebugAlignmentGuideModifierSnapshots {
     @Test func alignmentsWithExtendedLength() {
         Snapshots.assertView("horizontal", record: .missing) {
             TestContent.square
-            .debugAlignmentGuide(horizontal: .leading, .extendLength(50))
-            .debugAlignmentGuide(horizontal: .center, .extendLength(0))
+            .debugAlignmentGuide(horizontal: .leading,  .extendLength(50))
+            .debugAlignmentGuide(horizontal: .center,   .extendLength(0))
             .debugAlignmentGuide(horizontal: .trailing, .extendLength(-50))
         }
 
         Snapshots.assertView("vertical", record: .missing) {
             TestContent.square
-            .debugAlignmentGuide(vertical: .top, .extendLength(50))
+            .debugAlignmentGuide(vertical: .top,    .extendLength(50))
             .debugAlignmentGuide(vertical: .center, .extendLength(0))
             .debugAlignmentGuide(vertical: .bottom, .extendLength(-50))
         }
 
         Snapshots.assertView("composite", record: .missing) {
             TestContent.square
-            .debugAlignmentGuide(.topLeading, .lengths(.extended(50)))
-            .debugAlignmentGuide(.center, .lengths(.extended(0)))
+            .debugAlignmentGuide(.topLeading,     .lengths(.extended(50)))
+            .debugAlignmentGuide(.center,         .lengths(.extended(0)))
             .debugAlignmentGuide(.bottomTrailing, .lengths(.extended(-50)))
         }
     }
