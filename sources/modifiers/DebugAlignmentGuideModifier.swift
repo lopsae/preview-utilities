@@ -33,28 +33,10 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
 
         enum Modifiers {}
 
-        var opacity: Double = .one
-        var horizontalLength: DebugAxisAlignmentConfigurationLength = .container
-        var verticalLength: DebugAxisAlignmentConfigurationLength = .container
-        var anchor: Alignment = .center
+        var horizontalConfiguration: DebugAxisAlignmentGuideConfiguration<HorizontalAlignment> = .init()
+        var verticalConfiguration: DebugAxisAlignmentGuideConfiguration<VerticalAlignment> = .init()
 
         public init() {}
-
-        var horizontalConfiguration: DebugAxisAlignmentGuideConfiguration<HorizontalAlignment> {
-            var resultConfiguration = DebugAxisAlignmentGuideConfiguration<HorizontalAlignment>()
-            resultConfiguration.opacity = opacity
-            resultConfiguration.length = horizontalLength
-            resultConfiguration.anchor = anchor.vertical
-            return resultConfiguration
-        }
-
-        var verticalConfiguration: DebugAxisAlignmentGuideConfiguration<VerticalAlignment> {
-            var resultConfiguration = DebugAxisAlignmentGuideConfiguration<VerticalAlignment>()
-            resultConfiguration.opacity = opacity
-            resultConfiguration.length = verticalLength
-            resultConfiguration.anchor = anchor.horizontal
-            return resultConfiguration
-        }
 
     }
 
@@ -85,21 +67,40 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
-    public static func lengths(
-        horizontal: DebugAxisAlignmentConfigurationLength = .container,
-        vertical: DebugAxisAlignmentConfigurationLength = .container
+    public static func style(
+        horizontal: some ShapeStyle,
+        vertical: some ShapeStyle
     ) -> Self {
         .mutate {
-            $0.horizontalLength = horizontal
-            $0.verticalLength = vertical
+            $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(horizontal)
+            $0.verticalConfiguration.shapeStyle = AnyShapeStyle(vertical)
         }
     }
 
     // FIXME: document.
-    public static func lengths(_ lengths: DebugAxisAlignmentConfigurationLength) -> Self {
+    public static func style(_ style: some ShapeStyle) -> Self {
         .mutate {
-            $0.horizontalLength = lengths
-            $0.verticalLength = lengths
+            $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(style)
+            $0.verticalConfiguration.shapeStyle = AnyShapeStyle(style)
+        }
+    }
+
+    // FIXME: document.
+    public static func length(
+        horizontal: DebugAxisAlignmentConfigurationLength? = nil,
+        vertical: DebugAxisAlignmentConfigurationLength? = nil
+    ) -> Self {
+        .mutate {
+            if let horizontal { $0.horizontalConfiguration.length = horizontal }
+            if let vertical   { $0.verticalConfiguration.length = vertical }
+        }
+    }
+
+    // FIXME: document.
+    public static func length(_ lengths: DebugAxisAlignmentConfigurationLength) -> Self {
+        .mutate {
+            $0.horizontalConfiguration.length = lengths
+            $0.verticalConfiguration.length = lengths
         }
     }
 
@@ -118,14 +119,16 @@ extension DebugAlignmentGuideModifier.Configuration.Modifiers {
     struct Opacity: ConfigurationModifier {
         let opacity: Double
         func update(configuration: inout Configuration) {
-            configuration.opacity = opacity
+            configuration.horizontalConfiguration.opacity = opacity
+            configuration.verticalConfiguration.opacity = opacity
         }
     }
 
     struct Anchor: ConfigurationModifier {
         let anchor: Alignment
         func update(configuration: inout Configuration) {
-            configuration.anchor = anchor
+            configuration.horizontalConfiguration.anchor = anchor.vertical
+            configuration.verticalConfiguration.anchor = anchor.horizontal
         }
     }
 
@@ -488,11 +491,11 @@ private struct PreviewContent {
     )
     .debugAlignmentGuide(
         .topLeading,
-        .lengths(horizontal: .extended(20), vertical: .extended(50))
+        .length(horizontal: .extended(20), vertical: .extended(50))
     )
     .debugAlignmentGuide(
         .bottomTrailing,
-        .lengths(horizontal: .extended(-40), vertical: .extended(-50))
+        .length(horizontal: .extended(-40), vertical: .extended(-50))
     )
 
     DashedDivider()
@@ -507,12 +510,12 @@ private struct PreviewContent {
     .debugAlignmentGuide(
         .topLeading,
         .anchor(.topLeading),
-        .lengths(horizontal: .extended(20), vertical: .extended(50))
+        .length(horizontal: .extended(20), vertical: .extended(50))
     )
     .debugAlignmentGuide(
         .centerLastTextBaseline,
         .anchor(.bottomTrailing),
-        .lengths(horizontal: .extended(-50), vertical: .extended(-50))
+        .length(horizontal: .extended(-50), vertical: .extended(-50))
     )
 }
 
