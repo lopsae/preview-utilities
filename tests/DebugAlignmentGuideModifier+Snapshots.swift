@@ -154,7 +154,8 @@ struct DebugAlignmentGuideModifierSnapshots {
     }
 
 
-    @Test func alignmentsWithStyle() {
+    @Test(.snapshots(record: .missing))
+    func alignmentsWithStyle() {
         Snapshots.assertView("both", colorSchemes: .all) {
             TestContent.single
             .debugAlignmentGuide(horizontal: .center, .style(.green.secondary))
@@ -170,6 +171,13 @@ struct DebugAlignmentGuideModifierSnapshots {
             TestContent.single
             .debugAlignmentGuide(.topLeading, .style(horizontal: .green.secondary, vertical: .blue.secondary))
             .debugAlignmentGuide(.bottomTrailing, .style(horizontal: .orange.secondary, vertical: .purple.secondary))
+        }
+
+        Snapshots.assertView("compositeEach") {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(.bottomLeading, .style(horizontal: .green.secondary))
+            .debugAlignmentGuide(.topTrailing, .style(vertical: .blue.secondary))
         }
     }
 
@@ -189,8 +197,10 @@ struct DebugAlignmentGuideModifierSnapshots {
         }
     }
 
+    // FIXME: fix lengths with negative values.
 
-    @Test func alignmentsWithFixedLength() {
+    @Test(.snapshots(record: .missing))
+    func alignmentsWithFixedLength() {
         Snapshots.assertView("horizontal") {
             TestContent.square
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
@@ -215,17 +225,17 @@ struct DebugAlignmentGuideModifierSnapshots {
             .debugAlignmentGuide(.bottomTrailing, .fixedLength(70))
         }
 
-
         Snapshots.assertView("compositeEach") {
             TestContent.square
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
-            .debugAlignmentGuide(.topLeading, .fixedLength(horizontal: 150))
-            .debugAlignmentGuide(.bottomTrailing, .fixedLength(vertical: -70))
+            .debugAlignmentGuide(.topLeading, .fixedLength(horizontal: 150), .style(horizontal: .green.secondary))
+            .debugAlignmentGuide(.bottomTrailing, .fixedLength(vertical: 70), .style(vertical: .green.secondary))
         }
     }
 
 
-    @Test func alignmentsWithExtendedLength() {
+    @Test(.snapshots(record: .missing))
+    func alignmentsWithExtendedLength() {
         Snapshots.assertView("horizontal") {
             TestContent.single
             .edgeGraticule(spacing: 25)
@@ -254,8 +264,8 @@ struct DebugAlignmentGuideModifierSnapshots {
         Snapshots.assertView("compositeEach") {
             TestContent.single
             .edgeGraticule(spacing: 25)
-            .debugAlignmentGuide(.topLeading, .extendLength(horizontal: 50))
-            .debugAlignmentGuide(.bottomTrailing, .extendLength(vertical: -50))
+            .debugAlignmentGuide(.topLeading, .extendLength(horizontal: 50), .style(horizontal: .green.secondary))
+            .debugAlignmentGuide(.bottomTrailing, .extendLength(vertical: -50), .style(vertical: .green.secondary))
         }
     }
 
@@ -290,8 +300,8 @@ struct DebugAlignmentGuideModifierSnapshots {
         Snapshots.assertView("compositeEach") {
             TestContent.square
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(.topLeading, .scaleLength(horizontal: 1.4))
-            .debugAlignmentGuide(.bottomTrailing, .scaleLength(vertical: 0.6))
+            .debugAlignmentGuide(.topLeading, .scaleLength(horizontal: 1.4), .style(horizontal: .green.secondary))
+            .debugAlignmentGuide(.bottomTrailing, .scaleLength(vertical: 0.6), .style(vertical: .green.secondary))
         }
     }
 

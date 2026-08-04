@@ -78,6 +78,20 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
+    public static func style(horizontal: some ShapeStyle) -> Self {
+        .mutate {
+            $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(horizontal)
+        }
+    }
+
+    // FIXME: document.
+    public static func style(vertical: some ShapeStyle) -> Self {
+        .mutate {
+            $0.verticalConfiguration.shapeStyle = AnyShapeStyle(vertical)
+        }
+    }
+
+    // FIXME: document.
     public static func style(_ style: some ShapeStyle) -> Self {
         .mutate {
             $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(style)
@@ -202,7 +216,7 @@ where
             GeometryReader { geometry in
                 let markSize: CGSize = switch configuration.length {
                 case .container, .extended: geometry.size
-                case .fixed(let length): geometry.size.setting(length: length, along: orthogonal)
+                case .fixed(let length): geometry.size.setting(length: max(.zero, length), along: orthogonal)
                 case .scaled(let multiplier): geometry.size.multiplying(by: multiplier)
                 }
                 let additionalSize: CGSize = switch configuration.length {
