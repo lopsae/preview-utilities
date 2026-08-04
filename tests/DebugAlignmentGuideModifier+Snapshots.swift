@@ -176,24 +176,35 @@ struct DebugAlignmentGuideModifierSnapshots {
 
     @Test func alignmentsWithExtendedLength() {
         Snapshots.assertView("horizontal", record: .missing) {
-            TestContent.square
+            TestContent.single
+            .edgeGraticule(spacing: 25)
             .debugAlignmentGuide(horizontal: .leading,  .extendLength(50))
-            .debugAlignmentGuide(horizontal: .center,   .extendLength(0))
+            .debugAlignmentGuide(horizontal: .center,   .extendLength(.zero))
             .debugAlignmentGuide(horizontal: .trailing, .extendLength(-50))
         }
 
         Snapshots.assertView("vertical", record: .missing) {
-            TestContent.square
+            TestContent.single
+            .edgeGraticule(spacing: 25)
             .debugAlignmentGuide(vertical: .top,    .extendLength(50))
-            .debugAlignmentGuide(vertical: .center, .extendLength(0))
+            .debugAlignmentGuide(vertical: .center, .extendLength(.zero))
             .debugAlignmentGuide(vertical: .bottom, .extendLength(-50))
         }
 
-        Snapshots.assertView("composite", record: .missing) {
-            TestContent.square
-            .debugAlignmentGuide(.topLeading,     .length(.extended(50)))
-            .debugAlignmentGuide(.center,         .length(.extended(0)))
-            .debugAlignmentGuide(.bottomTrailing, .length(.extended(-50)))
+        Snapshots.assertView("compositeBoth", record: .missing) {
+            TestContent.single
+            .edgeGraticule(spacing: 25)
+            .debugAlignmentGuide(.topLeading,     .extendLength(50))
+            .debugAlignmentGuide(.center,         .extendLength(.zero))
+            .debugAlignmentGuide(.bottomTrailing, .extendLength(-50))
+        }
+
+
+        Snapshots.assertView("compositeEach", record: .missing) {
+            TestContent.single
+            .edgeGraticule(spacing: 25)
+            .debugAlignmentGuide(.topLeading, .extendLength(horizontal: 50))
+            .debugAlignmentGuide(.bottomTrailing, .extendLength(vertical: -50))
         }
     }
 
