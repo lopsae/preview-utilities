@@ -14,7 +14,7 @@ import Testing
 struct DashedDividerSnapshots {
 
     @Test func lineWidth() {
-        Snapshots.assertView("horizontal", record: .missing) {
+        Snapshots.assertView("horizontal", colorSchemes: .all, record: .missing) {
             VStack(spacing: 20) {
                 DashedDivider()
                 DashedDivider(lineWidth: 2)
@@ -26,7 +26,7 @@ struct DashedDividerSnapshots {
             .padding(.horizontal, 16)
         }
 
-        Snapshots.assertView("vertical", record: .missing) {
+        Snapshots.assertView("vertical", colorSchemes: .all, record: .missing) {
             HStack(spacing: 20) {
                 DashedDivider(axis: .vertical)
                 DashedDivider(axis: .vertical, lineWidth: 2)
