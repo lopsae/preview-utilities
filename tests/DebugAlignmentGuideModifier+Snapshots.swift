@@ -29,8 +29,29 @@ struct DebugAlignmentGuideModifierSnapshots {
 
     }
 
+
+    @Test func compositeAlignments() {
+        Snapshots.assertView("alignments", colorSchemes: .all, record: .missing) {
+            TestContent.single
+            .debugAlignmentGuide(.topLeading)
+            .debugAlignmentGuide(.center)
+            .debugAlignmentGuide(.bottomTrailing)
+        }
+
+        Snapshots.assertView("firstTextBaseline", colorSchemes: .all, record: .missing) {
+            TestContent.multi
+            .debugAlignmentGuide(.leadingFirstTextBaseline)
+        }
+
+        Snapshots.assertView("lastTextBaseline", colorSchemes: .all, record: .missing) {
+            TestContent.multi
+            .debugAlignmentGuide(.trailingLastTextBaseline)
+        }
+    }
+
+
     @Test func horizontalAlignments() {
-        Snapshots.assertView("alignments", record: .missing) {
+        Snapshots.assertView("alignments", colorSchemes: .all, record: .missing) {
             TestContent.single
             .debugAlignmentGuide(horizontal: .leading)
             .debugAlignmentGuide(horizontal: .center)
@@ -40,7 +61,7 @@ struct DebugAlignmentGuideModifierSnapshots {
 
 
     @Test func verticalAlignments() {
-        Snapshots.assertView("alignments", record: .missing) {
+        Snapshots.assertView("alignments", colorSchemes: .all, record: .missing) {
             TestContent.multi
             .debugAlignmentGuide(vertical: .top)
             .debugAlignmentGuide(vertical: .firstTextBaseline)
