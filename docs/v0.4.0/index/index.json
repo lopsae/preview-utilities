@@ -2949,15 +2949,6 @@
             "type" : "symbol"
           },
           {
-            "title" : "Versioning",
-            "type" : "groupMarker"
-          },
-          {
-            "path" : "\/documentation\/previewutilities\/package-version",
-            "title" : "Package Version",
-            "type" : "article"
-          },
-          {
             "title" : "Classes",
             "type" : "groupMarker"
           },
