@@ -12,7 +12,6 @@ See the [Package Documentation][documentation] for more details.
 > Package documentation is actively being written. Many of the utilities in this package have not 
 > been documented thoroughly yet.
 
-https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/
 [documentation]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/
 
 
