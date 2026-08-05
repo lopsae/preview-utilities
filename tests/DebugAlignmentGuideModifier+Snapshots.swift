@@ -197,8 +197,6 @@ struct DebugAlignmentGuideModifierSnapshots {
         }
     }
 
-    // FIXME: fix lengths with negative values.
-
     @Test(.snapshots(record: .missing))
     func alignmentsWithFixedLength() {
         Snapshots.assertView("horizontal") {
@@ -215,6 +213,15 @@ struct DebugAlignmentGuideModifierSnapshots {
             .debugAlignmentGuide(vertical: .top,    .fixedLength(150))
             .debugAlignmentGuide(vertical: .center, .fixedLength(.zero))
             .debugAlignmentGuide(vertical: .bottom, .fixedLength(70))
+        }
+
+        Snapshots.assertView("negatives") {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(horizontal: .leading, .fixedLength(-70))
+            .floatingHorizontalMarker()
+            .debugAlignmentGuide(vertical: .top,       .fixedLength(-70))
+            .floatingVerticalMarker()
         }
 
         Snapshots.assertView("compositeBoth") {
@@ -238,34 +245,43 @@ struct DebugAlignmentGuideModifierSnapshots {
     func alignmentsWithExtendedLength() {
         Snapshots.assertView("horizontal") {
             TestContent.single
-            .edgeGraticule(spacing: 25)
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
             .debugAlignmentGuide(horizontal: .leading,  .extendLength(50))
             .debugAlignmentGuide(horizontal: .center,   .extendLength(.zero))
-            .debugAlignmentGuide(horizontal: .trailing, .extendLength(-50))
+            .debugAlignmentGuide(horizontal: .trailing, .extendLength(-30))
         }
 
         Snapshots.assertView("vertical") {
             TestContent.single
-            .edgeGraticule(spacing: 25)
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
             .debugAlignmentGuide(vertical: .top,    .extendLength(50))
             .debugAlignmentGuide(vertical: .center, .extendLength(.zero))
-            .debugAlignmentGuide(vertical: .bottom, .extendLength(-50))
+            .debugAlignmentGuide(vertical: .bottom, .extendLength(-30))
+        }
+
+        Snapshots.assertView("negatives") {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
+            .debugAlignmentGuide(horizontal: .leading, .extendLength(-130))
+            .floatingHorizontalMarker()
+            .debugAlignmentGuide(vertical: .top,       .extendLength(-130))
+            .floatingVerticalMarker()
         }
 
         Snapshots.assertView("compositeBoth") {
             TestContent.single
-            .edgeGraticule(spacing: 25)
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
             .debugAlignmentGuide(.topLeading,     .extendLength(50))
             .debugAlignmentGuide(.center,         .extendLength(.zero))
-            .debugAlignmentGuide(.bottomTrailing, .extendLength(-50))
+            .debugAlignmentGuide(.bottomTrailing, .extendLength(-30))
         }
 
 
         Snapshots.assertView("compositeEach") {
             TestContent.single
-            .edgeGraticule(spacing: 25)
+            .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
             .debugAlignmentGuide(.topLeading, .extendLength(horizontal: 50), .style(horizontal: .green.secondary))
-            .debugAlignmentGuide(.bottomTrailing, .extendLength(vertical: -50), .style(vertical: .green.secondary))
+            .debugAlignmentGuide(.bottomTrailing, .extendLength(vertical: -30), .style(vertical: .green.secondary))
         }
     }
 
@@ -286,6 +302,15 @@ struct DebugAlignmentGuideModifierSnapshots {
             .debugAlignmentGuide(vertical: .top,    .scaleLength(1.4))
             .debugAlignmentGuide(vertical: .center, .scaleLength(.one))
             .debugAlignmentGuide(vertical: .bottom, .scaleLength(0.6))
+        }
+
+        Snapshots.assertView("negatives") {
+            TestContent.square
+            .edgeGraticule(spacing: 20)
+            .debugAlignmentGuide(horizontal: .leading, .scaleLength(-1))
+            .floatingHorizontalMarker()
+            .debugAlignmentGuide(vertical: .top,       .scaleLength(-1))
+            .floatingVerticalMarker()
         }
 
         Snapshots.assertView("compositeBoth") {

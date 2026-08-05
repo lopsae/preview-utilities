@@ -214,9 +214,9 @@ where
             let axis = axisAlignment.axis
             let orthogonal = axis.orthogonal
             GeometryReader { geometry in
-                let markSize: CGSize = switch configuration.length {
+                let baseSize: CGSize = switch configuration.length {
                 case .container, .extended: geometry.size
-                case .fixed(let length): geometry.size.setting(length: max(.zero, length), along: orthogonal)
+                case .fixed(let length): geometry.size.setting(length: length, along: orthogonal)
                 case .scaled(let multiplier): geometry.size.multiplying(by: multiplier)
                 }
                 let additionalSize: CGSize = switch configuration.length {
@@ -225,8 +225,11 @@ where
                     orthogonal.unitSize.multiplying(by: addition)
                 }
 
+                // Final mark size is clamped to zero. Negative sizes produce a warning.
+                let markSize = baseSize.adding(size: additionalSize).enveloping(.zero)
+
                 AxialLine(orthogonal, style: configuration.shapeStyle, lineWidth: lineWidth)
-                .frame(size: markSize.adding(size: additionalSize))
+                .frame(size: markSize)
                 .frame(size: geometry.size, alignment: alignment)
             }
             .frame(length: lineWidth, along: axisAlignment.axis)
