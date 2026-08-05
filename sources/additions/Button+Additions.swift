@@ -184,29 +184,29 @@ private struct PreviewContent {
     HStack {
         Button("Ag", constrainedSystemImage: "circle", action: {})
             .buttonStyle(.borderedProminent)
-            .debugAlignmentOverlay(.firstTextBaseline)
+            .debugAlignmentGuide(vertical: .firstTextBaseline)
 
         Button("Ag", constrainedSystemImage: "guidepoint.horizontal", action: {})
             .buttonStyle(.borderedProminent)
-            .debugAlignmentOverlay(.firstTextBaseline)
+            .debugAlignmentGuide(vertical: .firstTextBaseline)
 
         Button("Ag", constrainedSystemImage: "envelope.badge.shield.half.filled", action: {})
             .buttonStyle(.borderedProminent)
-            .debugAlignmentOverlay(.firstTextBaseline)
+            .debugAlignmentGuide(vertical: .firstTextBaseline)
     }
 
     HStack {
         Button("Ag", systemImage: "circle", action: {})
             .buttonStyle(.borderedProminent)
-            .debugAlignmentOverlay(.firstTextBaseline)
+            .debugAlignmentGuide(vertical: .firstTextBaseline)
 
         Button("Ag", systemImage: "guidepoint.horizontal", action: {})
             .buttonStyle(.borderedProminent)
-            .debugAlignmentOverlay(.firstTextBaseline)
+            .debugAlignmentGuide(vertical: .firstTextBaseline)
 
         Button("Ag", systemImage: "envelope.badge.shield.half.filled", action: {})
             .buttonStyle(.borderedProminent)
-            .debugAlignmentOverlay(.firstTextBaseline)
+            .debugAlignmentGuide(vertical: .firstTextBaseline)
     }
     Text.caption("Stock")
 
@@ -218,14 +218,14 @@ private struct PreviewContent {
     HStack {
         Button("Ag", systemImage: "envelope.badge.shield.half.filled", action: {})
         .buttonStyle(.borderedProminent)
-        .debugAlignmentOverlay(.firstTextBaseline)
+        .debugAlignmentGuide(vertical: .firstTextBaseline)
         .stackAbove {
             Text.caption("Stock")
         }
-        // FIXME: compare stock using Image, against a constrained one
+        // TODO: compare stock using Image, against a constrained one
         Button("Ag", image: .moduleCatalog(.envelopeOffcenterBadgeBottomTrailing), action: {})
         .buttonStyle(.borderedProminent)
-        .debugAlignmentOverlay(.firstTextBaseline)
+        .debugAlignmentGuide(vertical: .firstTextBaseline)
         .stackAbove {
             Text.caption("Custom")
         }
@@ -247,13 +247,13 @@ private struct PreviewContent {
     VStack {
         Text.caption("Custom Symbols")
         HStack {
-            // FIXME: for custom symbols, button can be created using `image:` or creating the Label directly.
+            // TODO: for custom symbols, button can be created using `image:` or creating the Label directly.
             // There is no single api to use either system symbols or custom symbols. One might need to be created.
             Button("Offcenter", image: .moduleCatalog(.envelopeOffcenterBadgeTopTrailing), action: {})
             .buttonStyle(.borderedProminent)
             .labelStyle(.iconOnly)
 
-            // FIXME: Bring specialized Button(icon) init from separate project.
+            // TODO: Bring specialized Button(icon) init from separate project.
             Button(action: {}) {
                 Label(title: { Text("Offcenter") }, icon: { Image(.moduleCatalog(.envelopeOffcenterBadgeTopTrailing)) } )
             }
@@ -378,13 +378,13 @@ private struct PreviewContent {
                 let imageName = "photo.badge.shield.exclamationmark"
                 Button("Align", constrainedSystemImage: imageName, action: {})
                     .buttonStyle(.borderedProminent)
-                    .debugAlignmentOverlay(.firstTextBaseline)
+                    .debugAlignmentGuide(vertical: .firstTextBaseline)
                 Button("Align", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
                     .buttonStyle(.borderedProminent)
-                    .debugAlignmentOverlay(.firstTextBaseline)
+                    .debugAlignmentGuide(vertical: .firstTextBaseline)
                 Button("Align", systemImage: imageName, action: {})
                     .buttonStyle(.borderedProminent)
-                    .debugAlignmentOverlay(.firstTextBaseline)
+                    .debugAlignmentGuide(vertical: .firstTextBaseline)
             }
             .font(.title)
             Text.caption("Regular")
@@ -396,13 +396,13 @@ private struct PreviewContent {
                 let imageName = "envelope.badge.shield.half.filled"
                 Button("Align", constrainedSystemImage: imageName, action: {})
                     .buttonStyle(.borderedProminent)
-                    .debugAlignmentOverlay(.firstTextBaseline)
+                    .debugAlignmentGuide(vertical: .firstTextBaseline)
                 Button("Align", constrainedSystemImage: imageName, visibleConstraint: true, action: {})
                     .buttonStyle(.borderedProminent)
-                    .debugAlignmentOverlay(.firstTextBaseline)
+                    .debugAlignmentGuide(vertical: .firstTextBaseline)
                 Button("Align", systemImage: imageName, action: {})
                     .buttonStyle(.borderedProminent)
-                    .debugAlignmentOverlay(.firstTextBaseline)
+                    .debugAlignmentGuide(vertical: .firstTextBaseline)
             }
             .font(.title)
             Text.caption("Regular")
@@ -477,30 +477,4 @@ public struct ViewWithOpacity<Content>: View where Content: View {
             content()
         }
     }
-}
-
-
-// FIXME: Move to additions, or add functionality to debugOverlay.
-
-extension View {
-
-    func debugAlignmentOverlay(_ verticalAlignment: VerticalAlignment) -> some View {
-        let alignment: Alignment = .init(horizontal: .center, vertical: verticalAlignment)
-        return self.overlay(alignment: alignment) {
-            Rectangle()
-                .fill(.red.secondary)
-                .frame(height: 2)
-        }
-    }
-
-
-    func debugAlignmentOverlay(_ horizontalAlignment: HorizontalAlignment) -> some View {
-        let alignment: Alignment = .init(horizontal: horizontalAlignment, vertical: .center)
-        return self.overlay(alignment: alignment) {
-            Rectangle()
-                .fill(.red.secondary)
-                .frame(width: 2)
-        }
-    }
-
 }
