@@ -1,0 +1,156 @@
+#!/bin/zsh
+
+set -o errexit \
+    -o nounset \
+    -o pipefail
+
+# Injects a small self-contained script and style block into every generated `index.html` file
+# under a documentation output path.
+
+# DocC's `--transform-for-static-hosting` output duplicates an identical SPA shell HTML file for
+# every route, the same snippet is inserted into every html file.
+
+# The injected script renders a version badge in DocC's persistent nav bar actions area, where the
+# Language toggle lives. If the nav-bar cannot be found, the version badge is rendered as fixed
+# corner badge.
+
+# The Language selector itself lives inside a collapsible settings tray that isn't in the DOM until
+# opened, so it can't be used as an anchor. Uses a MutationObserver because DocC is a single-page
+# app that swaps the contents of `#app` on in-app navigation without a full page reload, and the
+# nav bar can mount asynchronously after the initial script runs.
+
+if [[ $# -ne 2 ]]; then
+    echo "Usage: inject-version-badge <output-path> <version>" >&2
+    exit 1
+fi
+
+output_path="$1"
+version="$2"
+release_url="https://github.com/lopsae/preview-utilities/releases/tag/${version}"
+marker="package-version-badge-injected"
+
+echo "🏷️  Injecting version badge (${version}) into ${output_path}"
+
+injection=$(cat <<INJECTION
+<!-- ${marker} -->
+<style>
+.package-version-badge {
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.package-version-badge--inline {
+    margin-inline-start: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--color-figure-gray-secondary, #6e6e73);
+    background: var(--color-fill-secondary, rgba(0, 0, 0, 0.06));
+    white-space: nowrap;
+}
+.package-version-badge--fixed {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2000;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    background: var(--color-fill-secondary, rgba(0, 0, 0, 0.06));
+    color: var(--color-figure-gray-secondary, #6e6e73);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.package-version-badge:hover {
+    text-decoration: underline;
+}
+@media (prefers-color-scheme: dark) {
+    .package-version-badge--fixed {
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+}
+</style>
+<script>
+(function () {
+    var VERSION = "${version}";
+    var RELEASE_URL = "${release_url}";
+
+    function ensureBadge() {
+        var badge = document.getElementById("package-version-badge");
+        if (!badge) {
+            badge = document.createElement("a");
+            badge.id = "package-version-badge";
+            badge.href = RELEASE_URL;
+            badge.target = "_blank";
+            badge.rel = "noopener noreferrer";
+            badge.textContent = VERSION;
+        }
+        return badge;
+    }
+
+    function findNavActions() {
+        var selectors = [".nav-content .nav-actions", ".nav-actions", ".nav-content", "nav.nav", "#app nav"];
+        for (var i = 0; i < selectors.length; i++) {
+            var target = document.querySelector(selectors[i]);
+            if (target) {
+                return target;
+            }
+        }
+        return null;
+    }
+
+    function placeBadge() {
+        var badge = ensureBadge();
+        var navActions = findNavActions();
+
+        if (navActions) {
+            badge.className = "package-version-badge package-version-badge--inline";
+            if (badge.parentElement !== navActions) {
+                navActions.appendChild(badge);
+            }
+        } else {
+            badge.className = "package-version-badge package-version-badge--fixed";
+            if (badge.parentElement !== document.body) {
+                document.body.appendChild(badge);
+            }
+        }
+    }
+
+    placeBadge();
+
+    // Observing document.body rather than #app is deliberate: this script runs synchronously
+    // before Vue's deferred bundle mounts, and Vue replaces the #app element entirely rather than 
+    // mutating it in place. An observer attached to the pre-mount #app node would watch a node that
+    // gets discarded and never fire.
+    new MutationObserver(placeBadge).observe(document.body, { childList: true, subtree: true });
+})();
+</script>
+INJECTION
+)
+
+total=0
+injected=0
+
+while IFS= read -r -d '' file; do
+    total=$((total + 1))
+
+    if grep -q "$marker" "$file"; then
+        continue
+    fi
+
+    INJECTION="$injection" perl -0777 -pi -e '
+        my $injection = $ENV{INJECTION};
+        die "no </body> anchor found\n" unless /<\/body>/;
+        s{</body>}{$injection</body>};
+    ' "$file"
+
+    injected=$((injected + 1))
+done < <(find "$output_path" -name 'index.html' -print0)
+
+if [[ $total -eq 0 ]]; then
+    echo "No index.html files found under ${output_path}" >&2
+    exit 1
+fi
+
+echo "✅ Injected version badge into ${injected} file(s) (${total} total, $((total - injected)) already had it)"
