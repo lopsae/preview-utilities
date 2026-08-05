@@ -12,7 +12,7 @@ See the [Package Documentation][documentation] for more details.
 > Package documentation is actively being written. Many of the utilities in this package have not 
 > been documented thoroughly yet.
 
-[documentation]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/
+[documentation]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/
 
 
 
@@ -42,8 +42,8 @@ Text("Judge my Vow")
 See the [Debug Overlay documentation][docs-debug-overlay-api] for more details.
 
 
-[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/swiftuicore/view/debugoverlay()
-[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/debug-overlay-api
+[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugoverlay()
+[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-overlay-api
 
 
 
@@ -75,8 +75,8 @@ Circle()
 See the [Floating Caption documentation][docs-floating-caption-api] for further details.
 
 
-[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
-[docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/floating-caption-api
+[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
+[docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/floating-caption-api
 
 
 
@@ -90,9 +90,9 @@ Other utilities available in this package:
   asynchronously with different isolation contexts.
 
 
-[docs-format-style-api]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/format-styles-api
-[docs-preview-caption]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/previewcaption
-[docs-floating-alignment-api]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/floating-alignments-api
+[docs-format-style-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/format-styles-api
+[docs-preview-caption]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/previewcaption
+[docs-floating-alignment-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/floating-alignments-api
 
 
 
