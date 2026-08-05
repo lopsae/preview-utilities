@@ -610,9 +610,7 @@ private struct PreviewContent {
     .floatingCaption("Fixed", .alignment(.outerLeadingTop))
     .edgeGraticule(
         spacing: 20,
-        // FIXME: implement trait both and use here.
-        .inset(.horizontal, count: 2),
-        .outset(.horizontal, count: 2)
+        .straddle(.horizontal, count: 2)
     )
     .debugAlignmentGuide(vertical: .top, .fixedLength(80))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .fixedLength(160), .anchor(.trailing))
@@ -626,8 +624,7 @@ private struct PreviewContent {
     .floatingCaption("Extended", .alignment(.outerLeadingTop))
     .edgeGraticule(
         spacing: 20,
-        .inset(.horizontal, count: 2),
-        .outset(.horizontal, count: 2)
+        .straddle(.horizontal, count: 2)
     )
     .debugAlignmentGuide(vertical: .top, .extendLength(-40))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .extendLength(40), .anchor(.trailing))

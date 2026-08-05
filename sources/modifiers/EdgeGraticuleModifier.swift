@@ -99,6 +99,25 @@ extension EdgeGraticuleModifier.Trait {
         }
     }
 
+
+    // FIXME: Document.
+    public static func straddle(
+        _ edgeSet: Edge.Set,
+        spacing: CGFloat? = nil,
+        count: Int? = nil
+    ) -> Self {
+        .mutate {
+            if let count {
+                $0.insetLineSets[set: edgeSet].indices  = IndexSet(integersIn: 0...count)
+                $0.outsetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
+            }
+            if let spacing {
+                $0.insetLineSets[set: edgeSet].spacing  = spacing
+                $0.outsetLineSets[set: edgeSet].spacing = spacing
+            }
+        }
+    }
+
 }
 
 
