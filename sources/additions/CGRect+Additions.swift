@@ -143,15 +143,6 @@ extension CGRect {
 
     @discardableResult
     @inlinable nonisolated
-    public func addTo(path: inout Path) -> Self {
-        path.addRect(self)
-        return self
-    }
-
-
-    // FIXME: consider if this is a better name, since addTo is too generic.
-    @discardableResult
-    @inlinable nonisolated
     public func addToPath(_ path: inout Path) -> Self {
         path.addRect(self)
         return self
