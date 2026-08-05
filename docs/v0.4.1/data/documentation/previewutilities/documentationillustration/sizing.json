@@ -150,14 +150,6 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/regular"
       ],
       "title" : "Type Properties"
-    },
-    {
-      "anchor" : "Type-Methods",
-      "generated" : true,
-      "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/height(_:)"
-      ],
-      "title" : "Type Methods"
     }
   ],
   "variants" : [
@@ -309,66 +301,6 @@
   "title" : "card",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/card"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/height(_:)": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "static"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "height"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
-      "text" : "DocumentationIllustration"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
-      "text" : "Sizing"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/height(_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "height(_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/height(_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular": {
   "abstract" : [

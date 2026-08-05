@@ -947,24 +947,6 @@
                             "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/traits(_:)",
                             "title" : "case traits([DebugOverlayModifier.Configuration.Trait])",
                             "type" : "case"
-                          },
-                          {
-                            "title" : "Type Properties",
-                            "type" : "groupMarker"
-                          },
-                          {
-                            "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/hidden",
-                            "title" : "static let hidden: DebugOverlayModifier.Configuration.Trait",
-                            "type" : "property"
-                          },
-                          {
-                            "title" : "Type Methods",
-                            "type" : "groupMarker"
-                          },
-                          {
-                            "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/visible(_:)",
-                            "title" : "static func visible(Bool) -> DebugOverlayModifier.Configuration.Trait",
-                            "type" : "method"
                           }
                         ],
                         "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait",
@@ -1114,24 +1096,6 @@
                         "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/traits(_:)",
                         "title" : "case traits([DebugOverlayModifier.Configuration.Trait])",
                         "type" : "case"
-                      },
-                      {
-                        "title" : "Type Properties",
-                        "type" : "groupMarker"
-                      },
-                      {
-                        "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/hidden",
-                        "title" : "static let hidden: DebugOverlayModifier.Configuration.Trait",
-                        "type" : "property"
-                      },
-                      {
-                        "title" : "Type Methods",
-                        "type" : "groupMarker"
-                      },
-                      {
-                        "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/visible(_:)",
-                        "title" : "static func visible(Bool) -> DebugOverlayModifier.Configuration.Trait",
-                        "type" : "method"
                       }
                     ],
                     "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait",
@@ -1250,24 +1214,6 @@
                     "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/traits(_:)",
                     "title" : "case traits([DebugOverlayModifier.Configuration.Trait])",
                     "type" : "case"
-                  },
-                  {
-                    "title" : "Type Properties",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/hidden",
-                    "title" : "static let hidden: DebugOverlayModifier.Configuration.Trait",
-                    "type" : "property"
-                  },
-                  {
-                    "title" : "Type Methods",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/visible(_:)",
-                    "title" : "static func visible(Bool) -> DebugOverlayModifier.Configuration.Trait",
-                    "type" : "method"
                   }
                 ],
                 "path" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait",
@@ -3003,15 +2949,6 @@
             "type" : "symbol"
           },
           {
-            "title" : "Versioning",
-            "type" : "groupMarker"
-          },
-          {
-            "path" : "\/documentation\/previewutilities\/package-version",
-            "title" : "Package Version",
-            "type" : "article"
-          },
-          {
             "title" : "Classes",
             "type" : "groupMarker"
           },
@@ -3143,15 +3080,6 @@
                     "path" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/regular",
                     "title" : "static let regular: DocumentationIllustration.Sizing",
                     "type" : "property"
-                  },
-                  {
-                    "title" : "Type Methods",
-                    "type" : "groupMarker"
-                  },
-                  {
-                    "path" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/height(_:)",
-                    "title" : "static func height(CGFloat) -> DocumentationIllustration.Sizing",
-                    "type" : "method"
                   }
                 ],
                 "path" : "\/documentation\/previewutilities\/documentationillustration\/sizing",

@@ -243,22 +243,6 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugOverlayModifier\/Configuration\/Trait\/traits(_:)"
       ],
       "title" : "Enumeration Cases"
-    },
-    {
-      "anchor" : "Type-Properties",
-      "generated" : true,
-      "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugOverlayModifier\/Configuration\/Trait\/hidden"
-      ],
-      "title" : "Type Properties"
-    },
-    {
-      "anchor" : "Type-Methods",
-      "generated" : true,
-      "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugOverlayModifier\/Configuration\/Trait\/visible(_:)"
-      ],
-      "title" : "Type Methods"
     }
   ],
   "variants" : [
@@ -907,66 +891,6 @@
   "title" : "height",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/height"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/hidden": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "static"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "let"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "hidden"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV",
-      "text" : "DebugOverlayModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV5TraitO",
-      "text" : "Trait"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugOverlayModifier\/Configuration\/Trait\/hidden",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "hidden",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/hidden"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/infoAlignment(_:)": {
   "abstract" : [
@@ -1634,75 +1558,6 @@
   "title" : "DebugOverlayModifier.Configuration.Trait.traits(_:)",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/traits(_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/visible(_:)": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "static"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "visible"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Sb",
-      "text" : "Bool"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV",
-      "text" : "DebugOverlayModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV5TraitO",
-      "text" : "Trait"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugOverlayModifier\/Configuration\/Trait\/visible(_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "visible(_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/visible(_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/width": {
   "abstract" : [
