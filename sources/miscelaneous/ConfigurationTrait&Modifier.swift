@@ -124,6 +124,8 @@ public protocol TraitInitializable: TraitConfigurable {
 
 extension TraitInitializable {
 
+    // FIXME: Can this init be just trait: and use the .traits trait?
+
     /// Creates a configuration by applying the given traits, in order, to a default instance.
     ///
     /// Each trait is applied in order to a default configuration instance. If multiple traits
