@@ -1,1 +1,94 @@
-<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/preview-utilities/v0.4.1/favicon.ico"><link rel="mask-icon" href="/preview-utilities/v0.4.1/favicon.svg" color="#333333"><title>Documentation</title><script>var baseUrl = "/preview-utilities/v0.4.1/"</script><script defer="defer" src="/preview-utilities/v0.4.1/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/preview-utilities/v0.4.1/js/index.b232e9de.js"></script><link href="/preview-utilities/v0.4.1/css/index.19043b1e.css" rel="stylesheet"></head><body data-color-scheme="auto"><noscript><style>.noscript{font-family:"SF Pro Display","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;margin:92px auto 140px auto;text-align:center;width:980px}.noscript-title{color:#111;font-size:48px;font-weight:600;letter-spacing:-.003em;line-height:1.08365;margin:0 auto 54px auto;width:502px}@media only screen and (max-width:1068px){.noscript{margin:90px auto 120px auto;width:692px}.noscript-title{font-size:40px;letter-spacing:0;line-height:1.1;margin:0 auto 45px auto;width:420px}}@media only screen and (max-width:735px){.noscript{margin:45px auto 60px auto;width:87.5%}.noscript-title{font-size:32px;letter-spacing:.004em;line-height:1.125;margin:0 auto 35px auto;max-width:330px;width:auto}}#loading-placeholder{display:none}</style><div class="noscript"><h1 class="noscript-title">This page requires JavaScript.</h1><p>Please turn on JavaScript in your browser and refresh the page to view its content.</p></div></noscript><div id="app"></div></body></html>
+<!doctype html><html lang="en-US" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/preview-utilities/v0.4.1/favicon.ico"><link rel="mask-icon" href="/preview-utilities/v0.4.1/favicon.svg" color="#333333"><title>Documentation</title><script>var baseUrl = "/preview-utilities/v0.4.1/"</script><script defer="defer" src="/preview-utilities/v0.4.1/js/chunk-vendors.0b7dc663.js"></script><script defer="defer" src="/preview-utilities/v0.4.1/js/index.b232e9de.js"></script><link href="/preview-utilities/v0.4.1/css/index.19043b1e.css" rel="stylesheet"></head><body data-color-scheme="auto"><noscript><style>.noscript{font-family:"SF Pro Display","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;margin:92px auto 140px auto;text-align:center;width:980px}.noscript-title{color:#111;font-size:48px;font-weight:600;letter-spacing:-.003em;line-height:1.08365;margin:0 auto 54px auto;width:502px}@media only screen and (max-width:1068px){.noscript{margin:90px auto 120px auto;width:692px}.noscript-title{font-size:40px;letter-spacing:0;line-height:1.1;margin:0 auto 45px auto;width:420px}}@media only screen and (max-width:735px){.noscript{margin:45px auto 60px auto;width:87.5%}.noscript-title{font-size:32px;letter-spacing:.004em;line-height:1.125;margin:0 auto 35px auto;max-width:330px;width:auto}}#loading-placeholder{display:none}</style><div class="noscript"><h1 class="noscript-title">This page requires JavaScript.</h1><p>Please turn on JavaScript in your browser and refresh the page to view its content.</p></div></noscript><div id="app"></div><!-- package-version-badge-injected -->
+<style>
+.package-version-badge {
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.package-version-badge--inline {
+    margin-inline-start: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--color-figure-gray-secondary, #6e6e73);
+    background: var(--color-fill-secondary, rgba(0, 0, 0, 0.06));
+    white-space: nowrap;
+}
+.package-version-badge--fixed {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2000;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    background: var(--color-fill-secondary, rgba(0, 0, 0, 0.06));
+    color: var(--color-figure-gray-secondary, #6e6e73);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.package-version-badge:hover {
+    text-decoration: underline;
+}
+@media (prefers-color-scheme: dark) {
+    .package-version-badge--fixed {
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+}
+</style>
+<script>
+(function () {
+    var VERSION = "v0.4.1";
+    var RELEASE_URL = "https://github.com/lopsae/preview-utilities/releases/tag/v0.4.1";
+
+    function ensureBadge() {
+        var badge = document.getElementById("package-version-badge");
+        if (!badge) {
+            badge = document.createElement("a");
+            badge.id = "package-version-badge";
+            badge.href = RELEASE_URL;
+            badge.target = "_blank";
+            badge.rel = "noopener noreferrer";
+            badge.textContent = VERSION;
+        }
+        return badge;
+    }
+
+    function findNavActions() {
+        var selectors = [".nav-content .nav-actions", ".nav-actions", ".nav-content", "nav.nav", "#app nav"];
+        for (var i = 0; i < selectors.length; i++) {
+            var target = document.querySelector(selectors[i]);
+            if (target) {
+                return target;
+            }
+        }
+        return null;
+    }
+
+    function placeBadge() {
+        var badge = ensureBadge();
+        var navActions = findNavActions();
+
+        if (navActions) {
+            badge.className = "package-version-badge package-version-badge--inline";
+            if (badge.parentElement !== navActions) {
+                navActions.appendChild(badge);
+            }
+        } else {
+            badge.className = "package-version-badge package-version-badge--fixed";
+            if (badge.parentElement !== document.body) {
+                document.body.appendChild(badge);
+            }
+        }
+    }
+
+    placeBadge();
+
+    // Observing document.body rather than #app is deliberate: this script runs synchronously
+    // before Vue's deferred bundle mounts, and Vue replaces the #app element entirely rather than 
+    // mutating it in place. An observer attached to the pre-mount #app node would watch a node that
+    // gets discarded and never fire.
+    new MutationObserver(placeBadge).observe(document.body, { childList: true, subtree: true });
+})();
+</script></body></html>
