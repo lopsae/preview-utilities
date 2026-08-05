@@ -1,12 +1,12 @@
 #!/bin/zsh
 
-set \
-    -o errexit \
+set -o errexit \
     -o nounset \
     -o pipefail
 
-# Generate static documentation files from the package documentation catalog into a worktree.
-# worktree folder. The static files are output to the `docs` folder in the worktree,
+# Generate static documentation files from the package documentation catalog into a worktree folder.
+# The worktree folder is expected to be `preview-utilities-docs`, at the same level as the
+# repository folder.
 
 # The documentation worktree points to an independent repository tree that contains the generated
 # documentation to deploy to GitHub pages.
@@ -24,6 +24,10 @@ echo "🤖 Generating Documentation"
 
 export DOCC_JSON_PRETTYPRINT="YES"
 
+version=$(<VERSION)
+hosting_base_path="/preview-utilities/${version}"
+output_path="../preview-utilities-docs/docs/${version}"
+
 swift package \
     --allow-writing-to-directory "../preview-utilities-docs/docs" \
     generate-documentation \
@@ -31,6 +35,8 @@ swift package \
     --disable-indexing \
     --experimental-skip-synthesized-symbols \
     --transform-for-static-hosting \
-    --hosting-base-path "/preview-utilities/v0.4.1" \
-    --output-path "../preview-utilities-docs/docs/v0.4.1"
+    --hosting-base-path "${hosting_base_path}" \
+    --output-path "${output_path}"
+
+./scripts/inject-version-badge "${output_path}" "${version}" "${hosting_base_path}"
 

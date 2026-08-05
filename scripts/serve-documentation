@@ -15,7 +15,9 @@ PATH_PREFIX = '/preview-utilities'
 DOCS_DIRECTORY = '../preview-utilities-docs/docs'
 
 DOCUMENTATION_ROOT = '/documentation/previewutilities'
-DOCUMENTATION_VERSION = 'v0.4.1'
+
+with open('VERSION') as version_file:
+    DOCUMENTATION_VERSION = version_file.read().strip()
 
 
 class PrefixedHandler(http.server.SimpleHTTPRequestHandler):
