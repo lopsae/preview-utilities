@@ -25,6 +25,7 @@ echo "🤖 Generating Documentation"
 export DOCC_JSON_PRETTYPRINT="YES"
 
 version=$(<VERSION)
+hosting_base_path="/preview-utilities/${version}"
 output_path="../preview-utilities-docs/docs/${version}"
 
 swift package \
@@ -34,8 +35,8 @@ swift package \
     --disable-indexing \
     --experimental-skip-synthesized-symbols \
     --transform-for-static-hosting \
-    --hosting-base-path "/preview-utilities/${version}" \
+    --hosting-base-path "${hosting_base_path}" \
     --output-path "${output_path}"
 
-./scripts/inject-version-badge "${output_path}" "${version}"
+./scripts/inject-version-badge "${output_path}" "${version}" "${hosting_base_path}"
 

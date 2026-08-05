@@ -2,15 +2,16 @@
 
 import Foundation
 
-// Injects a small self-contained script and style block into every generated `index.html` file
-// under a documentation output path.
+// Writes a version badge stylesheet and script into a documentation output directory, then
+// references both from every generated `index.html` file under that directory.
 
 // DocC's `--transform-for-static-hosting` output duplicates an identical SPA shell HTML file for
-// every route, the same snippet is inserted into every html file.
+// every route, so the same two reference tags are inserted into every html file, rather than
+// duplicating the stylesheet/script content itself hundreds of times over.
 
-// The injected script renders a version badge in DocC's persistent nav bar actions area, where the
-// Language toggle lives. If the nav bar cannot be found, the version badge is rendered as a fixed
-// corner badge.
+// The script renders a version badge in DocC's persistent nav bar actions area, where the Language
+// toggle lives. If the nav bar cannot be found, the version badge is rendered as a fixed corner
+// badge.
 
 // The Language selector itself lives inside a collapsible settings tray that isn't in the DOM until
 // opened, so it can't be used as an anchor. Uses a MutationObserver because DocC is a single-page
@@ -19,21 +20,23 @@ import Foundation
 
 let arguments = CommandLine.arguments
 
-guard arguments.count == 3 else {
-    FileHandle.standardError.write(Data("Usage: inject-version-badge <output-path> <version>\n".utf8))
+guard arguments.count == 4 else {
+    FileHandle.standardError.write(Data("Usage: inject-version-badge <output-path> <version> <hosting-base-path>\n".utf8))
     exit(1)
 }
 
 let outputPath = arguments[1]
 let version = arguments[2]
+let hostingBasePath = arguments[3]
 let releaseURL = "https://github.com/lopsae/preview-utilities/releases/tag/\(version)"
 let marker = "package-version-badge-injected"
 
+let cssHref = "\(hostingBasePath)/css/package-version-badge.css"
+let jsHref = "\(hostingBasePath)/js/package-version-badge.js"
+
 print("💉 Injecting version badge (\(version)) into \(outputPath)")
 
-let injection = """
-<!-- \(marker) -->
-<style>
+let cssContent = """
 .package-version-badge {
     font: inherit;
     text-decoration: none;
@@ -70,8 +73,9 @@ let injection = """
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     }
 }
-</style>
-<script>
+"""
+
+let jsContent = """
 (function () {
     var VERSION = "\(version)";
     var RELEASE_URL = "\(releaseURL)";
@@ -125,13 +129,38 @@ let injection = """
     // gets discarded and never fire.
     new MutationObserver(placeBadge).observe(document.body, { childList: true, subtree: true });
 })();
-</script>
+"""
+
+let injection = """
+<!-- \(marker) -->
+<link rel="stylesheet" href="\(cssHref)">
+<script src="\(jsHref)"></script>
 """
 
 let fileManager = FileManager.default
+let outputURL = URL(fileURLWithPath: outputPath)
+
+func write(_ content: String, to relativePath: String) {
+    let fileURL = outputURL.appendingPathComponent(relativePath)
+    do {
+        try fileManager.createDirectory(
+            at: fileURL.deletingLastPathComponent(),
+            withIntermediateDirectories: true
+        )
+        try content.write(to: fileURL, atomically: true, encoding: .utf8)
+    } catch {
+        FileHandle.standardError.write(Data("Could not write \(fileURL.path): \(error)\n".utf8))
+        exit(1)
+    }
+}
+
+write(cssContent, to: "css/package-version-badge.css")
+write(jsContent, to: "js/package-version-badge.js")
+
+print("📁 Copied css and js package-version-badge files")
 
 guard let enumerator = fileManager.enumerator(
-    at: URL(fileURLWithPath: outputPath),
+    at: outputURL,
     includingPropertiesForKeys: nil
 ) else {
     FileHandle.standardError.write(Data("Could not enumerate \(outputPath)\n".utf8))
