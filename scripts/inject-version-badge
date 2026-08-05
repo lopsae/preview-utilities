@@ -1,38 +1,38 @@
-#!/bin/zsh
+#!/usr/bin/env swift
 
-set -o errexit \
-    -o nounset \
-    -o pipefail
+import Foundation
 
-# Injects a small self-contained script and style block into every generated `index.html` file
-# under a documentation output path.
+// Injects a small self-contained script and style block into every generated `index.html` file
+// under a documentation output path.
 
-# DocC's `--transform-for-static-hosting` output duplicates an identical SPA shell HTML file for
-# every route, the same snippet is inserted into every html file.
+// DocC's `--transform-for-static-hosting` output duplicates an identical SPA shell HTML file for
+// every route, the same snippet is inserted into every html file.
 
-# The injected script renders a version badge in DocC's persistent nav bar actions area, where the
-# Language toggle lives. If the nav-bar cannot be found, the version badge is rendered as fixed
-# corner badge.
+// The injected script renders a version badge in DocC's persistent nav bar actions area, where the
+// Language toggle lives. If the nav bar cannot be found, the version badge is rendered as a fixed
+// corner badge.
 
-# The Language selector itself lives inside a collapsible settings tray that isn't in the DOM until
-# opened, so it can't be used as an anchor. Uses a MutationObserver because DocC is a single-page
-# app that swaps the contents of `#app` on in-app navigation without a full page reload, and the
-# nav bar can mount asynchronously after the initial script runs.
+// The Language selector itself lives inside a collapsible settings tray that isn't in the DOM until
+// opened, so it can't be used as an anchor. Uses a MutationObserver because DocC is a single-page
+// app that swaps the contents of #app on in-app navigation without a full page reload, and the nav
+// bar can mount asynchronously after the initial script runs.
 
-if [[ $# -ne 2 ]]; then
-    echo "Usage: inject-version-badge <output-path> <version>" >&2
-    exit 1
-fi
+let arguments = CommandLine.arguments
 
-output_path="$1"
-version="$2"
-release_url="https://github.com/lopsae/preview-utilities/releases/tag/${version}"
-marker="package-version-badge-injected"
+guard arguments.count == 3 else {
+    FileHandle.standardError.write(Data("Usage: inject-version-badge <output-path> <version>\n".utf8))
+    exit(1)
+}
 
-echo "🏷️  Injecting version badge (${version}) into ${output_path}"
+let outputPath = arguments[1]
+let version = arguments[2]
+let releaseURL = "https://github.com/lopsae/preview-utilities/releases/tag/\(version)"
+let marker = "package-version-badge-injected"
 
-injection=$(cat <<INJECTION
-<!-- ${marker} -->
+print("🏷️  Injecting version badge (\(version)) into \(outputPath)")
+
+let injection = """
+<!-- \(marker) -->
 <style>
 .package-version-badge {
     font: inherit;
@@ -73,8 +73,8 @@ injection=$(cat <<INJECTION
 </style>
 <script>
 (function () {
-    var VERSION = "${version}";
-    var RELEASE_URL = "${release_url}";
+    var VERSION = "\(version)";
+    var RELEASE_URL = "\(releaseURL)";
 
     function ensureBadge() {
         var badge = document.getElementById("package-version-badge");
@@ -120,37 +120,64 @@ injection=$(cat <<INJECTION
     placeBadge();
 
     // Observing document.body rather than #app is deliberate: this script runs synchronously
-    // before Vue's deferred bundle mounts, and Vue replaces the #app element entirely rather than 
+    // before Vue's deferred bundle mounts, and Vue replaces the #app element entirely rather than
     // mutating it in place. An observer attached to the pre-mount #app node would watch a node that
     // gets discarded and never fire.
     new MutationObserver(placeBadge).observe(document.body, { childList: true, subtree: true });
 })();
 </script>
-INJECTION
-)
+"""
 
-total=0
-injected=0
+let fileManager = FileManager.default
 
-while IFS= read -r -d '' file; do
-    total=$((total + 1))
+guard let enumerator = fileManager.enumerator(
+    at: URL(fileURLWithPath: outputPath),
+    includingPropertiesForKeys: nil
+) else {
+    FileHandle.standardError.write(Data("Could not enumerate \(outputPath)\n".utf8))
+    exit(1)
+}
 
-    if grep -q "$marker" "$file"; then
+var total = 0
+var injected = 0
+
+for case let url as URL in enumerator {
+    guard url.lastPathComponent == "index.html" else { continue }
+    total += 1
+
+    let contents: String
+    do {
+        contents = try String(contentsOf: url, encoding: .utf8)
+    } catch {
+        FileHandle.standardError.write(Data("Could not read \(url.path): \(error)\n".utf8))
+        exit(1)
+    }
+
+    if contents.contains(marker) {
         continue
-    fi
+    }
 
-    INJECTION="$injection" perl -0777 -pi -e '
-        my $injection = $ENV{INJECTION};
-        die "no </body> anchor found\n" unless /<\/body>/;
-        s{</body>}{$injection</body>};
-    ' "$file"
+    guard let bodyRange = contents.range(of: "</body>") else {
+        FileHandle.standardError.write(Data("\(url.path): no </body> anchor found\n".utf8))
+        exit(1)
+    }
 
-    injected=$((injected + 1))
-done < <(find "$output_path" -name 'index.html' -print0)
+    var updated = contents
+    updated.replaceSubrange(bodyRange, with: injection + "</body>")
 
-if [[ $total -eq 0 ]]; then
-    echo "No index.html files found under ${output_path}" >&2
-    exit 1
-fi
+    do {
+        try updated.write(to: url, atomically: true, encoding: .utf8)
+    } catch {
+        FileHandle.standardError.write(Data("Could not write \(url.path): \(error)\n".utf8))
+        exit(1)
+    }
 
-echo "✅ Injected version badge into ${injected} file(s) (${total} total, $((total - injected)) already had it)"
+    injected += 1
+}
+
+guard total > 0 else {
+    FileHandle.standardError.write(Data("No index.html files found under \(outputPath)\n".utf8))
+    exit(1)
+}
+
+print("✅ Injected version badge into \(injected) file(s) (\(total) total, \(total - injected) already had it)")
