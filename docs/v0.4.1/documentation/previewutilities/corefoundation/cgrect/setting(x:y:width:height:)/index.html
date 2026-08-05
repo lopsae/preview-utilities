@@ -9,7 +9,7 @@
     margin-inline-start: 8px;
     padding: 2px 8px;
     border-radius: 999px;
-    font-size: 12px;
+    font-size: .82rem;
     line-height: 1.5;
     color: var(--color-figure-gray-secondary, #6e6e73);
     background: var(--color-fill-secondary, rgba(0, 0, 0, 0.06));
@@ -22,7 +22,7 @@
     z-index: 2000;
     padding: 4px 10px;
     border-radius: 999px;
-    font-size: 12px;
+    font-size: .82rem;
     background: var(--color-fill-secondary, rgba(0, 0, 0, 0.06));
     color: var(--color-figure-gray-secondary, #6e6e73);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
@@ -86,7 +86,7 @@
     placeBadge();
 
     // Observing document.body rather than #app is deliberate: this script runs synchronously
-    // before Vue's deferred bundle mounts, and Vue replaces the #app element entirely rather than 
+    // before Vue's deferred bundle mounts, and Vue replaces the #app element entirely rather than
     // mutating it in place. An observer attached to the pre-mount #app node would watch a node that
     // gets discarded and never fire.
     new MutationObserver(placeBadge).observe(document.body, { childList: true, subtree: true });
