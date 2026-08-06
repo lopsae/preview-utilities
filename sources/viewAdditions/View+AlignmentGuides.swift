@@ -275,8 +275,7 @@ private struct PreviewContent {
     } // ZStack
     .floatingCaption("ZStack", .alignment(.outerTop), .colorStyle(.purple))
     .alignmentGuide(.bottom, outsetBy: 20)
-    // FIXME: add a lineWidth trait to make this example visible.
-    .debugAlignmentGuide(vertical: .bottom)
+    .debugAlignmentGuide(vertical: .bottom, .lineWidth(8))
     .frame(squareOf: 150, alignment: .bottom)
     .floatingCaption("Bottom Aligned Frame", .alignment(.outerTop), .colorStyle(.teal))
 }
