@@ -4,9 +4,6 @@
 //
 
 
-// FIXME: add tests with a dummy configuration.
-
-
 /// Customization that can be applied to an instance of type `Configuration`.
 ///
 /// Traits are used to build a configuration by applying either a modifier or a collection of other
@@ -123,8 +120,6 @@ public protocol TraitInitializable: TraitConfigurable {
 
 
 extension TraitInitializable {
-
-    // FIXME: Can this init be just trait: and use the .traits trait?
 
     /// Creates a configuration by applying the given traits, in order, to a default instance.
     ///
