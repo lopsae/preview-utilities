@@ -51,6 +51,11 @@ previews in SwiftUI.
 + ``TraitInitializable``
 
 
+### Alignment Additions
++ ``AlignmentWithOrthogonal``
++ ``AlignmentWithDefault``
+
+
 ### API Collections
 + <doc:debug-overlay-api>
 + <doc:floating-caption-api>
