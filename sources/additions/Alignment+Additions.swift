@@ -8,31 +8,56 @@ import SwiftUI
 
 
 extension Alignment {
+
+    /// A guide that marks the center of the view.
+    ///
+    /// Convenience accessor for `Alignment.center`, to disambiguate from other `center` alignments.
     nonisolated
     static var centerCenter: Self { .center }
 }
 
 
-extension VerticalAlignment {
+extension HorizontalAlignment {
+
+    /// A guide that marks the horizontal center of the view.
+    ///
+    /// Convenience accessor for `HorizontalAlignment.center`, to disambiguate from other `center`
+    /// alignments.
     nonisolated
-    static var verticalCenter: Self { .center }
+    static var horizontalCenter: Self { .center }
 }
 
 
-extension HorizontalAlignment {
+extension VerticalAlignment {
+
+    /// A guide that marks the vertical center of the view.
+    ///
+    /// Convenience accessor for `VerticalAlignment.center`, to disambiguate from other `center`
+    /// alignments.
     nonisolated
-    static var horizontalCenter: Self { .center }
+    static var verticalCenter: Self { .center }
 }
 
 
 // MARK: - With Orthogonal
 
 
-// FIXME: Document.
+/// Defines access to the axis and orthogonal type for a single axis alignment.
+///
+/// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol to identify their axis
+/// and its orthogonal alignment as an associated type.
 public nonisolated
 protocol AlignmentWithOrthogonal {
-    associatedtype OrthogonalAlignment: Sendable
+
+    /// Orthogonal alignment to `self`.
+    associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, Sendable
+
+    /// The axis of the alignment.
     var axis: Axis { get }
+
+    /// Creates an `Alignment` with the given orthogonal alignment.
+    /// - Parameter orthogonalAlignment: The orthogonal alignment to use.
+    /// - Returns: An `Alignment` using `self` and the given orthogonal alignment.
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
 }
 
@@ -60,8 +85,14 @@ extension VerticalAlignment: AlignmentWithOrthogonal {
 // MARK: - With Default
 
 
+/// Defines a default alignment for an alignment type.
 public nonisolated
 protocol AlignmentWithDefault {
+
+    /// The default alignment of the type.
+    ///
+    /// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol and return their
+    /// `center` alignment as default.
     static var `default`: Self { get }
 }
 
