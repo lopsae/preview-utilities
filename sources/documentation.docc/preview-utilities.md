@@ -12,6 +12,7 @@ previews in SwiftUI.
     + <doc:debug-overlay-api>
     + <doc:floating-caption-api>
     + <doc:floating-alignments-api>
+    + <doc:edge-graticule-api>
     + <doc:format-styles-api>
 }
 
@@ -60,4 +61,5 @@ previews in SwiftUI.
 + <doc:debug-overlay-api>
 + <doc:floating-caption-api>
 + <doc:floating-alignments-api>
++ <doc:edge-graticule-api>
 + <doc:format-styles-api>

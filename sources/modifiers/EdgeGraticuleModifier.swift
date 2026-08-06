@@ -6,13 +6,47 @@
 
 import SwiftUI
 
+// TODO: add images for snippets.
 
+/// Overlays a graticule based on the edges of a view.
+///
+/// Displays in an overlay a graticule based on the edges of the owner view. The graticule consist
+/// of sets of lines evenly spaced for each of the edges of the owner view, both inset and
+/// outset. The number of lines and spacing can be configured for each edge, and for
+/// each direction.
+///
+/// All content added by this modifier is layered in an overlay of the owner view, the original
+/// layout is never modified.
+///
+/// Apply this modifier using ``SwiftUICore/View/edgeGraticule(spacing:_:)``:
+///
+/// ```swift
+/// Text("Sphinx\nof Black\nQuartz")
+/// .font(.title)
+/// .edgeGraticule(spacing: 20)
+/// ```
+///
+/// ### Traits and Configuration
+///
+/// The graticule can be configured by passing [`Trait`](doc:EdgeGraticuleModifier/Trait) instances
+/// to ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any [sibling function](doc:edge-graticule-api/View-Extensions):.
+///
+/// ```swift
+/// Text("Sphinx\nof Black\nQuartz")
+/// .font(.title)
+/// .edgeGraticule(
+///     spacing: 20,
+///     // modifies the spacing and count for bottom inset lines.
+///     .inset(.bottom, spacing: 15, count: 2),
+///     // Modifies the count for horizontal outset lines.
+///     .outset(.horizontal, count: 3),
+/// )
+/// ```
 public struct EdgeGraticuleModifier: ViewModifier {
-
-    typealias Trait = ConfigurationTrait<Configuration>
 
     let configuration: Configuration
 
+    @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
         content
         .overlay {
@@ -25,6 +59,7 @@ public struct EdgeGraticuleModifier: ViewModifier {
     }
 
 
+    /// Configuration for an edge graticule modifier.
     public struct Configuration: TraitConfigurable {
 
         var insetLineSets: EdgeValues<EdgeGraticule.LineSet>
@@ -50,9 +85,9 @@ public struct EdgeGraticuleModifier: ViewModifier {
             outsetLineSets = .init(spacing: outsetSpacing)
         }
 
-        /// A configuration with zero spacing and empty indices for both line sets.
+        /// A configuration with zero spacing and empty indices for all line sets.
         ///
-        /// When using this configuration `EdgeGraticule` produces an empty path.
+        /// When using this configuration, the displayed ``EdgeGraticule`` produces an empty path.
         static var empty: Self { .init(insetLineSets: .empty, outsetLineSets: .empty) }
 
     }
@@ -63,15 +98,41 @@ public struct EdgeGraticuleModifier: ViewModifier {
 // MARK: - Traits
 
 
-/// Contains the configuration traits that can be applied to ``EdgeGraticuleModifier.Configuration``.
+extension EdgeGraticuleModifier {
+
+    /// Customizations that can be applied to the `Configuration` of a `EdgeGraticuleModifier`.
+    ///
+    /// Traits are passed to ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any [sibling function](doc:edge-graticule-api/View-Extensions)
+    /// to build the [`Configuration`](doc:EdgeGraticuleModifier/Configuration) of an edge graticule.
+    ///
+    /// All passed traits are applied in order to a default configuration, each trait making a
+    /// modification towards the final configuration. If multiple traits modify the same
+    /// configuration properties, the last one applied may overwrite former traits.
+    ///
+    ///
+    /// ## Topics
+    ///
+    /// ### Traits
+    /// + ``ConfigurationTrait/inset(_:spacing:count:)``
+    /// + ``ConfigurationTrait/outset(_:spacing:count:)``
+    /// + ``ConfigurationTrait/straddle(_:spacing:count:)``
+    public typealias Trait = ConfigurationTrait<Configuration>
+
+}
+
+
 extension EdgeGraticuleModifier.Trait {
 
-    // FIXME: Document.
+    /// Updates the inset line sets for the given edges.
+    /// - Parameters:
+    ///   - edgeSet: The edges for which to update the line sets.
+    ///   - spacing: The spacing for the updated line sets.
+    ///   - count: The number of lines to display for the updated edges.
     public static func inset(
         _ edgeSet: Edge.Set,
         spacing: CGFloat? = nil,
         count: Int? = nil
-    ) -> Self {
+    ) -> EdgeGraticuleModifier.Trait {
         .mutate {
             if let count {
                 $0.insetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
@@ -83,12 +144,16 @@ extension EdgeGraticuleModifier.Trait {
     }
 
 
-    // FIXME: Document.
+    /// Updates the outset line sets for the given edges.
+    /// - Parameters:
+    ///   - edgeSet: The edges for which to update the line sets.
+    ///   - spacing: The spacing for the updated line sets.
+    ///   - count: The number of lines to display for the updated edges.
     public static func outset(
         _ edgeSet: Edge.Set,
         spacing: CGFloat? = nil,
         count: Int? = nil
-    ) -> Self {
+    ) -> EdgeGraticuleModifier.Trait {
         .mutate {
             if let count {
                 $0.outsetLineSets[set: edgeSet].indices = IndexSet(integersIn: 0...count)
@@ -100,12 +165,16 @@ extension EdgeGraticuleModifier.Trait {
     }
 
 
-    // FIXME: Document.
+    /// Updates the inner and outset line sets for the given edges.
+    /// - Parameters:
+    ///   - edgeSet: The edges for which to update the line sets.
+    ///   - spacing: The spacing for the updated line sets.
+    ///   - count: The number of lines to display for the updated edges.
     public static func straddle(
         _ edgeSet: Edge.Set,
         spacing: CGFloat? = nil,
         count: Int? = nil
-    ) -> Self {
+    ) -> EdgeGraticuleModifier.Trait {
         .mutate {
             if let count {
                 $0.insetLineSets[set: edgeSet].indices  = IndexSet(integersIn: 0...count)
@@ -126,7 +195,28 @@ extension EdgeGraticuleModifier.Trait {
 
 extension View {
 
-    // FIXME: Document.
+    // TODO: Add images to docs.
+
+    /// Layers in front of this view an edge graticule with the given spacing for all line sets.
+    ///
+    /// Applies the ``EdgeGraticuleModifier`` with the given spacing for all line sets, and
+    /// customized with the given [`Trait`](doc:EdgeGraticuleModifier/Trait) instances, overlaying
+    /// a graticule based on the edges of the view.
+    ///
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
+    ///
+    /// ```swift
+    /// Text("Sphinx\nof Black\nQuartz")
+    /// .font(.title)
+    /// .edgeGraticule(spacing: 20)
+    /// ```
+    /// 
+    /// - Parameters:
+    ///   - spacing: The spacing for all line sets.
+    ///   - traits: The traits to customize the default configuration.
+    ///
+    /// - Returns: A view with a configured edge graticule as foreground.
     public func edgeGraticule(
         spacing: CGFloat,
         _ traits: ConfigurationTrait<EdgeGraticuleModifier.Configuration>...
@@ -137,7 +227,23 @@ extension View {
         return modifier(graticuleModifier)
     }
 
-    // FIXME: Document.
+
+    /// Layers in front of this view an edge graticule with the given inset and outset spacing for
+    /// all corresponding line sets.
+    ///
+    /// Applies the ``EdgeGraticuleModifier`` with the given inset and outset spacing for all
+    /// corresponding line sets, and customized with the given [`Trait`](doc:EdgeGraticuleModifier/Trait)
+    /// instances, overlaying a graticule based on the edges of the view.
+    ///
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
+    ///
+    /// - Parameters:
+    ///   - insetSpacing: The spacing for all inset line sets.
+    ///   - outsetSpacing: The spacing for all outset line sets.
+    ///   - traits: The traits to customize the default configuration.
+    ///
+    /// - Returns: A view with a configured edge graticule as foreground.
     public func edgeGraticule(
         insetSpacing: CGFloat,
         outsetSpacing: CGFloat,
@@ -153,7 +259,22 @@ extension View {
     }
 
 
-    // FIXME: Document.
+    /// Layers in front of this view an edge graticule with the given inset spacing and line set
+    /// count, and no outset line sets.
+    ///
+    /// Applies the ``EdgeGraticuleModifier`` with the given inset spacing and line set count, no
+    /// outset line sets, and customized with the given [`Trait`](doc:EdgeGraticuleModifier/Trait)
+    /// instances, overlaying a graticule based on the edges of the view.
+    ///
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
+    ///
+    /// - Parameters:
+    ///   - insetSpacing: The spacing for all inset line sets.
+    ///   - count: The number of inset lines to display for all edges.
+    ///   - traits: The traits to customize the default configuration.
+    ///
+    /// - Returns: A view with a configured edge graticule as foreground.
     public func edgeGraticule(
         insetSpacing: CGFloat,
         through count: Int,

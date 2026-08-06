@@ -8,7 +8,9 @@ import SwiftUI
 import Playgrounds
 
 
-struct EdgeGraticule: Shape {
+// FIXME: Document.
+
+public struct EdgeGraticule: Shape {
 
     let insetLineSets: EdgeValues<LineSet>
     let outsetLineSets: EdgeValues<LineSet>
@@ -28,7 +30,7 @@ struct EdgeGraticule: Shape {
         self.outsetLineSets = .init(spacing: outsetSpacing, through: outsetCount)
     }
 
-    func path(in rect: CGRect) -> Path {
+    public func path(in rect: CGRect) -> Path {
         var path = Path()
 
         // Remove inset lines at zero, to prevent double drawing in the shape edge.

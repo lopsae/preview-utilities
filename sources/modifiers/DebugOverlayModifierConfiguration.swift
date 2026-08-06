@@ -99,11 +99,12 @@ extension DebugOverlayModifier.Configuration {
 
     /// Customizations that can be applied to the `Configuration` of a `DebugOverlayModifier`.
     ///  
-    /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` to build the
-    /// [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay. All passed
-    /// traits are applied in order to a default configuration, each trait making a modification
-    /// towards the final configuration. If multiple traits modify the same configuration
-    /// properties, the last one applied may overwrite former traits.
+    /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` or any [sibling function](doc:debug-overlay-api/View-Extensions)
+    /// to build the [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay.
+    ///
+    /// All passed traits are applied in order to a default configuration, each trait making a
+    /// modification towards the final configuration. If multiple traits modify the same
+    /// configuration properties, the last one applied may overwrite former traits.
     ///
     ///
     /// ## Topics

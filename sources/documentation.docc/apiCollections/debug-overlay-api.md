@@ -7,14 +7,14 @@
 
 Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.
 
-Apply the ``DebugOverlayModifier`` using ``SwiftUICore/View/debugOverlay()`` to overlay a 
-visualization of the boundaries, origin, and safe areas. The modifier can be configured
-by passing [`Trait`](doc:DebugOverlayModifier/Configuration/Trait) instances:
+Apply the ``DebugOverlayModifier`` using ``SwiftUICore/View/debugOverlay()`` or any
+[sibling function](doc:debug-overlay-api/View-Extensions) to overlay a visualization of the 
+boundaries, origin, and safe areas:
 
 ![Visual components of the debug overlay.](debug-overlay-components)
 
 The overlay can be configured by passing [`Trait`](doc:DebugOverlayModifier/Configuration/Trait) 
-instances to ``SwiftUICore/View/debugOverlay(_:)``:
+instances:
 
 ```swift
 Rectangle()

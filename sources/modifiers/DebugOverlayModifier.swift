@@ -391,6 +391,8 @@ public struct DebugOverlayModifier: ViewModifier {
 
 extension View {
 
+    // FIXME: This trait could be removed, variadic trait takes care of no arguments.
+
     /// Layers in front of this view a debug overlay using the default configuration.
     ///
     /// Applies the ``DebugOverlayModifier``, overlaying a visual representation of the views
