@@ -150,12 +150,13 @@ extension DebugOverlayModifier.Configuration {
             }
         }
 
+        // TODO: also implement opacity.
 
-        // FIMME: also implement opacity.
-        // FIXME: document.
+        /// Hides all elements of the debug overlay.
         public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
 
-        // FIXME: document.
+        /// Sets the visibility of the debug overlay.
+        /// - Parameter isVisible: Indicates if the debug overlay is visible.
         public static func visible(_ isVisible: Bool) -> Trait {
             .modifier(VisibilityModifier(isVisible: isVisible))
         }

@@ -14,17 +14,17 @@
 /// trait receiving the resulting instance of previously applied traits. If multiple traits modify
 /// the same configuration properties, the last one applied may overwrite former traits.
 ///  
-/// Traits are usually defined as static properties of `ConfigurationTrait` constrained to a given
-/// ``Configuration`` type.
-///  
+/// Traits are usually defined as static members of `ConfigurationTrait` constrained to a given
+/// `Configuration` type:
+///
 /// ```swift
 /// extension ConfigurationTrait where Configuration == SomeConfiguration {
-///     public static let hidden: Self = .modifier(VisibilityModifier(isVisible: false))
+///     static let hidden: Self = .modifier(VisibilityModifier(isVisible: false))
 /// }
 /// ```
 ///  
 /// For example, a function receiving a variadic parameter of traits can use the available static
-/// properties as building blocks to produce a custom configuration instance:
+/// members as building blocks to produce a custom configuration instance:
 ///
 /// ```swift
 /// func configure(traits: ConfigurationTrait<SomeConfiguration>...) { /* ... */ }
@@ -77,19 +77,21 @@ extension ConfigurationTrait: ExpressibleByArrayLiteral {
 // MARK: - Modifier
 
 
-/// Modifications to a configuration instance.
+/// Modification to a configuration instance.
 ///
 /// Modifier instances apply a modification to an instance of type `Configuration`.
 ///
 /// ``ConfigurationTrait`` can use modifiers as building blocks for customizing a configuration
 /// instance.
 ///
-/// Usually a modifier can be created for each customizable property of a configuration. These
-/// modifiers should be defined along the configuration implementation, or in a container type to
-/// group them together. It is not advised to place the modifier implementation in a ``ConfigurationTrait``
-/// extension, as the type names may conflict easily with modifiers of other types.
+/// - Note: Usually a modifier can be created for each customizable property of a configuration.
+///     These modifiers should be defined along the configuration implementation, or in a container
+///     type to group them together. It is not advised to place the modifier implementation in a
+///     ``ConfigurationTrait`` extension, as the type names may conflict easily with modifiers of
+///     other types.
 public protocol ConfigurationModifier<Configuration>: Sendable {
 
+    /// The type to modify.
     associatedtype Configuration
     
     /// Modifies a given configuration instance.
@@ -102,9 +104,9 @@ public protocol ConfigurationModifier<Configuration>: Sendable {
 // MARK: - TraitConfigurable
 
 
-/// A configuration that can modified by applying ``ConfigurationTrait`` instances.
+/// A configuration that can modified by applying `ConfigurationTrait` instances.
 ///
-/// This protocol extends implementing types with a function that applies a collection of traits
+/// This protocol extends implementing types with a function that applies a collection of ``ConfigurationTrait``
 /// to `self`.
 public protocol TraitConfigurable {}
 extension TraitConfigurable {
@@ -123,11 +125,11 @@ extension TraitConfigurable {
 // MARK: - TraitInitializable
 
 
-/// A configuration that can be built by applying ``ConfigurationTrait`` instances to a
+/// A configuration that can be built by applying `ConfigurationTrait` instances to a
 /// default instance.
 ///
 /// This protocol extends implementing types with an initializer that builds an instance starting
-/// from a default configuration and applying a collection of traits.
+/// from a default configuration and applying a collection of ``ConfigurationTrait``.
 public protocol TraitInitializable: TraitConfigurable {
 
     /// Creates a default configuration instance.

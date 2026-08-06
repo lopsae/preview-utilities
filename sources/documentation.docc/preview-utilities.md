@@ -20,7 +20,6 @@ previews in SwiftUI.
 ## Topics
 
 ### Views
-
 + ``CaptionRectangle``
 + ``ClearRectangle``
 + ``DashedDivider``
@@ -34,7 +33,6 @@ previews in SwiftUI.
 
 
 ### Image Generation
-
 + ``MainActorImageGenerator``
 + ``ConcurrentImageGenerator``
 + ``NonisolatedImageGenerator``
@@ -46,8 +44,14 @@ previews in SwiftUI.
 + ``ThreadInfo``
 
 
-### API Collections
+### Configuration Traits
++ ``ConfigurationTrait``
++ ``ConfigurationModifier``
++ ``TraitConfigurable``
++ ``TraitInitializable``
 
+
+### API Collections
 + <doc:debug-overlay-api>
 + <doc:floating-caption-api>
 + <doc:floating-alignments-api>
