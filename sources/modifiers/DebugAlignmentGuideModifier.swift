@@ -403,56 +403,6 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 }
 
 
-// MARK: - Alignment Protocols
-
-
-// FIXME: Document these types and likely move to AlignmentAdditions
-public nonisolated
-protocol AlignmentWithOrthogonal {
-    associatedtype OrthogonalAlignment: Sendable
-    var axis: Axis { get }
-    func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
-}
-
-
-nonisolated
-extension HorizontalAlignment: AlignmentWithOrthogonal {
-    public typealias OrthogonalAlignment = VerticalAlignment
-    public var axis: Axis { .horizontal }
-    public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
-        .init(horizontal: self, vertical: orthogonalAlignment)
-    }
-}
-
-
-nonisolated
-extension VerticalAlignment: AlignmentWithOrthogonal {
-    public typealias OrthogonalAlignment = HorizontalAlignment
-    public var axis: Axis { .vertical }
-    public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
-        .init(horizontal: orthogonalAlignment, vertical: self)
-    }
-}
-
-
-public nonisolated
-protocol AlignmentWithDefault {
-    static var `default`: Self { get }
-}
-
-
-nonisolated
-extension HorizontalAlignment: AlignmentWithDefault {
-    public static var `default`: Self { .center }
-}
-
-
-nonisolated
-extension VerticalAlignment: AlignmentWithDefault {
-    public static var `default`: Self { .center }
-}
-
-
 // MARK: - View Extensions
 
 
