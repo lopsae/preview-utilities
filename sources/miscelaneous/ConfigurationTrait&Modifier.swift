@@ -5,23 +5,30 @@
 
 
 /// Customization that can be applied to an instance of type `Configuration`.
-///
-/// Traits are used to build a configuration by applying either a modifier or a collection of other
-/// traits to a configuration instance. Usually a collection of traits is passed as a variadic
-/// parameter to a function that uses those traits to generate a configuration instance and then
-/// consume it.
-///
-/// All passed traits are applied in order to a configuration instance, each trait making a
-/// modification. If multiple traits modify the same configuration properties, the last one applied
-/// may overwrite former traits.
-///
-/// Trait convenience members are declared in extensions constrained to a specific
-/// configuration:
-///
+///  
+/// Traits encapsulate a modification that can be applied to a configuration instance. A collection of
+/// traits can be used to initialize and configure a new instance, or can be applied to an existing
+/// one to modify its state.
+///  
+/// When multiple traits are applied in an instance, the application is done in order, with a each
+/// trait receiving the resulting instance of previously applied traits. If multiple traits modify
+/// the same configuration properties, the last one applied may overwrite former traits.
+///  
+/// Traits are usually defined as static properties of `ConfigurationTrait` constrained to a given
+/// ``Configuration`` type.
+///  
 /// ```swift
 /// extension ConfigurationTrait where Configuration == SomeConfiguration {
 ///     public static let hidden: Self = .modifier(VisibilityModifier(isVisible: false))
 /// }
+/// ```
+///  
+/// For example, a function receiving a variadic parameter of traits can use the available static
+/// properties as building blocks to produce a custom configuration instance:
+///
+/// ```swift
+/// func configure(traits: ConfigurationTrait<SomeConfiguration>...) { /* ... */ }
+/// configure(traits: .hidden)
 /// ```
 public enum ConfigurationTrait<Configuration>: Sendable {
 
@@ -32,14 +39,18 @@ public enum ConfigurationTrait<Configuration>: Sendable {
     case modifier(any ConfigurationModifier<Configuration>)
 
     /// Applies the associated traits.
+    ///
+    /// The contained traits are applied in order, with each trait receiving the resulting instance
+    /// of previously applied traits.
     case traits([ConfigurationTrait<Configuration>])
 
 
-    // FIXME: Document.
+    /// Applies `self` to the given configuration instance.
+    /// - Parameter configuration: The configuration instance to customize.
     public func apply(to configuration: inout Configuration) {
         switch self {
         case .modifier(let modifier):
-            modifier.update(configuration: &configuration)
+            modifier.modify(configuration: &configuration)
         case .mutate(let closure):
             closure(&configuration)
         case .traits(let traits):
@@ -54,7 +65,8 @@ public enum ConfigurationTrait<Configuration>: Sendable {
 
 extension ConfigurationTrait: ExpressibleByArrayLiteral {
 
-    // FIXME: Document.
+    /// Creates a trait that contains a collection of traits.
+    /// - Parameter elements: The collection of traits to apply.
     public init(arrayLiteral elements: Self...) {
         self = .traits(elements)
     }
@@ -72,13 +84,18 @@ extension ConfigurationTrait: ExpressibleByArrayLiteral {
 /// ``ConfigurationTrait`` can use modifiers as building blocks for customizing a configuration
 /// instance.
 ///
-/// Usually a modifier is created for each customizable property of a configuration. This modifiers
-/// should be defined along the configuration implementation, or in a container type to group them
-/// together. It is not advised to place the modifier implementation in the ``ConfigurationTrait``
+/// Usually a modifier can be created for each customizable property of a configuration. These
+/// modifiers should be defined along the configuration implementation, or in a container type to
+/// group them together. It is not advised to place the modifier implementation in a ``ConfigurationTrait``
 /// extension, as the type names may conflict easily with modifiers of other types.
 public protocol ConfigurationModifier<Configuration>: Sendable {
+
     associatedtype Configuration
-    func update(configuration: inout Configuration)
+    
+    /// Modifies a given configuration instance.
+    /// - Parameter configuration: The configuration to customize.
+    func modify(configuration: inout Configuration)
+
 }
 
 
@@ -88,7 +105,7 @@ public protocol ConfigurationModifier<Configuration>: Sendable {
 /// A configuration that can modified by applying ``ConfigurationTrait`` instances.
 ///
 /// This protocol extends implementing types with a function that applies a collection of traits
-/// to an existing instance.
+/// to `self`.
 public protocol TraitConfigurable {}
 extension TraitConfigurable {
 
@@ -123,8 +140,8 @@ extension TraitInitializable {
 
     /// Creates a configuration by applying the given traits, in order, to a default instance.
     ///
-    /// Each trait is applied in order to a default configuration instance. If multiple traits
-    /// modify the same configuration properties, the last one applied may overwrite former traits.
+    /// The traits are applied in order, with each trait receiving the resulting instance of
+    /// previously applied traits.
     public init(traits: [ConfigurationTrait<Self>]) {
         self.init()
         self.apply(traits: traits)

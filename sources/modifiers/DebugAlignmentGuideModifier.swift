@@ -191,7 +191,7 @@ extension DebugAlignmentGuideModifier.Configuration.Modifiers {
 
     struct Opacity: ConfigurationModifier {
         let opacity: Double
-        func update(configuration: inout Configuration) {
+        func modify(configuration: inout Configuration) {
             configuration.horizontalConfiguration.opacity = opacity
             configuration.verticalConfiguration.opacity = opacity
         }
@@ -199,7 +199,7 @@ extension DebugAlignmentGuideModifier.Configuration.Modifiers {
 
     struct Anchor: ConfigurationModifier {
         let anchor: Alignment
-        func update(configuration: inout Configuration) {
+        func modify(configuration: inout Configuration) {
             configuration.horizontalConfiguration.anchor = anchor.vertical
             configuration.verticalConfiguration.anchor = anchor.horizontal
         }
@@ -388,14 +388,14 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 
     struct Opacity: ConfigurationModifier {
         let opacity: Double
-        func update(configuration: inout Configuration) {
+        func modify(configuration: inout Configuration) {
             configuration.opacity = opacity
         }
     }
 
     struct Anchor: ConfigurationModifier {
         let anchor: Configuration.AnchorAlignment
-        func update(configuration: inout Configuration) {
+        func modify(configuration: inout Configuration) {
             configuration.anchor = anchor
         }
     }

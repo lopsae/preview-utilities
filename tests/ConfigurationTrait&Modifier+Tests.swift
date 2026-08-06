@@ -19,7 +19,7 @@ struct ConfigurationTraitTests {
 
     struct SetValue: ConfigurationModifier {
         let value: Int
-        func update(configuration: inout DummyConfiguration) {
+        func modify(configuration: inout DummyConfiguration) {
             configuration.value = value
         }
     }
