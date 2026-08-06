@@ -63,7 +63,7 @@
               "type" : "reference"
             },
             {
-              "text" : " to overlay a",
+              "text" : " or any",
               "type" : "text"
             },
             {
@@ -71,31 +71,27 @@
               "type" : "text"
             },
             {
-              "text" : "visualization of the boundaries, origin, and safe areas. The modifier can be configured",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "by passing ",
-              "type" : "text"
-            },
-            {
-              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugOverlayModifier\/Configuration\/Trait",
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api#View-Extensions",
               "isActive" : true,
-              "overridingTitle" : "Trait",
+              "overridingTitle" : "sibling function",
               "overridingTitleInlineContent" : [
                 {
-                  "code" : "Trait",
-                  "type" : "codeVoice"
+                  "text" : "sibling function",
+                  "type" : "text"
                 }
               ],
               "type" : "reference"
             },
             {
-              "text" : " instances:",
+              "text" : " to overlay a visualization of the",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "boundaries, origin, and safe areas:",
               "type" : "text"
             }
           ],
@@ -113,7 +109,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "The overlay can be configured by passing ",
+              "text" : "The modifier can be configured by passing ",
               "type" : "text"
             },
             {
@@ -137,16 +133,7 @@
               "type" : "text"
             },
             {
-              "text" : "instances to ",
-              "type" : "text"
-            },
-            {
-              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay(_:)",
-              "isActive" : true,
-              "type" : "reference"
-            },
-            {
-              "text" : ":",
+              "text" : "instances:",
               "type" : "text"
             }
           ],
@@ -194,6 +181,7 @@
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
       ],
       "title" : "API Collections"
@@ -770,6 +758,30 @@
   "title" : "debugOverlay(traits:)",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugoverlay(traits:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api#View-Extensions": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api#View-Extensions",
+  "kind" : "section",
+  "title" : "View Extensions",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debug-overlay-api#View-Extensions"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/edge-graticule-api": {
+  "abstract" : [
+    {
+      "text" : "Overlay a graticule based on the edges of the owner view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Edge Graticule",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/edge-graticule-api"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/floating-alignments-api": {
   "abstract" : [

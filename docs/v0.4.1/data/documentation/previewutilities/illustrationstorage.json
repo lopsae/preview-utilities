@@ -110,9 +110,9 @@
       "anchor" : "Instance-Methods",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorScheme:strategy:illustration:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorSchemes:strategy:illustration:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:strategy:illustration:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/store(resource:usesFullComponentName:)"
       ],
       "title" : "Instance Methods"
@@ -308,7 +308,7 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/illustrationstorage\/init(filepath:droppingcomponents:appendingcomponents:foldermustexist:onimagestored:)"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorScheme:strategy:illustration:)": {
   "abstract" : [
 
   ],
@@ -374,6 +374,32 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "strategy"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV",
+      "text" : "IllustrationRenderer"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV8StrategyO",
+      "text" : "Strategy"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "illustration"
     },
     {
@@ -394,14 +420,14 @@
       "text" : "throws"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorScheme:strategy:illustration:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "renderAndStore(_:usesFullComponentName:colorScheme:illustration:)",
+  "title" : "renderAndStore(_:usesFullComponentName:colorScheme:strategy:illustration:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(_:usesfullcomponentname:colorscheme:illustration:)"
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(_:usesfullcomponentname:colorscheme:strategy:illustration:)"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(_:usesFullComponentName:colorSchemes:strategy:illustration:)": {
   "abstract" : [
 
   ],
@@ -476,6 +502,32 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "strategy"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV",
+      "text" : "IllustrationRenderer"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV8StrategyO",
+      "text" : "Strategy"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "illustration"
     },
     {
@@ -496,14 +548,14 @@
       "text" : "throws"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(_:usesFullComponentName:colorSchemes:strategy:illustration:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "renderAndStore(_:usesFullComponentName:colorSchemes:illustration:)",
+  "title" : "renderAndStore(_:usesFullComponentName:colorSchemes:strategy:illustration:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(_:usesfullcomponentname:colorschemes:illustration:)"
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(_:usesfullcomponentname:colorschemes:strategy:illustration:)"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:strategy:illustration:)": {
   "abstract" : [
 
   ],
@@ -586,6 +638,32 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "strategy"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV",
+      "text" : "IllustrationRenderer"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV8StrategyO",
+      "text" : "Strategy"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "illustration"
     },
     {
@@ -606,12 +684,12 @@
       "text" : "throws"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/renderAndStore(nameComponents:usesFullComponentName:colorSchemes:strategy:illustration:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "renderAndStore(nameComponents:usesFullComponentName:colorSchemes:illustration:)",
+  "title" : "renderAndStore(nameComponents:usesFullComponentName:colorSchemes:strategy:illustration:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(namecomponents:usesfullcomponentname:colorschemes:illustration:)"
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/renderandstore(namecomponents:usesfullcomponentname:colorschemes:strategy:illustration:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/store(resource:usesFullComponentName:)": {
   "abstract" : [

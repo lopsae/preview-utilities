@@ -116,6 +116,7 @@
       "anchor" : "Structures",
       "generated" : true,
       "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Background",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing"
       ],
       "title" : "Structures"
@@ -124,9 +125,9 @@
       "anchor" : "Initializers",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(height:drawsBorder:alignment:content:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(size:alignment:drawsBorder:content:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(sizing:alignment:drawsBorder:content:)"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(height:drawsBorder:alignment:background:content:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(size:alignment:drawsBorder:background:content:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(sizing:alignment:drawsBorder:background:content:)"
       ],
       "title" : "Initializers"
     }
@@ -198,6 +199,48 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/documentationillustration"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Background": {
+  "abstract" : [
+    {
+      "text" : "A background for a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DocumentationIllustration",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Background"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Background",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Background"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DocumentationIllustration.Background",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/background"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing": {
   "abstract" : [
     {
@@ -232,7 +275,7 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(height:drawsBorder:alignment:content:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(height:drawsBorder:alignment:background:content:)": {
   "abstract" : [
 
   ],
@@ -306,6 +349,32 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "background"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV10BackgroundV",
+      "text" : "Background"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "content"
     },
     {
@@ -321,14 +390,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(height:drawsBorder:alignment:content:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(height:drawsBorder:alignment:background:content:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "init(height:drawsBorder:alignment:content:)",
+  "title" : "init(height:drawsBorder:alignment:background:content:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/documentationillustration\/init(height:drawsborder:alignment:content:)"
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/init(height:drawsborder:alignment:background:content:)"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(size:alignment:drawsBorder:content:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(size:alignment:drawsBorder:background:content:)": {
   "abstract" : [
 
   ],
@@ -402,6 +471,32 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "background"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV10BackgroundV",
+      "text" : "Background"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "content"
     },
     {
@@ -417,14 +512,14 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(size:alignment:drawsBorder:content:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(size:alignment:drawsBorder:background:content:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "init(size:alignment:drawsBorder:content:)",
+  "title" : "init(size:alignment:drawsBorder:background:content:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/documentationillustration\/init(size:alignment:drawsborder:content:)"
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/init(size:alignment:drawsborder:background:content:)"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(sizing:alignment:drawsBorder:content:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/init(sizing:alignment:drawsBorder:background:content:)": {
   "abstract" : [
 
   ],
@@ -507,6 +602,32 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "background"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV10BackgroundV",
+      "text" : "Background"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "content"
     },
     {
@@ -522,12 +643,12 @@
       "text" : ")"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(sizing:alignment:drawsBorder:content:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/init(sizing:alignment:drawsBorder:background:content:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "init(sizing:alignment:drawsBorder:content:)",
+  "title" : "init(sizing:alignment:drawsBorder:background:content:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/documentationillustration\/init(sizing:alignment:drawsborder:content:)"
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/init(sizing:alignment:drawsborder:background:content:)"
 },
 "doc://PreviewUtilities/s16SendableMetatypeP": {
   "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",

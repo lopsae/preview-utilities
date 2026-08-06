@@ -66,6 +66,7 @@
             "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
             "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
             "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
+            "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
             "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
           ],
           "style" : "detailedGrid",
@@ -116,11 +117,30 @@
       "title" : "Image Generation"
     },
     {
+      "anchor" : "Configuration-Traits",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TraitConfigurable",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TraitInitializable"
+      ],
+      "title" : "Configuration Traits"
+    },
+    {
+      "anchor" : "Alignment-Additions",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithDefault"
+      ],
+      "title" : "Alignment Additions"
+    },
+    {
       "anchor" : "API-Collections",
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
       ],
       "title" : "API Collections"
@@ -137,6 +157,7 @@
       "anchor" : "Protocols",
       "generated" : true,
       "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IdentifiableCase",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SelfIdentifiable"
       ],
@@ -146,6 +167,9 @@
       "anchor" : "Structures",
       "generated" : true,
       "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainer",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions",
@@ -159,10 +183,21 @@
       "title" : "Structures"
     },
     {
+      "anchor" : "Type-Aliases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugHorizontalAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugVerticalAlignmentGuideModifier"
+      ],
+      "title" : "Type Aliases"
+    },
+    {
       "anchor" : "Enumerations",
       "generated" : true,
       "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Defaults",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PrettyMesh",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Strings"
       ],
       "title" : "Enumerations"
@@ -271,6 +306,74 @@
   "title" : "PreviewUtilities",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/AlignmentWithDefault": {
+  "abstract" : [
+    {
+      "text" : "Defines a default alignment for an alignment type.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AlignmentWithDefault"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithDefault",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AlignmentWithDefault"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "AlignmentWithDefault",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/alignmentwithdefault"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/AlignmentWithOrthogonal": {
+  "abstract" : [
+    {
+      "text" : "Defines access to the axis and orthogonal type for a single axis alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AlignmentWithOrthogonal"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AlignmentWithOrthogonal"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "AlignmentWithOrthogonal",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/alignmentwithorthogonal"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/AppKit": {
   "abstract" : [
@@ -401,6 +504,82 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/concurrentimagegenerator"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationModifier": {
+  "abstract" : [
+    {
+      "text" : "Modification to a configuration instance.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ConfigurationModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ConfigurationModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ConfigurationModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationmodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait": {
+  "abstract" : [
+    {
+      "text" : "Customization that can be applied to an instance of type ",
+      "type" : "text"
+    },
+    {
+      "code" : "Configuration",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ConfigurationTrait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ConfigurationTrait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ConfigurationTrait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
   "abstract" : [
 
@@ -445,6 +624,234 @@
   "title" : "DashedDivider",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/dasheddivider"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentConfigurationLength",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentconfigurationlength"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideConfiguration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfiguration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol": {
+  "abstract" : [
+    {
+      "text" : "Protocol for the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfigurationProtocol"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfigurationProtocol"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideConfigurationProtocol",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugHorizontalAlignmentGuideModifier": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugHorizontalAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugHorizontalAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugHorizontalAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugHorizontalAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debughorizontalalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugVerticalAlignmentGuideModifier": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugVerticalAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugVerticalAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugVerticalAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugVerticalAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugverticalalignmentguidemodifier"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/Defaults": {
   "abstract" : [
@@ -1092,6 +1499,37 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/nonisolatedimagegenerator"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/PrettyMesh": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "PrettyMesh"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PrettyMesh",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "PrettyMesh"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "PrettyMesh",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/prettymesh"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/PreviewCaption": {
   "abstract" : [
     {
@@ -1489,6 +1927,98 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/threadinfo"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/TraitConfigurable": {
+  "abstract" : [
+    {
+      "text" : "A configuration that can modified by applying ",
+      "type" : "text"
+    },
+    {
+      "code" : "ConfigurationTrait",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " instances.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TraitConfigurable"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TraitConfigurable",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TraitConfigurable"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TraitConfigurable",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/traitconfigurable"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/TraitInitializable": {
+  "abstract" : [
+    {
+      "text" : "A configuration that can be built by applying ",
+      "type" : "text"
+    },
+    {
+      "code" : "ConfigurationTrait",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " instances to a",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "default instance.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "TraitInitializable"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/TraitInitializable",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "TraitInitializable"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "TraitInitializable",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/traitinitializable"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity": {
   "abstract" : [
     {
@@ -1592,6 +2122,20 @@
   "title" : "Debug Overlay",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debug-overlay-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/edge-graticule-api": {
+  "abstract" : [
+    {
+      "text" : "Overlay a graticule based on the edges of the owner view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Edge Graticule",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/edge-graticule-api"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/floating-alignments-api": {
   "abstract" : [

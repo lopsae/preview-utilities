@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Sets the debug overlay borders to the given width",
+      "text" : "Sets the debug overlay borders to the given width.",
       "type" : "text"
     }
   ],
@@ -212,6 +212,51 @@
           "name" : "bordersWidth"
         }
       ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The debug overlay always draws with a minimal width of ",
+              "type" : "text"
+            },
+            {
+              "code" : "1",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ", even if the width is set to",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "zero through this trait. To hide the borders use ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugOverlayModifier\/Configuration\/Trait\/noBorders",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -389,7 +434,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/bordersWidth(_:)": {
   "abstract" : [
     {
-      "text" : "Sets the debug overlay borders to the given width",
+      "text" : "Sets the debug overlay borders to the given width.",
       "type" : "text"
     }
   ],
@@ -528,6 +573,69 @@
   "title" : "hairline",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/hairline"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/noBorders": {
+  "abstract" : [
+    {
+      "text" : "Hides the debug overlay borders.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "noBorders"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV",
+      "text" : "DebugOverlayModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV",
+      "text" : "Configuration"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugOverlayModifier\/Configuration\/Trait\/noBorders",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "noBorders",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugoverlaymodifier\/configuration\/trait\/noborders"
 }
 }
 }

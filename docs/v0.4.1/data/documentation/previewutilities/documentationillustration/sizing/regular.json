@@ -151,7 +151,16 @@
         {
           "inlineContent" : [
             {
-              "text" : "This illustration size uses the default width (",
+              "text" : "This illustration size uses the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/defaultWidth",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " (",
               "type" : "text"
             },
             {
@@ -280,6 +289,59 @@
   "title" : "DocumentationIllustration.Sizing",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/defaultWidth": {
+  "abstract" : [
+    {
+      "text" : "The default width for illustrations of ",
+      "type" : "text"
+    },
+    {
+      "code" : "regular",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " size.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "defaultWidth"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/defaultWidth",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "defaultWidth",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/defaultwidth"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular": {
   "abstract" : [

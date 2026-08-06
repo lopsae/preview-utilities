@@ -14,7 +14,7 @@
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "CoreFoundation",
-    "externalID" : "s:e:s:So6CGRectV16PreviewUtilitiesE5addTo4pathAB7SwiftUI4PathVz_tF",
+    "externalID" : "s:e:s:So6CGRectV16PreviewUtilitiesE7setting1x1y5width6heightAB14CoreFoundation7CGFloatVSg_A3LtF",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -100,7 +100,7 @@
       "anchor" : "Instance-Methods",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/addTo(path:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/addToPath(_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/align(rect:to:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/aligned(to:of:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/center(size:)",
@@ -181,7 +181,7 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/addTo(path:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/addToPath(_:)": {
   "abstract" : [
 
   ],
@@ -196,19 +196,11 @@
     },
     {
       "kind" : "identifier",
-      "text" : "addTo"
+      "text" : "addToPath"
     },
     {
       "kind" : "text",
       "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "path"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
     },
     {
       "kind" : "keyword",
@@ -233,17 +225,17 @@
       "text" : "CGRect"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/addTo(path:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/addToPath(_:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "addTo(path:)",
+  "title" : "addToPath(_:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/addto(path:)"
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/addtopath(_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/align(rect:to:)": {
   "abstract" : [
     {
-      "text" : "Returns a copy of the given rectangle aligned to the specfied edge of ",
+      "text" : "Returns a copy of the given rectangle aligned to the specified edge of ",
       "type" : "text"
     },
     {
@@ -400,7 +392,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/center": {
   "abstract" : [
-
+    {
+      "text" : "The point at the center of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -496,7 +499,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/offset(x:y:)": {
   "abstract" : [
-
+    {
+      "text" : "Returns a copy of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " offset by the given optional amounts.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -564,7 +578,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/setting(x:y:width:height:)": {
   "abstract" : [
-
+    {
+      "text" : "Returns a copy of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " with the given properties overwritten.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

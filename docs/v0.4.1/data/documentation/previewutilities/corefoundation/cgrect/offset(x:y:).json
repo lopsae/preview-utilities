@@ -1,4 +1,18 @@
 {
+  "abstract" : [
+    {
+      "text" : "Returns a copy of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " offset by the given optional amounts.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -247,7 +261,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/offset(x:y:)": {
   "abstract" : [
-
+    {
+      "text" : "Returns a copy of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " offset by the given optional amounts.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

@@ -101,15 +101,41 @@
         {
           "inlineContent" : [
             {
-              "text" : "Rendered images are saved in the package ",
+              "text" : "The rendered produces ",
               "type" : "text"
             },
             {
-              "code" : "documentation.docc\/resources",
-              "type" : "codeVoice"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/RenderResource",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
-              "text" : " folder.",
+              "text" : " instances that contain the rendered images and",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "naming information. Use ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " to store this resources into files using",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "the Docc naming format for images.",
               "type" : "text"
             }
           ],
@@ -161,9 +187,17 @@
       "anchor" : "Type-Methods",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/render(nameComponents:scale:colorSchemes:illustration:)"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/render(nameComponents:scale:colorSchemes:strategy:illustration:)"
       ],
       "title" : "Type Methods"
+    },
+    {
+      "anchor" : "Enumerations",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/Strategy"
+      ],
+      "title" : "Enumerations"
     }
   ],
   "variants" : [
@@ -261,6 +295,40 @@
   "title" : "IllustrationRenderer.RenderResource",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/illustrationrenderer\/renderresource"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/Strategy": {
+  "abstract" : [
+    {
+      "text" : "The strategy used to rasterize an illustration.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Strategy"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/Strategy",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Strategy"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer.Strategy",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/strategy"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/defaultColorSchemes": {
   "abstract" : [
@@ -401,7 +469,7 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/illustrationrenderer\/defaultwidth"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/render(nameComponents:scale:colorSchemes:illustration:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/render(nameComponents:scale:colorSchemes:strategy:illustration:)": {
   "abstract" : [
     {
       "text" : "Renders a SwiftUI view configured as a documentation illustration.",
@@ -495,6 +563,32 @@
     },
     {
       "kind" : "externalParam",
+      "text" : "strategy"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV",
+      "text" : "IllustrationRenderer"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV8StrategyO",
+      "text" : "Strategy"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
       "text" : "illustration"
     },
     {
@@ -533,12 +627,46 @@
       "text" : "RenderResource"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/render(nameComponents:scale:colorSchemes:illustration:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/render(nameComponents:scale:colorSchemes:strategy:illustration:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "render(nameComponents:scale:colorSchemes:illustration:)",
+  "title" : "render(nameComponents:scale:colorSchemes:strategy:illustration:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/render(namecomponents:scale:colorschemes:illustration:)"
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/render(namecomponents:scale:colorschemes:strategy:illustration:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage": {
+  "abstract" : [
+    {
+      "text" : "Utility structure to store documentation illustrations into a local folder.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationStorage",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage"
 },
 "doc://PreviewUtilities/s16SendableMetatypeP": {
   "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",

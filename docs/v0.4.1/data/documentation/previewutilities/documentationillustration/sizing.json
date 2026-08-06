@@ -147,9 +147,18 @@
       "generated" : true,
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/card",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/defaultWidth",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/regular"
       ],
       "title" : "Type Properties"
+    },
+    {
+      "anchor" : "Type-Methods",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/height(_:)"
+      ],
+      "title" : "Type Methods"
     }
   ],
   "variants" : [
@@ -301,6 +310,122 @@
   "title" : "card",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/card"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/defaultWidth": {
+  "abstract" : [
+    {
+      "text" : "The default width for illustrations of ",
+      "type" : "text"
+    },
+    {
+      "code" : "regular",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " size.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "defaultWidth"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/defaultWidth",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "defaultWidth",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/defaultwidth"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/height(_:)": {
+  "abstract" : [
+    {
+      "text" : "Size for snippet illustrations with the default width and a given height.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "height"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV",
+      "text" : "DocumentationIllustration"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities25DocumentationIllustrationV6SizingV",
+      "text" : "Sizing"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration\/Sizing\/height(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "height(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/documentationillustration\/sizing\/height(_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DocumentationIllustration/Sizing/regular": {
   "abstract" : [

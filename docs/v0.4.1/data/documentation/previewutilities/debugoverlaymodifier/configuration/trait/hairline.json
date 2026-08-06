@@ -344,7 +344,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/bordersWidth(_:)": {
   "abstract" : [
     {
-      "text" : "Sets the debug overlay borders to the given width",
+      "text" : "Sets the debug overlay borders to the given width.",
       "type" : "text"
     }
   ],

@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Returns a copy of the given rectangle aligned to the specfied edge of ",
+      "text" : "Returns a copy of the given rectangle aligned to the specified edge of ",
       "type" : "text"
     },
     {
@@ -334,7 +334,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/align(rect:to:)": {
   "abstract" : [
     {
-      "text" : "Returns a copy of the given rectangle aligned to the specfied edge of ",
+      "text" : "Returns a copy of the given rectangle aligned to the specified edge of ",
       "type" : "text"
     },
     {

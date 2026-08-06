@@ -1,4 +1,18 @@
 {
+  "abstract" : [
+    {
+      "text" : "Returns a copy of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " with the given properties overwritten.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -347,7 +361,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/setting(x:y:width:height:)": {
   "abstract" : [
-
+    {
+      "text" : "Returns a copy of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " with the given properties overwritten.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

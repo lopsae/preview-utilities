@@ -47,10 +47,13 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/ConcentricRectangle",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/EdgeInsets",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HStack",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Image",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/MeshGradient",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/ScrollGeometry",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/Text",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VStack"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VStack",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment"
       ],
       "title" : "Extended Structures"
     },
@@ -215,6 +218,38 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/hstack"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HorizontalAlignment": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+      "text" : "HorizontalAlignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HorizontalAlignment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HorizontalAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/horizontalalignment"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/Image": {
   "abstract" : [
 
@@ -246,6 +281,38 @@
   "title" : "Image",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/image"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/MeshGradient": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI12MeshGradientV",
+      "text" : "MeshGradient"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/MeshGradient",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "MeshGradient"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "MeshGradient",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/meshgradient"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/ScrollGeometry": {
   "abstract" : [
@@ -342,6 +409,38 @@
   "title" : "VStack",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/vstack"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/VerticalAlignment": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
+      "text" : "VerticalAlignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "VerticalAlignment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "VerticalAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/verticalalignment"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View": {
   "abstract" : [

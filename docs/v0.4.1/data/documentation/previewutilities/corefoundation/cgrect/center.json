@@ -1,4 +1,18 @@
 {
+  "abstract" : [
+    {
+      "text" : "The point at the center of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -191,7 +205,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/center": {
   "abstract" : [
-
+    {
+      "text" : "The point at the center of ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

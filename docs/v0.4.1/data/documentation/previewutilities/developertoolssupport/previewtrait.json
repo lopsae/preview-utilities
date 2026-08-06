@@ -112,7 +112,8 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/fixedHeader(_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/fixedHeaderFooter(_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/fixedLayout(size:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/headerFooter(_:)"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/headerFooter(_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/spacing(_:)"
       ],
       "title" : "Type Methods"
     }
@@ -1602,6 +1603,112 @@
   "title" : "scrollViewWrap",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/developertoolssupport\/previewtrait\/scrollviewwrap"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/spacing(_:)": {
+  "abstract" : [
+    {
+      "text" : "Wraps the preview content in a ",
+      "type" : "text"
+    },
+    {
+      "code" : "VStack",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " with the given spacing.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "T",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "Preview.ViewTraits",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "spacing"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:21DeveloperToolsSupport12PreviewTraitV",
+      "text" : "PreviewTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "T"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DeveloperToolsSupport\/PreviewTrait\/spacing(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "spacing(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/developertoolssupport\/previewtrait\/spacing(_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DeveloperToolsSupport/PreviewTrait/zeroSpacing": {
   "abstract" : [

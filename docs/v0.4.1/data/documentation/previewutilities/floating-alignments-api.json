@@ -283,6 +283,7 @@
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
       ],
       "title" : "API Collections"
@@ -706,6 +707,20 @@
   "title" : "Debug Overlay",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debug-overlay-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/edge-graticule-api": {
+  "abstract" : [
+    {
+      "text" : "Overlay a graticule based on the edges of the owner view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Edge Graticule",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/edge-graticule-api"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/floating-caption-api": {
   "abstract" : [
