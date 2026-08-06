@@ -141,10 +141,10 @@ extension DocumentationIllustration {
 
 extension DocumentationIllustration {
 
-    /// A background for a ``DocumentationIllustration``.
+    /// A background for a `DocumentationIllustration`.
     ///
-    /// Use a predefined background such as ``moltenHorizonMesh``, define your own as a static
-    /// member in an extension, or wrap an arbitrary view with ``view(_:)``.
+    /// Provides a background to display in a snippet illustration. Use a predefined background such
+    /// as ``moltenHorizon``, or wrap an arbitrary view with ``view(_:)``.
     public struct Background {
 
         let makeView: () -> AnyView
@@ -165,7 +165,7 @@ extension DocumentationIllustration.Background {
 
     /// A background that uses the given view.
     /// - Parameter view: The view to use as the background.
-    public static func view(@ViewBuilder view: @escaping () -> some View) -> Self {
+    public static func view(@ViewBuilder _ view: @escaping () -> some View) -> Self {
         .init(makeView: view)
     }
 
