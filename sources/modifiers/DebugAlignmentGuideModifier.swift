@@ -100,6 +100,22 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
+    public static func lineWidth(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> Self {
+        .mutate {
+            if let horizontal { $0.horizontalConfiguration.lineWidth = horizontal }
+            if let vertical   { $0.verticalConfiguration.lineWidth =   vertical }
+        }
+    }
+
+    // FIXME: document.
+    public static func lineWidth(_ lineWidth: CGFloat) -> Self {
+        .mutate {
+            $0.horizontalConfiguration.lineWidth = lineWidth
+            $0.verticalConfiguration.lineWidth   = lineWidth
+        }
+    }
+
+    // FIXME: document.
     public static func length(
         horizontal: DebugAxisAlignmentConfigurationLength? = nil,
         vertical: DebugAxisAlignmentConfigurationLength? = nil
@@ -114,7 +130,7 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     public static func length(_ lengths: DebugAxisAlignmentConfigurationLength) -> Self {
         .mutate {
             $0.horizontalConfiguration.length = lengths
-            $0.verticalConfiguration.length = lengths
+            $0.verticalConfiguration.length   = lengths
         }
     }
 
@@ -210,7 +226,6 @@ where
     public func body(content: Content) -> some View {
         let alignment = axisAlignment.alignment(withOrthogonal: configuration.anchor)
         content.overlay(alignment: alignment) {
-            let lineWidth: CGFloat = 2
             let axis = axisAlignment.axis
             let orthogonal = axis.orthogonal
             GeometryReader { geometry in
@@ -228,11 +243,11 @@ where
                 // Final mark size is clamped to zero. Negative sizes produce a warning.
                 let markSize = baseSize.adding(size: additionalSize).enveloping(.zero)
 
-                AxialLine(orthogonal, style: configuration.shapeStyle, lineWidth: lineWidth)
+                AxialLine(orthogonal, style: configuration.shapeStyle, lineWidth: configuration.lineWidth)
                 .frame(size: markSize)
                 .frame(size: geometry.size, alignment: alignment)
             }
-            .frame(length: lineWidth, along: axisAlignment.axis)
+            .frame(length: configuration.lineWidth, along: axisAlignment.axis)
             .opacity(configuration.opacity)
             .allowsHitTesting(false)
         }
@@ -259,6 +274,7 @@ public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
     associatedtype AnchorAlignment: AlignmentWithDefault
     var opacity: Double { get set }
     var shapeStyle: AnyShapeStyle { get set }
+    var lineWidth: CGFloat { get set }
     var length: DebugAxisAlignmentConfigurationLength { get set }
     var anchor: AnchorAlignment { get set }
 
@@ -274,6 +290,7 @@ where
     public typealias AnchorAlignment = AxisAlignment.OrthogonalAlignment
     public var opacity: Double = .one
     public var shapeStyle: AnyShapeStyle = AnyShapeStyle(.red.secondary)
+    public var lineWidth: CGFloat = 2
     public var length: DebugAxisAlignmentConfigurationLength = .container
     public var anchor: AnchorAlignment = .default
     public init() {}
@@ -323,6 +340,11 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
     // FIXME: document.
     public static func style(_ style: some ShapeStyle) -> Self {
         .mutate { $0.shapeStyle = AnyShapeStyle(style) }
+    }
+
+    // FIXME: document.
+    public static func lineWidth(_ lineWidth: CGFloat) -> Self {
+        .mutate { $0.lineWidth = lineWidth }
     }
 
     // FIXME: document.

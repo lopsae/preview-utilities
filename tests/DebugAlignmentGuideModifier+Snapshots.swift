@@ -75,53 +75,53 @@ struct DebugAlignmentGuideModifierSnapshots {
         Snapshots.assertView("horizontal") {
             TestContent.single
             .debugAlignmentGuide(horizontal: .leading)
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
 
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .visible(true))
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
 
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .visible(false))
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
 
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.half))
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
 
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.half), .hidden)
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
 
             .alignmentGuide(.leading, offsetBy: 20)
             .debugAlignmentGuide(horizontal: .leading, .opacity(.one))
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
         }
 
         Snapshots.assertView("vertical") {
             TestContent.single
             .debugAlignmentGuide(vertical: .top)
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
 
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.half), .visible(true))
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
 
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.half), .visible(false))
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
 
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.half))
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
 
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.half), .hidden)
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
 
             .alignmentGuide(.top, offsetBy: 20)
             .debugAlignmentGuide(vertical: .top, .opacity(.one))
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
         }
 
         Snapshots.assertView("composite") {
@@ -182,6 +182,56 @@ struct DebugAlignmentGuideModifierSnapshots {
     }
 
 
+    @Test(.snapshots(record: .missing))
+    func alignmentsWithLineWidth() {
+        Snapshots.assertView("horizontal") {
+            TestContent.single
+            .edgeGraticule(insetSpacing: 10, through: 1)
+            .debugAlignmentGuide(horizontal: .leading,  .lineWidth(10))
+            .debugAlignmentGuide(horizontal: .center,   .lineWidth(1))
+            .debugAlignmentGuide(horizontal: .trailing, .lineWidth(20))
+        }
+
+        Snapshots.assertView("vertical") {
+            TestContent.single
+            .edgeGraticule(insetSpacing: 10, through: 1)
+            .debugAlignmentGuide(vertical: .top,    .lineWidth(10))
+            .debugAlignmentGuide(vertical: .center, .lineWidth(1))
+            .debugAlignmentGuide(vertical: .bottom, .lineWidth(20))
+        }
+
+        Snapshots.assertView("baselines") {
+            TestContent.multi
+            .debugAlignmentGuide(vertical: .firstTextBaseline, .lineWidth(10))
+            .debugAlignmentGuide(vertical: .lastTextBaseline,  .lineWidth(10))
+        }
+
+        Snapshots.assertView("zero") {
+            TestContent.multi
+            .debugAlignmentGuide(horizontal: .center, .lineWidth(.zero))
+            .floatingHorizontalMarker(.center)
+            .debugAlignmentGuide(vertical: .center,  .lineWidth(.zero))
+            .floatingVerticalMarker(.center)
+        }
+
+        Snapshots.assertView("composite") {
+            TestContent.single
+            .debugAlignmentGuide(.center, .lineWidth(10))
+        }
+
+        Snapshots.assertView("compositeBoth") {
+            TestContent.single
+            .debugAlignmentGuide(.center, .lineWidth(horizontal: 10, vertical: 20))
+        }
+
+        Snapshots.assertView("compositeEach") {
+            TestContent.single
+            .debugAlignmentGuide(.bottomLeading, .lineWidth(horizontal: 20))
+            .debugAlignmentGuide(.topTrailing, .lineWidth(vertical: 20))
+        }
+    }
+
+
     @Test func alignmentsWithLengths() {
         Snapshots.assertView("compositeEach") {
             TestContent.square
@@ -219,9 +269,9 @@ struct DebugAlignmentGuideModifierSnapshots {
             TestContent.square
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
             .debugAlignmentGuide(horizontal: .leading, .fixedLength(-70))
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
             .debugAlignmentGuide(vertical: .top,       .fixedLength(-70))
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
         }
 
         Snapshots.assertView("compositeBoth") {
@@ -263,9 +313,9 @@ struct DebugAlignmentGuideModifierSnapshots {
             TestContent.square
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
             .debugAlignmentGuide(horizontal: .leading, .extendLength(-130))
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
             .debugAlignmentGuide(vertical: .top,       .extendLength(-130))
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
         }
 
         Snapshots.assertView("compositeBoth") {
@@ -308,9 +358,9 @@ struct DebugAlignmentGuideModifierSnapshots {
             TestContent.square
             .edgeGraticule(spacing: 20)
             .debugAlignmentGuide(horizontal: .leading, .scaleLength(-1))
-            .floatingHorizontalMarker()
+            .floatingHorizontalMarker(.leading)
             .debugAlignmentGuide(vertical: .top,       .scaleLength(-1))
-            .floatingVerticalMarker()
+            .floatingVerticalMarker(.top)
         }
 
         Snapshots.assertView("compositeBoth") {
@@ -372,23 +422,27 @@ struct DebugAlignmentGuideModifierSnapshots {
 
 private extension View {
 
-    func floatingHorizontalMarker() -> some View {
+    @ViewBuilder
+    func floatingHorizontalMarker(_ horizontalAlignment: HorizontalAlignment) -> some View {
         // TODO: use floatingContent/FloatingAlignedContainer function when it actually uses alignment guides to position its content.
-        self.overlay(alignment: .topLeading) {
+        let alignment = horizontalAlignment.alignment(withOrthogonal: .top)
+        self.overlay(alignment: alignment) {
             Image(systemName: "arrow.down")
             .foregroundStyle(.red.secondary)
-            .alignmentGuide(.leading, moveTo: .center)
+            .alignmentGuide(horizontalAlignment, moveTo: .center)
             .alignmentGuide(.top, moveTo: .bottom, outsetBy: 8)
         }
     }
 
-    func floatingVerticalMarker() -> some View {
+    @ViewBuilder
+    func floatingVerticalMarker(_ verticalAlignment: VerticalAlignment) -> some View {
         // TODO: use floatingContent/FloatingAlignedContainer function when it actually uses alignment guides to position its content.
-        self.overlay(alignment: .topLeading) {
+        let alignment = verticalAlignment.alignment(withOrthogonal: .leading)
+        self.overlay(alignment: alignment) {
             Image(systemName: "arrow.forward")
             .foregroundStyle(.red.secondary)
+            .alignmentGuide(verticalAlignment, moveTo: .center)
             .alignmentGuide(.leading, moveTo: .trailing, outsetBy: 8)
-            .alignmentGuide(.top, moveTo: .center)
         }
     }
 
