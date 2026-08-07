@@ -76,17 +76,6 @@ struct IllustrationsForDebugOverlay {
     }
 
 
-    @Test func torchDefault() throws {
-        try storage.renderAndStore("debug-overlay", "torch-default") {
-            DocumentationIllustration(height: 100) {
-                Text("a sort of splendid torch")
-                    .debugOverlay()
-                Text("which I have got hold of for the moment")
-            }
-        }
-    }
-
-
     @Test func torchTraits() throws {
         try storage.renderAndStore("debug-overlay", "torch-traits") {
             DocumentationIllustration(height: 100) {

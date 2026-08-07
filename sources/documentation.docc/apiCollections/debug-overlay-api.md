@@ -7,7 +7,7 @@
 
 Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.
 
-Apply the ``DebugOverlayModifier`` using ``SwiftUICore/View/debugOverlay()`` or any
+Apply the ``DebugOverlayModifier`` using ``SwiftUICore/View/debugOverlay(_:)`` or any
 [sibling function](doc:debug-overlay-api/View-Extensions) to overlay a visualization of the 
 boundaries, origin, and safe areas:
 
@@ -32,14 +32,11 @@ Rectangle()
 ## Topics
 
 ### Modifier and Traits
-
 + ``DebugOverlayModifier``
 + ``DebugOverlayModifier/Configuration``
 + ``DebugOverlayModifier/Configuration/Trait``
 
 
 ### View Extensions
-
-+ ``SwiftUICore/View/debugOverlay()``
 + ``SwiftUICore/View/debugOverlay(_:)``
 + ``SwiftUICore/View/debugOverlay(traits:)``

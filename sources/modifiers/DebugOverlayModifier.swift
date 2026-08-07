@@ -16,7 +16,7 @@ import SwiftUI
 /// All content added by this modifier is layered in an overlay of the parent view, the original
 /// layout is never modified.
 ///
-/// Apply this modifier using ``SwiftUICore/View/debugOverlay()``:
+/// Apply this modifier using ``SwiftUICore/View/debugOverlay(_:)``:
 ///
 /// ```swift
 /// Text("Sphinx of Black Quartz")
@@ -391,30 +391,9 @@ public struct DebugOverlayModifier: ViewModifier {
 
 extension View {
 
-    // FIXME: This trait could be removed, variadic trait takes care of no arguments.
-
-    /// Layers in front of this view a debug overlay using the default configuration.
+    /// Layers in front of this view a debug overlay customized with the given traits.
     ///
-    /// Applies the ``DebugOverlayModifier``, overlaying a visual representation of the views
-    /// boundaries, origin point, and safe area insets.
-    ///
-    /// ```swift
-    /// Text("a sort of splendid torch")
-    ///     .debugOverlay()
-    /// Text("which I have got hold of for the moment")
-    /// ```
-    /// ![Debug overlay with default configuration applied to a single Text.](debug-overlay-torch-default)
-    ///
-    /// - Returns: A view with a debug overlay as foreground.
-    public func debugOverlay() -> some View {
-        let configuration = DebugOverlayModifier.Configuration()
-        return modifier(DebugOverlayModifier(configuration: configuration))
-    }
-
-
-    /// Layers in front of this view a debug overlay configured using the given traits.
-    ///
-    /// Applies the ``DebugOverlayModifier`` configured with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// Applies the ``DebugOverlayModifier`` customized with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
     /// safe area insets.
     ///
@@ -438,9 +417,9 @@ extension View {
     }
 
 
-    /// Layers in front of this view a debug overlay configured using the given traits.
+    /// Layers in front of this view a debug overlay customized with the given traits.
     ///
-    /// Applies the ``DebugOverlayModifier`` configured with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// Applies the ``DebugOverlayModifier`` customized with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
     /// safe area insets.
     ///
