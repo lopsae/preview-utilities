@@ -26,7 +26,6 @@ struct DebugAlignmentGuideModifierSnapshots {
             Rectangle()
             .fill(.gray.quinary)
             .frame(squareOf: 100)
-
     }
 
 
@@ -186,7 +185,7 @@ struct DebugAlignmentGuideModifierSnapshots {
     func alignmentsWithLineWidth() {
         Snapshots.assertView("horizontal") {
             TestContent.single
-            .edgeGraticule(insetSpacing: 10, through: 1)
+            .edgeGraticule(insetSpacing: 10, insetCount: 1)
             .debugAlignmentGuide(horizontal: .leading,  .lineWidth(10))
             .debugAlignmentGuide(horizontal: .center,   .lineWidth(1))
             .debugAlignmentGuide(horizontal: .trailing, .lineWidth(20))
@@ -194,7 +193,7 @@ struct DebugAlignmentGuideModifierSnapshots {
 
         Snapshots.assertView("vertical") {
             TestContent.single
-            .edgeGraticule(insetSpacing: 10, through: 1)
+            .edgeGraticule(insetSpacing: 10, insetCount: 1)
             .debugAlignmentGuide(vertical: .top,    .lineWidth(10))
             .debugAlignmentGuide(vertical: .center, .lineWidth(1))
             .debugAlignmentGuide(vertical: .bottom, .lineWidth(20))
