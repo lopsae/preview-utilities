@@ -110,4 +110,60 @@ struct EdgeGraticuleModifierSnapshots {
         }
     }
 
+
+    @Test(.snapshots(record: .missing))
+    func outsetTrait() {
+        Snapshots.assertView("spacingAndCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 20,
+                .outset(.vertical, spacing: 10, count: 2)
+            )
+        }
+
+        Snapshots.assertView("onlySpacing") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 20,
+                .outset(.vertical, spacing: 10)
+            )
+        }
+
+        Snapshots.assertView("onlyCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 10,
+                .outset(.vertical, count: 3)
+            )
+        }
+    }
+
+
+    @Test(.snapshots(record: .missing))
+    func straddleTrait() {
+        Snapshots.assertView("spacingAndCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 20, outsetSpacing: 20,
+                .straddle(.leading, spacing: 10, count: 2)
+            )
+        }
+
+        Snapshots.assertView("onlySpacing") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 20, outsetSpacing: 20,
+                .straddle(.leading, spacing: 10)
+            )
+        }
+
+        Snapshots.assertView("onlyCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 20, outsetSpacing: 20,
+                .straddle(.leading, count: 2)
+            )
+        }
+    }
+
 }
