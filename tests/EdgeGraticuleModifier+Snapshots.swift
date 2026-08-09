@@ -83,6 +83,31 @@ struct EdgeGraticuleModifierSnapshots {
     }
 
 
-    // FIXME: Add tests for traits.
+    @Test(.snapshots(record: .missing))
+    func insetTrait() {
+        Snapshots.assertView("spacingAndCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 20,
+                .inset(.horizontal, spacing: 20, count: 2)
+            )
+        }
+
+        Snapshots.assertView("onlySpacing") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 20,
+                .inset(.horizontal, spacing: 20)
+            )
+        }
+
+        Snapshots.assertView("onlyCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 20,
+                .inset(.horizontal, count: 3)
+            )
+        }
+    }
 
 }
