@@ -41,10 +41,48 @@ struct EdgeGraticuleModifierSnapshots {
             TestContent.square
             .edgeGraticule(insetSpacing: 10, insetCount: 3, outsetSpacing: 20, outsetCount: 2)
         }
+
+        Snapshots.assertView("empty", colorSchemes: .all) {
+            TestContent.square
+            .edgeGraticule()
+        }
     }
 
 
-    // FIXME: Add tests for spacing combinations
+    @Test(.snapshots(record: .missing))
+    func spacingParameters() {
+        Snapshots.assertView("onlyInsetSpacing") {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 25)
+        }
+
+        Snapshots.assertView("insetSpacingAndCount") {
+            TestContent.square
+            .edgeGraticule(insetSpacing: 10, insetCount: 2)
+        }
+
+        Snapshots.assertView("onlyInsetCount") {
+            TestContent.square
+            .edgeGraticule(insetCount: 3)
+        }
+
+        Snapshots.assertView("onlyOutsetSpacing") {
+            TestContent.square
+            .edgeGraticule(outsetSpacing: 25)
+        }
+
+        Snapshots.assertView("outsetSpacingAndCount") {
+            TestContent.square
+            .edgeGraticule(outsetSpacing: 20, outsetCount: 2)
+        }
+
+        Snapshots.assertView("onlyOutsetCount") {
+            TestContent.square
+            .edgeGraticule(outsetCount: 3)
+        }
+    }
+
+
     // FIXME: Add tests for traits.
 
 }
