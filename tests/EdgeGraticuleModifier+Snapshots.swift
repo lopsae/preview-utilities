@@ -14,15 +14,6 @@ import Testing
 struct EdgeGraticuleModifierSnapshots {
 
     enum TestContent {
-        // FIXME: Remove if not used.
-//        static let single: some View =
-//            Text("Ag")
-//            .font(.title.pointSize(100))
-//
-//        static let multi: some View =
-//            Text("Sphinx\nof Black\nQuartz")
-//            .font(.largeTitle)
-
         static let square: some View =
             Rectangle()
             .fill(.gray.quinary)
