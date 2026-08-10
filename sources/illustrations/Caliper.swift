@@ -64,7 +64,7 @@ extension View {
     ///   - span: The length of the bar, along `barEdge`.
     ///   - stem: The length of the stem, extending from the bar towards the label.
     ///   - spacing: The spacing between the label and the caliper.
-    func caliper(
+    @ViewBuilder func caliper(
         to barEdge: Edge,
         span: CGFloat,
         stem: CGFloat,
@@ -84,13 +84,13 @@ extension View {
         // FUTURE: can this be laid-out with a generic Layout and the direction?
         switch barEdge {
         case .leading:
-            return AnyView(HStack(spacing: spacing) { mark; self })
+            HStack(spacing: spacing) { mark; self }
         case .trailing:
-            return AnyView(HStack(spacing: spacing) { self; mark })
+            HStack(spacing: spacing) { self; mark }
         case .top:
-            return AnyView(VStack(spacing: spacing) { mark; self })
+            VStack(spacing: spacing) { mark; self }
         case .bottom:
-            return AnyView(VStack(spacing: spacing) { self; mark })
+            VStack(spacing: spacing) { self; mark }
         }
     }
 
