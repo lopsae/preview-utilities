@@ -42,84 +42,34 @@ extension EdgeGraticuleModifier.Illustrations {
             .overlay {
                 // Outset Line Sets.
                 FloatingAlignedContainer(alignment: .outerLeading, spacing: 16+8) { contentAlignments in
-                    HStack(spacing: 4) {
-                        Text.caption("Outset\nLine Sets")
-                        .multilineTextAlignment(contentAlignments.text)
-
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: [geometry.size.width, .zero])
-                                path.addLine(to: [geometry.size.width, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [20, 100+16+16])
-
-
-                    }
+                    Text.caption("Outset\nLine Sets")
+                    .multilineTextAlignment(contentAlignments.text)
+                    .caliper(to: .trailing, span: 100+16+16, stem: 20)
                 }
 
                 // Inset Line Sets.
                 FloatingAlignedContainer(alignment: .innerTrailing, spacing: 8+8) { contentAlignments in
-                    HStack(spacing: 4) {
-                        Text.caption("Inset\nLine Sets")
-                            .multilineTextAlignment(contentAlignments.text)
-
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: [geometry.size.width, .zero])
-                                path.addLine(to: [geometry.size.width, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [12, 40])
-                    }
+                    Text.caption("Inset\nLine Sets")
+                    .multilineTextAlignment(contentAlignments.text)
+                    .caliper(to: .trailing, span: 40, stem: 12)
                 }
 
                 // Top Inset Spacing.
                 FloatingAlignedContainer(alignment: .outerTrailingTop, horizontalSpacing: 6, verticalSpacing: .zero) { contentAlignments in
-                    HStack(spacing: 4) {
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: .zero)
-                                path.addLine(to: [.zero, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [20, 8*3])
-
-                        Text.caption("Top Inset\nwith modified\nspacing")
-                        .multilineTextAlignment(contentAlignments.text)
-                        .fixedSize()
-                        .frame(height: 20)
-                    }
+                    Text.caption("Top Inset\nwith modified\nspacing")
+                    .multilineTextAlignment(contentAlignments.text)
+                    .fixedSize()
+                    .frame(height: 20)
+                    .caliper(to: .leading, span: 8*3, stem: 20)
                 }
 
                 // Bottom Inset Count.
                 FloatingAlignedContainer(alignment: .outerTrailingBottom, horizontalSpacing: 6, verticalSpacing: .zero) { contentAlignments in
-                    HStack(spacing: 4) {
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: .zero)
-                                path.addLine(to: [.zero, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [20, 8*3])
-
-                        Text.caption("Bottom Inset\nwith modified\ncount")
-                        .multilineTextAlignment(contentAlignments.text)
-                        .fixedSize()
-                        .frame(height: 20)
-                    }
+                    Text.caption("Bottom Inset\nwith modified\ncount")
+                    .multilineTextAlignment(contentAlignments.text)
+                    .fixedSize()
+                    .frame(height: 20)
+                    .caliper(to: .leading, span: 8*3, stem: 20)
                 }
             } // overlay
         } // DocumentationIllustration
