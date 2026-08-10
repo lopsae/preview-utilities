@@ -43,33 +43,26 @@ extension EdgeGraticuleModifier.Illustrations {
                 "Outset\nLine Sets", to: .trailing,
                 span: 100+16+16, stem: 20,
                 alignment: .outerLeading,
-                spacingSize: .all(16+8))
-            .overlay {
-                // Inset Line Sets.
-                FloatingAlignedContainer(alignment: .innerTrailing, spacing: 8+8) { contentAlignments in
-                    Text.caption("Inset\nLine Sets")
-                    .multilineTextAlignment(contentAlignments.text)
-                    .caliper(to: .trailing, span: 40, stem: 12)
-                }
-
-                // Top Inset Spacing.
-                FloatingAlignedContainer(alignment: .outerTrailingTop, horizontalSpacing: 6, verticalSpacing: .zero) { contentAlignments in
-                    Text.caption("Top Inset\nwith modified\nspacing")
-                    .multilineTextAlignment(contentAlignments.text)
-                    .fixedSize()
-                    .frame(height: 20)
-                    .caliper(to: .leading, span: 8*3, stem: 20)
-                }
-
-                // Bottom Inset Count.
-                FloatingAlignedContainer(alignment: .outerTrailingBottom, horizontalSpacing: 6, verticalSpacing: .zero) { contentAlignments in
-                    Text.caption("Bottom Inset\nwith modified\ncount")
-                    .multilineTextAlignment(contentAlignments.text)
-                    .fixedSize()
-                    .frame(height: 20)
-                    .caliper(to: .leading, span: 8*3, stem: 20)
-                }
-            } // overlay
+                spacingSize: .all(16+8)
+            )
+            .caliperLabel(
+                "Inset\nLine Sets", to: .trailing,
+                span: 40, stem: 12,
+                alignment: .innerTrailing,
+                spacingSize: .all(8+8)
+            )
+            .caliperLabel(
+                "Top Inset\nwith modified\nspacing", to: .leading,
+                span: 8*3, stem: 20,
+                alignment: .outerTrailingTop,
+                spacingSize: [6, .zero]
+            )
+            .caliperLabel(
+                "Bottom Inset\nwith modified\ncount", to: .leading,
+                span: 8*3, stem: 20,
+                alignment: .outerTrailingBottom,
+                spacingSize: [6, .zero]
+            )
         } // DocumentationIllustration
     }
 }
