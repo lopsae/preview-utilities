@@ -116,12 +116,14 @@ extension DocumentationIllustration {
         /// Size for card illustrations.
         ///
         /// This is the expected size for images setup with the `@PageImage(purpose: card, [...])`
-        /// Docc directive. Use `card.half` to create illustrations with a zoomed in effect.
+        /// Docc directive (`640×360`). Use `card.half` to create illustrations with a zoomed in
+        /// effect.
         public static let card: Self = .init(640, 360)
 
         /// Regular size for snippet illustrations
         ///
-        /// This illustration size uses the ``defaultWidth`` (`400`) and an aspect ration of `5/2`.
+        /// This illustration size uses the ``defaultWidth`` (`400`) and a height of `160`, for an
+        /// aspect ration of `5/2`.
         public static let regular: Self = .init(height: 160)
 
         /// Size for snippet illustrations with the default width and a given height.
