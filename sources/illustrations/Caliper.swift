@@ -63,7 +63,7 @@ extension View {
     ///   - size: The size of the caliper mark.
     ///   - spacing: The spacing between the label and the caliper.
     func caliper(
-        _ barEdge: Edge,
+        to barEdge: Edge,
         size: CGSize,
         spacing: CGFloat = 4,
     ) -> some View {
@@ -71,7 +71,7 @@ extension View {
             .stroke(.primary)
             .frame(size: size)
 
-        // FUTURE: can this be laidout with a generic Layout and the direction?
+        // FUTURE: can this be laid-out with a generic Layout and the direction?
         switch barEdge {
         case .leading:
             return AnyView(HStack(spacing: spacing) { mark; self })
@@ -103,20 +103,20 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     Text("Top Caliper")
-    .caliper(.top, size: [40, 20])
+    .caliper(to: .top, size: [40, 20])
 
     DashedDivider()
 
     Text("Bottom Caliper")
-    .caliper(.bottom, size: [40, 20])
+    .caliper(to: .bottom, size: [40, 20])
 
     DashedDivider()
 
     Text("Leading Caliper")
-    .caliper(.trailing, size: [40, 20])
+    .caliper(to: .trailing, size: [40, 20])
 
     DashedDivider()
 
     Text("Trailing Caliper")
-    .caliper(.trailing, size: [40, 20])
+    .caliper(to: .trailing, size: [40, 20])
 }
