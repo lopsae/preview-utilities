@@ -39,14 +39,13 @@ extension EdgeGraticuleModifier.Illustrations {
                 .inset(.top, spacing: 8*3),
                 .inset(.bottom, count: 3)
             )
+            .caliperLabel(
+                "Outset\nLine Sets", to: .trailing,
+                span: 100+16+16, stem: 20,
+                alignment: .outerLeading,
+                // FIXME: CGSize.all.
+                spacingSize: [16+8, 16+8])
             .overlay {
-                // Outset Line Sets.
-                FloatingAlignedContainer(alignment: .outerLeading, spacing: 16+8) { contentAlignments in
-                    Text.caption("Outset\nLine Sets")
-                    .multilineTextAlignment(contentAlignments.text)
-                    .caliper(to: .trailing, span: 100+16+16, stem: 20)
-                }
-
                 // Inset Line Sets.
                 FloatingAlignedContainer(alignment: .innerTrailing, spacing: 8+8) { contentAlignments in
                     Text.caption("Inset\nLine Sets")
@@ -74,6 +73,34 @@ extension EdgeGraticuleModifier.Illustrations {
             } // overlay
         } // DocumentationIllustration
     }
+}
+
+
+extension View {
+
+    func caliperLabel(
+        _ key: LocalizedStringKey,
+        to edge: Edge,
+        span: CGFloat,
+        stem: CGFloat,
+        alignment: FloatingAlignment,
+        spacingSize: CGSize
+    ) -> some View {
+        self.overlay {
+            FloatingAlignedContainer(
+                alignment: alignment,
+                horizontalSpacing: spacingSize.width,
+                verticalSpacing: spacingSize.height
+            ) { contentAlignments in
+                Text.caption(key)
+                    .fixedSize()
+                    .multilineTextAlignment(contentAlignments.text)
+                    .frame(length: span, along: edge.axis.orthogonal, alignment: .center)
+                    .caliper(to: edge, span: span, stem: stem)
+            }
+        }
+    }
+
 }
 
 
