@@ -200,7 +200,7 @@ extension EdgeGraticuleModifier.Trait {
 
 extension View {
 
-    // TODO: Add images to docs.
+    // FIXME: Add images to docs.
 
     /// Layers in front of this view an edge graticule with the given spacing for all line sets.
     ///
