@@ -60,13 +60,22 @@ extension View {
     /// - Parameters:
     ///   - barEdge: The edge along which the caliper's bar is drawn, and the side of `self` on which
     ///     the caliper is placed.
-    ///   - size: The size of the caliper mark.
+    ///   - span: The length of the bar, along `barEdge`.
+    ///   - stem: The length of the stem, extending from the bar towards the label.
     ///   - spacing: The spacing between the label and the caliper.
     func caliper(
         to barEdge: Edge,
-        size: CGSize,
+        span: CGFloat,
+        stem: CGFloat,
         spacing: CGFloat = 4,
     ) -> some View {
+        // The bar runs along `barEdge`, so its length is the frame dimension parallel to that edge,
+        // while the stem runs across the frame's other dimension.
+        let size: CGSize = switch barEdge {
+        case .leading, .trailing: [stem, span]
+        case .top, .bottom:        [span, stem]
+        }
+
         let mark = Caliper(barEdge: barEdge)
             .stroke(.primary)
             .frame(size: size)
@@ -103,20 +112,20 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     Text("Top Caliper")
-    .caliper(to: .top, size: [40, 20])
-
-    DashedDivider()
-
-    Text("Bottom Caliper")
-    .caliper(to: .bottom, size: [40, 20])
+    .caliper(to: .top, span: 40, stem: 20)
 
     DashedDivider()
 
     Text("Leading Caliper")
-    .caliper(to: .trailing, size: [40, 20])
+    .caliper(to: .leading, span: 40, stem: 20)
 
     DashedDivider()
 
     Text("Trailing Caliper")
-    .caliper(to: .trailing, size: [40, 20])
+    .caliper(to: .trailing, span: 40, stem: 20)
+
+    DashedDivider()
+
+    Text("Bottom Caliper")
+    .caliper(to: .bottom, span: 40, stem: 20)
 }
