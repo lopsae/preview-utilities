@@ -55,7 +55,8 @@ extension View {
     /// Pairs `self`, used as a label, with a `Caliper` pointing back toward it.
     ///
     /// The caliper is placed on the side of `self` indicated by `barEdge`, so that its stem points
-    /// from the bar back toward the label.
+    /// from the bar back toward the label. The returned view is either a `VStack` or an `HStack`
+    /// containing both self and the caliper.
     ///
     /// - Parameters:
     ///   - barEdge: The edge along which the caliper's bar is drawn, and the side of `self` on which
@@ -71,9 +72,9 @@ extension View {
     ) -> some View {
         // The bar runs along `barEdge`, so its length is the frame dimension parallel to that edge,
         // while the stem runs across the frame's other dimension.
-        let size: CGSize = switch barEdge {
-        case .leading, .trailing: [stem, span]
-        case .top, .bottom:        [span, stem]
+        let size: CGSize = switch barEdge.axis {
+        case .horizontal: [stem, span]
+        case .vertical:   [span, stem]
         }
 
         let mark = Caliper(barEdge: barEdge)
