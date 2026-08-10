@@ -94,7 +94,35 @@ extension View {
         }
     }
 
+
+    /// Overlays on the owner view the given label and caliper.
+    ///
+    /// The caliper direction and alignment are provided separately to allow for all combinations.
+    func caliperLabel(
+        _ key: LocalizedStringKey,
+        to edge: Edge,
+        span: CGFloat,
+        stem: CGFloat,
+        alignment: FloatingAlignment,
+        spacingSize: CGSize
+    ) -> some View {
+        self.overlay {
+            FloatingAlignedContainer(
+                alignment: alignment,
+                horizontalSpacing: spacingSize.width,
+                verticalSpacing: spacingSize.height
+            ) { contentAlignments in
+                Text.caption(key)
+                    .fixedSize()
+                    .multilineTextAlignment(contentAlignments.text)
+                    .frame(length: span, along: edge.axis.orthogonal, alignment: .center)
+                    .caliper(to: edge, span: span, stem: stem)
+            }
+        }
+    }
+
 }
+
 
 
 // MARK: - PreviewContent
@@ -129,4 +157,35 @@ private struct PreviewContent {
 
     Text("Bottom Caliper")
     .caliper(to: .bottom, span: 40, stem: 20)
+}
+
+
+#Preview("CaliperLabel", traits: .headerFooter, PreviewContent.layout) {
+    RoundedRectangle(cornerRadius: 8)
+    .fill(.gray.gradient.tertiary)
+    .frame(squareOf: 100)
+    .caliperLabel(
+        "Top Caliper", to: .top,
+        span: 40, stem: 20,
+        alignment: .outerBottom,
+        spacingSize: .all(4)
+    )
+    .caliperLabel(
+        "Leading\nCaliper", to: .leading,
+        span: 40, stem: 20,
+        alignment: .outerTrailing,
+        spacingSize: .all(4)
+    )
+    .caliperLabel(
+        "Bottom Caliper", to: .bottom,
+        span: 40, stem: 20,
+        alignment: .outerTop,
+        spacingSize: .all(4)
+    )
+    .caliperLabel(
+        "Trailing\nCaliper", to: .trailing,
+        span: 40, stem: 20,
+        alignment: .outerLeading,
+        spacingSize: .all(4)
+    )
 }

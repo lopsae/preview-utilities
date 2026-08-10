@@ -68,36 +68,6 @@ extension EdgeGraticuleModifier.Illustrations {
 }
 
 
-// FIXME: move to Caliper.
-
-extension View {
-
-    func caliperLabel(
-        _ key: LocalizedStringKey,
-        to edge: Edge,
-        span: CGFloat,
-        stem: CGFloat,
-        alignment: FloatingAlignment,
-        spacingSize: CGSize
-    ) -> some View {
-        self.overlay {
-            FloatingAlignedContainer(
-                alignment: alignment,
-                horizontalSpacing: spacingSize.width,
-                verticalSpacing: spacingSize.height
-            ) { contentAlignments in
-                Text.caption(key)
-                    .fixedSize()
-                    .multilineTextAlignment(contentAlignments.text)
-                    .frame(length: span, along: edge.axis.orthogonal, alignment: .center)
-                    .caliper(to: edge, span: span, stem: stem)
-            }
-        }
-    }
-
-}
-
-
 // MARK: Previews
 
 
