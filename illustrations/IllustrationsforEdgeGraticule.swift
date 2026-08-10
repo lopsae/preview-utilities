@@ -25,17 +25,16 @@ struct IllustrationsForEdgeGraticule {
     }
 
 
-//    @Test func `default`() throws {
-//        try storage.renderAndStore("debug-overlay", "default") {
-//            DocumentationIllustration(height: 160) {
-//                Text("Sphinx of Black Quartz")
-//                    .font(.title)
-//                Text("Judge my Vow")
-//                    .font(.title)
-//                    .debugOverlay()
-//            }
-//        }
-//    }
+    @Test func `default`() throws {
+        try storage.renderAndStore("edge-graticule", "default") {
+            DocumentationIllustration(sizing: .regular) {
+                Capsule()
+                .fill(.cyan.gradient.secondary)
+                .frame(width: 200, height: 60)
+                .edgeGraticule(spacing: 16)
+            }
+        }
+    }
 
 
     @Test func simpleTraits() throws {

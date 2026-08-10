@@ -6,7 +6,6 @@
 
 import SwiftUI
 
-// TODO: add images for snippets.
 
 /// Overlays a graticule based on the edges of a view.
 ///
@@ -21,10 +20,13 @@ import SwiftUI
 /// Apply this modifier using ``SwiftUICore/View/edgeGraticule(spacing:_:)``:
 ///
 /// ```swift
-/// Text("Sphinx\nof Black\nQuartz")
-/// .font(.title)
-/// .edgeGraticule(spacing: 20)
+/// Capsule()
+/// .fill(.cyan.gradient.secondary)
+/// .frame(width: 200, height: 60)
+/// .edgeGraticule(spacing: 16)
 /// ```
+/// ![Edge graticule overlaid on a capsule shape, showing an inset and outset line sets of even spacing.](edge-graticule-default)
+///
 ///
 /// ### Traits and Configuration
 ///
