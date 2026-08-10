@@ -43,8 +43,7 @@ extension EdgeGraticuleModifier.Illustrations {
                 "Outset\nLine Sets", to: .trailing,
                 span: 100+16+16, stem: 20,
                 alignment: .outerLeading,
-                // FIXME: CGSize.all.
-                spacingSize: [16+8, 16+8])
+                spacingSize: .all(16+8))
             .overlay {
                 // Inset Line Sets.
                 FloatingAlignedContainer(alignment: .innerTrailing, spacing: 8+8) { contentAlignments in
@@ -75,6 +74,8 @@ extension EdgeGraticuleModifier.Illustrations {
     }
 }
 
+
+// FIXME: move to Caliper.
 
 extension View {
 

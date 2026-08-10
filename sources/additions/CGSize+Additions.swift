@@ -11,14 +11,26 @@ import SwiftUI
 extension CGSize {
 
     @inlinable nonisolated
-    public init(squareOf length: CGFloat) {
+    init(all length: CGFloat) {
         self.init(width: length, height: length)
     }
 
 
     @inlinable nonisolated
+    public init(squareOf length: CGFloat) {
+        self.init(all: length)
+    }
+
+
+    @inlinable nonisolated
+    static func all(_ length: CGFloat) -> Self {
+        .init(all: length)
+    }
+
+
+    @inlinable nonisolated
     public static func square(of length: CGFloat) -> Self {
-        .init(squareOf: length)
+        .init(all: length)
     }
 
 
