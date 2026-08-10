@@ -12,6 +12,7 @@ import UniformTypeIdentifiers.UTType
 /// Utility structure to store documentation illustrations into a local folder.
 public struct IllustrationStorage {
 
+    // TODO: add nameComponents that are are prefix to all stored images.
     let storageDirectory: URL
     let onImageStored: (_ image: CGImage, _ filename: String) -> Void
 
