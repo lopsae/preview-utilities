@@ -18,21 +18,18 @@ The modifier can be customized by passing [`Trait`](doc:EdgeGraticuleModifier/Tr
 instances:
 
 ```swift
-Text("Sphinx\nof Black\nQuartz")
-.font(.title)
+Capsule()
+.fill(.cyan.gradient.secondary)
+.frame(width: 200, height: 60)
 .edgeGraticule(
     spacing: 20,
     // modifies the spacing and count for bottom inset lines.
-    .inset(.bottom, spacing: 15, count: 2),
+    .inset(.vertical, spacing: 10, count: 2),
     // Modifies the count for horizontal outset lines.
-    .outset(.horizontal, count: 3),
+    .outset(.horizontal, count: 3)
 )
 ```
-
-<!--
-// FIXME: Implement trait example image.
-![Debug overlay using traits.](debug-overlay-simple-traits)
--->
+![Edge graticule overlaid on a capsule shape, showing a customized graticule built from trait examples.](edge-graticule-simple-traits)
 
 ## Topics
 
@@ -43,10 +40,7 @@ Text("Sphinx\nof Black\nQuartz")
 
 ### View Extensions
 + ``SwiftUICore/View/edgeGraticule(spacing:_:)``
-+ ``SwiftUICore/View/edgeGraticule(insetSpacing:through:_:)``
-+ ``SwiftUICore/View/edgeGraticule(outsetSpacing:through:_:)``
-+ ``SwiftUICore/View/edgeGraticule(insetSpacing:outsetSpacing:_:)``
-+ ``SwiftUICore/View/edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)``
++ ``SwiftUICore/View/edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)``
 
 
 ### Traits

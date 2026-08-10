@@ -31,17 +31,20 @@ import SwiftUI
 /// The graticule can be configured by passing [`Trait`](doc:EdgeGraticuleModifier/Trait) instances
 /// to ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any [sibling function](doc:edge-graticule-api/View-Extensions):.
 ///
+///
 /// ```swift
-/// Text("Sphinx\nof Black\nQuartz")
-/// .font(.title)
+/// Capsule()
+/// .fill(.cyan.gradient.secondary)
+/// .frame(width: 200, height: 60)
 /// .edgeGraticule(
 ///     spacing: 20,
 ///     // modifies the spacing and count for bottom inset lines.
-///     .inset(.bottom, spacing: 15, count: 2),
+///     .inset(.vertical, spacing: 10, count: 2),
 ///     // Modifies the count for horizontal outset lines.
-///     .outset(.horizontal, count: 3),
+///     .outset(.horizontal, count: 3)
 /// )
 /// ```
+/// ![Edge graticule overlaid on a capsule shape, showing a customized graticule built from trait examples.](edge-graticule-simple-traits)
 public struct EdgeGraticuleModifier: ViewModifier {
 
     let configuration: Configuration
