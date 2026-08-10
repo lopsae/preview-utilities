@@ -214,4 +214,30 @@ struct EdgeGraticuleModifierSnapshots {
         }
     }
 
+    @Test(.snapshots(record: .missing))
+    func empties() {
+        Snapshots.assertView("zeroSpacing") {
+            TestContent.square
+            .edgeGraticule(spacing: .zero)
+        }
+
+        // Graticule starts empty from no parameters.
+        Snapshots.assertView("someEmpty") {
+            TestContent.square
+            .edgeGraticule(
+                .inset(.leading, count: .zero),
+                .outset(.trailing, count: .zero)
+            )
+        }
+
+        // Graticule starts empty from no parameters, spacings set through traits.
+        Snapshots.assertView("emptyWithSpacings") {
+            TestContent.square
+            .edgeGraticule(
+                .inset(.top, spacing: 25),
+                .outset(.bottom, spacing: 25)
+            )
+        }
+    }
+
 }
