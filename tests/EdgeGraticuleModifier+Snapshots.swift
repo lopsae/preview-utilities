@@ -99,6 +99,25 @@ struct EdgeGraticuleModifierSnapshots {
                 .inset(.horizontal, count: 3)
             )
         }
+
+        Snapshots.assertView("zeroCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 20,
+                .inset(.horizontal, count: 0)
+            )
+        }
+
+        Snapshots.assertView("countPerEdge") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 5, outsetSpacing: 20,
+                .inset(.top, count: 2),
+                .inset(.leading, count: 3),
+                .inset(.bottom, count: 4),
+                .inset(.trailing, count: 5)
+            )
+        }
     }
 
 
@@ -127,6 +146,25 @@ struct EdgeGraticuleModifierSnapshots {
                 .outset(.vertical, count: 3)
             )
         }
+
+        Snapshots.assertView("zeroCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 20,
+                .outset(.vertical, count: 0)
+            )
+        }
+
+        Snapshots.assertView("countPerEdge") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 5,
+                .outset(.top, count: 2),
+                .outset(.leading, count: 3),
+                .outset(.bottom, count: 4),
+                .outset(.trailing, count: 5)
+            )
+        }
     }
 
 
@@ -153,6 +191,25 @@ struct EdgeGraticuleModifierSnapshots {
             .edgeGraticule(
                 insetSpacing: 20, outsetSpacing: 20,
                 .straddle(.leading, count: 2)
+            )
+        }
+
+        Snapshots.assertView("zeroCount") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 20,
+                .straddle(.leading, count: 0)
+            )
+        }
+
+        Snapshots.assertView("countPerEdge") {
+            TestContent.square
+            .edgeGraticule(
+                insetSpacing: 10, outsetSpacing: 5,
+                .straddle(.top, count: 2),
+                .straddle(.leading, count: 3),
+                .straddle(.bottom, count: 4),
+                .straddle(.trailing, count: 5)
             )
         }
     }
