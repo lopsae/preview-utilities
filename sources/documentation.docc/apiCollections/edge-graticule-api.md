@@ -20,18 +20,16 @@ of the owner view, both inset and outset:
 The modifier can be customized by passing [`Trait`](doc:EdgeGraticuleModifier/Trait) 
 instances:
 
-<!-- FIXME: example should modify only bottom, not vertical. -->
-
 ```swift
 Capsule()
 .fill(.cyan.gradient.secondary)
 .frame(width: 200, height: 60)
 .edgeGraticule(
-    spacing: 20,
-    // modifies the spacing and count for bottom inset lines.
-    .inset(.vertical, spacing: 10, count: 2),
+    spacing: 16,
+    // Modifies the spacing and count for bottom inset lines.
+    .inset(.bottom, spacing: 8, count: 3),
     // Modifies the count for horizontal outset lines.
-    .outset(.horizontal, count: 3)
+    .outset(.horizontal, count: 2)
 )
 ```
 ![Edge graticule overlaid on a capsule shape, showing a customized graticule built from trait examples.](edge-graticule-simple-traits)

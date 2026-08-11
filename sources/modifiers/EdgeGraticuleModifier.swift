@@ -34,7 +34,7 @@ import SwiftUI
 ///
 /// ### Traits and Configuration
 ///
-/// The number of lines and spacing can be configured for each edge, and for
+/// The number of lines and spacing can be customized for each edge, and for
 /// each direction, by passing [`Trait`](doc:EdgeGraticuleModifier/Trait) instances to ``SwiftUICore/View/edgeGraticule(spacing:_:)``
 /// or any [sibling function](doc:edge-graticule-api/View-Extensions):
 ///
@@ -203,8 +203,6 @@ extension EdgeGraticuleModifier.Trait {
 
 
 extension View {
-
-    // FIXME: Add images to docs.
 
     /// Layers in front of this view an edge graticule with the given spacing for all line sets.
     ///

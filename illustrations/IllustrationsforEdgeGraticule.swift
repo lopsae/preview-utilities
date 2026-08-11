@@ -44,11 +44,11 @@ struct IllustrationsForEdgeGraticule {
                 .fill(.cyan.gradient.secondary)
                 .frame(width: 200, height: 60)
                 .edgeGraticule(
-                    spacing: 20,
-                    // modifies the spacing and count for bottom inset lines.
-                    .inset(.vertical, spacing: 10, count: 2),
+                    spacing: 16,
+                    // Modifies the spacing and count for bottom inset lines.
+                    .inset(.bottom, spacing: 8, count: 3),
                     // Modifies the count for horizontal outset lines.
-                    .outset(.horizontal, count: 3)
+                    .outset(.horizontal, count: 2)
                 )
             }
         }
