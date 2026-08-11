@@ -70,7 +70,9 @@ extension EdgeGraticuleModifier.Illustrations {
             .frame(width: 100, height: 100)
             .edgeGraticule(
                 spacing: 8,
+                // Customize spacing for leading outset.
                 .outset(.leading, spacing: 8*3),
+                // Customize count for bottom inset.
                 .inset(.bottom, count: 3)
             )
             .caliperLabel(
