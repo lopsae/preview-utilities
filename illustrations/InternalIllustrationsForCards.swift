@@ -25,9 +25,9 @@ struct InternalIllustrationsForCards {
     }
 
 
-    @Test func formatStyles() throws {
-        try storage.renderAndStore("cards", "format-styles") {
-            CardIllustrations.formatStyles
+    @Test func debugAlignmentGuide() throws {
+        try storage.renderAndStore("cards", "debug-alignment-guide") {
+            CardIllustrations.debugAlignmentGuide
         }
     }
 
@@ -35,6 +35,13 @@ struct InternalIllustrationsForCards {
     @Test func floatingCaption() throws {
         try storage.renderAndStore("cards", "floating-caption") {
             CardIllustrations.floatingCaption
+        }
+    }
+
+
+    @Test func formatStyles() throws {
+        try storage.renderAndStore("cards", "format-styles") {
+            CardIllustrations.formatStyles
         }
     }
 
