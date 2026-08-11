@@ -28,40 +28,62 @@ extension EdgeGraticuleModifier.Illustrations {
     }
 
 
-    /// Illustration of the components of the `debugOverlay`.
-    static var components: DocumentationIllustration {
-        DocumentationIllustration(height: 200) {
+    /// Illustration of the inset components of the edge graticule.
+    static var insetComponent: DocumentationIllustration {
+        DocumentationIllustration(sizing: .regular) {
             RoundedRectangle(cornerRadius: 16)
             .fill(.teal.gradient.secondary)
-            .frame(width: 140, height: 100)
-            .edgeGraticule(
-                insetSpacing: 8, outsetSpacing: 16,
-                .inset(.top, spacing: 8*3),
-                .inset(.bottom, count: 3)
+            .frame(width: 200, height: 100)
+            .edgeGraticule(insetSpacing: 8, insetCount: 2)
+            .caliperLabel(
+                "Inset\nLine Sets", to: .leading,
+                span: 100 - 8*4 - 8*2, stem: 12,
+                alignment: .innerLeading,
+                spacingSize: .all(8*2 + 8)
             )
+        } // DocumentationIllustration
+    }
+
+
+    /// Illustration of the outset components of the edge graticule.
+    static var outsetComponent: DocumentationIllustration {
+        DocumentationIllustration(sizing: .regular) {
+            RoundedRectangle(cornerRadius: 16)
+            .fill(.teal.gradient.secondary)
+            .frame(width: 200 - 8*4, height: 100 - 8*4)
+            .edgeGraticule(outsetSpacing: 8, outsetCount: 2)
             .caliperLabel(
                 "Outset\nLine Sets", to: .trailing,
-                span: 100+16+16, stem: 20,
+                span: 100, stem: 20,
                 alignment: .outerLeading,
                 spacingSize: .all(16+8)
             )
-            .caliperLabel(
-                "Inset\nLine Sets", to: .trailing,
-                span: 40, stem: 12,
-                alignment: .innerTrailing,
-                spacingSize: .all(8+8)
+        } // DocumentationIllustration
+    }
+
+
+    /// Illustration of the per edge modification of the edge graticule.
+    static var perEdgeTraits: DocumentationIllustration {
+        DocumentationIllustration(height: 160) {
+            RoundedRectangle(cornerRadius: 16)
+            .fill(.teal.gradient.secondary)
+            .frame(width: 100, height: 100)
+            .edgeGraticule(
+                spacing: 8,
+                .outset(.leading, spacing: 8*3),
+                .inset(.bottom, count: 3)
             )
             .caliperLabel(
-                "Top Inset\nwith modified\nspacing", to: .leading,
-                span: 8*3, stem: 20,
-                alignment: .outerTrailingTop,
-                spacingSize: [6, .zero]
+                "Leading Outset\nwith modified\nspacing", to: .trailing,
+                span: 100 + 8*2, stem: 20,
+                alignment: .outerLeading,
+                spacingSize: [8*3 + 8, .zero]
             )
             .caliperLabel(
                 "Bottom Inset\nwith modified\ncount", to: .leading,
                 span: 8*3, stem: 20,
                 alignment: .outerTrailingBottom,
-                spacingSize: [6, .zero]
+                spacingSize: [4, .zero]
             )
         } // DocumentationIllustration
     }
@@ -76,6 +98,16 @@ extension EdgeGraticuleModifier.Illustrations {
 }
 
 
-#Preview("components", traits: .docsIllustration) {
-    EdgeGraticuleModifier.Illustrations.components
+#Preview("insetComponents", traits: .docsIllustration) {
+    EdgeGraticuleModifier.Illustrations.insetComponent
+}
+
+
+#Preview("outsetComponents", traits: .docsIllustration) {
+    EdgeGraticuleModifier.Illustrations.outsetComponent
+}
+
+
+#Preview("perEdgeTraits", traits: .docsIllustration) {
+    EdgeGraticuleModifier.Illustrations.perEdgeTraits
 }

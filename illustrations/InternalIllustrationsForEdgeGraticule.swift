@@ -32,9 +32,23 @@ struct InternalIllustrationsForEdgeGraticule {
     }
 
 
-    @Test func components() throws {
-        try storage.renderAndStore("edge-graticule", "components") {
-            EdgeGraticuleModifier.Illustrations.components
+    @Test func insetComponents() throws {
+        try storage.renderAndStore("edge-graticule", "inset-components") {
+            EdgeGraticuleModifier.Illustrations.insetComponent
+        }
+    }
+
+
+    @Test func outsetComponents() throws {
+        try storage.renderAndStore("edge-graticule", "outset-components") {
+            EdgeGraticuleModifier.Illustrations.outsetComponent
+        }
+    }
+
+
+    @Test func perEdgeTraits() throws {
+        try storage.renderAndStore("edge-graticule", "per-edge-traits") {
+            EdgeGraticuleModifier.Illustrations.perEdgeTraits
         }
     }
 
