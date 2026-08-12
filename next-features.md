@@ -5,13 +5,14 @@ For 0.4.1
 ---------
 + Finish DebugAlignmentGuide functions, and document.
 + Create ApiCollection for ConfigurationModifier/Trait
-+ Migrate DebugOverlay to also use ConfigurationModifierTrait
 
 
 For 0.5.0
++ Migrate DebugOverlay to also use ConfigurationModifierTrait
 + Rename DebugOverlay to DebugGeometry, to better match other possible debug modifiers.
 + Make alignment a parameter of FloatingCaption, CaptionRectangle, instead of a trait.
 + DocumentationIllustration -> Illustration? SnippetIllustration?
++ Do a simple package separation (CG-Types extensions), test use of internal import.
 
 Possible new features for future versions.
 + Use FloatingCaption as the main text component in DebugOverlay.
