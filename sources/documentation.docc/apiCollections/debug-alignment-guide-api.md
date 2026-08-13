@@ -4,7 +4,7 @@
     @PageImage(purpose: card, source: "cards-debug-alignment-guide")
 }
 
-Visualize the alignment guides of any view, without impacting its layout.
+Visualize the alignment guides of a view, without impacting its layout.
 
 Apply the ``DebugAlignmentGuideModifier`` using ``SwiftUICore/View/debugAlignmentGuide(_:_:)`` or any
 [sibling function](doc:debug-alignment-guide-api/View-Extensions) to overlay a visualization of the

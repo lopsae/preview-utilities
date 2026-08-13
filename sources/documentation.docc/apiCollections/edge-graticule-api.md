@@ -5,7 +5,7 @@
 }
 
 
-Overlay a graticule based on the edges of the owner view, without impacting its layout.
+Overlay a graticule based on the edges of a view, without impacting its layout.
 
 Apply the ``EdgeGraticuleModifier`` using ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any
 [sibling function](doc:edge-graticule-api/View-Extensions) to overlay a graticule based on the 

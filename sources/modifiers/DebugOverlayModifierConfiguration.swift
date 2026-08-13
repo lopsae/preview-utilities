@@ -177,19 +177,19 @@ extension DebugOverlayModifier.Configuration {
             .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
         }
 
-        /// Prints the width of the parent view in the debug caption.
+        /// Prints the width of the owner view in the debug caption.
         public static let width: Trait = .modifier(InfoElementsModifier(infoElements: .width))
 
-        /// Prints the height of the parent view in the debug caption.
+        /// Prints the height of the owner view in the debug caption.
         public static let height: Trait = .modifier(InfoElementsModifier(infoElements: .height))
 
-        /// Prints the global origin coordinate of the parent view in the debug caption.
+        /// Prints the global origin coordinate of the owner view in the debug caption.
         public static let origin: Trait = .modifier(InfoElementsModifier(infoElements: .origin))
 
-        /// Prints the safe area insets applied to the parent view in the debug caption.
+        /// Prints the safe area insets applied to the owner view in the debug caption.
         public static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
 
-        /// Prints the width and height of the parent view in the debug caption.
+        /// Prints the width and height of the owner view in the debug caption.
         public static let size: Trait = .modifier(InfoElementsModifier(infoElements: .size))
 
         /// Prints all supported geometry information in the debug caption.

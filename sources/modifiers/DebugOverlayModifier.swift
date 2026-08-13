@@ -13,7 +13,7 @@ import SwiftUI
 /// applied safe area insets. The overlay can be configured to also display geometry information
 /// like size, global origin coordinates, safe area insets, or a given text caption.
 ///
-/// All content added by this modifier is layered in an overlay of the parent view, the original
+/// All content added by this modifier is layered in an overlay of the owner view, the original
 /// layout is never modified.
 ///
 /// Apply this modifier using ``SwiftUICore/View/debugOverlay(_:)``:
@@ -38,7 +38,7 @@ import SwiftUI
 /// .fill(.yellow.gradient.secondary)
 /// .frame(width: 200, height: 80)
 /// .debugOverlay(
-///     .size,                     // prints the size of the parent view
+///     .size,                     // prints the size of the owner view
 ///     .bordersWidth(2),          // sets debug borders width to 2
 ///     .alignment(.innerTrailing) // aligns caption to trailing-center
 /// )
@@ -48,7 +48,7 @@ import SwiftUI
 ///
 /// ### Visual Components
 ///
-/// The boundaries of the parent view are visualized using two strokes: a dashed inner stroke (by
+/// The boundaries of the owner view are visualized using two strokes: a dashed inner stroke (by
 /// default red) drawn inset of the view's boundaries, and a solid outer stroke (by default blue)
 /// drawn outside. A cross `+` marks the origin point, and green rectangles represent safe area
 /// insets applied to the view.
@@ -59,8 +59,8 @@ import SwiftUI
 /// ### Caption Alignment
 ///
 /// The overlay uses ``FloatingAlignment`` to determine the position of the debug caption,
-/// supporting positions both inside and outside of the parent view. When an ``FloatingAlignment/OuterAlignment``
-/// is used, the space occupied by the parent view does not change, even if the caption is
+/// supporting positions both inside and outside of the owner view. When an ``FloatingAlignment/OuterAlignment``
+/// is used, the space occupied by the owner view does not change, even if the caption is
 /// displayed outside of its boundaries:
 /// ```swift
 /// HStack(spacing: 16) {
