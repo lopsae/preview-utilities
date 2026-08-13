@@ -68,7 +68,13 @@ public struct EdgeGraticuleModifier: ViewModifier {
     }
 
 
-    /// Configuration for an edge graticule modifier.
+    /// Configuration of an `EdgeGraticuleModifier`.
+    ///
+    /// Contains the configuration for all line sets composing the edge graticule.
+    ///
+    /// Usually you don't build this object directly, instead one is created and configured using
+    /// the [`Trait`](doc:EdgeGraticuleModifier/Trait) instances passed to ``SwiftUICore/View/edgeGraticule(spacing:_:)``
+    /// or other [sibling functions](doc:edge-graticule-api/View-Extensions):
     public struct Configuration: TraitConfigurable {
 
         var insetLineSets: EdgeValues<EdgeGraticule.LineSet>
