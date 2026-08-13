@@ -295,42 +295,42 @@ struct DebugAlignmentGuideModifierSnapshots {
         Snapshots.assertView("horizontal") {
             TestContent.single
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
-            .debugAlignmentGuide(horizontal: .leading,  .extendLength(50))
-            .debugAlignmentGuide(horizontal: .center,   .extendLength(.zero))
-            .debugAlignmentGuide(horizontal: .trailing, .extendLength(-30))
+            .debugAlignmentGuide(horizontal: .leading,  .extendedLength(50))
+            .debugAlignmentGuide(horizontal: .center,   .extendedLength(.zero))
+            .debugAlignmentGuide(horizontal: .trailing, .extendedLength(-30))
         }
 
         Snapshots.assertView("vertical") {
             TestContent.single
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
-            .debugAlignmentGuide(vertical: .top,    .extendLength(50))
-            .debugAlignmentGuide(vertical: .center, .extendLength(.zero))
-            .debugAlignmentGuide(vertical: .bottom, .extendLength(-30))
+            .debugAlignmentGuide(vertical: .top,    .extendedLength(50))
+            .debugAlignmentGuide(vertical: .center, .extendedLength(.zero))
+            .debugAlignmentGuide(vertical: .bottom, .extendedLength(-30))
         }
 
         Snapshots.assertView("negatives") {
             TestContent.square
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
-            .debugAlignmentGuide(horizontal: .leading, .extendLength(-130))
+            .debugAlignmentGuide(horizontal: .leading, .extendedLength(-130))
             .floatingHorizontalMarker(.leading)
-            .debugAlignmentGuide(vertical: .top,       .extendLength(-130))
+            .debugAlignmentGuide(vertical: .top,       .extendedLength(-130))
             .floatingVerticalMarker(.top)
         }
 
         Snapshots.assertView("compositeBoth") {
             TestContent.single
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
-            .debugAlignmentGuide(.topLeading,     .extendLength(50))
-            .debugAlignmentGuide(.center,         .extendLength(.zero))
-            .debugAlignmentGuide(.bottomTrailing, .extendLength(-30))
+            .debugAlignmentGuide(.topLeading,     .extendedLength(50))
+            .debugAlignmentGuide(.center,         .extendedLength(.zero))
+            .debugAlignmentGuide(.bottomTrailing, .extendedLength(-30))
         }
 
 
         Snapshots.assertView("compositeEach") {
             TestContent.single
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
-            .debugAlignmentGuide(.topLeading, .extendLength(horizontal: 50), .style(horizontal: .green.secondary))
-            .debugAlignmentGuide(.bottomTrailing, .extendLength(vertical: -30), .style(vertical: .green.secondary))
+            .debugAlignmentGuide(.topLeading,     .extendedLength(horizontal: 50), .style(horizontal: .green.secondary))
+            .debugAlignmentGuide(.bottomTrailing, .extendedLength(vertical: -30),  .style(vertical: .green.secondary))
         }
     }
 
@@ -340,42 +340,42 @@ struct DebugAlignmentGuideModifierSnapshots {
         Snapshots.assertView("horizontal") {
             TestContent.square
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(horizontal: .leading,  .scaleLength(1.4))
-            .debugAlignmentGuide(horizontal: .center,   .scaleLength(.one))
-            .debugAlignmentGuide(horizontal: .trailing, .scaleLength(0.6))
+            .debugAlignmentGuide(horizontal: .leading,  .scaledLength(1.4))
+            .debugAlignmentGuide(horizontal: .center,   .scaledLength(.one))
+            .debugAlignmentGuide(horizontal: .trailing, .scaledLength(0.6))
         }
 
         Snapshots.assertView("vertical") {
             TestContent.square
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(vertical: .top,    .scaleLength(1.4))
-            .debugAlignmentGuide(vertical: .center, .scaleLength(.one))
-            .debugAlignmentGuide(vertical: .bottom, .scaleLength(0.6))
+            .debugAlignmentGuide(vertical: .top,    .scaledLength(1.4))
+            .debugAlignmentGuide(vertical: .center, .scaledLength(.one))
+            .debugAlignmentGuide(vertical: .bottom, .scaledLength(0.6))
         }
 
         Snapshots.assertView("negatives") {
             TestContent.square
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(horizontal: .leading, .scaleLength(-1))
+            .debugAlignmentGuide(horizontal: .leading, .scaledLength(-1))
             .floatingHorizontalMarker(.leading)
-            .debugAlignmentGuide(vertical: .top,       .scaleLength(-1))
+            .debugAlignmentGuide(vertical: .top,       .scaledLength(-1))
             .floatingVerticalMarker(.top)
         }
 
         Snapshots.assertView("compositeBoth") {
             TestContent.square
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(.topLeading,     .scaleLength(1.4))
-            .debugAlignmentGuide(.center,         .scaleLength(.one))
-            .debugAlignmentGuide(.bottomTrailing, .scaleLength(0.6))
+            .debugAlignmentGuide(.topLeading,     .scaledLength(1.4))
+            .debugAlignmentGuide(.center,         .scaledLength(.one))
+            .debugAlignmentGuide(.bottomTrailing, .scaledLength(0.6))
         }
 
 
         Snapshots.assertView("compositeEach") {
             TestContent.square
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(.topLeading, .scaleLength(horizontal: 1.4), .style(horizontal: .green.secondary))
-            .debugAlignmentGuide(.bottomTrailing, .scaleLength(vertical: 0.6), .style(vertical: .green.secondary))
+            .debugAlignmentGuide(.topLeading,     .scaledLength(horizontal: 1.4), .style(horizontal: .green.secondary))
+            .debugAlignmentGuide(.bottomTrailing, .scaledLength(vertical: 0.6),   .style(vertical: .green.secondary))
         }
     }
 
@@ -385,9 +385,9 @@ struct DebugAlignmentGuideModifierSnapshots {
         Snapshots.assertView("horizontal") {
             TestContent.single
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(horizontal: .leading,  .extendLength(20),    .anchor(.top))
-            .debugAlignmentGuide(horizontal: .center,   .extendLength(.zero), .anchor(.center))
-            .debugAlignmentGuide(horizontal: .trailing, .extendLength(-20),   .anchor(.bottom))
+            .debugAlignmentGuide(horizontal: .leading,  .extendedLength(20),    .anchor(.top))
+            .debugAlignmentGuide(horizontal: .center,   .extendedLength(.zero), .anchor(.center))
+            .debugAlignmentGuide(horizontal: .trailing, .extendedLength(-20),   .anchor(.bottom))
         }
 
         Snapshots.assertView("baselines") {
@@ -402,17 +402,17 @@ struct DebugAlignmentGuideModifierSnapshots {
         Snapshots.assertView("vertical") {
             TestContent.single
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(vertical: .top,    .extendLength(20),    .anchor(.leading))
-            .debugAlignmentGuide(vertical: .center, .extendLength(.zero), .anchor(.center))
-            .debugAlignmentGuide(vertical: .bottom, .extendLength(-20),   .anchor(.trailing))
+            .debugAlignmentGuide(vertical: .top,    .extendedLength(20),    .anchor(.leading))
+            .debugAlignmentGuide(vertical: .center, .extendedLength(.zero), .anchor(.center))
+            .debugAlignmentGuide(vertical: .bottom, .extendedLength(-20),   .anchor(.trailing))
         }
 
         Snapshots.assertView("composite") {
             TestContent.single
             .edgeGraticule(spacing: 20)
-            .debugAlignmentGuide(.topLeading,     .extendLength(20),    .anchor(.topTrailing))
-            .debugAlignmentGuide(.center,         .extendLength(.zero), .anchor(.center))
-            .debugAlignmentGuide(.bottomTrailing, .extendLength(-20),   .anchor(.bottomLeading))
+            .debugAlignmentGuide(.topLeading,     .extendedLength(20),    .anchor(.topTrailing))
+            .debugAlignmentGuide(.center,         .extendedLength(.zero), .anchor(.center))
+            .debugAlignmentGuide(.bottomTrailing, .extendedLength(-20),   .anchor(.bottomLeading))
         }
     }
 

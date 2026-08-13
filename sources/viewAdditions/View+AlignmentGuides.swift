@@ -144,7 +144,7 @@ private struct PreviewContent {
         .debugAlignmentGuide(horizontal: .leading, .fixedLength(150), .anchor(.top))
 
         let guideMarker: DebugHorizontalAlignmentGuideModifier.ConcreteTrait  = [
-            .extendLength(10), .style(.mint)
+            .extendedLength(10), .style(.mint)
         ]
 
         Text("Leading Inset")
@@ -172,7 +172,7 @@ private struct PreviewContent {
         .debugAlignmentGuide(horizontal: .trailing, .fixedLength(150), .anchor(.top))
 
         let guideMarker: DebugHorizontalAlignmentGuideModifier.ConcreteTrait  = [
-            .extendLength(10), .style(.mint)
+            .extendedLength(10), .style(.mint)
         ]
 
         Text("Trailing Inset")

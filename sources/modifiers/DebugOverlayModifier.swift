@@ -792,9 +792,9 @@ private struct PreviewContent {
                 .debugOverlay(.caption("Ag"), .alignment(alignment), .drawsCaptionBorder, .bordersWidth(bordersWidth))
             }
         }
-        .debugAlignmentGuide(vertical: .top, .extendLength(100))
-        .debugAlignmentGuide(vertical: .bottom, .extendLength(100))
-        .debugAlignmentGuide(horizontal: .center, .extendLength(40))
+        .debugAlignmentGuide(vertical: .top,      .extendedLength(100))
+        .debugAlignmentGuide(vertical: .bottom,   .extendedLength(100))
+        .debugAlignmentGuide(horizontal: .center, .extendedLength(40))
         .padding(.vertical, 20)
     }
     DashedDivider()

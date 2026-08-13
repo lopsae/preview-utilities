@@ -69,10 +69,10 @@ extension DebugAlignmentGuideModifier {
     /// + ``ConfigurationTrait/containerLength-9z2fj``
     /// + ``ConfigurationTrait/fixedLength(_:)->DebugAlignmentGuideModifier.Trait``
     /// + ``ConfigurationTrait/fixedLength(horizontal:vertical:)``
-    /// + ``ConfigurationTrait/extendLength(_:)->DebugAlignmentGuideModifier.Trait``
-    /// + ``ConfigurationTrait/extendLength(horizontal:vertical:)``
-    /// + ``ConfigurationTrait/scaleLength(_:)->DebugAlignmentGuideModifier.Trait``
-    /// + ``ConfigurationTrait/scaleLength(horizontal:vertical:)``
+    /// + ``ConfigurationTrait/extendedLength(_:)->DebugAlignmentGuideModifier.Trait``
+    /// + ``ConfigurationTrait/extendedLength(horizontal:vertical:)``
+    /// + ``ConfigurationTrait/scaledLength(_:)->DebugAlignmentGuideModifier.Trait``
+    /// + ``ConfigurationTrait/scaledLength(horizontal:vertical:)``
     /// + ``ConfigurationTrait/anchor(_:)->DebugAlignmentGuideModifier.Trait``
     public typealias Trait = ConfigurationTrait<Configuration>
 
@@ -185,12 +185,12 @@ extension DebugAlignmentGuideModifier.Trait {
     }
 
     // FIXME: document.
-    public static func extendLength(_ addition: CGFloat) -> DebugAlignmentGuideModifier.Trait {
+    public static func extendedLength(_ addition: CGFloat) -> DebugAlignmentGuideModifier.Trait {
         .length(.extended(addition))
     }
 
     // FIXME: document.
-    public static func extendLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
+    public static func extendedLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
             if let horizontal { $0.horizontalConfiguration.length = .extended(horizontal) }
             if let vertical   { $0.verticalConfiguration.length =   .extended(vertical) }
@@ -198,12 +198,12 @@ extension DebugAlignmentGuideModifier.Trait {
     }
 
     // FIXME: document.
-    public static func scaleLength(_ factor: CGFloat) -> DebugAlignmentGuideModifier.Trait {
+    public static func scaledLength(_ factor: CGFloat) -> DebugAlignmentGuideModifier.Trait {
         .length(.scaled(factor))
     }
 
     // FIXME: document.
-    public static func scaleLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
+    public static func scaledLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
             if let horizontal { $0.horizontalConfiguration.length = .scaled(horizontal) }
             if let vertical   { $0.verticalConfiguration.length =   .scaled(vertical) }
@@ -374,8 +374,8 @@ extension DebugAxisAlignmentGuideModifier {
     /// + ``ConfigurationTrait/length(_:)->ConfigurationTrait<Configuration>``
     /// + ``ConfigurationTrait/containerLength-589pa``
     /// + ``ConfigurationTrait/fixedLength(_:)->ConfigurationTrait<Configuration>``
-    /// + ``ConfigurationTrait/extendLength(_:)->ConfigurationTrait<Configuration>``
-    /// + ``ConfigurationTrait/scaleLength(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/extendedLength(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/scaledLength(_:)->ConfigurationTrait<Configuration>``
     /// + ``ConfigurationTrait/anchor(_:)->ConfigurationTrait<Configuration>``
     public typealias Trait<C> = ConfigurationTrait<C> where C: DebugAxisAlignmentGuideConfigurationProtocol
 
@@ -429,15 +429,13 @@ extension DebugAxisAlignmentGuideModifier.Trait where Configuration: DebugAxisAl
         .length(.fixed(length))
     }
 
-    // FIXME: rename to extendedLength
     // FIXME: document.
-    public static func extendLength(_ addition: CGFloat) -> Self {
+    public static func extendedLength(_ addition: CGFloat) -> Self {
         .length(.extended(addition))
     }
 
-    // FIXME: rename to scaledLength
     // FIXME: document.
-    public static func scaleLength(_ factor: CGFloat) -> Self {
+    public static func scaledLength(_ factor: CGFloat) -> Self {
         .length(.scaled(factor))
     }
 
@@ -625,8 +623,8 @@ private struct PreviewContent {
     PreviewContent.square
     .floatingCaption("Fixed", .alignment(.outerLeading))
     .edgeGraticule(spacing: 25)
-    .debugAlignmentGuide(horizontal: .leading, .fixedLength(50))
-    .debugAlignmentGuide(horizontal: .center, .fixedLength(50), .anchor(.firstTextBaseline))
+    .debugAlignmentGuide(horizontal: .leading,  .fixedLength(50))
+    .debugAlignmentGuide(horizontal: .center,   .fixedLength(50), .anchor(.firstTextBaseline))
     .debugAlignmentGuide(horizontal: .trailing, .fixedLength(150))
 
     DashedDivider()
@@ -634,18 +632,18 @@ private struct PreviewContent {
     PreviewContent.single
     .floatingCaption("Extended", .alignment(.outerLeading))
     .edgeGraticule(spacing: 20, .inset(.bottom, count: 2), .outset(.top, count: 2))
-    .debugAlignmentGuide(horizontal: .leading, .extendLength(40), .anchor(.bottom))
-    .debugAlignmentGuide(horizontal: .center, .extendLength(-40), .anchor(.top))
-    .debugAlignmentGuide(horizontal: .trailing, .extendLength(20), .anchor(.firstTextBaseline))
+    .debugAlignmentGuide(horizontal: .leading,  .extendedLength(40),  .anchor(.bottom))
+    .debugAlignmentGuide(horizontal: .center,   .extendedLength(-40), .anchor(.top))
+    .debugAlignmentGuide(horizontal: .trailing, .extendedLength(20),  .anchor(.firstTextBaseline))
 
     DashedDivider()
 
     PreviewContent.square
     .floatingCaption("Scaled", .alignment(.outerLeading))
     .edgeGraticule(spacing: 20, .outset(.vertical, count: 2))
-    .debugAlignmentGuide(horizontal: .leading, .scaleLength(1.2), .anchor(.firstTextBaseline))
-    .debugAlignmentGuide(horizontal: .center, .scaleLength(0.6), )
-    .debugAlignmentGuide(horizontal: .trailing, .scaleLength(1.4), .anchor(.top))
+    .debugAlignmentGuide(horizontal: .leading,  .scaledLength(1.2), .anchor(.firstTextBaseline))
+    .debugAlignmentGuide(horizontal: .center,   .scaledLength(0.6), )
+    .debugAlignmentGuide(horizontal: .trailing, .scaledLength(1.4), .anchor(.top))
 }
 
 
@@ -656,11 +654,11 @@ private struct PreviewContent {
         spacing: 20,
         .straddle(.horizontal, count: 2)
     )
-    .debugAlignmentGuide(vertical: .top, .fixedLength(80))
+    .debugAlignmentGuide(vertical: .top,               .fixedLength(80))
     .debugAlignmentGuide(vertical: .firstTextBaseline, .fixedLength(160), .anchor(.trailing))
-    .debugAlignmentGuide(vertical: .verticalCenter, .fixedLength(160), .anchor(.center))
-    .debugAlignmentGuide(vertical: .lastTextBaseline, .fixedLength(140), .anchor(.leading))
-    .debugAlignmentGuide(vertical: .bottom, .fixedLength(40))
+    .debugAlignmentGuide(vertical: .verticalCenter,    .fixedLength(160), .anchor(.center))
+    .debugAlignmentGuide(vertical: .lastTextBaseline,  .fixedLength(140), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .bottom,            .fixedLength(40))
 
     DashedDivider()
 
@@ -670,11 +668,11 @@ private struct PreviewContent {
         spacing: 20,
         .straddle(.horizontal, count: 2)
     )
-    .debugAlignmentGuide(vertical: .top, .extendLength(-40))
-    .debugAlignmentGuide(vertical: .firstTextBaseline, .extendLength(40), .anchor(.trailing))
-    .debugAlignmentGuide(vertical: .verticalCenter, .extendLength(40), .anchor(.center))
-    .debugAlignmentGuide(vertical: .lastTextBaseline, .extendLength(40), .anchor(.leading))
-    .debugAlignmentGuide(vertical: .bottom, .extendLength(40))
+    .debugAlignmentGuide(vertical: .top,               .extendedLength(-40))
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .extendedLength(40), .anchor(.trailing))
+    .debugAlignmentGuide(vertical: .verticalCenter,    .extendedLength(40), .anchor(.center))
+    .debugAlignmentGuide(vertical: .lastTextBaseline,  .extendedLength(40), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .bottom,            .extendedLength(40))
 
     DashedDivider()
 
@@ -685,11 +683,11 @@ private struct PreviewContent {
         .inset(.horizontal, count: 2),
         .outset(.horizontal, count: 3)
     )
-    .debugAlignmentGuide(vertical: .top, .scaleLength(1.4))
-    .debugAlignmentGuide(vertical: .firstTextBaseline, .scaleLength(1.6), .anchor(.trailing))
-    .debugAlignmentGuide(vertical: .verticalCenter, .scaleLength(0.6), .anchor(.center))
-    .debugAlignmentGuide(vertical: .lastTextBaseline, .scaleLength(1.4), .anchor(.leading))
-    .debugAlignmentGuide(vertical: .bottom, .scaleLength(0.2))
+    .debugAlignmentGuide(vertical: .top,               .scaledLength(1.4))
+    .debugAlignmentGuide(vertical: .firstTextBaseline, .scaledLength(1.6), .anchor(.trailing))
+    .debugAlignmentGuide(vertical: .verticalCenter,    .scaledLength(0.6), .anchor(.center))
+    .debugAlignmentGuide(vertical: .lastTextBaseline,  .scaledLength(1.4), .anchor(.leading))
+    .debugAlignmentGuide(vertical: .bottom,            .scaledLength(0.2))
 }
 
 
