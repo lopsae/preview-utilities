@@ -143,7 +143,7 @@ private struct PreviewContent {
         CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
         .debugAlignmentGuide(horizontal: .leading, .fixedLength(150), .anchor(.top))
 
-        let guideMarker: DebugHorizontalAlignmentGuideModifier.Trait  = [
+        let guideMarker: DebugHorizontalAlignmentGuideModifier.ConcreteTrait  = [
             .extendLength(10), .style(.mint)
         ]
 
@@ -171,7 +171,7 @@ private struct PreviewContent {
         CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
         .debugAlignmentGuide(horizontal: .trailing, .fixedLength(150), .anchor(.top))
 
-        let guideMarker: DebugHorizontalAlignmentGuideModifier.Trait  = [
+        let guideMarker: DebugHorizontalAlignmentGuideModifier.ConcreteTrait  = [
             .extendLength(10), .style(.mint)
         ]
 

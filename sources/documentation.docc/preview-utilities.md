@@ -10,6 +10,7 @@ previews in SwiftUI.
 ### Essentials
 @Links(visualStyle: detailedGrid) {
     + <doc:debug-overlay-api>
+    + <doc:debug-alignment-guide-api>
     + <doc:floating-caption-api>
     + <doc:floating-alignments-api>
     + <doc:edge-graticule-api>
@@ -59,6 +60,7 @@ previews in SwiftUI.
 
 ### API Collections
 + <doc:debug-overlay-api>
++ <doc:debug-alignment-guide-api>
 + <doc:floating-caption-api>
 + <doc:floating-alignments-api>
 + <doc:edge-graticule-api>

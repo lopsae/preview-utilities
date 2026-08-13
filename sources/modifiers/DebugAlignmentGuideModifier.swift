@@ -9,8 +9,6 @@ import SwiftUI
 
 public struct DebugAlignmentGuideModifier: ViewModifier {
 
-    public typealias Trait = ConfigurationTrait<Configuration>
-
     let alignment: Alignment
     let configuration: Configuration
 
@@ -46,53 +44,62 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
 // MARK: - Composite Traits
 
 
-/// Contains the configuration traits that can be applied to the configuration of ``DebugAlignmentGuideModifier``.
-extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.Configuration {
+extension DebugAlignmentGuideModifier {
+
+    /// Contains the configuration traits that can be applied to the configuration of ``DebugAlignmentGuideModifier``.
+    ///
+    /// ## Topics
+    ///
+    /// ### Visibility Traits
+    /// + ``ConfigurationTrait/hidden-5k6lf``
+    /// + ``ConfigurationTrait/visible(_:)->DebugAlignmentGuideModifier.Trait``
+    /// + ``ConfigurationTrait/opacity(_:)->DebugAlignmentGuideModifier.Trait``
+    ///
+    /// ### Style Traits
+    /// + ``ConfigurationTrait/style(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/style(horizontal:)``
+    /// + ``ConfigurationTrait/style(vertical:)``
+    /// + ``ConfigurationTrait/style(horizontal:vertical:)``
+    /// + ``ConfigurationTrait/lineWidth(_:)->DebugAlignmentGuideModifier.Trait``
+    /// + ``ConfigurationTrait/lineWidth(horizontal:vertical:)``
+    ///
+    /// ### Length Traits
+    /// + ``ConfigurationTrait/length(_:)->DebugAlignmentGuideModifier.Trait``
+    /// + ``ConfigurationTrait/length(horizontal:vertical:)``
+    /// + ``ConfigurationTrait/containerLength-9z2fj``
+    /// + ``ConfigurationTrait/fixedLength(_:)->DebugAlignmentGuideModifier.Trait``
+    /// + ``ConfigurationTrait/fixedLength(horizontal:vertical:)``
+    /// + ``ConfigurationTrait/extendLength(_:)->DebugAlignmentGuideModifier.Trait``
+    /// + ``ConfigurationTrait/extendLength(horizontal:vertical:)``
+    /// + ``ConfigurationTrait/scaleLength(_:)->DebugAlignmentGuideModifier.Trait``
+    /// + ``ConfigurationTrait/scaleLength(horizontal:vertical:)``
+    /// + ``ConfigurationTrait/anchor(_:)->DebugAlignmentGuideModifier.Trait``
+    public typealias Trait = ConfigurationTrait<Configuration>
+
+}
+
+
+extension DebugAlignmentGuideModifier.Trait {
 
     typealias Modifiers = Configuration.Modifiers
 
     // FIXME: document.
-    public static var hidden: Self {
+    public static var hidden: DebugAlignmentGuideModifier.Trait {
         .modifier(Modifiers.Opacity(opacity: .zero))
     }
 
     // FIXME: document.
-    public static func visible(_ isVisible: Bool) -> Self {
+    public static func visible(_ isVisible: Bool) -> DebugAlignmentGuideModifier.Trait {
         .modifier(Modifiers.Opacity(opacity: isVisible ? .one : .zero))
     }
 
     // FIXME: document.
-    public static func opacity(_ opacity: Double) -> Self {
+    public static func opacity(_ opacity: Double) -> DebugAlignmentGuideModifier.Trait {
         .modifier(Modifiers.Opacity(opacity: opacity))
     }
 
     // FIXME: document.
-    public static func style(
-        horizontal: some ShapeStyle,
-        vertical: some ShapeStyle
-    ) -> Self {
-        .mutate {
-            $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(horizontal)
-            $0.verticalConfiguration.shapeStyle = AnyShapeStyle(vertical)
-        }
-    }
-
-    // FIXME: document.
-    public static func style(horizontal: some ShapeStyle) -> Self {
-        .mutate {
-            $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(horizontal)
-        }
-    }
-
-    // FIXME: document.
-    public static func style(vertical: some ShapeStyle) -> Self {
-        .mutate {
-            $0.verticalConfiguration.shapeStyle = AnyShapeStyle(vertical)
-        }
-    }
-
-    // FIXME: document.
-    public static func style(_ style: some ShapeStyle) -> Self {
+    public static func style(_ style: some ShapeStyle) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
             $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(style)
             $0.verticalConfiguration.shapeStyle = AnyShapeStyle(style)
@@ -100,15 +107,32 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
-    public static func lineWidth(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> Self {
+    public static func style(horizontal: some ShapeStyle) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
-            if let horizontal { $0.horizontalConfiguration.lineWidth = horizontal }
-            if let vertical   { $0.verticalConfiguration.lineWidth =   vertical }
+            $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(horizontal)
         }
     }
 
     // FIXME: document.
-    public static func lineWidth(_ lineWidth: CGFloat) -> Self {
+    public static func style(vertical: some ShapeStyle) -> DebugAlignmentGuideModifier.Trait {
+        .mutate {
+            $0.verticalConfiguration.shapeStyle = AnyShapeStyle(vertical)
+        }
+    }
+
+    // FIXME: document.
+    public static func style(
+        horizontal: some ShapeStyle,
+        vertical: some ShapeStyle
+    ) -> DebugAlignmentGuideModifier.Trait {
+        .mutate {
+            $0.horizontalConfiguration.shapeStyle = AnyShapeStyle(horizontal)
+            $0.verticalConfiguration.shapeStyle = AnyShapeStyle(vertical)
+        }
+    }
+
+    // FIXME: document.
+    public static func lineWidth(_ lineWidth: CGFloat) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
             $0.horizontalConfiguration.lineWidth = lineWidth
             $0.verticalConfiguration.lineWidth   = lineWidth
@@ -116,18 +140,15 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
-    public static func length(
-        horizontal: DebugAxisAlignmentConfigurationLength? = nil,
-        vertical: DebugAxisAlignmentConfigurationLength? = nil
-    ) -> Self {
+    public static func lineWidth(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
-            if let horizontal { $0.horizontalConfiguration.length = horizontal }
-            if let vertical   { $0.verticalConfiguration.length   = vertical }
+            if let horizontal { $0.horizontalConfiguration.lineWidth = horizontal }
+            if let vertical   { $0.verticalConfiguration.lineWidth =   vertical }
         }
     }
 
     // FIXME: document.
-    public static func length(_ lengths: DebugAxisAlignmentConfigurationLength) -> Self {
+    public static func length(_ lengths: DebugAxisAlignmentConfigurationLength) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
             $0.horizontalConfiguration.length = lengths
             $0.verticalConfiguration.length   = lengths
@@ -135,16 +156,28 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
-    public static var containerLength: Self {
+    public static func length(
+        horizontal: DebugAxisAlignmentConfigurationLength? = nil,
+        vertical: DebugAxisAlignmentConfigurationLength? = nil
+    ) -> DebugAlignmentGuideModifier.Trait {
+        .mutate {
+            if let horizontal { $0.horizontalConfiguration.length = horizontal }
+            if let vertical   { $0.verticalConfiguration.length   = vertical }
+        }
+    }
+
+    // FIXME: document.
+    public static var containerLength: DebugAlignmentGuideModifier.Trait {
         .length(.container)
     }
 
     // FIXME: document.
-    public static func fixedLength(_ length: CGFloat) -> Self {
+    public static func fixedLength(_ length: CGFloat) -> DebugAlignmentGuideModifier.Trait {
         .length(.fixed(length))
     }
 
-    public static func fixedLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> Self {
+    // FIXME: document.
+    public static func fixedLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
             if let horizontal { $0.horizontalConfiguration.length = .fixed(horizontal) }
             if let vertical   { $0.verticalConfiguration.length =   .fixed(vertical) }
@@ -152,12 +185,12 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
-    public static func extendLength(_ addition: CGFloat) -> Self {
+    public static func extendLength(_ addition: CGFloat) -> DebugAlignmentGuideModifier.Trait {
         .length(.extended(addition))
     }
 
     // FIXME: document.
-    public static func extendLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> Self {
+    public static func extendLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
             if let horizontal { $0.horizontalConfiguration.length = .extended(horizontal) }
             if let vertical   { $0.verticalConfiguration.length =   .extended(vertical) }
@@ -165,12 +198,12 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
-    public static func scaleLength(_ factor: CGFloat) -> Self {
+    public static func scaleLength(_ factor: CGFloat) -> DebugAlignmentGuideModifier.Trait {
         .length(.scaled(factor))
     }
 
     // FIXME: document.
-    public static func scaleLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> Self {
+    public static func scaleLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
         .mutate {
             if let horizontal { $0.horizontalConfiguration.length = .scaled(horizontal) }
             if let vertical   { $0.verticalConfiguration.length =   .scaled(vertical) }
@@ -178,7 +211,7 @@ extension ConfigurationTrait where Configuration == DebugAlignmentGuideModifier.
     }
 
     // FIXME: document.
-    public static func anchor(_ anchor: Alignment) -> Self {
+    public static func anchor(_ anchor: Alignment) -> DebugAlignmentGuideModifier.Trait {
         .modifier(Modifiers.Anchor(anchor: anchor))
     }
 
@@ -217,11 +250,14 @@ where
     AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
 {
 
-    public typealias Configuration = DebugAxisAlignmentGuideConfiguration<AxisAlignment>
-    public typealias Trait = ConfigurationTrait<Configuration>
+    /// Test documentation for DebugAxisAlignmentGuideModifier Configuration.
+    public typealias ConcreteConfiguration = DebugAxisAlignmentGuideConfiguration<AxisAlignment>
+
+    /// Test documentation for DebugAxisAlignmentGuideModifier Trait.
+    public typealias ConcreteTrait = ConfigurationTrait<ConcreteConfiguration>
 
     let axisAlignment: AxisAlignment
-    let configuration: Configuration
+    let configuration: ConcreteConfiguration
 
     public func body(content: Content) -> some View {
         let alignment = axisAlignment.alignment(withOrthogonal: configuration.anchor)
@@ -298,7 +334,7 @@ where
 
 
 extension DebugAxisAlignmentGuideConfiguration: TraitInitializable {
-    // init() defined in struct declaration.
+    // init() already defined in struct declaration.
 }
 
 
@@ -317,9 +353,40 @@ public enum DebugAxisAlignmentConfigurationLength {
 // MARK: - Single Axis Traits
 
 
+extension DebugAxisAlignmentGuideModifier {
+
+    /// Contains the configuration traits that can be applied to the configuration of ``DebugAxisAlignmentGuideModifier``
+    /// for both horizontal and vertical alignments.
+    ///
+    ///
+    /// ## Topics
+    ///
+    /// ### Visibility Traits
+    /// + ``ConfigurationTrait/hidden-eo3z``
+    /// + ``ConfigurationTrait/visible(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/opacity(_:)->ConfigurationTrait<Configuration>``
+    ///
+    /// ### Style Traits
+    /// + ``ConfigurationTrait/style(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/lineWidth(_:)->ConfigurationTrait<Configuration>``
+    ///
+    /// ### Length Traits
+    /// + ``ConfigurationTrait/length(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/containerLength-589pa``
+    /// + ``ConfigurationTrait/fixedLength(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/extendLength(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/scaleLength(_:)->ConfigurationTrait<Configuration>``
+    /// + ``ConfigurationTrait/anchor(_:)->ConfigurationTrait<Configuration>``
+    public typealias Trait<C> = ConfigurationTrait<C> where C: DebugAxisAlignmentGuideConfigurationProtocol
+
+}
+
+
 /// Contains the configuration traits that can be applied to the configuration of ``DebugAxisAlignmentGuideModifier``
 /// for both horizontal and vertical alignments.
-extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigurationProtocol {
+
+//extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigurationProtocol {
+extension DebugAxisAlignmentGuideModifier.Trait where Configuration: DebugAxisAlignmentGuideConfigurationProtocol {
 
     // FIXME: document.
     public static var hidden: Self {
@@ -362,11 +429,13 @@ extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigu
         .length(.fixed(length))
     }
 
+    // FIXME: rename to extendedLength
     // FIXME: document.
     public static func extendLength(_ addition: CGFloat) -> Self {
         .length(.extended(addition))
     }
 
+    // FIXME: rename to scaledLength
     // FIXME: document.
     public static func scaleLength(_ factor: CGFloat) -> Self {
         .length(.scaled(factor))
@@ -422,9 +491,9 @@ extension View {
 
     public func debugAlignmentGuide(
         horizontal horizontalAlignment: HorizontalAlignment,
-        _ traits: DebugHorizontalAlignmentGuideModifier.Trait...
+        _ traits: DebugHorizontalAlignmentGuideModifier.ConcreteTrait...
     ) -> some View {
-        let configuration = DebugHorizontalAlignmentGuideModifier.Configuration(traits: traits)
+        let configuration = DebugHorizontalAlignmentGuideModifier.ConcreteConfiguration(traits: traits)
         let guideModifier = DebugAxisAlignmentGuideModifier(
             axisAlignment: horizontalAlignment,
             configuration: configuration
@@ -434,9 +503,9 @@ extension View {
 
     public func debugAlignmentGuide(
         vertical verticalAlignment: VerticalAlignment,
-        _ traits: DebugVerticalAlignmentGuideModifier.Trait...
+        _ traits: DebugVerticalAlignmentGuideModifier.ConcreteTrait...
     ) -> some View {
-        let configuration = DebugVerticalAlignmentGuideModifier.Configuration(traits: traits)
+        let configuration = DebugVerticalAlignmentGuideModifier.ConcreteConfiguration(traits: traits)
         let guideModifier = DebugAxisAlignmentGuideModifier(
             axisAlignment: verticalAlignment,
             configuration: configuration
