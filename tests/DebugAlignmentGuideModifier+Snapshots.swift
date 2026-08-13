@@ -11,6 +11,7 @@ import Testing
 
 
 @MainActor
+@Suite(.snapshots(diffTool: .ksdiff))
 struct DebugAlignmentGuideModifierSnapshots {
 
     enum TestContent {

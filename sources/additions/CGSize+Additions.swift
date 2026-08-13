@@ -34,7 +34,8 @@ extension CGSize {
     }
 
 
-    @inlinable public func setting(
+    @inlinable nonisolated
+    public func setting(
         width newWidth: CGFloat? = nil,
         height newHeight: CGFloat? = nil
     ) -> Self {
@@ -45,7 +46,8 @@ extension CGSize {
     }
 
 
-    @inlinable func setting(
+    @inlinable nonisolated
+    func setting(
         length: CGFloat,
         along axis: Axis
     ) -> Self {
@@ -128,6 +130,20 @@ extension CGSize {
             width:  width  * multiplier,
             height: height * multiplier
         )
+    }
+
+
+    @inlinable nonisolated
+    func multiplying(
+        by multiplier: CGFloat,
+        along axis: Axis
+    ) -> Self {
+        var mutableSize = self
+        switch axis {
+        case .horizontal: mutableSize.width  *= multiplier
+        case .vertical:   mutableSize.height *= multiplier
+        }
+        return mutableSize
     }
 
 

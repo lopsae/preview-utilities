@@ -307,8 +307,10 @@ where
             GeometryReader { geometry in
                 let baseSize: CGSize = switch configuration.length {
                 case .container, .extended: geometry.size
-                case .fixed(let length): geometry.size.setting(length: length, along: orthogonal)
-                case .scaled(let multiplier): geometry.size.multiplying(by: multiplier)
+                case .fixed(let length):
+                    geometry.size.setting(length: length, along: orthogonal)
+                case .scaled(let multiplier):
+                    geometry.size.multiplying(by: multiplier, along: orthogonal)
                 }
                 let additionalSize: CGSize = switch configuration.length {
                 case .container, .fixed, .scaled: .zero
