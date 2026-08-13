@@ -57,7 +57,6 @@ Text("Wisdom was passed on\nfrom mouth to mouth")
 + ``DebugHorizontalAlignmentGuideModifier``
 + ``DebugAxisAlignmentGuideConfigurationProtocol``
 + ``DebugAxisAlignmentGuideConfiguration``
-+ ``DebugAxisAlignmentConfigurationLength``
 
 
 ### View Extensions
@@ -69,3 +68,4 @@ Text("Wisdom was passed on\nfrom mouth to mouth")
 ### Traits
 + ``DebugAlignmentGuideModifier/Trait``
 + ``DebugAxisAlignmentGuideModifier/Trait``
++ ``DebugAxisAlignmentConfigurationLength``

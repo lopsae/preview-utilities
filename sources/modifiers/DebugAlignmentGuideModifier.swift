@@ -62,7 +62,7 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
 
     /// Configuration of a `DebugAlignmentGuideModifier`.
     ///
-    /// Contains the configuration the horizontal and vertical guide visualization.
+    /// Contains the configurations for the horizontal and vertical guide visualizations.
     ///
     /// Usually you don't build this object directly, instead one is created and configured using
     /// the [`Trait`](doc:DebugAlignmentGuideModifier/Trait) instances passed to
@@ -71,8 +71,10 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
 
         enum Modifiers {}
 
-        var horizontalConfiguration: DebugAxisAlignmentGuideConfiguration<HorizontalAlignment> = .init()
-        var verticalConfiguration: DebugAxisAlignmentGuideConfiguration<VerticalAlignment> = .init()
+        /// Configuration for the horizontal alignment guide visualization.
+        public var horizontalConfiguration: DebugAxisAlignmentGuideConfiguration<HorizontalAlignment> = .init()
+        /// Configuration for the vertical alignment guide visualization.
+        public var verticalConfiguration: DebugAxisAlignmentGuideConfiguration<VerticalAlignment> = .init()
 
         public init() {}
 
@@ -380,9 +382,9 @@ where
 }
 
 
-/// Convenience typealias of `DebugAxisAlignmentGuideModifier` for `HorizontalAlignment`.
+/// Convenience alias of `DebugAxisAlignmentGuideModifier` for `HorizontalAlignment`.
 public typealias DebugHorizontalAlignmentGuideModifier = DebugAxisAlignmentGuideModifier<HorizontalAlignment>
-/// Convenience typealias of `DebugAxisAlignmentGuideModifier` for `VerticalAlignment`.
+/// Convenience alias of `DebugAxisAlignmentGuideModifier` for `VerticalAlignment`.
 public typealias DebugVerticalAlignmentGuideModifier   = DebugAxisAlignmentGuideModifier<VerticalAlignment>
 
 
@@ -391,19 +393,35 @@ public typealias DebugVerticalAlignmentGuideModifier   = DebugAxisAlignmentGuide
 
 /// Protocol for the configuration of a `DebugAxisAlignmentGuideModifier`.
 ///
-/// Provides the protocol for the configuration instance of both horizontal and vertical alignments
-/// for `DebugAxisAlignmentGuideModifier`.
+/// Provides the protocol for the configuration of both horizontal and vertical alignments
+/// for ``DebugAxisAlignmentGuideModifier``.
 ///
 /// [Traits](doc:DebugAxisAlignmentGuideModifier/Trait) for this modifier are defined in terms of
 /// this protocol, so that the same implementation is available for both horizontal and vertical
 /// alignments.
+///
+/// The modifier uses the implementing type ``DebugAxisAlignmentGuideConfiguration``.
 nonisolated
 public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
+
+    /// The alignment type to which the alignment marker is itself aligned.
+    ///
+    /// When the size of the alignment marker is customized through ``length``, the marker itself
+    /// can be aligned to this anchor alignment of the owner view.
+    ///
+    /// The anchor alignment is expected to be the ``AlignmentWithOrthogonal/OrthogonalAlignment``
+    /// the alignment type being visualized.
     associatedtype AnchorAlignment: AlignmentWithDefault
+
+    /// The opacity of the alignment marker.
     var opacity: Double { get set }
+    /// The shape style of the alignment marker line.
     var shapeStyle: AnyShapeStyle { get set }
+    /// The line width of the alignment marker line.
     var lineWidth: CGFloat { get set }
+    /// The length customization applied to the alignment marker.
     var length: DebugAxisAlignmentConfigurationLength { get set }
+    /// The alignment to which the alignment marker is itself aligned.
     var anchor: AnchorAlignment { get set }
 
 }
@@ -411,8 +429,9 @@ public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
 
 /// Concrete implementation of `DebugAxisAlignmentGuideConfigurationProtocol`.
 ///
-/// Implementation used as configuration for ``DebugAxisAlignmentGuideModifier``. A new instance
-/// contains the default configuration for the modifier.
+/// Implementation of ``DebugAxisAlignmentGuideConfigurationProtocol`` used as configuration for
+/// ``DebugAxisAlignmentGuideModifier``. A new instance contains the default configuration for the
+/// modifier.
 nonisolated
 public struct DebugAxisAlignmentGuideConfiguration<AxisAlignment>: DebugAxisAlignmentGuideConfigurationProtocol
 where
@@ -437,7 +456,7 @@ extension DebugAxisAlignmentGuideConfiguration: TraitInitializable {
 // MARK: - ConfigurationLength
 
 
-/// Customization options for the alignment marker for `DebugAlignmentGuideModifier` and
+/// Customization options for the alignment markers of `DebugAlignmentGuideModifier` and
 /// `DebugAxisAlignmentGuideModifier`.
 public enum DebugAxisAlignmentConfigurationLength {
     // FIXME: Document.
@@ -574,6 +593,20 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 
 extension View {
 
+    /// Layers in front of this view a visual representation of the given alignment guide,
+    /// customized with the given traits.
+    /// 
+    /// Applies the ``DebugAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAlignmentGuideModifier/Trait)
+    /// instances, overlaying a visual representation of the given alignment.
+    /// 
+    /// The traits are applied in the order they are passed to a default configuration. Later
+    /// traits may override earlier ones depending on the configuration each trait modifies.
+    /// 
+    /// - Parameters:
+    ///   - alignment: The alignment to visualize.
+    ///   - traits: The traits to customize the default configuration.
+    /// 
+    /// - Returns: A view with a configured alignment guide visualization as foreground.
     public func debugAlignmentGuide(
         _ alignment: Alignment,
         _ traits: DebugAlignmentGuideModifier.Trait...
@@ -586,6 +619,21 @@ extension View {
         return modifier(guideModifier)
     }
 
+
+    /// Layers in front of this view a visual representation of the given horizontal alignment
+    /// guide, customized with the given traits.
+    ///
+    /// Applies the ``DebugHorizontalAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAxisAlignmentGuideModifier/Trait)
+    /// instances, overlaying a visual representation of the given horizontal alignment.
+    /// 
+    /// The traits are applied in the order they are passed to a default configuration. Later
+    /// traits may override earlier ones depending on the configuration each trait modifies.
+    /// 
+    /// - Parameters:
+    ///   - horizontalAlignment: The horizontal alignment to visualize.
+    ///   - traits: The traits to customize the default configuration.
+    ///
+    /// - Returns: A view with a configured horizontal alignment guide visualization as foreground.
     public func debugAlignmentGuide(
         horizontal horizontalAlignment: HorizontalAlignment,
         _ traits: DebugHorizontalAlignmentGuideModifier.ConcreteTrait...
@@ -598,6 +646,21 @@ extension View {
         return modifier(guideModifier)
     }
 
+
+    /// Layers in front of this view a visual representation of the given vertical alignment
+    /// guide, customized with the given traits.
+    ///
+    /// Applies the ``DebugVerticalAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAxisAlignmentGuideModifier/Trait)
+    /// instances, overlaying a visual representation of the given vertical alignment.
+    ///
+    /// The traits are applied in the order they are passed to a default configuration. Later
+    /// traits may override earlier ones depending on the configuration each trait modifies.
+    ///
+    /// - Parameters:
+    ///   - verticalAlignment: The vertical alignment to visualize.
+    ///   - traits: The traits to customize the default configuration.
+    ///
+    /// - Returns: A view with a configured horizontal alignment guide visualization as foreground.
     public func debugAlignmentGuide(
         vertical verticalAlignment: VerticalAlignment,
         _ traits: DebugVerticalAlignmentGuideModifier.ConcreteTrait...

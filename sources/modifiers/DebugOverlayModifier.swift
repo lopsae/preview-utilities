@@ -408,7 +408,7 @@ extension View {
     /// ![Debug overlay with traits applied to a single Text.](debug-overlay-torch-traits)
     ///
     /// - Parameters:
-    ///   - traits: The traits to modify the default configuration.
+    ///   - traits: The traits to customize the default configuration.
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
     public func debugOverlay(_ traits: DebugOverlayModifier.Configuration.Trait...) -> some View {
@@ -427,7 +427,7 @@ extension View {
     /// traits may override earlier ones depending on the configuration each trait modifies.
     ///
     /// - Parameters:
-    ///   - traits: The traits to modify the default configuration.
+    ///   - traits: The traits to customize the default configuration.
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
     public func debugOverlay(

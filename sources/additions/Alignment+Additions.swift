@@ -47,7 +47,7 @@ extension VerticalAlignment {
 /// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol to identify their axis
 /// and its orthogonal alignment as an associated type.
 public nonisolated
-protocol AlignmentWithOrthogonal {
+protocol AlignmentWithOrthogonal: Sendable {
 
     /// Orthogonal alignment to `self`.
     associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, Sendable
@@ -57,7 +57,7 @@ protocol AlignmentWithOrthogonal {
 
     /// Creates an `Alignment` with the given orthogonal alignment.
     /// - Parameter orthogonalAlignment: The orthogonal alignment to use.
-    /// - Returns: An `Alignment` using `self` and the given orthogonal alignment.
+    /// - Returns: An `Alignment` composed of `self` and the given orthogonal alignment.
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
 }
 
@@ -86,13 +86,13 @@ extension VerticalAlignment: AlignmentWithOrthogonal {
 
 
 /// Defines a default alignment for an alignment type.
+///
+/// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol and return their
+/// `center` alignment as default.
 public nonisolated
 protocol AlignmentWithDefault {
 
     /// The default alignment of the type.
-    ///
-    /// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol and return their
-    /// `center` alignment as default.
     static var `default`: Self { get }
 }
 
@@ -118,6 +118,7 @@ extension VerticalAlignment: AlignmentWithDefault {
 nonisolated
 enum HorizontalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
 
+    // FIXME: Typo!
     case leading, center, traling
 
     /// Returns the corresponding ``SwiftUI/HorizontalAlignment``.
