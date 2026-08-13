@@ -168,9 +168,8 @@ struct DebugAlignmentGuideModifierSnapshots {
 
         Snapshots.assertView("compositeBoth", colorSchemes: .all) {
             TestContent.single
-            // FIXME: Test with two implicitly different types, color and hierarchical
-            .debugAlignmentGuide(.topLeading, .style(horizontal: .green.secondary, vertical: .blue.secondary))
-            .debugAlignmentGuide(.bottomTrailing, .style(horizontal: .orange.secondary, vertical: .purple.secondary))
+            .debugAlignmentGuide(.topLeading, .style(horizontal: .green, vertical: .blue.secondary))
+            .debugAlignmentGuide(.bottomTrailing, .style(horizontal: .orange, vertical: .purple.secondary))
         }
 
         Snapshots.assertView("compositeEach") {
