@@ -38,7 +38,7 @@ import SwiftUI
 ///     .extendedLength(horizontal: 40) // Extends the horizontal marker by 40.
 /// )
 /// ```
-/// ![Text displaying a center first text baseline alignment guide using example traits.](debug-alignment-guide-simple-traits)
+/// ![Text displaying a center first text baseline alignment guide using example traits.](debug-alignment-guide-explained-traits)
 public struct DebugAlignmentGuideModifier: ViewModifier {
 
     let alignment: Alignment
@@ -86,7 +86,7 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
 
 extension DebugAlignmentGuideModifier {
 
-    /// Contains the configuration traits that can be applied to the configuration of ``DebugAlignmentGuideModifier``.
+    /// Customizations that can be applied to the configuration of a `DebugAlignmentGuideModifier`.
     ///
     /// ## Topics
     ///
@@ -284,6 +284,40 @@ extension DebugAlignmentGuideModifier.Configuration.Modifiers {
 // MARK: - Single Axis
 
 
+/// Overlays a visual representations of a view's horizontal or vertical alignment guide.
+///
+/// Displays in an overlay a visual representation of a view's alignment guide for a single axis,
+/// either horizontal or vertical. All content added by this modifier is layered in an overlay of
+/// the owner view, the original layout is never modified.
+///
+/// Apply this modifier using ``SwiftUICore/View/debugAlignmentGuide(horizontal:_:)`` or
+/// ``SwiftUICore/View/debugAlignmentGuide(vertical:_:)``:
+///
+/// ```swift
+/// Text("Sphinx of Black Quartz\nJudge my Vow")
+/// .font(.title)
+/// .debugAlignmentGuide(horizontal: .trailing)
+/// ```
+/// ![Text displaying a horizontal trailing alignment guide with the default configuration.](debug-alignment-guide-default-single-axis)
+///
+///
+/// ### Traits and Configuration
+///
+/// The overlay can be configured by passing [`Trait`](doc:DebugAxisAlignmentGuideModifier/Trait) instances to
+/// ``SwiftUICore/View/debugAlignmentGuide(horizontal:_:)`` or ``SwiftUICore/View/debugAlignmentGuide(vertical:_:)``:
+///
+/// ```swift
+/// Text("Lately I saw a house.\nIt was burning.")
+/// .font(.title)
+/// .multilineTextAlignment(.center)
+/// .debugAlignmentGuide(
+///     horizontal: .leading,
+///     .style(.mint.secondary), // Styles markers to mint.
+///     .lineWidth(8),           // Sets the line width.
+///     .scaledLength(2)         // Scales the marker to double the owner size.
+/// )
+/// ```
+/// ![Text displaying a horizontal leading alignment guide using example traits.](debug-alignment-guide-explained-traits-single-axis)
 public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier
 where
     AxisAlignment: AlignmentWithOrthogonal,
@@ -299,6 +333,7 @@ where
     let axisAlignment: AxisAlignment
     let configuration: ConcreteConfiguration
 
+    @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
         let alignment = axisAlignment.alignment(withOrthogonal: configuration.anchor)
         content.overlay(alignment: alignment) {
@@ -397,9 +432,7 @@ public enum DebugAxisAlignmentConfigurationLength {
 
 extension DebugAxisAlignmentGuideModifier {
 
-    /// Contains the configuration traits that can be applied to the configuration of ``DebugAxisAlignmentGuideModifier``
-    /// for both horizontal and vertical alignments.
-    ///
+    /// Customizations that can be applied to the configuration of a `DebugAxisAlignmentGuideModifier`.
     ///
     /// ## Topics
     ///

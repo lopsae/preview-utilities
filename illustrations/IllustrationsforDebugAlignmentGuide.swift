@@ -36,8 +36,19 @@ struct IllustrationsForDebugAlignmentGuideModifier {
     }
 
 
-    @Test func simpleTraits() throws {
-        try storage.renderAndStore("debug-alignment-guide", "simple-traits") {
+    @Test func defaultSingleAxis() throws {
+        try storage.renderAndStore("debug-alignment-guide", "default-single-axis") {
+            DocumentationIllustration(sizing: .regular) {
+                Text("Sphinx of Black Quartz\nJudge my Vow")
+                .font(.title)
+                .debugAlignmentGuide(horizontal: .trailing)
+            }
+        }
+    }
+
+
+    @Test func explainedTraits() throws {
+        try storage.renderAndStore("debug-alignment-guide", "explained-traits") {
             DocumentationIllustration(sizing: .regular) {
                 Text("Lately I saw a house.\nIt was burning.")
                 .font(.title)
@@ -46,6 +57,54 @@ struct IllustrationsForDebugAlignmentGuideModifier {
                     .style(.mint.secondary),        // Styles both markers to mint.
                     .lineWidth(vertical: 8),        // Sets the vertical line width.
                     .extendedLength(horizontal: 40) // Extends the horizontal marker by 40.
+                )
+            }
+        }
+    }
+
+
+    @Test func explainedTraitsSingleAxis() throws {
+        try storage.renderAndStore("debug-alignment-guide", "explained-traits-single-axis") {
+            DocumentationIllustration(sizing: .regular) {
+                Text("Lately I saw a house.\nIt was burning.")
+                .font(.title)
+                .multilineTextAlignment(.center)
+                .debugAlignmentGuide(
+                    horizontal: .leading,
+                    .style(.mint.secondary), // Styles markers to mint.
+                    .lineWidth(8),           // Sets the line width.
+                    .scaledLength(2)         // Scales the marker to double the owner size.
+                )
+            }
+        }
+    }
+
+
+    @Test func simpleTraits() throws {
+        try storage.renderAndStore("debug-alignment-guide", "simple-traits") {
+            DocumentationIllustration(sizing: .regular) {
+                Text("A new age\ndoes not begin all of a sudden")
+                .font(.title)
+                .multilineTextAlignment(.trailing)
+                .debugAlignmentGuide(.trailingFirstTextBaseline,
+                    .lineWidth(8),
+                    .fixedLength(vertical: 200),
+                    .anchor(.trailing)
+                )
+            }
+        }
+    }
+
+
+    @Test func simpleTraitsSingleAxis() throws {
+        try storage.renderAndStore("debug-alignment-guide", "simple-traits-single-axis") {
+            DocumentationIllustration(sizing: .regular) {
+                Text("Wisdom was passed on\nfrom mouth to mouth")
+                .font(.title)
+                .multilineTextAlignment(.center)
+                .debugAlignmentGuide(vertical: .lastTextBaseline,
+                    .lineWidth(8),
+                    .scaledLength(1.2)
                 )
             }
         }

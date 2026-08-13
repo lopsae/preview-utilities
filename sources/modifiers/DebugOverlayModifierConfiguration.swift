@@ -97,7 +97,7 @@ extension DebugOverlayModifier.Configuration {
 
 extension DebugOverlayModifier.Configuration {
 
-    /// Customizations that can be applied to the `Configuration` of a `DebugOverlayModifier`.
+    /// Customizations that can be applied to the configuration of a `DebugOverlayModifier`.
     ///  
     /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` or any [sibling function](doc:debug-overlay-api/View-Extensions)
     /// to build the [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay.
