@@ -7,11 +7,44 @@
 import SwiftUI
 
 
+/// Overlays a visual representations of a view's alignment guides.
+///
+/// Displays in an overlay a visual representation of a view's alignment guides. All content added
+/// by this modifier is layered in an overlay of the owner view, the original layout is never
+/// modified.
+///
+/// Apply this modifier using ``SwiftUICore/View/debugAlignmentGuide(_:_:)``:
+///
+/// ```swift
+/// Text("Sphinx of Black Quartz\nJudge my Vow")
+/// .font(.title)
+/// .debugAlignmentGuide(.leadingLastTextBaseline)
+/// ```
+/// ![Text displaying a leading last text baseline alignment guide with the default configuration.](debug-alignment-guide-default)
+///
+///
+/// ### Traits and Configuration
+///
+/// The overlay can be configured by passing [`Trait`](doc:DebugAlignmentGuideModifier/Trait) instances to
+/// ``SwiftUICore/View/debugAlignmentGuide(_:_:)``:
+///
+/// ```swift
+/// Text("Lately I saw a house.\nIt was burning.")
+/// .font(.title)
+/// .multilineTextAlignment(.center)
+/// .debugAlignmentGuide(.centerFirstTextBaseline,
+///     .style(.mint.secondary),        // Styles both markers to mint.
+///     .lineWidth(vertical: 8),        // Sets the vertical line width.
+///     .extendedLength(horizontal: 40) // Extends the horizontal marker by 40.
+/// )
+/// ```
+/// ![Text displaying a center first text baseline alignment guide using example traits.](debug-alignment-guide-simple-traits)
 public struct DebugAlignmentGuideModifier: ViewModifier {
 
     let alignment: Alignment
     let configuration: Configuration
 
+    @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
         let horizontalModifier = DebugAxisAlignmentGuideModifier(
             axisAlignment: alignment.horizontal,
@@ -27,6 +60,13 @@ public struct DebugAlignmentGuideModifier: ViewModifier {
     }
 
 
+    /// Configuration of a `DebugAlignmentGuideModifier`.
+    ///
+    /// Contains the configuration the horizontal and vertical guide visualization.
+    ///
+    /// Usually you don't build this object directly, instead one is created and configured using
+    /// the [`Trait`](doc:DebugAlignmentGuideModifier/Trait) instances passed to
+    /// ``SwiftUICore/View/debugAlignmentGuide(_:_:)``:
     public struct Configuration: TraitInitializable {
 
         enum Modifiers {}
