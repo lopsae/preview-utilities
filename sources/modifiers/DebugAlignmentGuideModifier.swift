@@ -318,16 +318,27 @@ extension DebugAlignmentGuideModifier.Configuration.Modifiers {
 /// )
 /// ```
 /// ![Text displaying a horizontal leading alignment guide using example traits.](debug-alignment-guide-explained-traits-single-axis)
+///
+///
+/// ## Aliases and Protocols
+///
+/// This modifier is setup to receive as a generic the alignment to work with, either
+/// `HorizontalAlignment` or `VerticalAlignment`. Convenience aliases for the typed modifiers are
+/// available at ``DebugHorizontalAlignmentGuideModifier`` and ``DebugVerticalAlignmentGuideModifier``.
+///
+/// The traits for this modifier are defined around a shared protocol ``DebugAxisAlignmentGuideConfigurationProtocol``
+/// to share a single implementation for both vertical and horizontal alignment. The traits are
+/// ultimately applied to the single implementation of this protocol: ``DebugAxisAlignmentGuideConfiguration``.
 public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier
 where
     AxisAlignment: AlignmentWithOrthogonal,
     AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
 {
 
-    /// Test documentation for DebugAxisAlignmentGuideModifier Configuration.
+    /// The concrete type implementing `DebugAxisAlignmentGuideConfigurationProtocol`.
     public typealias ConcreteConfiguration = DebugAxisAlignmentGuideConfiguration<AxisAlignment>
 
-    /// Test documentation for DebugAxisAlignmentGuideModifier Trait.
+    /// The trait type using `ConcreteConfiguration`.
     public typealias ConcreteTrait = ConfigurationTrait<ConcreteConfiguration>
 
     let axisAlignment: AxisAlignment
@@ -369,7 +380,9 @@ where
 }
 
 
+/// Convenience typealias of `DebugAxisAlignmentGuideModifier` for `HorizontalAlignment`.
 public typealias DebugHorizontalAlignmentGuideModifier = DebugAxisAlignmentGuideModifier<HorizontalAlignment>
+/// Convenience typealias of `DebugAxisAlignmentGuideModifier` for `VerticalAlignment`.
 public typealias DebugVerticalAlignmentGuideModifier   = DebugAxisAlignmentGuideModifier<VerticalAlignment>
 
 
@@ -381,7 +394,9 @@ public typealias DebugVerticalAlignmentGuideModifier   = DebugAxisAlignmentGuide
 /// Provides the protocol for the configuration instance of both horizontal and vertical alignments
 /// for `DebugAxisAlignmentGuideModifier`.
 ///
-/// This protocol allows to define the same traits for both horizontal and vertical alignments.
+/// [Traits](doc:DebugAxisAlignmentGuideModifier/Trait) for this modifier are defined in terms of
+/// this protocol, so that the same implementation is available for both horizontal and vertical
+/// alignments.
 nonisolated
 public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
     associatedtype AnchorAlignment: AlignmentWithDefault
@@ -394,6 +409,10 @@ public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
 }
 
 
+/// Concrete implementation of `DebugAxisAlignmentGuideConfigurationProtocol`.
+///
+/// Implementation used as configuration for ``DebugAxisAlignmentGuideModifier``. A new instance
+/// contains the default configuration for the modifier.
 nonisolated
 public struct DebugAxisAlignmentGuideConfiguration<AxisAlignment>: DebugAxisAlignmentGuideConfigurationProtocol
 where
@@ -418,11 +437,16 @@ extension DebugAxisAlignmentGuideConfiguration: TraitInitializable {
 // MARK: - ConfigurationLength
 
 
-// FIXME: Document.
+/// Customization options for the alignment marker for `DebugAlignmentGuideModifier` and
+/// `DebugAxisAlignmentGuideModifier`.
 public enum DebugAxisAlignmentConfigurationLength {
+    // FIXME: Document.
     case container
+    // FIXME: Document.
     case fixed(CGFloat)
+    // FIXME: Document.
     case extended(CGFloat)
+    // FIXME: Document.
     case scaled(CGFloat)
 }
 
