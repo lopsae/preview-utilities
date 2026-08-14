@@ -459,13 +459,22 @@ extension DebugAxisAlignmentGuideConfiguration: TraitInitializable {
 /// Customization options for the alignment markers of `DebugAlignmentGuideModifier` and
 /// `DebugAxisAlignmentGuideModifier`.
 public enum DebugAxisAlignmentConfigurationLength {
-    // FIXME: Document.
+
+    /// The alignment guide marker occupies the size of the owner view, along the alignment
+    /// orthogonal axis.
+    ///
+    /// This is the default behavior for the alignment guide marker.
     case container
-    // FIXME: Document.
+
+    /// The alignment guide marker occupies a fixed length along the alignment orthogonal axis.
     case fixed(CGFloat)
-    // FIXME: Document.
+
+    /// The alignment guide marker occupies the size of the owner view plus the given length, along
+    /// the alignment orthogonal axis.
     case extended(CGFloat)
-    // FIXME: Document.
+
+    /// The alignment guide marker occupies the size of the owner view multiplied by the given
+    /// factor, along the alignment orthogonal axis.
     case scaled(CGFloat)
 }
 
