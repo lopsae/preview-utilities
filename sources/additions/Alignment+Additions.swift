@@ -118,15 +118,14 @@ extension VerticalAlignment: AlignmentWithDefault {
 nonisolated
 enum HorizontalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
 
-    // FIXME: Typo!
-    case leading, center, traling
+    case leading, center, trailing
 
     /// Returns the corresponding ``SwiftUI/HorizontalAlignment``.
     var alignment: HorizontalAlignment {
         switch self {
-        case .leading: .leading
-        case .center:  .center
-        case .traling: .trailing
+        case .leading:  .leading
+        case .center:   .center
+        case .trailing: .trailing
         }
     }
 
