@@ -251,6 +251,7 @@ extension DebugAlignmentGuideModifier.Trait {
 
     /// Sets each marker length option to
     /// [`fixed`](doc:DebugAxisAlignmentConfigurationLength/fixed(_:)) to the given values.
+    ///
     /// - Parameters:
     ///   - horizontal: The fixed length of the horizontal alignment marker along the vertical axis.
     ///   - vertical: The fixed length of the vertical alignment marker along the horizontal axis.
@@ -270,6 +271,8 @@ extension DebugAlignmentGuideModifier.Trait {
 
     /// Sets each marker length option to
     /// [`extended`](doc:DebugAxisAlignmentConfigurationLength/extended(_:)) by the given value.
+    ///
+    /// - Parameters:
     ///   - horizontal: The value to add to the owner's vertical length for the horizontal marker.
     ///   - vertical: The value to add to the owner's horizontal length for the vertical marker.
     public static func extendedLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
@@ -288,7 +291,8 @@ extension DebugAlignmentGuideModifier.Trait {
 
     /// Sets each marker length option to
     /// [`scaled`](doc:DebugAxisAlignmentConfigurationLength/scaled(_:)) by the given value.
-    /// - Parameter factor: The factor to multiply by the owner's length along both axis.
+    ///
+    /// - Parameters:
     ///   - horizontal: The factor to multiply by the owner's vertical length for the horizontal marker.
     ///   - vertical: The factor to multiply by the owner's horizontal length for the vertical marker.
     public static func scaledLength(horizontal: CGFloat? = nil , vertical: CGFloat? = nil) -> DebugAlignmentGuideModifier.Trait {
