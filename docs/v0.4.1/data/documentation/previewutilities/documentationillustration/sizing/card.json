@@ -163,7 +163,15 @@
               "type" : "text"
             },
             {
-              "text" : "Docc directive. Use ",
+              "text" : "Docc directive (",
+              "type" : "text"
+            },
+            {
+              "code" : "640×360",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : "). Use ",
               "type" : "text"
             },
             {
@@ -171,7 +179,15 @@
               "type" : "codeVoice"
             },
             {
-              "text" : " to create illustrations with a zoomed in effect.",
+              "text" : " to create illustrations with a zoomed in",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "effect.",
               "type" : "text"
             }
           ],

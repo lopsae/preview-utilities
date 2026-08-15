@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The shape style of the alignment marker line.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -186,7 +192,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/shapeStyle": {
   "abstract" : [
-
+    {
+      "text" : "The shape style of the alignment marker line.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

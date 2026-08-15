@@ -1,4 +1,18 @@
 {
+  "abstract" : [
+    {
+      "text" : "The alignment guide marker occupies the length of the owner view multiplied by the given",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "factor, along the alignment orthogonal axis.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -131,7 +145,30 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength": {
   "abstract" : [
-
+    {
+      "text" : "Customization options for the length of the alignment markers of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -162,7 +199,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength/scaled(_:)": {
   "abstract" : [
-
+    {
+      "text" : "The alignment guide marker occupies the length of the owner view multiplied by the given",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "factor, along the alignment orthogonal axis.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

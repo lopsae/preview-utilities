@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Prints the safe area insets applied to the parent view in the debug caption.",
+      "text" : "Prints the safe area insets applied to the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -290,15 +290,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait": {
   "abstract" : [
     {
-      "text" : "Customizations that can be applied to the ",
-      "type" : "text"
-    },
-    {
-      "code" : "Configuration",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " of a ",
+      "text" : "Customizations that can be applied to the configuration of a ",
       "type" : "text"
     },
     {
@@ -403,7 +395,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/height": {
   "abstract" : [
     {
-      "text" : "Prints the height of the parent view in the debug caption.",
+      "text" : "Prints the height of the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -466,7 +458,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/origin": {
   "abstract" : [
     {
-      "text" : "Prints the global origin coordinate of the parent view in the debug caption.",
+      "text" : "Prints the global origin coordinate of the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -529,7 +521,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/safeAreaInsets": {
   "abstract" : [
     {
-      "text" : "Prints the safe area insets applied to the parent view in the debug caption.",
+      "text" : "Prints the safe area insets applied to the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -592,7 +584,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/size": {
   "abstract" : [
     {
-      "text" : "Prints the width and height of the parent view in the debug caption.",
+      "text" : "Prints the width and height of the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -655,7 +647,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/width": {
   "abstract" : [
     {
-      "text" : "Prints the width of the parent view in the debug caption.",
+      "text" : "Prints the width of the owner view in the debug caption.",
       "type" : "text"
     }
   ],

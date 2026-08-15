@@ -1,4 +1,18 @@
 {
+  "abstract" : [
+    {
+      "text" : "Configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -84,6 +98,72 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Contains the configurations for the horizontal and vertical guide visualizations.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Usually you don’t build this object directly, instead one is created and configured using",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+              "isActive" : true,
+              "overridingTitle" : "Trait",
+              "overridingTitleInlineContent" : [
+                {
+                  "code" : "Trait",
+                  "type" : "codeVoice"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : " instances passed to",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ":",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "relationshipsSections" : [
@@ -107,6 +187,16 @@
   "sections" : [
 
   ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "Composite-Modifier",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier"
+      ],
+      "title" : "Composite Modifier"
+    }
+  ],
   "topicSections" : [
     {
       "anchor" : "Initializers",
@@ -115,6 +205,15 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration\/init()"
       ],
       "title" : "Initializers"
+    },
+    {
+      "anchor" : "Instance-Properties",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration\/horizontalConfiguration",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration\/verticalConfiguration"
+      ],
+      "title" : "Instance Properties"
     }
   ],
   "variants" : [
@@ -147,7 +246,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
   "abstract" : [
-
+    {
+      "text" : "Overlays a visual representations of a view’s alignment guides.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -178,7 +280,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Configuration": {
   "abstract" : [
-
+    {
+      "text" : "Configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -207,6 +320,56 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/configuration"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Configuration/horizontalConfiguration": {
+  "abstract" : [
+    {
+      "text" : "Configuration for the horizontal alignment guide visualization.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "horizontalConfiguration"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities36DebugAxisAlignmentGuideConfigurationV",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+      "text" : "HorizontalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration\/horizontalConfiguration",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "horizontalConfiguration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/configuration\/horizontalconfiguration"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Configuration/init()": {
   "abstract" : [
     {
@@ -230,6 +393,210 @@
   "title" : "init()",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/configuration\/init()"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Configuration/verticalConfiguration": {
+  "abstract" : [
+    {
+      "text" : "Configuration for the vertical alignment guide visualization.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "verticalConfiguration"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities36DebugAxisAlignmentGuideConfigurationV",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
+      "text" : "VerticalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration\/verticalConfiguration",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "verticalConfiguration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/configuration\/verticalconfiguration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(_:_:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view a visual representation of the given alignment guide,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "customized with the given traits.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "debugAlignmentGuide"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI9AlignmentV",
+      "text" : "Alignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
+    },
+    {
+      "kind" : "text",
+      "text" : "...) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "debugAlignmentGuide(_:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(_:_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/TraitConfigurable": {
   "abstract" : [

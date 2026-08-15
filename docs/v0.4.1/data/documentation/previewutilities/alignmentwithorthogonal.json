@@ -79,6 +79,15 @@
             {
               "kind" : "identifier",
               "text" : "AlignmentWithOrthogonal"
+            },
+            {
+              "kind" : "text",
+              "text" : " : "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s8SendableP",
+              "text" : "Sendable"
             }
           ]
         }
@@ -127,6 +136,15 @@
     }
   ],
   "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP"
+      ],
+      "kind" : "relationships",
+      "title" : "Inherits From",
+      "type" : "inheritsFrom"
+    },
     {
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment",
@@ -313,15 +331,6 @@
       "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:16PreviewUtilities23AlignmentWithOrthogonalP",
       "text" : "AlignmentWithOrthogonal"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:s8SendableP",
-      "text" : "Sendable"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal\/OrthogonalAlignment",
@@ -504,6 +513,16 @@
   "title" : "VerticalAlignment",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/verticalalignment"
+},
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
 }
 }
 }

@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The alignment to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -203,7 +209,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/AnchorAlignment": {
   "abstract" : [
-
+    {
+      "text" : "The alignment type to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -238,7 +247,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/anchor": {
   "abstract" : [
-
+    {
+      "text" : "The alignment to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

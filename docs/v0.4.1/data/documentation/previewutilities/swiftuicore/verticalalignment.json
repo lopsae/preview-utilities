@@ -84,7 +84,9 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithDefault",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal",
         "doc:\/\/PreviewUtilities\/s8CopyableP",
-        "doc:\/\/PreviewUtilities\/s9EscapableP"
+        "doc:\/\/PreviewUtilities\/s9EscapableP",
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP"
       ],
       "kind" : "relationships",
       "title" : "Conforms To",
@@ -271,9 +273,19 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/verticalalignment\/alignmentwithorthogonal-implementations"
 },
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
 "doc://PreviewUtilities/s8CopyableP": {
   "identifier" : "doc:\/\/PreviewUtilities\/s8CopyableP",
   "title" : "Swift.Copyable",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
   "type" : "unresolvable"
 },
 "doc://PreviewUtilities/s9EscapableP": {

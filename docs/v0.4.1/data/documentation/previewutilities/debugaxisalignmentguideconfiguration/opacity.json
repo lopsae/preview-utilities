@@ -1,15 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Inherited from ",
-      "type" : "text"
-    },
-    {
-      "code" : "DebugAxisAlignmentGuideConfigurationProtocol.opacity",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ".",
+      "text" : "The opacity of the alignment marker.",
       "type" : "text"
     }
   ],
@@ -137,7 +129,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration": {
   "abstract" : [
-
+    {
+      "text" : "Concrete implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -168,7 +171,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration/opacity": {
   "abstract" : [
-
+    {
+      "text" : "The opacity of the alignment marker.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

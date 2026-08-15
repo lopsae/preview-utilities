@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representations of a view’s alignment guides.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -83,6 +89,145 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Displays in an overlay a visual representation of a view’s alignment guides. The alignment",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "markers added by this modifier are layered in an overlay of the owner view, the original layout",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "is never modified.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Apply this modifier using ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ":",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "Text(\"Sphinx of Black Quartz\\nJudge my Vow\")",
+            ".font(.title)",
+            ".debugAlignmentGuide(.leadingLastTextBaseline)"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "debug-alignment-guide-default",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "anchor" : "Traits-and-Configuration",
+          "level" : 3,
+          "text" : "Traits and Configuration",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The overlay can be configured by passing ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+              "isActive" : true,
+              "overridingTitle" : "Trait",
+              "overridingTitleInlineContent" : [
+                {
+                  "code" : "Trait",
+                  "type" : "codeVoice"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : " instances to",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ":",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "Text(\"Lately I saw a house.\\nIt was burning.\")",
+            ".font(.title)",
+            ".multilineTextAlignment(.center)",
+            ".debugAlignmentGuide(.centerFirstTextBaseline,",
+            "    .style(.mint.secondary),        \/\/ Styles both markers to mint.",
+            "    .lineWidth(vertical: 8),        \/\/ Sets the vertical line width.",
+            "    .extendedLength(horizontal: 40) \/\/ Extends the horizontal marker by 40.",
+            ")"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "debug-alignment-guide-explained-traits",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "relationshipsSections" : [
@@ -105,6 +250,16 @@
   "sections" : [
 
   ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "Composite-Modifier",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration"
+      ],
+      "title" : "Composite Modifier"
+    }
+  ],
   "topicSections" : [
     {
       "anchor" : "Structures",
@@ -113,14 +268,6 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration"
       ],
       "title" : "Structures"
-    },
-    {
-      "anchor" : "Instance-Methods",
-      "generated" : true,
-      "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/body(content:)"
-      ],
-      "title" : "Instance Methods"
     },
     {
       "anchor" : "Type-Aliases",
@@ -145,6 +292,48 @@
   ]
 , 
 "references": {
+"debug-alignment-guide-default": {
+  "alt" : "Text displaying a leading last text baseline alignment guide with the default configuration.",
+  "identifier" : "debug-alignment-guide-default",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-alignment-guide-default@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-alignment-guide-default~dark@3x.png"
+    }
+  ]
+},
+"debug-alignment-guide-explained-traits": {
+  "alt" : "Text displaying a center first text baseline alignment guide using example traits.",
+  "identifier" : "debug-alignment-guide-explained-traits",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-alignment-guide-explained-traits@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-alignment-guide-explained-traits~dark@3x.png"
+    }
+  ]
+},
 "doc://PreviewUtilities/7SwiftUI12ViewModifierP": {
   "identifier" : "doc:\/\/PreviewUtilities\/7SwiftUI12ViewModifierP",
   "title" : "SwiftUICore.ViewModifier",
@@ -166,7 +355,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
   "abstract" : [
-
+    {
+      "text" : "Overlays a visual representations of a view’s alignment guides.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -197,7 +389,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Configuration": {
   "abstract" : [
-
+    {
+      "text" : "Configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -228,7 +431,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Trait": {
   "abstract" : [
-
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -257,10 +471,53 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/trait"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/body(content:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(_:_:)": {
   "abstract" : [
-
+    {
+      "text" : "Layers in front of this view a visual representation of the given alignment guide,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "customized with the given traits.",
+      "type" : "text"
+    }
   ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
   "fragments" : [
     {
       "kind" : "keyword",
@@ -272,19 +529,20 @@
     },
     {
       "kind" : "identifier",
-      "text" : "body"
+      "text" : "debugAlignmentGuide"
     },
     {
       "kind" : "text",
       "text" : "("
     },
     {
-      "kind" : "externalParam",
-      "text" : "content"
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI9AlignmentV",
+      "text" : "Alignment"
     },
     {
       "kind" : "text",
-      "text" : ": "
+      "text" : ", "
     },
     {
       "kind" : "typeIdentifier",
@@ -297,11 +555,12 @@
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Content"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     },
     {
       "kind" : "text",
-      "text" : ") -> "
+      "text" : "...) -> "
     },
     {
       "kind" : "keyword",
@@ -317,12 +576,12 @@
       "text" : "View"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/body(content:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "body(content:)",
+  "title" : "debugAlignmentGuide(_:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/body(content:)"
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(_:_:)"
 },
 "doc://PreviewUtilities/s16SendableMetatypeP": {
   "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",

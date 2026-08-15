@@ -347,15 +347,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait": {
   "abstract" : [
     {
-      "text" : "Customizations that can be applied to the ",
-      "type" : "text"
-    },
-    {
-      "code" : "Configuration",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " of a ",
+      "text" : "Customizations that can be applied to the configuration of a ",
       "type" : "text"
     },
     {
@@ -397,7 +389,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view a debug overlay configured using the given traits.",
+      "text" : "Layers in front of this view a debug overlay customized with the given traits.",
       "type" : "text"
     }
   ],

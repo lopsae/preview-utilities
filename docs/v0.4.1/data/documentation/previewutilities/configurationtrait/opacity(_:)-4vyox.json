@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "Sets the opacity of the modifier contents.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -204,6 +210,33 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "A value between 0 (fully transparent) and 1 (fully",
+                  "type" : "text"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "text" : "opaque).",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "opacity"
+        }
+      ]
     }
   ],
   "schemaVersion" : {
@@ -213,6 +246,17 @@
   },
   "sections" : [
 
+  ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "Visibility-Traits",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/hidden-eo3z",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/visible(_:)-7dh6x"
+      ],
+      "title" : "Visibility Traits"
+    }
   ],
   "variants" : [
     {
@@ -284,9 +328,101 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/configurationtrait"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/hidden-eo3z": {
+  "abstract" : [
+    {
+      "text" : "Hides the entire contents of the modifier.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "hidden"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
+      "text" : "ConfigurationTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Configuration"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/hidden-eo3z",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "hidden",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/hidden-eo3z"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/opacity(_:)-4vyox": {
   "abstract" : [
-
+    {
+      "text" : "Sets the opacity of the modifier contents.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -378,6 +514,104 @@
   "title" : "opacity(_:)",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/configurationtrait\/opacity(_:)-4vyox"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/visible(_:)-7dh6x": {
+  "abstract" : [
+    {
+      "text" : "Sets the visibility of the modifier contents.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "visible"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
+      "text" : "ConfigurationTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Configuration"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/visible(_:)-7dh6x",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "visible(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/visible(_:)-7dh6x"
 }
 }
 }

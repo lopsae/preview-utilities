@@ -1,4 +1,18 @@
 {
+  "abstract" : [
+    {
+      "text" : "Concrete implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -140,6 +154,56 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Implementation of ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " used as configuration for",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ". A new instance contains the default configuration for the",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "modifier.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "relationshipsSections" : [
@@ -165,6 +229,19 @@
   },
   "sections" : [
 
+  ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "Single-Axis-Modifier",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugVerticalAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugHorizontalAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol"
+      ],
+      "title" : "Single Axis Modifier"
+    }
   ],
   "topicSections" : [
     {
@@ -328,15 +405,6 @@
       "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:16PreviewUtilities23AlignmentWithOrthogonalP",
       "text" : "AlignmentWithOrthogonal"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:s8SendableP",
-      "text" : "Sendable"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal\/OrthogonalAlignment",
@@ -349,7 +417,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration": {
   "abstract" : [
-
+    {
+      "text" : "Concrete implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -380,7 +459,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration/AnchorAlignment": {
   "abstract" : [
-
+    {
+      "text" : "The alignment type to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -411,7 +493,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration/anchor": {
   "abstract" : [
-
+    {
+      "text" : "The alignment to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -485,7 +570,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration/length": {
   "abstract" : [
-
+    {
+      "text" : "The length customization applied to the alignment marker.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -519,7 +607,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration/lineWidth": {
   "abstract" : [
-
+    {
+      "text" : "The line width of the alignment marker line.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -553,7 +644,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration/opacity": {
   "abstract" : [
-
+    {
+      "text" : "The opacity of the alignment marker.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -587,7 +681,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration/shapeStyle": {
   "abstract" : [
-
+    {
+      "text" : "The shape style of the alignment marker line.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -660,6 +757,140 @@
   "title" : "DebugAxisAlignmentGuideConfigurationProtocol",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representations of a view’s horizontal or vertical alignment guide.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugHorizontalAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Convenience alias of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " for ",
+      "type" : "text"
+    },
+    {
+      "code" : "HorizontalAlignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugHorizontalAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugHorizontalAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugHorizontalAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugHorizontalAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debughorizontalalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugVerticalAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Convenience alias of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " for ",
+      "type" : "text"
+    },
+    {
+      "code" : "VerticalAlignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugVerticalAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugVerticalAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugVerticalAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugVerticalAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugverticalalignmentguidemodifier"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/TraitConfigurable": {
   "abstract" : [

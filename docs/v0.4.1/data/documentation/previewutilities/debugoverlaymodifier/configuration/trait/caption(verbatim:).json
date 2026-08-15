@@ -381,15 +381,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait": {
   "abstract" : [
     {
-      "text" : "Customizations that can be applied to the ",
-      "type" : "text"
-    },
-    {
-      "code" : "Configuration",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " of a ",
+      "text" : "Customizations that can be applied to the configuration of a ",
       "type" : "text"
     },
     {

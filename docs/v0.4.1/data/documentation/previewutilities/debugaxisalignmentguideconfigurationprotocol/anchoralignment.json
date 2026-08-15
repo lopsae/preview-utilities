@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The alignment type to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -85,6 +91,65 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "When the size of the alignment marker is customized through ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol\/length",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ", the marker itself",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "can be aligned to this anchor alignment of the owner view.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The anchor alignment is expected to be the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal\/OrthogonalAlignment",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "the alignment type being visualized.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -157,6 +222,52 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/alignmentwithdefault"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/AlignmentWithOrthogonal/OrthogonalAlignment": {
+  "abstract" : [
+    {
+      "text" : "Orthogonal alignment to ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "associatedtype"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "OrthogonalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : " : "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities23AlignmentWithOrthogonalP",
+      "text" : "AlignmentWithOrthogonal"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal\/OrthogonalAlignment",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "OrthogonalAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/alignmentwithorthogonal\/orthogonalalignment"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol": {
   "abstract" : [
     {
@@ -201,7 +312,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/AnchorAlignment": {
   "abstract" : [
-
+    {
+      "text" : "The alignment type to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -233,6 +347,44 @@
   "title" : "AnchorAlignment",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol\/anchoralignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/length": {
+  "abstract" : [
+    {
+      "text" : "The length customization applied to the alignment marker.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "length"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities37DebugAxisAlignmentConfigurationLengthO",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol\/length",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "length",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol\/length"
 }
 }
 }

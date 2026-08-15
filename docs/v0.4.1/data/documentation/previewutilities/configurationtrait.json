@@ -292,9 +292,9 @@
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/anchor(_:)-6y6f9",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/anchor(_:)-8mnz7",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendLength(_:)-6vn76",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendLength(_:)-u9fu",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendLength(horizontal:vertical:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendedLength(_:)-26msx",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendedLength(_:)-2mg3d",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendedLength(horizontal:vertical:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/fixedLength(_:)-11e3v",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/fixedLength(_:)-3dgru",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/fixedLength(horizontal:vertical:)",
@@ -308,9 +308,9 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/opacity(_:)-4vyox",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/opacity(_:)-om3b",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/outset(_:spacing:count:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaleLength(_:)-3142g",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaleLength(_:)-4llr3",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaleLength(horizontal:vertical:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaledLength(_:)-3a2qe",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaledLength(_:)-7shj5",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaledLength(horizontal:vertical:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/straddle(_:spacing:count:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(_:)-4mxzn",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(_:)-8p1kx",
@@ -448,7 +448,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/anchor(_:)-6y6f9": {
   "abstract" : [
-
+    {
+      "text" : "Anchors the alignment markers to the given alignment.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -518,20 +521,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/anchor(_:)-6y6f9",
@@ -543,7 +543,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/anchor(_:)-8mnz7": {
   "abstract" : [
-
+    {
+      "text" : "Anchors the alignment marker to the given orthogonal alignment.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -710,7 +713,30 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/containerLength-589pa": {
   "abstract" : [
-
+    {
+      "text" : "Sets the marker length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/container",
+      "isActive" : true,
+      "overridingTitle" : "container",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "container",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -796,7 +822,30 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/containerLength-9z2fj": {
   "abstract" : [
-
+    {
+      "text" : "Sets both markers length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/container",
+      "isActive" : true,
+      "overridingTitle" : "container",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "container",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -857,15 +906,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
       "text" : "DebugAlignmentGuideModifier"
     },
@@ -875,12 +915,8 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/containerLength-9z2fj",
@@ -890,9 +926,32 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/configurationtrait\/containerlength-9z2fj"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/extendLength(_:)-6vn76": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/extendedLength(_:)-26msx": {
   "abstract" : [
-
+    {
+      "text" : "Sets both markers length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/extended(_:)",
+      "isActive" : true,
+      "overridingTitle" : "extended",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "extended",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : " by the given values.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -945,7 +1004,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : "extendLength"
+      "text" : "extendedLength"
     },
     {
       "kind" : "text",
@@ -962,32 +1021,52 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendLength(_:)-6vn76",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendedLength(_:)-26msx",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "extendLength(_:)",
+  "title" : "extendedLength(_:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/configurationtrait\/extendlength(_:)-6vn76"
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/extendedlength(_:)-26msx"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/extendLength(_:)-u9fu": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/extendedLength(_:)-2mg3d": {
   "abstract" : [
-
+    {
+      "text" : "Sets the marker length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/extended(_:)",
+      "isActive" : true,
+      "overridingTitle" : "extended",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "extended",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : " by the given value.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1040,7 +1119,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : "extendLength"
+      "text" : "extendedLength"
     },
     {
       "kind" : "text",
@@ -1073,16 +1152,39 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendLength(_:)-u9fu",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendedLength(_:)-2mg3d",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "extendLength(_:)",
+  "title" : "extendedLength(_:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/configurationtrait\/extendlength(_:)-u9fu"
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/extendedlength(_:)-2mg3d"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/extendLength(horizontal:vertical:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/extendedLength(horizontal:vertical:)": {
   "abstract" : [
-
+    {
+      "text" : "Sets each marker length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/extended(_:)",
+      "isActive" : true,
+      "overridingTitle" : "extended",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "extended",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : " by the given value.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1135,7 +1237,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : "extendLength"
+      "text" : "extendedLength"
     },
     {
       "kind" : "text",
@@ -1177,32 +1279,52 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendLength(horizontal:vertical:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/extendedLength(horizontal:vertical:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "extendLength(horizontal:vertical:)",
+  "title" : "extendedLength(horizontal:vertical:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/configurationtrait\/extendlength(horizontal:vertical:)"
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/extendedlength(horizontal:vertical:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/fixedLength(_:)-11e3v": {
   "abstract" : [
-
+    {
+      "text" : "Sets the marker length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/fixed(_:)",
+      "isActive" : true,
+      "overridingTitle" : "fixed",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "fixed",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : " to the given value.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1297,7 +1419,30 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/fixedLength(_:)-3dgru": {
   "abstract" : [
-
+    {
+      "text" : "Sets both markers length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/fixed(_:)",
+      "isActive" : true,
+      "overridingTitle" : "fixed",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "fixed",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : " to the given value.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1367,20 +1512,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/fixedLength(_:)-3dgru",
@@ -1392,7 +1534,30 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/fixedLength(horizontal:vertical:)": {
   "abstract" : [
-
+    {
+      "text" : "Sets each marker length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/fixed(_:)",
+      "isActive" : true,
+      "overridingTitle" : "fixed",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "fixed",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : " to the given values.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1487,20 +1652,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/fixedLength(horizontal:vertical:)",
@@ -1512,7 +1674,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/hidden-5k6lf": {
   "abstract" : [
-
+    {
+      "text" : "Hides the entire contents of the modifier.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1573,15 +1738,6 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
       "text" : "DebugAlignmentGuideModifier"
     },
@@ -1591,12 +1747,8 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/hidden-5k6lf",
@@ -1608,7 +1760,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/hidden-eo3z": {
   "abstract" : [
-
+    {
+      "text" : "Hides the entire contents of the modifier.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1832,7 +1987,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/length(_:)-3ghqw": {
   "abstract" : [
-
+    {
+      "text" : "Sets the length option for both alignment markers.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -1902,20 +2060,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/length(_:)-3ghqw",
@@ -1927,7 +2082,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/length(_:)-76htd": {
   "abstract" : [
-
+    {
+      "text" : "Sets the length option for the alignment marker.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2022,7 +2180,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/length(horizontal:vertical:)": {
   "abstract" : [
-
+    {
+      "text" : "Sets the length option for each alignment marker.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2117,20 +2278,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/length(horizontal:vertical:)",
@@ -2142,7 +2300,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/lineWidth(_:)-3h06t": {
   "abstract" : [
-
+    {
+      "text" : "Sets the width of the stroke of the alignment marker.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2237,7 +2398,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/lineWidth(_:)-5lily": {
   "abstract" : [
-
+    {
+      "text" : "Sets the width of the stroke of both alignment markers.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2307,20 +2471,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/lineWidth(_:)-5lily",
@@ -2332,7 +2493,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/lineWidth(horizontal:vertical:)": {
   "abstract" : [
-
+    {
+      "text" : "Sets the width of the stroke of each alignment marker.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2427,20 +2591,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/lineWidth(horizontal:vertical:)",
@@ -2558,7 +2719,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/opacity(_:)-4vyox": {
   "abstract" : [
-
+    {
+      "text" : "Sets the opacity of the modifier contents.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2653,7 +2817,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/opacity(_:)-om3b": {
   "abstract" : [
-
+    {
+      "text" : "Sets the opacity of the modifier contents.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -2723,20 +2890,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/opacity(_:)-om3b",
@@ -2884,104 +3048,32 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/configurationtrait\/outset(_:spacing:count:)"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/scaleLength(_:)-3142g": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/scaledLength(_:)-3a2qe": {
   "abstract" : [
-
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Configuration",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "DebugAlignmentGuideModifier.Configuration",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
     {
-      "kind" : "keyword",
-      "text" : "static"
+      "text" : "Sets the marker length option to",
+      "type" : "text"
     },
     {
-      "kind" : "text",
-      "text" : " "
+      "text" : " ",
+      "type" : "text"
     },
     {
-      "kind" : "keyword",
-      "text" : "func"
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/scaled(_:)",
+      "isActive" : true,
+      "overridingTitle" : "scaled",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "scaled",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
     },
     {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "scaleLength"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ") -> "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "text" : " by the given value.",
+      "type" : "text"
     }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaleLength(_:)-3142g",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "scaleLength(_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/configurationtrait\/scalelength(_:)-3142g"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/scaleLength(_:)-4llr3": {
-  "abstract" : [
-
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -3034,7 +3126,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : "scaleLength"
+      "text" : "scaledLength"
     },
     {
       "kind" : "text",
@@ -3067,16 +3159,39 @@
       "text" : ">"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaleLength(_:)-4llr3",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaledLength(_:)-3a2qe",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "scaleLength(_:)",
+  "title" : "scaledLength(_:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/configurationtrait\/scalelength(_:)-4llr3"
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/scaledlength(_:)-3a2qe"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/scaleLength(horizontal:vertical:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/scaledLength(_:)-7shj5": {
   "abstract" : [
-
+    {
+      "text" : "Sets both markers length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/scaled(_:)",
+      "isActive" : true,
+      "overridingTitle" : "scaled",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "scaled",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : " by the given values.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -3129,7 +3244,122 @@
     },
     {
       "kind" : "identifier",
-      "text" : "scaleLength"
+      "text" : "scaledLength"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaledLength(_:)-7shj5",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "scaledLength(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/scaledlength(_:)-7shj5"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/scaledLength(horizontal:vertical:)": {
+  "abstract" : [
+    {
+      "text" : "Sets each marker length option to",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/scaled(_:)",
+      "isActive" : true,
+      "overridingTitle" : "scaled",
+      "overridingTitleInlineContent" : [
+        {
+          "code" : "scaled",
+          "type" : "codeVoice"
+        }
+      ],
+      "type" : "reference"
+    },
+    {
+      "text" : " by the given value.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAlignmentGuideModifier.Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "scaledLength"
     },
     {
       "kind" : "text",
@@ -3171,28 +3401,25 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaleLength(horizontal:vertical:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/scaledLength(horizontal:vertical:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "scaleLength(horizontal:vertical:)",
+  "title" : "scaledLength(horizontal:vertical:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/configurationtrait\/scalelength(horizontal:vertical:)"
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/scaledlength(horizontal:vertical:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/straddle(_:spacing:count:)": {
   "abstract" : [
@@ -3334,7 +3561,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(_:)-4mxzn": {
   "abstract" : [
-
+    {
+      "text" : "Styles the alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -3437,7 +3675,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(_:)-8p1kx": {
   "abstract" : [
-
+    {
+      "text" : "Styles both alignment markers with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -3515,20 +3764,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(_:)-8p1kx",
@@ -3540,7 +3786,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(horizontal:)": {
   "abstract" : [
-
+    {
+      "text" : "Styles the horizontal alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -3626,20 +3883,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(horizontal:)",
@@ -3651,7 +3905,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(horizontal:vertical:)": {
   "abstract" : [
-
+    {
+      "text" : "Styles each alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -3762,20 +4027,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(horizontal:vertical:)",
@@ -3787,7 +4049,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(vertical:)": {
   "abstract" : [
-
+    {
+      "text" : "Styles the vertical alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -3873,20 +4146,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(vertical:)",
@@ -3947,7 +4217,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/visible(_:)-7dh6x": {
   "abstract" : [
-
+    {
+      "text" : "Sets the visibility of the modifier contents.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -4042,7 +4315,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/visible(_:)-8x2dh": {
   "abstract" : [
-
+    {
+      "text" : "Sets the visibility of the modifier contents.",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -4112,20 +4388,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/visible(_:)-8x2dh",
@@ -4134,6 +4407,181 @@
   "title" : "visible(_:)",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/configurationtrait\/visible(_:)-8x2dh"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength/container": {
+  "abstract" : [
+    {
+      "text" : "The alignment guide marker occupies the length of the owner view, along the alignment",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "orthogonal axis.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "container"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/container",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentConfigurationLength.container",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentconfigurationlength\/container"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength/extended(_:)": {
+  "abstract" : [
+    {
+      "text" : "The alignment guide marker occupies the length of the owner view plus the given value,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "along the alignment orthogonal axis.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "extended"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/extended(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentConfigurationLength.extended(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentconfigurationlength\/extended(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength/fixed(_:)": {
+  "abstract" : [
+    {
+      "text" : "The alignment guide marker occupies a fixed length along the alignment orthogonal axis.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "fixed"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/fixed(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentConfigurationLength.fixed(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentconfigurationlength\/fixed(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength/scaled(_:)": {
+  "abstract" : [
+    {
+      "text" : "The alignment guide marker occupies the length of the owner view multiplied by the given",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "factor, along the alignment orthogonal axis.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "scaled"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength\/scaled(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentConfigurationLength.scaled(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentconfigurationlength\/scaled(_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/TraitConfigurable": {
   "abstract" : [

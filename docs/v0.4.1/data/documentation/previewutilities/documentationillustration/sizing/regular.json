@@ -168,7 +168,23 @@
               "type" : "codeVoice"
             },
             {
-              "text" : ") and an aspect ration of ",
+              "text" : ") and a height of ",
+              "type" : "text"
+            },
+            {
+              "code" : "160",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ", for an",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "aspect ration of ",
               "type" : "text"
             },
             {

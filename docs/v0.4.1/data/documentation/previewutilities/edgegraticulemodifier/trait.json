@@ -772,7 +772,15 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/EdgeGraticuleModifier/Configuration": {
   "abstract" : [
     {
-      "text" : "Configuration for an edge graticule modifier.",
+      "text" : "Configuration of an ",
+      "type" : "text"
+    },
+    {
+      "code" : "EdgeGraticuleModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],

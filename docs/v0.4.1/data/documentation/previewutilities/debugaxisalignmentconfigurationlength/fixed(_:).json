@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The alignment guide marker occupies a fixed length along the alignment orthogonal axis.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -131,7 +137,30 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength": {
   "abstract" : [
-
+    {
+      "text" : "Customization options for the length of the alignment markers of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -162,7 +191,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength/fixed(_:)": {
   "abstract" : [
-
+    {
+      "text" : "The alignment guide marker occupies a fixed length along the alignment orthogonal axis.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

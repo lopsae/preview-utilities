@@ -144,6 +144,7 @@
       "generated" : true,
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-alignment-guide-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
@@ -183,6 +184,27 @@
   ]
 , 
 "references": {
+"cards-debug-alignment-guide.png": {
+  "alt" : null,
+  "identifier" : "cards-debug-alignment-guide.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-debug-alignment-guide@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-debug-alignment-guide~dark@3x.png"
+    }
+  ]
+},
 "cards-floating-caption.png": {
   "alt" : null,
   "identifier" : "cards-floating-caption.png",
@@ -560,10 +582,30 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/floatingcaption(_:traits:)"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/debug-alignment-guide-api": {
+  "abstract" : [
+    {
+      "text" : "Visualize the alignment guides of a view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-alignment-guide-api",
+  "images" : [
+    {
+      "identifier" : "cards-debug-alignment-guide.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Debug Alignment Guide",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debug-alignment-guide-api"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api": {
   "abstract" : [
     {
-      "text" : "Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.",
+      "text" : "Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.",
       "type" : "text"
     }
   ],
@@ -583,11 +625,17 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/edge-graticule-api": {
   "abstract" : [
     {
-      "text" : "Overlay a graticule based on the edges of the owner view, without impacting its layout.",
+      "text" : "Overlay a graticule based on the edges of a view, without impacting its layout.",
       "type" : "text"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
+  "images" : [
+    {
+      "identifier" : "edge-graticule-card.png",
+      "type" : "card"
+    }
+  ],
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Edge Graticule",
@@ -641,6 +689,27 @@
   "title" : "Format Styles",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/format-styles-api"
+},
+"edge-graticule-card.png": {
+  "alt" : null,
+  "identifier" : "edge-graticule-card.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-card@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-card~dark@3x.png"
+    }
+  ]
 },
 "floating-alignment-card.png": {
   "alt" : null,

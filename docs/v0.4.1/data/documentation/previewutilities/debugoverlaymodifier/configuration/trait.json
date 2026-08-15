@@ -1,15 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Customizations that can be applied to the ",
-      "type" : "text"
-    },
-    {
-      "code" : "Configuration",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " of a ",
+      "text" : "Customizations that can be applied to the configuration of a ",
       "type" : "text"
     },
     {
@@ -116,16 +108,16 @@
               "type" : "reference"
             },
             {
-              "text" : " and ",
+              "text" : " or any ",
               "type" : "text"
             },
             {
               "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api#View-Extensions",
               "isActive" : true,
-              "overridingTitle" : "sibling functions",
+              "overridingTitle" : "sibling function",
               "overridingTitleInlineContent" : [
                 {
-                  "text" : "sibling functions",
+                  "text" : "sibling function",
                   "type" : "text"
                 }
               ],
@@ -386,15 +378,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait": {
   "abstract" : [
     {
-      "text" : "Customizations that can be applied to the ",
-      "type" : "text"
-    },
-    {
-      "code" : "Configuration",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " of a ",
+      "text" : "Customizations that can be applied to the configuration of a ",
       "type" : "text"
     },
     {
@@ -866,7 +850,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/height": {
   "abstract" : [
     {
-      "text" : "Prints the height of the parent view in the debug caption.",
+      "text" : "Prints the height of the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -1330,7 +1314,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/origin": {
   "abstract" : [
     {
-      "text" : "Prints the global origin coordinate of the parent view in the debug caption.",
+      "text" : "Prints the global origin coordinate of the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -1537,7 +1521,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/safeAreaInsets": {
   "abstract" : [
     {
-      "text" : "Prints the safe area insets applied to the parent view in the debug caption.",
+      "text" : "Prints the safe area insets applied to the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -1600,7 +1584,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/size": {
   "abstract" : [
     {
-      "text" : "Prints the width and height of the parent view in the debug caption.",
+      "text" : "Prints the width and height of the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -1794,7 +1778,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait/width": {
   "abstract" : [
     {
-      "text" : "Prints the width of the parent view in the debug caption.",
+      "text" : "Prints the width of the owner view in the debug caption.",
       "type" : "text"
     }
   ],
@@ -1857,7 +1841,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view a debug overlay configured using the given traits.",
+      "text" : "Layers in front of this view a debug overlay customized with the given traits.",
       "type" : "text"
     }
   ],

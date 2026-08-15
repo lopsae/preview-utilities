@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The opacity of the alignment marker.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -186,7 +192,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/opacity": {
   "abstract" : [
-
+    {
+      "text" : "The opacity of the alignment marker.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

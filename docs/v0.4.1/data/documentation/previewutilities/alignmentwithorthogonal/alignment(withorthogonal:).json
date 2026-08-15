@@ -196,7 +196,7 @@
               "type" : "codeVoice"
             },
             {
-              "text" : " using ",
+              "text" : " composed of ",
               "type" : "text"
             },
             {
@@ -320,15 +320,6 @@
       "kind" : "typeIdentifier",
       "preciseIdentifier" : "s:16PreviewUtilities23AlignmentWithOrthogonalP",
       "text" : "AlignmentWithOrthogonal"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:s8SendableP",
-      "text" : "Sendable"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal\/OrthogonalAlignment",

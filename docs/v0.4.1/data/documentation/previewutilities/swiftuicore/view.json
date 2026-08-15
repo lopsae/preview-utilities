@@ -102,13 +102,9 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(horizontal:_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(vertical:_:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay()",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay(_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay(traits:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:outsetSpacing:_:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:through:_:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(outsetSpacing:through:_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(spacing:_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/floatingCaption(_:_:)",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/floatingCaption(_:traits:)",
@@ -822,8 +818,51 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(_:_:)": {
   "abstract" : [
-
+    {
+      "text" : "Layers in front of this view a visual representation of the given alignment guide,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "customized with the given traits.",
+      "type" : "text"
+    }
   ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
   "fragments" : [
     {
       "kind" : "keyword",
@@ -891,162 +930,16 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(horizontal:_:)": {
   "abstract" : [
-
-  ],
-  "fragments" : [
     {
-      "kind" : "keyword",
-      "text" : "func"
+      "text" : "Layers in front of this view a visual representation of the given horizontal alignment",
+      "type" : "text"
     },
     {
-      "kind" : "text",
-      "text" : " "
+      "text" : " ",
+      "type" : "text"
     },
     {
-      "kind" : "identifier",
-      "text" : "debugAlignmentGuide"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "horizontal"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
-      "text" : "HorizontalAlignment"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities37DebugHorizontalAlignmentGuideModifiera",
-      "text" : "DebugHorizontalAlignmentGuideModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities31DebugAxisAlignmentGuideModifierV5Traita",
-      "text" : "Trait"
-    },
-    {
-      "kind" : "text",
-      "text" : "...) -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(horizontal:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "debugAlignmentGuide(horizontal:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(horizontal:_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(vertical:_:)": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "debugAlignmentGuide"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "vertical"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
-      "text" : "VerticalAlignment"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities35DebugVerticalAlignmentGuideModifiera",
-      "text" : "DebugVerticalAlignmentGuideModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities31DebugAxisAlignmentGuideModifierV5Traita",
-      "text" : "Trait"
-    },
-    {
-      "kind" : "text",
-      "text" : "...) -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(vertical:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "debugAlignmentGuide(vertical:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(vertical:_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()": {
-  "abstract" : [
-    {
-      "text" : "Layers in front of this view a debug overlay using the default configuration.",
+      "text" : "guide, customized with the given traits.",
       "type" : "text"
     }
   ],
@@ -1093,11 +986,46 @@
     },
     {
       "kind" : "identifier",
-      "text" : "debugOverlay"
+      "text" : "debugAlignmentGuide"
     },
     {
       "kind" : "text",
-      "text" : "() -> "
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "horizontal"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+      "text" : "HorizontalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities37DebugHorizontalAlignmentGuideModifiera",
+      "text" : "DebugHorizontalAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities31DebugAxisAlignmentGuideModifierV13ConcreteTraita",
+      "text" : "ConcreteTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "...) -> "
     },
     {
       "kind" : "keyword",
@@ -1113,17 +1041,137 @@
       "text" : "View"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay()",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(horizontal:_:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "debugOverlay()",
+  "title" : "debugAlignmentGuide(horizontal:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugoverlay()"
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(horizontal:_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(vertical:_:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view a visual representation of the given vertical alignment",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "guide, customized with the given traits.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "debugAlignmentGuide"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "vertical"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
+      "text" : "VerticalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities35DebugVerticalAlignmentGuideModifiera",
+      "text" : "DebugVerticalAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities31DebugAxisAlignmentGuideModifierV13ConcreteTraita",
+      "text" : "ConcreteTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "...) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(vertical:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "debugAlignmentGuide(vertical:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(vertical:_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view a debug overlay configured using the given traits.",
+      "text" : "Layers in front of this view a debug overlay customized with the given traits.",
       "type" : "text"
     }
   ],
@@ -1227,7 +1275,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(traits:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view a debug overlay configured using the given traits.",
+      "text" : "Layers in front of this view a debug overlay customized with the given traits.",
       "type" : "text"
     }
   ],
@@ -1336,10 +1384,10 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugoverlay(traits:)"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(insetSpacing:outsetSpacing:_:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view an edge graticule with the given inset and outset spacing for",
+      "text" : "Layers in front of this view an edge graticule with the given inset and outset spacing and",
       "type" : "text"
     },
     {
@@ -1347,7 +1395,7 @@
       "type" : "text"
     },
     {
-      "text" : "all corresponding line sets.",
+      "text" : "counts for all line sets.",
       "type" : "text"
     }
   ],
@@ -1415,7 +1463,24 @@
     },
     {
       "kind" : "text",
-      "text" : ", "
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "insetCount"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
     },
     {
       "kind" : "externalParam",
@@ -1432,7 +1497,24 @@
     },
     {
       "kind" : "text",
-      "text" : ", "
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "outsetCount"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
     },
     {
       "kind" : "typeIdentifier",
@@ -1475,462 +1557,12 @@
       "text" : "View"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:outsetSpacing:_:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "edgeGraticule(insetSpacing:outsetSpacing:_:)",
+  "title" : "edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(insetspacing:outsetspacing:_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(insetSpacing:through:_:)": {
-  "abstract" : [
-    {
-      "text" : "Layers in front of this view an edge graticule with the given inset spacing and line set",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "count, and no outset line sets.",
-      "type" : "text"
-    }
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Self",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "View",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "edgeGraticule"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "insetSpacing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "through"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV",
-      "text" : "EdgeGraticuleModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">...) -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:through:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "edgeGraticule(insetSpacing:through:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(insetspacing:through:_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)": {
-  "abstract" : [
-
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Self",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "View",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "edgeGraticule"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "insetSpacing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "through"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "outsetSpacing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "through"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV",
-      "text" : "EdgeGraticuleModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">...) -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(insetspacing:through:outsetspacing:through:_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(outsetSpacing:through:_:)": {
-  "abstract" : [
-
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Self",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "View",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "edgeGraticule"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "outsetSpacing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "through"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV",
-      "text" : "EdgeGraticuleModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">...) -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(outsetSpacing:through:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "edgeGraticule(outsetSpacing:through:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(outsetspacing:through:_:)"
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(insetspacing:insetcount:outsetspacing:outsetcount:_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(spacing:_:)": {
   "abstract" : [

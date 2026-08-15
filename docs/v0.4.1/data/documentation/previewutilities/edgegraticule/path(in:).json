@@ -179,7 +179,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/EdgeGraticule": {
   "abstract" : [
-
+    {
+      "text" : "Graticule based on the edge of the rect where the shape is drawn.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

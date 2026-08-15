@@ -1,7 +1,15 @@
 {
   "abstract" : [
     {
-      "text" : "Configuration for an edge graticule modifier.",
+      "text" : "Configuration of an ",
+      "type" : "text"
+    },
+    {
+      "code" : "EdgeGraticuleModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
@@ -90,6 +98,88 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Contains the configuration for all line sets composing the edge graticule.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Usually you don’t build this object directly, instead one is created and configured using",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/EdgeGraticuleModifier\/Trait",
+              "isActive" : true,
+              "overridingTitle" : "Trait",
+              "overridingTitleInlineContent" : [
+                {
+                  "code" : "Trait",
+                  "type" : "codeVoice"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : " instances passed to ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(spacing:_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "or other ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api#View-Extensions",
+              "isActive" : true,
+              "overridingTitle" : "sibling functions",
+              "overridingTitleInlineContent" : [
+                {
+                  "text" : "sibling functions",
+                  "type" : "text"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : ":",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "relationshipsSections" : [
@@ -187,7 +277,15 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/EdgeGraticuleModifier/Configuration": {
   "abstract" : [
     {
-      "text" : "Configuration for an edge graticule modifier.",
+      "text" : "Configuration of an ",
+      "type" : "text"
+    },
+    {
+      "code" : "EdgeGraticuleModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
@@ -217,6 +315,177 @@
   "title" : "EdgeGraticuleModifier.Configuration",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/edgegraticulemodifier\/configuration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/EdgeGraticuleModifier/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the ",
+      "type" : "text"
+    },
+    {
+      "code" : "Configuration",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "EdgeGraticuleModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/EdgeGraticuleModifier\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "EdgeGraticuleModifier.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/edgegraticulemodifier\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(spacing:_:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view an edge graticule with the given spacing for all line sets.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "edgeGraticule"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "spacing"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
+      "text" : "ConfigurationTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV",
+      "text" : "EdgeGraticuleModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV13ConfigurationV",
+      "text" : "Configuration"
+    },
+    {
+      "kind" : "text",
+      "text" : ">...) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(spacing:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "edgeGraticule(spacing:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(spacing:_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/TraitConfigurable": {
   "abstract" : [
@@ -259,6 +528,16 @@
   "title" : "TraitConfigurable",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/traitconfigurable"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/edge-graticule-api#View-Extensions": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api#View-Extensions",
+  "kind" : "section",
+  "title" : "View Extensions",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/edge-graticule-api#View-Extensions"
 },
 "doc://PreviewUtilities/s16SendableMetatypeP": {
   "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",

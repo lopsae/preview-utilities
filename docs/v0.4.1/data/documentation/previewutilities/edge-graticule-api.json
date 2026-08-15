@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Overlay a graticule based on the edges of the owner view, without impacting its layout.",
+      "text" : "Overlay a graticule based on the edges of a view, without impacting its layout.",
       "type" : "text"
     }
   ],
@@ -18,6 +18,12 @@
   },
   "kind" : "article",
   "metadata" : {
+    "images" : [
+      {
+        "identifier" : "edge-graticule-card.png",
+        "type" : "card"
+      }
+    ],
     "modules" : [
       {
         "name" : "PreviewUtilities"
@@ -85,8 +91,34 @@
               "type" : "text"
             },
             {
-              "text" : "edges of the owner view.",
+              "text" : "edges of the owner view. The graticule consist of sets of lines evenly spaced for each of the edges",
               "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "of the owner view, both inset and outset:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "edge-graticule-inset-components",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "edge-graticule-outset-components",
+              "type" : "image"
             }
           ],
           "type" : "paragraph"
@@ -126,18 +158,28 @@
         },
         {
           "code" : [
-            "Text(\"Sphinx\\nof Black\\nQuartz\")",
-            ".font(.title)",
+            "Capsule()",
+            ".fill(.cyan.gradient.secondary)",
+            ".frame(width: 200, height: 60)",
             ".edgeGraticule(",
-            "    spacing: 20,",
-            "    \/\/ modifies the spacing and count for bottom inset lines.",
-            "    .inset(.bottom, spacing: 15, count: 2),",
+            "    spacing: 16,",
+            "    \/\/ Modifies the spacing and count for bottom inset lines.",
+            "    .inset(.bottom, spacing: 8, count: 3),",
             "    \/\/ Modifies the count for horizontal outset lines.",
-            "    .outset(.horizontal, count: 3),",
+            "    .outset(.horizontal, count: 2)",
             ")"
           ],
           "syntax" : "swift",
           "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "edge-graticule-simple-traits",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
         }
       ],
       "kind" : "content"
@@ -157,6 +199,7 @@
       "generated" : true,
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-alignment-guide-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
@@ -177,10 +220,7 @@
       "anchor" : "View-Extensions",
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(spacing:_:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:through:_:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(outsetSpacing:through:_:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:outsetSpacing:_:)",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)"
       ],
       "title" : "View Extensions"
     },
@@ -216,6 +256,27 @@
   ]
 , 
 "references": {
+"cards-debug-alignment-guide.png": {
+  "alt" : null,
+  "identifier" : "cards-debug-alignment-guide.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-debug-alignment-guide@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-debug-alignment-guide~dark@3x.png"
+    }
+  ]
+},
 "cards-floating-caption.png": {
   "alt" : null,
   "identifier" : "cards-floating-caption.png",
@@ -709,7 +770,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/EdgeGraticule": {
   "abstract" : [
-
+    {
+      "text" : "Graticule based on the edge of the rect where the shape is drawn.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -775,7 +839,15 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/EdgeGraticuleModifier/Configuration": {
   "abstract" : [
     {
-      "text" : "Configuration for an edge graticule modifier.",
+      "text" : "Configuration of an ",
+      "type" : "text"
+    },
+    {
+      "code" : "EdgeGraticuleModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
@@ -856,10 +928,10 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/edgegraticulemodifier\/trait"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(insetSpacing:outsetSpacing:_:)": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view an edge graticule with the given inset and outset spacing for",
+      "text" : "Layers in front of this view an edge graticule with the given inset and outset spacing and",
       "type" : "text"
     },
     {
@@ -867,7 +939,7 @@
       "type" : "text"
     },
     {
-      "text" : "all corresponding line sets.",
+      "text" : "counts for all line sets.",
       "type" : "text"
     }
   ],
@@ -935,7 +1007,24 @@
     },
     {
       "kind" : "text",
-      "text" : ", "
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "insetCount"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
     },
     {
       "kind" : "externalParam",
@@ -952,7 +1041,24 @@
     },
     {
       "kind" : "text",
-      "text" : ", "
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "outsetCount"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Si",
+      "text" : "Int"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
     },
     {
       "kind" : "typeIdentifier",
@@ -995,462 +1101,12 @@
       "text" : "View"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:outsetSpacing:_:)",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "edgeGraticule(insetSpacing:outsetSpacing:_:)",
+  "title" : "edgeGraticule(insetSpacing:insetCount:outsetSpacing:outsetCount:_:)",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(insetspacing:outsetspacing:_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(insetSpacing:through:_:)": {
-  "abstract" : [
-    {
-      "text" : "Layers in front of this view an edge graticule with the given inset spacing and line set",
-      "type" : "text"
-    },
-    {
-      "text" : " ",
-      "type" : "text"
-    },
-    {
-      "text" : "count, and no outset line sets.",
-      "type" : "text"
-    }
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Self",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "View",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "edgeGraticule"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "insetSpacing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "through"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV",
-      "text" : "EdgeGraticuleModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">...) -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:through:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "edgeGraticule(insetSpacing:through:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(insetspacing:through:_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)": {
-  "abstract" : [
-
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Self",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "View",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "edgeGraticule"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "insetSpacing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "through"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "outsetSpacing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "through"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV",
-      "text" : "EdgeGraticuleModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">...) -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "edgeGraticule(insetSpacing:through:outsetSpacing:through:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(insetspacing:through:outsetspacing:through:_:)"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(outsetSpacing:through:_:)": {
-  "abstract" : [
-
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Self",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "View",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "edgeGraticule"
-    },
-    {
-      "kind" : "text",
-      "text" : "("
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "outsetSpacing"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
-      "text" : "CGFloat"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "externalParam",
-      "text" : "through"
-    },
-    {
-      "kind" : "text",
-      "text" : ": "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:Si",
-      "text" : "Int"
-    },
-    {
-      "kind" : "text",
-      "text" : ", "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
-    },
-    {
-      "kind" : "text",
-      "text" : "<"
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV",
-      "text" : "EdgeGraticuleModifier"
-    },
-    {
-      "kind" : "text",
-      "text" : "."
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities21EdgeGraticuleModifierV13ConfigurationV",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">...) -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(outsetSpacing:through:_:)",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "edgeGraticule(outsetSpacing:through:_:)",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(outsetspacing:through:_:)"
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(insetspacing:insetcount:outsetspacing:outsetcount:_:)"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/edgeGraticule(spacing:_:)": {
   "abstract" : [
@@ -1573,10 +1229,30 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/edgegraticule(spacing:_:)"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/debug-alignment-guide-api": {
+  "abstract" : [
+    {
+      "text" : "Visualize the alignment guides of a view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-alignment-guide-api",
+  "images" : [
+    {
+      "identifier" : "cards-debug-alignment-guide.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Debug Alignment Guide",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debug-alignment-guide-api"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api": {
   "abstract" : [
     {
-      "text" : "Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.",
+      "text" : "Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.",
       "type" : "text"
     }
   ],
@@ -1670,6 +1346,90 @@
   "title" : "Format Styles",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/format-styles-api"
+},
+"edge-graticule-card.png": {
+  "alt" : null,
+  "identifier" : "edge-graticule-card.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-card@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-card~dark@3x.png"
+    }
+  ]
+},
+"edge-graticule-inset-components": {
+  "alt" : "Inset components of the edge graticule.",
+  "identifier" : "edge-graticule-inset-components",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-inset-components@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-inset-components~dark@3x.png"
+    }
+  ]
+},
+"edge-graticule-outset-components": {
+  "alt" : "Outset components of the edge graticule.",
+  "identifier" : "edge-graticule-outset-components",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-outset-components@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-outset-components~dark@3x.png"
+    }
+  ]
+},
+"edge-graticule-simple-traits": {
+  "alt" : "Edge graticule overlaid on a capsule shape, showing a customized graticule built from trait examples.",
+  "identifier" : "edge-graticule-simple-traits",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-simple-traits@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-simple-traits~dark@3x.png"
+    }
+  ]
 },
 "floating-alignment-card.png": {
   "alt" : null,

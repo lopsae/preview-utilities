@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Layers in front of this view a debug overlay configured using the given traits.",
+      "text" : "Layers in front of this view a debug overlay customized with the given traits.",
       "type" : "text"
     }
   ],
@@ -241,7 +241,7 @@
             {
               "inlineContent" : [
                 {
-                  "text" : "The traits to modify the default configuration.",
+                  "text" : "The traits to customize the default configuration.",
                   "type" : "text"
                 }
               ],
@@ -292,7 +292,7 @@
               "type" : "reference"
             },
             {
-              "text" : " configured with the given ",
+              "text" : " customized with the given ",
               "type" : "text"
             },
             {
@@ -378,7 +378,6 @@
       "anchor" : "View-Extensions",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay()",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay(traits:)"
       ],
       "title" : "View Extensions"
@@ -512,15 +511,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait": {
   "abstract" : [
     {
-      "text" : "Customizations that can be applied to the ",
-      "type" : "text"
-    },
-    {
-      "code" : "Configuration",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " of a ",
+      "text" : "Customizations that can be applied to the configuration of a ",
       "type" : "text"
     },
     {
@@ -602,87 +593,10 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/swiftuicore\/view"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()": {
-  "abstract" : [
-    {
-      "text" : "Layers in front of this view a debug overlay using the default configuration.",
-      "type" : "text"
-    }
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Self",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "View",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "debugOverlay"
-    },
-    {
-      "kind" : "text",
-      "text" : "() -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay()",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "debugOverlay()",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugoverlay()"
-},
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view a debug overlay configured using the given traits.",
+      "text" : "Layers in front of this view a debug overlay customized with the given traits.",
       "type" : "text"
     }
   ],
@@ -786,7 +700,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(traits:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view a debug overlay configured using the given traits.",
+      "text" : "Layers in front of this view a debug overlay customized with the given traits.",
       "type" : "text"
     }
   ],

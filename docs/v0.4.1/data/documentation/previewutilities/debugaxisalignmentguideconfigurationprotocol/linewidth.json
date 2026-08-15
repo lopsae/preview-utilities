@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "The line width of the alignment marker line.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -186,7 +192,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/lineWidth": {
   "abstract" : [
-
+    {
+      "text" : "The line width of the alignment marker line.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

@@ -64,6 +64,7 @@
         {
           "items" : [
             "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+            "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-alignment-guide-api",
             "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
             "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
             "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
@@ -138,6 +139,7 @@
       "anchor" : "API-Collections",
       "identifiers" : [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-alignment-guide-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
@@ -157,7 +159,6 @@
       "anchor" : "Protocols",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IdentifiableCase",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SelfIdentifiable"
       ],
@@ -167,9 +168,6 @@
       "anchor" : "Structures",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DocumentationIllustration",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainer",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/HeaderFooterContainerOptions",
@@ -183,19 +181,9 @@
       "title" : "Structures"
     },
     {
-      "anchor" : "Type-Aliases",
-      "generated" : true,
-      "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugHorizontalAlignmentGuideModifier",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugVerticalAlignmentGuideModifier"
-      ],
-      "title" : "Type Aliases"
-    },
-    {
       "anchor" : "Enumerations",
       "generated" : true,
       "identifiers" : [
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Defaults",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PrettyMesh",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Strings"
@@ -230,6 +218,27 @@
   ]
 , 
 "references": {
+"cards-debug-alignment-guide.png": {
+  "alt" : null,
+  "identifier" : "cards-debug-alignment-guide.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-debug-alignment-guide@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-debug-alignment-guide~dark@3x.png"
+    }
+  ]
+},
 "cards-floating-caption.png": {
   "alt" : null,
   "identifier" : "cards-floating-caption.png",
@@ -624,234 +633,6 @@
   "title" : "DashedDivider",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/dasheddivider"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "DebugAlignmentGuideModifier"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "DebugAlignmentGuideModifier"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "DebugAlignmentGuideModifier",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "enum"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "DebugAxisAlignmentConfigurationLength"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "DebugAxisAlignmentConfigurationLength"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "DebugAxisAlignmentConfigurationLength",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugaxisalignmentconfigurationlength"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "DebugAxisAlignmentGuideConfiguration"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "DebugAxisAlignmentGuideConfiguration"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "DebugAxisAlignmentGuideConfiguration",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfiguration"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol": {
-  "abstract" : [
-    {
-      "text" : "Protocol for the configuration of a ",
-      "type" : "text"
-    },
-    {
-      "code" : "DebugAxisAlignmentGuideModifier",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : ".",
-      "type" : "text"
-    }
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "protocol"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "DebugAxisAlignmentGuideConfigurationProtocol"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "DebugAxisAlignmentGuideConfigurationProtocol"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "DebugAxisAlignmentGuideConfigurationProtocol",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "DebugAxisAlignmentGuideModifier"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "DebugAxisAlignmentGuideModifier"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "DebugAxisAlignmentGuideModifier",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguidemodifier"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugHorizontalAlignmentGuideModifier": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "typealias"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "DebugHorizontalAlignmentGuideModifier"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugHorizontalAlignmentGuideModifier",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "DebugHorizontalAlignmentGuideModifier"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "DebugHorizontalAlignmentGuideModifier",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debughorizontalalignmentguidemodifier"
-},
-"doc://PreviewUtilities/documentation/PreviewUtilities/DebugVerticalAlignmentGuideModifier": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "typealias"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "DebugVerticalAlignmentGuideModifier"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugVerticalAlignmentGuideModifier",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "DebugVerticalAlignmentGuideModifier"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "DebugVerticalAlignmentGuideModifier",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/debugverticalalignmentguidemodifier"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/Defaults": {
   "abstract" : [
@@ -2103,10 +1884,30 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/visiblespacer"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/debug-alignment-guide-api": {
+  "abstract" : [
+    {
+      "text" : "Visualize the alignment guides of a view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-alignment-guide-api",
+  "images" : [
+    {
+      "identifier" : "cards-debug-alignment-guide.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Debug Alignment Guide",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debug-alignment-guide-api"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api": {
   "abstract" : [
     {
-      "text" : "Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.",
+      "text" : "Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.",
       "type" : "text"
     }
   ],
@@ -2126,11 +1927,17 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/edge-graticule-api": {
   "abstract" : [
     {
-      "text" : "Overlay a graticule based on the edges of the owner view, without impacting its layout.",
+      "text" : "Overlay a graticule based on the edges of a view, without impacting its layout.",
       "type" : "text"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
+  "images" : [
+    {
+      "identifier" : "edge-graticule-card.png",
+      "type" : "card"
+    }
+  ],
   "kind" : "article",
   "role" : "collectionGroup",
   "title" : "Edge Graticule",
@@ -2204,6 +2011,27 @@
   "title" : "Format Styles",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/format-styles-api"
+},
+"edge-graticule-card.png": {
+  "alt" : null,
+  "identifier" : "edge-graticule-card.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-card@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-card~dark@3x.png"
+    }
+  ]
 },
 "floating-alignment-card.png": {
   "alt" : null,

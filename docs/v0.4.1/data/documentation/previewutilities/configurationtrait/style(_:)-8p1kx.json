@@ -1,4 +1,18 @@
 {
+  "abstract" : [
+    {
+      "text" : "Styles both alignment markers with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -91,20 +105,17 @@
       },
       {
         "kind" : "typeIdentifier",
-        "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-        "text" : "ConfigurationTrait"
+        "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+        "text" : "DebugAlignmentGuideModifier"
       },
       {
         "kind" : "text",
-        "text" : "<"
+        "text" : "."
       },
       {
         "kind" : "typeIdentifier",
-        "text" : "Configuration"
-      },
-      {
-        "kind" : "text",
-        "text" : ">"
+        "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+        "text" : "Trait"
       }
     ],
     "modules" : [
@@ -199,27 +210,44 @@
               "text" : ") -> "
             },
             {
-              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait",
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
               "kind" : "typeIdentifier",
-              "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-              "text" : "ConfigurationTrait"
+              "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+              "text" : "DebugAlignmentGuideModifier"
             },
             {
               "kind" : "text",
-              "text" : "<"
+              "text" : "."
             },
             {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
               "kind" : "typeIdentifier",
-              "text" : "Configuration"
-            },
-            {
-              "kind" : "text",
-              "text" : ">"
+              "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+              "text" : "Trait"
             }
           ]
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The shape style for the alignment marker strokes.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "style"
+        }
+      ]
     }
   ],
   "schemaVersion" : {
@@ -302,7 +330,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(_:)-8p1kx": {
   "abstract" : [
-
+    {
+      "text" : "Styles both alignment markers with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
   ],
   "conformance" : {
     "availabilityPrefix" : [
@@ -380,20 +419,17 @@
     },
     {
       "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
-      "text" : "ConfigurationTrait"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
     },
     {
       "kind" : "text",
-      "text" : "<"
+      "text" : "."
     },
     {
       "kind" : "typeIdentifier",
-      "text" : "Configuration"
-    },
-    {
-      "kind" : "text",
-      "text" : ">"
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
     }
   ],
   "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(_:)-8p1kx",
@@ -402,6 +438,82 @@
   "title" : "style(_:)",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/configurationtrait\/style(_:)-8p1kx"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representations of a view’s alignment guides.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/trait"
 }
 }
 }

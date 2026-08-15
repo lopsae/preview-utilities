@@ -117,16 +117,26 @@
               "type" : "text"
             },
             {
-              "text" : "outset. The number of lines and spacing can be configured for each edge, and for",
+              "text" : "outset:",
               "type" : "text"
-            },
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
             {
-              "text" : " ",
-              "type" : "text"
-            },
+              "identifier" : "edge-graticule-inset-components",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
             {
-              "text" : "each direction.",
-              "type" : "text"
+              "identifier" : "edge-graticule-outset-components",
+              "type" : "image"
             }
           ],
           "type" : "paragraph"
@@ -160,64 +170,11 @@
               "type" : "reference"
             },
             {
-              "text" : ":",
-              "type" : "text"
-            }
-          ],
-          "type" : "paragraph"
-        },
-        {
-          "code" : [
-            "Text(\"Sphinx\\nof Black\\nQuartz\")",
-            ".font(.title)",
-            ".edgeGraticule(spacing: 20)"
-          ],
-          "syntax" : "swift",
-          "type" : "codeListing"
-        },
-        {
-          "anchor" : "Traits-and-Configuration",
-          "level" : 3,
-          "text" : "Traits and Configuration",
-          "type" : "heading"
-        },
-        {
-          "inlineContent" : [
-            {
-              "text" : "The graticule can be configured by passing ",
-              "type" : "text"
-            },
-            {
-              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/EdgeGraticuleModifier\/Trait",
-              "isActive" : true,
-              "overridingTitle" : "Trait",
-              "overridingTitleInlineContent" : [
-                {
-                  "code" : "Trait",
-                  "type" : "codeVoice"
-                }
-              ],
-              "type" : "reference"
-            },
-            {
-              "text" : " instances",
+              "text" : " or any",
               "type" : "text"
             },
             {
               "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "to ",
-              "type" : "text"
-            },
-            {
-              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(spacing:_:)",
-              "isActive" : true,
-              "type" : "reference"
-            },
-            {
-              "text" : " or any ",
               "type" : "text"
             },
             {
@@ -233,7 +190,7 @@
               "type" : "reference"
             },
             {
-              "text" : ":.",
+              "text" : ":",
               "type" : "text"
             }
           ],
@@ -241,18 +198,115 @@
         },
         {
           "code" : [
-            "Text(\"Sphinx\\nof Black\\nQuartz\")",
-            ".font(.title)",
+            "Capsule()",
+            ".fill(.cyan.gradient.secondary)",
+            ".frame(width: 200, height: 60)",
+            ".edgeGraticule(spacing: 16)"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "edge-graticule-default",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "anchor" : "Traits-and-Configuration",
+          "level" : 3,
+          "text" : "Traits and Configuration",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The number of lines and spacing can be customized for each edge, and for",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "each direction, by passing ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/EdgeGraticuleModifier\/Trait",
+              "isActive" : true,
+              "overridingTitle" : "Trait",
+              "overridingTitleInlineContent" : [
+                {
+                  "code" : "Trait",
+                  "type" : "codeVoice"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : " instances to ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/edgeGraticule(spacing:_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "or any ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api#View-Extensions",
+              "isActive" : true,
+              "overridingTitle" : "sibling function",
+              "overridingTitleInlineContent" : [
+                {
+                  "text" : "sibling function",
+                  "type" : "text"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : ":",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "RoundedRectangle(cornerRadius: 16)",
+            ".fill(.teal.gradient.secondary)",
+            ".frame(width: 100, height: 100)",
             ".edgeGraticule(",
-            "    spacing: 20,",
-            "    \/\/ modifies the spacing and count for bottom inset lines.",
-            "    .inset(.bottom, spacing: 15, count: 2),",
-            "    \/\/ Modifies the count for horizontal outset lines.",
-            "    .outset(.horizontal, count: 3),",
+            "    spacing: 8,",
+            "    \/\/ Customize spacing for leading outset.",
+            "    .outset(.leading, spacing: 8*3),",
+            "    \/\/ Customize count for bottom inset.",
+            "    .inset(.bottom, count: 3)",
             ")"
           ],
           "syntax" : "swift",
           "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "edge-graticule-per-edge-traits",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
         }
       ],
       "kind" : "content"
@@ -376,7 +430,15 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/EdgeGraticuleModifier/Configuration": {
   "abstract" : [
     {
-      "text" : "Configuration for an edge graticule modifier.",
+      "text" : "Configuration of an ",
+      "type" : "text"
+    },
+    {
+      "code" : "EdgeGraticuleModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
       "type" : "text"
     }
   ],
@@ -597,6 +659,90 @@
   "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
   "title" : "Swift.Sendable",
   "type" : "unresolvable"
+},
+"edge-graticule-default": {
+  "alt" : "Edge graticule overlaid on a capsule shape, showing an inset and outset line sets of even spacing.",
+  "identifier" : "edge-graticule-default",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-default@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-default~dark@3x.png"
+    }
+  ]
+},
+"edge-graticule-inset-components": {
+  "alt" : "Inset components of the edge graticule.",
+  "identifier" : "edge-graticule-inset-components",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-inset-components@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-inset-components~dark@3x.png"
+    }
+  ]
+},
+"edge-graticule-outset-components": {
+  "alt" : "Outset components of the edge graticule.",
+  "identifier" : "edge-graticule-outset-components",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-outset-components@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-outset-components~dark@3x.png"
+    }
+  ]
+},
+"edge-graticule-per-edge-traits": {
+  "alt" : "Edge graticule overlaid on a rounded rectangle shape, showing a customized graticule with modified linesets.",
+  "identifier" : "edge-graticule-per-edge-traits",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-per-edge-traits@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-per-edge-traits~dark@3x.png"
+    }
+  ]
 }
 }
 }

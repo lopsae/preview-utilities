@@ -126,7 +126,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "All content added by this modifier is layered in an overlay of the parent view, the original",
+              "text" : "All content added by this modifier is layered in an overlay of the owner view, the original",
               "type" : "text"
             },
             {
@@ -147,7 +147,7 @@
               "type" : "text"
             },
             {
-              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay()",
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay(_:)",
               "isActive" : true,
               "type" : "reference"
             },
@@ -228,7 +228,7 @@
             ".fill(.yellow.gradient.secondary)",
             ".frame(width: 200, height: 80)",
             ".debugOverlay(",
-            "    .size,                     \/\/ prints the size of the parent view",
+            "    .size,                     \/\/ prints the size of the owner view",
             "    .bordersWidth(2),          \/\/ sets debug borders width to 2",
             "    .alignment(.innerTrailing) \/\/ aligns caption to trailing-center",
             ")"
@@ -254,7 +254,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "The boundaries of the parent view are visualized using two strokes: a dashed inner stroke (by",
+              "text" : "The boundaries of the owner view are visualized using two strokes: a dashed inner stroke (by",
               "type" : "text"
             },
             {
@@ -327,7 +327,7 @@
               "type" : "text"
             },
             {
-              "text" : "supporting positions both inside and outside of the parent view. When an ",
+              "text" : "supporting positions both inside and outside of the owner view. When an ",
               "type" : "text"
             },
             {
@@ -340,7 +340,7 @@
               "type" : "text"
             },
             {
-              "text" : "is used, the space occupied by the parent view does not change, even if the caption is",
+              "text" : "is used, the space occupied by the owner view does not change, even if the caption is",
               "type" : "text"
             },
             {
@@ -624,15 +624,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait": {
   "abstract" : [
     {
-      "text" : "Customizations that can be applied to the ",
-      "type" : "text"
-    },
-    {
-      "code" : "Configuration",
-      "type" : "codeVoice"
-    },
-    {
-      "text" : " of a ",
+      "text" : "Customizations that can be applied to the configuration of a ",
       "type" : "text"
     },
     {
@@ -739,87 +731,10 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/floatingalignment\/outeralignment"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay()": {
-  "abstract" : [
-    {
-      "text" : "Layers in front of this view a debug overlay using the default configuration.",
-      "type" : "text"
-    }
-  ],
-  "conformance" : {
-    "availabilityPrefix" : [
-      {
-        "text" : "Available when",
-        "type" : "text"
-      }
-    ],
-    "conformancePrefix" : [
-      {
-        "text" : "Conforms when",
-        "type" : "text"
-      }
-    ],
-    "constraints" : [
-      {
-        "code" : "Self",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : " is ",
-        "type" : "text"
-      },
-      {
-        "code" : "View",
-        "type" : "codeVoice"
-      },
-      {
-        "text" : ".",
-        "type" : "text"
-      }
-    ]
-  },
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "func"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "debugOverlay"
-    },
-    {
-      "kind" : "text",
-      "text" : "() -> "
-    },
-    {
-      "kind" : "keyword",
-      "text" : "some"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "typeIdentifier",
-      "preciseIdentifier" : "s:7SwiftUI4ViewP",
-      "text" : "View"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugOverlay()",
-  "kind" : "symbol",
-  "role" : "symbol",
-  "title" : "debugOverlay()",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugoverlay()"
-},
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugOverlay(_:)": {
   "abstract" : [
     {
-      "text" : "Layers in front of this view a debug overlay configured using the given traits.",
+      "text" : "Layers in front of this view a debug overlay customized with the given traits.",
       "type" : "text"
     }
   ],
