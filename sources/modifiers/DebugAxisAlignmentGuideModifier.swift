@@ -10,8 +10,8 @@ import SwiftUI
 /// Overlays a visual representations of a view's horizontal or vertical alignment guide.
 ///
 /// Displays in an overlay a visual representation of a view's alignment guide for a single axis,
-/// either horizontal or vertical. All content added by this modifier is layered in an overlay of
-/// the owner view, the original layout is never modified.
+/// either horizontal or vertical. The alignment marker added by this modifier is layered in an
+/// overlay of the owner view, the original layout is never modified.
 ///
 /// Apply this modifier using ``SwiftUICore/View/debugAlignmentGuide(horizontal:_:)`` or
 /// ``SwiftUICore/View/debugAlignmentGuide(vertical:_:)``:
@@ -21,7 +21,7 @@ import SwiftUI
 /// .font(.title)
 /// .debugAlignmentGuide(horizontal: .trailing)
 /// ```
-/// ![Text displaying a horizontal trailing alignment guide with the default configuration.](debug-alignment-guide-default-single-axis)
+/// ![Text displaying a horizontal trailing alignment markers with the default configuration.](debug-alignment-guide-default-single-axis)
 ///
 ///
 /// ### Traits and Configuration
@@ -40,7 +40,7 @@ import SwiftUI
 ///     .scaledLength(2)         // Scales the marker to double the owner size.
 /// )
 /// ```
-/// ![Text displaying a horizontal leading alignment guide using example traits.](debug-alignment-guide-explained-traits-single-axis)
+/// ![Text displaying a horizontal leading alignment marker using example traits.](debug-alignment-guide-explained-traits-single-axis)
 ///
 ///
 /// ## Aliases and Protocols
@@ -174,14 +174,14 @@ extension DebugAxisAlignmentGuideConfiguration: TraitInitializable {
 }
 
 
-// MARK: - ConfigurationLength
+// MARK: - Length Enum
 
 
-/// Customization options for the alignment markers of `DebugAlignmentGuideModifier` and
-/// `DebugAxisAlignmentGuideModifier`.
+/// Customization options for the length of the alignment markers of `DebugAlignmentGuideModifier`
+/// and `DebugAxisAlignmentGuideModifier`.
 public enum DebugAxisAlignmentConfigurationLength {
 
-    /// The alignment guide marker occupies the size of the owner view, along the alignment
+    /// The alignment guide marker occupies the length of the owner view, along the alignment
     /// orthogonal axis.
     ///
     /// This is the default behavior for the alignment guide marker.
@@ -190,11 +190,11 @@ public enum DebugAxisAlignmentConfigurationLength {
     /// The alignment guide marker occupies a fixed length along the alignment orthogonal axis.
     case fixed(CGFloat)
 
-    /// The alignment guide marker occupies the size of the owner view plus the given length, along
-    /// the alignment orthogonal axis.
+    /// The alignment guide marker occupies the length of the owner view plus the given value,
+    /// along the alignment orthogonal axis.
     case extended(CGFloat)
 
-    /// The alignment guide marker occupies the size of the owner view multiplied by the given
+    /// The alignment guide marker occupies the length of the owner view multiplied by the given
     /// factor, along the alignment orthogonal axis.
     case scaled(CGFloat)
 }
@@ -230,64 +230,94 @@ extension DebugAxisAlignmentGuideModifier {
 }
 
 
-/// Contains the configuration traits that can be applied to the configuration of ``DebugAxisAlignmentGuideModifier``
-/// for both horizontal and vertical alignments.
-
-//extension ConfigurationTrait where Configuration: DebugAxisAlignmentGuideConfigurationProtocol {
 extension DebugAxisAlignmentGuideModifier.Trait where Configuration: DebugAxisAlignmentGuideConfigurationProtocol {
 
-    // FIXME: document.
+    // MARK: Visibility
+
+    /// Hides the entire contents of the modifier.
+    ///
+    /// Equivalent to setting ``ConfigurationTrait/opacity(_:)->ConfigurationTrait<Configuration>``
+    /// to zero.
     public static var hidden: Self {
         .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: .zero))
     }
 
-    // FIXME: document.
+    /// Sets the visibility of the modifier contents.
+    /// 
+    /// Equivalent to setting ``ConfigurationTrait/opacity(_:)->ConfigurationTrait<Configuration>``
+    /// to either one or zero.
+    ///
+    /// - Parameter isVisible: A Boolean value that determines if the modifier contents are visible.
     public static func visible(_ isVisible: Bool) -> Self {
         .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: isVisible ? .one : .zero))
     }
 
-    // FIXME: document.
+    /// Sets the opacity of the modifier contents.
+    /// - Parameter opacity: A value between 0 (fully transparent) and 1 (fully
+    ///   opaque).
     public static func opacity(_ opacity: Double) -> Self {
         .modifier(DebugAxisAlignmentModifiers.Opacity(opacity: opacity))
     }
 
 
-    // FIXME: document.
+    // MARK: Style
+
+    /// Styles the alignment marker with the given `ShapeStyle`.
+    /// - Parameter style: The shape style for the alignment marker stroke.
     public static func style(_ style: some ShapeStyle) -> Self {
         .mutate { $0.shapeStyle = AnyShapeStyle(style) }
     }
 
-    // FIXME: document.
+    /// Sets the width of the stroke of the alignment marker.
+    /// - Parameter lineWidth: The width of the stroke of the alignment marker.
     public static func lineWidth(_ lineWidth: CGFloat) -> Self {
         .mutate { $0.lineWidth = lineWidth }
     }
 
-    // FIXME: document.
+
+    // MARK: Length
+
+    /// Sets the length option for the alignment marker.
+    /// - Parameter length: The length option for the alignment marker.
     public static func length(_ length: DebugAxisAlignmentConfigurationLength) -> Self {
         .mutate { $0.length = length }
     }
 
-    // FIXME: document.
+    /// Sets the marker length option to
+    /// [`container`](doc:DebugAxisAlignmentConfigurationLength/container).
     public static var containerLength: Self {
         .length(.container)
     }
 
-    // FIXME: document.
+    /// Sets the marker length option to
+    /// [`fixed`](doc:DebugAxisAlignmentConfigurationLength/fixed(_:)) to the given value.
+    /// - Parameter length: The fixed length of the alignment marker along the orthogonal axis.
     public static func fixedLength(_ length: CGFloat) -> Self {
         .length(.fixed(length))
     }
 
-    // FIXME: document.
+    /// Sets the marker length option to
+    /// [`extended`](doc:DebugAxisAlignmentConfigurationLength/extended(_:)) by the given value.
+    /// - Parameter addition: The value to add to the owner's length along the orthogonal axis.
     public static func extendedLength(_ addition: CGFloat) -> Self {
         .length(.extended(addition))
     }
 
-    // FIXME: document.
+    /// Sets the marker length option to
+    /// [`scaled`](doc:DebugAxisAlignmentConfigurationLength/scaled(_:)) by the given value.
+    /// - Parameter factor: The factor to multiply by the owner's length along the orthogonal axis.
     public static func scaledLength(_ factor: CGFloat) -> Self {
         .length(.scaled(factor))
     }
 
-    // FIXME: document.
+    /// Anchors the alignment marker to the given orthogonal alignment.
+    /// 
+    /// When the length of the alignment marker is configured to be different that the owner's view
+    /// size, the alignment marker itself can be aligned to the given orthogonal alignment guide.
+    /// 
+    /// The default alignment for the marker is the orthogonal `center` alignment.
+    ///
+    /// - Parameter anchor: The orthogonal alignment to which to align the marker.
     public static func anchor(_ anchor: Configuration.AnchorAlignment) -> Self {
         .modifier(DebugAxisAlignmentModifiers.Anchor(anchor: anchor))
     }
