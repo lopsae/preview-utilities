@@ -215,7 +215,7 @@ public struct IllustrationRenderer {
         ///
         /// The folder path components are all the ``nameComponents`` except for the last one.
         var folderPathComponents: [String] {
-            // TODO: name components should have at least one element! otherwise this will crash.
+            // TODO: name components should have at least one element! otherwise this will crash. Throw instead.
             Array(nameComponents.prefix(nameComponents.count - 1))
         }
 
