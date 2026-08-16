@@ -7,11 +7,11 @@
 import SwiftUI
 
 
-/// Overlays a visual representations of a view's horizontal or vertical alignment guide.
+/// Overlays a visual representation of a view's horizontal or vertical alignment guide.
 ///
 /// Displays in an overlay a visual representation of a view's alignment guide for a single axis,
 /// either horizontal or vertical. The alignment marker added by this modifier is layered in an
-/// overlay of the owner view, the original layout is never modified.
+/// overlay of the owner view; the original layout is never modified.
 ///
 /// Apply this modifier using ``SwiftUICore/View/debugAlignmentGuide(horizontal:_:)`` or
 /// ``SwiftUICore/View/debugAlignmentGuide(vertical:_:)``:

@@ -7,13 +7,13 @@
 import SwiftUI
 
 
-/// Overlays a visual representations of a view's boundaries, origin, and safe areas.
+/// Overlays a visual representation of a view's boundaries, origin, and safe areas.
 ///
 /// Displays in an overlay a visual representation of a view's boundaries, its origin point, and any
 /// applied safe area insets. The overlay can be configured to also display geometry information
 /// like size, global origin coordinates, safe area insets, or a given text caption.
 ///
-/// All content added by this modifier is layered in an overlay of the owner view, the original
+/// All content added by this modifier is layered in an overlay of the owner view; the original
 /// layout is never modified.
 ///
 /// Apply this modifier using ``SwiftUICore/View/debugOverlay(_:)``:

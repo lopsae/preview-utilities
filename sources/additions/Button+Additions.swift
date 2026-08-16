@@ -16,7 +16,7 @@ extension Button {
     /// Creates a button that generates its label from a localized string key and system image name,
     /// with the image constrained in size.
     ///
-    /// The size of the button will remain consistent irregardless of the image used.
+    /// The size of the button will remain consistent regardless of the image used.
     ///
     /// Different system images have different sizes, which can impact the size of the button. This
     /// is specially noticeable when using the `.iconOnly` label style. The label produced for the
@@ -94,7 +94,7 @@ private struct PreviewContent {
     @Previewable @State var guidepointToggle: Bool = false
 
     PreviewCaption("""
-        Buttons using the `constrainedSystemImage` initializer have a constrained size, irregardless
+        Buttons using the `constrainedSystemImage` initializer have a constrained size, regardless
         of the image used.
         """)
 

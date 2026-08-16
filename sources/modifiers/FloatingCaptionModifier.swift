@@ -14,11 +14,11 @@ import SwiftUI
 /// Overlays a floating caption aligned to a `FloatingAlignment`.
 ///
 /// Displays in an overlay a caption text aligned to a specified ``FloatingAlignment``. The caption
-/// text is configured to use its preferred size, not constrained to the size of the parent view. It
+/// text is configured to use its preferred size, not constrained to the size of the owner view. It
 /// can be aligned to the center, any edge or corner, inside or outside, of the view's boundaries:
-/// hence it _floats_ over the parent view attached to a relative position.
+/// hence it _floats_ over the owner view attached to a relative position.
 ///
-/// All content added by this modifier is layered in an overlay of the parent view, the original
+/// All content added by this modifier is layered in an overlay of the owner view; the original
 /// layout is never modified.
 ///
 /// Apply this modifier using ``SwiftUICore/View/floatingCaption(_:_:)``, by default the caption
@@ -64,7 +64,7 @@ import SwiftUI
 /// The style of the caption text can be modified with the [`captionStyle(_:)`](doc:FloatingCaptionModifier/Trait/captionStyle(_:))
 /// trait.
 ///
-/// Additionally an inset border can be drawn around the parent view using the [`borderStyle(_:)`](doc:FloatingCaptionModifier/Trait/borderStyle(_:))
+/// Additionally an inset border can be drawn around the owner view using the [`borderStyle(_:)`](doc:FloatingCaptionModifier/Trait/borderStyle(_:))
 /// trait:
 /// ```swift
 /// Circle()
@@ -183,10 +183,10 @@ extension FloatingCaptionModifier {
         /// system padding.
         case padding(CGFloat? = nil)
 
-        /// Prints the width of the parent view along the text caption.
+        /// Prints the width of the owner view along the text caption.
         case width
 
-        /// Prints the height of the parent view along the text caption.
+        /// Prints the height of the owner view along the text caption.
         case height
 
         /// Sets the shape style for the text caption.
@@ -233,7 +233,7 @@ extension FloatingCaptionModifier {
         /// The default is `HierarchicalShapeStyle/quaternary`.
         public static let border: Self = .borderStyle(.quaternary)
 
-        /// Prints the width and height of the parent view along the text caption.
+        /// Prints the width and height of the owner view along the text caption.
         public static let size: Self = .traits([.width, .height])
 
         /// Pads to zero the caption from the aligned edge.

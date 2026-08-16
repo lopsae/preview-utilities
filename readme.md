@@ -72,7 +72,7 @@ Circle()
     alt="Floating caption with example traits and explanations."
 />
 
-See the [Floating Caption documentation][docs-floating-caption-api] for further details.
+See the [Floating Caption documentation][docs-floating-caption-api] for more details.
 
 
 [docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
@@ -86,7 +86,7 @@ Other utilities available in this package:
 + Several [`FormatStyle` implementations][docs-format-style-api] for a variety of cases.
 + The [Floating Alignment API][docs-floating-alignment-api] for floating content in an overlay.
 + [`PreviewCaption`][docs-preview-caption] to add a caption to previews that are also easy to read in code.
-+ Several Image generators that can be used to produce preview images synchronously and 
++ Several image generators that can be used to produce preview images synchronously and 
   asynchronously with different isolation contexts.
 
 

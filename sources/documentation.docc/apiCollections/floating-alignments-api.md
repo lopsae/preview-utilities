@@ -6,13 +6,13 @@
 
 Alignment positions for floating content.
 
-Floating content is content overlaid an owner view and aligned to an edge of its boundaries, either
+Floating content is content overlaid on an owner view and aligned to an edge of its boundaries, either
 inside or outside. Since the content is overlaid, the layout of the owner view is never modified,
 hence the content _floats_ over the owner view.
 
 @Image(
     source: "floating-alignment-alignment-examples",
-    alt: "Example floating alignments for inner top leading and outer bottom trailing"
+    alt: "Example floating alignments for outer top leading and inner bottom trailing"
 ) {
     Example floating alignments: _Outer Top Leading_ and _Inner Bottom Trailing_.
 }

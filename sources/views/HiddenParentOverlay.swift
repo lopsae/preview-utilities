@@ -10,15 +10,15 @@ import SwiftUI
 /// View that displays the given content overlaid on a parent view that is hidden.
 ///
 /// The parent content determines the space that the instance will use. The overlaid content is
-/// aligned and constrained to this space. Overlaid content larger that the parent content does not
-/// modify the size occupied by the parent content, the overlaid content just overflows.
+/// aligned and constrained to this space. Overlaid content larger than the parent content does not
+/// modify the size occupied by the parent content; the overlaid content just overflows.
 ///
 /// This has the practical result of displaying the overlaid content aligned to the space occupied
-/// by the parent view, while using exactly the size of the parent view irregardless of the size of
+/// by the parent view, while using exactly the size of the parent view regardless of the size of
 /// the overlaid content.
 ///
-/// While the parent content is hidden visually and in accessibility, ir still occupies space
-/// normally in the views layout.
+/// While the parent content is hidden visually and in accessibility, it still occupies space
+/// normally in the view's layout.
 public struct HiddenParentOverlay<Parent: View, Overlaid: View>: View {
 
     let parent: () -> Parent

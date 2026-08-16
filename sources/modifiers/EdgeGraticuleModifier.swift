@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Overlays a graticule based on the edges of a view.
 ///
-/// Displays in an overlay a graticule based on the edges of the owner view. The graticule consist
+/// Displays in an overlay a graticule based on the edges of the owner view. The graticule consists
 /// of sets of lines evenly spaced for each of the edges of the owner view, both inset and
 /// outset:
 ///
@@ -17,7 +17,7 @@ import SwiftUI
 ///
 /// ![Outset components of the edge graticule.](edge-graticule-outset-components)
 ///
-/// All content added by this modifier is layered in an overlay of the owner view, the original
+/// All content added by this modifier is layered in an overlay of the owner view; the original
 /// layout is never modified.
 ///
 /// Apply this modifier using ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any
@@ -29,7 +29,7 @@ import SwiftUI
 /// .frame(width: 200, height: 60)
 /// .edgeGraticule(spacing: 16)
 /// ```
-/// ![Edge graticule overlaid on a capsule shape, showing an inset and outset line sets of even spacing.](edge-graticule-default)
+/// ![Edge graticule overlaid on a capsule shape, showing inset and outset line sets of even spacing.](edge-graticule-default)
 ///
 ///
 /// ### Traits and Configuration

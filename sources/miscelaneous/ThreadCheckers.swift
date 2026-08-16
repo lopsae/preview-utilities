@@ -123,7 +123,7 @@ public final class DefaultIsolationThreadChecker: Sendable {
     public init() {}
 
     /// Given that the class uses the default `MainActor` isolation, this function will always be
-    /// called in `MainActor`, irregardless of the parent isolation context.
+    /// called in `MainActor`, regardless of the parent isolation context.
     public func defaultIsolationThreadInfo() async -> ThreadInfo { .init() }
 
 }
@@ -137,7 +137,7 @@ public final class DefaultIsolationThreadChecker: Sendable {
     @Previewable @State var detachedDefaultIsolationThreadInfo: ThreadInfo? = nil
 
     PreviewCaption("""
-        PreviewUtilities is configured with a `MainActor` default isolation. Irregardless of the
+        PreviewUtilities is configured with a `MainActor` default isolation. Regardless of the
         calling isolation context, the _Default Isolation_ rows should always read `1 Main`.
         """)
     .paragraph("""
