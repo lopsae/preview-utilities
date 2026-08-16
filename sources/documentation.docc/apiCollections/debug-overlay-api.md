@@ -13,7 +13,7 @@ boundaries, origin, and safe areas:
 
 ![Visual components of the debug overlay.](debug-overlay-components)
 
-The overlay can be configured by passing [`Trait`](doc:DebugOverlayModifier/Configuration/Trait) 
+The modifier can be configured by passing [`Trait`](doc:DebugOverlayModifier/Configuration/Trait) 
 instances:
 
 ```swift

@@ -9,7 +9,7 @@ Overlay a graticule based on the edges of a view, without impacting its layout.
 
 Apply the ``EdgeGraticuleModifier`` using ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any
 [sibling function](doc:edge-graticule-api/View-Extensions) to overlay a graticule based on the 
-edges of the owner view. The graticule consist of sets of lines evenly spaced for each of the edges 
+edges of the owner view. The graticule consists of sets of lines evenly spaced for each of the edges 
 of the owner view, both inset and outset:
 
 ![Inset components of the edge graticule.](edge-graticule-inset-components)
