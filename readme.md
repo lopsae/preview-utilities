@@ -3,16 +3,18 @@ Preview Utilities
 
 Utilities for SwiftUI previews.
 
-A collection of modifiers, views, extensions, and other utilities useful for building previews in 
+A collection of modifiers, views, extensions, and other utilities for building previews in 
 SwiftUI.
 
-See the [Package Documentation][documentation] for more details.
+Latest documentation: [v0.4.1][latest-documentation].
+
+See [Package Documentation](documentation.md) for documentation of earlier versions.
 
 > [!NOTE]
 > Package documentation is actively being written. Many of the utilities in this package have not 
-> been documented thoroughly yet.
+> been thoroughly documented yet.
 
-[documentation]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/
+[latest-documentation]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/
 
 
 

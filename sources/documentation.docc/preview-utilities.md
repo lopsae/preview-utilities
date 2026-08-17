@@ -3,8 +3,7 @@
 
 Utilities for SwiftUI previews.
 
-A collection of modifiers, views, extensions, and other utilities useful for building
-previews in SwiftUI.
+A collection of modifiers, views, extensions, and other utilities for building previews in SwiftUI.
 
 
 ### Essentials
