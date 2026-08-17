@@ -67,7 +67,7 @@ Text("A new age\ndoes not begin all of a sudden")
 ```
 
 <img
-    src="sources/documentation.docc/resources/debug-overlay/debug-alignment-guide-simple-traits@3x.png"
+    src="sources/documentation.docc/resources/debug-alignment-guide/debug-alignment-guide-simple-traits@3x.png"
     width="400px"
     alt="Text displaying a trailing first text baseline alignment guide using example traits."
 />
