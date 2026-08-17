@@ -24,7 +24,7 @@ Essentials
 ### Debug Overlay
 Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.
 
-Apply the [`debugOverlay()`][docs-debug-overlay-function] modifier to a view to overlay the debug 
+Apply [`debugOverlay()`][docs-debug-overlay-function] to a view to overlay the debug 
 visualization:
 
 ```swift
@@ -46,6 +46,35 @@ See the [Debug Overlay documentation][docs-debug-overlay-api] for more details.
 
 [docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugoverlay()
 [docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-overlay-api
+
+
+### Debug Alignment Guides
+
+Visualize the alignment guides of a view, without impacting its layout.
+
+Apply [`debugAlignmentGuide(_:_:)`][docs-debug-alignment-guide-function] to overlay a visualization
+of the alignment guides:
+
+```swift
+Text("A new age\ndoes not begin all of a sudden")
+.font(.title)
+.multilineTextAlignment(.trailing)
+.debugAlignmentGuide(.trailingFirstTextBaseline,
+    .lineWidth(8),
+    .fixedLength(vertical: 200),
+    .anchor(.trailing)
+)
+```
+
+<img
+    src="sources/documentation.docc/resources/debug-overlay/debug-alignment-guide-simple-traits@3x.png"
+    width="400px"
+    alt="Text displaying a trailing first text baseline alignment guide using example traits."
+/>
+
+
+[docs-debug-alignment-guide-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugalignmentguide(_:_:)
+[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-alignment-guide-api
 
 
 
