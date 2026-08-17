@@ -72,9 +72,11 @@ Text("A new age\ndoes not begin all of a sudden")
     alt="Text displaying a trailing first text baseline alignment guide using example traits."
 />
 
+See the [Debug Alignment Guide documentation][docs-debug-alignment-guide-api] for more details.
+
 
 [docs-debug-alignment-guide-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugalignmentguide(_:_:)
-[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-alignment-guide-api
+[docs-debug-alignment-guide-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-alignment-guide-api
 
 
 
