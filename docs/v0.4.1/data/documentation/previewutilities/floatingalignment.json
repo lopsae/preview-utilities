@@ -104,7 +104,7 @@
               "type" : "text"
             },
             {
-              "text" : "content overlaid an owner view and aligned to an edge of its boundaries, either inside or",
+              "text" : "content overlaid on an owner view and aligned to an edge of its boundaries, either inside or",
               "type" : "text"
             },
             {
@@ -647,7 +647,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier": {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s boundaries, origin, and safe areas.",
+      "text" : "Overlays a visual representation of a view’s boundaries, origin, and safe areas.",
       "type" : "text"
     }
   ],

@@ -126,7 +126,7 @@
               "type" : "text"
             },
             {
-              "text" : "text is configured to use its preferred size, not constrained to the size of the parent view. It",
+              "text" : "text is configured to use its preferred size, not constrained to the size of the owner view. It",
               "type" : "text"
             },
             {
@@ -155,7 +155,7 @@
               "type" : "emphasis"
             },
             {
-              "text" : " over the parent view attached to a relative position.",
+              "text" : " over the owner view attached to a relative position.",
               "type" : "text"
             }
           ],
@@ -164,7 +164,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "All content added by this modifier is layered in an overlay of the parent view, the original",
+              "text" : "All content added by this modifier is layered in an overlay of the owner view; the original",
               "type" : "text"
             },
             {
@@ -329,8 +329,8 @@
             ".frame(width: 80, height: 80)",
             ".floatingCaption(",
             "    \"A **Purple**\\nSquare `Rectangle`\",",
-            "    .alignment(.outerTrailingTop), \/\/ alignment for the caption",
-            "    .height                        \/\/ prints the height of the parent view",
+            "    .alignment(.outerTrailingTop), \/\/ sets the caption alignment",
+            "    .height                        \/\/ prints the height of the owner view",
             ")"
           ],
           "syntax" : "swift",
@@ -383,7 +383,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "Additionally an inset border can be drawn around the parent view using the ",
+              "text" : "Additionally an inset border can be drawn around the owner view using the ",
               "type" : "text"
             },
             {

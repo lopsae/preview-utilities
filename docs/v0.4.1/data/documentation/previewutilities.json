@@ -41,15 +41,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "A collection of modifiers, views, extensions, and other utilities useful for building",
-              "type" : "text"
-            },
-            {
-              "text" : " ",
-              "type" : "text"
-            },
-            {
-              "text" : "previews in SwiftUI.",
+              "text" : "A collection of modifiers, views, extensions, and other utilities for building previews in SwiftUI.",
               "type" : "text"
             }
           ],

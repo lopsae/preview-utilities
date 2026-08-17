@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s horizontal or vertical alignment guide.",
+      "text" : "Overlays a visual representation of a view’s horizontal or vertical alignment guide.",
       "type" : "text"
     }
   ],
@@ -179,7 +179,7 @@
               "type" : "text"
             },
             {
-              "text" : "overlay of the owner view, the original layout is never modified.",
+              "text" : "overlay of the owner view; the original layout is never modified.",
               "type" : "text"
             }
           ],
@@ -736,7 +736,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier": {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s horizontal or vertical alignment guide.",
+      "text" : "Overlays a visual representation of a view’s horizontal or vertical alignment guide.",
       "type" : "text"
     }
   ],

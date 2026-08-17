@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Prints the width of the parent view along the text caption.",
+      "text" : "Prints the width of the owner view along the text caption.",
       "type" : "text"
     }
   ],
@@ -197,7 +197,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/width": {
   "abstract" : [
     {
-      "text" : "Prints the width of the parent view along the text caption.",
+      "text" : "Prints the width of the owner view along the text caption.",
       "type" : "text"
     }
   ],

@@ -167,7 +167,7 @@
               "type" : "text"
             },
             {
-              "text" : "aligned and constrained to this space. Overlaid content larger that the parent content does not",
+              "text" : "aligned and constrained to this space. Overlaid content larger than the parent content does not",
               "type" : "text"
             },
             {
@@ -175,7 +175,7 @@
               "type" : "text"
             },
             {
-              "text" : "modify the size occupied by the parent content, the overlaid content just overflows.",
+              "text" : "modify the size occupied by the parent content; the overlaid content just overflows.",
               "type" : "text"
             }
           ],
@@ -192,7 +192,7 @@
               "type" : "text"
             },
             {
-              "text" : "by the parent view, while using exactly the size of the parent view irregardless of the size of",
+              "text" : "by the parent view, while using exactly the size of the parent view regardless of the size of",
               "type" : "text"
             },
             {
@@ -209,7 +209,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "While the parent content is hidden visually and in accessibility, ir still occupies space",
+              "text" : "While the parent content is hidden visually and in accessibility, it still occupies space",
               "type" : "text"
             },
             {
@@ -217,7 +217,7 @@
               "type" : "text"
             },
             {
-              "text" : "normally in the views layout.",
+              "text" : "normally in the view’s layout.",
               "type" : "text"
             }
           ],

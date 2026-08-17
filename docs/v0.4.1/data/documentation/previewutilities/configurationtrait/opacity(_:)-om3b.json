@@ -602,7 +602,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s alignment guides.",
+      "text" : "Overlays a visual representation of a view’s alignment guides.",
       "type" : "text"
     }
   ],

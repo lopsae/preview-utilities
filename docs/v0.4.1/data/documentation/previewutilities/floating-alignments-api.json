@@ -45,7 +45,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "Floating content is content overlaid an owner view and aligned to an edge of its boundaries, either",
+              "text" : "Floating content is content overlaid on an owner view and aligned to an edge of its boundaries, either",
               "type" : "text"
             },
             {
@@ -840,7 +840,7 @@
   ]
 },
 "floating-alignment-alignment-examples": {
-  "alt" : "Example floating alignments for inner top leading and outer bottom trailing",
+  "alt" : "Example floating alignments for outer top leading and inner bottom trailing",
   "identifier" : "floating-alignment-alignment-examples",
   "type" : "image",
   "variants" : [

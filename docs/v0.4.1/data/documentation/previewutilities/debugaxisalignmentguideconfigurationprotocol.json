@@ -608,7 +608,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier": {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s horizontal or vertical alignment guide.",
+      "text" : "Overlays a visual representation of a view’s horizontal or vertical alignment guide.",
       "type" : "text"
     }
   ],

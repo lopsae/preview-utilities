@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s alignment guides.",
+      "text" : "Overlays a visual representation of a view’s alignment guides.",
       "type" : "text"
     }
   ],
@@ -109,7 +109,7 @@
               "type" : "text"
             },
             {
-              "text" : "markers added by this modifier are layered in an overlay of the owner view, the original layout",
+              "text" : "markers added by this modifier are layered in an overlay of the owner view; the original layout",
               "type" : "text"
             },
             {
@@ -356,7 +356,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s alignment guides.",
+      "text" : "Overlays a visual representation of a view’s alignment guides.",
       "type" : "text"
     }
   ],

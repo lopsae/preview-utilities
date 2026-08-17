@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s boundaries, origin, and safe areas.",
+      "text" : "Overlays a visual representation of a view’s boundaries, origin, and safe areas.",
       "type" : "text"
     }
   ],
@@ -126,7 +126,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "All content added by this modifier is layered in an overlay of the owner view, the original",
+              "text" : "All content added by this modifier is layered in an overlay of the owner view; the original",
               "type" : "text"
             },
             {
@@ -548,7 +548,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier": {
   "abstract" : [
     {
-      "text" : "Overlays a visual representations of a view’s boundaries, origin, and safe areas.",
+      "text" : "Overlays a visual representation of a view’s boundaries, origin, and safe areas.",
       "type" : "text"
     }
   ],

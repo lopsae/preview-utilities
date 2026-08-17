@@ -310,7 +310,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "The size of the button will remain consistent irregardless of the image used.",
+              "text" : "The size of the button will remain consistent regardless of the image used.",
               "type" : "text"
             }
           ],

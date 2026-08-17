@@ -101,7 +101,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "Displays in an overlay a graticule based on the edges of the owner view. The graticule consist",
+              "text" : "Displays in an overlay a graticule based on the edges of the owner view. The graticule consists",
               "type" : "text"
             },
             {
@@ -144,7 +144,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "All content added by this modifier is layered in an overlay of the owner view, the original",
+              "text" : "All content added by this modifier is layered in an overlay of the owner view; the original",
               "type" : "text"
             },
             {
@@ -661,7 +661,7 @@
   "type" : "unresolvable"
 },
 "edge-graticule-default": {
-  "alt" : "Edge graticule overlaid on a capsule shape, showing an inset and outset line sets of even spacing.",
+  "alt" : "Edge graticule overlaid on a capsule shape, showing inset and outset line sets of even spacing.",
   "identifier" : "edge-graticule-default",
   "type" : "image",
   "variants" : [

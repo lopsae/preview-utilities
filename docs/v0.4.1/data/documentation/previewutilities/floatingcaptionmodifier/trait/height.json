@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Prints the height of the parent view along the text caption.",
+      "text" : "Prints the height of the owner view along the text caption.",
       "type" : "text"
     }
   ],
@@ -197,7 +197,7 @@
 "doc://PreviewUtilities/documentation/PreviewUtilities/FloatingCaptionModifier/Trait/height": {
   "abstract" : [
     {
-      "text" : "Prints the height of the parent view along the text caption.",
+      "text" : "Prints the height of the owner view along the text caption.",
       "type" : "text"
     }
   ],
