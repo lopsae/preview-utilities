@@ -44,7 +44,7 @@ Text("Judge my Vow")
 See the [Debug Overlay documentation][docs-debug-overlay-api] for more details.
 
 
-[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugoverlay()
+[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugoverlay(_:)
 [docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-overlay-api
 
 
