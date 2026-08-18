@@ -1,17 +1,20 @@
 Release Notes
 =============
 
-v0.4.1 - In Progress
+v0.4.1
 --------------------
-Upcoming Release.
+Latest.
 
 + Added `DebugAlignmentGuideModifier` and associated `View` extension functions.
++ Added `DebugAxisAlignmentGuideModifier` and associated `View` extension functions.
 + Added `EdgeGraticuleModifier` and associated `View` extension functions.
 + Added `EdgeGraticule` shape.
 + Added `ConfigurationTrait`, `ConfigurationModifier`, and related types.
 + Added Snapshot testing for several views and modifiers.
 + Added `PrettyMesh` with several ready-to-use meshes and preview editor.
 + Added `DocumentationIllustration.Background`.
++ Added testing through `SnapshotTesting`.
++ Documentation is now generated under a version folder.
 
 
 
@@ -33,9 +36,9 @@ v3.0.1 - Documentation Catalog
 ------------------------------
 Released 2026 May 25th.
 
-+ Add the initial batch of documentation for the project
-+ Update readme to feature utilities and documentation.
-+ Add MIT License.
++ Added the initial batch of documentation for the project
++ Updated readme to feature utilities and documentation.
++ Added MIT License.
 
 
 
