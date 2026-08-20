@@ -12,6 +12,7 @@ import UniformTypeIdentifiers.UTType
 /// Utility structure to store documentation illustrations into a local folder.
 public struct IllustrationStorage {
 
+    // TODO: add nameComponents that are are prefix to all stored images.
     let storageDirectory: URL
     let onImageStored: (_ image: CGImage, _ filename: String) -> Void
 
@@ -98,12 +99,14 @@ public struct IllustrationStorage {
         _ nameComponents: String...,
         usesFullComponentName: Bool = true,
         colorSchemes: Set<ColorScheme> = IllustrationRenderer.defaultColorSchemes,
+        strategy: IllustrationRenderer.Strategy = .imageRenderer,
         illustration: () -> DocumentationIllustration
     ) throws {
         try renderAndStore(
             nameComponents: nameComponents,
             usesFullComponentName: usesFullComponentName,
             colorSchemes: colorSchemes,
+            strategy: strategy,
             illustration: illustration
         )
     }
@@ -113,12 +116,14 @@ public struct IllustrationStorage {
         _ nameComponents: String...,
         usesFullComponentName: Bool = true,
         colorScheme: ColorScheme,
+        strategy: IllustrationRenderer.Strategy = .imageRenderer,
         illustration: () -> DocumentationIllustration
     ) throws {
         try renderAndStore(
             nameComponents: nameComponents,
             usesFullComponentName: usesFullComponentName,
             colorSchemes: [colorScheme],
+            strategy: strategy,
             illustration: illustration
         )
     }
@@ -128,11 +133,13 @@ public struct IllustrationStorage {
         nameComponents: [String],
         usesFullComponentName: Bool,
         colorSchemes: Set<ColorScheme>,
+        strategy: IllustrationRenderer.Strategy,
         illustration: () -> DocumentationIllustration
     ) throws {
         let resource = try IllustrationRenderer.render(
             nameComponents: nameComponents,
             colorSchemes: colorSchemes,
+            strategy: strategy,
             illustration: illustration
         )
         try store(
@@ -164,31 +171,6 @@ extension IllustrationStorage {
                 "Failed to write PNG to: \(path)"
             }
         }
-    }
-
-}
-
-
-// MARK: - Extensions
-
-
-extension URL {
-
-    func appending<S>(pathComponents: [S]) -> URL where S : StringProtocol {
-        var result = self
-        for component in pathComponents {
-            result = result.appending(path: component)
-        }
-        return result
-    }
-
-
-    func deletingPathComponents(count: Int) -> URL {
-        var result = self
-        for _ in 0..<count {
-            result = result.deletingLastPathComponent()
-        }
-        return result
     }
 
 }

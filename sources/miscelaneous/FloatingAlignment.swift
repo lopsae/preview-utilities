@@ -10,7 +10,7 @@ import SwiftUI
 /// Alignment positions for floating content.
 ///
 /// Identifies the alignment positions for floating content over an owner view. Floating content is
-/// content overlaid an owner view and aligned to an edge of its boundaries, either inside or
+/// content overlaid on an owner view and aligned to an edge of its boundaries, either inside or
 /// outside. The layout of the owner view is never modified since the content is overlaid, hence the
 /// content _floats_ over the owner view.
 ///
@@ -517,7 +517,7 @@ extension FloatingAlignment {
         /// Enumeration with equivalent cases to each ``FloatingAlignment/OuterAlignment`` case
         /// without its associated value.
         ///
-        /// Allows identification of each outer alignment major component (its case) irregardless
+        /// Allows identification of each outer alignment major component (its case) regardless
         /// of its minor component (its associated value).
         public enum Key: String, CaseIterable, SelfIdentifiable, Sendable {
             case top, leading, bottom, trailing

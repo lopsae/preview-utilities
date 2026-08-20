@@ -53,6 +53,22 @@ struct CardIllustrations {
     }
 
 
+    static var debugAlignmentGuide: DocumentationIllustration {
+        DocumentationIllustration(sizing: .card.half, drawsBorder: false) {
+            Text("Ag")
+            .fixedSize()
+            .font(.largeTitle.pointSize(140))
+//            .alignmentGuide(.bottom, outsetBy: 8)
+//            .debugAlignmentGuide(vertical: .bottom)
+            .frame(size: contentSize)
+            .debugAlignmentGuide(
+                .centerFirstTextBaseline,
+                .length(horizontal: .extended(50))
+            )
+        }
+    }
+
+
     static var floatingCaption: DocumentationIllustration {
         DocumentationIllustration(sizing: .card.half, drawsBorder: false) {
             RoundedRectangle(cornerRadius: 44)
@@ -102,6 +118,13 @@ struct CardIllustrations {
 
 #Preview("Recommended", traits: .docsIllustration) {
     CardIllustrations.recommended
+    .padding()
+}
+
+
+#Preview("debugAlignmentGuide", traits: .docsIllustration) {
+    CardIllustrations.debugAlignmentGuide
+    .border(.quinary)
     .padding()
 }
 

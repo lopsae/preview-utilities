@@ -9,7 +9,7 @@ import SwiftUI
 
 extension DebugOverlayModifier {
 
-    /// Container of specialized illustrations for `DebugOverlayModifier`.
+    /// Container of specialized illustrations for ``DebugOverlayModifier``.
     enum Illustrations {}
 
 }
@@ -17,7 +17,7 @@ extension DebugOverlayModifier {
 
 extension DebugOverlayModifier.Illustrations {
 
-    /// Card illustration for <doc:debug-overlay>.
+    /// Card illustration for <doc:debug-overlay-api>.
     static var card: DocumentationIllustration {
         DocumentationIllustration(sizing: .card.half, alignment: .topLeading, drawsBorder: false) {
             Capsule()

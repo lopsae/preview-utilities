@@ -9,6 +9,14 @@ import CoreGraphics
 
 extension CGPoint {
 
+    @inlinable nonisolated
+    func adding(size: CGSize) -> Self {
+        .init(
+            x: self.x + size.width,
+            y: self.y + size.height
+        )
+    }
+
     /// Returns a `CGPoint` with each component of `self` multiplied by `multiplier`.
     @inlinable nonisolated
     func multiplying(by multiplier: CGFloat) -> Self {

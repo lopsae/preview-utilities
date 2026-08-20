@@ -3,16 +3,18 @@ Preview Utilities
 
 Utilities for SwiftUI previews.
 
-A collection of modifiers, views, extensions, and other utilities useful for building previews in 
+A collection of modifiers, views, extensions, and other utilities for building previews in 
 SwiftUI.
 
-See the [Package Documentation][documentation] for more details.
+Latest documentation: [v0.4.1][latest-documentation].
+
+See [Package Documentation](documentation.md) for documentation of earlier versions.
 
 > [!NOTE]
 > Package documentation is actively being written. Many of the utilities in this package have not 
-> been documented thoroughly yet.
+> been thoroughly documented yet.
 
-[documentation]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/
+[latest-documentation]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/
 
 
 
@@ -22,7 +24,7 @@ Essentials
 ### Debug Overlay
 Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.
 
-Apply the [`debugOverlay()`][docs-debug-overlay-function] modifier to a view to overlay the debug 
+Apply [`debugOverlay()`][docs-debug-overlay-function] to a view to overlay the debug 
 visualization:
 
 ```swift
@@ -42,8 +44,39 @@ Text("Judge my Vow")
 See the [Debug Overlay documentation][docs-debug-overlay-api] for more details.
 
 
-[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/swiftuicore/view/debugoverlay()
-[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/debug-overlay-api
+[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugoverlay(_:)
+[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-overlay-api
+
+
+### Debug Alignment Guides
+
+Visualize the alignment guides of a view, without impacting its layout.
+
+Apply [`debugAlignmentGuide(_:_:)`][docs-debug-alignment-guide-function] to overlay a visualization
+of the alignment guides:
+
+```swift
+Text("A new age\ndoes not begin all of a sudden")
+.font(.title)
+.multilineTextAlignment(.trailing)
+.debugAlignmentGuide(.trailingFirstTextBaseline,
+    .lineWidth(8),
+    .fixedLength(vertical: 200),
+    .anchor(.trailing)
+)
+```
+
+<img
+    src="sources/documentation.docc/resources/debug-alignment-guide/debug-alignment-guide-simple-traits@3x.png"
+    width="400px"
+    alt="Text displaying a trailing first text baseline alignment guide using example traits."
+/>
+
+See the [Debug Alignment Guide documentation][docs-debug-alignment-guide-api] for more details.
+
+
+[docs-debug-alignment-guide-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugalignmentguide(_:_:)
+[docs-debug-alignment-guide-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-alignment-guide-api
 
 
 
@@ -59,8 +92,8 @@ Circle()
 .frame(width: 80, height: 80)
 .floatingCaption(
     "A `Circle` Shape",              // caption localized string
-    .height,                         // prints the height of the parent view
-    .alignment(.outerLeadingBottom), // alignment for the caption
+    .height,                         // prints the height of the owner view
+    .alignment(.outerLeadingBottom), // sets the caption alignment
     .colorStyle(.indigo),            // sets the caption and border color
     .borderWidth(4)                  // sets the border width
 )
@@ -72,11 +105,11 @@ Circle()
     alt="Floating caption with example traits and explanations."
 />
 
-See the [Floating Caption documentation][docs-floating-caption-api] for further details.
+See the [Floating Caption documentation][docs-floating-caption-api] for more details.
 
 
-[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
-[docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/floating-caption-api
+[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
+[docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/floating-caption-api
 
 
 
@@ -86,13 +119,13 @@ Other utilities available in this package:
 + Several [`FormatStyle` implementations][docs-format-style-api] for a variety of cases.
 + The [Floating Alignment API][docs-floating-alignment-api] for floating content in an overlay.
 + [`PreviewCaption`][docs-preview-caption] to add a caption to previews that are also easy to read in code.
-+ Several Image generators that can be used to produce preview images synchronously and 
++ Several image generators that can be used to produce preview images synchronously and 
   asynchronously with different isolation contexts.
 
 
-[docs-format-style-api]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/format-styles-api
-[docs-preview-caption]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/previewcaption
-[docs-floating-alignment-api]: https://lopsae.github.io/preview-utilities/v0.4.0/documentation/previewutilities/floating-alignments-api
+[docs-format-style-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/format-styles-api
+[docs-preview-caption]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/previewcaption
+[docs-floating-alignment-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/floating-alignments-api
 
 
 

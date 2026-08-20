@@ -3,15 +3,16 @@
 
 Utilities for SwiftUI previews.
 
-A collection of modifiers, views, extensions, and other utilities useful for building
-previews in SwiftUI.
+A collection of modifiers, views, extensions, and other utilities for building previews in SwiftUI.
 
 
 ### Essentials
 @Links(visualStyle: detailedGrid) {
     + <doc:debug-overlay-api>
+    + <doc:debug-alignment-guide-api>
     + <doc:floating-caption-api>
     + <doc:floating-alignments-api>
+    + <doc:edge-graticule-api>
     + <doc:format-styles-api>
 }
 
@@ -20,7 +21,6 @@ previews in SwiftUI.
 ## Topics
 
 ### Views
-
 + ``CaptionRectangle``
 + ``ClearRectangle``
 + ``DashedDivider``
@@ -34,7 +34,6 @@ previews in SwiftUI.
 
 
 ### Image Generation
-
 + ``MainActorImageGenerator``
 + ``ConcurrentImageGenerator``
 + ``NonisolatedImageGenerator``
@@ -46,9 +45,22 @@ previews in SwiftUI.
 + ``ThreadInfo``
 
 
-### API Collections
+### Configuration Traits
++ ``ConfigurationTrait``
++ ``ConfigurationModifier``
++ ``TraitConfigurable``
++ ``TraitInitializable``
 
+
+### Alignment Additions
++ ``AlignmentWithOrthogonal``
++ ``AlignmentWithDefault``
+
+
+### API Collections
 + <doc:debug-overlay-api>
++ <doc:debug-alignment-guide-api>
 + <doc:floating-caption-api>
 + <doc:floating-alignments-api>
++ <doc:edge-graticule-api>
 + <doc:format-styles-api>

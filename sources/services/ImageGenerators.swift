@@ -273,11 +273,11 @@ public final class MainActorImageGenerator: ImageGeneratorProtocol, Sendable {
 nonisolated
 final class ImageGeneratorUtils {
 
-    /// Generates a platform image using the callers isolation context, optionally sleeps for a
+    /// Generates a platform image using the caller's isolation context, optionally sleeps for a
     /// random duration within the given duration range.
     ///
     /// - Note:
-    /// The package settings enable `NonisolatedNonsendingByDefault`, irregardless this function is
+    /// The package settings enable `NonisolatedNonsendingByDefault`; even so, this function is
     /// marked `nonisolated(nonsending)` for explicitness.
     nonisolated(nonsending)
     static func generatePlatformImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
@@ -307,11 +307,11 @@ final class ImageGeneratorUtils {
         return (platformImage: platformImage, threadInfo: threadInfo)
     }
 
-    /// Generates an image using the callers isolation context, optionally sleeps for a random
+    /// Generates an image using the caller's isolation context, optionally sleeps for a random
     /// duration within the given duration range.
     ///
     /// - Note:
-    /// The package settings enable `NonisolatedNonsendingByDefault`, irregardless this function is
+    /// The package settings enable `NonisolatedNonsendingByDefault`; even so, this function is
     /// marked `nonisolated(nonsending)` for explicitness.
     nonisolated(nonsending)
     static func generateImage(text: String, size: CGSize, sleepRange: ClosedRange<Duration>?)
@@ -454,7 +454,7 @@ extension PreviewContent {
         Using `MainActorImageGenerator` through a generic-typed container. 
         """)
     .paragraph("""
-        Image generation is isolated to `MainActor`, irregardless of calling isolation context.
+        Image generation is isolated to `MainActor`, regardless of calling isolation context.
         """)
 
     printOnce.print()
@@ -741,7 +741,7 @@ extension PreviewContent {
         Using `MainActorImageGenerator` through a type-erased container. 
         """)
     .paragraph("""
-        Image generation is isolated to `MainActor`, irregardless of calling isolation context.
+        Image generation is isolated to `MainActor`, regardless of calling isolation context.
         """)
     .paragraph("""
         This has he same behaviour as its preview counterpart using generics.

@@ -5,23 +5,23 @@
 }
 
 
-Visualize the boundaries, origin, and safe areas of any view, without impacting its layout.
+Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.
 
-Apply the ``DebugOverlayModifier`` using ``SwiftUICore/View/debugOverlay()`` to overlay a 
-visualization of the boundaries, origin, and safe areas. The modifier can be configured
-by passing [`Trait`](doc:DebugOverlayModifier/Configuration/Trait) instances:
+Apply the ``DebugOverlayModifier`` using ``SwiftUICore/View/debugOverlay(_:)`` or any
+[sibling function](doc:debug-overlay-api/View-Extensions) to overlay a visualization of the 
+boundaries, origin, and safe areas:
 
 ![Visual components of the debug overlay.](debug-overlay-components)
 
-The overlay can be configured by passing [`Trait`](doc:DebugOverlayModifier/Configuration/Trait) 
-instances to ``SwiftUICore/View/debugOverlay(_:)``:
+The modifier can be configured by passing [`Trait`](doc:DebugOverlayModifier/Configuration/Trait) 
+instances:
 
 ```swift
 Rectangle()
 .fill(.yellow.gradient.secondary)
 .frame(width: 200, height: 80)
 .debugOverlay(
-    .size,                     // prints the size of the parent view
+    .size,                     // prints the size of the owner view
     .bordersWidth(2),          // sets debug borders width to 2
     .alignment(.innerTrailing) // aligns caption to trailing-center
 )
@@ -32,14 +32,11 @@ Rectangle()
 ## Topics
 
 ### Modifier and Traits
-
 + ``DebugOverlayModifier``
 + ``DebugOverlayModifier/Configuration``
 + ``DebugOverlayModifier/Configuration/Trait``
 
 
 ### View Extensions
-
-+ ``SwiftUICore/View/debugOverlay()``
 + ``SwiftUICore/View/debugOverlay(_:)``
 + ``SwiftUICore/View/debugOverlay(traits:)``

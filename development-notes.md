@@ -42,12 +42,19 @@ xcodebuild -scheme PreviewUtilities -showdestinations
 Documentation generation
 ------------------------
 
-Build the documentation archive (`PreviewUtilities.doccarchive`):
+Files that need version update:
++ Documentation Catalog: package-version, on text and link.
++ readme.md
++ scripts/generate-static-docs
++ scripts/serve-documentation
+
+
+Build the documentation into the documentation worktree:
 ```zsh
-swift package generate-documentation
+./scripts/generate-static-docs
 ```
 
-Preview documentation in a local server:
+Preview documentation in the documentation worktree:
 ```zsh
-swift package --disable-sandbox preview-documentation
+./scripts/serve-documentation
 ``` 
