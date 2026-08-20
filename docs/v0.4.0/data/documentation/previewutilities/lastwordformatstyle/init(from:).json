@@ -1,0 +1,239 @@
+{
+  "abstract" : [
+    {
+      "text" : "Inherited from ",
+      "type" : "text"
+    },
+    {
+      "code" : "Decodable.init(from:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/LastWordFormatStyle"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/LastWordFormatStyle\/init(from:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19LastWordFormatStyleV4fromACs7Decoder_p_tKcfc",
+    "fragments" : [
+      {
+        "kind" : "identifier",
+        "text" : "init"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "from"
+      },
+      {
+        "kind" : "text",
+        "text" : ": any "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:s7DecoderP",
+        "text" : "Decoder"
+      },
+      {
+        "kind" : "text",
+        "text" : ") "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "throws"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init(from:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "init"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "from"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "decoder"
+            },
+            {
+              "kind" : "text",
+              "text" : ": any "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:s7DecoderP",
+              "text" : "Decoder"
+            },
+            {
+              "kind" : "text",
+              "text" : ") "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "throws"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/lastwordformatstyle\/init(from:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the last word of a string.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "LastWordFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/LastWordFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "LastWordFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "LastWordFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/lastwordformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/LastWordFormatStyle/init(from:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "from"
+    },
+    {
+      "kind" : "text",
+      "text" : ": any "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:s7DecoderP",
+      "text" : "Decoder"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/LastWordFormatStyle\/init(from:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(from:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/lastwordformatstyle\/init(from:)"
+}
+}
+}

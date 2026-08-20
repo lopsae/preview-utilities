@@ -1,0 +1,712 @@
+{
+  "abstract": [
+    {
+      "text": "Creates a horizontal stack that generates its content with the elements of a given",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "collection identified through a key path.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack/init(_:id:elementContent:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "conformance": {
+      "availabilityPrefix": [
+        {
+          "text": "Available when",
+          "type": "text"
+        }
+      ],
+      "conformancePrefix": [
+        {
+          "text": "Conforms when",
+          "type": "text"
+        }
+      ],
+      "constraints": [
+        {
+          "code": "Content",
+          "type": "codeVoice"
+        },
+        {
+          "text": " conforms to ",
+          "type": "text"
+        },
+        {
+          "code": "View",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ]
+    },
+    "extendedModule": "SwiftUICore",
+    "externalID": "s:7SwiftUI6HStackV16PreviewUtilitiesE_2id14elementContentACyAA7ForEachVyqd__qd_1_qd_0_GGqd___s7KeyPathCy7ElementQyd__qd_1_Gqd_0_ANctcAIRszSkRd__AA4ViewRd_0_SHRd_1_r1_lufc",
+    "fragments": [
+      {
+        "kind": "identifier",
+        "text": "init"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "genericParameter",
+        "text": "ValuesCollection"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "genericParameter",
+        "text": "ElementContent"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "genericParameter",
+        "text": "ElementID"
+      },
+      {
+        "kind": "text",
+        "text": ">("
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "ValuesCollection"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "externalParam",
+        "text": "id"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:s7KeyPathC",
+        "text": "KeyPath"
+      },
+      {
+        "kind": "text",
+        "text": "<"
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "ValuesCollection"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:ST7ElementQa",
+        "text": "Element"
+      },
+      {
+        "kind": "text",
+        "text": ", "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "ElementID"
+      },
+      {
+        "kind": "text",
+        "text": ">, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "elementContent"
+      },
+      {
+        "kind": "text",
+        "text": ": ("
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "ValuesCollection"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:ST7ElementQa",
+        "text": "Element"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "text": "ElementContent"
+      },
+      {
+        "kind": "text",
+        "text": ")"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Initializer",
+    "symbolKind": "init",
+    "title": "init(_:id:elementContent:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "init"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "ValuesCollection"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "genericParameter",
+              "text": "ElementContent"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "genericParameter",
+              "text": "ElementID"
+            },
+            {
+              "kind": "text",
+              "text": ">("
+            },
+            {
+              "kind": "externalParam",
+              "text": "_"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "collection"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ValuesCollection"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "externalParam",
+              "text": "id"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "idKeyPath"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s7KeyPathC",
+              "text": "KeyPath"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ValuesCollection"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:ST7ElementQa",
+              "text": "Element"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ElementID"
+            },
+            {
+              "kind": "text",
+              "text": ">, "
+            },
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:7SwiftUI11ViewBuilderV",
+              "text": "ViewBuilder"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "externalParam",
+              "text": "elementContent"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "attribute",
+              "text": "@escaping "
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ValuesCollection"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:ST7ElementQa",
+              "text": "Element"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ElementContent"
+            },
+            {
+              "kind": "text",
+              "text": ") "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Content"
+            },
+            {
+              "kind": "text",
+              "text": " == "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI7ForEachV",
+              "text": "ForEach"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ValuesCollection"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ElementID"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ElementContent"
+            },
+            {
+              "kind": "text",
+              "text": ">, "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ValuesCollection"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:Sk",
+              "text": "RandomAccessCollection"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ElementContent"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "ElementID"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SH",
+              "text": "Hashable"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "SwiftUICore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:7SwiftUI6HStackV",
+          "text": "HStack"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HStack"
+        }
+      ],
+      "role": "symbol",
+      "title": "HStack",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/hstack"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack/init(_:id:elementContent:)": {
+      "abstract": [
+        {
+          "text": "Creates a horizontal stack that generates its content with the elements of a given",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "collection identified through a key path.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Content",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "ValuesCollection"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "text": "ElementContent"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "genericParameter",
+          "text": "ElementID"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "ValuesCollection"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "id"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7KeyPathC",
+          "text": "KeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "ValuesCollection"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:ST7ElementQa",
+          "text": "Element"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "ElementID"
+        },
+        {
+          "kind": "text",
+          "text": ">, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "elementContent"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "ValuesCollection"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:ST7ElementQa",
+          "text": "Element"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "ElementContent"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HStack/init(_:id:elementContent:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(_:id:elementContent:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swiftuicore/hstack/init(_:id:elementcontent:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swiftuicore/hstack/init(_:id:elementcontent:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

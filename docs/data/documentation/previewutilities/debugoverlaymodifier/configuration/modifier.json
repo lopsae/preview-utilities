@@ -1,0 +1,413 @@
+{
+  "abstract": [
+    {
+      "text": "Modifier for a debug overlay configuration.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Modifier"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "PreviewUtilities",
+    "externalID": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV0E0P",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "protocol"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "Modifier"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "Modifier"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Protocol",
+    "symbolKind": "protocol",
+    "title": "DebugOverlayModifier.Configuration.Modifier"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "protocol"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "Modifier"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s8SendableP",
+              "text": "Sendable"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Applies an update to a debug overlay configuration. Used by ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "instances as building blocks for a configuration instance.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier": {
+      "abstract": [
+        {
+          "text": "Overlays a visual representations of a view’s boundaries, origin, and safe areas.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DebugOverlayModifier"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DebugOverlayModifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "DebugOverlayModifier",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration": {
+      "abstract": [
+        {
+          "text": "Configuration of a ",
+          "type": "text"
+        },
+        {
+          "code": "DebugOverlayModifier",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Configuration"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Configuration"
+        }
+      ],
+      "role": "symbol",
+      "title": "DebugOverlayModifier.Configuration",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier/configuration"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Modifier": {
+      "abstract": [
+        {
+          "text": "Modifier for a debug overlay configuration.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "protocol"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Modifier"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Modifier",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Modifier"
+        }
+      ],
+      "role": "symbol",
+      "title": "DebugOverlayModifier.Configuration.Modifier",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/modifier"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Modifier/update(configuration:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "update"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "configuration"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "inout"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV",
+          "text": "DebugOverlayModifier"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities20DebugOverlayModifierV13ConfigurationV",
+          "text": "Configuration"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Modifier/update(configuration:)",
+      "kind": "symbol",
+      "required": true,
+      "role": "symbol",
+      "title": "update(configuration:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/modifier/update(configuration:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait": {
+      "abstract": [
+        {
+          "text": "Customizations that can be applied to the ",
+          "type": "text"
+        },
+        {
+          "code": "Configuration",
+          "type": "codeVoice"
+        },
+        {
+          "text": " of a ",
+          "type": "text"
+        },
+        {
+          "code": "DebugOverlayModifier",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Trait",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Trait"
+        }
+      ],
+      "role": "symbol",
+      "title": "DebugOverlayModifier.Configuration.Trait",
+      "type": "topic",
+      "url": "/documentation/previewutilities/debugoverlaymodifier/configuration/trait"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP"
+      ],
+      "kind": "relationships",
+      "title": "Inherits From",
+      "type": "inheritsFrom"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DebugOverlayModifier/Configuration/Modifier/update(configuration:)"
+      ],
+      "title": "Instance Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/debugoverlaymodifier/configuration/modifier"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

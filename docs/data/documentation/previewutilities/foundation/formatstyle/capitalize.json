@@ -1,0 +1,634 @@
+{
+  "abstract": [
+    {
+      "text": "Returns a format style that outputs a capitalized string.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "conformance": {
+      "availabilityPrefix": [
+        {
+          "text": "Available when",
+          "type": "text"
+        }
+      ],
+      "conformancePrefix": [
+        {
+          "text": "Conforms when",
+          "type": "text"
+        }
+      ],
+      "constraints": [
+        {
+          "code": "Self",
+          "type": "codeVoice"
+        },
+        {
+          "text": " is ",
+          "type": "text"
+        },
+        {
+          "code": "FormatStyle",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ]
+    },
+    "extendedModule": "Foundation",
+    "externalID": "s:10Foundation11FormatStyleP16PreviewUtilitiesAD010CapitalizebC0VRszrlE10capitalizeAFvpZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "static"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "var"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "capitalize"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities21CapitalizeFormatStyleV",
+        "text": "CapitalizeFormatStyle"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Foundation"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Type Property",
+    "symbolKind": "property",
+    "title": "capitalize"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "static"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "var"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "capitalize"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities21CapitalizeFormatStyleV",
+              "text": "CapitalizeFormatStyle"
+            },
+            {
+              "kind": "text",
+              "text": " { "
+            },
+            {
+              "kind": "keyword",
+              "text": "get"
+            },
+            {
+              "kind": "text",
+              "text": " }"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "discussion",
+          "level": 2,
+          "text": "Discussion",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "Returns a ",
+              "type": "text"
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
+              "isActive": true,
+              "type": "reference"
+            },
+            {
+              "text": " that outputs a capitalized string.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "code": [
+            "Text(\"black quartz\", format: .capitalize) // Displays \"Black Quartz\""
+          ],
+          "syntax": "swift",
+          "type": "codeListing"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle": {
+      "abstract": [
+        {
+          "text": "A format style that outputs a capitalized string.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CapitalizeFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CapitalizeFormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CapitalizeFormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "CapitalizeFormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/capitalizeformatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Foundation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:10Foundation11FormatStyleP",
+          "text": "FormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "FormatStyle"
+        }
+      ],
+      "role": "symbol",
+      "title": "FormatStyle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize": {
+      "abstract": [
+        {
+          "text": "Returns a format style that outputs a capitalized string.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "capitalize"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities21CapitalizeFormatStyleV",
+          "text": "CapitalizeFormatStyle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "capitalize",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/capitalize"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize(_:)": {
+      "abstract": [
+        {
+          "text": "Returns a composite format style that formats the data with a given style and capitalizes",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "the output.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "capitalize"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "InputStyle"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "InputStyle"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize(_:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "capitalize(_:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/capitalize(_:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize(property:)": {
+      "abstract": [
+        {
+          "text": "Returns a composite format style that outputs a capitalized string value retrieved through a",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "key path.",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Self",
+            "type": "codeVoice"
+          },
+          {
+            "text": " is ",
+            "type": "text"
+          },
+          {
+            "code": "FormatStyle",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "capitalize"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "property"
+        },
+        {
+          "kind": "text",
+          "text": ": any "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s7KeyPathC",
+          "text": "KeyPath"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Input"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": "> & "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8SendableP",
+          "text": "Sendable"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Self"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize(property:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "capitalize(property:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/foundation/formatstyle/capitalize(property:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "FormatStyle-Extensions",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize(_:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Foundation/FormatStyle/capitalize(property:)"
+      ],
+      "title": "FormatStyle Extensions"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/foundation/formatstyle/capitalize"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

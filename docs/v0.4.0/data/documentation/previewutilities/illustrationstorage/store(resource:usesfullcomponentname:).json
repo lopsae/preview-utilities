@@ -1,0 +1,402 @@
+{
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/store(resource:usesFullComponentName:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities19IllustrationStorageV5store8resource21usesFullComponentNameyAA0C8RendererV14RenderResourceV_SbtKF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "store"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "resource"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV",
+        "text" : "IllustrationRenderer"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV14RenderResourceV",
+        "text" : "RenderResource"
+      },
+      {
+        "kind" : "text",
+        "text" : ", "
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "usesFullComponentName"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sb",
+        "text" : "Bool"
+      },
+      {
+        "kind" : "text",
+        "text" : ") "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "throws"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "store(resource:usesFullComponentName:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@"
+            },
+            {
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "store"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "resource"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV",
+              "text" : "IllustrationRenderer"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/RenderResource",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV14RenderResourceV",
+              "text" : "RenderResource"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "usesFullComponentName"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sb",
+              "text" : "Bool"
+            },
+            {
+              "kind" : "text",
+              "text" : " = true) "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "throws"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/illustrationstorage\/store(resource:usesfullcomponentname:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer": {
+  "abstract" : [
+    {
+      "text" : "Renders SwiftUI views to PNG files for documentation illustrations.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/RenderResource": {
+  "abstract" : [
+    {
+      "text" : "Container of the rendered documentation illustrations.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RenderResource"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/RenderResource",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RenderResource"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer.RenderResource",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/renderresource"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage": {
+  "abstract" : [
+    {
+      "text" : "Utility structure to store documentation illustrations into a local folder.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationStorage"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationStorage",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationStorage/store(resource:usesFullComponentName:)": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "store"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "resource"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV",
+      "text" : "IllustrationRenderer"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20IllustrationRendererV14RenderResourceV",
+      "text" : "RenderResource"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "usesFullComponentName"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ") "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "throws"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage\/store(resource:usesFullComponentName:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "store(resource:usesFullComponentName:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationstorage\/store(resource:usesfullcomponentname:)"
+}
+}
+}

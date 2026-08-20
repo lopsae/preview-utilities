@@ -1,0 +1,350 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Swift",
+    "externalID": "s:e:s:s26DefaultStringInterpolationV16PreviewUtilitiesE06appendC003nilA0yxSg_tlF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:s26DefaultStringInterpolationV",
+        "text": "DefaultStringInterpolation"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Swift"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "DefaultStringInterpolation"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "DefaultStringInterpolation"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s26DefaultStringInterpolationV",
+              "text": "DefaultStringInterpolation"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Swift",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:s26DefaultStringInterpolationV",
+          "text": "DefaultStringInterpolation"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DefaultStringInterpolation"
+        }
+      ],
+      "role": "symbol",
+      "title": "DefaultStringInterpolation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/defaultstringinterpolation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(_:format:)": {
+      "abstract": [
+        {
+          "text": "Appends the formatted representation of a nonstring type supported by a corresponding",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "format style.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "appendInterpolation"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "Format"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Format"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:10Foundation11FormatStyleP0B5InputQa",
+          "text": "FormatInput"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "format"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Format"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(_:format:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "appendInterpolation(_:format:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/defaultstringinterpolation/appendinterpolation(_:format:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(emptyDefault:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "appendInterpolation"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "emptyDefault"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": "?)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(emptyDefault:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "appendInterpolation(emptyDefault:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/defaultstringinterpolation/appendinterpolation(emptydefault:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(nilDefault:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "appendInterpolation"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "genericParameter",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": ">("
+        },
+        {
+          "kind": "externalParam",
+          "text": "nilDefault"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "T"
+        },
+        {
+          "kind": "text",
+          "text": "?)"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(nilDefault:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "appendInterpolation(nilDefault:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/defaultstringinterpolation/appendinterpolation(nildefault:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Instance-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(_:format:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(emptyDefault:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/DefaultStringInterpolation/appendInterpolation(nilDefault:)"
+      ],
+      "title": "Instance Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swift/defaultstringinterpolation"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

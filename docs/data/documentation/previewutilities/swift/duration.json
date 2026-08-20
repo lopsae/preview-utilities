@@ -1,0 +1,236 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "Swift",
+    "externalID": "s:e:s:s8DurationV16PreviewUtilitiesE6random2inABSNyABG_tFZ",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "extension"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "preciseIdentifier": "s:s8DurationV",
+        "text": "Duration"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "Swift"
+        ]
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "Duration"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Extended Structure",
+    "symbolKind": "extension",
+    "title": "Duration"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "keyword",
+              "text": "extension"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s8DurationV",
+              "text": "Duration"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "Swift",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "s:s8DurationV",
+          "text": "Duration"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "Duration"
+        }
+      ],
+      "role": "symbol",
+      "title": "Duration",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/duration"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration/random(in:)": {
+      "abstract": [
+        {
+          "text": "Generates a random Duration within a specified closed range.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "static"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "random"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "in"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SN",
+          "text": "ClosedRange"
+        },
+        {
+          "kind": "text",
+          "text": "<"
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8DurationV",
+          "text": "Duration"
+        },
+        {
+          "kind": "text",
+          "text": ">) -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:s8DurationV",
+          "text": "Duration"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration/random(in:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "random(in:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/swift/duration/random(in:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "topicSections": [
+    {
+      "anchor": "Type-Methods",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/Swift/Duration/random(in:)"
+      ],
+      "title": "Type Methods"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/swift/duration"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

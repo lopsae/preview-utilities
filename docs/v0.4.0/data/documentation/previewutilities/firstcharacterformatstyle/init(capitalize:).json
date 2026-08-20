@@ -1,0 +1,257 @@
+{
+  "abstract" : [
+    {
+      "text" : "Creates a format style that outputs the first character of a string, optionally",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "capitalized.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle\/init(capitalize:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities25FirstCharacterFormatStyleV10capitalizeACSb_tcfc",
+    "fragments" : [
+      {
+        "kind" : "identifier",
+        "text" : "init"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "capitalize"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:Sb",
+        "text" : "Bool"
+      },
+      {
+        "kind" : "text",
+        "text" : ")"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Initializer",
+    "symbolKind" : "init",
+    "title" : "init(capitalize:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "init"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "capitalize"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:Sb",
+              "text" : "Bool"
+            },
+            {
+              "kind" : "text",
+              "text" : " = false)"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "Enables capitalization of the output; defaults to ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "false",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : ".",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "capitalize"
+        }
+      ]
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/firstcharacterformatstyle\/init(capitalize:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle": {
+  "abstract" : [
+    {
+      "text" : "A format style that outputs the first character of a string, optionally capitalized.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "FirstCharacterFormatStyle"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FirstCharacterFormatStyle"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FirstCharacterFormatStyle",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/firstcharacterformatstyle"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FirstCharacterFormatStyle/init(capitalize:)": {
+  "abstract" : [
+    {
+      "text" : "Creates a format style that outputs the first character of a string, optionally",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "capitalized.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "identifier",
+      "text" : "init"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "capitalize"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FirstCharacterFormatStyle\/init(capitalize:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "init(capitalize:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/firstcharacterformatstyle\/init(capitalize:)"
+}
+}
+}

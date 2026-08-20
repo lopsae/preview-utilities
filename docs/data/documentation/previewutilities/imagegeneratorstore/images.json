@@ -1,0 +1,262 @@
+{
+  "abstract": [
+    {
+      "text": "Stores the generated images for each text.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/images"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities19ImageGeneratorStoreC6imagesSDySS7SwiftUI0C0VGvp",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "var"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "images"
+      },
+      {
+        "kind": "text",
+        "text": ": ["
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": " : "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:7SwiftUI5ImageV",
+        "text": "Image"
+      },
+      {
+        "kind": "text",
+        "text": "]"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Property",
+    "symbolKind": "property",
+    "title": "images"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "var"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "images"
+            },
+            {
+              "kind": "text",
+              "text": ": ["
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI5ImageV",
+              "text": "Image"
+            },
+            {
+              "kind": "text",
+              "text": "] { "
+            },
+            {
+              "kind": "keyword",
+              "text": "get"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "set"
+            },
+            {
+              "kind": "text",
+              "text": " }"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorStore"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorStore",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/images": {
+      "abstract": [
+        {
+          "text": "Stores the generated images for each text.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "var"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "images"
+        },
+        {
+          "kind": "text",
+          "text": ": ["
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": " : "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:7SwiftUI5ImageV",
+          "text": "Image"
+        },
+        {
+          "kind": "text",
+          "text": "]"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorStore/images",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "images",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorstore/images"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/imagegeneratorstore/images"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

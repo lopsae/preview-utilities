@@ -1,0 +1,236 @@
+{
+  "abstract" : [
+    {
+      "text" : "Container of the rendered documentation illustrations.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/RenderResource"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities20IllustrationRendererV14RenderResourceV",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "struct"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "RenderResource"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "RenderResource"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Structure",
+    "symbolKind" : "struct",
+    "title" : "IllustrationRenderer.RenderResource"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "struct"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "RenderResource"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Contains the information needed to store a rendered documentation illustration: the name",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "components, image scale, and the images for each rendered color scheme.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/illustrationrenderer\/renderresource"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer": {
+  "abstract" : [
+    {
+      "text" : "Renders SwiftUI views to PNG files for documentation illustrations.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/RenderResource": {
+  "abstract" : [
+    {
+      "text" : "Container of the rendered documentation illustrations.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "RenderResource"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/RenderResource",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "RenderResource"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer.RenderResource",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/renderresource"
+},
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
+}

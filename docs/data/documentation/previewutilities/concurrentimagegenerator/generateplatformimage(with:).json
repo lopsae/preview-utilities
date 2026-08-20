@@ -1,0 +1,461 @@
+{
+  "abstract": [
+    {
+      "text": "Generates a platform image concurrently, this function always runs in the cooperative thread",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "pool.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities24ConcurrentImageGeneratorC016generatePlatformD04withSo7NSImageC08platformD0_AA10ThreadInfoV06threadL0tSS_tYaAA0dE5ErrorOYKF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "generatePlatformImage"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "with"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:SS",
+        "text": "String"
+      },
+      {
+        "kind": "text",
+        "text": ") "
+      },
+      {
+        "kind": "keyword",
+        "text": "async"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "keyword",
+        "text": "throws"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+        "text": "ImageGeneratorError"
+      },
+      {
+        "kind": "text",
+        "text": ") -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities24ConcurrentImageGeneratorC",
+        "text": "ConcurrentImageGenerator"
+      },
+      {
+        "kind": "text",
+        "text": "."
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC5Tuplea",
+        "text": "PlatformImageTuple"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "generatePlatformImage(with:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@concurrent"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "generatePlatformImage"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "with"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "text"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:SS",
+              "text": "String"
+            },
+            {
+              "kind": "text",
+              "text": ") "
+            },
+            {
+              "kind": "keyword",
+              "text": "async"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "throws"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+              "text": "ImageGeneratorError"
+            },
+            {
+              "kind": "text",
+              "text": ") -> "
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities24ConcurrentImageGeneratorC",
+              "text": "ConcurrentImageGenerator"
+            },
+            {
+              "kind": "text",
+              "text": "."
+            },
+            {
+              "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImageTuple",
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC5Tuplea",
+              "text": "PlatformImageTuple"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator": {
+      "abstract": [
+        {
+          "text": "Nonisolated ImageGenerator with a ",
+          "type": "text"
+        },
+        {
+          "code": "@concurrent generateImage",
+          "type": "codeVoice"
+        },
+        {
+          "text": " function that will always be",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "called in the cooperative thread pool.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "class"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ConcurrentImageGenerator"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ConcurrentImageGenerator"
+        }
+      ],
+      "role": "symbol",
+      "title": "ConcurrentImageGenerator",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)": {
+      "abstract": [
+        {
+          "text": "Generates a platform image concurrently, this function always runs in the cooperative thread",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "pool.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "generatePlatformImage"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "with"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:SS",
+          "text": "String"
+        },
+        {
+          "kind": "text",
+          "text": ") "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "keyword",
+          "text": "throws"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities19ImageGeneratorErrorO",
+          "text": "ImageGeneratorError"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities24ConcurrentImageGeneratorC",
+          "text": "ConcurrentImageGenerator"
+        },
+        {
+          "kind": "text",
+          "text": "."
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:16PreviewUtilities22ImageGeneratorProtocolP08PlatformC5Tuplea",
+          "text": "PlatformImageTuple"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ConcurrentImageGenerator/generatePlatformImage(with:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "generatePlatformImage(with:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/concurrentimagegenerator/generateplatformimage(with:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "enum"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorError"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorError",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ImageGeneratorError"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorError",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorerror"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImageTuple": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "typealias"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "PlatformImageTuple"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ImageGeneratorProtocol/PlatformImageTuple",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "PlatformImageTuple"
+        }
+      ],
+      "role": "symbol",
+      "title": "ImageGeneratorProtocol.PlatformImageTuple",
+      "type": "topic",
+      "url": "/documentation/previewutilities/imagegeneratorprotocol/platformimagetuple"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/concurrentimagegenerator/generateplatformimage(with:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

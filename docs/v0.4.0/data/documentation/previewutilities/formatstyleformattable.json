@@ -1,0 +1,287 @@
+{
+  "abstract" : [
+    {
+      "text" : "Convenience protocol with a default implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "formatted(_:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FormatStyleFormattable"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities22FormatStyleFormattableP",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "protocol"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "FormatStyleFormattable"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "FormatStyleFormattable"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Protocol",
+    "symbolKind" : "protocol",
+    "title" : "FormatStyleFormattable"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "protocol"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "FormatStyleFormattable"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Implementing this protocol extends a type with a default implementation of ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FormatStyleFormattable\/formatted(_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "that receives ",
+              "type" : "text"
+            },
+            {
+              "code" : "FormatStyle",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " instances that use ",
+              "type" : "text"
+            },
+            {
+              "code" : "Self",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " as input.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Instance-Methods",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FormatStyleFormattable\/formatted(_:)"
+      ],
+      "title" : "Instance Methods"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/formatstyleformattable"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FormatStyleFormattable": {
+  "abstract" : [
+    {
+      "text" : "Convenience protocol with a default implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "formatted(_:)",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "FormatStyleFormattable"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FormatStyleFormattable",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "FormatStyleFormattable"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "FormatStyleFormattable",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/formatstyleformattable"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FormatStyleFormattable/formatted(_:)": {
+  "abstract" : [
+    {
+      "text" : "Formats self through the given format style.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "formatted"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "Output"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "genericParameter",
+      "text" : "Style"
+    },
+    {
+      "kind" : "text",
+      "text" : ">("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Style"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Output"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FormatStyleFormattable\/formatted(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "formatted(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/formatstyleformattable\/formatted(_:)"
+}
+}
+}

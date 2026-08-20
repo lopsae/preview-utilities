@@ -1,0 +1,1028 @@
+{
+  "abstract": [
+    {
+      "text": "View that runs a task displaying content while task runs, and displaying different content when",
+      "type": "text"
+    },
+    {
+      "text": " ",
+      "type": "text"
+    },
+    {
+      "text": "the task completes.",
+      "type": "text"
+    }
+  ],
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "externalID": "s:16PreviewUtilities8TaskViewV",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "struct"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "TaskView"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle": [
+      {
+        "kind": "identifier",
+        "text": "TaskView"
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Structure",
+    "symbolKind": "struct",
+    "title": "TaskView"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "@"
+            },
+            {
+              "kind": "attribute",
+              "preciseIdentifier": "s:ScM",
+              "text": "MainActor"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "struct"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "TaskView"
+            },
+            {
+              "kind": "text",
+              "text": "<"
+            },
+            {
+              "kind": "genericParameter",
+              "text": "Result"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "genericParameter",
+              "text": "PendingContent"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "genericParameter",
+              "text": "CompletedContent"
+            },
+            {
+              "kind": "text",
+              "text": "> "
+            },
+            {
+              "kind": "keyword",
+              "text": "where"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "Result"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:s8SendableP",
+              "text": "Sendable"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "PendingContent"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            },
+            {
+              "kind": "text",
+              "text": ", "
+            },
+            {
+              "kind": "typeIdentifier",
+              "text": "CompletedContent"
+            },
+            {
+              "kind": "text",
+              "text": " : "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:7SwiftUI4ViewP",
+              "text": "View"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    },
+    {
+      "content": [
+        {
+          "anchor": "overview",
+          "level": 2,
+          "text": "Overview",
+          "type": "heading"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "A ",
+              "type": "text"
+            },
+            {
+              "code": "TaskView",
+              "type": "codeVoice"
+            },
+            {
+              "text": " instance starts a task with the given operation as soon as it is displayed. While",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "the task is running, the ",
+              "type": "text"
+            },
+            {
+              "code": "pendingContent",
+              "type": "codeVoice"
+            },
+            {
+              "text": " is displayed. Once the task completes, the result",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "of the task is passed to ",
+              "type": "text"
+            },
+            {
+              "code": "completedContent",
+              "type": "codeVoice"
+            },
+            {
+              "text": " and the produced content is displayed.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "inlineContent": [
+            {
+              "text": "The task is scheduled using the ",
+              "type": "text"
+            },
+            {
+              "code": ".task",
+              "type": "codeVoice"
+            },
+            {
+              "text": " view modifier, if the view is removed while the task is",
+              "type": "text"
+            },
+            {
+              "text": " ",
+              "type": "text"
+            },
+            {
+              "text": "still executing, the task is cancelled.",
+              "type": "text"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "kind": "content"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/7SwiftUI4ViewP": {
+      "identifier": "doc://PreviewUtilities/7SwiftUI4ViewP",
+      "title": "SwiftUICore.View",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle": {
+      "abstract": [
+        {
+          "text": "Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "CaptionRectangle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CaptionRectangle"
+        }
+      ],
+      "role": "symbol",
+      "title": "CaptionRectangle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/captionrectangle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle": {
+      "abstract": [
+        {
+          "text": "Convenience view that contains an invisible rectangle framed to a given size.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ClearRectangle"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ClearRectangle"
+        }
+      ],
+      "role": "symbol",
+      "title": "ClearRectangle",
+      "type": "topic",
+      "url": "/documentation/previewutilities/clearrectangle"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider": {
+      "abstract": [
+        {
+          "text": "A divider line with a dashed line style.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "DashedDivider"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "DashedDivider"
+        }
+      ],
+      "role": "symbol",
+      "title": "DashedDivider",
+      "type": "topic",
+      "url": "/documentation/previewutilities/dasheddivider"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay": {
+      "abstract": [
+        {
+          "text": "View that displays the given content overlaid on a parent view that is hidden.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HiddenParentOverlay"
+        }
+      ],
+      "role": "symbol",
+      "title": "HiddenParentOverlay",
+      "type": "topic",
+      "url": "/documentation/previewutilities/hiddenparentoverlay"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue": {
+      "abstract": [
+        {
+          "text": "Displays a value, along a history of previous values offset from the view.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "HistoricValue"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "HistoricValue"
+        }
+      ],
+      "role": "symbol",
+      "title": "HistoricValue",
+      "type": "topic",
+      "url": "/documentation/previewutilities/historicvalue"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText": {
+      "abstract": [
+        {
+          "text": "Text with a tag. Used instead of the ",
+          "type": "text"
+        },
+        {
+          "code": ".tag",
+          "type": "codeVoice"
+        },
+        {
+          "text": " modifier when a concrete type is necessary.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaggedText"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaggedText"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaggedText",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taggedtext"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView": {
+      "abstract": [
+        {
+          "text": "View with a tag. Used instead of the ",
+          "type": "text"
+        },
+        {
+          "code": ".tag",
+          "type": "codeVoice"
+        },
+        {
+          "text": " modifier when a concrete type is necessary.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaggedView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaggedView"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaggedView",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taggedview"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView": {
+      "abstract": [
+        {
+          "text": "View that runs a task displaying content while task runs, and displaying different content when",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "the task completes.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "TaskView"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "TaskView"
+        }
+      ],
+      "role": "symbol",
+      "title": "TaskView",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)": {
+      "abstract": [
+        {
+          "text": "Creates a view that starts a task with the given operation, while the task is running a",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "clear rectangle of size zero is displayed, and when the task completes the content is",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "replaced with ",
+          "type": "text"
+        },
+        {
+          "code": "completedContent",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "conformance": {
+        "availabilityPrefix": [
+          {
+            "text": "Available when",
+            "type": "text"
+          }
+        ],
+        "conformancePrefix": [
+          {
+            "text": "Conforms when",
+            "type": "text"
+          }
+        ],
+        "constraints": [
+          {
+            "code": "Result",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "Sendable",
+            "type": "codeVoice"
+          },
+          {
+            "text": ", ",
+            "type": "text"
+          },
+          {
+            "code": "PendingContent",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ", and ",
+            "type": "text"
+          },
+          {
+            "code": "CompletedContent",
+            "type": "codeVoice"
+          },
+          {
+            "text": " conforms to ",
+            "type": "text"
+          },
+          {
+            "code": "View",
+            "type": "codeVoice"
+          },
+          {
+            "text": ".",
+            "type": "text"
+          }
+        ]
+      },
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "operation"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "nonisolated(nonsending)"
+        },
+        {
+          "kind": "text",
+          "text": " () "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Result"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "completed"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Result"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "CompletedContent"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(operation:completed:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview/init(operation:completed:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)": {
+      "abstract": [
+        {
+          "text": "Creates a view that starts a task with the given operation, while the task is running",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "code": "pendingContent",
+          "type": "codeVoice"
+        },
+        {
+          "text": " is displayed, and when the task completes the content is replaced with",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "code": "completedContent",
+          "type": "codeVoice"
+        },
+        {
+          "text": ".",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "identifier",
+          "text": "init"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "operation"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "keyword",
+          "text": "nonisolated(nonsending)"
+        },
+        {
+          "kind": "text",
+          "text": " () "
+        },
+        {
+          "kind": "keyword",
+          "text": "async"
+        },
+        {
+          "kind": "text",
+          "text": " -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Result"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "pending"
+        },
+        {
+          "kind": "text",
+          "text": ": () -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "PendingContent"
+        },
+        {
+          "kind": "text",
+          "text": ", "
+        },
+        {
+          "kind": "externalParam",
+          "text": "completed"
+        },
+        {
+          "kind": "text",
+          "text": ": ("
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "Result"
+        },
+        {
+          "kind": "text",
+          "text": ") -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "text": "CompletedContent"
+        },
+        {
+          "kind": "text",
+          "text": ")"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "init(operation:pending:completed:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/taskview/init(operation:pending:completed:)"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity": {
+      "abstract": [
+        {
+          "text": "View with an opacity modifier. Used instead of the ",
+          "type": "text"
+        },
+        {
+          "code": ".opacity",
+          "type": "codeVoice"
+        },
+        {
+          "text": " modifier when a concrete type is",
+          "type": "text"
+        },
+        {
+          "text": " ",
+          "type": "text"
+        },
+        {
+          "text": "necessary.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "ViewWithOpacity"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "ViewWithOpacity"
+        }
+      ],
+      "role": "symbol",
+      "title": "ViewWithOpacity",
+      "type": "topic",
+      "url": "/documentation/previewutilities/viewwithopacity"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer": {
+      "abstract": [
+        {
+          "text": "A visible spacer view that expands to all available space in an specific axis.",
+          "type": "text"
+        }
+      ],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "struct"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "VisibleSpacer"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "VisibleSpacer"
+        }
+      ],
+      "role": "symbol",
+      "title": "VisibleSpacer",
+      "type": "topic",
+      "url": "/documentation/previewutilities/visiblespacer"
+    },
+    "doc://PreviewUtilities/s16SendableMetatypeP": {
+      "identifier": "doc://PreviewUtilities/s16SendableMetatypeP",
+      "title": "Swift.SendableMetatype",
+      "type": "unresolvable"
+    },
+    "doc://PreviewUtilities/s8SendableP": {
+      "identifier": "doc://PreviewUtilities/s8SendableP",
+      "title": "Swift.Sendable",
+      "type": "unresolvable"
+    }
+  },
+  "relationshipsSections": [
+    {
+      "identifiers": [
+        "doc://PreviewUtilities/s8SendableP",
+        "doc://PreviewUtilities/s16SendableMetatypeP",
+        "doc://PreviewUtilities/7SwiftUI4ViewP"
+      ],
+      "kind": "relationships",
+      "title": "Conforms To",
+      "type": "conformsTo"
+    }
+  ],
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "seeAlsoSections": [
+    {
+      "anchor": "Views",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CaptionRectangle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ClearRectangle",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/DashedDivider",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/VisibleSpacer",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HiddenParentOverlay",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/HistoricValue",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedText",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaggedView",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/ViewWithOpacity"
+      ],
+      "title": "Views"
+    }
+  ],
+  "topicSections": [
+    {
+      "anchor": "Initializers",
+      "generated": true,
+      "identifiers": [
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:completed:)",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/TaskView/init(operation:pending:completed:)"
+      ],
+      "title": "Initializers"
+    }
+  ],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/taskview"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}

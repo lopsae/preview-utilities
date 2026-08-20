@@ -1,0 +1,442 @@
+{
+  "hierarchy": {
+    "paths": [
+      [
+        "doc://PreviewUtilities/documentation/PreviewUtilities",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+        "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect"
+      ]
+    ]
+  },
+  "identifier": {
+    "interfaceLanguage": "swift",
+    "url": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/setting(x:y:width:height:)"
+  },
+  "kind": "symbol",
+  "metadata": {
+    "extendedModule": "CoreFoundation",
+    "externalID": "s:So6CGRectV16PreviewUtilitiesE7setting1x1y5width6heightAB14CoreFoundation7CGFloatVSg_A3LtF",
+    "fragments": [
+      {
+        "kind": "keyword",
+        "text": "func"
+      },
+      {
+        "kind": "text",
+        "text": " "
+      },
+      {
+        "kind": "identifier",
+        "text": "setting"
+      },
+      {
+        "kind": "text",
+        "text": "("
+      },
+      {
+        "kind": "externalParam",
+        "text": "x"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+        "text": "CGFloat"
+      },
+      {
+        "kind": "text",
+        "text": "?, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "y"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+        "text": "CGFloat"
+      },
+      {
+        "kind": "text",
+        "text": "?, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "width"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+        "text": "CGFloat"
+      },
+      {
+        "kind": "text",
+        "text": "?, "
+      },
+      {
+        "kind": "externalParam",
+        "text": "height"
+      },
+      {
+        "kind": "text",
+        "text": ": "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+        "text": "CGFloat"
+      },
+      {
+        "kind": "text",
+        "text": "?) -> "
+      },
+      {
+        "kind": "typeIdentifier",
+        "preciseIdentifier": "c:@S@CGRect",
+        "text": "CGRect"
+      }
+    ],
+    "modules": [
+      {
+        "name": "PreviewUtilities",
+        "relatedModules": [
+          "CoreFoundation"
+        ]
+      }
+    ],
+    "role": "symbol",
+    "roleHeading": "Instance Method",
+    "symbolKind": "method",
+    "title": "setting(x:y:width:height:)"
+  },
+  "primaryContentSections": [
+    {
+      "declarations": [
+        {
+          "languages": [
+            "swift"
+          ],
+          "platforms": [
+            "macOS"
+          ],
+          "tokens": [
+            {
+              "kind": "attribute",
+              "text": "nonisolated"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "keyword",
+              "text": "func"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "identifier",
+              "text": "setting"
+            },
+            {
+              "kind": "text",
+              "text": "("
+            },
+            {
+              "kind": "externalParam",
+              "text": "x"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "newX"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+              "text": "CGFloat"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "y"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "newY"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+              "text": "CGFloat"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "width"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "newWidth"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+              "text": "CGFloat"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil, "
+            },
+            {
+              "kind": "externalParam",
+              "text": "height"
+            },
+            {
+              "kind": "text",
+              "text": " "
+            },
+            {
+              "kind": "internalParam",
+              "text": "newHeight"
+            },
+            {
+              "kind": "text",
+              "text": ": "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+              "text": "CGFloat"
+            },
+            {
+              "kind": "text",
+              "text": "? = nil) -> "
+            },
+            {
+              "kind": "typeIdentifier",
+              "preciseIdentifier": "c:@S@CGRect",
+              "text": "CGRect"
+            }
+          ]
+        }
+      ],
+      "kind": "declarations"
+    }
+  ],
+  "references": {
+    "doc://PreviewUtilities/documentation/PreviewUtilities": {
+      "abstract": [
+        {
+          "text": "Utilities for SwiftUI previews.",
+          "type": "text"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "PreviewUtilities",
+      "type": "topic",
+      "url": "/documentation/previewutilities"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+      "abstract": [],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation",
+      "kind": "symbol",
+      "role": "collection",
+      "title": "CoreFoundation",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "extension"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect",
+      "kind": "symbol",
+      "navigatorTitle": [
+        {
+          "kind": "identifier",
+          "text": "CGRect"
+        }
+      ],
+      "role": "symbol",
+      "title": "CGRect",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgrect"
+    },
+    "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/setting(x:y:width:height:)": {
+      "abstract": [],
+      "fragments": [
+        {
+          "kind": "keyword",
+          "text": "func"
+        },
+        {
+          "kind": "text",
+          "text": " "
+        },
+        {
+          "kind": "identifier",
+          "text": "setting"
+        },
+        {
+          "kind": "text",
+          "text": "("
+        },
+        {
+          "kind": "externalParam",
+          "text": "x"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "y"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "width"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?, "
+        },
+        {
+          "kind": "externalParam",
+          "text": "height"
+        },
+        {
+          "kind": "text",
+          "text": ": "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "s:14CoreFoundation7CGFloatV",
+          "text": "CGFloat"
+        },
+        {
+          "kind": "text",
+          "text": "?) -> "
+        },
+        {
+          "kind": "typeIdentifier",
+          "preciseIdentifier": "c:@S@CGRect",
+          "text": "CGRect"
+        }
+      ],
+      "identifier": "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/setting(x:y:width:height:)",
+      "kind": "symbol",
+      "role": "symbol",
+      "title": "setting(x:y:width:height:)",
+      "type": "topic",
+      "url": "/documentation/previewutilities/corefoundation/cgrect/setting(x:y:width:height:)"
+    }
+  },
+  "schemaVersion": {
+    "major": 0,
+    "minor": 3,
+    "patch": 0
+  },
+  "sections": [],
+  "variants": [
+    {
+      "paths": [
+        "/documentation/previewutilities/corefoundation/cgrect/setting(x:y:width:height:)"
+      ],
+      "traits": [
+        {
+          "interfaceLanguage": "swift"
+        }
+      ]
+    }
+  ]
+}
