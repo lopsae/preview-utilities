@@ -1,0 +1,267 @@
+{
+  "abstract" : [
+    {
+      "text" : "The concrete type implementing ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier\/ConcreteConfiguration"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities31DebugAxisAlignmentGuideModifierV21ConcreteConfigurationa",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "typealias"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "ConcreteConfiguration"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "ConcreteConfiguration"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Type Alias",
+    "symbolKind" : "typealias",
+    "title" : "DebugAxisAlignmentGuideModifier.ConcreteConfiguration"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "typealias"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "ConcreteConfiguration"
+            },
+            {
+              "kind" : "text",
+              "text" : " = "
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities36DebugAxisAlignmentGuideConfigurationV",
+              "text" : "DebugAxisAlignmentGuideConfiguration"
+            },
+            {
+              "kind" : "text",
+              "text" : "<"
+            },
+            {
+              "kind" : "typeIdentifier",
+              "text" : "AxisAlignment"
+            },
+            {
+              "kind" : "text",
+              "text" : ">"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/debugaxisalignmentguidemodifier\/concreteconfiguration"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration": {
+  "abstract" : [
+    {
+      "text" : "Concrete implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideConfiguration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfiguration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representation of a view’s horizontal or vertical alignment guide.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier/ConcreteConfiguration": {
+  "abstract" : [
+    {
+      "text" : "The concrete type implementing ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ConcreteConfiguration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier\/ConcreteConfiguration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ConcreteConfiguration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideModifier.ConcreteConfiguration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguidemodifier\/concreteconfiguration"
+}
+}
+}

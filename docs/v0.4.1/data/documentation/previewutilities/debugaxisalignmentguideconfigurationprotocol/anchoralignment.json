@@ -1,0 +1,390 @@
+{
+  "abstract" : [
+    {
+      "text" : "The alignment type to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol\/AnchorAlignment"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities44DebugAxisAlignmentGuideConfigurationProtocolP06AnchorE0Qa",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "associatedtype"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "AnchorAlignment"
+      },
+      {
+        "kind" : "text",
+        "text" : " : "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities20AlignmentWithDefaultP",
+        "text" : "AlignmentWithDefault"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "required" : true,
+    "role" : "symbol",
+    "roleHeading" : "Associated Type",
+    "symbolKind" : "associatedtype",
+    "title" : "AnchorAlignment"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "associatedtype"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "AnchorAlignment"
+            },
+            {
+              "kind" : "text",
+              "text" : " : "
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithDefault",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities20AlignmentWithDefaultP",
+              "text" : "AlignmentWithDefault"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "When the size of the alignment marker is customized through ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol\/length",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ", the marker itself",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "can be aligned to this anchor alignment of the owner view.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The anchor alignment is expected to be the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal\/OrthogonalAlignment",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "the alignment type being visualized.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol\/anchoralignment"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/AlignmentWithDefault": {
+  "abstract" : [
+    {
+      "text" : "Defines a default alignment for an alignment type.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AlignmentWithDefault"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithDefault",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "AlignmentWithDefault"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "AlignmentWithDefault",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/alignmentwithdefault"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/AlignmentWithOrthogonal/OrthogonalAlignment": {
+  "abstract" : [
+    {
+      "text" : "Orthogonal alignment to ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "associatedtype"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "OrthogonalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : " : "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities23AlignmentWithOrthogonalP",
+      "text" : "AlignmentWithOrthogonal"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/AlignmentWithOrthogonal\/OrthogonalAlignment",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "OrthogonalAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/alignmentwithorthogonal\/orthogonalalignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol": {
+  "abstract" : [
+    {
+      "text" : "Protocol for the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfigurationProtocol"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfigurationProtocol"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideConfigurationProtocol",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/AnchorAlignment": {
+  "abstract" : [
+    {
+      "text" : "The alignment type to which the alignment marker is itself aligned.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "associatedtype"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "AnchorAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : " : "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities20AlignmentWithDefaultP",
+      "text" : "AlignmentWithDefault"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol\/AnchorAlignment",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "AnchorAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol\/anchoralignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol/length": {
+  "abstract" : [
+    {
+      "text" : "The length customization applied to the alignment marker.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "length"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities37DebugAxisAlignmentConfigurationLengthO",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol\/length",
+  "kind" : "symbol",
+  "required" : true,
+  "role" : "symbol",
+  "title" : "length",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol\/length"
+}
+}
+}

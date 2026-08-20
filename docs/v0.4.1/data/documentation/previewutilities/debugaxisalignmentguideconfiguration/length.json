@@ -1,0 +1,265 @@
+{
+  "abstract" : [
+    {
+      "text" : "The length customization applied to the alignment marker.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration\/length"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities36DebugAxisAlignmentGuideConfigurationV6lengthAA0cdeG6LengthOvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "length"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities37DebugAxisAlignmentConfigurationLengthO",
+        "text" : "DebugAxisAlignmentConfigurationLength"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "length"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "length"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities37DebugAxisAlignmentConfigurationLengthO",
+              "text" : "DebugAxisAlignmentConfigurationLength"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/debugaxisalignmentguideconfiguration\/length"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength": {
+  "abstract" : [
+    {
+      "text" : "Customization options for the length of the alignment markers of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentConfigurationLength",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentconfigurationlength"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration": {
+  "abstract" : [
+    {
+      "text" : "Concrete implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideConfiguration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfiguration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration/length": {
+  "abstract" : [
+    {
+      "text" : "The length customization applied to the alignment marker.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "length"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities37DebugAxisAlignmentConfigurationLengthO",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration\/length",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "length",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfiguration\/length"
+}
+}
+}

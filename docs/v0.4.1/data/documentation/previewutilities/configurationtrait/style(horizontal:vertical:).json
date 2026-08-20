@@ -1,0 +1,1197 @@
+{
+  "abstract" : [
+    {
+      "text" : "Styles each alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(horizontal:vertical:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "conformance" : {
+      "availabilityPrefix" : [
+        {
+          "text" : "Available when",
+          "type" : "text"
+        }
+      ],
+      "conformancePrefix" : [
+        {
+          "text" : "Conforms when",
+          "type" : "text"
+        }
+      ],
+      "constraints" : [
+        {
+          "code" : "Configuration",
+          "type" : "codeVoice"
+        },
+        {
+          "text" : " is ",
+          "type" : "text"
+        },
+        {
+          "code" : "DebugAlignmentGuideModifier.Configuration",
+          "type" : "codeVoice"
+        },
+        {
+          "text" : ".",
+          "type" : "text"
+        }
+      ]
+    },
+    "extendedModule" : "PreviewUtilities",
+    "externalID" : "s:16PreviewUtilities18ConfigurationTraitOA2A27DebugAlignmentGuideModifierV0C0VRszlE5style10horizontal8verticalACyAGGqd___qd_0_t7SwiftUI10ShapeStyleRd__AlMRd_0_r0_lFZ",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "static"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "style"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "horizontal"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "some"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+        "text" : "ShapeStyle"
+      },
+      {
+        "kind" : "text",
+        "text" : ", "
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "vertical"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "some"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+        "text" : "ShapeStyle"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+        "text" : "DebugAlignmentGuideModifier"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+        "text" : "Trait"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Type Method",
+    "symbolKind" : "method",
+    "title" : "style(horizontal:vertical:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@"
+            },
+            {
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "static"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "style"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "horizontal"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "some"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+              "text" : "ShapeStyle"
+            },
+            {
+              "kind" : "text",
+              "text" : ", "
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "vertical"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "some"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+              "text" : "ShapeStyle"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+              "text" : "DebugAlignmentGuideModifier"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+              "text" : "Trait"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The shape style for the horizontal alignment marker stroke.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "horizontal"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The shape style for the vertical alignment marker stroke.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "vertical"
+        }
+      ]
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "Style-Traits",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(_:)-4mxzn",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(horizontal:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(vertical:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/lineWidth(_:)-5lily",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/lineWidth(horizontal:vertical:)"
+      ],
+      "title" : "Style Traits"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/configurationtrait\/style(horizontal:vertical:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait": {
+  "abstract" : [
+    {
+      "text" : "Customization that can be applied to an instance of type ",
+      "type" : "text"
+    },
+    {
+      "code" : "Configuration",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "ConfigurationTrait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "ConfigurationTrait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "ConfigurationTrait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/lineWidth(_:)-5lily": {
+  "abstract" : [
+    {
+      "text" : "Sets the width of the stroke of both alignment markers.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAlignmentGuideModifier.Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "lineWidth"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/lineWidth(_:)-5lily",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "lineWidth(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/linewidth(_:)-5lily"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/lineWidth(horizontal:vertical:)": {
+  "abstract" : [
+    {
+      "text" : "Sets the width of the stroke of each alignment marker.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAlignmentGuideModifier.Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "lineWidth"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "horizontal"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : "?, "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "vertical"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : "?) -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/lineWidth(horizontal:vertical:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "lineWidth(horizontal:vertical:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/linewidth(horizontal:vertical:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(_:)-4mxzn": {
+  "abstract" : [
+    {
+      "text" : "Styles the alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "style"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+      "text" : "ShapeStyle"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities18ConfigurationTraitO",
+      "text" : "ConfigurationTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "<"
+    },
+    {
+      "kind" : "typeIdentifier",
+      "text" : "Configuration"
+    },
+    {
+      "kind" : "text",
+      "text" : ">"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(_:)-4mxzn",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "style(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/style(_:)-4mxzn"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(horizontal:)": {
+  "abstract" : [
+    {
+      "text" : "Styles the horizontal alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAlignmentGuideModifier.Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "style"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "horizontal"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+      "text" : "ShapeStyle"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(horizontal:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "style(horizontal:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/style(horizontal:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(horizontal:vertical:)": {
+  "abstract" : [
+    {
+      "text" : "Styles each alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAlignmentGuideModifier.Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "style"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "horizontal"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+      "text" : "ShapeStyle"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "vertical"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+      "text" : "ShapeStyle"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(horizontal:vertical:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "style(horizontal:vertical:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/style(horizontal:vertical:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/ConfigurationTrait/style(vertical:)": {
+  "abstract" : [
+    {
+      "text" : "Styles the vertical alignment marker with the given ",
+      "type" : "text"
+    },
+    {
+      "code" : "ShapeStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "DebugAlignmentGuideModifier.Configuration",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "style"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "vertical"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI10ShapeStyleP",
+      "text" : "ShapeStyle"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/ConfigurationTrait\/style(vertical:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "style(vertical:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/configurationtrait\/style(vertical:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representation of a view’s alignment guides.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/trait"
+}
+}
+}

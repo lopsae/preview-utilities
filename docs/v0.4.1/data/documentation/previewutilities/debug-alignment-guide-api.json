@@ -1,0 +1,1424 @@
+{
+  "abstract" : [
+    {
+      "text" : "Visualize the alignment guides of a view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-alignment-guide-api"
+  },
+  "kind" : "article",
+  "metadata" : {
+    "images" : [
+      {
+        "identifier" : "cards-debug-alignment-guide.png",
+        "type" : "card"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "collectionGroup",
+    "roleHeading" : "API Collection",
+    "title" : "Debug Alignment Guide"
+  },
+  "primaryContentSections" : [
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Apply the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " using ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " to",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "overlay a visualization of the alignment guides.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The modifier can be customized by passing ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+              "isActive" : true,
+              "overridingTitle" : "Trait",
+              "overridingTitleInlineContent" : [
+                {
+                  "code" : "Trait",
+                  "type" : "codeVoice"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : "",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "instances:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "Text(\"A new age\\ndoes not begin all of a sudden\")",
+            ".font(.title)",
+            ".multilineTextAlignment(.trailing)",
+            ".debugAlignmentGuide(.trailingFirstTextBaseline,",
+            "    .lineWidth(8),",
+            "    .fixedLength(vertical: 200),",
+            "    .anchor(.trailing)",
+            ")"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "debug-alignment-guide-simple-traits",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "anchor" : "Single-Axis-Alignments",
+          "level" : 2,
+          "text" : "Single Axis Alignments",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "To visualize only a horizontal or vertical alignment guide, apply the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "using ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(horizontal:_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " or ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(vertical:_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The modifier can be customized by passing ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier\/Trait",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " instances:",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "code" : [
+            "Text(\"Wisdom was passed on\\nfrom mouth to mouth\")",
+            ".font(.title)",
+            ".multilineTextAlignment(.center)",
+            ".debugAlignmentGuide(vertical: .lastTextBaseline,",
+            "    .lineWidth(8),",
+            "    .scaledLength(1.2)",
+            ")"
+          ],
+          "syntax" : "swift",
+          "type" : "codeListing"
+        },
+        {
+          "inlineContent" : [
+            {
+              "identifier" : "debug-alignment-guide-simple-traits-single-axis",
+              "type" : "image"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "API-Collections",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api"
+      ],
+      "title" : "API Collections"
+    }
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Composite-Modifier",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration"
+      ],
+      "title" : "Composite Modifier"
+    },
+    {
+      "anchor" : "Single-Axis-Modifier",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugVerticalAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugHorizontalAlignmentGuideModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration"
+      ],
+      "title" : "Single Axis Modifier"
+    },
+    {
+      "anchor" : "View-Extensions",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(horizontal:_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(vertical:_:)"
+      ],
+      "title" : "View Extensions"
+    },
+    {
+      "anchor" : "Traits",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier\/Trait",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength"
+      ],
+      "title" : "Traits"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/debug-alignment-guide-api"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"cards-debug-alignment-guide.png": {
+  "alt" : null,
+  "identifier" : "cards-debug-alignment-guide.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-debug-alignment-guide@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-debug-alignment-guide~dark@3x.png"
+    }
+  ]
+},
+"cards-floating-caption.png": {
+  "alt" : null,
+  "identifier" : "cards-floating-caption.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-floating-caption@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-floating-caption~dark@3x.png"
+    }
+  ]
+},
+"cards-format-styles.png": {
+  "alt" : null,
+  "identifier" : "cards-format-styles.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-format-styles@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/cards-format-styles~dark@3x.png"
+    }
+  ]
+},
+"debug-alignment-guide-simple-traits": {
+  "alt" : "Text displaying a trailing first text baseline alignment guide using example traits.",
+  "identifier" : "debug-alignment-guide-simple-traits",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-alignment-guide-simple-traits@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-alignment-guide-simple-traits~dark@3x.png"
+    }
+  ]
+},
+"debug-alignment-guide-simple-traits-single-axis": {
+  "alt" : "Text displaying a vertical last text baseline alignment guide using example traits.",
+  "identifier" : "debug-alignment-guide-simple-traits-single-axis",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-alignment-guide-simple-traits-single-axis@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-alignment-guide-simple-traits-single-axis~dark@3x.png"
+    }
+  ]
+},
+"debug-overlay-card.png": {
+  "alt" : null,
+  "identifier" : "debug-overlay-card.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-overlay-card@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/debug-overlay-card~dark@3x.png"
+    }
+  ]
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representation of a view’s alignment guides.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Configuration": {
+  "abstract" : [
+    {
+      "text" : "Configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Configuration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Configuration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Configuration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier.Configuration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/configuration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAlignmentGuideModifier/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAlignmentGuideModifier\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAlignmentGuideModifier.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugalignmentguidemodifier\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentConfigurationLength": {
+  "abstract" : [
+    {
+      "text" : "Customization options for the length of the alignment markers of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "and ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentConfigurationLength",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentConfigurationLength"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentConfigurationLength",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentconfigurationlength"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfiguration": {
+  "abstract" : [
+    {
+      "text" : "Concrete implementation of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideConfigurationProtocol",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfiguration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfiguration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideConfiguration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfiguration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideConfigurationProtocol": {
+  "abstract" : [
+    {
+      "text" : "Protocol for the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "protocol"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfigurationProtocol"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideConfigurationProtocol",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideConfigurationProtocol"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideConfigurationProtocol",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguideconfigurationprotocol"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representation of a view’s horizontal or vertical alignment guide.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugAxisAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugAxisAlignmentGuideModifier/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "AxisAlignment",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "AlignmentWithOrthogonal",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " and ",
+        "type" : "text"
+      },
+      {
+        "code" : "AxisAlignment.OrthogonalAlignment",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " conforms to ",
+        "type" : "text"
+      },
+      {
+        "code" : "AlignmentWithDefault",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugAxisAlignmentGuideModifier\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugAxisAlignmentGuideModifier.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugaxisalignmentguidemodifier\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugHorizontalAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Convenience alias of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " for ",
+      "type" : "text"
+    },
+    {
+      "code" : "HorizontalAlignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugHorizontalAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugHorizontalAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugHorizontalAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugHorizontalAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debughorizontalalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugVerticalAlignmentGuideModifier": {
+  "abstract" : [
+    {
+      "text" : "Convenience alias of ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugAxisAlignmentGuideModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " for ",
+      "type" : "text"
+    },
+    {
+      "code" : "VerticalAlignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugVerticalAlignmentGuideModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugVerticalAlignmentGuideModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugVerticalAlignmentGuideModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugVerticalAlignmentGuideModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debugverticalalignmentguidemodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(_:_:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view a visual representation of the given alignment guide,",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "customized with the given traits.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "debugAlignmentGuide"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI9AlignmentV",
+      "text" : "Alignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV",
+      "text" : "DebugAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities27DebugAlignmentGuideModifierV5Traita",
+      "text" : "Trait"
+    },
+    {
+      "kind" : "text",
+      "text" : "...) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(_:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "debugAlignmentGuide(_:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(_:_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(horizontal:_:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view a visual representation of the given horizontal alignment",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "guide, customized with the given traits.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "debugAlignmentGuide"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "horizontal"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+      "text" : "HorizontalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities37DebugHorizontalAlignmentGuideModifiera",
+      "text" : "DebugHorizontalAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities31DebugAxisAlignmentGuideModifierV13ConcreteTraita",
+      "text" : "ConcreteTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "...) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(horizontal:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "debugAlignmentGuide(horizontal:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(horizontal:_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugAlignmentGuide(vertical:_:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view a visual representation of the given vertical alignment",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "guide, customized with the given traits.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "debugAlignmentGuide"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "vertical"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
+      "text" : "VerticalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ", "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities35DebugVerticalAlignmentGuideModifiera",
+      "text" : "DebugVerticalAlignmentGuideModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities31DebugAxisAlignmentGuideModifierV13ConcreteTraita",
+      "text" : "ConcreteTrait"
+    },
+    {
+      "kind" : "text",
+      "text" : "...) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugAlignmentGuide(vertical:_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "debugAlignmentGuide(vertical:_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debugalignmentguide(vertical:_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/debug-overlay-api": {
+  "abstract" : [
+    {
+      "text" : "Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-overlay-api",
+  "images" : [
+    {
+      "identifier" : "debug-overlay-card.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Debug Overlay",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debug-overlay-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/edge-graticule-api": {
+  "abstract" : [
+    {
+      "text" : "Overlay a graticule based on the edges of a view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/edge-graticule-api",
+  "images" : [
+    {
+      "identifier" : "edge-graticule-card.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Edge Graticule",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/edge-graticule-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/floating-alignments-api": {
+  "abstract" : [
+    {
+      "text" : "Alignment positions for floating content.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-alignments-api",
+  "images" : [
+    {
+      "identifier" : "floating-alignment-card.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Floating Alignments",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floating-alignments-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/floating-caption-api": {
+  "abstract" : [
+    {
+      "text" : "Add a floating caption, border, and size information to any view, without impacting its layout.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/floating-caption-api",
+  "images" : [
+    {
+      "identifier" : "cards-floating-caption.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Floating Caption",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floating-caption-api"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/format-styles-api": {
+  "abstract" : [
+    {
+      "text" : "Implementations of ",
+      "type" : "text"
+    },
+    {
+      "code" : "FormatStyle",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " to transform data into an output type.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/format-styles-api",
+  "images" : [
+    {
+      "identifier" : "cards-format-styles.png",
+      "type" : "card"
+    }
+  ],
+  "kind" : "article",
+  "role" : "collectionGroup",
+  "title" : "Format Styles",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/format-styles-api"
+},
+"edge-graticule-card.png": {
+  "alt" : null,
+  "identifier" : "edge-graticule-card.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-card@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/edge-graticule-card~dark@3x.png"
+    }
+  ]
+},
+"floating-alignment-card.png": {
+  "alt" : null,
+  "identifier" : "floating-alignment-card.png",
+  "type" : "image",
+  "variants" : [
+    {
+      "traits" : [
+        "3x",
+        "light"
+      ],
+      "url" : "\/images\/PreviewUtilities\/floating-alignment-card@3x.png"
+    },
+    {
+      "traits" : [
+        "3x",
+        "dark"
+      ],
+      "url" : "\/images\/PreviewUtilities\/floating-alignment-card~dark@3x.png"
+    }
+  ]
+}
+}
+}

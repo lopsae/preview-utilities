@@ -1,0 +1,416 @@
+{
+  "abstract" : [
+    {
+      "text" : "Creates an ",
+      "type" : "text"
+    },
+    {
+      "code" : "Alignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " with the given orthogonal alignment.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment\/alignment(withOrthogonal:)"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "SwiftUICore",
+    "externalID" : "s:7SwiftUI19HorizontalAlignmentV16PreviewUtilitiesE9alignment14withOrthogonalAA0D0VAA08VerticalD0V_tF",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "func"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "alignment"
+      },
+      {
+        "kind" : "text",
+        "text" : "("
+      },
+      {
+        "kind" : "externalParam",
+        "text" : "withOrthogonal"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+        "text" : "HorizontalAlignment"
+      },
+      {
+        "kind" : "text",
+        "text" : "."
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV16PreviewUtilitiesE010OrthogonalD0a",
+        "text" : "OrthogonalAlignment"
+      },
+      {
+        "kind" : "text",
+        "text" : ") -> "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:7SwiftUI9AlignmentV",
+        "text" : "Alignment"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
+          "SwiftUICore"
+        ]
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Method",
+    "symbolKind" : "method",
+    "title" : "alignment(withOrthogonal:)"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "func"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "alignment"
+            },
+            {
+              "kind" : "text",
+              "text" : "("
+            },
+            {
+              "kind" : "externalParam",
+              "text" : "withOrthogonal"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "internalParam",
+              "text" : "orthogonalAlignment"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+              "text" : "HorizontalAlignment"
+            },
+            {
+              "kind" : "text",
+              "text" : "."
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment\/OrthogonalAlignment",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV16PreviewUtilitiesE010OrthogonalD0a",
+              "text" : "OrthogonalAlignment"
+            },
+            {
+              "kind" : "text",
+              "text" : ") -> "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:7SwiftUI9AlignmentV",
+              "text" : "Alignment"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The orthogonal alignment to use.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "orthogonalAlignment"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "An ",
+              "type" : "text"
+            },
+            {
+              "code" : "Alignment",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " composed of ",
+              "type" : "text"
+            },
+            {
+              "code" : "self",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " and the given orthogonal alignment.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/swiftuicore\/horizontalalignment\/alignment(withorthogonal:)"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftUICore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HorizontalAlignment": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+      "text" : "HorizontalAlignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "HorizontalAlignment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HorizontalAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/horizontalalignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HorizontalAlignment/OrthogonalAlignment": {
+  "abstract" : [
+    {
+      "text" : "Orthogonal alignment to ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "OrthogonalAlignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment\/OrthogonalAlignment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "OrthogonalAlignment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "HorizontalAlignment.OrthogonalAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/horizontalalignment\/orthogonalalignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/HorizontalAlignment/alignment(withOrthogonal:)": {
+  "abstract" : [
+    {
+      "text" : "Creates an ",
+      "type" : "text"
+    },
+    {
+      "code" : "Alignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " with the given orthogonal alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "alignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "withOrthogonal"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV",
+      "text" : "HorizontalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI19HorizontalAlignmentV16PreviewUtilitiesE010OrthogonalD0a",
+      "text" : "OrthogonalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI9AlignmentV",
+      "text" : "Alignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/HorizontalAlignment\/alignment(withOrthogonal:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "alignment(withOrthogonal:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/horizontalalignment\/alignment(withorthogonal:)"
+}
+}
+}

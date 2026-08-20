@@ -1,0 +1,311 @@
+{
+  "abstract" : [
+    {
+      "text" : "The strategy used to rasterize an illustration.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/Strategy"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities20IllustrationRendererV8StrategyO",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "enum"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Strategy"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Strategy"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Enumeration",
+    "symbolKind" : "enum",
+    "title" : "IllustrationRenderer.Strategy"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "keyword",
+              "text" : "enum"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Strategy"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/SQ",
+        "doc:\/\/PreviewUtilities\/SH",
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Enumeration-Cases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/Strategy\/imageRenderer",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/Strategy\/windowHierarchy"
+      ],
+      "title" : "Enumeration Cases"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/illustrationrenderer\/strategy"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/SH": {
+  "identifier" : "doc:\/\/PreviewUtilities\/SH",
+  "title" : "Swift.Hashable",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/SQ": {
+  "identifier" : "doc:\/\/PreviewUtilities\/SQ",
+  "title" : "Swift.Equatable",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer": {
+  "abstract" : [
+    {
+      "text" : "Renders SwiftUI views to PNG files for documentation illustrations.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "IllustrationRenderer"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/Strategy": {
+  "abstract" : [
+    {
+      "text" : "The strategy used to rasterize an illustration.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Strategy"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/Strategy",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Strategy"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "IllustrationRenderer.Strategy",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/strategy"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/Strategy/imageRenderer": {
+  "abstract" : [
+    {
+      "text" : "Rasterizes with ",
+      "type" : "text"
+    },
+    {
+      "code" : "ImageRenderer",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "imageRenderer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/Strategy\/imageRenderer",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "IllustrationRenderer.Strategy.imageRenderer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/strategy\/imagerenderer"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/IllustrationRenderer/Strategy/windowHierarchy": {
+  "abstract" : [
+    {
+      "text" : "Rasterizes by hosting the illustration in an on-screen ",
+      "type" : "text"
+    },
+    {
+      "code" : "UIWindow",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " and capturing its",
+      "type" : "text"
+    },
+    {
+      "text" : " ",
+      "type" : "text"
+    },
+    {
+      "text" : "composited view hierarchy.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "windowHierarchy"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer\/Strategy\/windowHierarchy",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "IllustrationRenderer.Strategy.windowHierarchy",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/illustrationrenderer\/strategy\/windowhierarchy"
+},
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
+}

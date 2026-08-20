@@ -1,0 +1,282 @@
+{
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment\/AlignmentWithOrthogonal-Implementations"
+  },
+  "kind" : "article",
+  "metadata" : {
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "collectionGroup",
+    "roleHeading" : "API Collection",
+    "title" : "AlignmentWithOrthogonal Implementations"
+  },
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Instance-Properties",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment\/axis"
+      ],
+      "title" : "Instance Properties"
+    },
+    {
+      "anchor" : "Instance-Methods",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment\/alignment(withOrthogonal:)"
+      ],
+      "title" : "Instance Methods"
+    },
+    {
+      "anchor" : "Type-Aliases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment\/OrthogonalAlignment"
+      ],
+      "title" : "Type Aliases"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/swiftuicore\/verticalalignment\/alignmentwithorthogonal-implementations"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "SwiftUICore",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/VerticalAlignment": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
+      "text" : "VerticalAlignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "VerticalAlignment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "VerticalAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/verticalalignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/VerticalAlignment/OrthogonalAlignment": {
+  "abstract" : [
+    {
+      "text" : "Orthogonal alignment to ",
+      "type" : "text"
+    },
+    {
+      "code" : "self",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "typealias"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "OrthogonalAlignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment\/OrthogonalAlignment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "OrthogonalAlignment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "VerticalAlignment.OrthogonalAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/verticalalignment\/orthogonalalignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/VerticalAlignment/alignment(withOrthogonal:)": {
+  "abstract" : [
+    {
+      "text" : "Creates an ",
+      "type" : "text"
+    },
+    {
+      "code" : "Alignment",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " with the given orthogonal alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "alignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "withOrthogonal"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV",
+      "text" : "VerticalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI17VerticalAlignmentV16PreviewUtilitiesE010OrthogonalD0a",
+      "text" : "OrthogonalAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI9AlignmentV",
+      "text" : "Alignment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment\/alignment(withOrthogonal:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "alignment(withOrthogonal:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/verticalalignment\/alignment(withorthogonal:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/VerticalAlignment/axis": {
+  "abstract" : [
+    {
+      "text" : "The axis of the alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "axis"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4AxisO",
+      "text" : "Axis"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/VerticalAlignment\/axis",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "axis",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/verticalalignment\/axis"
+}
+}
+}

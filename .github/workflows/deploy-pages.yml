@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, develop]
+    branches: ["documentation/main", "documentation/develop"]
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}documentation/previewutilities/
+      url: ${{ steps.deployment.outputs.page_url }}v0.4.1/documentation/previewutilities/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
