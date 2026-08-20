@@ -50,8 +50,8 @@ struct IllustrationsForFloatingCaption {
                 .frame(width: 80, height: 80)
                 .floatingCaption(
                     "A **Purple**\nSquare `Rectangle`",
-                    .alignment(.outerTrailingTop), // alignment for the caption
-                    .height                        // prints the height of the parent view
+                    .alignment(.outerTrailingTop), // sets the caption alignment
+                    .height                        // prints the height of the owner view
                 )
             }
         }
@@ -96,8 +96,8 @@ struct IllustrationsForFloatingCaption {
                 .frame(width: 80, height: 80)
                 .floatingCaption(
                     "A `Circle` Shape",              // caption localized string
-                    .height,                         // prints the height of the parent view
-                    .alignment(.outerLeadingBottom), // alignment for the caption
+                    .height,                         // prints the height of the owner view
+                    .alignment(.outerLeadingBottom), // sets the caption alignment
                     .colorStyle(.indigo),            // sets the caption and border color
                     .borderWidth(4)                  // sets the border width
                 )

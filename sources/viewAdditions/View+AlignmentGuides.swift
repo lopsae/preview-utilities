@@ -141,21 +141,25 @@ private struct PreviewContent {
     let padding: CGFloat = 16
     VStack(alignment: .leading) {
         CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
-        .overlay(alignment: .topLeading) {
-            // TODO: replace with debugAlignmentOverlay or debugOverlay
-            // when alignment guides with size and alignment are supported.
-            Rectangle().fill(.red.secondary)
-                .frame(width: 2, height: 140)
-        }
+        .debugAlignmentGuide(horizontal: .leading, .fixedLength(150), .anchor(.top))
+
+        let guideMarker: DebugHorizontalAlignmentGuideModifier.ConcreteTrait  = [
+            .extendedLength(10), .style(.mint)
+        ]
 
         Text("Leading Inset")
+            .debugAlignmentGuide(horizontal: .leading, guideMarker)
             .alignmentGuide(.leading, insetBy: padding)
+
         Text("Leading Outset")
+            .debugAlignmentGuide(horizontal: .leading, guideMarker)
             .alignmentGuide(.leading, outsetBy: padding)
 
         Text("Trailing Inset")
+            .debugAlignmentGuide(horizontal: .trailing, guideMarker)
             .alignmentGuide(.leading, moveTo: .trailing, insetBy: padding)
         Text("Trailing Outset")
+            .debugAlignmentGuide(horizontal: .trailing, guideMarker)
             .alignmentGuide(.leading, moveTo: .trailing, outsetBy: padding)
     }
     .floatingCaption("Leading Aligned", .colorStyle(.mint), .alignment(.outerTopTrailing))
@@ -165,21 +169,24 @@ private struct PreviewContent {
 
     VStack(alignment: .trailing) {
         CaptionRectangle("Fixed Content", color: .gray, size: [100, 50])
-        .overlay(alignment: .topTrailing) {
-            // TODO: replace with debugAlignmentOverlay or debugOverlay
-            // when alignment guides with size and alignment are supported.
-            Rectangle().fill(.red.secondary)
-                .frame(width: 2, height: 140)
-        }
+        .debugAlignmentGuide(horizontal: .trailing, .fixedLength(150), .anchor(.top))
+
+        let guideMarker: DebugHorizontalAlignmentGuideModifier.ConcreteTrait  = [
+            .extendedLength(10), .style(.mint)
+        ]
 
         Text("Trailing Inset")
+            .debugAlignmentGuide(horizontal: .trailing, guideMarker)
             .alignmentGuide(.trailing, insetBy: padding)
         Text("Trailing Outset")
+            .debugAlignmentGuide(horizontal: .trailing, guideMarker)
             .alignmentGuide(.trailing, outsetBy: padding)
 
         Text("Leading Inset")
+            .debugAlignmentGuide(horizontal: .leading, guideMarker)
             .alignmentGuide(.trailing, moveTo: .leading, insetBy: padding)
         Text("Leading Outset")
+            .debugAlignmentGuide(horizontal: .leading, guideMarker)
             .alignmentGuide(.trailing, moveTo: .leading, outsetBy: padding)
     }
     .floatingCaption("Trailing Aligned", .colorStyle(.mint), .alignment(.outerTopTrailing))
@@ -189,99 +196,86 @@ private struct PreviewContent {
 #Preview("Vertical Inset/Outset", traits: PreviewContent.layout) {
     HStack(alignment: .top){
         Rectangle()
-            .fill(.red.secondary)
-            .frame(width: 20, height: 120)
+        .fill(.gray)
+        .frame(width: 20, height: 50)
+        .floatingCaption("Offset", .alignment(.outerBottomLeading), .zeroPadding)
+        // Negative value subtracts to the top alignment pushing it farther from the view,
+        // view appears pushed inwardly, thus insetting the view.
+        .alignmentGuide(.top, offsetBy: -40)
+        .debugAlignmentGuide(vertical: .top)
 
         Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-            .floatingCaption("Manual Align", .alignment(.outerBottomLeading), .zeroPadding)
-            // Negative value substracts to the top aligment pushing it farther from the view,
-            // view appears pushed innwardly, thus insetting the view.
-            .alignmentGuide(.top, offsetBy: -40)
+        .fill(.gray)
+        .frame(width: 20, height: 50)
+        .floatingCaption("Inset", .alignment(.outerBottomLeading), .zeroPadding)
+        .alignmentGuide(.top, insetBy: 20)
+        .debugAlignmentGuide(vertical: .top)
 
         Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-            .floatingCaption("Inset Align", .alignment(.outerBottomLeading), .zeroPadding)
-            .alignmentGuide(.top, insetBy: 20)
+        .fill(.gray)
+        .frame(width: 20, height: 50)
+        .floatingCaption("Inset to Center", .alignment(.outerBottomLeading), .zeroPadding)
+        .debugAlignmentGuide(vertical: .center, .style(.indigo.secondary))
+        .alignmentGuide(.top, moveTo: .center, insetBy: 10)
+        .debugAlignmentGuide(vertical: .top)
+
+        CaptionRectangle("Fixed Content", color: .gray, size: [150, 20])
+        .debugAlignmentGuide(vertical: .top)
 
         Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-            .floatingCaption("Inset Align to Center", .alignment(.outerBottomLeading), .zeroPadding)
-            .alignmentGuide(.top, moveTo: .center, insetBy: 20)
-
-        Rectangle()
-            .fill(.red.secondary)
-            .frame(height: 5)
-            .floatingCaption(
-                "Original Top", .alignment(.outerBottomTrailing),
-                .captionStyle(.red))
-
-        Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-            .floatingCaption("Outset Align", .alignment(.outerBottomTrailing))
-            .alignmentGuide(.top, outsetBy: 20)
+        .fill(.gray)
+        .frame(width: 20, height: 50)
+        .floatingCaption("Outset", .alignment(.outerBottomTrailing))
+        .alignmentGuide(.top, outsetBy: 20)
+        .debugAlignmentGuide(vertical: .top)
     }
-    .floatingCaption("Top Aligned", .alignment(.outerTopTrailing), .colorStyle(.green))
+    .floatingCaption("Top Aligned HStack", .alignment(.outerTopTrailing), .colorStyle(.green))
     .padding()
 
     HStack(alignment: .bottom){
         Rectangle()
-            .fill(.red.secondary)
-            .frame(width: 20, height: 120)
+        .fill(.gray)
+        .frame(width: 20, height: 50)
+        .floatingCaption("Offset", .alignment(.outerTopLeading), .zeroPadding)
+        // Positive value adds to the bottom alignment pushing it farther from the view,
+        // view appears pushed inwardly, thus insetting the view.
+        .alignmentGuide(.bottom, offsetBy: 40)
+        .debugAlignmentGuide(vertical: .bottom)
 
         Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-            .floatingCaption("Manual Align", .alignment(.outerTopLeading), .zeroPadding)
-            // Positive value adds to the bottom aligment pushing it farther from the view,
-            // view appears pushed innwardly, thus insetting the view.
-            .alignmentGuide(.bottom, offsetBy: 40)
+        .fill(.gray)
+        .frame(width: 20, height: 50)
+        .floatingCaption("Inset", .alignment(.outerTopLeading), .zeroPadding)
+        .alignmentGuide(.bottom, insetBy: 20)
+        .debugAlignmentGuide(vertical: .bottom)
 
         Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-            .floatingCaption("Inset Align", .alignment(.outerTopLeading), .zeroPadding)
-            .alignmentGuide(.bottom, insetBy: 20)
+        .fill(.gray)
+        .frame(width: 20, height: 50)
+        .floatingCaption("Inset to Center", .alignment(.outerTopLeading), .zeroPadding)
+        .debugAlignmentGuide(vertical: .center, .style(.indigo.secondary))
+        .alignmentGuide(.bottom, moveTo: .center, insetBy: 10)
+        .debugAlignmentGuide(vertical: .bottom)
+
+        CaptionRectangle("Fixed Content", color: .gray, size: [150, 20])
+        .debugAlignmentGuide(vertical: .bottom)
 
         Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-            .floatingCaption("Inset Align to Center", .alignment(.outerTopLeading), .zeroPadding)
-            .alignmentGuide(.bottom, moveTo: .center, insetBy: 20)
-
-        Rectangle()
-            .fill(.red.secondary)
-            .frame(height: 5)
-            .floatingCaption(
-                "Original Bottom", .alignment(.outerTopTrailing),
-                .captionStyle(.red))
-
-        Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-            .floatingCaption("Outset Align", .alignment(.outerTopTrailing))
-            .alignmentGuide(.bottom, outsetBy: 20)
+        .fill(.gray)
+        .frame(width: 20, height: 50)
+        .floatingCaption("Outset", .alignment(.outerTopTrailing))
+        .alignmentGuide(.bottom, outsetBy: 20)
+        .debugAlignmentGuide(vertical: .bottom)
     }
-    .floatingCaption("Bottom Aligned", .alignment(.outerTopTrailing), .colorStyle(.green))
+    .floatingCaption("Bottom Aligned HStack", .alignment(.outerTopTrailing), .colorStyle(.green))
     .padding()
 
     ZStack(alignment: .bottom) {
-        Rectangle()
-            .fill(.gray)
-            .frame(width: 20, height: 50)
-
-        Rectangle()
-            .fill(.red.secondary)
-            .frame(height: 5)
-            .floatingCaption("Bottom", .alignment(.outerTopTrailing))
+        CaptionRectangle("Fixed\nContent", color: .gray, size: [100, 100])
     } // ZStack
-    .border(.purple.secondary)
+    .floatingCaption("ZStack", .alignment(.outerTop), .colorStyle(.purple))
     .alignmentGuide(.bottom, outsetBy: 20)
-    .frame(size: .square(of: 100), alignment: .bottom)
-    .floatingCaption("Frame Bottom Aligned", .alignment(.outerTopTrailing))
-    .border(.teal)
+    .debugAlignmentGuide(vertical: .bottom, .lineWidth(8))
+    .frame(squareOf: 150, alignment: .bottom)
+    .floatingCaption("Bottom Aligned Frame", .alignment(.outerTop), .colorStyle(.teal))
 }

@@ -5,29 +5,57 @@
 
 
 import CoreGraphics
+import SwiftUI
 
 
 extension CGSize {
 
     @inlinable nonisolated
-    public init(squareOf length: CGFloat) {
+    init(all length: CGFloat) {
         self.init(width: length, height: length)
     }
 
 
     @inlinable nonisolated
-    public static func square(of length: CGFloat) -> Self {
-        .init(squareOf: length)
+    public init(squareOf length: CGFloat) {
+        self.init(all: length)
     }
 
 
-    @inlinable public func setting(
+    @inlinable nonisolated
+    static func all(_ length: CGFloat) -> Self {
+        .init(all: length)
+    }
+
+
+    @inlinable nonisolated
+    public static func square(of length: CGFloat) -> Self {
+        .init(all: length)
+    }
+
+
+    @inlinable nonisolated
+    public func setting(
         width newWidth: CGFloat? = nil,
         height newHeight: CGFloat? = nil
     ) -> Self {
         var mutableSize = self
         if let newWidth {  mutableSize.width  = newWidth }
         if let newHeight { mutableSize.height = newHeight }
+        return mutableSize
+    }
+
+
+    @inlinable nonisolated
+    func setting(
+        length: CGFloat,
+        along axis: Axis
+    ) -> Self {
+        var mutableSize = self
+        switch axis {
+        case .horizontal: mutableSize.width  = length
+        case .vertical:   mutableSize.height = length
+        }
         return mutableSize
     }
 
@@ -102,6 +130,20 @@ extension CGSize {
             width:  width  * multiplier,
             height: height * multiplier
         )
+    }
+
+
+    @inlinable nonisolated
+    func multiplying(
+        by multiplier: CGFloat,
+        along axis: Axis
+    ) -> Self {
+        var mutableSize = self
+        switch axis {
+        case .horizontal: mutableSize.width  *= multiplier
+        case .vertical:   mutableSize.height *= multiplier
+        }
+        return mutableSize
     }
 
 

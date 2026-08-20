@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
 
-# Serves a local folder with a given path prefix. This mimics the documentation served through
-# GitHub pages, where the content in `docs` is served in the project subdirectory.
+# Serves a worktree folder with a given path prefix. This mimics the documentation served through
+# GitHub pages, where the content in the worktree `docs` folder is served in the project subdirectory.
+
+# The `docs` folder is ultimately served as `https://lopsae.github.io/preview-utilities/`.
 
 import http.server
 import socketserver
@@ -10,13 +12,18 @@ import os
 
 PORT = 8000
 PATH_PREFIX = '/preview-utilities'
-LOCAL_DIRECTORY = 'docs'
+DOCS_DIRECTORY = '../preview-utilities-docs/docs'
+
 DOCUMENTATION_ROOT = '/documentation/previewutilities'
+
+with open('VERSION') as version_file:
+    DOCUMENTATION_VERSION = version_file.read().strip()
+
 
 class PrefixedHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         # Set the base directory for the handler (Python 3.7+)
-        super().__init__(*args, directory=LOCAL_DIRECTORY, **kwargs)
+        super().__init__(*args, directory=DOCS_DIRECTORY, **kwargs)
 
     def translate_path(self, path):
         # Remove the prefix from the URL path before looking for the file
@@ -25,6 +32,6 @@ class PrefixedHandler(http.server.SimpleHTTPRequestHandler):
         return super().translate_path(path)
 
 with socketserver.TCPServer(("", PORT), PrefixedHandler) as httpd:
-    print(f"Serving {LOCAL_DIRECTORY} at: http://localhost:{PORT}{PATH_PREFIX}")
-    print(f"Documentation available at: http://localhost:{PORT}{PATH_PREFIX}{DOCUMENTATION_ROOT}")
+    print(f"Serving {DOCS_DIRECTORY} at: http://localhost:{PORT}{PATH_PREFIX}")
+    print(f"Documentation available at: http://localhost:{PORT}{PATH_PREFIX}/{DOCUMENTATION_VERSION}{DOCUMENTATION_ROOT}")
     httpd.serve_forever()

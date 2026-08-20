@@ -7,16 +7,109 @@
 import SwiftUI
 
 
+extension Alignment {
+
+    /// A guide that marks the center of the view.
+    ///
+    /// Convenience accessor for `Alignment.center`, to disambiguate from other `center` alignments.
+    nonisolated
+    static var centerCenter: Self { .center }
+}
+
+
+extension HorizontalAlignment {
+
+    /// A guide that marks the horizontal center of the view.
+    ///
+    /// Convenience accessor for `HorizontalAlignment.center`, to disambiguate from other `center`
+    /// alignments.
+    nonisolated
+    static var horizontalCenter: Self { .center }
+}
+
+
 extension VerticalAlignment {
+
+    /// A guide that marks the vertical center of the view.
+    ///
+    /// Convenience accessor for `VerticalAlignment.center`, to disambiguate from other `center`
+    /// alignments.
     nonisolated
     static var verticalCenter: Self { .center }
 }
 
 
-extension HorizontalAlignment {
-    nonisolated
-    static var horizontalCenter: Self { .center }
+// MARK: - With Orthogonal
+
+
+/// Defines access to the axis and orthogonal type for a single axis alignment.
+///
+/// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol to identify their axis
+/// and its orthogonal alignment as an associated type.
+public nonisolated
+protocol AlignmentWithOrthogonal: Sendable {
+
+    /// Orthogonal alignment to `self`.
+    associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, Sendable
+
+    /// The axis of the alignment.
+    var axis: Axis { get }
+
+    /// Creates an `Alignment` with the given orthogonal alignment.
+    /// - Parameter orthogonalAlignment: The orthogonal alignment to use.
+    /// - Returns: An `Alignment` composed of `self` and the given orthogonal alignment.
+    func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
 }
+
+
+nonisolated
+extension HorizontalAlignment: AlignmentWithOrthogonal {
+    public typealias OrthogonalAlignment = VerticalAlignment
+    public var axis: Axis { .horizontal }
+    public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
+        .init(horizontal: self, vertical: orthogonalAlignment)
+    }
+}
+
+
+nonisolated
+extension VerticalAlignment: AlignmentWithOrthogonal {
+    public typealias OrthogonalAlignment = HorizontalAlignment
+    public var axis: Axis { .vertical }
+    public func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment {
+        .init(horizontal: orthogonalAlignment, vertical: self)
+    }
+}
+
+
+// MARK: - With Default
+
+
+/// Defines a default alignment for an alignment type.
+///
+/// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol and return their
+/// `center` alignment as default.
+public nonisolated
+protocol AlignmentWithDefault {
+
+    /// The default alignment of the type.
+    static var `default`: Self { get }
+}
+
+
+nonisolated
+extension HorizontalAlignment: AlignmentWithDefault {
+    public static var `default`: Self { .center }
+}
+
+
+nonisolated
+extension VerticalAlignment: AlignmentWithDefault {
+    public static var `default`: Self { .center }
+}
+
+
+// MARK: - Enums
 
 
 /// Enumeration of the alignment instances available in ``SwiftUICore/HorizontalAlignment``.
@@ -25,14 +118,14 @@ extension HorizontalAlignment {
 nonisolated
 enum HorizontalAlignmentEnum: String, SelfIdentifiable, CaseIterable {
 
-    case leading, center, traling
+    case leading, center, trailing
 
     /// Returns the corresponding ``SwiftUI/HorizontalAlignment``.
     var alignment: HorizontalAlignment {
         switch self {
-        case .leading: .leading
-        case .center:  .center
-        case .traling: .trailing
+        case .leading:  .leading
+        case .center:   .center
+        case .trailing: .trailing
         }
     }
 

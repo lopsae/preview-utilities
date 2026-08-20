@@ -45,7 +45,7 @@ struct IllustrationsForDebugOverlay {
                 .fill(.yellow.gradient.secondary)
                 .frame(width: 200, height: 80)
                 .debugOverlay(
-                    .size,                     // prints the size of the parent view
+                    .size,                     // prints the size of the owner view
                     .bordersWidth(2),          // sets debug borders width to 2
                     .alignment(.innerTrailing) // aligns caption to trailing-center
                 )
@@ -71,17 +71,6 @@ struct IllustrationsForDebugOverlay {
                         .frame(width: 100, height: 60)
                         .debugOverlay(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
                 }
-            }
-        }
-    }
-
-
-    @Test func torchDefault() throws {
-        try storage.renderAndStore("debug-overlay", "torch-default") {
-            DocumentationIllustration(height: 100) {
-                Text("a sort of splendid torch")
-                    .debugOverlay()
-                Text("which I have got hold of for the moment")
             }
         }
     }

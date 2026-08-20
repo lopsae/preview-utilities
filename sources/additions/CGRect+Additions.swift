@@ -10,6 +10,7 @@ import SwiftUI
 
 extension CGRect {
 
+    /// Returns a copy of `self` with the given properties overwritten.
     @inlinable nonisolated
     public func setting(
         x newX: CGFloat? = nil,
@@ -26,6 +27,7 @@ extension CGRect {
     }
 
 
+    /// The point at the center of `self`.
     @inlinable nonisolated
     public var center: CGPoint {
         size.toPoint
@@ -47,7 +49,7 @@ extension CGRect {
     }
 
 
-    /// Returns a copy of the given rectangle aligned to the specfied edge of `self`.
+    /// Returns a copy of the given rectangle aligned to the specified edge of `self`.
     ///
     /// The returned rectangle keeps the same properties as `other`, except for either `origin.x` or
     /// `origin.y` which are updated to align to the specified edge of `self`.
@@ -78,12 +80,14 @@ extension CGRect {
     }
 
 
+    /// Returns a copy of `self` offset by the given optional amounts.
     @inlinable nonisolated
     public func offset(x: CGFloat = .zero, y: CGFloat = .zero) -> Self {
         self.offsetBy(dx: x, dy: y)
     }
 
 
+    /// A string description using the given `FormatStyle` to format each rectangle property.
     nonisolated
     func debugDescription<Style>(format: Style) -> String
     where Style: FormatStyle, Style.FormatInput == Double, Style.FormatOutput == String {
@@ -133,13 +137,13 @@ extension CGRect {
 #endif
 
 
-// MARK: - Interactions with Path
+// MARK: - Path Interactions
 
 extension CGRect {
 
     @discardableResult
     @inlinable nonisolated
-    public func addTo(path: inout Path) -> Self {
+    public func addToPath(_ path: inout Path) -> Self {
         path.addRect(self)
         return self
     }

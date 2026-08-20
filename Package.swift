@@ -17,7 +17,8 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.1.0")
+        .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.1.0"),
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.19.0")
     ],
     targets: [
         .target(
@@ -29,7 +30,10 @@ let package = Package(
         ),
         .testTarget(
             name: "UnitTests",
-            dependencies: ["PreviewUtilities"],
+            dependencies: [
+                "PreviewUtilities",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
+            ],
             path: "tests",
             exclude: [
                 "UnitTests.xctestplan",

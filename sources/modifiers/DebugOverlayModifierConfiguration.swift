@@ -18,13 +18,17 @@ extension DebugOverlayModifier {
     /// the [`Trait`](doc:Trait) instances passed to ``SwiftUICore/View/debugOverlay(_:)``.
     public struct Configuration {
 
+        var isVisible: Bool = true
         var captionSource: CaptionSource? = nil
+        var areBordersEnabled: Bool = true
         var bordersWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
+        // TODO: Rename to captionAlignment.
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
+        var drawsCaptionBorder: Bool = false
 
 
-        init() { }
+        init() {}
 
 
         init(traits: [Trait]) {
@@ -93,13 +97,14 @@ extension DebugOverlayModifier.Configuration {
 
 extension DebugOverlayModifier.Configuration {
 
-    /// Customizations that can be applied to the `Configuration` of a `DebugOverlayModifier`.
+    /// Customizations that can be applied to the configuration of a `DebugOverlayModifier`.
     ///  
-    /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` to build the
-    /// [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay. All passed
-    /// traits are applied in order to a default configuration, each trait making a modification
-    /// towards the final configuration. If multiple traits modify the same configuration
-    /// properties, the last one applied may overwrite former traits.
+    /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` or any [sibling function](doc:debug-overlay-api/View-Extensions)
+    /// to build the [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay.
+    ///
+    /// All passed traits are applied in order to a default configuration, each trait making a
+    /// modification towards the final configuration. If multiple traits modify the same
+    /// configuration properties, the last one applied may overwrite former traits.
     ///
     ///
     /// ## Topics
@@ -146,29 +151,45 @@ extension DebugOverlayModifier.Configuration {
             }
         }
 
+        // TODO: also implement opacity.
+
+        /// Hides all elements of the debug overlay.
+        public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
+
+        /// Sets the visibility of the debug overlay.
+        /// - Parameter isVisible: Indicates if the debug overlay is visible.
+        public static func visible(_ isVisible: Bool) -> Trait {
+            .modifier(VisibilityModifier(isVisible: isVisible))
+        }
+
+        /// Hides the debug overlay borders.
+        public static let noBorders: Trait = .modifier(HideBordersModifier())
 
         /// Sets the debug overlay borders to a width of `1`.
         public static let hairline: Trait = .modifier(HairlineModifier())
 
-        /// Sets the debug overlay borders to the given width
+        /// Sets the debug overlay borders to the given width.
+        ///
+        /// The debug overlay always draws with a minimal width of `1`, even if the width is set to
+        /// zero through this trait. To hide the borders use ``noBorders``.
         /// - Parameter bordersWidth: Width of the debug overlay borders.
         public static func bordersWidth(_ bordersWidth: CGFloat) -> Trait {
             .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
         }
 
-        /// Prints the width of the parent view in the debug caption.
+        /// Prints the width of the owner view in the debug caption.
         public static let width: Trait = .modifier(InfoElementsModifier(infoElements: .width))
 
-        /// Prints the height of the parent view in the debug caption.
+        /// Prints the height of the owner view in the debug caption.
         public static let height: Trait = .modifier(InfoElementsModifier(infoElements: .height))
 
-        /// Prints the global origin coordinate of the parent view in the debug caption.
+        /// Prints the global origin coordinate of the owner view in the debug caption.
         public static let origin: Trait = .modifier(InfoElementsModifier(infoElements: .origin))
 
-        /// Prints the safe area insets applied to the parent view in the debug caption.
+        /// Prints the safe area insets applied to the owner view in the debug caption.
         public static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
 
-        /// Prints the width and height of the parent view in the debug caption.
+        /// Prints the width and height of the owner view in the debug caption.
         public static let size: Trait = .modifier(InfoElementsModifier(infoElements: .size))
 
         /// Prints all supported geometry information in the debug caption.
@@ -233,6 +254,11 @@ extension DebugOverlayModifier.Configuration {
             .modifier(InfoAlignmentModifier(alignment: alignment))
         }
 
+        /// Enables drawing a border around the debug caption.
+        ///
+        /// Used internally for alignment visualization and debugging.
+        static var drawsCaptionBorder: Trait { .modifier(EnableCaptionBorder()) }
+
     }
 }
 
@@ -250,6 +276,13 @@ extension DebugOverlayModifier.Configuration {
         func update(configuration: inout DebugOverlayModifier.Configuration)
     }
 
+    struct VisibilityModifier: Modifier {
+        let isVisible: Bool
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.isVisible = isVisible
+        }
+    }
+
     struct CaptionModifier: Modifier {
         let source: DebugOverlayModifier.Configuration.CaptionSource
         func update(configuration: inout DebugOverlayModifier.Configuration) {
@@ -257,8 +290,16 @@ extension DebugOverlayModifier.Configuration {
         }
     }
 
+    struct HideBordersModifier: Modifier {
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.areBordersEnabled = false
+            configuration.bordersWidth = 1
+        }
+    }
+
     struct HairlineModifier: Modifier {
         func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.areBordersEnabled = true
             configuration.bordersWidth = 1
         }
     }
@@ -266,6 +307,7 @@ extension DebugOverlayModifier.Configuration {
     struct BordersWidthModifier: Modifier {
         let bordersWidth: CGFloat
         func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.areBordersEnabled = true
             configuration.bordersWidth = bordersWidth
         }
     }
@@ -281,6 +323,12 @@ extension DebugOverlayModifier.Configuration {
         let alignment: FloatingAlignment
         func update(configuration: inout DebugOverlayModifier.Configuration) {
             configuration.infoAlignment = alignment
+        }
+    }
+
+    struct EnableCaptionBorder: Modifier {
+        func update(configuration: inout DebugOverlayModifier.Configuration) {
+            configuration.drawsCaptionBorder = true
         }
     }
 

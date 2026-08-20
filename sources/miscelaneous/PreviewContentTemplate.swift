@@ -18,9 +18,14 @@ private struct PreviewContent {
 
     static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
 
-    struct ExampleView: View {
+    struct Silver: View {
         var body: some View {
-            CaptionRectangle("Example Preview", color: .orange, size: [200, 150])
+            Text("Ag")
+            .font(.title.pointSize(150))
+            .multilineTextAlignment(.leading)
+            .minimumScaleFactor(.leastNormalMagnitude)
+            .frame(squareOf: 120, alignment: .center)
+            .border(.green.tertiary, width: 8)
         }
     }
 
@@ -31,5 +36,6 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
-    PreviewContent.ExampleView()
+    PreviewContent.Silver()
+    .debugOverlay(.size, .noBorders)
 }

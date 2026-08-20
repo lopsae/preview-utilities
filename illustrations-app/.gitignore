@@ -1,0 +1,16 @@
+# gitIgnore for Illustrations App
+
+# Examples for reference:
+# https://github.com/github/gitignore/blob/main/Global/macOS.gitignore
+# https://github.com/github/gitignore/blob/main/Swift.gitignore
+
+
+# Started from scratch.
+
+
+## User settings
+xcuserdata/
+
+
+## DS Store files
+.DS_Store
