@@ -17,12 +17,16 @@ let package = Package(
         ),
     ],
     dependencies: [
+        .package(path: "../geometry-additions"),
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.1.0"),
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.19.0")
     ],
     targets: [
         .target(
             name: "PreviewUtilities",
+            dependencies: [
+                .product(name: "GeometryAdditions", package: "geometry-additions")
+            ],
             path: "sources",
             resources: [
                 .process("assets.xcassets")
