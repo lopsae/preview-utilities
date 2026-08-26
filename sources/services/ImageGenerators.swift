@@ -5,7 +5,7 @@
 
 
 import CryptoKit
-import SwiftUI
+public import SwiftUI
 
 
 // MARK: - Protocols

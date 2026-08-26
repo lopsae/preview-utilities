@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 // TODO: clarify that note that FloatingCaptionModifier.Trait also has properties like .border, but this view
 // draws its own border.

@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 extension PreviewTrait where T == Preview.ViewTraits {

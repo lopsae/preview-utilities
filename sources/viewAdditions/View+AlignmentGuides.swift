@@ -3,7 +3,8 @@
 //  Created by Maic Lopez Saenz.
 //
 
-import SwiftUI
+
+public import SwiftUI
 
 
 extension View {

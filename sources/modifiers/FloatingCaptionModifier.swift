@@ -4,7 +4,8 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
+
 
 // FUTURE: Figure out a dynamic shape around a caption. Rounded border that surrounds several `Text`s
 // respecting each of their sizes. Make it a option/trait.

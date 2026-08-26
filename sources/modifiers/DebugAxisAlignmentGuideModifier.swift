@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Overlays a visual representation of a view's horizontal or vertical alignment guide.

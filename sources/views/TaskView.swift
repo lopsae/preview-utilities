@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// View that runs a task displaying content while task runs, and displaying different content when

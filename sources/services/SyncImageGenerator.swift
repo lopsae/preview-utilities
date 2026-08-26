@@ -5,7 +5,7 @@
 
 
 import CryptoKit
-import SwiftUI
+public import SwiftUI
 
 
 /// Synchronous image generator. Can be instantiated to produce any number of images of a given

@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Wraps the preview content in a `VStack` with zero spacing.

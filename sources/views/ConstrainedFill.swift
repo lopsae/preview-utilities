@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// View that expands to the available space and displays the given content constrained and aligned
