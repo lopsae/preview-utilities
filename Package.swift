@@ -17,7 +17,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "../geometry-additions"),
+        .package(url: "https://github.com/lopsae/geometry-additions", branch: "feature/initial-release"),
         .package(url: "https://github.com/swiftlang/swift-docc-plugin", from: "1.1.0"),
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.19.0")
     ],
