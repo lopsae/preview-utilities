@@ -1,9 +1,17 @@
 Release Notes
 =============
 
+v0.4.2
+--------------------
+In Development.
++ Moved additions for `CGPoint`, `CGSize`, `CGRect`, `EdgeInsets`, and `UIEdgeInsets` into a separate `GeometryAdditions` package.
++ Enabled `InternalImportsByDefault` package upcoming feature. 
+
+
+
 v0.4.1
 --------------------
-Latest.
+Released 2026 August 20th.
 
 + Added `DebugAlignmentGuideModifier` and associated `View` extension functions.
 + Added `DebugAxisAlignmentGuideModifier` and associated `View` extension functions.
