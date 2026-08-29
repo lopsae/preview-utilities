@@ -27,12 +27,11 @@ struct SheetPreview<Content>: View where Content: View {
             let sheetTransitionId = "previewSheet.transtionId"
             VStack {
                 if let captionKey {
-                    VStack(spacing: Defaults.padding/2) {
+                    VStack(spacing: Defaults.padding/3) {
                         Image(systemName: "info.circle")
-                        .font(.title2)
+                        .imageScale(.large)
                         Text(captionKey)
-                        // TODO: Check maxWidthText modifier.
-//                        .maxWidthText()
+                        .expandingWidthFrame()
                         .padding(.not(.top), Defaults.padding*1.5)
                     }
                     .maxWidthFrame()
