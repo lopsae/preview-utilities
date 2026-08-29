@@ -76,7 +76,6 @@ struct SheetPreview<Content>: View where Content: View {
 }
 
 
-// FIXME: Seems to have issues with hit testing.
 // TODO: Brough from Trailing{Closure}, consider exposing or moving to its own package.
 struct BaselinedIconLabelStyle: LabelStyle {
     let length: CGFloat
@@ -86,6 +85,7 @@ struct BaselinedIconLabelStyle: LabelStyle {
         .overlay(alignment: .centerFirstTextBaseline) {
             configuration.icon
         }
+        .contentShape(.circle)
         .frame(width: length, height: length)
     }
 }
