@@ -4,19 +4,31 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
-/// Displays a sheet in a preview environment.
+/// Displays content in a sheet ready for a preview environment.
+///
+/// Displays the given content in a sheet along a button to toggle the sheet presentation. Use this
+/// view in a preview to show the given content in a working sheet.
 @available(macOS, unavailable)
-struct SheetPreview<Content>: View where Content: View {
+public struct SheetPreview<Content>: View where Content: View {
     @Namespace var namespace
     @State var isSheetPresented: Bool = false
     let content: () -> Content
 
     let captionKey: LocalizedStringKey?
 
-    init(
+    
+    /// Creates preview ready view for the given sheet content.
+    ///
+    /// If a caption is provided, the caption is displayed at the top of the view, behind the sheet
+    /// content.
+    ///
+    /// - Parameters:
+    ///   - captionKey: A caption to display at the top of the view, behind the sheet content.
+    ///   - content: The content to display in the sheet.
+    public init(
         _ captionKey: LocalizedStringKey? = nil,
         @ViewBuilder content: @escaping () -> Content
     ) {
@@ -24,7 +36,8 @@ struct SheetPreview<Content>: View where Content: View {
         self.content = content
     }
 
-    var body: some View {
+    @_documentation(visibility: internal)
+    public var body: some View {
         let sheetTransitionId = "previewSheet.transtionId"
         VStack {
             if let captionKey {

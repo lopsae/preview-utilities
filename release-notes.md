@@ -5,7 +5,8 @@ v0.4.2 - GeometryAdditions & InternalImportsByDefault
 -----------------------------------------------------
 In Development.
 + Moved additions for `CGPoint`, `CGSize`, `CGRect`, `EdgeInsets`, and `UIEdgeInsets` into a separate `GeometryAdditions` package.
-+ Enabled `InternalImportsByDefault` package upcoming feature. 
++ Enabled `InternalImportsByDefault` package upcoming feature.
++ Added `SheetPreview`. 
 
 
 
