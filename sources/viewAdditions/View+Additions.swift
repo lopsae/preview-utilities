@@ -50,6 +50,12 @@ extension View {
 
 
     @inlinable nonisolated
+    public func expandingFrame(alignment: Alignment = .center) -> some View {
+        self.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
+    }
+
+
+    @inlinable nonisolated
     public func frame(squareOf length: CGFloat, alignment: Alignment = .center) -> some View {
         self.frame(width: length, height: length, alignment: alignment)
     }
