@@ -27,7 +27,7 @@ extension Text {
     ///
     /// - Parameter textAlignment: The text alignment to apply to multiline text, and to the
     ///   expanding frame.
-    func expandingWidthFrame(textAlignment: TextAlignment = .leading) -> some View {
+    public func expandingWidthFrame(textAlignment: TextAlignment = .leading) -> some View {
         self
         .multilineTextAlignment(textAlignment)
         .maxWidthFrame(
