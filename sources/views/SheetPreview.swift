@@ -8,6 +8,7 @@ import SwiftUI
 
 
 /// Displays a sheet in a preview environment.
+@available(macOS, unavailable)
 struct SheetPreview<Content>: View where Content: View {
     @Namespace var namespace
     @State var isSheetPresented: Bool = false
@@ -48,7 +49,7 @@ struct SheetPreview<Content>: View where Content: View {
 
             Spacer()
         }
-        .maxSizeFrame()
+        .expandingFrame()
         .background {
             PrettyMesh.auroraEgg
             .ignoresSafeArea()
@@ -111,7 +112,7 @@ private struct PreviewContent {
 
 // MARK: - Previews
 
-
+@available(macOS, unavailable)
 #Preview("Default", traits: PreviewContent.layout) {
     SheetPreview {
         PreviewContent.ExampleView()
@@ -119,6 +120,7 @@ private struct PreviewContent {
 }
 
 
+@available(macOS, unavailable)
 #Preview("Captioned", traits: PreviewContent.layout) {
     SheetPreview("This is a caption that can be displayed behind the previewed sheet. _Formatted_ content is **supported**.") {
         PreviewContent.ExampleView()
@@ -133,6 +135,7 @@ private struct PreviewContent {
 
 
 /// Content seems to be lost when the sheet is created by the preview trait itself.
+@available(macOS, unavailable)
 private struct ContentLost_SheetWrapperPreviewModifier: PreviewModifier {
     @State var isSheetPresented: Bool = false
 
@@ -158,12 +161,14 @@ private struct ContentLost_SheetWrapperPreviewModifier: PreviewModifier {
 }
 
 
+@available(macOS, unavailable)
 #Preview("ContentLost", traits: .modifier(ContentLost_SheetWrapperPreviewModifier())) {
     CaptionRectangle("Example Preview", color: .orange, size: [200, 150])
 }
 
 
 // Simply wraps the content in a `SheetPreview`, content and detents are lost.
+@available(macOS, unavailable)
 private struct SimpleSheetWrapperPreviewModifier: PreviewModifier {
     func body(content: Content, context _: Void) -> some View {
         SheetPreview("Simple") {
@@ -172,17 +177,20 @@ private struct SimpleSheetWrapperPreviewModifier: PreviewModifier {
     }
 }
 
+@available(macOS, unavailable)
 #Preview("SimpleSheetWrapper", traits: .modifier(SimpleSheetWrapperPreviewModifier())) {
     PreviewContent.ExampleView()
 }
 
 // When content is just passed through the trait, the sheet does work...
+@available(macOS, unavailable)
 private struct JustContentPreviewModifier: PreviewModifier {
     func body(content: Content, context _: Void) -> some View {
         content
     }
 }
 
+@available(macOS, unavailable)
 #Preview("JustContent", traits: .modifier(JustContentPreviewModifier())) {
     SheetPreview("Just Sheet") {
         PreviewContent.ExampleView()
