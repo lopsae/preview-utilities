@@ -47,16 +47,24 @@ public enum PrettyMesh {
 
     public static var auroraEgg: MeshGradient {
         MeshGradient(
-            width: 4, height: 3,
+            width: 6, height: 7,
             points: [
-                [0.0, 0.0], [0.3, 0.0], [0.6, 0.0], [1.0, 0.0],
-                [0.0, 0.5], [0.2, 0.8], [0.8, 0.2], [1.0, 0.5],
-                [0.0, 1.0], [0.3, 1.0], [0.7, 1.0], [1.0, 1.0]
+                [0.00, 0.00], [0.21, 0.00], [0.42, 0.00], [0.52, 0.00], [0.76, 0.00], [1.00, 0.00],
+                [0.00, 0.02], [0.19, 0.10], [0.35, 0.11], [0.53, 0.07], [0.85, 0.13], [1.00, 0.15],
+                [0.00, 0.05], [0.12, 0.22], [0.20, 0.61], [0.64, 0.14], [0.92, 0.44], [1.00, 0.51],
+                [0.00, 0.46], [0.07, 0.49], [0.28, 0.78], [0.72, 0.22], [0.93, 0.51], [1.00, 0.54],
+                [0.00, 0.49], [0.08, 0.56], [0.36, 0.86], [0.80, 0.39], [0.88, 0.78], [1.00, 0.95],
+                [0.00, 0.85], [0.15, 0.87], [0.47, 0.93], [0.65, 0.89], [0.81, 0.90], [1.00, 0.98],
+                [0.00, 1.00], [0.24, 1.00], [0.48, 1.00], [0.58, 1.00], [0.79, 1.00], [1.00, 1.00],
             ],
             colors: [
-                .indigo, .purple, .indigo, .indigo,
-                .blue, .indigo, .teal, .blue,
-                .teal, .teal, .green, .teal
+                .blue,   .blue, .purple, .indigo, .indigo, .indigo,
+                .blue,   .blue, .purple, .indigo, .indigo, .indigo,
+                .blue,   .blue,   .indigo, .teal,   .blue,   .blue,
+                .blue,   .blue,   .indigo, .teal,   .blue,   .blue,
+                .blue,   .blue,   .indigo, .mint,   .blue,   .blue,
+                .teal,   .teal,   .teal,   .mint,  .blue,   .blue,
+                .teal,   .teal,   .teal,   .mint,  .blue,   .blue,
             ]
         )
     }
@@ -404,7 +412,7 @@ private struct PreviewContent {
 
 
 #Preview("Editor", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    MeshGradientEditor(mesh: PrettyMesh.moltenHorizon)
+    MeshGradientEditor(mesh: PrettyMesh.auroraEgg)
 }
 
 
