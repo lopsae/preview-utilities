@@ -18,6 +18,7 @@ public struct DashedDivider: View {
         self.lineWidth = lineWidth
     }
 
+    @_documentation(visibility: internal)
     public var body: some View {
         AxialLine(
             axis, style: .tertiary,
