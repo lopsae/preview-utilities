@@ -1,16 +1,16 @@
 Release Notes
 =============
 
-v0.4.2
---------------------
+v0.4.2 - GeometryAdditions & InternalImportsByDefault
+-----------------------------------------------------
 In Development.
 + Moved additions for `CGPoint`, `CGSize`, `CGRect`, `EdgeInsets`, and `UIEdgeInsets` into a separate `GeometryAdditions` package.
 + Enabled `InternalImportsByDefault` package upcoming feature. 
 
 
 
-v0.4.1
---------------------
+v0.4.1 - DebugAlignmentGuideModifier & EdgeGraticuleModifier
+------------------------------------------------------------
 Released 2026 August 20th.
 
 + Added `DebugAlignmentGuideModifier` and associated `View` extension functions.
