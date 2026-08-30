@@ -91,7 +91,6 @@ struct BaselinedIconLabelStyle: LabelStyle {
 }
 
 
-
 // MARK: - PreviewContent
 
 
@@ -125,4 +124,69 @@ private struct PreviewContent {
         PreviewContent.ExampleView()
     }
 }
+
+
+// MARK: - Non-Working Examples
+
+// Attempting to create a preview trait to produce a SheetPreview did not worked. Below are examples
+// of the implementations that had issues.
+
+
+/// Content seems to be lost when the sheet is created by the preview trait itself.
+private struct ContentLost_SheetWrapperPreviewModifier: PreviewModifier {
+    @State var isSheetPresented: Bool = false
+
+    func body(content: Content, context _: Void) -> some View {
+        ClearRectangle()
+        .background { PrettyMesh.auroraEgg.ignoresSafeArea() }
+        .task {
+            // Without this sleep, the sheet has issues (like displaying the wrong size) when
+            // the preview refreshes.
+            try? await Task.sleep(for: .seconds(0.5))
+            isSheetPresented = true
+        }
+        .sheet(isPresented: $isSheetPresented) {
+            VStack {
+                Text("Above content")
+                content
+                Text("Below content")
+            }
+            .presentationDetents([.medium, .large])
+        }
+    }
+
+}
+
+
+#Preview("ContentLost", traits: .modifier(ContentLost_SheetWrapperPreviewModifier())) {
+    CaptionRectangle("Example Preview", color: .orange, size: [200, 150])
+}
+
+
+// Simply wraps the content in a `SheetPreview`, content and detents are lost.
+private struct SimpleSheetWrapperPreviewModifier: PreviewModifier {
+    func body(content: Content, context _: Void) -> some View {
+        SheetPreview("Simple") {
+            content
+        }
+    }
+}
+
+#Preview("SimpleSheetWrapper", traits: .modifier(SimpleSheetWrapperPreviewModifier())) {
+    PreviewContent.ExampleView()
+}
+
+// When content is just passed through the trait, the sheet does work...
+private struct JustContentPreviewModifier: PreviewModifier {
+    func body(content: Content, context _: Void) -> some View {
+        content
+    }
+}
+
+#Preview("JustContent", traits: .modifier(JustContentPreviewModifier())) {
+    SheetPreview("Just Sheet") {
+        PreviewContent.ExampleView()
+    }
+}
+
 
