@@ -6,6 +6,10 @@
 
 import SwiftUI
 
+#if canImport(UIKit)
+import UIKit
+#endif
+
 
 extension LocalizedStringKey.StringInterpolation {
 
@@ -90,6 +94,29 @@ private struct CapsuleText: View {
             .baselineOffset(-baselineFromBottom)
     }
 
+
+    #if canImport(UIKit)
+    /// Renders the capsule to an image whose text baseline is baked in, so it aligns inline like an
+    /// `Image(systemName:)` without the caller applying a `baselineOffset`.
+    ///
+    /// UIKit only: `UIImage` can carry baseline metadata via `withBaselineOffset(fromBottom:)`,
+    /// which SwiftUI honors for inline images. `NSImage` has no equivalent, so on macOS use
+    /// ``inlineText(scale:)`` instead.
+    func baselinedImage(scale: CGFloat = 3) -> Image? {
+        let baseline = BaselineBox()
+        let renderer = ImageRenderer(content: FirstBaselineReader(baseline: baseline) { self })
+        renderer.scale = scale
+
+        guard let uiImage = renderer.uiImage else { return nil }
+
+        // `uiImage.size` is already in points, and a positive offset places the baseline that far
+        // up from the bottom edge — exactly the capsule's baseline-from-bottom.
+        let baselineFromBottom = uiImage.size.height - (baseline.fromTop ?? uiImage.size.height)
+
+        return Image(uiImage: uiImage.withBaselineOffset(fromBottom: baselineFromBottom))
+    }
+    #endif
+
 }
 
 
@@ -103,6 +130,7 @@ private struct FirstBaselineReader: Layout {
         subviews[0].sizeThatFits(proposal)
     }
 
+    // TODO: If there is more that one image, ZStack them and still save the baseline measurement.
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         let size = ProposedViewSize(bounds.size)
         baseline.fromTop = subviews[0].dimensions(in: size)[.firstTextBaseline]
@@ -116,6 +144,36 @@ private struct FirstBaselineReader: Layout {
 /// synchronously on the main thread during rendering.
 private final class BaselineBox {
     nonisolated(unsafe) var fromTop: CGFloat?
+}
+
+
+#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+    HStack(alignment: .firstTextBaseline) {
+        Text("First")
+        CapsuleText(systemImage: "ladybug", label: "View", color: .cyan)
+            .debugAlignmentGuide(vertical: .firstTextBaseline, .extendedLength(150))
+        Text("Baseline")
+    }
+
+    DashedDivider()
+
+    HStack(alignment: .firstTextBaseline) {
+        Text("First")
+        CapsuleText(systemImage: "ladybug", label: "Text", color: .cyan)
+            .inlineText()
+            .debugAlignmentGuide(vertical: .firstTextBaseline, .extendedLength(150))
+        Text("Baseline")
+    }
+
+    DashedDivider()
+
+    HStack(alignment: .firstTextBaseline) {
+        Text("First")
+        CapsuleText(systemImage: "ladybug", label: "Image", color: .cyan)
+            .baselinedImage()
+            .debugAlignmentGuide(vertical: .firstTextBaseline, .extendedLength(150))
+        Text("Baseline")
+    }
 }
 
 
