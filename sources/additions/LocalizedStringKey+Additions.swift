@@ -6,14 +6,6 @@
 
 import SwiftUI
 
-#if canImport(UIKit)
-//import UIKit
-private typealias PlatformFont = UIFont
-#elseif canImport(AppKit)
-//import AppKit
-private typealias PlatformFont = NSFont
-#endif
-
 
 extension LocalizedStringKey.StringInterpolation {
 
@@ -47,25 +39,15 @@ extension LocalizedStringKey.StringInterpolation {
         label: String,
         color: Color = .accentColor
     ) {
-        let renderer = ImageRenderer(
-            content: CapsuleText(systemImage: systemImage, label: label, color: color)
-        )
-        renderer.scale = 3
+        let capsule = CapsuleText(systemImage: systemImage, label: label, color: color)
 
-        guard let cgImage = renderer.cgImage else {
+        if let inlineText = capsule.inlineText() {
+            appendInterpolation(inlineText)
+        } else {
+            // Fallback if rendering fails.
             appendInterpolation(Image(systemName: systemImage))
             appendInterpolation(label)
-            return
         }
-
-        // Calculate baseline.
-        // TODO: Move to CapsuleText
-        let bottomPadding = Defaults.padding / 4
-        let descender = PlatformFont.preferredFont(forTextStyle: .body).descender
-        let baselineFromBottom = bottomPadding - descender
-
-        let image = Image(decorative: cgImage, scale: renderer.scale)
-        appendInterpolation(Text(image).baselineOffset(-baselineFromBottom))
     }
 
 }
@@ -92,6 +74,48 @@ private struct CapsuleText: View {
         }
     }
 
+
+    /// Renders the capsule to an image and returns it as inline `Text`.
+    func inlineText(scale: CGFloat = 3) -> Text? {
+        let baseline = BaselineBox()
+        let renderer = ImageRenderer(content: FirstBaselineReader(baseline: baseline) { self })
+        renderer.scale = scale
+
+        guard let cgImage = renderer.cgImage else { return nil }
+
+        let height = CGFloat(cgImage.height) / scale
+        let baselineFromBottom = height - (baseline.fromTop ?? height)
+
+        return Text(Image(decorative: cgImage, scale: scale))
+            .baselineOffset(-baselineFromBottom)
+    }
+
+}
+
+
+/// Lays out a single view unchanged while capturing its first text baseline, measured from the top,
+/// so a view about to be rasterized can expose the baseline it would use in a live layout.
+private struct FirstBaselineReader: Layout {
+
+    let baseline: BaselineBox
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        subviews[0].sizeThatFits(proposal)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let size = ProposedViewSize(bounds.size)
+        baseline.fromTop = subviews[0].dimensions(in: size)[.firstTextBaseline]
+        subviews[0].place(at: bounds.origin, proposal: size)
+    }
+
+}
+
+
+/// Carries the measured baseline out of ``FirstBaselineReader``'s layout pass, which runs
+/// synchronously on the main thread during rendering.
+private final class BaselineBox {
+    nonisolated(unsafe) var fromTop: CGFloat?
 }
 
 
