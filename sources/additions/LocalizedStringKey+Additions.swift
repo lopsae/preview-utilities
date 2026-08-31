@@ -4,7 +4,9 @@
 //
 
 
+import GeometryAdditions
 import SwiftUI
+
 
 #if canImport(UIKit)
 import UIKit
@@ -147,7 +149,7 @@ private final class BaselineBox {
 }
 
 
-#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+#Preview("CapsuleText", traits: .headerFooter, PreviewContent.layout) {
     HStack(alignment: .firstTextBaseline) {
         Text("First")
         CapsuleText(systemImage: "ladybug", label: "View", color: .cyan)
@@ -174,6 +176,78 @@ private final class BaselineBox {
             .debugAlignmentGuide(vertical: .firstTextBaseline, .extendedLength(150))
         Text("Baseline")
     }
+}
+
+
+struct CapsuleAttribute: TextAttribute {}
+
+struct CapsuleRenderer: TextRenderer {
+  let strokeColor: Color
+
+  func draw(layout: Text.Layout, in context: inout GraphicsContext) {
+      var capsuleRuns: [Text.Layout.Run] = []
+      for line in layout {
+          for run in line {
+              if run[CapsuleAttribute.self] != nil {
+                  capsuleRuns.append(run)
+                  continue
+              }
+
+              // If there are capsule runs, draw them together
+              if !capsuleRuns.isEmpty {
+                  var capsuleRect: CGRect = capsuleRuns.first!.typographicBounds.rect
+                  for capsuleRun in capsuleRuns {
+                      let runRect = capsuleRun.typographicBounds.rect
+                      capsuleRect.envelop(runRect)
+                  }
+                  let copy = context
+                  let padding = Defaults.padding/4
+                  let capsulePath = Capsule().path(in: capsuleRect.outset(by: padding))
+                  copy.stroke(
+                    capsulePath,
+                    with: .color(strokeColor),
+                    style: StrokeStyle(lineWidth: 1.5, dash: [4, 3])
+                  )
+
+
+                  for capsuleRun in capsuleRuns {
+                      var runRect: CGRect = capsuleRun.typographicBounds.rect
+                      copy.stroke(Rectangle().path(in: runRect), with: .color(.red))
+                      copy.draw(capsuleRun)
+
+                  }
+              }
+
+              // Draw the current run.
+              context.draw(run)
+          }
+      }
+  }
+}
+
+
+extension CGRect {
+
+    mutating func envelop(_ other: CGRect) {
+        self.origin.x = min(origin.x, other.origin.x)
+        self.origin.y = min(origin.y, other.origin.y)
+        let maxX = max(maxX, other.maxX)
+        let maxY = max(maxY, other.maxY)
+
+        self.size.width  = maxX - origin.x
+        self.size.height = maxY - origin.y
+    }
+
+}
+
+
+
+#Preview("Renderer", traits: .headerFooter, PreviewContent.layout) {
+    let capsuleText = Text("\(systemImage: "ladybug", label: "Capsule")")
+        .customAttribute(CapsuleAttribute())
+    Text("Layout \(capsuleText) Text")
+        .font(.title)
+        .textRenderer(CapsuleRenderer(strokeColor: .teal))
 }
 
 
@@ -229,6 +303,16 @@ private struct PreviewContent {
     Text("Tap \(button: "plus.circle", label: "Add Item", color: .orange) to insert a new row")
     .frame(width: fixedWidth)
     .floatingCaption("Button+DashedCapsule", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
+    .padding(.bottom)
+
+    DashedDivider()
+
+    let capsuleText = Text("\(systemImage: "ladybug", label: "Capsule Renderer")")
+        .customAttribute(CapsuleAttribute())
+    Text("Layout \(capsuleText) Text")
+    .textRenderer(CapsuleRenderer(strokeColor: .teal))
+    .frame(width: fixedWidth)
+    .floatingCaption("CapsuleRenderer", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Spacer()
