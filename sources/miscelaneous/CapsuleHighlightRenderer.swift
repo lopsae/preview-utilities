@@ -8,111 +8,144 @@ import SwiftUI
 
 
 struct CapsuleHighlightRenderer: TextRenderer {
+
     let strokeColor: Color
 
-    // FIXME: Test for a hightlighted run that spans three lines.
+    private static let outset: CGFloat = 3
+    private static let cutCornerRadius: CGFloat = 3
+    private static let stroke = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
 
     func draw(layout: Text.Layout, in context: inout GraphicsContext) {
-        var capsuleRuns: [(run: Text.Layout.Run, attr: Attribute)] = []
-        var highlightOpen = false
-        var runsInSingleLine = true
+        // The contiguous attributed runs accumulated for the current highlight.
+        var group: [HighlightRun] = []
+        // The group began as a continuation from a previous line, so its leading corners are cut.
+        var continuesFromPreviousLine = false
+        // Whether we are still on the line where the current group began.
+        var onGroupStartLine = true
+
         for line in layout {
             for run in line {
-              let pendingAttr = run[Attribute.self]
-              if capsuleRuns.isEmpty, let attr = pendingAttr {
-                  // Start run collection on single line.
-                  highlightOpen = false
-                  runsInSingleLine = true
-                  capsuleRuns.append((run: run, attr: attr))
-                  continue
-              }
+                let attribute = run[Attribute.self]
 
-              var attrOnNewLine: Attribute?
-              if runsInSingleLine {
-                  if let attr = pendingAttr {
-                      // Collect all adjacent attributed runs.
-                      capsuleRuns.append((run: run, attr: attr))
-                      continue
-                  } else {
-                      // Continue to draw collected runs to highlight.
-                  }
-              } else {
-                  // Different line, save pendingAttr.
-                  attrOnNewLine = pendingAttr
-                  // And continue to draw collected runs to highlight.
-              }
+                // Idle: start a group on an attributed run, otherwise draw the run as-is.
+                if group.isEmpty {
+                    if let attribute {
+                        group = [HighlightRun(run: run, attribute: attribute)]
+                        continuesFromPreviousLine = false
+                        onGroupStartLine = true
+                    } else {
+                        context.draw(run)
+                    }
+                    continue
+                }
 
-              // Draw all collected runs together.
-              if let capsuleRun = capsuleRuns.first {
-                  var highlightRunsRect = capsuleRun.attr.onlyWidth
-                    ? capsuleRun.run.typographicBounds.rect.horizontalBisector
-                    : capsuleRun.run.typographicBounds.rect
+                // Still on the start line: keep collecting adjacent attributed runs.
+                if onGroupStartLine, let attribute {
+                    group.append(HighlightRun(run: run, attribute: attribute))
+                    continue
+                }
 
-                  for (run, attr) in capsuleRuns {
-                      let rectToAdd: CGRect
-                      if attr.onlyWidth {
-                          rectToAdd = run.typographicBounds.rect.horizontalBisector
-                      } else {
-                          rectToAdd = run.typographicBounds.rect
-                      }
-                      highlightRunsRect.envelop(rectToAdd)
-                  }
+                // The group is complete, so flush it. On a later line, an attributed first run
+                // means the highlight continues, so its trailing corners are cut.
+                let continuation = onGroupStartLine ? nil : attribute
+                drawHighlight(
+                    group,
+                    cutLeadingCorners: continuesFromPreviousLine,
+                    cutTrailingCorners: continuation != nil,
+                    in: context
+                )
 
-                  // Draw capsule path.
+                if let continuation {
+                    // Reopen the highlight on this line with the continuing run.
+                    group = [HighlightRun(run: run, attribute: continuation)]
+                    continuesFromPreviousLine = true
+                    onGroupStartLine = true
+                } else {
+                    group = []
+                    continuesFromPreviousLine = false
+                    context.draw(run)
+                }
+            }
 
-                  let shapeRect = highlightRunsRect.outset(by: 3)
-                  let cutHighlightRadius: CGFloat = 3
+            onGroupStartLine = false
+        }
 
-                  let leadingRadius = highlightOpen
-                    ? cutHighlightRadius
-                    : shapeRect.height/2
-
-                  let trailingRadius = attrOnNewLine == nil
-                    ? shapeRect.height/2
-                    : cutHighlightRadius
-
-                  let shape = UnevenRoundedRectangle(
-                    topLeadingRadius: leadingRadius,
-                    bottomLeadingRadius: leadingRadius,
-                    bottomTrailingRadius: trailingRadius,
-                    topTrailingRadius: trailingRadius
-                  )
-
-
-                  let localContext = context
-                  localContext.stroke(
-                    shape.path(in: shapeRect),
-                    with: .color(strokeColor),
-                    style: StrokeStyle(lineWidth: 1.5, dash: [5, 4])
-                  )
-
-                  // Draw runs on top.
-                  for capsuleRun in capsuleRuns {
-                      // let runRect: CGRect = capsuleRun.run.typographicBounds.rect
-                      // copy.stroke(Rectangle().path(in: runRect), with: .color(.red))
-                      localContext.draw(capsuleRun.run)
-                  }
-
-                  // Reset collected runs.
-                  highlightOpen = false
-                  capsuleRuns = []
-                  if let attrOnNewLine {
-                      highlightOpen = true
-                      runsInSingleLine = true
-                      capsuleRuns.append((run: run, attr: attrOnNewLine))
-                      continue
-                  }
-
-              }
-
-              // Draw the current run.
-              context.draw(run)
-            } // for run
-
-            runsInSingleLine = false
-
-        } // for line
+        // Flush a highlight that reaches the end of the text with no trailing plain run.
+        if !group.isEmpty {
+            drawHighlight(
+                group,
+                cutLeadingCorners: continuesFromPreviousLine,
+                cutTrailingCorners: false,
+                in: context
+            )
+        }
     }
+
+
+    /// Strokes the capsule behind `group` and draws its glyphs on top. Cut corners produce the flat
+    /// edge used where a highlight is split across a line boundary.
+    private func drawHighlight(
+        _ group: [HighlightRun],
+        cutLeadingCorners: Bool,
+        cutTrailingCorners: Bool,
+        in context: GraphicsContext
+    ) {
+        guard let bounds = enclosingRect(of: group) else { return }
+
+        let rect = bounds.outset(by: Self.outset)
+        let fullRadius = rect.height / 2
+        let leadingRadius = cutLeadingCorners ? Self.cutCornerRadius : fullRadius
+        let trailingRadius = cutTrailingCorners ? Self.cutCornerRadius : fullRadius
+
+        let shape = UnevenRoundedRectangle(
+            topLeadingRadius: leadingRadius,
+            bottomLeadingRadius: leadingRadius,
+            bottomTrailingRadius: trailingRadius,
+            topTrailingRadius: trailingRadius
+        )
+
+        context.stroke(shape.path(in: rect), with: .color(strokeColor), style: Self.stroke)
+
+        for element in group {
+            context.draw(element.run)
+        }
+    }
+
+
+    /// The rect enclosing every run's contribution to the highlight.
+    private func enclosingRect(of group: [HighlightRun]) -> CGRect? {
+        var rect: CGRect?
+        for element in group {
+            if rect == nil {
+                rect = element.contributingRect
+            } else {
+                rect?.envelop(element.contributingRect)
+            }
+        }
+        return rect
+    }
+
+}
+
+
+// MARK: - HighlightRun
+
+
+extension CapsuleHighlightRenderer {
+
+    private struct HighlightRun {
+        let run: Text.Layout.Run
+        let attribute: Attribute
+
+        /// The rect this run contributes to the highlight. `onlyWidth` runs (e.g. spacer pads)
+        /// contribute width but not height, via their zero-height centerline.
+        var contributingRect: CGRect {
+            attribute.onlyWidth
+                ? run.typographicBounds.rect.horizontalBisector
+                : run.typographicBounds.rect
+        }
+    }
+
 }
 
 
