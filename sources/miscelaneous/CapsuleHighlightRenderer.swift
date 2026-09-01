@@ -7,21 +7,14 @@
 import SwiftUI
 
 
-struct CapsuleAttribute: TextAttribute {
-    let onlyWidth: Bool
-    init(onlyWidth: Bool = false) {
-        self.onlyWidth = onlyWidth
-    }
-}
-
-struct CapsuleRenderer: TextRenderer {
+struct CapsuleHighlightRenderer: TextRenderer {
   let strokeColor: Color
 
   func draw(layout: Text.Layout, in context: inout GraphicsContext) {
-      var capsuleRuns: [(run: Text.Layout.Run, attr: CapsuleAttribute)] = []
+      var capsuleRuns: [(run: Text.Layout.Run, attr: Attribute)] = []
       for line in layout {
           for run in line {
-              if let attr = run[CapsuleAttribute.self] {
+              if let attr = run[Attribute.self] {
                   // Collect all adjacent attributed runs.
                   capsuleRuns.append((run: run, attr: attr))
                   continue
@@ -70,6 +63,22 @@ struct CapsuleRenderer: TextRenderer {
 }
 
 
+// MARK: - Attribute
+
+
+extension CapsuleHighlightRenderer {
+
+    struct Attribute: TextAttribute {
+        let onlyWidth: Bool
+        init(onlyWidth: Bool = false) {
+            self.onlyWidth = onlyWidth
+        }
+    }
+
+}
+
+
+// FIXME: move to GeometryAdditions.
 extension CGRect {
 
     mutating func envelop(_ other: CGRect) {
@@ -103,17 +112,28 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+#Preview("Default", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var fixedWidth: Double = 400
+
+    Slider.captioned("Fixed Width", value: $fixedWidth, in: 0...400, valueFormat: .arithmeticRoundedInteger)
+
+    DashedDivider()
+
     let spacer = Text(String.narrowNbsp)//.tracking(2)
     let capsuleImage = Text("\(spacer)\(Image(ImageResource.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)))")
-        .customAttribute(CapsuleAttribute(onlyWidth: true))
+        .customAttribute(CapsuleHighlightRenderer.Attribute(onlyWidth: true))
     let capsuleText = Text("\(String.nbsp)\("Capsule")\(spacer)")
-        .customAttribute(CapsuleAttribute())
+        .customAttribute(CapsuleHighlightRenderer.Attribute())
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
-        .font(.title)
-        .textRenderer(CapsuleRenderer(strokeColor: .teal))
+    .font(.title)
+    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .frame(width: fixedWidth)
+    .floatingCaption("Title Font", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
+    .padding(.bottom)
 
     Text("Layout  \(capsuleImage)\(capsuleText)  Body")
-        .textRenderer(CapsuleRenderer(strokeColor: .teal))
+    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal)).frame(width: fixedWidth)
+    .floatingCaption("Body Font", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
+    .padding(.bottom)
 }
