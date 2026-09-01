@@ -164,9 +164,51 @@ extension CapsuleHighlightRenderer {
 }
 
 
+// MARK: - LocalizedStringKey Interpolation
+
+
+extension LocalizedStringKey.StringInterpolation {
+
+    mutating func appendInterpolation(
+        capsule name: String,
+        label: String? = nil,
+        color: Color = .gray,
+        breaking: Bool = false
+    ) {
+        let edgeSpacer = Text(String.narrowNbsp).tracking(1)
+        let middleSpacer = label == nil
+            ? edgeSpacer
+            : Text(String.narrowNbsp)
+
+        let image = Image(systemName: name)
+        let imageText = Text("\(edgeSpacer)\(image)")
+            .customAttribute(CapsuleHighlightRenderer.Attribute(onlyWidth: true))
+
+        let middleText = middleSpacer
+            .customAttribute(CapsuleHighlightRenderer.Attribute())
+
+        appendInterpolation(imageText)
+        appendInterpolation(middleText)
+
+        guard let label else { return }
+
+        let spacedString = breaking
+            ? label
+            : label.replacingOccurrences(of: " ", with: String.nbsp)
+
+        let labelText = Text("\(spacedString)\(edgeSpacer)")
+            .customAttribute(CapsuleHighlightRenderer.Attribute())
+
+        appendInterpolation(labelText)
+    }
+
+}
+
+
 // FIXME: move to GeometryAdditions.
 extension CGRect {
 
+    // FIXME: Already exist as union.
     mutating func envelop(_ other: CGRect) {
         self.origin.x = min(origin.x, other.origin.x)
         self.origin.y = min(origin.y, other.origin.y)
@@ -223,3 +265,19 @@ private struct PreviewContent {
     .floatingCaption("Body Font", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 }
+
+
+#Preview("Interpolation", traits: .fixedHeader, PreviewContent.layout) {
+    @Previewable @State var fixedWidth: Double = 400
+
+    Slider.captioned("Fixed Width", value: $fixedWidth, in: 0...400, valueFormat: .arithmeticRoundedInteger)
+
+    DashedDivider()
+
+    Text("Interpolation \(capsule: "ladybug", label: "Ladybug Image") after interpolation")
+    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal)).frame(width: fixedWidth)
+    .floatingCaption("Body Font", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
+    .padding(.bottom)
+
+}
+
