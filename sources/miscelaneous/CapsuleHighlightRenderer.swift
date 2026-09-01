@@ -8,14 +8,16 @@ import SwiftUI
 
 
 struct CapsuleHighlightRenderer: TextRenderer {
-  let strokeColor: Color
+    let strokeColor: Color
 
-  func draw(layout: Text.Layout, in context: inout GraphicsContext) {
-      var capsuleRuns: [(run: Text.Layout.Run, attr: Attribute)] = []
-      var highlightOpen = false
-      var runsInSingleLine = true
-      for line in layout {
-          for run in line {
+    // FIXME: Test for a hightlighted run that spans three lines.
+
+    func draw(layout: Text.Layout, in context: inout GraphicsContext) {
+        var capsuleRuns: [(run: Text.Layout.Run, attr: Attribute)] = []
+        var highlightOpen = false
+        var runsInSingleLine = true
+        for line in layout {
+            for run in line {
               let pendingAttr = run[Attribute.self]
               if capsuleRuns.isEmpty, let attr = pendingAttr {
                   // Start run collection on single line.
@@ -105,12 +107,12 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
               // Draw the current run.
               context.draw(run)
-          } // for run
+            } // for run
 
-          runsInSingleLine = false
+            runsInSingleLine = false
 
-      } // for line
-  }
+        } // for line
+    }
 }
 
 
