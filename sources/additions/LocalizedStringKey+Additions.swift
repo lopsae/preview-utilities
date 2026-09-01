@@ -12,7 +12,7 @@ extension LocalizedStringKey.StringInterpolation {
 
     mutating func appendInterpolation(systemImage name: String, label: String, useNbsp: Bool = true) {
         // FIXME: Space between image and label should always be NBSP.
-        var label = " \(label)"
+        var label = "\(String.nbsp)\(label)"
         if useNbsp {
             label = label.replacingOccurrences(of: " ", with: String.nbsp)
         }
@@ -21,7 +21,7 @@ extension LocalizedStringKey.StringInterpolation {
     }
 
     mutating func appendInterpolation(image resource: ImageResource, label: String, useNbsp: Bool = true) {
-        var label = " \(label)"
+        var label = "\(String.nbsp)\(label)"
         if useNbsp {
             label = label.replacingOccurrences(of: " ", with: String.nbsp)
         }
@@ -196,8 +196,8 @@ struct CapsuleRenderer: TextRenderer {
 
                   // Draw runs on top.
                   for capsuleRun in capsuleRuns {
-                      let runRect: CGRect = capsuleRun.run.typographicBounds.rect
-                      copy.stroke(Rectangle().path(in: runRect), with: .color(.red))
+                      // let runRect: CGRect = capsuleRun.run.typographicBounds.rect
+                      // copy.stroke(Rectangle().path(in: runRect), with: .color(.red))
                       copy.draw(capsuleRun.run)
 
                   }
@@ -232,13 +232,17 @@ extension CGRect {
 
 
 #Preview("Renderer", traits: .headerFooter, PreviewContent.layout) {
-    let capsuleImage = Text("\(String.narrowNbsp)\(Image(ImageResource.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)))")
+    let spacer = Text(String.narrowNbsp)//.tracking(2)
+    let capsuleImage = Text("\(spacer)\(Image(ImageResource.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)))")
         .customAttribute(CapsuleAttribute(onlyWidth: true))
-    let capsuleText = Text("\(String.nbsp)\("Capsule")\(String.narrowNbsp)")
+    let capsuleText = Text("\(String.nbsp)\("Capsule")\(spacer)")
         .customAttribute(CapsuleAttribute())
 
-    Text("Layout \(capsuleImage)\(capsuleText) Text")
+    Text("Layout \(capsuleImage)\(capsuleText) Title")
         .font(.title)
+        .textRenderer(CapsuleRenderer(strokeColor: .teal))
+
+    Text("Layout  \(capsuleImage)\(capsuleText)  Body")
         .textRenderer(CapsuleRenderer(strokeColor: .teal))
 }
 
