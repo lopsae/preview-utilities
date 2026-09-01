@@ -11,6 +11,7 @@ import SwiftUI
 extension LocalizedStringKey.StringInterpolation {
 
     mutating func appendInterpolation(systemImage name: String, label: String, useNbsp: Bool = true) {
+        // FIXME: Space between image and label should always be NBSP.
         var label = " \(label)"
         if useNbsp {
             label = label.replacingOccurrences(of: " ", with: String.nbsp)
@@ -147,41 +148,57 @@ private final class BaselineBox {
 }
 
 
-struct CapsuleAttribute: TextAttribute {}
+struct CapsuleAttribute: TextAttribute {
+    let onlyWidth: Bool
+    init(onlyWidth: Bool = false) {
+        self.onlyWidth = onlyWidth
+    }
+}
 
 struct CapsuleRenderer: TextRenderer {
   let strokeColor: Color
 
   func draw(layout: Text.Layout, in context: inout GraphicsContext) {
-      var capsuleRuns: [Text.Layout.Run] = []
+      var capsuleRuns: [(run: Text.Layout.Run, attr: CapsuleAttribute)] = []
       for line in layout {
           for run in line {
-              if run[CapsuleAttribute.self] != nil {
-                  capsuleRuns.append(run)
+              if let attr = run[CapsuleAttribute.self] {
+                  // Collect all adjacent attributed runs.
+                  capsuleRuns.append((run: run, attr: attr))
                   continue
               }
 
-              // If there are capsule runs, draw them together
-              if !capsuleRuns.isEmpty {
-                  var capsuleRect: CGRect = capsuleRuns.first!.typographicBounds.rect
-                  for capsuleRun in capsuleRuns {
-                      let runRect = capsuleRun.typographicBounds.rect
-                      capsuleRect.envelop(runRect)
+              // Draw all collected runs together.
+              if let capsuleRun = capsuleRuns.first {
+                  var capsuleRect = capsuleRun.attr.onlyWidth
+                    ? capsuleRun.run.typographicBounds.rect.horizontalBisector
+                    : capsuleRun.run.typographicBounds.rect
+
+                  for (run, attr) in capsuleRuns {
+                      let rectToEnvelop: CGRect
+                      if attr.onlyWidth {
+                          rectToEnvelop = run.typographicBounds.rect.horizontalBisector
+                      } else {
+                          rectToEnvelop = run.typographicBounds.rect
+                      }
+                      capsuleRect.envelop(rectToEnvelop)
                   }
+
+                  // Draw capsule path.
                   let copy = context
                   let padding = Defaults.padding/4
                   let capsulePath = Capsule().path(in: capsuleRect.outset(by: padding))
                   copy.stroke(
                     capsulePath,
                     with: .color(strokeColor),
-                    style: StrokeStyle(lineWidth: 1.5, dash: [4, 3])
+                    style: StrokeStyle(lineWidth: 1.5, dash: [4, 4])
                   )
 
-
+                  // Draw runs on top.
                   for capsuleRun in capsuleRuns {
-                      var runRect: CGRect = capsuleRun.typographicBounds.rect
+                      let runRect: CGRect = capsuleRun.run.typographicBounds.rect
                       copy.stroke(Rectangle().path(in: runRect), with: .color(.red))
-                      copy.draw(capsuleRun)
+                      copy.draw(capsuleRun.run)
 
                   }
               }
@@ -206,14 +223,21 @@ extension CGRect {
         self.size.height = maxY - origin.y
     }
 
+    var horizontalBisector: CGRect {
+        self.setting(y: minY + height/2, height: .zero)
+    }
+
 }
 
 
 
 #Preview("Renderer", traits: .headerFooter, PreviewContent.layout) {
-    let capsuleText = Text("\(systemImage: "ladybug", label: "Capsule")")
+    let capsuleImage = Text("\(String.narrowNbsp)\(Image(ImageResource.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)))")
+        .customAttribute(CapsuleAttribute(onlyWidth: true))
+    let capsuleText = Text("\(String.nbsp)\("Capsule")\(String.narrowNbsp)")
         .customAttribute(CapsuleAttribute())
-    Text("Layout \(capsuleText) Text")
+
+    Text("Layout \(capsuleImage)\(capsuleText) Text")
         .font(.title)
         .textRenderer(CapsuleRenderer(strokeColor: .teal))
 }

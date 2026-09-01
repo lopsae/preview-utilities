@@ -6,10 +6,11 @@
 
 extension String {
 
-    nonisolated static var empty:  Self { .init() }
-    nonisolated static var space:  Self { " " }
-    nonisolated static var nbsp:   Self { "\u{00a0}" }
-    nonisolated static var hyphen: Self { "-" }
+    nonisolated static var empty:      Self { .init() }
+    nonisolated static var space:      Self { " " }
+    nonisolated static var nbsp:       Self { "\u{00a0}" }
+    nonisolated static var narrowNbsp: Self { "\u{202F}" }
+    nonisolated static var hyphen:     Self { "-" }
 
 }
 
