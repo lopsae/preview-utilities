@@ -12,12 +12,30 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
   func draw(layout: Text.Layout, in context: inout GraphicsContext) {
       var capsuleRuns: [(run: Text.Layout.Run, attr: Attribute)] = []
+      var runsInSingleLine = true
       for line in layout {
           for run in line {
-              if let attr = run[Attribute.self] {
-                  // Collect all adjacent attributed runs.
+              let pendingAttr = run[Attribute.self]
+              if capsuleRuns.isEmpty, let attr = pendingAttr {
+                  // Start run collection on single line.
+                  runsInSingleLine = true
                   capsuleRuns.append((run: run, attr: attr))
                   continue
+              }
+
+              var attrOnNewLine: Attribute?
+              if runsInSingleLine {
+                  if let attr = pendingAttr {
+                      // Collect all adjacent attributed runs.
+                      capsuleRuns.append((run: run, attr: attr))
+                      continue
+                  } else {
+                      // Continue to draw collected runs to highlight.
+                  }
+              } else {
+                  // Different line, save pendingAttr.
+                  attrOnNewLine = pendingAttr
+                  // And continue to draw collected runs to highlight.
               }
 
               // Draw all collected runs together.
@@ -51,14 +69,25 @@ struct CapsuleHighlightRenderer: TextRenderer {
                       // let runRect: CGRect = capsuleRun.run.typographicBounds.rect
                       // copy.stroke(Rectangle().path(in: runRect), with: .color(.red))
                       copy.draw(capsuleRun.run)
-
                   }
+
+                  // Reset collected runs.
+                  capsuleRuns = []
+                  if let attrOnNewLine {
+                      runsInSingleLine = true
+                      capsuleRuns.append((run: run, attr: attrOnNewLine))
+                      continue
+                  }
+
               }
 
               // Draw the current run.
               context.draw(run)
-          }
-      }
+          } // for run
+
+          runsInSingleLine = false
+
+      } // for line
   }
 }
 
