@@ -11,7 +11,6 @@ import SwiftUI
 extension LocalizedStringKey.StringInterpolation {
 
     mutating func appendInterpolation(systemImage name: String, label: String, useNbsp: Bool = true) {
-        // FIXME: Space between image and label should always be NBSP.
         var label = "\(String.nbsp)\(label)"
         if useNbsp {
             label = label.replacingOccurrences(of: " ", with: String.nbsp)
