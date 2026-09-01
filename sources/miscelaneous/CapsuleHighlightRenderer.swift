@@ -12,12 +12,14 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
   func draw(layout: Text.Layout, in context: inout GraphicsContext) {
       var capsuleRuns: [(run: Text.Layout.Run, attr: Attribute)] = []
+      var highlightOpen = false
       var runsInSingleLine = true
       for line in layout {
           for run in line {
               let pendingAttr = run[Attribute.self]
               if capsuleRuns.isEmpty, let attr = pendingAttr {
                   // Start run collection on single line.
+                  highlightOpen = false
                   runsInSingleLine = true
                   capsuleRuns.append((run: run, attr: attr))
                   continue
@@ -40,40 +42,60 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
               // Draw all collected runs together.
               if let capsuleRun = capsuleRuns.first {
-                  var capsuleRect = capsuleRun.attr.onlyWidth
+                  var highlightRunsRect = capsuleRun.attr.onlyWidth
                     ? capsuleRun.run.typographicBounds.rect.horizontalBisector
                     : capsuleRun.run.typographicBounds.rect
 
                   for (run, attr) in capsuleRuns {
-                      let rectToEnvelop: CGRect
+                      let rectToAdd: CGRect
                       if attr.onlyWidth {
-                          rectToEnvelop = run.typographicBounds.rect.horizontalBisector
+                          rectToAdd = run.typographicBounds.rect.horizontalBisector
                       } else {
-                          rectToEnvelop = run.typographicBounds.rect
+                          rectToAdd = run.typographicBounds.rect
                       }
-                      capsuleRect.envelop(rectToEnvelop)
+                      highlightRunsRect.envelop(rectToAdd)
                   }
 
                   // Draw capsule path.
-                  let copy = context
-                  let padding = Defaults.padding/4
-                  let capsulePath = Capsule().path(in: capsuleRect.outset(by: padding))
-                  copy.stroke(
-                    capsulePath,
+
+                  let shapeRect = highlightRunsRect.outset(by: 3)
+                  let cutHighlightRadius: CGFloat = 3
+
+                  let leadingRadius = highlightOpen
+                    ? cutHighlightRadius
+                    : shapeRect.height/2
+
+                  let trailingRadius = attrOnNewLine == nil
+                    ? shapeRect.height/2
+                    : cutHighlightRadius
+
+                  let shape = UnevenRoundedRectangle(
+                    topLeadingRadius: leadingRadius,
+                    bottomLeadingRadius: leadingRadius,
+                    bottomTrailingRadius: trailingRadius,
+                    topTrailingRadius: trailingRadius
+                  )
+
+
+                  let localContext = context
+                  localContext.stroke(
+                    shape.path(in: shapeRect),
                     with: .color(strokeColor),
-                    style: StrokeStyle(lineWidth: 1.5, dash: [4, 4])
+                    style: StrokeStyle(lineWidth: 1.5, dash: [5, 4])
                   )
 
                   // Draw runs on top.
                   for capsuleRun in capsuleRuns {
                       // let runRect: CGRect = capsuleRun.run.typographicBounds.rect
                       // copy.stroke(Rectangle().path(in: runRect), with: .color(.red))
-                      copy.draw(capsuleRun.run)
+                      localContext.draw(capsuleRun.run)
                   }
 
                   // Reset collected runs.
+                  highlightOpen = false
                   capsuleRuns = []
                   if let attrOnNewLine {
+                      highlightOpen = true
                       runsInSingleLine = true
                       capsuleRuns.append((run: run, attr: attrOnNewLine))
                       continue
@@ -151,7 +173,7 @@ private struct PreviewContent {
     let spacer = Text(String.narrowNbsp)//.tracking(2)
     let capsuleImage = Text("\(spacer)\(Image(ImageResource.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)))")
         .customAttribute(CapsuleHighlightRenderer.Attribute(onlyWidth: true))
-    let capsuleText = Text("\(String.nbsp)\("Capsule")\(spacer)")
+    let capsuleText = Text("\(String.narrowNbsp)\("Capsule")\(spacer)")
         .customAttribute(CapsuleHighlightRenderer.Attribute())
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
