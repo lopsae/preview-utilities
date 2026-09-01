@@ -41,14 +41,7 @@ extension LocalizedStringKey.StringInterpolation {
         color: Color = .accentColor
     ) {
         let capsule = CapsuleText(systemImage: systemImage, label: label, color: color)
-
-        if let inlineText = capsule.inlineText() {
-            appendInterpolation(inlineText)
-        } else {
-            // Fallback if rendering fails.
-            appendInterpolation(Image(systemName: systemImage))
-            appendInterpolation(label)
-        }
+        appendInterpolation(capsule.inlineText())
     }
 
 }
@@ -77,12 +70,14 @@ private struct CapsuleText: View {
 
 
     /// Renders the capsule to an image and returns it as inline `Text`.
-    func inlineText(scale: CGFloat = 3) -> Text? {
+    func inlineText(scale: CGFloat = 3) -> Text {
         let baseline = BaselineBox()
         let renderer = ImageRenderer(content: FirstBaselineReader(baseline: baseline) { self })
         renderer.scale = scale
 
-        guard let cgImage = renderer.cgImage else { return nil }
+        guard let cgImage = renderer.cgImage else {
+            return Text(Image(systemName: "xmark.circle"))
+        }
 
         let height = CGFloat(cgImage.height) / scale
         let baselineFromBottom = height - (baseline.fromTop ?? height)
