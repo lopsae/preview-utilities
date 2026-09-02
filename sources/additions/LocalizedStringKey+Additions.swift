@@ -206,7 +206,7 @@ private struct PreviewContent {
     let capsuleText = Text("\(systemImage: "ladybug", label: "Capsule Renderer")")
         .customAttribute(CapsuleHighlightRenderer.ShapeHighlight())
     Text("Layout \(capsuleText) Text")
-    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("CapsuleRenderer", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
     .padding(.bottom)

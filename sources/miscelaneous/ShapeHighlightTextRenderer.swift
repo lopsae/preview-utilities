@@ -7,17 +7,25 @@
 import SwiftUI
 
 
-// FIXME: Shape could be externally defined, after rename to ShapeHighlightTextRenderer.
-// FIXME: Offer convenience static members for default shapes: Capsule.
+// FIXME: Rename to ShapeHighlightTextRenderer.
 // FIXME: Offer typed function for this text renderer.
 // FIXME: Color border and text separately.
 struct CapsuleHighlightRenderer: TextRenderer {
 
-    let strokeColor: Color
+    let strokeStyle: AnyShapeStyle
+    let highlightPath: (_ bounds: CGRect, _ leadingStart: Bool, _ trailingEnd: Bool) -> Path
 
-    private static let outset: CGFloat = 3
-    private static let cutCornerRadius: CGFloat = 3
-    private static let stroke = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
+    private static let strokeStyle = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
+
+
+    init(
+        strokeStyle: some ShapeStyle,
+        highlightPath: @escaping (_ bounds: CGRect, _ leadingStart: Bool, _ trailingEnd: Bool) -> Path
+    ) {
+        self.strokeStyle = AnyShapeStyle(strokeStyle)
+        self.highlightPath = highlightPath
+    }
+
 
     func draw(layout: Text.Layout, in context: inout GraphicsContext) {
         // The contiguous attributed runs accumulated for the current highlight.
@@ -97,19 +105,8 @@ struct CapsuleHighlightRenderer: TextRenderer {
     ) {
         guard let bounds = enclosingRect(of: attributedRuns) else { return }
 
-        let rect = bounds.outset(by: Self.outset)
-        let fullRadius = rect.height / 2
-        let leadingRadius = cutLeadingCorners ? Self.cutCornerRadius : fullRadius
-        let trailingRadius = cutTrailingCorners ? Self.cutCornerRadius : fullRadius
-
-        let shape = UnevenRoundedRectangle(
-            topLeadingRadius: leadingRadius,
-            bottomLeadingRadius: leadingRadius,
-            bottomTrailingRadius: trailingRadius,
-            topTrailingRadius: trailingRadius
-        )
-
-        context.stroke(shape.path(in: rect), with: .color(strokeColor), style: Self.stroke)
+        let path = highlightPath(bounds, !cutLeadingCorners, !cutTrailingCorners)
+        context.stroke(path, with: .style(strokeStyle), style: Self.strokeStyle)
 
         for element in attributedRuns {
             // FIXME: Add property to enable bounds.
@@ -146,7 +143,7 @@ extension Sequence {
 }
 
 
-// MARK: - HighlightRun
+// MARK: - AttributedRun
 
 
 extension CapsuleHighlightRenderer {
@@ -178,6 +175,35 @@ extension CapsuleHighlightRenderer {
         let onlyWidth: Bool
         init(onlyWidth: Bool = false) {
             self.onlyWidth = onlyWidth
+        }
+    }
+
+}
+
+
+// MARK: - Preconfigured
+
+extension CapsuleHighlightRenderer {
+
+    static func capsule(strokeStyle: some ShapeStyle) -> Self {
+        CapsuleHighlightRenderer(strokeStyle: strokeStyle) { bounds, leadingStart, trailingEnd in
+            let outset: CGFloat = 3
+            let outsetBounds = bounds.outset(by: outset)
+
+            let fullRadius = outsetBounds.height / 2
+            let edgeRadius: CGFloat = 3
+
+            let leadingRadius = leadingStart ? fullRadius : edgeRadius
+            let trailingRadius = trailingEnd ? fullRadius : edgeRadius
+
+            let shape = UnevenRoundedRectangle(
+                topLeadingRadius: leadingRadius,
+                bottomLeadingRadius: leadingRadius,
+                bottomTrailingRadius: trailingRadius,
+                topTrailingRadius: trailingRadius
+            )
+
+            return shape.path(in: outsetBounds)
         }
     }
 
@@ -275,13 +301,14 @@ private struct PreviewContent {
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
     .font(.title)
-    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Title Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Layout  \(capsuleImage)\(capsuleText)  Body")
-    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal)).frame(width: fixedWidth)
+        .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
+    .frame(width: fixedWidth)
     .floatingCaption("Body Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 }
@@ -295,7 +322,7 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("Interpolation \(capsule: "ladybug", label: "Ladybug Image") after interpolation.")
-    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Non-Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -303,7 +330,7 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("Interpolation \(capsule: "ladybug", label: "Multiple breaking words", breaking: true) after.")
-    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+        .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -311,14 +338,14 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("\(capsule: "rectangle.portrait.and.arrow.right", label: "Starting") interpolation at ends \(capsule: "arrowtriangle.left.square", label: "Ending").")
-    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Start and End", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Title \(capsule: "ladybug", label: "Ladybug") interpolation.")
     .font(.title)
-    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Title", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
