@@ -24,27 +24,72 @@ struct Caliper: Shape {
         Path { path in
             switch barEdge {
             case .leading:
-                path.move(to: [rect.minX, rect.minY])
-                path.addLine(to: [rect.minX, rect.maxY])
-                path.move(to: [rect.minX, rect.midY])
-                path.addLine(to: [rect.maxX, rect.midY])
+                path.addPath(rect.leadingSegment.path)
+                path.addPath(rect.horizontalBisectorSegment.path)
             case .trailing:
-                path.move(to: [rect.maxX, rect.minY])
-                path.addLine(to: [rect.maxX, rect.maxY])
-                path.move(to: [rect.minX, rect.midY])
-                path.addLine(to: [rect.maxX, rect.midY])
+                path.addPath(rect.trailingSegment.path)
+                path.addPath(rect.horizontalBisectorSegment.path)
             case .top:
-                path.move(to: [rect.minX, rect.minY])
-                path.addLine(to: [rect.maxX, rect.minY])
-                path.move(to: [rect.midX, rect.minY])
-                path.addLine(to: [rect.midX, rect.maxY])
+                path.addPath(rect.topSegment.path)
+                path.addPath(rect.verticalBisectorSegment.path)
             case .bottom:
-                path.move(to: [rect.minX, rect.maxY])
-                path.addLine(to: [rect.maxX, rect.maxY])
-                path.move(to: [rect.midX, rect.minY])
-                path.addLine(to: [rect.midX, rect.maxY])
+                path.addPath(rect.bottomSegment.path)
+                path.addPath(rect.verticalBisectorSegment.path)
             }
         }
+    }
+
+}
+
+
+extension CGRect {
+
+    nonisolated
+    var topSegment: Segment {
+        CGPoint(x: minX, y: minY)
+        .segmentToOffset(x: width)
+    }
+
+    nonisolated
+    var trailingSegment: Segment {
+        CGPoint(x: maxX, y: minY)
+        .segmentToOffset(y: height)
+    }
+
+    nonisolated
+    var bottomSegment: Segment {
+        CGPoint(x: maxX, y: maxY)
+        .segmentToOffset(x: -width)
+    }
+
+    nonisolated
+    var leadingSegment: Segment {
+        CGPoint(x: minX, y: maxY)
+        .segmentToOffset(y: -height)
+    }
+
+    nonisolated
+    var topCenterPoint: CGPoint {
+        .init(x: minX, y: minY)
+        .offset(x: width/2)
+    }
+
+    nonisolated
+    var leadingCenterPoint: CGPoint {
+        .init(x: minX, y: minY)
+        .offset(y: height/2)
+    }
+
+    nonisolated
+    var horizontalBisectorSegment: Segment {
+        leadingCenterPoint
+        .segmentToOffset(x: width)
+    }
+
+    nonisolated
+    var verticalBisectorSegment: Segment {
+        topCenterPoint
+        .segmentToOffset(y: height)
     }
 
 }

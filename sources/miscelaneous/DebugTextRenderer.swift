@@ -88,6 +88,7 @@ extension DebugTextRenderer {
 // TODO: When reused elsewhere, move to its own file.
 // TODO: Add Pathable, and make drawing in a context a chained command.
 // TODO: Possible other user: Caliper.
+nonisolated
 struct Segment {
     var start: CGPoint
     var end: CGPoint
@@ -102,6 +103,7 @@ struct Segment {
 
 extension CGPoint {
 
+    nonisolated
     func segmentToOffset(x: CGFloat = .zero, y: CGFloat = .zero) -> Segment {
         .init(start: self, end: self.offset(x: x, y: y))
     }
