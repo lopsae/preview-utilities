@@ -25,7 +25,7 @@ struct CapsuleHighlightRenderer: TextRenderer {
         // The group began as a continuation from a previous line.
         var continuesFromPreviousLine = false
         // Whether we are still on the line where the current group began.
-        var onGroupStartLine = true
+        var hasLineChanged = false
 
         for line in layout {
             for run in line {
@@ -36,7 +36,7 @@ struct CapsuleHighlightRenderer: TextRenderer {
                     if let attribute {
                         attributedRuns = [AttributedRun(run: run, attribute: attribute)]
                         continuesFromPreviousLine = false
-                        onGroupStartLine = true
+                        hasLineChanged = false
                     } else {
                         context.draw(run)
                     }
@@ -44,18 +44,18 @@ struct CapsuleHighlightRenderer: TextRenderer {
                 }
 
                 // Still on the start line: keep collecting adjacent attributed runs.
-                if onGroupStartLine, let attribute {
+                if !hasLineChanged, let attribute {
                     attributedRuns.append(AttributedRun(run: run, attribute: attribute))
                     continue
                 }
 
                 // The group is complete, flush. On a later line, an attributed first run
                 // means the highlight continues, so its trailing corners are cut.
-                let nextLineAttribute = onGroupStartLine ? nil : attribute
+                let nextLineAttribute = hasLineChanged ? attribute : nil
                 drawHighlight(
                     attributedRuns: attributedRuns,
                     cutLeadingCorners: continuesFromPreviousLine,
-                    cutTrailingCorners: !onGroupStartLine,
+                    cutTrailingCorners: hasLineChanged,
                     in: context
                 )
 
@@ -63,7 +63,7 @@ struct CapsuleHighlightRenderer: TextRenderer {
                     // Reopen the highlight on next line with the continuing run.
                     attributedRuns = [AttributedRun(run: run, attribute: nextLineAttribute)]
                     continuesFromPreviousLine = true
-                    onGroupStartLine = true
+                    hasLineChanged = false
                 } else {
                     attributedRuns = []
                     continuesFromPreviousLine = false
@@ -71,12 +71,12 @@ struct CapsuleHighlightRenderer: TextRenderer {
                 }
             }
 
-            onGroupStartLine = false
+            hasLineChanged = true
         }
 
         // FIXME: Add preview and test.
         // Flush a highlight that reaches the end of the text with no trailing plain run.
-        if !attributedRuns.isEmpty {
+        if attributedRuns.containsAny {
             drawHighlight(
                 attributedRuns: attributedRuns,
                 cutLeadingCorners: continuesFromPreviousLine,
