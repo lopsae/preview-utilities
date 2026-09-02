@@ -43,19 +43,15 @@ struct DebugTextRenderer: TextRenderer {
         }
 
         if configuration.drawsAscent {
-            let ascentLine = Path { path in
-                path.move(to: bounds.origin.offset(x: 1))
-                path.addLine(to: bounds.origin.offset(x: 1, y: -bounds.ascent))
-            }
-            context.stroke(ascentLine, with: .style(.red.secondary), lineWidth: 2)
+            let ascentSegment = bounds.origin.offset(x: 1)
+                .segmentToOffset(y: -bounds.ascent)
+            context.stroke(ascentSegment.path, with: .style(.red.secondary), lineWidth: 2)
         }
 
         if configuration.drawsDescent {
-            let descentLine = Path { path in
-                path.move(to: bounds.origin.offset(x: 3))
-                path.addLine(to: bounds.origin.offset(x: 3, y: bounds.descent))
-            }
-            context.stroke(descentLine, with: .style(.blue.secondary), lineWidth: 2)
+            let descentSegment = bounds.origin.offset(x: 3)
+                .segmentToOffset(y: bounds.descent)
+            context.stroke(descentSegment.path, with: .style(.blue.secondary), lineWidth: 2)
         }
     }
 
@@ -84,6 +80,30 @@ extension DebugTextRenderer {
         static let all: Self = .init()
         static let none: Self = .init(all: false)
         static let onlyRect: Self = .init(rect: true, ascent: false, descent: false)
+    }
+
+}
+
+
+// TODO: When reused elsewhere, move to its own file.
+// TODO: Add Pathable, and make drawing in a context a chained command.
+// TODO: Possible other user: Caliper.
+struct Segment {
+    var start: CGPoint
+    var end: CGPoint
+    var path: Path {
+        .init { path in
+            path.move(to: start)
+            path.addLine(to: end)
+        }
+    }
+}
+
+
+extension CGPoint {
+
+    func segmentToOffset(x: CGFloat = .zero, y: CGFloat = .zero) -> Segment {
+        .init(start: self, end: self.offset(x: x, y: y))
     }
 
 }
