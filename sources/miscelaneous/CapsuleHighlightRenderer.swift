@@ -7,6 +7,10 @@
 import SwiftUI
 
 
+// FIXME: Shape could be externally defined, after rename to ShapeHighlightTextRenderer.
+// FIXME: Offer convenience static members for default shapes: Capsule.
+// FIXME: Offer typed function for this text renderer.
+// FIXME: Color border and text separately.
 struct CapsuleHighlightRenderer: TextRenderer {
 
     let strokeColor: Color
@@ -17,20 +21,20 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
     func draw(layout: Text.Layout, in context: inout GraphicsContext) {
         // The contiguous attributed runs accumulated for the current highlight.
-        var group: [HighlightRun] = []
-        // The group began as a continuation from a previous line, so its leading corners are cut.
+        var attributedRuns: [AttributedRun] = []
+        // The group began as a continuation from a previous line.
         var continuesFromPreviousLine = false
         // Whether we are still on the line where the current group began.
         var onGroupStartLine = true
 
         for line in layout {
             for run in line {
-                let attribute = run[Attribute.self]
+                let attribute = run[ShapeHighlight.self]
 
                 // Idle: start a group on an attributed run, otherwise draw the run as-is.
-                if group.isEmpty {
+                if attributedRuns.isEmpty {
                     if let attribute {
-                        group = [HighlightRun(run: run, attribute: attribute)]
+                        attributedRuns = [AttributedRun(run: run, attribute: attribute)]
                         continuesFromPreviousLine = false
                         onGroupStartLine = true
                     } else {
@@ -41,27 +45,27 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
                 // Still on the start line: keep collecting adjacent attributed runs.
                 if onGroupStartLine, let attribute {
-                    group.append(HighlightRun(run: run, attribute: attribute))
+                    attributedRuns.append(AttributedRun(run: run, attribute: attribute))
                     continue
                 }
 
-                // The group is complete, so flush it. On a later line, an attributed first run
+                // The group is complete, flush. On a later line, an attributed first run
                 // means the highlight continues, so its trailing corners are cut.
-                let continuation = onGroupStartLine ? nil : attribute
+                let nextLineAttribute = onGroupStartLine ? nil : attribute
                 drawHighlight(
-                    group,
+                    attributedRuns: attributedRuns,
                     cutLeadingCorners: continuesFromPreviousLine,
-                    cutTrailingCorners: continuation != nil,
+                    cutTrailingCorners: !onGroupStartLine,
                     in: context
                 )
 
-                if let continuation {
-                    // Reopen the highlight on this line with the continuing run.
-                    group = [HighlightRun(run: run, attribute: continuation)]
+                if let nextLineAttribute {
+                    // Reopen the highlight on next line with the continuing run.
+                    attributedRuns = [AttributedRun(run: run, attribute: nextLineAttribute)]
                     continuesFromPreviousLine = true
                     onGroupStartLine = true
                 } else {
-                    group = []
+                    attributedRuns = []
                     continuesFromPreviousLine = false
                     context.draw(run)
                 }
@@ -70,10 +74,11 @@ struct CapsuleHighlightRenderer: TextRenderer {
             onGroupStartLine = false
         }
 
+        // FIXME: Add preview and test.
         // Flush a highlight that reaches the end of the text with no trailing plain run.
-        if !group.isEmpty {
+        if !attributedRuns.isEmpty {
             drawHighlight(
-                group,
+                attributedRuns: attributedRuns,
                 cutLeadingCorners: continuesFromPreviousLine,
                 cutTrailingCorners: false,
                 in: context
@@ -82,15 +87,15 @@ struct CapsuleHighlightRenderer: TextRenderer {
     }
 
 
-    /// Strokes the capsule behind `group` and draws its glyphs on top. Cut corners produce the flat
-    /// edge used where a highlight is split across a line boundary.
+    /// Strokes the capsule behind `attributedRuns` and draws its glyphs on top. Cut corners
+    /// determine the leading and trailing edges of the capsule shape.
     private func drawHighlight(
-        _ group: [HighlightRun],
+        attributedRuns: [AttributedRun],
         cutLeadingCorners: Bool,
         cutTrailingCorners: Bool,
         in context: GraphicsContext
     ) {
-        guard let bounds = enclosingRect(of: group) else { return }
+        guard let bounds = enclosingRect(of: attributedRuns) else { return }
 
         let rect = bounds.outset(by: Self.outset)
         let fullRadius = rect.height / 2
@@ -106,23 +111,36 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
         context.stroke(shape.path(in: rect), with: .color(strokeColor), style: Self.stroke)
 
-        for element in group {
+        for element in attributedRuns {
+            // FIXME: Add property to enable bounds.
+            let runRect = element.run.typographicBounds.rect
+            let boundsPath = Rectangle().path(in: runRect)
+            context.stroke(boundsPath, with: .style(.red.secondary))
             context.draw(element.run)
         }
     }
 
 
-    /// The rect enclosing every run's contribution to the highlight.
-    private func enclosingRect(of group: [HighlightRun]) -> CGRect? {
-        var rect: CGRect?
-        for element in group {
-            if rect == nil {
-                rect = element.contributingRect
-            } else {
-                rect?.envelop(element.contributingRect)
-            }
+    private func enclosingRect(of attributedRuns: [AttributedRun]) -> CGRect? {
+        attributedRuns.map(\.contributingRect)
+        .reduceElements { partialResult, contributingRect in
+            partialResult.envelop(contributingRect)
         }
-        return rect
+    }
+
+}
+
+
+extension Sequence {
+
+    // FIXME: Move to Sequence+Additions.
+    func reduceElements(
+        updateAccumulatingResult: (_ partialResult: inout Element, _ element: Element) throws -> Void
+    ) rethrows -> Element? {
+        var iterator = makeIterator()
+        guard let first = iterator.next() else { return nil }
+        let sequence = AnySequence { iterator }
+        return try sequence.reduce(into: first, updateAccumulatingResult)
     }
 
 }
@@ -133,12 +151,14 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
 extension CapsuleHighlightRenderer {
 
-    private struct HighlightRun {
+    private struct AttributedRun {
         let run: Text.Layout.Run
-        let attribute: Attribute
+        let attribute: ShapeHighlight
 
-        /// The rect this run contributes to the highlight. `onlyWidth` runs (e.g. spacer pads)
-        /// contribute width but not height, via their zero-height centerline.
+        /// The rect this run contributes to the highlight.
+        ///
+        /// Runs marked with `ShapeHighlight/onlyWidth` contribute only their width, but not height,
+        /// via their zero-height centerline.
         var contributingRect: CGRect {
             attribute.onlyWidth
                 ? run.typographicBounds.rect.horizontalBisector
@@ -154,7 +174,7 @@ extension CapsuleHighlightRenderer {
 
 extension CapsuleHighlightRenderer {
 
-    struct Attribute: TextAttribute {
+    struct ShapeHighlight: TextAttribute {
         let onlyWidth: Bool
         init(onlyWidth: Bool = false) {
             self.onlyWidth = onlyWidth
@@ -182,10 +202,10 @@ extension LocalizedStringKey.StringInterpolation {
 
         let image = Image(systemName: name)
         let imageText = Text("\(edgeSpacer)\(image)")
-            .customAttribute(CapsuleHighlightRenderer.Attribute(onlyWidth: true))
+            .customAttribute(CapsuleHighlightRenderer.ShapeHighlight(onlyWidth: true))
 
         let middleText = middleSpacer
-            .customAttribute(CapsuleHighlightRenderer.Attribute())
+            .customAttribute(CapsuleHighlightRenderer.ShapeHighlight())
 
         appendInterpolation(imageText)
         appendInterpolation(middleText)
@@ -197,7 +217,7 @@ extension LocalizedStringKey.StringInterpolation {
             : label.replacingOccurrences(of: " ", with: String.nbsp)
 
         let labelText = Text("\(spacedString)\(edgeSpacer)")
-            .customAttribute(CapsuleHighlightRenderer.Attribute())
+            .customAttribute(CapsuleHighlightRenderer.ShapeHighlight())
 
         appendInterpolation(labelText)
     }
@@ -249,35 +269,63 @@ private struct PreviewContent {
 
     let spacer = Text(String.narrowNbsp)//.tracking(2)
     let capsuleImage = Text("\(spacer)\(Image(ImageResource.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)))")
-        .customAttribute(CapsuleHighlightRenderer.Attribute(onlyWidth: true))
+        .customAttribute(CapsuleHighlightRenderer.ShapeHighlight(onlyWidth: true))
     let capsuleText = Text("\(String.narrowNbsp)\("Capsule")\(spacer)")
-        .customAttribute(CapsuleHighlightRenderer.Attribute())
+        .customAttribute(CapsuleHighlightRenderer.ShapeHighlight())
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
     .font(.title)
     .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
     .frame(width: fixedWidth)
-    .floatingCaption("Title Font", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
+    .floatingCaption("Title Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Layout  \(capsuleImage)\(capsuleText)  Body")
     .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal)).frame(width: fixedWidth)
-    .floatingCaption("Body Font", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
+    .floatingCaption("Body Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 }
 
 
-#Preview("Interpolation", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("Interpolation", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var fixedWidth: Double = 400
 
     Slider.captioned("Fixed Width", value: $fixedWidth, in: 0...400, valueFormat: .arithmeticRoundedInteger)
 
     DashedDivider()
 
-    Text("Interpolation \(capsule: "ladybug", label: "Ladybug Image") after interpolation")
-    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal)).frame(width: fixedWidth)
-    .floatingCaption("Body Font", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
+    Text("Interpolation \(capsule: "ladybug", label: "Ladybug Image") after interpolation.")
+    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .frame(width: fixedWidth)
+    .floatingCaption("Non-Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
+    DashedDivider()
+
+    Text("Interpolation \(capsule: "ladybug", label: "Multiple breaking words", breaking: true) after.")
+    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .frame(width: fixedWidth)
+    .floatingCaption("Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
+    .padding(.bottom)
+
+    DashedDivider()
+
+    Text("\(capsule: "rectangle.portrait.and.arrow.right", label: "Starting") interpolation at ends \(capsule: "arrowtriangle.left.square", label: "Ending").")
+    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .frame(width: fixedWidth)
+    .floatingCaption("Start and End", .colorStyle(.orange), .alignment(.outerBottomTrailing))
+    .padding(.bottom)
+
+    Text("Title \(capsule: "ladybug", label: "Ladybug") interpolation.")
+    .font(.title)
+    .textRenderer(CapsuleHighlightRenderer(strokeColor: .teal))
+    .frame(width: fixedWidth)
+    .floatingCaption("Title", .colorStyle(.orange), .alignment(.outerBottomTrailing))
+    .padding(.bottom)
+
+    DashedDivider()
+
+    VisibleSpacer()
+    .layoutPriority(-1)
 }
 
