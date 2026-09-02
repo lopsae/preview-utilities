@@ -13,6 +13,7 @@ import SwiftUI
 struct CapsuleHighlightRenderer: TextRenderer {
 
     let strokeStyle: AnyShapeStyle
+    let debugRuns: Bool
     let highlightPath: (_ bounds: CGRect, _ leadingStart: Bool, _ trailingEnd: Bool) -> Path
 
     private static let strokeStyle = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
@@ -20,9 +21,11 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
     init(
         strokeStyle: some ShapeStyle,
+        debugRuns: Bool = false,
         highlightPath: @escaping (_ bounds: CGRect, _ leadingStart: Bool, _ trailingEnd: Bool) -> Path
     ) {
         self.strokeStyle = AnyShapeStyle(strokeStyle)
+        self.debugRuns = debugRuns
         self.highlightPath = highlightPath
     }
 
@@ -62,8 +65,8 @@ struct CapsuleHighlightRenderer: TextRenderer {
                 let nextLineAttribute = hasLineChanged ? attribute : nil
                 drawHighlight(
                     attributedRuns: attributedRuns,
-                    cutLeadingCorners: continuesFromPreviousLine,
-                    cutTrailingCorners: hasLineChanged,
+                    leadingStart: !continuesFromPreviousLine,
+                    trailingEnd: !hasLineChanged,
                     in: context
                 )
 
@@ -87,32 +90,54 @@ struct CapsuleHighlightRenderer: TextRenderer {
         if attributedRuns.containsAny {
             drawHighlight(
                 attributedRuns: attributedRuns,
-                cutLeadingCorners: continuesFromPreviousLine,
-                cutTrailingCorners: false,
+                leadingStart: !continuesFromPreviousLine,
+                trailingEnd: true,
                 in: context
             )
         }
     }
 
 
-    /// Strokes the capsule behind `attributedRuns` and draws its glyphs on top. Cut corners
-    /// determine the leading and trailing edges of the capsule shape.
+    /// Strokes the capsule behind `attributedRuns` and draws its glyphs on top.
+    ///
+    /// `leadingStart` indicates the highlight starts on the leading edge, when `false` the
+    /// highlight started on a previous line not included in the given runs.
+    ///
+    /// `trailingEnd` indicates the highlight ends on the trailing edge, when `false` the
+    /// highlight ends on a later line not included in the given runs.
+    ///
     private func drawHighlight(
         attributedRuns: [AttributedRun],
-        cutLeadingCorners: Bool,
-        cutTrailingCorners: Bool,
+        leadingStart: Bool,
+        trailingEnd: Bool,
         in context: GraphicsContext
     ) {
         guard let bounds = enclosingRect(of: attributedRuns) else { return }
 
-        let path = highlightPath(bounds, !cutLeadingCorners, !cutTrailingCorners)
+        let path = highlightPath(bounds, leadingStart, trailingEnd)
         context.stroke(path, with: .style(strokeStyle), style: Self.strokeStyle)
 
         for element in attributedRuns {
-            // FIXME: Add property to enable bounds.
-            let runRect = element.run.typographicBounds.rect
-            let boundsPath = Rectangle().path(in: runRect)
-            context.stroke(boundsPath, with: .style(.red.secondary))
+            if debugRuns {
+                // FIXME: Create a DebugTextRenderer that highlights this elements.
+                // FIXME: DebugTextRendered can expose static func to draw debug elements of a run.
+                // FIXME: Make debug configuration with shorthands for .all, .none., .rect, .ascentDecent
+                let typo = element.run.typographicBounds
+                let boundsPath = Rectangle().path(in: typo.rect.inset(by: 0.5))
+                context.stroke(boundsPath, with: .style(.green.secondary))
+
+                let ascentLine = Path { path in
+                    path.move(to: typo.origin.offset(x: 1))
+                    path.addLine(to: typo.origin.offset(x: 1, y: -typo.ascent))
+                }
+                context.stroke(ascentLine, with: .style(.red.secondary), lineWidth: 2)
+
+                let descentLine = Path { path in
+                    path.move(to: typo.origin.offset(x: 3))
+                    path.addLine(to: typo.origin.offset(x: 3, y: typo.descent))
+                }
+                context.stroke(descentLine, with: .style(.blue.secondary), lineWidth: 2)
+            }
             context.draw(element.run)
         }
     }
@@ -185,8 +210,14 @@ extension CapsuleHighlightRenderer {
 
 extension CapsuleHighlightRenderer {
 
-    static func capsule(strokeStyle: some ShapeStyle) -> Self {
-        CapsuleHighlightRenderer(strokeStyle: strokeStyle) { bounds, leadingStart, trailingEnd in
+    static func capsule(
+        strokeStyle: some ShapeStyle = .gray,
+        debugRuns: Bool = false
+    ) -> Self {
+        CapsuleHighlightRenderer(
+            strokeStyle: strokeStyle,
+            debugRuns: debugRuns
+        ) { bounds, leadingStart, trailingEnd in
             let outset: CGFloat = 3
             let outsetBounds = bounds.outset(by: outset)
 
@@ -301,7 +332,7 @@ private struct PreviewContent {
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
     .font(.title)
-    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
+    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal, debugRuns: true))
     .frame(width: fixedWidth)
     .floatingCaption("Title Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
