@@ -9,6 +9,8 @@ import Foundation
 
 extension Collection {
 
+    var containsAny: Bool { !isEmpty }
+
     /// Returns the element at the given distance from the start index, wrapping around through a
     /// modulo operation if the distance is greater that number of elements in the collection.
     ///
