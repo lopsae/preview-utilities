@@ -5,6 +5,12 @@
 
 
 import CoreFoundation
+import SwiftUI
+
+
+extension CGRect: Pathable {
+    var path: Path { Path(self) }
+}
 
 
 extension CGRect {
