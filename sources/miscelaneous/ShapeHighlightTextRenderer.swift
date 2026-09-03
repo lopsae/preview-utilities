@@ -140,21 +140,6 @@ struct CapsuleHighlightRenderer: TextRenderer {
 }
 
 
-extension Sequence {
-
-    // FIXME: Move to Sequence+Additions.
-    func reduceElements(
-        updateAccumulatingResult: (_ partialResult: inout Element, _ element: Element) throws -> Void
-    ) rethrows -> Element? {
-        var iterator = makeIterator()
-        guard let first = iterator.next() else { return nil }
-        let sequence = AnySequence { iterator }
-        return try sequence.reduce(into: first, updateAccumulatingResult)
-    }
-
-}
-
-
 // MARK: - AttributedRun
 
 
