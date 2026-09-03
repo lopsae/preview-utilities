@@ -118,25 +118,13 @@ struct CapsuleHighlightRenderer: TextRenderer {
         context.stroke(path, with: .style(strokeStyle), style: Self.strokeStyle)
 
         for element in attributedRuns {
+            // FIXME: Use DebugTextRenderer configuration.
             if debugRuns {
-                // FIXME: Create a DebugTextRenderer that highlights this elements.
-                // FIXME: DebugTextRendered can expose static func to draw debug elements of a run.
-                // FIXME: Make debug configuration with shorthands for .all, .none., .rect, .ascentDecent
-                let typo = element.run.typographicBounds
-                let boundsPath = Rectangle().path(in: typo.rect.inset(by: 0.5))
-                context.stroke(boundsPath, with: .style(.green.secondary))
-
-                let ascentLine = Path { path in
-                    path.move(to: typo.origin.offset(x: 1))
-                    path.addLine(to: typo.origin.offset(x: 1, y: -typo.ascent))
-                }
-                context.stroke(ascentLine, with: .style(.red.secondary), lineWidth: 2)
-
-                let descentLine = Path { path in
-                    path.move(to: typo.origin.offset(x: 3))
-                    path.addLine(to: typo.origin.offset(x: 3, y: typo.descent))
-                }
-                context.stroke(descentLine, with: .style(.blue.secondary), lineWidth: 2)
+                DebugTextRenderer.drawDebugTypographicBounds(
+                    run: element.run,
+                    in: context,
+                    configuration: .all
+                )
             }
             context.draw(element.run)
         }
@@ -332,13 +320,13 @@ private struct PreviewContent {
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
     .font(.title)
-    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal, debugRuns: true))
+    .textRenderer(CapsuleHighlightRenderer.capsule(debugRuns: true))
     .frame(width: fixedWidth)
     .floatingCaption("Title Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Layout  \(capsuleImage)\(capsuleText)  Body")
-        .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
+        .textRenderer(CapsuleHighlightRenderer.capsule())
     .frame(width: fixedWidth)
     .floatingCaption("Body Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)

@@ -34,7 +34,6 @@ struct DebugTextRenderer: TextRenderer {
         in context: GraphicsContext,
         configuration: Configuration
     ) {
-        // FIXME: Make debug configuration with shorthands for .all, .none., .rect, .ascentDecent
         let bounds = run.typographicBounds
 
         if configuration.drawsRect {
