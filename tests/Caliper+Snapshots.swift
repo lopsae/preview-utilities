@@ -13,7 +13,7 @@ import Testing
 @MainActor
 struct CaliperSnapshots {
 
-    @Test(.snapshots(record: .missing))
+    @Test(.snapshots(record: .missing, diffTool: .ksdiff))
     func labeled() {
         Snapshots.assertView("all", colorSchemes: .all) {
             Rectangle()

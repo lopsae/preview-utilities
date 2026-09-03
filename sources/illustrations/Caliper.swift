@@ -24,17 +24,25 @@ struct Caliper: Shape {
         Path { path in
             switch barEdge {
             case .leading:
-                path.addPath(rect.leadingSegment.path)
-                path.addPath(rect.horizontalBisectorSegment.path)
+                rect.leadingSegment
+                    .add(to: &path)
+                rect.horizontalBisectorSegment
+                    .add(to: &path)
             case .trailing:
-                path.addPath(rect.trailingSegment.path)
-                path.addPath(rect.horizontalBisectorSegment.path)
+                rect.trailingSegment
+                    .add(to: &path)
+                rect.horizontalBisectorSegment
+                    .add(to: &path)
             case .top:
-                path.addPath(rect.topSegment.path)
-                path.addPath(rect.verticalBisectorSegment.path)
+                rect.topSegment
+                    .add(to: &path)
+                rect.verticalBisectorSegment
+                    .add(to: &path)
             case .bottom:
-                path.addPath(rect.bottomSegment.path)
-                path.addPath(rect.verticalBisectorSegment.path)
+                rect.bottomSegment
+                    .add(to: &path)
+                rect.verticalBisectorSegment
+                    .add(to: &path)
             }
         }
     }
