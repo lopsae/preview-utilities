@@ -21,6 +21,17 @@ extension Pathable {
         container.addPath(path)
         return self
     }
+
+    //.stroke(in: context, style: .red.secondary, lineWidth: 2)
+    @discardableResult
+    func stroke(
+        in context: GraphicsContext,
+        style: some ShapeStyle,
+        lineWidth: CGFloat = .one
+    ) -> Self {
+        context.stroke(path, with: .style(style), lineWidth: lineWidth)
+        return self
+    }
 }
 
 

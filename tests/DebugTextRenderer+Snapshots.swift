@@ -22,7 +22,7 @@ struct DebugTextRendererSnapshots {
         ).foregroundStyle(.tertiary)
     }
 
-    @Test(.snapshots(record: .missing))
+    @Test(.snapshots(record: .missing, diffTool: .ksdiff))
     func defaultConfig() {
         Snapshots.assertView("body", colorSchemes: .all) {
             TestContent.multi

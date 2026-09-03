@@ -42,15 +42,15 @@ struct DebugTextRenderer: TextRenderer {
         }
 
         if configuration.drawsAscent {
-            let ascentSegment = bounds.origin.offset(x: 1)
-                .segmentToOffset(y: -bounds.ascent)
-            context.stroke(ascentSegment.path, with: .style(.red.secondary), lineWidth: 2)
+            bounds.origin.offset(x: 1)
+            .segmentToOffset(y: -bounds.ascent)
+            .stroke(in: context, style: .red.secondary, lineWidth: 2)
         }
 
         if configuration.drawsDescent {
-            let descentSegment = bounds.origin.offset(x: 3)
-                .segmentToOffset(y: bounds.descent)
-            context.stroke(descentSegment.path, with: .style(.blue.secondary), lineWidth: 2)
+            bounds.origin.offset(x: 3)
+            .segmentToOffset(y: bounds.descent)
+            .stroke(in: context, style: .blue.secondary, lineWidth: 2)
         }
     }
 
