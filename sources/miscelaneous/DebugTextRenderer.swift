@@ -19,7 +19,7 @@ struct DebugTextRenderer: TextRenderer {
     func draw(layout: Text.Layout, in context: inout GraphicsContext) {
         for line in layout {
             for run in line {
-                Self.drawDebugTypographicBounds(
+                Self.drawTypographicBounds(
                     run: run, in: context,
                     configuration: configuration
                 )
@@ -29,7 +29,7 @@ struct DebugTextRenderer: TextRenderer {
     }
 
 
-    static func drawDebugTypographicBounds(
+    static func drawTypographicBounds(
         run: Text.Layout.Run,
         in context: GraphicsContext,
         configuration: Configuration

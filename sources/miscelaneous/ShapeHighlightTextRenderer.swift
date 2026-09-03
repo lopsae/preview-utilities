@@ -120,7 +120,7 @@ struct CapsuleHighlightRenderer: TextRenderer {
         for element in attributedRuns {
             // FIXME: Use DebugTextRenderer configuration.
             if debugRuns {
-                DebugTextRenderer.drawDebugTypographicBounds(
+                DebugTextRenderer.drawTypographicBounds(
                     run: element.run,
                     in: context,
                     configuration: .all
