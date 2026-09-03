@@ -76,6 +76,10 @@ extension DebugTextRenderer {
             self.drawsDescent = descent
         }
 
+        var drawsAny: Bool {
+            drawsRect && drawsAscent && drawsDescent
+        }
+
         static let all: Self = .init()
         static let none: Self = .init(all: false)
         static let onlyRect: Self = .init(rect: true, ascent: false, descent: false)

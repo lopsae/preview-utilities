@@ -13,7 +13,7 @@ import SwiftUI
 struct CapsuleHighlightRenderer: TextRenderer {
 
     let strokeStyle: AnyShapeStyle
-    let debugRuns: Bool
+    let debugRuns: DebugTextRenderer.Configuration
     let highlightPath: (_ bounds: CGRect, _ leadingStart: Bool, _ trailingEnd: Bool) -> Path
 
     private static let strokeStyle = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
@@ -21,7 +21,7 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
     init(
         strokeStyle: some ShapeStyle,
-        debugRuns: Bool = false,
+        debugRuns: DebugTextRenderer.Configuration = .none,
         highlightPath: @escaping (_ bounds: CGRect, _ leadingStart: Bool, _ trailingEnd: Bool) -> Path
     ) {
         self.strokeStyle = AnyShapeStyle(strokeStyle)
@@ -118,12 +118,11 @@ struct CapsuleHighlightRenderer: TextRenderer {
         context.stroke(path, with: .style(strokeStyle), style: Self.strokeStyle)
 
         for element in attributedRuns {
-            // FIXME: Use DebugTextRenderer configuration.
-            if debugRuns {
+            if debugRuns.drawsAny {
                 DebugTextRenderer.drawTypographicBounds(
                     run: element.run,
                     in: context,
-                    configuration: .all
+                    configuration: debugRuns
                 )
             }
             context.draw(element.run)
@@ -200,7 +199,7 @@ extension CapsuleHighlightRenderer {
 
     static func capsule(
         strokeStyle: some ShapeStyle = .gray,
-        debugRuns: Bool = false
+        debugRuns: DebugTextRenderer.Configuration = .none
     ) -> Self {
         CapsuleHighlightRenderer(
             strokeStyle: strokeStyle,
@@ -320,7 +319,7 @@ private struct PreviewContent {
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
     .font(.title)
-    .textRenderer(CapsuleHighlightRenderer.capsule(debugRuns: true))
+    .textRenderer(CapsuleHighlightRenderer.capsule(debugRuns:.all))
     .frame(width: fixedWidth)
     .floatingCaption("Title Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
