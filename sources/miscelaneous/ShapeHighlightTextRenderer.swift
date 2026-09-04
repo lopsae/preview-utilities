@@ -30,12 +30,11 @@ struct HighlightTextRenderer: TextRenderer {
     typealias DrawHighlight = (
         _ context: GraphicsContext,
         _ runs: [Text.Layout.Run],
-        _ bound: CGRect,
+        _ bounds: CGRect,
         _ leadingStart: Bool,
         _ trailingEnd: Bool
     ) -> Void
 
-    let strokeStyle: AnyShapeStyle
     let debugRuns: DebugTextRenderer.Configuration
     let drawHighlights: DrawHighlight
 
@@ -43,11 +42,9 @@ struct HighlightTextRenderer: TextRenderer {
 
 
     init(
-        strokeStyle: some ShapeStyle,
         debugRuns: DebugTextRenderer.Configuration = .none,
         drawHighlights: @escaping DrawHighlight
     ) {
-        self.strokeStyle = AnyShapeStyle(strokeStyle)
         self.debugRuns = debugRuns
         self.drawHighlights = drawHighlights
     }
@@ -214,11 +211,10 @@ extension HighlightTextRenderer {
         debugRuns: DebugTextRenderer.Configuration = .none
     ) -> Self {
         HighlightTextRenderer(
-            strokeStyle: strokeStyle,
             debugRuns: debugRuns
-        ) { context, runs, bound, leadingStart, trailingEnd in
+        ) { context, runs, bounds, leadingStart, trailingEnd in
             let outset: CGFloat = 3
-            let outsetBounds = bound.outset(by: outset)
+            let outsetBounds = bounds.outset(by: outset)
 
             let fullRadius = outsetBounds.height / 2
             let edgeRadius: CGFloat = 3
