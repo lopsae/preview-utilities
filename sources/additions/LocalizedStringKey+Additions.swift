@@ -204,9 +204,9 @@ private struct PreviewContent {
     DashedDivider()
 
     let capsuleText = Text("\(systemImage: "ladybug", label: "Capsule Renderer")")
-        .customAttribute(DashedPathHighlightTextRenderer.Highlight())
+        .customAttribute(HighlightTextRenderer.Highlight())
     Text("Layout \(capsuleText) Text")
-    .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
+    .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("CapsuleRenderer", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
     .padding(.bottom)

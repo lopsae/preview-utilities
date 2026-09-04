@@ -11,19 +11,33 @@ import SwiftUI
 // FIXME: Offer typed function for this text renderer.
 // FIXME: Color border and text separately.
 
-/// Renders text attributed with `Highlight` with a path drawn in a dashed stroke style.
+// FIXME: Use comment if a separate DashedPathHighlightTextRenderer is implemented.
+// Renders text attributed with `Highlight` with a path drawn in a dashed stroke style.
+// Highlights text by drawing behind a provided path in a dashed stroke style. The text to
+// highlight is attributed with ``Highlight``.
+
+
+/// Renders contiguous text attributed with `Highlight` through a provided closure.
 ///
-/// Highlights text by drawing behind a provided path in a dashed stroke style. The text to
-/// highlight is attributed with ``Highlight``.
+/// Allows the provided closure to draw the contiguous runs of text attributed with ``Highlight``
+/// to apply a highlight effect. The remaining runs are drawn unmodified by the instance.
 ///
-/// The renderer is configured with a closure to generate the highlight path based on the bounds
-/// of all the contiguous highlighted text runs. The closure `leadingStart` and `trailingEnd`
+/// The renderer is configured with a closure to draw the highlighted text based on the bounds of
+/// all the contiguous highlighted text runs. The closure's `leadingStart` and `trailingEnd`
 /// parameters indicate if the highlight starts or ends on a different line.
-struct DashedPathHighlightTextRenderer: TextRenderer {
+struct HighlightTextRenderer: TextRenderer {
+
+    typealias DrawHighlight = (
+        _ context: GraphicsContext,
+        _ runs: [Text.Layout.Run],
+        _ bound: CGRect,
+        _ leadingStart: Bool,
+        _ trailingEnd: Bool
+    ) -> Void
 
     let strokeStyle: AnyShapeStyle
     let debugRuns: DebugTextRenderer.Configuration
-    let highlightPath: (_ bounds: CGRect, _ leadingStart: Bool, _ trailingEnd: Bool) -> Path
+    let drawHighlights: DrawHighlight
 
     private static let strokeStyle = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
 
@@ -31,11 +45,11 @@ struct DashedPathHighlightTextRenderer: TextRenderer {
     init(
         strokeStyle: some ShapeStyle,
         debugRuns: DebugTextRenderer.Configuration = .none,
-        highlightPath: @escaping (_ bounds: CGRect, _ leadingStart: Bool, _ trailingEnd: Bool) -> Path
+        drawHighlights: @escaping DrawHighlight
     ) {
         self.strokeStyle = AnyShapeStyle(strokeStyle)
         self.debugRuns = debugRuns
-        self.highlightPath = highlightPath
+        self.drawHighlights = drawHighlights
     }
 
 
@@ -58,7 +72,7 @@ struct DashedPathHighlightTextRenderer: TextRenderer {
                         continuesFromPreviousLine = false
                         hasLineChanged = false
                     } else {
-                        context.draw(run)
+                        draw(run: run, in: context)
                     }
                     continue
                 }
@@ -69,36 +83,35 @@ struct DashedPathHighlightTextRenderer: TextRenderer {
                     continue
                 }
 
-                // The group is complete, flush. On a later line, an attributed first run
-                // means the highlight continues, so its trailing corners are cut.
-                let nextLineAttribute = hasLineChanged ? attribute : nil
-                drawHighlight(
-                    attributedRuns: attributedRuns,
+                // The group is complete, draw collected highlight.
+                drawAttributed(
+                    runs: attributedRuns,
                     leadingStart: !continuesFromPreviousLine,
                     trailingEnd: !hasLineChanged,
                     in: context
                 )
 
-                if let nextLineAttribute {
-                    // Reopen the highlight on next line with the continuing run.
-                    attributedRuns = [AttributedRun(run: run, attribute: nextLineAttribute)]
+                if hasLineChanged, let attribute {
+                    // Reopen the highlight on next line with the current run.
+                    attributedRuns = [AttributedRun(run: run, attribute: attribute)]
                     continuesFromPreviousLine = true
                     hasLineChanged = false
                 } else {
+                    // Flush collected runs, draw the current regular run.
                     attributedRuns = []
                     continuesFromPreviousLine = false
-                    context.draw(run)
+                    draw(run: run, in: context)
                 }
             }
 
             hasLineChanged = true
         }
 
-        // FIXME: Add preview and test.
+        // FIXME: Add preview and test for highlighted run at the end.
         // Flush a highlight that reaches the end of the text with no trailing plain run.
         if attributedRuns.containsAny {
-            drawHighlight(
-                attributedRuns: attributedRuns,
+            drawAttributed(
+                runs: attributedRuns,
                 leadingStart: !continuesFromPreviousLine,
                 trailingEnd: true,
                 in: context
@@ -107,6 +120,15 @@ struct DashedPathHighlightTextRenderer: TextRenderer {
     }
 
 
+    private func draw(run: Text.Layout.Run, in context: GraphicsContext) {
+        context.draw(run)
+        if debugRuns.drawsAny {
+            DebugTextRenderer.drawTypographicBounds(run: run, in: context, configuration: debugRuns)
+        }
+    }
+
+
+    // FIXME: Consider removing this function.
     /// Strokes the capsule behind `attributedRuns` and draws its glyphs on top.
     ///
     /// `leadingStart` indicates the highlight starts on the leading edge, when `false` the
@@ -115,26 +137,22 @@ struct DashedPathHighlightTextRenderer: TextRenderer {
     /// `trailingEnd` indicates the highlight ends on the trailing edge, when `false` the
     /// highlight ends on a later line not included in the given runs.
     ///
-    private func drawHighlight(
-        attributedRuns: [AttributedRun],
+    private func drawAttributed(
+        runs attributedRuns: [AttributedRun],
         leadingStart: Bool,
         trailingEnd: Bool,
         in context: GraphicsContext
     ) {
+        // FIXME: in case of nil, just draw the the runs.
         guard let bounds = enclosingRect(of: attributedRuns) else { return }
+        let runs = attributedRuns.map(\.run)
 
-        let path = highlightPath(bounds, leadingStart, trailingEnd)
-        context.stroke(path, with: .style(strokeStyle), style: Self.strokeStyle)
+        drawHighlights(context, runs, bounds, leadingStart, trailingEnd)
 
-        for element in attributedRuns {
-            if debugRuns.drawsAny {
-                DebugTextRenderer.drawTypographicBounds(
-                    run: element.run,
-                    in: context,
-                    configuration: debugRuns
-                )
+        if debugRuns.drawsAny {
+            for run in runs {
+                DebugTextRenderer.drawTypographicBounds(run: run, in: context, configuration: debugRuns)
             }
-            context.draw(element.run)
         }
     }
 
@@ -152,7 +170,7 @@ struct DashedPathHighlightTextRenderer: TextRenderer {
 // MARK: - AttributedRun
 
 
-extension DashedPathHighlightTextRenderer {
+extension HighlightTextRenderer {
 
     private struct AttributedRun {
         let run: Text.Layout.Run
@@ -175,7 +193,7 @@ extension DashedPathHighlightTextRenderer {
 // MARK: - Highlight Attribute
 
 
-extension DashedPathHighlightTextRenderer {
+extension HighlightTextRenderer {
 
     struct Highlight: TextAttribute {
         let onlyWidth: Bool
@@ -189,18 +207,18 @@ extension DashedPathHighlightTextRenderer {
 
 // MARK: - Preconfigured
 
-extension DashedPathHighlightTextRenderer {
+extension HighlightTextRenderer {
 
-    static func capsule(
+    static func dashedCapsule(
         strokeStyle: some ShapeStyle = .gray,
         debugRuns: DebugTextRenderer.Configuration = .none
     ) -> Self {
-        DashedPathHighlightTextRenderer(
+        HighlightTextRenderer(
             strokeStyle: strokeStyle,
             debugRuns: debugRuns
-        ) { bounds, leadingStart, trailingEnd in
+        ) { context, runs, bound, leadingStart, trailingEnd in
             let outset: CGFloat = 3
-            let outsetBounds = bounds.outset(by: outset)
+            let outsetBounds = bound.outset(by: outset)
 
             let fullRadius = outsetBounds.height / 2
             let edgeRadius: CGFloat = 3
@@ -215,7 +233,12 @@ extension DashedPathHighlightTextRenderer {
                 topTrailingRadius: trailingRadius
             )
 
-            return shape.path(in: outsetBounds)
+            let path = shape.path(in: outsetBounds)
+            context.stroke(path, with: .style(strokeStyle), style: Self.strokeStyle)
+
+            for run in runs {
+                context.draw(run)
+            }
         }
     }
 
@@ -240,10 +263,10 @@ extension LocalizedStringKey.StringInterpolation {
 
         let image = Image(systemName: name)
         let imageText = Text("\(edgeSpacer)\(image)")
-            .customAttribute(DashedPathHighlightTextRenderer.Highlight(onlyWidth: true))
+            .customAttribute(HighlightTextRenderer.Highlight(onlyWidth: true))
 
         let middleText = middleSpacer
-            .customAttribute(DashedPathHighlightTextRenderer.Highlight())
+            .customAttribute(HighlightTextRenderer.Highlight())
 
         appendInterpolation(imageText)
         appendInterpolation(middleText)
@@ -255,7 +278,7 @@ extension LocalizedStringKey.StringInterpolation {
             : label.replacingOccurrences(of: " ", with: String.nbsp)
 
         let labelText = Text("\(spacedString)\(edgeSpacer)")
-            .customAttribute(DashedPathHighlightTextRenderer.Highlight())
+            .customAttribute(HighlightTextRenderer.Highlight())
 
         appendInterpolation(labelText)
     }
@@ -307,19 +330,19 @@ private struct PreviewContent {
 
     let spacer = Text(String.narrowNbsp)//.tracking(2)
     let capsuleImage = Text("\(spacer)\(Image(ImageResource.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)))")
-        .customAttribute(DashedPathHighlightTextRenderer.Highlight(onlyWidth: true))
+        .customAttribute(HighlightTextRenderer.Highlight(onlyWidth: true))
     let capsuleText = Text("\(String.narrowNbsp)\("Capsule")\(spacer)")
-        .customAttribute(DashedPathHighlightTextRenderer.Highlight())
+        .customAttribute(HighlightTextRenderer.Highlight())
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
     .font(.title)
-    .textRenderer(DashedPathHighlightTextRenderer.capsule(debugRuns:.all))
+    .textRenderer(HighlightTextRenderer.dashedCapsule(debugRuns:.all))
     .frame(width: fixedWidth)
     .floatingCaption("Title Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Layout  \(capsuleImage)\(capsuleText)  Body")
-        .textRenderer(DashedPathHighlightTextRenderer.capsule())
+        .textRenderer(HighlightTextRenderer.dashedCapsule())
     .frame(width: fixedWidth)
     .floatingCaption("Body Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -334,7 +357,7 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("Interpolation \(capsule: "ladybug", label: "Ladybug Image") after interpolation.")
-    .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
+    .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Non-Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -342,7 +365,7 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("Interpolation \(capsule: "ladybug", label: "Multiple breaking words", breaking: true) after.")
-        .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
+        .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -350,14 +373,14 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("\(capsule: "rectangle.portrait.and.arrow.right", label: "Starting") interpolation at ends \(capsule: "arrowtriangle.left.square", label: "Ending").")
-    .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
+    .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Start and End", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Title \(capsule: "ladybug", label: "Ladybug") interpolation.")
     .font(.title)
-    .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
+    .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Title", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
