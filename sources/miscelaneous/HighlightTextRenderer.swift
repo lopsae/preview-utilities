@@ -7,8 +7,6 @@
 import SwiftUI
 
 
-// FIXME: Rename to ShapeHighlightTextRenderer.
-// FIXME: Offer typed function for this text renderer.
 // FIXME: Color border and text separately.
 
 // FIXME: Use comment if a separate DashedPathHighlightTextRenderer is implemented.
@@ -37,8 +35,6 @@ struct HighlightTextRenderer: TextRenderer {
 
     let debugRuns: DebugTextRenderer.Configuration
     let drawHighlights: DrawHighlight
-
-    private static let strokeStyle = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
 
 
     init(
@@ -125,7 +121,6 @@ struct HighlightTextRenderer: TextRenderer {
     }
 
 
-    // FIXME: Consider removing this function.
     /// Strokes the capsule behind `attributedRuns` and draws its glyphs on top.
     ///
     /// `leadingStart` indicates the highlight starts on the leading edge, when `false` the
@@ -206,13 +201,39 @@ extension HighlightTextRenderer {
 
 extension HighlightTextRenderer {
 
-    static func dashedCapsule(
-        strokeStyle: some ShapeStyle = .gray,
-        debugRuns: DebugTextRenderer.Configuration = .none
+    typealias PathHighlight = (
+        _ bounds: CGRect,
+        _ leadingStart: Bool,
+        _ trailingEnd: Bool
+    ) -> Path
+
+    static func dashedPath(
+        pathStyle: some ShapeStyle = .gray,
+        debugRuns: DebugTextRenderer.Configuration = .none,
+        pathHighlight: @escaping PathHighlight
     ) -> Self {
         HighlightTextRenderer(
             debugRuns: debugRuns
         ) { context, runs, bounds, leadingStart, trailingEnd in
+            let path = pathHighlight(bounds, leadingStart, trailingEnd)
+            // FIXME: Externalize stroke style.
+            let strokeStyle = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
+            context.stroke(path, with: .style(pathStyle), style: strokeStyle)
+
+            for run in runs {
+                context.draw(run)
+            }
+        }
+    }
+
+    static func dashedCapsule(
+        style: some ShapeStyle = .gray,
+        debugRuns: DebugTextRenderer.Configuration = .none
+    ) -> Self {
+        HighlightTextRenderer.dashedPath(
+            pathStyle: style,
+            debugRuns: debugRuns
+        ) { bounds, leadingStart, trailingEnd in
             let outset: CGFloat = 3
             let outsetBounds = bounds.outset(by: outset)
 
@@ -229,12 +250,7 @@ extension HighlightTextRenderer {
                 topTrailingRadius: trailingRadius
             )
 
-            let path = shape.path(in: outsetBounds)
-            context.stroke(path, with: .style(strokeStyle), style: Self.strokeStyle)
-
-            for run in runs {
-                context.draw(run)
-            }
+            return shape.path(in: outsetBounds)
         }
     }
 
@@ -249,7 +265,7 @@ extension LocalizedStringKey.StringInterpolation {
     mutating func appendInterpolation(
         capsule name: String,
         label: String? = nil,
-        color: Color = .gray,
+//        style: some ShapeStyle = .primary,
         breaking: Bool = false
     ) {
         let edgeSpacer = Text(String.narrowNbsp).tracking(1)
@@ -263,6 +279,12 @@ extension LocalizedStringKey.StringInterpolation {
 
         let middleText = middleSpacer
             .customAttribute(HighlightTextRenderer.Highlight())
+
+        // FIXME: Figure out styling of interpolation, while supporting default of no style.
+//        if let style {
+//            imageText = imageText.foregroundStyle(style)
+//            middleText = middleText.foregroundStyle(style)
+//        }
 
         appendInterpolation(imageText)
         appendInterpolation(middleText)
@@ -353,7 +375,7 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("Interpolation \(capsule: "ladybug", label: "Ladybug Image") after interpolation.")
-    .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
+    .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Non-Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -361,7 +383,7 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("Interpolation \(capsule: "ladybug", label: "Multiple breaking words", breaking: true) after.")
-        .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
+        .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -369,14 +391,15 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("\(capsule: "rectangle.portrait.and.arrow.right", label: "Starting") interpolation at ends \(capsule: "arrowtriangle.left.square", label: "Ending").")
-    .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
+    .foregroundStyle(.orange)
+    .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Start and End", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Title \(capsule: "ladybug", label: "Ladybug") interpolation.")
     .font(.title)
-    .textRenderer(HighlightTextRenderer.dashedCapsule(strokeStyle: .teal))
+    .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Title", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -386,4 +409,3 @@ private struct PreviewContent {
     VisibleSpacer()
     .layoutPriority(-1)
 }
-
