@@ -10,7 +10,16 @@ import SwiftUI
 // FIXME: Rename to ShapeHighlightTextRenderer.
 // FIXME: Offer typed function for this text renderer.
 // FIXME: Color border and text separately.
-struct CapsuleHighlightRenderer: TextRenderer {
+
+/// Renders text attributed with `Highlight` with a path drawn in a dashed stroke style.
+///
+/// Highlights text by drawing behind a provided path in a dashed stroke style. The text to
+/// highlight is attributed with ``Highlight``.
+///
+/// The renderer is configured with a closure to generate the highlight path based on the bounds
+/// of all the contiguous highlighted text runs. The closure `leadingStart` and `trailingEnd`
+/// parameters indicate if the highlight starts or ends on a different line.
+struct DashedPathHighlightTextRenderer: TextRenderer {
 
     let strokeStyle: AnyShapeStyle
     let debugRuns: DebugTextRenderer.Configuration
@@ -40,7 +49,7 @@ struct CapsuleHighlightRenderer: TextRenderer {
 
         for line in layout {
             for run in line {
-                let attribute = run[ShapeHighlight.self]
+                let attribute = run[Highlight.self]
 
                 // Idle: start a group on an attributed run, otherwise draw the run as-is.
                 if attributedRuns.isEmpty {
@@ -143,11 +152,11 @@ struct CapsuleHighlightRenderer: TextRenderer {
 // MARK: - AttributedRun
 
 
-extension CapsuleHighlightRenderer {
+extension DashedPathHighlightTextRenderer {
 
     private struct AttributedRun {
         let run: Text.Layout.Run
-        let attribute: ShapeHighlight
+        let attribute: Highlight
 
         /// The rect this run contributes to the highlight.
         ///
@@ -163,12 +172,12 @@ extension CapsuleHighlightRenderer {
 }
 
 
-// MARK: - Attribute
+// MARK: - Highlight Attribute
 
 
-extension CapsuleHighlightRenderer {
+extension DashedPathHighlightTextRenderer {
 
-    struct ShapeHighlight: TextAttribute {
+    struct Highlight: TextAttribute {
         let onlyWidth: Bool
         init(onlyWidth: Bool = false) {
             self.onlyWidth = onlyWidth
@@ -180,13 +189,13 @@ extension CapsuleHighlightRenderer {
 
 // MARK: - Preconfigured
 
-extension CapsuleHighlightRenderer {
+extension DashedPathHighlightTextRenderer {
 
     static func capsule(
         strokeStyle: some ShapeStyle = .gray,
         debugRuns: DebugTextRenderer.Configuration = .none
     ) -> Self {
-        CapsuleHighlightRenderer(
+        DashedPathHighlightTextRenderer(
             strokeStyle: strokeStyle,
             debugRuns: debugRuns
         ) { bounds, leadingStart, trailingEnd in
@@ -231,10 +240,10 @@ extension LocalizedStringKey.StringInterpolation {
 
         let image = Image(systemName: name)
         let imageText = Text("\(edgeSpacer)\(image)")
-            .customAttribute(CapsuleHighlightRenderer.ShapeHighlight(onlyWidth: true))
+            .customAttribute(DashedPathHighlightTextRenderer.Highlight(onlyWidth: true))
 
         let middleText = middleSpacer
-            .customAttribute(CapsuleHighlightRenderer.ShapeHighlight())
+            .customAttribute(DashedPathHighlightTextRenderer.Highlight())
 
         appendInterpolation(imageText)
         appendInterpolation(middleText)
@@ -246,7 +255,7 @@ extension LocalizedStringKey.StringInterpolation {
             : label.replacingOccurrences(of: " ", with: String.nbsp)
 
         let labelText = Text("\(spacedString)\(edgeSpacer)")
-            .customAttribute(CapsuleHighlightRenderer.ShapeHighlight())
+            .customAttribute(DashedPathHighlightTextRenderer.Highlight())
 
         appendInterpolation(labelText)
     }
@@ -298,19 +307,19 @@ private struct PreviewContent {
 
     let spacer = Text(String.narrowNbsp)//.tracking(2)
     let capsuleImage = Text("\(spacer)\(Image(ImageResource.moduleCatalog(.envelopeOffcenterBadgeBottomTrailing)))")
-        .customAttribute(CapsuleHighlightRenderer.ShapeHighlight(onlyWidth: true))
+        .customAttribute(DashedPathHighlightTextRenderer.Highlight(onlyWidth: true))
     let capsuleText = Text("\(String.narrowNbsp)\("Capsule")\(spacer)")
-        .customAttribute(CapsuleHighlightRenderer.ShapeHighlight())
+        .customAttribute(DashedPathHighlightTextRenderer.Highlight())
 
     Text("Layout \(capsuleImage)\(capsuleText) Title")
     .font(.title)
-    .textRenderer(CapsuleHighlightRenderer.capsule(debugRuns:.all))
+    .textRenderer(DashedPathHighlightTextRenderer.capsule(debugRuns:.all))
     .frame(width: fixedWidth)
     .floatingCaption("Title Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Layout  \(capsuleImage)\(capsuleText)  Body")
-        .textRenderer(CapsuleHighlightRenderer.capsule())
+        .textRenderer(DashedPathHighlightTextRenderer.capsule())
     .frame(width: fixedWidth)
     .floatingCaption("Body Font", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -325,7 +334,7 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("Interpolation \(capsule: "ladybug", label: "Ladybug Image") after interpolation.")
-    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
+    .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Non-Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -333,7 +342,7 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("Interpolation \(capsule: "ladybug", label: "Multiple breaking words", breaking: true) after.")
-        .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
+        .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
@@ -341,14 +350,14 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("\(capsule: "rectangle.portrait.and.arrow.right", label: "Starting") interpolation at ends \(capsule: "arrowtriangle.left.square", label: "Ending").")
-    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
+    .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Start and End", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     Text("Title \(capsule: "ladybug", label: "Ladybug") interpolation.")
     .font(.title)
-    .textRenderer(CapsuleHighlightRenderer.capsule(strokeStyle: .teal))
+    .textRenderer(DashedPathHighlightTextRenderer.capsule(strokeStyle: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Title", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
