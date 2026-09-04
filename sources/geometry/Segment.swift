@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+// FIXME: Move to its own file.
 nonisolated
 protocol Pathable {
     var path: Path { get }
@@ -22,7 +23,6 @@ extension Pathable {
         return self
     }
 
-    //.stroke(in: context, style: .red.secondary, lineWidth: 2)
     @discardableResult
     func stroke(
         in context: GraphicsContext,
@@ -35,7 +35,6 @@ extension Pathable {
 }
 
 
-// TODO: Add Pathable, and make drawing in a context a chained command.
 nonisolated
 struct Segment {
     var start: CGPoint
