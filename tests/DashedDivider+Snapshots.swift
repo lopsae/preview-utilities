@@ -8,13 +8,14 @@
 
 import SwiftUI
 import Testing
+import SnapshotTesting
 
 
 @MainActor
 struct DashedDividerSnapshots {
 
-    @Test func lineWidth() {
-        Snapshots.assertView("horizontal", colorSchemes: .all, record: .missing) {
+    @Test(.snapshotTesting) func lineWidth() {
+        Snapshots.assertView("horizontal", colorSchemes: .all) {
             VStack(spacing: 20) {
                 DashedDivider()
                 DashedDivider(lineWidth: 2)
@@ -26,7 +27,7 @@ struct DashedDividerSnapshots {
             .padding(.horizontal, 16)
         }
 
-        Snapshots.assertView("vertical", colorSchemes: .all, record: .missing) {
+        Snapshots.assertView("vertical", colorSchemes: .all) {
             HStack(spacing: 20) {
                 DashedDivider(axis: .vertical)
                 DashedDivider(axis: .vertical, lineWidth: 2)
@@ -37,6 +38,27 @@ struct DashedDividerSnapshots {
             .border(.red.secondary)
             .padding(.vertical, 16)
         }
+    }
+
+}
+
+// FIXME: Move to utilities.
+
+extension Trait where Self == _SnapshotsTestTrait {
+
+    /// Configures snapshot testing to record all snapshots.
+    ///
+    /// Intended for new and updating tests.
+    static var snapshotCapture: Self {
+        .snapshots(record: .all)
+    }
+
+    /// Configures snapshot testing to never record new snapshots and use `ksdiff` for failure
+    /// messages.
+    ///
+    /// Intended trait for commited tests.
+    static var snapshotTesting: Self {
+        .snapshots(record: .never, diffTool: .ksdiff)
     }
 
 }
