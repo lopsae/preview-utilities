@@ -39,6 +39,7 @@ struct HighlightTextRenderer: TextRenderer {
 
     init(
         debugRuns: DebugTextRenderer.Configuration = .none,
+        // FIXME: rename to drawHighlight.
         drawHighlights: @escaping DrawHighlight
     ) {
         self.debugRuns = debugRuns
@@ -227,7 +228,7 @@ extension HighlightTextRenderer {
     }
 
     static func dashedCapsule(
-        style: some ShapeStyle = .gray,
+        style: some ShapeStyle = .secondary,
         debugRuns: DebugTextRenderer.Configuration = .none
     ) -> Self {
         HighlightTextRenderer.dashedPath(
@@ -265,7 +266,7 @@ extension LocalizedStringKey.StringInterpolation {
     mutating func appendInterpolation(
         capsule name: String,
         label: String? = nil,
-//        style: some ShapeStyle = .primary,
+        style: some ShapeStyle = .primary,
         breaking: Bool = false
     ) {
         let edgeSpacer = Text(String.narrowNbsp).tracking(1)
@@ -275,16 +276,12 @@ extension LocalizedStringKey.StringInterpolation {
 
         let image = Image(systemName: name)
         let imageText = Text("\(edgeSpacer)\(image)")
+            .foregroundStyle(style)
             .customAttribute(HighlightTextRenderer.Highlight(onlyWidth: true))
 
         let middleText = middleSpacer
+            .foregroundStyle(style)
             .customAttribute(HighlightTextRenderer.Highlight())
-
-        // FIXME: Figure out styling of interpolation, while supporting default of no style.
-//        if let style {
-//            imageText = imageText.foregroundStyle(style)
-//            middleText = middleText.foregroundStyle(style)
-//        }
 
         appendInterpolation(imageText)
         appendInterpolation(middleText)
@@ -296,6 +293,7 @@ extension LocalizedStringKey.StringInterpolation {
             : label.replacingOccurrences(of: " ", with: String.nbsp)
 
         let labelText = Text("\(spacedString)\(edgeSpacer)")
+            .foregroundStyle(style)
             .customAttribute(HighlightTextRenderer.Highlight())
 
         appendInterpolation(labelText)
@@ -391,11 +389,12 @@ private struct PreviewContent {
     DashedDivider()
 
     Text("\(capsule: "rectangle.portrait.and.arrow.right", label: "Starting") interpolation at ends \(capsule: "arrowtriangle.left.square", label: "Ending").")
-    .foregroundStyle(.orange)
     .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Start and End", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
+
+    DashedDivider()
 
     Text("Title \(capsule: "ladybug", label: "Ladybug") interpolation.")
     .font(.title)
@@ -403,6 +402,36 @@ private struct PreviewContent {
     .frame(width: fixedWidth)
     .floatingCaption("Title", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
+
+    DashedDivider()
+
+    VisibleSpacer()
+    .layoutPriority(-1)
+}
+
+
+#Preview("Styling", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable @State var fixedWidth: Double = 400
+
+    Slider.captioned("Fixed Width", value: $fixedWidth, in: 0...400, valueFormat: .arithmeticRoundedInteger)
+
+    DashedDivider()
+
+    Text("No style \(capsule: "ladybug", label: "Styled Highlight", style: .orange).")
+    .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
+    .frame(width: fixedWidth)
+    .floatingCaption("Styled Highlight", .colorStyle(.orange), .alignment(.outerBottomTrailing))
+    .padding(.vertical)
+
+    DashedDivider()
+
+    // FIXME: Incorporate extra space around interpolation.
+    Text("Styled text  \(capsule: "paintbrush.fill", label: "Inherited")  and  \(capsule: "paintbrush.pointed.fill", label: "Custom", style: .indigo)  and  \(capsule: "theatermask.and.paintbrush.fill", label: "Hierarchichal", style: .tertiary).")
+    .foregroundStyle(.orange)
+    .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
+    .frame(width: fixedWidth)
+    .floatingCaption("Start and End", .colorStyle(.orange), .alignment(.outerBottomTrailing))
+    .padding(.vertical)
 
     DashedDivider()
 
