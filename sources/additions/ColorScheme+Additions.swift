@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 extension ColorScheme {
@@ -16,6 +16,7 @@ extension ColorScheme {
 
 extension Set<ColorScheme> {
 
-    static var all: Self { ColorScheme.allCasesSet }
+    /// A set with all values of `ColorScheme`.
+    public static var all: Self { ColorScheme.allCasesSet }
 
 }
