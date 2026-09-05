@@ -32,3 +32,10 @@ extension Pathable {
         return self
     }
 }
+
+
+enum StrokeAlignment {
+    case inside
+    case center
+    case outside
+}

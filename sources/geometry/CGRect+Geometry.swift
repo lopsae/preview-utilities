@@ -89,11 +89,3 @@ extension CGRect {
     }
 
 }
-
-
-/// FIXME: Move along Pathable.
-enum StrokeAlignment {
-    case inside
-    case center
-    case outside
-}
