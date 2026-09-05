@@ -13,23 +13,12 @@ import Testing
 @MainActor
 struct CGRectPathableSnapshots {
 
-    enum TestContent {
-        static let rectangle: some View =
-            Rectangle()
-            .fill(.gray.quinary)
-            .frame(size: [120, 50])
-    }
-
-
-    @Test(.snapshotCapture) func stroke() {
-        let lineWidth: CGFloat = 10
+    @Test(.snapshotTesting) func stroke() {
+        let lineWidth: CGFloat = 8
 
         Snapshots.assertView("default") {
-            TestContent.rectangle
-            .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
-            .overlayCanvas{ context, size in
-                size.rect().inset(by: lineWidth)
-                .stroke(in: context, style: .green.secondary, lineWidth: lineWidth)
+            CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                rect.stroke(in: context, style: .green.secondary, lineWidth: lineWidth)
             }
         }
 
@@ -43,18 +32,18 @@ struct CGRectPathableSnapshots {
                     )
                 }
 
-                TestContent.rectangle
-                .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
-                .overlayCanvas{ context, size in
-                    size.rect().inset(by: lineWidth)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .center)
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    rect.stroke(
+                        in: context, style: .green.secondary,
+                        lineWidth: lineWidth, alignment: .center
+                    )
                 }
 
-                TestContent.rectangle
-                .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
-                .overlayCanvas{ context, size in
-                    size.rect().inset(by: lineWidth)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .outside)
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    rect.stroke(
+                        in: context, style: .green.secondary,
+                        lineWidth: lineWidth, alignment: .outside
+                    )
                 }
             }
         }
@@ -63,7 +52,7 @@ struct CGRectPathableSnapshots {
 }
 
 
-// FIXME: Make a more concise CGRect drawing function.
+// FIXME: Delete after CanvasGraticuleForRect is used in Segment.
 extension View {
 
     func overlayCanvas(
