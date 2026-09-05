@@ -21,7 +21,7 @@ struct CGRectPathableSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func stroke() {
+    @Test(.snapshotCapture) func stroke() {
         let lineWidth: CGFloat = 10
 
         Snapshots.assertView("default") {
@@ -35,11 +35,11 @@ struct CGRectPathableSnapshots {
 
         Snapshots.assertView("aligned") {
             VStack(spacing: lineWidth) {
-                TestContent.rectangle
-                .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
-                .overlayCanvas{ context, size in
-                    size.rect().inset(by: lineWidth)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .inside)
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    rect.stroke(
+                        in: context, style: .green.secondary,
+                        lineWidth: lineWidth, alignment: .inside
+                    )
                 }
 
                 TestContent.rectangle
@@ -73,4 +73,29 @@ extension View {
         }
     }
 
+}
+
+
+// FIXME: Move to its own along a test.
+struct CanvasGraticuleForRect: View {
+    let spacing: CGFloat
+    let width: CGFloat
+    let rectRenderer: /*@escaping*/ (_ context: inout GraphicsContext, _ rect: CGRect) -> Void
+
+
+    var body: some View {
+        Rectangle()
+        .fill(.gray.quinary)
+        .frame(size: [width, spacing*6])
+        .overlay {
+            EdgeGraticule(insetSpacing: spacing, through: 2, outsetSpacing: .zero, through: .zero)
+            .stroke(.quaternary)
+
+            .padding(spacing/2)
+            Canvas { context, size in
+                let insetRect = size.rect().inset(by: spacing*1.5)
+                rectRenderer(&context, insetRect)
+            }
+        }
+    }
 }
