@@ -16,7 +16,7 @@ struct StarShape: Shape {
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        let center = rect.center
+        let center = rect.centerPoint
         let outerRadius = rect.size.min / 2
         let innerRadius = outerRadius * concaveVertexRatio
 

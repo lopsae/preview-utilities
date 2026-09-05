@@ -46,7 +46,7 @@ struct TransposeLayout: Layout {
         let transposedProposal = ProposedViewSize(bounds.size.transposed)
         for subview in subviews {
             subview.place(
-                at: bounds.center,
+                at: bounds.centerPoint,
                 anchor: .center,
                 proposal: transposedProposal)
         }

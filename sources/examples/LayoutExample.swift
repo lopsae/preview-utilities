@@ -40,7 +40,7 @@ private struct ExampleZStack: Layout {
         let childProposal = ProposedViewSize(bounds.size)
         for subview in subviews {
             subview.place(
-                at: bounds.center,
+                at: bounds.centerPoint,
                 anchor: .center,
                 proposal: childProposal
             )

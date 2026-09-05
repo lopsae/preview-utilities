@@ -69,7 +69,7 @@ struct ExtendedSizeLayout: Layout {
             let subviewSize = subview.sizeThatFits(contentProposal)
             let extendedSize = subviewSize.adding(width: widthAddition, height: heightAddition)
             subview.place(
-                at: bounds.center,
+                at: bounds.centerPoint,
                 anchor: .center,
                 proposal: ProposedViewSize(extendedSize)
             )
@@ -348,7 +348,7 @@ struct OverflowSizeLayout: Layout {
             let subviewSize = subview.sizeThatFits(contentProposal)
             let extendedSize = subviewSize.adding(width: widthAddition, height: heightAddition)
             subview.place(
-                at: bounds.center,
+                at: bounds.centerPoint,
                 anchor: .center,
                 proposal: ProposedViewSize(extendedSize)
             )
