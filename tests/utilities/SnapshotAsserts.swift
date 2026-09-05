@@ -33,13 +33,9 @@ enum Snapshots {
         let maxDeletions: Int = 4
         guard let testsFolder = fileURL.deletingPathComponents(until: testFolderName, maxDeletions: maxDeletions) else {
             Issue.record(
-              "The root tests folder `\(testFolderName)` could not be found within \(maxDeletions) folders of the test suite file",
-              sourceLocation: SourceLocation(
-                fileID: fileID.description,
-                filePath: filePath.description,
-                line: Int(line),
-                column: Int(column)
-              )
+                comment: "The root tests folder `\(testFolderName)` could not be found within \(maxDeletions) folders of the test suite file",
+                fileID: fileID, filePath: filePath,
+                line: line, column: column
             )
             return
         }
@@ -60,13 +56,9 @@ enum Snapshots {
             case .dark: snapshotName = name + "~dark"
             @unknown default:
                 Issue.record(
-                  "Unknown color scheme: \(scheme)",
-                  sourceLocation: SourceLocation(
-                    fileID: fileID.description,
-                    filePath: filePath.description,
-                    line: Int(line),
-                    column: Int(column)
-                  )
+                    comment: "Unknown color scheme: \(scheme)",
+                    fileID: fileID, filePath: filePath,
+                    line: line, column: column
                 )
                 continue
             }
@@ -113,18 +105,41 @@ enum Snapshots {
 
             if let failureMessage {
                 Issue.record(
-                  Comment(rawValue: failureMessage),
-                  sourceLocation: SourceLocation(
-                    fileID: fileID.description,
-                    filePath: filePath.description,
-                    line: Int(line),
-                    column: Int(column)
-                  )
+                    comment: failureMessage,
+                    fileID: fileID, filePath: filePath,
+                    line: line, column: column
                 )
             }
 
             // Test succeeded!
         }
+    }
+
+}
+
+
+extension Issue {
+
+    /// Records an issue that a test encounters while it's running.
+    ///
+    /// Convenience function to record an issue with the types used by `#fileID`, `#filePath`,
+    /// `#line`, and `#column`.
+    static func record(
+        comment: String,
+        fileID: StaticString,
+        filePath: StaticString,
+        line: UInt,
+        column: UInt
+    ) {
+        Issue.record(
+            Comment(rawValue: comment),
+            sourceLocation: SourceLocation(
+                fileID: fileID.description,
+                filePath: filePath.description,
+                line: Int(line),
+                column: Int(column)
+            )
+        )
     }
 
 }
