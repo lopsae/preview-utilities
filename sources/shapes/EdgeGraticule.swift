@@ -10,9 +10,9 @@ import Playgrounds
 
 /// Graticule based on the edge of the rect where the shape is drawn.
 ///
-/// This shape builds a path consisting on a graticule that consists of sets of lines evenly spaced
-/// at each of the edges of the path rect, both inset and outset. The number of lines and spacing
-/// can be configured for each edge, and for each direction.
+/// This shape builds the path for a graticule consisting of sets of lines evenly spaced at each of
+/// the edges of the path rect, both inset and outset. The number of lines and spacing can be
+/// configured for each edge, and for each direction.
 public struct EdgeGraticule: Shape {
 
     let insetLineSets: EdgeValues<LineSet>
@@ -22,8 +22,15 @@ public struct EdgeGraticule: Shape {
         self.insetLineSets = insetLineSets
         self.outsetLineSets = outsetLineSets
     }
-
-    init(
+    
+    /// Creates a graticule with the given inset and outset spacing, and counts.
+    ///
+    /// - Parameters:
+    ///   - insetSpacing: The spacing for all inset line sets.
+    ///   - insetCount: The number of inset line sets.
+    ///   - outsetSpacing: The spacing for all outset line sets.
+    ///   - outsetCount: The number of outset line sets.
+    public init(
         insetSpacing: CGFloat,
         through insetCount: Int,
         outsetSpacing: CGFloat,
