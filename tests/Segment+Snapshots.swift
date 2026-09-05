@@ -25,7 +25,7 @@ struct SegmentSnapshots {
             }
         }
 
-        Snapshots.assertView("aligned") {
+        Snapshots.assertView("alignedHorizontal") {
             VStack(spacing: lineWidth) {
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.minPoint.segmentToOffset(x: rect.width)
@@ -49,6 +49,31 @@ struct SegmentSnapshots {
                 }
             }
         }
+
+        Snapshots.assertView("alignedVertical") {
+            VStack(spacing: lineWidth) {
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    rect.topTrailingPoint.segmentToOffset(y: rect.height)
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .inside)
+                    rect.bottomLeadingPoint.segmentToOffset(y: -rect.height)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .inside)
+                }
+
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    rect.topTrailingPoint.segmentToOffset(y: rect.height)
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .center)
+                    rect.bottomLeadingPoint.segmentToOffset(y: -rect.height)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .center)
+                }
+
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    rect.topTrailingPoint.segmentToOffset(y: rect.height)
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .outside)
+                    rect.bottomLeadingPoint.segmentToOffset(y: -rect.height)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .outside)
+                }
+            }
+        }
     }
 
 }
@@ -63,6 +88,22 @@ extension CGRect {
 
     var maxPoint: CGPoint {
         .init(x: maxX, y: maxY)
+    }
+
+    var topLeadingPoint: CGPoint {
+        .init(x: minX, y: minY)
+    }
+
+    var topTrailingPoint: CGPoint {
+        .init(x: maxX, y: minY)
+    }
+
+    var bottomTrailingPoint: CGPoint {
+        .init(x: maxX, y: maxY)
+    }
+
+    var bottomLeadingPoint: CGPoint {
+        .init(x: minX, y: maxY)
     }
 
 }
