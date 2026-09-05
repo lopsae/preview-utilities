@@ -24,6 +24,7 @@ struct SegmentSnapshots {
     @Test(.snapshotTesting) func stroke() {
         let lineWidth: CGFloat = 10
 
+        // FIXME: Use CanvasGraticuleForRect.
         Snapshots.assertView("default") {
             TestContent.rectangle
             .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
