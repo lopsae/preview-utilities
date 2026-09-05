@@ -50,17 +50,3 @@ struct CGRectPathableSnapshots {
     }
 
 }
-
-
-// FIXME: Delete after CanvasGraticuleForRect is used in Segment.
-extension View {
-
-    func overlayCanvas(
-        renderer: @escaping (inout GraphicsContext, CGSize) -> Void
-    ) -> some View {
-        self.overlay {
-            Canvas(renderer: renderer)
-        }
-    }
-
-}

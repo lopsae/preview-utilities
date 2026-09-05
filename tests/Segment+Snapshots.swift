@@ -13,64 +13,39 @@ import Testing
 @MainActor
 struct SegmentSnapshots {
 
-    enum TestContent {
-        static let rectangle: some View =
-            Rectangle()
-            .fill(.gray.quinary)
-            .frame(size: [120, 50])
-    }
-
-
     @Test(.snapshotTesting) func stroke() {
-        let lineWidth: CGFloat = 10
+        let lineWidth: CGFloat = 8
 
-        // FIXME: Use CanvasGraticuleForRect.
         Snapshots.assertView("default") {
-            TestContent.rectangle
-            .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
-            .overlayCanvas{ context, size in
-                let rect = size.rect().inset(by: lineWidth)
+            CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                 rect.minPoint.segmentToOffset(x: rect.width)
-                .stroke(in: context, style: .green.secondary, lineWidth: lineWidth)
-
+                .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth)
                 rect.maxPoint.segmentToOffset(x: -rect.width)
-                .stroke(in: context, style: .green.secondary, lineWidth: lineWidth)
+                .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth)
             }
         }
 
         Snapshots.assertView("aligned") {
             VStack(spacing: lineWidth) {
-                TestContent.rectangle
-                .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
-                .overlayCanvas{ context, size in
-                    let rect = size.rect().inset(by: lineWidth)
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.minPoint.segmentToOffset(x: rect.width)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .inside)
-
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .inside)
                     rect.maxPoint.segmentToOffset(x: -rect.width)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .inside)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .inside)
                 }
 
-                TestContent.rectangle
-                .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
-                .overlayCanvas{ context, size in
-                    let rect = size.rect().inset(by: lineWidth)
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.minPoint.segmentToOffset(x: rect.width)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .center)
-
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .center)
                     rect.maxPoint.segmentToOffset(x: -rect.width)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .center)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .center)
                 }
 
-                TestContent.rectangle
-                .edgeGraticule(insetSpacing: lineWidth, insetCount: 2)
-                .overlayCanvas{ context, size in
-                    let rect = size.rect().inset(by: lineWidth)
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.minPoint.segmentToOffset(x: rect.width)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .outside)
-
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .outside)
                     rect.maxPoint.segmentToOffset(x: -rect.width)
-                    .stroke(in: context, style: .green.secondary, lineWidth: lineWidth, alignment: .outside)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .outside)
                 }
             }
         }
