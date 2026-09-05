@@ -6,13 +6,13 @@
 
 import PreviewUtilities
 import SwiftUI
+import Testing
 
 
-// FIXME: Add tests.
 struct CanvasGraticuleForRect: View {
     let spacing: CGFloat
     let width: CGFloat
-    let rectRenderer: /*@escaping*/ (_ context: inout GraphicsContext, _ rect: CGRect) -> Void
+    let rectRenderer: (_ context: inout GraphicsContext, _ rect: CGRect) -> Void
 
 
     var body: some View {
@@ -30,4 +30,27 @@ struct CanvasGraticuleForRect: View {
             }
         }
     }
+}
+
+
+struct CanvasGraticuleForRectTests {
+
+    @Test(.snapshotTesting) func stroke() {
+        Snapshots.assertView("sizes", colorSchemes: .all) {
+            VStack(spacing: 8) {
+                CanvasGraticuleForRect(spacing: 4, width: 80) { context, rect in
+                    context.stroke(Path(rect), with: .style(.red), lineWidth: 1)
+                }
+
+                CanvasGraticuleForRect(spacing: 8, width: 100) { context, rect in
+                    context.stroke(Path(rect), with: .style(.red), lineWidth: 1)
+                }
+
+                CanvasGraticuleForRect(spacing: 12, width: 120) { context, rect in
+                    context.stroke(Path(rect), with: .style(.red), lineWidth: 1)
+                }
+            }
+        }
+    }
+
 }
