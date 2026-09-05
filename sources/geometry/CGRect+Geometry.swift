@@ -4,6 +4,7 @@
 //
 
 
+import GeometryAdditions
 import CoreFoundation
 import SwiftUI
 
@@ -65,4 +66,33 @@ extension CGRect {
         .segmentToOffset(y: height)
     }
 
+}
+
+
+extension CGRect {
+
+    @discardableResult
+    func stroke(
+        in context: GraphicsContext,
+        style: some ShapeStyle,
+        lineWidth: CGFloat = .one,
+        alignment: StrokeAlignment
+    ) -> Self {
+        let insetRect = switch alignment {
+        case .inside:  self.inset(by: lineWidth/2)
+        case .center:  self
+        case .outside: self.outset(by: lineWidth/2)
+        }
+
+        insetRect.stroke(in: context, style: style, lineWidth: lineWidth)
+        return self
+    }
+
+}
+
+
+enum StrokeAlignment {
+    case inside
+    case center
+    case outside
 }
