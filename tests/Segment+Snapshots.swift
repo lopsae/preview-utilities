@@ -6,6 +6,7 @@
 
 @testable import PreviewUtilities
 
+import GeometryAdditions
 import SwiftUI
 import Testing
 
@@ -74,36 +75,6 @@ struct SegmentSnapshots {
                 }
             }
         }
-    }
-
-}
-
-
-// FIXME: Move to GeometryAdditions.
-extension CGRect {
-
-    var minPoint: CGPoint {
-        .init(x: minX, y: minY)
-    }
-
-    var maxPoint: CGPoint {
-        .init(x: maxX, y: maxY)
-    }
-
-    var topLeadingPoint: CGPoint {
-        .init(x: minX, y: minY)
-    }
-
-    var topTrailingPoint: CGPoint {
-        .init(x: maxX, y: minY)
-    }
-
-    var bottomTrailingPoint: CGPoint {
-        .init(x: maxX, y: maxY)
-    }
-
-    var bottomLeadingPoint: CGPoint {
-        .init(x: minX, y: maxY)
     }
 
 }
