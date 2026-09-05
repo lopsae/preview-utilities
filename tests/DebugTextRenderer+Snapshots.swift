@@ -22,8 +22,8 @@ struct DebugTextRendererSnapshots {
         ).foregroundStyle(.tertiary)
     }
 
-    @Test(.snapshots(record: .missing, diffTool: .ksdiff))
-    func defaultConfig() {
+
+    @Test(.snapshotTesting) func defaultConfig() {
         Snapshots.assertView("body", colorSchemes: .all) {
             TestContent.multi
             .textRenderer(DebugTextRenderer())
@@ -37,8 +37,7 @@ struct DebugTextRendererSnapshots {
     }
 
 
-    @Test(.snapshots(record: .missing))
-    func otherConfigs() {
+    @Test(.snapshotTesting) func otherConfigs() {
         Snapshots.assertView("none") {
             TestContent.multi
             .textRenderer(DebugTextRenderer(configuration: .none))

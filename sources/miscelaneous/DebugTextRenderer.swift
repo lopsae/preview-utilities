@@ -37,8 +37,10 @@ struct DebugTextRenderer: TextRenderer {
         let bounds = run.typographicBounds
 
         if configuration.drawsRect {
-            bounds.rect.inset(by: 0.5)
-            .stroke(in: context, style: .green.secondary, lineWidth: 1)
+            bounds.rect.stroke(
+                in: context, style: .green.secondary,
+                lineWidth: 1, alignment: .inside
+            )
         }
 
         if configuration.drawsAscent {
