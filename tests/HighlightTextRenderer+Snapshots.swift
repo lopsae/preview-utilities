@@ -69,9 +69,9 @@ struct HighlightTextRendererSnapshots {
     }
 
 
-    @Test(.snapshotCapture) func debugRendering() {
+    @Test(.snapshotTesting) func debugRendering() {
         let drawHighlight: HighlightTextRenderer.DrawHighlight = { context, runs, bounds, leadingStart, trailingEnd in
-            bounds.stroke(in: context, style: .orange, lineWidth: 2)
+            bounds.outset(by: 2).stroke(in: context, style: .orange, lineWidth: 2, alignment: .outer)
             context.draw(runs: runs)
         }
 
