@@ -18,16 +18,17 @@ import SnapshotTesting
 @MainActor
 struct HighlightTextRendererSnapshots {
 
-    @Test(.snapshotCapture) func lineRendering() {
+    @Test(.snapshotTesting) func lineRendering() {
         let renderer = HighlightTextRenderer { context, runs, bounds, leadingStart, trailingEnd in
-            // FIXME: add parameter to stroke for inset behaviour.
-            bounds.stroke(in: context, style: .orange, lineWidth: 2)
+            bounds.stroke(in: context, style: .orange, lineWidth: 2, alignment: .inner)
 
-            // FIXME: Could an InsettableSegment contain information to inset itself? So that it could be properly drawn at edge of bounds.
+            let leadingColor: Color = leadingStart ? .green : .red
             bounds.leadingSegment
-                .stroke(in: context, style: leadingStart ? .green : .red, lineWidth: 4)
+            .stroke(in: context, style: leadingColor, lineWidth: 4, alignment: .inner)
+
+            let trailingColor: Color = trailingEnd ? .green : .red
             bounds.trailingSegment
-                .stroke(in: context, style: trailingEnd ? .green : .red, lineWidth: 4)
+                .stroke(in: context, style: trailingColor, lineWidth: 4, alignment: .inner)
 
             context.draw(runs: runs)
         }
