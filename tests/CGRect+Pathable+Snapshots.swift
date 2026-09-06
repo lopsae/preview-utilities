@@ -24,7 +24,6 @@ struct CGRectPathableSnapshots {
 
         Snapshots.assertView("aligned") {
             VStack(spacing: lineWidth) {
-                // FIXME: Use CanvasGraticuleForRect.
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.stroke(
                         in: context, style: .green.secondary,

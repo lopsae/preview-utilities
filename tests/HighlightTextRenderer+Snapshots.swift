@@ -29,7 +29,7 @@ struct HighlightTextRendererSnapshots {
             bounds.trailingSegment
                 .stroke(in: context, style: trailingEnd ? .green : .red, lineWidth: 4)
 
-            runs.forEach { context.draw($0) }
+            context.draw(runs: runs)
         }
 
         Snapshots.assertView("singleLine") {
@@ -71,8 +71,7 @@ struct HighlightTextRendererSnapshots {
     @Test(.snapshotCapture) func debugRendering() {
         let drawHighlight: HighlightTextRenderer.DrawHighlight = { context, runs, bounds, leadingStart, trailingEnd in
             bounds.stroke(in: context, style: .orange, lineWidth: 2)
-            // FIXME: Add a convenience function.
-            runs.forEach { context.draw($0) }
+            context.draw(runs: runs)
         }
 
         Snapshots.assertView("options", colorSchemes: .all) {
@@ -122,6 +121,20 @@ struct HighlightTextRendererSnapshots {
                 .textRenderer(HighlightTextRenderer.dashedCapsule(style: .orange))
             }
             .foregroundStyle(.indigo)
+        }
+    }
+
+}
+
+
+extension GraphicsContext {
+
+    func draw(
+        runs: [Text.Layout.Run],
+        options: Text.Layout.DrawingOptions = .init()
+    ) {
+        for run in runs {
+            draw(run, options: options)
         }
     }
 
