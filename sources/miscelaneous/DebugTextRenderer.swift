@@ -39,7 +39,7 @@ struct DebugTextRenderer: TextRenderer {
         if configuration.drawsRect {
             bounds.rect.stroke(
                 in: context, style: .green.secondary,
-                lineWidth: 1, alignment: .inside
+                lineWidth: 1, alignment: .inner
             )
         }
 

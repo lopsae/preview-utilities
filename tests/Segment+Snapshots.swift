@@ -30,9 +30,9 @@ struct SegmentSnapshots {
             VStack(spacing: lineWidth) {
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.minPoint.segmentToOffset(x: rect.width)
-                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .inside)
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .inner)
                     rect.maxPoint.segmentToOffset(x: -rect.width)
-                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .inside)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .inner)
                 }
 
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
@@ -44,9 +44,9 @@ struct SegmentSnapshots {
 
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.minPoint.segmentToOffset(x: rect.width)
-                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .outside)
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .outer)
                     rect.maxPoint.segmentToOffset(x: -rect.width)
-                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .outside)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .outer)
                 }
             }
         }
@@ -55,9 +55,9 @@ struct SegmentSnapshots {
             VStack(spacing: lineWidth) {
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.topTrailingPoint.segmentToOffset(y: rect.height)
-                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .inside)
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .inner)
                     rect.bottomLeadingPoint.segmentToOffset(y: -rect.height)
-                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .inside)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .inner)
                 }
 
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
@@ -69,9 +69,9 @@ struct SegmentSnapshots {
 
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.topTrailingPoint.segmentToOffset(y: rect.height)
-                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .outside)
+                    .stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .outer)
                     rect.bottomLeadingPoint.segmentToOffset(y: -rect.height)
-                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .outside)
+                    .stroke(in: context, style: .indigo.secondary, lineWidth: lineWidth, alignment: .outer)
                 }
             }
         }

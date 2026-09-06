@@ -28,7 +28,7 @@ struct CGRectPathableSnapshots {
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.stroke(
                         in: context, style: .green.secondary,
-                        lineWidth: lineWidth, alignment: .inside
+                        lineWidth: lineWidth, alignment: .inner
                     )
                 }
 
@@ -42,7 +42,7 @@ struct CGRectPathableSnapshots {
                 CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
                     rect.stroke(
                         in: context, style: .green.secondary,
-                        lineWidth: lineWidth, alignment: .outside
+                        lineWidth: lineWidth, alignment: .outer
                     )
                 }
             }

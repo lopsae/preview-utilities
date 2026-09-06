@@ -79,9 +79,9 @@ extension CGRect {
         alignment: StrokeAlignment
     ) -> Self {
         let insetRect = switch alignment {
-        case .inside:  self.inset(by: lineWidth/2)
-        case .center:  self
-        case .outside: self.outset(by: lineWidth/2)
+        case .inner:  self.inset(by: lineWidth/2)
+        case .center: self
+        case .outer:  self.outset(by: lineWidth/2)
         }
 
         insetRect.stroke(in: context, style: style, lineWidth: lineWidth)

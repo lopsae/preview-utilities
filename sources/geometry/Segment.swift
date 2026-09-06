@@ -41,9 +41,9 @@ extension Segment {
         alignment: StrokeAlignment
     ) -> Self {
         let offset = switch alignment {
-        case .inside:  lineWidth / 2
-        case .center:  CGFloat.zero
-        case .outside: -lineWidth / 2
+        case .inner:  lineWidth / 2
+        case .center: CGFloat.zero
+        case .outer:  -lineWidth / 2
         }
 
         translatePerpendicular(by: offset)

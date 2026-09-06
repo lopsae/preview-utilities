@@ -35,7 +35,7 @@ extension Pathable {
 
 
 enum StrokeAlignment {
-    case inside
+    case inner
     case center
-    case outside
+    case outer
 }
