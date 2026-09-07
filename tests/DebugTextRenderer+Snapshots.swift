@@ -19,7 +19,7 @@ struct DebugTextRendererSnapshots {
             black Quartz
             judge my Vow
             """
-        ).foregroundStyle(.tertiary)
+        )
     }
 
 

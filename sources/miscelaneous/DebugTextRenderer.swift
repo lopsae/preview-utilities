@@ -17,15 +17,9 @@ struct DebugTextRenderer: TextRenderer {
     }
 
     func draw(layout: Text.Layout, in context: inout GraphicsContext) {
-        for line in layout {
-            for run in line {
-                Self.drawTypographicBounds(
-                    run: run, in: context,
-                    configuration: configuration
-                )
-                context.draw(run)
-            }
-        }
+        let runs = layout.runs
+        context.draw(runs: runs)
+        Self.drawTypographicBounds(runs: runs, in: context, configuration: configuration)
     }
 
 
@@ -53,6 +47,17 @@ struct DebugTextRenderer: TextRenderer {
             bounds.origin.offset(x: 3)
             .segmentToOffset(y: bounds.descent)
             .stroke(in: context, style: .blue.secondary, lineWidth: 2)
+        }
+    }
+
+
+    static func drawTypographicBounds(
+        runs: [Text.Layout.Run],
+        in context: GraphicsContext,
+        configuration: Configuration
+    ) {
+        for run in runs {
+            drawTypographicBounds(run: run, in: context, configuration: configuration)
         }
     }
 
@@ -124,4 +129,15 @@ private struct PreviewContent {
     .frame(width: fixedWidth)
     .floatingCaption("Rects", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
+}
+
+
+extension Text.Layout {
+
+    var runs: [Run] {
+        flatMap { line in
+            line.map { run in run }
+        }
+    }
+
 }
