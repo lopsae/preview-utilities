@@ -79,7 +79,7 @@ extension DebugTextRenderer {
         }
 
         var drawsAny: Bool {
-            drawsRect && drawsAscent && drawsDescent
+            drawsRect || drawsAscent || drawsDescent
         }
 
         static let all: Self = .init()

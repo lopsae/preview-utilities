@@ -71,7 +71,7 @@ struct HighlightTextRendererSnapshots {
 
     @Test(.snapshotTesting) func debugRendering() {
         let drawHighlight: HighlightTextRenderer.DrawHighlight = { context, runs, bounds, leadingStart, trailingEnd in
-            bounds.outset(by: 2).stroke(in: context, style: .orange, lineWidth: 2, alignment: .outer)
+            bounds.outset(by: 2).stroke(in: context, style: .orange.tertiary, lineWidth: 2, alignment: .outer)
             context.draw(runs: runs)
         }
 
@@ -82,7 +82,6 @@ struct HighlightTextRendererSnapshots {
                 .expandingWidthFrame(textAlignment: .center)
                 .textRenderer(HighlightTextRenderer(debugRuns: .all, drawHighlights: drawHighlight))
 
-                // FIXME: onlyRects not displaying properly.
                 Text("Rect \(highlight) Debug")
                 .expandingWidthFrame(textAlignment: .center)
                 .textRenderer(HighlightTextRenderer(debugRuns: .onlyRect, drawHighlights: drawHighlight))
