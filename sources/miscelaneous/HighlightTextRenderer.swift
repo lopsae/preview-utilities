@@ -136,19 +136,21 @@ struct HighlightTextRenderer: TextRenderer {
         trailingEnd: Bool,
         in context: GraphicsContext
     ) {
-        // FIXME: in case of nil, just draw the the runs.
-        guard let bounds = enclosingRect(of: attributedRuns) else { return }
         let runs = attributedRuns.map(\.run)
+        // TODO: Bounds could be returned as nil if there are only `widthOnly` highlights.
+        guard let bounds = enclosingRect(of: attributedRuns) else {
+            context.draw(runs: runs)
+            DebugTextRenderer.drawTypographicBounds(runs: runs, in: context, configuration: debugRuns)
+            return
+        }
 
         drawHighlights(context, runs, bounds, leadingStart, trailingEnd)
 
         if debugRuns.drawsAny {
-            for run in runs {
-                DebugTextRenderer.drawTypographicBounds(run: run, in: context, configuration: debugRuns)
-            }
+            DebugTextRenderer.drawTypographicBounds(runs: runs, in: context, configuration: debugRuns)
         }
     }
-
+ 
 
     private func enclosingRect(of attributedRuns: [AttributedRun]) -> CGRect? {
         attributedRuns.map(\.contributingRect)
