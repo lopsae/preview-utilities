@@ -75,6 +75,56 @@ struct SegmentSnapshots {
                 }
             }
         }
+
+        Snapshots.assertView("alignedPositive") {
+            VStack(spacing: lineWidth) {
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    let segment = rect.minPoint
+                        .segmentToOffset(x: rect.width, y: lineWidth * 3)
+                    segment.stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .inner)
+                    segment.stroke(in: context, style: .red.secondary)
+                }
+
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    let segment = rect.minPoint
+                        .segmentToOffset(x: rect.width, y: lineWidth * 3)
+                    segment.stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .center)
+                    segment.stroke(in: context, style: .red.secondary)
+                }
+
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    let segment = rect.minPoint
+                        .segmentToOffset(x: rect.width, y: lineWidth * 3)
+                    segment.stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .outer)
+                    segment.stroke(in: context, style: .red.secondary)
+                }
+            }
+        }
+
+        Snapshots.assertView("alignedNegative") {
+            VStack(spacing: lineWidth) {
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    let segment = rect.minPoint.offset(y: lineWidth * 3)
+                        .segmentToOffset(x: rect.width, y: -lineWidth * 3)
+                    segment.stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .inner)
+                    segment.stroke(in: context, style: .red.secondary)
+                }
+
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    let segment = rect.minPoint.offset(y: lineWidth * 3)
+                        .segmentToOffset(x: rect.width, y: -lineWidth * 3)
+                    segment.stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .center)
+                    segment.stroke(in: context, style: .red.secondary)
+                }
+
+                CanvasGraticuleForRect(spacing: lineWidth, width: 120) { context, rect in
+                    let segment = rect.minPoint.offset(y: lineWidth * 3)
+                        .segmentToOffset(x: rect.width, y: -lineWidth * 3)
+                    segment.stroke(in: context, style: .orange.secondary, lineWidth: lineWidth, alignment: .outer)
+                    segment.stroke(in: context, style: .red.secondary)
+                }
+            }
+        }
     }
 
 }
