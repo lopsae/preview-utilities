@@ -98,26 +98,26 @@ struct HighlightTextRendererSnapshots {
     @Test(.snapshotCapture) func dashedCapsule() {
         Snapshots.assertView("default", colorSchemes: .all) {
             VStack(spacing: Defaults.padding) {
-                Text("Default \(capsule: "ladybug", label: "Label")")
+                Text("Default \(highlight: "ladybug", label: "Label")")
                 .textRenderer(HighlightTextRenderer.dashedCapsule())
 
-                Text("Label \(capsule: "ladybug", label: "Label", style: .orange)")
+                Text("Label \(highlight: "ladybug", label: "Label", style: .orange)")
                 .textRenderer(HighlightTextRenderer.dashedCapsule())
 
-                Text("Capsule \(capsule: "ladybug", label: "Label")")
+                Text("Capsule \(highlight: "ladybug", label: "Label")")
                 .textRenderer(HighlightTextRenderer.dashedCapsule(style: .orange))
             }
         }
 
         Snapshots.assertView("foregroundStyle", colorSchemes: .all) {
             VStack(spacing: Defaults.padding) {
-                Text("Default \(capsule: "ladybug", label: "Label")")
+                Text("Default \(highlight: "ladybug", label: "Label")")
                 .textRenderer(HighlightTextRenderer.dashedCapsule())
 
-                Text("Label \(capsule: "ladybug", label: "Label", style: .orange)")
+                Text("Label \(highlight: "ladybug", label: "Label", style: .orange)")
                 .textRenderer(HighlightTextRenderer.dashedCapsule())
 
-                Text("Capsule \(capsule: "ladybug", label: "Label")")
+                Text("Capsule \(highlight: "ladybug", label: "Label")")
                 .textRenderer(HighlightTextRenderer.dashedCapsule(style: .orange))
             }
             .foregroundStyle(.indigo)

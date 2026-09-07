@@ -265,8 +265,9 @@ extension HighlightTextRenderer {
 
 extension LocalizedStringKey.StringInterpolation {
 
+    // FIXME: add a space at start and end of interpolation.
     mutating func appendInterpolation(
-        capsule name: String,
+        highlight systemImage: String,
         label: String? = nil,
         style: some ShapeStyle = .primary,
         breaking: Bool = false
@@ -276,7 +277,7 @@ extension LocalizedStringKey.StringInterpolation {
             ? edgeSpacer
             : Text(String.narrowNbsp)
 
-        let image = Image(systemName: name)
+        let image = Image(systemName: systemImage)
         let imageText = Text("\(edgeSpacer)\(image)")
             .foregroundStyle(style)
             .customAttribute(HighlightTextRenderer.Highlight(onlyWidth: true))
@@ -374,7 +375,7 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("Interpolation \(capsule: "ladybug", label: "Ladybug Image") after interpolation.")
+    Text("Interpolation \(highlight: "ladybug", label: "Ladybug Image") after interpolation.")
     .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Non-Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
@@ -382,7 +383,7 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("Interpolation \(capsule: "ladybug", label: "Multiple breaking words", breaking: true) after.")
+    Text("Interpolation \(highlight: "ladybug", label: "Multiple breaking words", breaking: true) after.")
         .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Breaking", .colorStyle(.orange), .alignment(.outerBottomTrailing))
@@ -390,7 +391,7 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("\(capsule: "rectangle.portrait.and.arrow.right", label: "Starting") interpolation at ends \(capsule: "arrowtriangle.left.square", label: "Ending").")
+    Text("\(highlight: "rectangle.portrait.and.arrow.right", label: "Starting") interpolation at ends \(highlight: "arrowtriangle.left.square", label: "Ending").")
     .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Start and End", .colorStyle(.orange), .alignment(.outerBottomTrailing))
@@ -398,7 +399,7 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("Title \(capsule: "ladybug", label: "Ladybug") interpolation.")
+    Text("Title \(highlight: "ladybug", label: "Ladybug") interpolation.")
     .font(.title)
     .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
@@ -419,7 +420,7 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("No style \(capsule: "ladybug", label: "Styled Highlight", style: .orange).")
+    Text("No style \(highlight: "ladybug", label: "Styled Highlight", style: .orange).")
     .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
     .floatingCaption("Styled Highlight", .colorStyle(.orange), .alignment(.outerBottomTrailing))
@@ -427,8 +428,8 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    // FIXME: Incorporate extra space around interpolation.
-    Text("Styled text  \(capsule: "paintbrush.fill", label: "Inherited")  and  \(capsule: "paintbrush.pointed.fill", label: "Custom", style: .indigo)  and  \(capsule: "theatermask.and.paintbrush.fill", label: "Hierarchichal", style: .tertiary).")
+    // FIXME: Remove surrounding spaces when interpolation add those.
+    Text("Styled text  \(highlight: "paintbrush.fill", label: "Inherited")  and  \(highlight: "paintbrush.pointed.fill", label: "Custom", style: .indigo)  and  \(highlight: "theatermask.and.paintbrush.fill", label: "Hierarchichal", style: .tertiary).")
     .foregroundStyle(.orange)
     .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
