@@ -95,7 +95,7 @@ struct HighlightTextRendererSnapshots {
     }
 
 
-    @Test(.snapshotCapture) func dashedCapsule() {
+    @Test(.snapshotTesting) func dashedCapsule() {
         Snapshots.assertView("default", colorSchemes: .all) {
             VStack(spacing: Defaults.padding) {
                 Text("Default \(highlight: "ladybug", label: "Label")")
