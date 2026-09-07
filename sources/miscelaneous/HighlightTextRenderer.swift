@@ -265,7 +265,12 @@ extension HighlightTextRenderer {
 
 extension LocalizedStringKey.StringInterpolation {
 
-    // FIXME: add a space at start and end of interpolation.
+    /// Interpolates the given system image and label in a text with the `Highlight` attribute.
+    ///
+    /// Apply the ``HighlightTextRenderer`` to text using this interpolation to draw the highlight.
+    ///
+    /// The interpolation uses non-breaking spaces to keep the image and label together, and adds
+    /// additional spaces around the highlighted text to account for the highlight spacing.
     mutating func appendInterpolation(
         highlight systemImage: String,
         label: String? = nil,
@@ -286,20 +291,23 @@ extension LocalizedStringKey.StringInterpolation {
             .foregroundStyle(style)
             .customAttribute(HighlightTextRenderer.Highlight())
 
+        appendInterpolation(.space)
         appendInterpolation(imageText)
         appendInterpolation(middleText)
 
-        guard let label else { return }
+        if let label {
+            let spacedString = breaking
+                ? label
+                : label.replacingOccurrences(of: " ", with: String.nbsp)
 
-        let spacedString = breaking
-            ? label
-            : label.replacingOccurrences(of: " ", with: String.nbsp)
+            let labelText = Text("\(spacedString)\(edgeSpacer)")
+                .foregroundStyle(style)
+                .customAttribute(HighlightTextRenderer.Highlight())
 
-        let labelText = Text("\(spacedString)\(edgeSpacer)")
-            .foregroundStyle(style)
-            .customAttribute(HighlightTextRenderer.Highlight())
+            appendInterpolation(labelText)
+        }
 
-        appendInterpolation(labelText)
+        appendInterpolation(.space)
     }
 
 }
@@ -428,8 +436,7 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    // FIXME: Remove surrounding spaces when interpolation add those.
-    Text("Styled text  \(highlight: "paintbrush.fill", label: "Inherited")  and  \(highlight: "paintbrush.pointed.fill", label: "Custom", style: .indigo)  and  \(highlight: "theatermask.and.paintbrush.fill", label: "Hierarchichal", style: .tertiary).")
+    Text("Styled text \(highlight: "paintbrush.fill", label: "Inherited") and \(highlight: "paintbrush.pointed.fill", label: "Custom", style: .indigo)  and  \(highlight: "theatermask.and.paintbrush.fill", label: "Hierarchichal", style: .tertiary).")
     .foregroundStyle(.orange)
     .textRenderer(HighlightTextRenderer.dashedCapsule(style: .teal))
     .frame(width: fixedWidth)
