@@ -25,7 +25,6 @@ extension Segment: Pathable {
 }
 
 
-nonisolated
 extension Segment {
 
     /// Draws the aligned stroke in the given graphics context.
@@ -34,6 +33,7 @@ extension Segment {
     /// `inside` shifts towards the clockwise side, `outside` towards the opposite. This is
     /// consistent with the direction of segments produced by functions like `CGRect/topSegment`.
     @discardableResult
+    nonisolated
     func stroke(
         in context: GraphicsContext,
         style: some ShapeStyle,
@@ -51,25 +51,54 @@ extension Segment {
         return self
     }
 
-    // FIXME: Move to an operations extension.
+}
+
+
+// MARK: - Transformations
+
+
+extension Segment {
+
     /// The segment translated perpendicular to its `start` to `end` direction, clockwise.
     ///
     /// For zero length segments, self is returned unchanged.
+    nonisolated
     func translatePerpendicular(by distance: CGFloat) -> Self {
-        let dx = end.x - start.x
-        let dy = end.y - start.y
-        let length = hypot(dx, dy)
+        let delta = start.delta(to: end)
+        let length = delta.hypot
         guard length > 0 else { return self }
 
         // Clockwise perpendicular of (dx, dy) in screen space is (-dy, dx).
-        let offsetX = -dy / length * distance
-        let offsetY =  dx / length * distance
+        let offsetX = -delta.height / length * distance
+        let offsetY = +delta.width  / length * distance
 
-        // FIXME: use convenience functions after tests.
         return Self(
-            start: CGPoint(x: start.x + offsetX, y: start.y + offsetY),
-            end:   CGPoint(x: end.x   + offsetX, y: end.y   + offsetY)
+            start: start.offset(x: offsetX, y: offsetY),
+            end:     end.offset(x: offsetX, y: offsetY),
         )
+    }
+
+}
+
+
+extension CGPoint {
+
+    nonisolated
+    func delta(to other: CGPoint) -> CGSize {
+        .init(
+            width:  other.x - x,
+            height: other.y - y
+        )
+    }
+
+}
+
+
+extension CGSize {
+
+    nonisolated
+    var hypot: CGFloat {
+        CoreGraphics.hypot(width, height)
     }
 
 }
