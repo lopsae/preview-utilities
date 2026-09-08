@@ -34,16 +34,15 @@ struct HighlightTextRenderer: TextRenderer {
     ) -> Void
 
     let debugRuns: DebugTextRenderer.Configuration
-    let drawHighlights: DrawHighlight
+    let drawHighlight: DrawHighlight
 
 
     init(
         debugRuns: DebugTextRenderer.Configuration = .none,
-        // FIXME: rename to drawHighlight.
-        drawHighlights: @escaping DrawHighlight
+        drawHighlight: @escaping DrawHighlight
     ) {
         self.debugRuns = debugRuns
-        self.drawHighlights = drawHighlights
+        self.drawHighlight = drawHighlight
     }
 
 
@@ -101,7 +100,6 @@ struct HighlightTextRenderer: TextRenderer {
             hasLineChanged = true
         }
 
-        // FIXME: Add preview and test for highlighted run at the end.
         // Flush a highlight that reaches the end of the text with no trailing plain run.
         if attributedRuns.containsAny {
             drawAttributed(
@@ -144,7 +142,7 @@ struct HighlightTextRenderer: TextRenderer {
             return
         }
 
-        drawHighlights(context, runs, bounds, leadingStart, trailingEnd)
+        drawHighlight(context, runs, bounds, leadingStart, trailingEnd)
 
         if debugRuns.drawsAny {
             DebugTextRenderer.drawTypographicBounds(runs: runs, in: context, configuration: debugRuns)

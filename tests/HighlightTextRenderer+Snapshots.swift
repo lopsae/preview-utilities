@@ -80,15 +80,15 @@ struct HighlightTextRendererSnapshots {
             VStack(spacing: Defaults.padding) {
                 Text("All \(highlight) Debug")
                 .expandingWidthFrame(textAlignment: .center)
-                .textRenderer(HighlightTextRenderer(debugRuns: .all, drawHighlights: drawHighlight))
+                .textRenderer(HighlightTextRenderer(debugRuns: .all, drawHighlight: drawHighlight))
 
                 Text("Rect \(highlight) Debug")
                 .expandingWidthFrame(textAlignment: .center)
-                .textRenderer(HighlightTextRenderer(debugRuns: .onlyRect, drawHighlights: drawHighlight))
+                .textRenderer(HighlightTextRenderer(debugRuns: .onlyRect, drawHighlight: drawHighlight))
 
                 Text("None \(highlight) Debug")
                 .expandingWidthFrame(textAlignment: .center)
-                .textRenderer(HighlightTextRenderer(debugRuns: .none, drawHighlights: drawHighlight))
+                .textRenderer(HighlightTextRenderer(debugRuns: .none, drawHighlight: drawHighlight))
             }
             .padding()
         }
