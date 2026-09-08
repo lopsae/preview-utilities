@@ -313,18 +313,11 @@ extension LocalizedStringKey.StringInterpolation {
 }
 
 
-// FIXME: move to GeometryAdditions.
+// TODO: move to GeometryAdditions.
 extension CGRect {
 
-    // FIXME: Already exist as union.
     mutating func envelop(_ other: CGRect) {
-        self.origin.x = min(origin.x, other.origin.x)
-        self.origin.y = min(origin.y, other.origin.y)
-        let maxX = max(maxX, other.maxX)
-        let maxY = max(maxY, other.maxY)
-
-        self.size.width  = maxX - origin.x
-        self.size.height = maxY - origin.y
+        self = union(other)
     }
 
     var horizontalBisector: CGRect {
