@@ -7,22 +7,14 @@
 import SwiftUI
 
 
-// FIXME: Color border and text separately.
-
-// FIXME: Use comment if a separate DashedPathHighlightTextRenderer is implemented.
-// Renders text attributed with `Highlight` with a path drawn in a dashed stroke style.
-// Highlights text by drawing behind a provided path in a dashed stroke style. The text to
-// highlight is attributed with ``Highlight``.
-
-
 /// Renders contiguous text attributed with `Highlight` through a provided closure.
 ///
-/// Allows the provided closure to draw the contiguous runs of text attributed with ``Highlight``
-/// to apply a highlight effect. The remaining runs are drawn unmodified by the instance.
-///
-/// The renderer is configured with a closure to draw the highlighted text based on the bounds of
-/// all the contiguous highlighted text runs. The closure's `leadingStart` and `trailingEnd`
+/// Highlights the text attributed with ``Highlight`` by performing the drawing of these text runs
+/// through the provided closure. The ``DrawHighlight`` closure is responsible of drawing the
+/// highlight effect and the highlighted text runs. The closure's `leadingStart` and `trailingEnd`
 /// parameters indicate if the highlight starts or ends on a different line.
+///
+/// The remaining text runs are drawn unmodified by the instance.
 struct HighlightTextRenderer: TextRenderer {
 
     typealias DrawHighlight = (
@@ -198,7 +190,7 @@ extension HighlightTextRenderer {
 }
 
 
-// MARK: - Preconfigured
+// MARK: - Implementations
 
 extension HighlightTextRenderer {
 
@@ -208,6 +200,22 @@ extension HighlightTextRenderer {
         _ trailingEnd: Bool
     ) -> Path
 
+
+    /// Renders contiguous text attributed with `Highlight` with a path drawn with a dashed stroke
+    /// style.
+    /// 
+    /// Highlights the text attributed with ``Highlight`` with a path in a dashed stroke style. The
+    /// ``PathHighlight`` closure provides the path to draw behind the highlighted text. The
+    /// closure's `leadingStart` and `trailingEnd` parameters indicate if the highlight starts or
+    /// ends on a different line.
+    /// 
+    /// The remaining text runs are drawn unmodified by the instance.
+    ///
+    /// - Parameters:
+    ///   - pathStyle: <#pathStyle description#>
+    ///   - debugRuns: <#debugRuns description#>
+    ///   - pathHighlight: <#pathHighlight description#>
+    /// - Returns: <#description#>
     static func dashedPath(
         pathStyle: some ShapeStyle = .gray,
         debugRuns: DebugTextRenderer.Configuration = .none,
@@ -227,6 +235,18 @@ extension HighlightTextRenderer {
         }
     }
 
+
+    /// Renders contiguous text attributed with `Highlight` with a capsule path in a dashed stroke
+    /// style.
+    /// 
+    /// Highlights the text attributed with ``Highlight`` with a capsule path in a dashed stroke
+    /// style.
+    ///
+    /// - Parameters:
+    ///   - style: The shape style to apply to the stroke of the capsule path.
+    ///   - debugRuns: The text renderer debug configuration to use, defaults to `none`.
+    /// - Returns: A text rendered configured to highlight text with a capsule path in a dashed
+    ///   stroke.
     static func dashedCapsule(
         style: some ShapeStyle = .secondary,
         debugRuns: DebugTextRenderer.Configuration = .none
