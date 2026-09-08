@@ -121,8 +121,30 @@ struct HighlightTextRendererSnapshots {
             }
             .foregroundStyle(.indigo)
         }
+    }
 
-        // FIXME: Test multiline splitting.
+
+    @Test(.snapshotTesting) func dashedCapsuleLines() {
+        let renderer = HighlightTextRenderer.dashedCapsule(style: .orange)
+
+        Snapshots.assertView("singleLine") {
+            Text("Single line \(highlight: "pencil.line", label: "highlight")")
+            .textRenderer(renderer)
+            .padding()
+        }
+
+        Snapshots.assertView("splitLine") {
+            Text("Split line \(highlight: "pencil.line", label: "longer highlight", breaking: true) text")
+            .textRenderer(renderer)
+            .padding()
+        }
+
+        Snapshots.assertView("multiLine") {
+            let longString = "longer highlight that spans through three"
+            Text("Multiple line \(highlight: "pencil.line", label: longString, breaking: true) lines")
+            .textRenderer(renderer)
+            .padding()
+        }
     }
 
 }
