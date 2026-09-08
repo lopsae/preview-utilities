@@ -4,19 +4,20 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Draws the typographic bounds of every run.
-struct DebugTextRenderer: TextRenderer {
+public struct DebugTextRenderer: TextRenderer {
 
     let configuration: Configuration
 
-    init(configuration: Configuration = .all) {
+    public init(configuration: Configuration = .all) {
         self.configuration = configuration
     }
 
-    func draw(layout: Text.Layout, in context: inout GraphicsContext) {
+    @_documentation(visibility: internal)
+    public func draw(layout: Text.Layout, in context: inout GraphicsContext) {
         let runs = layout.runs
         context.draw(runs: runs)
         Self.drawTypographicBounds(runs: runs, in: context, configuration: configuration)
@@ -66,7 +67,8 @@ struct DebugTextRenderer: TextRenderer {
 
 extension DebugTextRenderer {
 
-    struct Configuration {
+    // TODO: Could be an option set.
+    public struct Configuration {
         var drawsRect: Bool
         var drawsAscent: Bool
         var drawsDescent: Bool
@@ -87,9 +89,9 @@ extension DebugTextRenderer {
             drawsRect || drawsAscent || drawsDescent
         }
 
-        static let all: Self = .init()
-        static let none: Self = .init(all: false)
-        static let onlyRect: Self = .init(rect: true, ascent: false, descent: false)
+        public static let all: Self = .init()
+        public static let none: Self = .init(all: false)
+        public static let onlyRect: Self = .init(rect: true, ascent: false, descent: false)
     }
 
 }

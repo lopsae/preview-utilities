@@ -7,7 +7,7 @@
 extension BinaryFloatingPoint {
 
     nonisolated
-    static var one: Self { Self(1) }
+    public static var one: Self { Self(1) }
 
     nonisolated
     static var half: Self { Self(0.5) }

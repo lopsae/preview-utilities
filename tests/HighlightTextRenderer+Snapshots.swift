@@ -4,8 +4,7 @@
 //
 
 
-// FIXME: See if this could be tested without @testable, might require publicizing of Segment.
-@testable import PreviewUtilities
+import PreviewUtilities
 
 import SwiftUI
 import Testing
@@ -122,6 +121,8 @@ struct HighlightTextRendererSnapshots {
             }
             .foregroundStyle(.indigo)
         }
+
+        // FIXME: Test multiline splitting.
     }
 
 }

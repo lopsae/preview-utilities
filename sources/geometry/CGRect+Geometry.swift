@@ -5,8 +5,8 @@
 
 
 import GeometryAdditions
-import CoreFoundation
-import SwiftUI
+public import CoreFoundation
+public import SwiftUI
 
 
 extension CGRect: Pathable {
@@ -23,7 +23,7 @@ extension CGRect {
     }
 
     nonisolated
-    var trailingSegment: Segment {
+    public var trailingSegment: Segment {
         CGPoint(x: maxX, y: minY)
         .segmentToOffset(y: height)
     }
@@ -35,7 +35,7 @@ extension CGRect {
     }
 
     nonisolated
-    var leadingSegment: Segment {
+    public var leadingSegment: Segment {
         CGPoint(x: minX, y: maxY)
         .segmentToOffset(y: -height)
     }
@@ -72,7 +72,7 @@ extension CGRect {
 extension CGRect {
 
     @discardableResult
-    func stroke(
+    public func stroke(
         in context: GraphicsContext,
         style: some ShapeStyle,
         lineWidth: CGFloat = .one,

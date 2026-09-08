@@ -4,11 +4,11 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 nonisolated
-struct Segment {
+public struct Segment {
     var start: CGPoint
     var end: CGPoint
 }
@@ -34,7 +34,7 @@ extension Segment {
     /// consistent with the direction of segments produced by functions like `CGRect/topSegment`.
     @discardableResult
     nonisolated
-    func stroke(
+    public func stroke(
         in context: GraphicsContext,
         style: some ShapeStyle,
         lineWidth: CGFloat = .one,

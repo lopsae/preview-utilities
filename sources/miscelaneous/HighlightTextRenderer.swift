@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Renders contiguous text attributed with `Highlight` through a provided closure.
@@ -15,9 +15,9 @@ import SwiftUI
 /// parameters indicate if the highlight starts or ends on a different line.
 ///
 /// The remaining text runs are drawn unmodified by the instance.
-struct HighlightTextRenderer: TextRenderer {
+public struct HighlightTextRenderer: TextRenderer {
 
-    typealias DrawHighlight = (
+    public typealias DrawHighlight = (
         _ context: GraphicsContext,
         _ runs: [Text.Layout.Run],
         _ bounds: CGRect,
@@ -29,7 +29,7 @@ struct HighlightTextRenderer: TextRenderer {
     let drawHighlight: DrawHighlight
 
 
-    init(
+    public init(
         debugRuns: DebugTextRenderer.Configuration = .none,
         drawHighlight: @escaping DrawHighlight
     ) {
@@ -38,7 +38,8 @@ struct HighlightTextRenderer: TextRenderer {
     }
 
 
-    func draw(layout: Text.Layout, in context: inout GraphicsContext) {
+    @_documentation(visibility: internal)
+    public func draw(layout: Text.Layout, in context: inout GraphicsContext) {
         // The contiguous attributed runs accumulated for the current highlight.
         var attributedRuns: [AttributedRun] = []
         // The group began as a continuation from a previous line.
@@ -180,9 +181,9 @@ extension HighlightTextRenderer {
 
 extension HighlightTextRenderer {
 
-    struct Highlight: TextAttribute {
+    public struct Highlight: TextAttribute {
         let onlyWidth: Bool
-        init(onlyWidth: Bool = false) {
+        public init(onlyWidth: Bool = false) {
             self.onlyWidth = onlyWidth
         }
     }
@@ -225,7 +226,7 @@ extension HighlightTextRenderer {
             debugRuns: debugRuns
         ) { context, runs, bounds, leadingStart, trailingEnd in
             let path = pathHighlight(bounds, leadingStart, trailingEnd)
-            // FIXME: Externalize stroke style.
+            // TODO: Externalize stroke style.
             let strokeStyle = StrokeStyle(lineWidth: 1.5, dash: [5, 4])
             context.stroke(path, with: .style(pathStyle), style: strokeStyle)
 
@@ -247,7 +248,7 @@ extension HighlightTextRenderer {
     ///   - debugRuns: The text renderer debug configuration to use, defaults to `none`.
     /// - Returns: A text rendered configured to highlight text with a capsule path in a dashed
     ///   stroke.
-    static func dashedCapsule(
+    public static func dashedCapsule(
         style: some ShapeStyle = .secondary,
         debugRuns: DebugTextRenderer.Configuration = .none
     ) -> Self {
@@ -289,7 +290,7 @@ extension LocalizedStringKey.StringInterpolation {
     ///
     /// The interpolation uses non-breaking spaces to keep the image and label together, and adds
     /// additional spaces around the highlighted text to account for the highlight spacing.
-    mutating func appendInterpolation(
+    public mutating func appendInterpolation(
         highlight systemImage: String,
         label: String? = nil,
         style: some ShapeStyle = .primary,

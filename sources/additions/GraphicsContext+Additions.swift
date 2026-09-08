@@ -4,12 +4,12 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 extension GraphicsContext {
 
-    func draw(
+    public func draw(
         runs: [Text.Layout.Run],
         options: Text.Layout.DrawingOptions = .init()
     ) {
