@@ -5,14 +5,27 @@
 
 
 import GeometryAdditions
-/*public */import SwiftUI
+public import SwiftUI
 
 
 extension LocalizedStringKey.StringInterpolation {
 
-
-    // FIXME: Publicize.
-    mutating func appendInterpolation(systemImage name: String, label: String, breaking: Bool = false) {
+    /// Appends a system image and a string to a string interpolation.
+    ///
+    /// The image and label string are joined by a non-breaking space.
+    ///
+    /// By default all spaces in `label` are replaced with non-breaking spaces. To retain the
+    /// `label` string verbatim use `breaking: true`.
+    ///
+    /// Don't call this method directly; it's used by the compiler when interpreting string
+    /// interpolations.
+    /// 
+    /// - Parameter name: The name of the system image to interpolate
+    /// - Parameter label: The string to interpolate after the image.
+    /// - Parameter breaking: Retains spaces in `label`; when `true`, `label` is interpolated
+    ///     verbatim; when `false`, spaces in `label` are replaced with non-breaking spaces.
+    ///     Defaults to `false`.
+    public mutating func appendInterpolation(systemImage name: String, label: String, breaking: Bool = false) {
         var label = "\(String.narrowNbsp)\(label)"
         if !breaking {
             label = label.replacingOccurrences(of: " ", with: String.nbsp)
