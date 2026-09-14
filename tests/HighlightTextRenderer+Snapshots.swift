@@ -11,9 +11,6 @@ import Testing
 import SnapshotTesting
 
 
-// TODO: Test debug bounds with highlight.
-// TODO: Test highlight at start, middle, end.
-
 @MainActor
 struct HighlightTextRendererSnapshots {
 
