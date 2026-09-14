@@ -5,23 +5,25 @@
 
 
 import GeometryAdditions
-import SwiftUI
+/*public */import SwiftUI
 
 
 extension LocalizedStringKey.StringInterpolation {
 
-    mutating func appendInterpolation(systemImage name: String, label: String, useNbsp: Bool = true) {
-        var label = "\(String.nbsp)\(label)"
-        if useNbsp {
+
+    // FIXME: Publicize.
+    mutating func appendInterpolation(systemImage name: String, label: String, breaking: Bool = false) {
+        var label = "\(String.narrowNbsp)\(label)"
+        if !breaking {
             label = label.replacingOccurrences(of: " ", with: String.nbsp)
         }
         appendInterpolation(Image(systemName: name))
         appendInterpolation(label)
     }
 
-    mutating func appendInterpolation(image resource: ImageResource, label: String, useNbsp: Bool = true) {
-        var label = "\(String.nbsp)\(label)"
-        if useNbsp {
+    mutating func appendInterpolation(image resource: ImageResource, label: String, breaking: Bool = false) {
+        var label = "\(String.narrowNbsp)\(label)"
+        if !breaking {
             label = label.replacingOccurrences(of: " ", with: String.nbsp)
         }
         appendInterpolation(Image(resource))
@@ -168,14 +170,14 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("Test before \(systemImage: "ladybug", label: "Ladybug image yes nbsp") after interpolation")
+    Text("Test before \(systemImage: "ladybug", label: "Ladybug image with nbsp") after interpolation")
     .frame(width: fixedWidth)
     .floatingCaption("Image+Label+YesNbsp", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 
     DashedDivider()
 
-    Text("Test before \(systemImage: "ladybug", label: "Ladybug image no nbsp", useNbsp: false) after interpolation")
+    Text("Test before \(systemImage: "ladybug", label: "Ladybug image breaking", breaking: true) after interpolation")
     .frame(width: fixedWidth)
     .floatingCaption("Image+Label+NoNbsp", .colorStyle(.yellow), .alignment(.outerBottomTrailing))
     .padding(.bottom)

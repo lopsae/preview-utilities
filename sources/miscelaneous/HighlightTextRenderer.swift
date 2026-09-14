@@ -279,7 +279,7 @@ extension HighlightTextRenderer {
 }
 
 
-// MARK: - LocalizedStringKey Interpolation
+// MARK: - Interpolation
 
 
 extension LocalizedStringKey.StringInterpolation {

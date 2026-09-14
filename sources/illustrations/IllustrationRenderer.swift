@@ -262,6 +262,7 @@ public struct IllustrationRenderer {
 }
 
 
+// FIXME: Publicize.
 extension ImageRenderer {
 
     /// Convenience initializer that renders the given content at the specified scale.
