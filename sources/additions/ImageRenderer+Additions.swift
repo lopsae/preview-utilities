@@ -4,14 +4,18 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
-// FIXME: Publicize.
 extension ImageRenderer {
 
-    /// Convenience initializer that renders the given content at the specified scale.
-    convenience init(scale: CGFloat, @ViewBuilder content: () -> Content) {
+    /// Creates a renderer object with a given content view at the specified scale.
+    ///
+    /// Convenience initializer that renders the content closure at the specified scale.
+    ///
+    /// - Parameter scale: The scale at which to render the image.
+    /// - Parameter content: The content to render.
+    public convenience init(scale: CGFloat, @ViewBuilder content: () -> Content) {
         self.init(content: content())
         self.scale = scale
     }
