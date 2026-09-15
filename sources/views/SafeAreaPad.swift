@@ -25,7 +25,12 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             DashedDivider()
         }
 
-        sizingViewWithBackground.overlay {
+        SizingView()
+        .background {
+            ConcentricBackground(fill: .orange.tertiary)
+            .ignoresSafeArea()
+        }
+        .overlay {
             GeometryReader { geometry in
                 let safeArea = geometry.safeAreaInsets[edge: edge]
                 let guidedAlignment: InsettableAlignment = switch edge {
@@ -66,25 +71,6 @@ struct SafeAreaPad<S: ShapeStyle>: View {
 
         if showDivider && edge == .top {
             DashedDivider()
-        }
-    }
-
-
-
-    /// Base view that determines the overall size of the view and includes the background extending
-    /// into the safe areas. This base view contains a text to determine its height, but the text
-    /// remains hidden.
-    ///
-    /// The height of this view is always: text.height + 2 *defaultPaddings + 2*halfPaddings
-    @ViewBuilder
-    private var sizingViewWithBackground: some View {
-        SizingView()
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
-            .fill(.orange.tertiary)
-            // Padding from edge of view, to match background padding.
-            .padding(.all)
-            .ignoresSafeArea()
         }
     }
 
@@ -140,6 +126,9 @@ struct SafeAreaPad<S: ShapeStyle>: View {
 }
 
 
+// MARK: - SizingView
+
+
 /// Base that determines the overall size of the `SafeAreaPad`.
 ///
 /// This view is used only to determine the size the `SafeAreaPad` will use, without displaying
@@ -159,6 +148,26 @@ private struct SizingView: View {
         .padding(.all)
         // Padding from edge of background.
         .padding(Defaults.padding / 2)
+    }
+}
+
+
+// MARK: - ConcentricBackground
+
+
+private struct ConcentricBackground<Style: ShapeStyle>: View {
+    let fill: Style
+    let padding: CGFloat?
+
+    init(fill: Style, padding: CGFloat? = nil) {
+        self.fill = fill
+        self.padding = padding
+    }
+
+    var body: some View {
+        ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
+        .fill(fill)
+        .padding(.all, padding)
     }
 }
 
@@ -262,15 +271,27 @@ private struct PreviewContent {
 
 #Preview("Sizing", traits: .spacing(8), PreviewContent.layout) {
     SizingView()
-        .floatingCaption("SizingView", .alignment(.outerBottomTrailing), .colorStyle(.orange))
+    .background {
+        ConcentricBackground(fill: .orange.tertiary, padding: 8)
+        .ignoresSafeArea()
+    }
+    .floatingCaption("SizingView", .alignment(.outerBottomTrailing), .colorStyle(.orange))
 
     VisibleSpacer()
 
     SizingView()
-        .floatingCaption("SizingView", .alignment(.outerBottomTrailing), .colorStyle(.orange))
+    .background {
+        ConcentricBackground(fill: .orange.tertiary, padding: 8)
+        .ignoresSafeArea()
+    }
+    .floatingCaption("SizingView", .alignment(.outerBottomTrailing), .colorStyle(.orange))
 
     VisibleSpacer()
 
     SizingView()
-        .floatingCaption("SizingView", .alignment(.outerTopTrailing), .colorStyle(.orange))
+    .background {
+        ConcentricBackground(fill: .orange.tertiary, padding: 8)
+        .ignoresSafeArea()
+    }
+    .floatingCaption("SizingView", .alignment(.outerTopTrailing), .colorStyle(.orange))
 }
