@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+nonisolated
 struct StarShape: Shape {
 
     let points: Int

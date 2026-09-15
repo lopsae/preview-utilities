@@ -15,6 +15,7 @@ import SwiftUI
 ///
 /// The spacing between the lines is determined by `spacing`, using `width` to separate vertical
 /// lines, and `height` for horizontal.
+nonisolated
 struct GridGraticule: Shape {
 
     let spacing: CGSize

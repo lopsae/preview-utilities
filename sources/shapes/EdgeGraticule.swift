@@ -13,7 +13,8 @@ import Playgrounds
 /// This shape builds the path for a graticule consisting of sets of lines evenly spaced at each of
 /// the edges of the path rect, both inset and outset. The number of lines and spacing can be
 /// configured for each edge, and for each direction.
-public struct EdgeGraticule: Shape {
+public nonisolated
+struct EdgeGraticule: Shape {
 
     let insetLineSets: EdgeValues<LineSet>
     let outsetLineSets: EdgeValues<LineSet>
@@ -144,6 +145,7 @@ extension EdgeValues where Value == EdgeGraticule.LineSet {
 
 extension EdgeGraticule {
 
+    nonisolated
     struct InsetShape: Shape {
 
         let lineSets: EdgeValues<LineSet>
@@ -185,6 +187,7 @@ extension EdgeGraticule {
 
 extension EdgeGraticule {
 
+    nonisolated
     struct OutsetShape: Shape {
 
         let lineSets: EdgeValues<LineSet>
