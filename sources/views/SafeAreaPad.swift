@@ -78,14 +78,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
     /// The height of this view is always: text.height + 2 *defaultPaddings + 2*halfPaddings
     @ViewBuilder
     private var sizingViewWithBackground: some View {
-        Text("SafeAreaPad")
-        .font(.caption)
-        .hidden()
-        .maxWidthFrame()
-        // Padding from edge of view, to match background padding.
-        .padding(.all)
-        // Padding from edge of background.
-        .padding(Defaults.padding / 2)
+        SizingView()
         .background {
             ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
             .fill(.orange.tertiary)
@@ -144,6 +137,29 @@ struct SafeAreaPad<S: ShapeStyle>: View {
         .padding(.horizontal)
     }
 
+}
+
+
+/// Base that determines the overall size of the `SafeAreaPad`.
+///
+/// This view is used only to determine the size the `SafeAreaPad` will use, without displaying
+/// anything on its own. Backgrounds and overlays are applied to to draw content.
+///
+/// The height is determined by a hidden text and enough paddings to allow a minimum amount of
+/// background around the text displayed in `SafeAreaPad`.
+///
+/// The height of this view is always: text.height + 2*defaultPaddings + 2*halfPaddings
+private struct SizingView: View {
+    var body: some View {
+        Text("SafeAreaPad")
+        .font(.caption)
+        .hidden()
+        .expandingWidthFrame()
+        // Padding from edge of view, to match background padding.
+        .padding(.all)
+        // Padding from edge of background.
+        .padding(Defaults.padding / 2)
+    }
 }
 
 
@@ -241,4 +257,20 @@ private struct PreviewContent {
             .padding(.init(top: 0, leading: padding, bottom: padding, trailing: padding))
             .ignoresSafeArea()
         }
+}
+
+
+#Preview("Sizing", traits: .spacing(8), PreviewContent.layout) {
+    SizingView()
+        .floatingCaption("SizingView", .alignment(.outerBottomTrailing), .colorStyle(.orange))
+
+    VisibleSpacer()
+
+    SizingView()
+        .floatingCaption("SizingView", .alignment(.outerBottomTrailing), .colorStyle(.orange))
+
+    VisibleSpacer()
+
+    SizingView()
+        .floatingCaption("SizingView", .alignment(.outerTopTrailing), .colorStyle(.orange))
 }
