@@ -295,3 +295,59 @@ private struct PreviewContent {
     }
     .floatingCaption("SizingView", .alignment(.outerTopTrailing), .colorStyle(.orange))
 }
+
+
+// FIXME: Move to own file.
+
+
+extension GeometryReader {
+
+    init<AlignedContent: View>(
+        alignment: Alignment,
+        @ViewBuilder content: @escaping (GeometryProxy) -> AlignedContent
+    )
+    where Content == Framed<AlignedContent>
+    {
+        self.init { geometry in
+            Framed(alignment: alignment, size: geometry.size) {
+                content(geometry)
+            }
+        }
+    }
+
+}
+
+
+struct Framed<Content> : View
+    where Content: View
+{
+    let alignment: Alignment
+    let size: CGSize
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        content
+        .frame(size: size, alignment: alignment)
+    }
+}
+
+
+#Preview("GeoReader", traits: .spacing(100), PreviewContent.layout) {
+    GeometryReader(alignment: .topLeading) { geometry in
+        CaptionRectangle("Fixed Size", color: .brown, size: .square(of: 120), traits: .alignment(.outerBottomTrailing))
+        CaptionRectangle("Geometry Size", color: .indigo, size: geometry.size, traits: .size, .alignment(.leading))
+    }
+    .frame(squareOf: 100)
+
+    GeometryReader(alignment: .bottomTrailing) { geometry in
+        CaptionRectangle("Fixed Size", color: .brown, size: .square(of: 120), traits: .alignment(.outerBottomTrailing))
+        CaptionRectangle("Geometry Size", color: .indigo, size: geometry.size, traits: .size, .alignment(.leading))
+    }
+    .frame(squareOf: 100)
+
+    GeometryReader(alignment: .bottom) { geometry in
+        CaptionRectangle("Fixed Size", color: .brown, size: .square(of: 120), traits: .alignment(.outerBottomTrailing))
+        CaptionRectangle("Geometry Size", color: .indigo, size: geometry.size, traits: .size, .alignment(.leading))
+    }
+    .frame(squareOf: 100)
+}
