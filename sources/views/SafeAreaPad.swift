@@ -31,17 +31,17 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             .ignoresSafeArea()
         }
         .overlay {
-            GeometryReader { geometry in
-                let safeArea = geometry.safeAreaInsets[edge: edge]
-                let guidedAlignment: InsettableAlignment = switch edge {
-                case .top:    .top
-                case .bottom: .bottom
-                }
-                let alignment: Alignment = .init(
-                    horizontal: .center,
-                    vertical: guidedAlignment.baseAlignment)
+            let guidedAlignment: InsettableAlignment = switch edge {
+            case .top:    .top
+            case .bottom: .bottom
+            }
+            let contentAlignment = guidedAlignment.baseAlignment
+                .alignment(withOrthogonal: .center)
 
-                ZStack(alignment: alignment) {
+            GeometryReader(alignment: contentAlignment) { geometry in
+                let safeArea = geometry.safeAreaInsets[edge: edge]
+
+                ZStack(alignment: contentAlignment) {
                     let alignmentInset = textAlignmentInset(
                         containerHeight: geometry.size.height,
                         safeArea: safeArea)
@@ -57,15 +57,13 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                         .alignmentGuide(guidedAlignment, insetBy: safeArea)
                     }
 
-                    // This rectangle is required to stay true-bottom aligned to allow the other
+                    // This line is required to stay true-bottom aligned to allow the other
                     // views to offset their position. Its actual position is at the edge of the
                     // safe area.
-                    ClearRectangle(height: 10)
+                    AxialLine(.horizontal, style: .clear, lineWidth: 2)
                 } // ZStack
                 // The ZStack is positioned at the edge of the safeArea to then inset the internal views.
                 .alignmentGuide(guidedAlignment, outsetBy: safeArea)
-                // FIXME: Add geometry reader extension that aligns with a frame.
-                .frame(size: geometry.size, alignment: alignment)
             } // GeometryReader
         } // overlay
 
@@ -306,10 +304,10 @@ extension GeometryReader {
         alignment: Alignment,
         @ViewBuilder content: @escaping (GeometryProxy) -> AlignedContent
     )
-    where Content == Framed<AlignedContent>
+    where Content == FixedFrame<AlignedContent>
     {
         self.init { geometry in
-            Framed(alignment: alignment, size: geometry.size) {
+            FixedFrame(alignment: alignment, size: geometry.size) {
                 content(geometry)
             }
         }
@@ -318,9 +316,7 @@ extension GeometryReader {
 }
 
 
-struct Framed<Content> : View
-    where Content: View
-{
+struct FixedFrame<Content>: View where Content: View {
     let alignment: Alignment
     let size: CGSize
     @ViewBuilder let content: Content
@@ -345,7 +341,7 @@ struct Framed<Content> : View
     }
     .frame(squareOf: 100)
 
-    GeometryReader(alignment: .bottom) { geometry in
+    GeometryReader(alignment: .center) { geometry in
         CaptionRectangle("Fixed Size", color: .brown, size: .square(of: 120), traits: .alignment(.outerBottomTrailing))
         CaptionRectangle("Geometry Size", color: .indigo, size: geometry.size, traits: .size, .alignment(.leading))
     }
