@@ -9,7 +9,7 @@ import SwiftUI
 
 /// View that aligns content to a floating alignment.
 ///
-/// This view is the primary implementation to align any content to a ``FloatingAlignment``.
+/// Primary implementation to align any content to a ``FloatingAlignment``.
 ///
 /// The container view expands to the size available, and allows the given content to expand up to
 /// that size. The content is then aligned to the specified floating alignment.
