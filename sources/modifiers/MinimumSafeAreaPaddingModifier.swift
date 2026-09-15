@@ -22,8 +22,8 @@ import SwiftUI
 /// + In some cases, the value will oscinate between merged and add'l-only safe areas, and the
 ///   preview will freeze.
 ///
-/// Given these issues, it is not recommended to use this modifier. The code is kept as an
-/// interesting study.
+/// Given these issues, it is not recommended to use this modifier. The code is kept as a case
+/// study.
 struct MinimumSafeAreaPaddingModifier: ViewModifier {
 
     /// Last tracked safe area inset reported by `onGeometryChange`. This value is updated only

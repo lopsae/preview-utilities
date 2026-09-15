@@ -59,6 +59,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                 } // ZStack
                 // The ZStack is positioned at the edge of the safeArea to then inset the internal views.
                 .alignmentGuide(guidedAlignment, outsetBy: safeArea)
+                // FIXME: Add geometry reader extension that aligns with a frame.
                 .frame(size: geometry.size, alignment: alignment)
             } // GeometryReader
         } // overlay
@@ -74,7 +75,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
     /// into the safe areas. This base view contains a text to determine its height, but the text
     /// remains hidden.
     ///
-    /// The height of this view is always: text.height + 2 *defaultpPaddings + 2*halfPaddings
+    /// The height of this view is always: text.height + 2 *defaultPaddings + 2*halfPaddings
     @ViewBuilder
     private var sizingViewWithBackground: some View {
         Text("SafeAreaPad")

@@ -64,6 +64,7 @@ struct FloatingAlignedContainer<Content: View>: View {
             .padding(.vertical, verticalSpacing)
             // Aligns the content based in the floating alignment, larger content floats due to
             // this alignment.
+            // FIXME: Add geometry reader extension that aligns with a frame.
             .frame(size: geometry.size, alignment: alignment.forContent)
             .offset(offset)
         } // GeometryReader

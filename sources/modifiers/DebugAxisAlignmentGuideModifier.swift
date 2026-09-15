@@ -92,6 +92,7 @@ where
 
                 AxialLine(orthogonal, style: configuration.shapeStyle, lineWidth: configuration.lineWidth)
                 .frame(size: markSize)
+                // FIXME: Add geometry reader extension that aligns with a frame.
                 .frame(size: geometry.size, alignment: alignment)
             }
             .frame(length: configuration.lineWidth, along: axisAlignment.axis)
