@@ -57,7 +57,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                         .alignmentGuide(guidedAlignment, insetBy: safeArea)
                     }
 
-                    // This retangle is required to stay true-bottom aligned to allow the other
+                    // This rectangle is required to stay true-bottom aligned to allow the other
                     // views to offset their position. Its actual position is at the edge of the
                     // safe area.
                     ClearRectangle(height: 10)
@@ -178,7 +178,7 @@ private struct ConcentricBackground<Style: ShapeStyle>: View {
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
 }
 
