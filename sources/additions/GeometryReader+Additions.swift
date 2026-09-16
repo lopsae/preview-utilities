@@ -32,18 +32,25 @@ extension GeometryReader {
 
 /// View wrapped in a frame of fixed size.
 ///
-/// Provides a concrete type for a view with a `frame(width:height:)` modifier.
+/// Provides a concrete type for a view framed with a `frame(width:height:)` modifier. The subviews
+/// provided in `content` are laid out in a `ZStack` to which the frame is then applied.
 ///
 /// Used to provide a concrete type for type constraints. When extending initializers of generic
 /// types, the generic **must** be constrained to concrete type know at build time. Modifiers like
 /// `frame()` cannot be used when those return an opaque `some View`.
+///
+/// - Note: When subviews use modified alignment guides, the alignment happens first against the
+///     other subviews in the `ZStack` and then the stack is aligned to the frame. This can result
+///     on unexpected aligning behaviours.
 struct FixedFrame<Content>: View where Content: View {
     let alignment: Alignment
     let size: CGSize
     @ViewBuilder let content: Content
 
     var body: some View {
-        content
+        ZStack(alignment: alignment) {
+            content
+        }
         .frame(size: size, alignment: alignment)
     }
 }
@@ -104,17 +111,22 @@ private struct PreviewContent {
     FixedFrame(alignment: .center, size: .square(of: 100)) {
         Text("First")
         Text("Second")
+        .alignmentGuide(.verticalCenter, offsetBy: -15)
     }
-    .debugOverlay()
+    .border(.indigo)
 
-    Group {
+    FixedFrame(alignment: .topLeading, size: .square(of: 100)) {
         Text("First")
         Text("Second")
+        .alignmentGuide(.top, insetBy: 15)
     }
-    .frame(squareOf: 100)
-    .debugOverlay()
-    .border(.red)
+    .border(.indigo)
 
+    FixedFrame(alignment: .bottomTrailing, size: .square(of: 100)) {
+        Text("Outset")
+        .alignmentGuide(.bottom, outsetBy: 20)
+    }
+    .border(.indigo)
 }
 
 
