@@ -9,6 +9,11 @@ import SwiftUI
 
 extension GeometryReader {
 
+    /// Creates a geometry reader with aligned content.
+    ///
+    /// - Parameters:
+    ///   - alignment: The guide for aligning the content.
+    ///   - content: The content to display.
     init<AlignedContent: View>(
         alignment: Alignment,
         @ViewBuilder content: @escaping (GeometryProxy) -> AlignedContent
@@ -25,6 +30,13 @@ extension GeometryReader {
 }
 
 
+/// View wrapped in a frame of fixed size.
+///
+/// Provides a concrete type for a view with a `frame(width:height:)` modifier.
+///
+/// Used to provide a concrete type for type constraints. When extending initializers of generic
+/// types, the generic **must** be constrained to concrete type know at build time. Modifiers like
+/// `frame()` cannot be used when those return an opaque `some View`.
 struct FixedFrame<Content>: View where Content: View {
     let alignment: Alignment
     let size: CGSize
