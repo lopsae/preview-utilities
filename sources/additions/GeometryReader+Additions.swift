@@ -49,6 +49,22 @@ struct FixedFrame<Content>: View where Content: View {
 }
 
 
+/// Applies a fixed size frame to a given content.
+///
+/// This view is an example of a view doing a multi-view behavior: when `content` contains multiple
+/// views, this view outputs multiple views as well. Each of the views given in `content` will be
+/// individually framed.
+///
+/// Kept as an example of the previous behavior of FixedFrame.
+private struct FramedGroup<Content>: View where Content: View {
+    @ViewBuilder let content: Content
+    var body: some View {
+        content
+        .frame(squareOf: 100)
+    }
+}
+
+
 // MARK: - PreviewContent
 
 
@@ -81,4 +97,45 @@ private struct PreviewContent {
         CaptionRectangle("Geometry Size", color: .indigo, size: geometry.size, traits: .size, .alignment(.leading))
     }
     .frame(squareOf: 100)
+}
+
+
+#Preview("FixedFrame", traits: PreviewContent.layout) {
+    FixedFrame(alignment: .center, size: .square(of: 100)) {
+        Text("First")
+        Text("Second")
+    }
+    .debugOverlay()
+
+    Group {
+        Text("First")
+        Text("Second")
+    }
+    .frame(squareOf: 100)
+    .debugOverlay()
+    .border(.red)
+
+}
+
+
+#Preview("FramedGroup", traits: .fixedHeader, PreviewContent.layout) {
+    PreviewCaption("""
+        `FramedGroup` frames each subview in its own frame, since it outputs multiple views itself.
+        """)
+    FramedGroup {
+        Text("First")
+        Text("Second")
+    }
+    .border(.indigo)
+
+    PreviewCaption("""
+        Same behaviour as `Group`.
+        """)
+    Group {
+        Text("First")
+        Text("Second")
+    }
+    .frame(squareOf: 100)
+    .border(.red)
+
 }
