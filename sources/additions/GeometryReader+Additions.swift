@@ -11,6 +11,9 @@ extension GeometryReader {
 
     /// Creates a geometry reader with aligned content.
     ///
+    /// Each view in `content` is framed to the geometry proxy size. Alignment guide modifications
+    /// act against this frame independently of the other subviews.
+    ///
     /// - Parameters:
     ///   - alignment: The guide for aligning the content.
     ///   - content: The content to display.
@@ -18,10 +21,10 @@ extension GeometryReader {
         alignment: Alignment,
         @ViewBuilder content: @escaping (GeometryProxy) -> AlignedContent
     )
-    where Content == FixedFrame<AlignedContent>
+    where Content == FixedFrameGroup<AlignedContent>
     {
         self.init { geometry in
-            FixedFrame(alignment: alignment, size: geometry.size) {
+            FixedFrameGroup(alignment: alignment, size: geometry.size) {
                 content(geometry)
             }
         }
@@ -30,44 +33,23 @@ extension GeometryReader {
 }
 
 
-/// View wrapped in a frame of fixed size.
+/// Views wrapped individually in a frame of fixed size.
 ///
-/// Provides a concrete type for a view framed with a `frame(width:height:)` modifier. The subviews
-/// provided in `content` are laid out in a `ZStack` to which the frame is then applied.
+/// Provides a concrete type for a group of views individually framed with a ``SwiftUICore/View/frame(size:)``
+/// modifier.
 ///
 /// Used to provide a concrete type for type constraints. When extending initializers of generic
-/// types, the generic **must** be constrained to concrete type know at build time. Modifiers like
-/// `frame()` cannot be used when those return an opaque `some View`.
-///
-/// - Note: When subviews use modified alignment guides, the alignment happens first against the
-///     other subviews in the `ZStack` and then the stack is aligned to the frame. This can result
-///     on unexpected aligning behaviours.
-struct FixedFrame<Content>: View where Content: View {
+/// types, the generic types **must** be constrained to concrete types know at build time. Modifiers
+/// like `frame()` cannot be used directly when those return an opaque `some View`.
+struct FixedFrameGroup<Content>: View where Content: View {
     let alignment: Alignment
     let size: CGSize
     @ViewBuilder let content: Content
 
+    @_documentation(visibility: internal)
     var body: some View {
-        ZStack(alignment: alignment) {
-            content
-        }
-        .frame(size: size, alignment: alignment)
-    }
-}
-
-
-/// Applies a fixed size frame to a given content.
-///
-/// This view is an example of a view doing a multi-view behavior: when `content` contains multiple
-/// views, this view outputs multiple views as well. Each of the views given in `content` will be
-/// individually framed.
-///
-/// Kept as an example of the previous behavior of FixedFrame.
-private struct FramedGroup<Content>: View where Content: View {
-    @ViewBuilder let content: Content
-    var body: some View {
-        content
-        .frame(squareOf: 100)
+        // Frame is applied to each view in content individually.
+        content.frame(size: size, alignment: alignment)
     }
 }
 
@@ -107,38 +89,38 @@ private struct PreviewContent {
 }
 
 
-#Preview("FixedFrame", traits: PreviewContent.layout) {
-    FixedFrame(alignment: .center, size: .square(of: 100)) {
+#Preview("FixedFrameAlignments", traits: PreviewContent.layout) {
+    FixedFrameGroup(alignment: .center, size: .square(of: 100)) {
         Text("First")
         Text("Second")
         .alignmentGuide(.verticalCenter, offsetBy: -15)
     }
-    .border(.indigo)
+    .border(.indigo.secondary, width: 2)
 
-    FixedFrame(alignment: .topLeading, size: .square(of: 100)) {
+    FixedFrameGroup(alignment: .topLeading, size: .square(of: 100)) {
         Text("First")
         Text("Second")
         .alignmentGuide(.top, insetBy: 15)
     }
-    .border(.indigo)
+    .border(.purple.secondary, width: 2)
 
-    FixedFrame(alignment: .bottomTrailing, size: .square(of: 100)) {
+    FixedFrameGroup(alignment: .bottomTrailing, size: .square(of: 100)) {
         Text("Outset")
         .alignmentGuide(.bottom, outsetBy: 20)
     }
-    .border(.indigo)
+    .border(.blue.secondary, width: 2)
 }
 
 
-#Preview("FramedGroup", traits: .fixedHeader, PreviewContent.layout) {
+#Preview("FixedFrameGroup", traits: .fixedHeader, PreviewContent.layout) {
     PreviewCaption("""
-        `FramedGroup` frames each subview in its own frame, since it outputs multiple views itself.
+        `FixedFrameGroup` frames each subview in its own frame.
         """)
-    FramedGroup {
+    FixedFrameGroup(alignment: .center, size: .square(of: 100)){
         Text("First")
         Text("Second")
     }
-    .border(.indigo)
+    .border(.indigo.secondary, width: 2)
 
     PreviewCaption("""
         Same behaviour as `Group`.
@@ -148,6 +130,37 @@ private struct PreviewContent {
         Text("Second")
     }
     .frame(squareOf: 100)
-    .border(.red)
+    .border(.red.secondary, width: 2)
+}
 
+
+#Preview("AlignmentGuides", traits: .fixedHeader, PreviewContent.layout) {
+    PreviewCaption("""
+        Each view in `content` is aligned independently against its frame.
+        """)
+
+    GeometryReader(alignment: .top) { geometry in
+        Text("First")
+            .alignmentGuide(.horizontalCenter, moveTo: .leading)
+        Text("Second")
+            .alignmentGuide(.top, insetBy: 15)
+        Text("Third")
+            .alignmentGuide(.horizontalCenter, moveTo: .trailing, offsetBy: 10)
+            .alignmentGuide(.top, insetBy: 30)
+
+    }
+    .debugAlignmentGuide(horizontal: .center)
+    .border(.indigo.secondary, width: 2)
+
+    PreviewCaption("""
+        Stock `GeometryRender` does not use alignment guides for its layout.
+        """)
+
+    GeometryReader { geometry in
+        Text("First")
+            .alignmentGuide(.top, insetBy: 15)
+        Text("Second")
+            .alignmentGuide(.leading, insetBy: 15)
+    }
+    .border(.indigo.secondary, width: 2)
 }
