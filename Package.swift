@@ -41,6 +41,7 @@ let package = Package(
             path: "tests",
             exclude: [
                 "UnitTests.xctestplan",
+                "recorded-snapshots"
             ]
         ),
         .testTarget(
