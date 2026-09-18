@@ -35,7 +35,7 @@ extension GeometryReader {
 
 /// Views wrapped individually in a frame of fixed size.
 ///
-/// Provides a concrete type for a group of views individually framed with a ``SwiftUICore/View/frame(size:)``
+/// Provides a concrete type for a group of views individually framed with a ``SwiftUICore/View/frame(size:alignment:)``
 /// modifier.
 ///
 /// Used to provide a concrete type for type constraints. When extending initializers of generic

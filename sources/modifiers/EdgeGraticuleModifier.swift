@@ -21,7 +21,7 @@ public import SwiftUI
 /// layout is never modified.
 ///
 /// Apply this modifier using ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any
-/// [sibling function](doc:edge-graticule-api/View-Extensions):
+/// [sibling function](doc:edge-graticule-api#View-Extensions):
 ///
 /// ```swift
 /// Capsule()
@@ -36,7 +36,7 @@ public import SwiftUI
 ///
 /// The number of lines and spacing can be customized for each edge, and for
 /// each direction, by passing [`Trait`](doc:EdgeGraticuleModifier/Trait) instances to ``SwiftUICore/View/edgeGraticule(spacing:_:)``
-/// or any [sibling function](doc:edge-graticule-api/View-Extensions):
+/// or any [sibling function](doc:edge-graticule-api#View-Extensions):
 ///
 /// ```swift
 /// RoundedRectangle(cornerRadius: 16)
@@ -74,7 +74,7 @@ public struct EdgeGraticuleModifier: ViewModifier {
     ///
     /// Usually you don't build this object directly, instead one is created and configured using
     /// the [`Trait`](doc:EdgeGraticuleModifier/Trait) instances passed to ``SwiftUICore/View/edgeGraticule(spacing:_:)``
-    /// or other [sibling functions](doc:edge-graticule-api/View-Extensions):
+    /// or other [sibling functions](doc:edge-graticule-api#View-Extensions):
     public struct Configuration: TraitConfigurable {
 
         var insetLineSets: EdgeValues<EdgeGraticule.LineSet>
@@ -117,7 +117,7 @@ extension EdgeGraticuleModifier {
 
     /// Customizations that can be applied to the `Configuration` of a `EdgeGraticuleModifier`.
     ///
-    /// Traits are passed to ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any [sibling function](doc:edge-graticule-api/View-Extensions)
+    /// Traits are passed to ``SwiftUICore/View/edgeGraticule(spacing:_:)`` or any [sibling function](doc:edge-graticule-api#View-Extensions)
     /// to build the [`Configuration`](doc:EdgeGraticuleModifier/Configuration) of an edge graticule.
     ///
     /// All passed traits are applied in order to a default configuration, each trait making a
