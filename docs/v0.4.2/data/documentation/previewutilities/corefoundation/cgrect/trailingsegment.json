@@ -1,0 +1,259 @@
+{
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/trailingSegment"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "CoreFoundation",
+    "externalID" : "s:So6CGRectV16PreviewUtilitiesE15trailingSegmentAC0E0Vvp",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "var"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "trailingSegment"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities7SegmentV",
+        "text" : "Segment"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities",
+        "relatedModules" : [
+          "CoreFoundation"
+        ]
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "trailingSegment"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "nonisolated"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "var"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "trailingSegment"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities7SegmentV",
+              "text" : "Segment"
+            },
+            {
+              "kind" : "text",
+              "text" : " { "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "get"
+            },
+            {
+              "kind" : "text",
+              "text" : " }"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/corefoundation\/cgrect\/trailingsegment"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "CoreFoundation",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "c:@S@CGRect",
+      "text" : "CGRect"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CGRect"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CGRect",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/trailingSegment": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "trailingSegment"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities7SegmentV",
+      "text" : "Segment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/trailingSegment",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "trailingSegment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/trailingsegment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Segment": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Segment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Segment"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "Segment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/segment"
+}
+}
+}
