@@ -81,7 +81,7 @@ extension View {
 /// Used by `View/alignmentGuide(_:moveTo:insetBy:)` and `View/alignmentGuide(_:moveTo:outsetBy:)`
 /// functions to inset or outset an alignment guide.
 nonisolated
-public struct InsettableAlignment<AlignmentType: Sendable> {
+/*public*/ struct InsettableAlignment<AlignmentType: Sendable> {
 
     let baseAlignment: AlignmentType
     let insetDirection: InsetDirection
@@ -113,10 +113,10 @@ public struct InsettableAlignment<AlignmentType: Sendable> {
 extension InsettableAlignment where AlignmentType == HorizontalAlignment {
 
     /// Insettable alignment guide for the leading edge of a view.
-    public static let leading: Self = .init(baseAlignment: .leading, insetDirection: .negative)
+    /*public*/ static let leading: Self = .init(baseAlignment: .leading, insetDirection: .negative)
 
     /// Insettable alignment guide for the trailing edge of a view.
-    public static let trailing: Self = .init(baseAlignment: .trailing, insetDirection: .positive)
+    /*public*/ static let trailing: Self = .init(baseAlignment: .trailing, insetDirection: .positive)
 
 }
 
@@ -127,10 +127,10 @@ extension InsettableAlignment where AlignmentType == HorizontalAlignment {
 extension InsettableAlignment where AlignmentType == VerticalAlignment {
 
     /// Insettable alignment guide for the top edge of a view.
-    public static let top: Self = .init(baseAlignment: .top, insetDirection: .negative)
+    /*public*/ static let top: Self = .init(baseAlignment: .top, insetDirection: .negative)
 
     /// Insettable alignment guide for the bottom edge of a view.
-    public static let bottom: Self = .init(baseAlignment: .bottom, insetDirection: .positive)
+    /*public*/ static let bottom: Self = .init(baseAlignment: .bottom, insetDirection: .positive)
 
 }
 
@@ -142,7 +142,7 @@ extension View {
 
 
     nonisolated
-    public func alignmentGuide(
+    /*public*/ func alignmentGuide(
         _ alignment: InsettableAlignment<HorizontalAlignment>,
         moveTo target: HorizontalAlignment? = nil,
         insetBy inset: CGFloat
@@ -152,7 +152,7 @@ extension View {
     }
 
     nonisolated
-    public func alignmentGuide(
+    /*public*/ func alignmentGuide(
         _ alignment: InsettableAlignment<HorizontalAlignment>,
         moveTo target: HorizontalAlignment? = nil,
         outsetBy outset: CGFloat
@@ -162,7 +162,7 @@ extension View {
     }
 
     nonisolated
-    public func alignmentGuide(
+    /*public*/ func alignmentGuide(
         _ alignment: InsettableAlignment<VerticalAlignment>,
         moveTo target: VerticalAlignment? = nil,
         insetBy inset: CGFloat
@@ -172,7 +172,7 @@ extension View {
     }
 
     nonisolated
-    public func alignmentGuide(
+    /*public*/ func alignmentGuide(
         _ alignment: InsettableAlignment<VerticalAlignment>,
         moveTo target: VerticalAlignment? = nil,
         outsetBy outset: CGFloat
