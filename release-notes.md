@@ -10,6 +10,8 @@ In Development.
 + Added `SheetPreview`.
 + Added `DebugTextRendered` and `HighlightTextRenderer`.
 + Added `Segment`.
++ Fixed new isolation conformances for `Shape` in iOS and macOS 27.
++ Removed Alignment Guide inset and outset functions.
 
 
 
