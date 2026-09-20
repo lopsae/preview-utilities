@@ -39,7 +39,7 @@ extension EdgeGraticuleModifier.Illustrations {
                 "Inset\nLine Sets", to: .leading,
                 span: 100 - 8*4 - 8*2, stem: 12,
                 alignment: .innerLeading,
-                spacingSize: .all(8*2 + 8)
+                spacingSize: .square(of: 8*2 + 8)
             )
         } // DocumentationIllustration
     }
@@ -56,7 +56,7 @@ extension EdgeGraticuleModifier.Illustrations {
                 "Outset\nLine Sets", to: .trailing,
                 span: 100, stem: 20,
                 alignment: .outerLeading,
-                spacingSize: .all(16+8)
+                spacingSize: .square(of: 16+8)
             )
         } // DocumentationIllustration
     }

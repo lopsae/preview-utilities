@@ -1,5 +1,5 @@
 {
-  "originHash" : "d6b2e6660d605238d1e5a54b6cfc446381871432de74dfa5dfc9e6f637343819",
+  "originHash" : "d436abcef78f30e6c49b9abbc78c54812dced03396d0e95ff20e2c0e73f8b208",
   "pins" : [
     {
       "identity" : "geometry-additions",
@@ -7,7 +7,7 @@
       "location" : "https://github.com/lopsae/geometry-additions",
       "state" : {
         "branch" : "feature/publicize-and-test",
-        "revision" : "5f0a2227ab9c55c4c769203c575d5290c56ca79b"
+        "revision" : "3c76a5e9ab566084f7ab238c87c1ad46e0965f1b"
       }
     },
     {

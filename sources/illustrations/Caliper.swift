@@ -168,24 +168,24 @@ private struct PreviewContent {
         "Top Caliper", to: .top,
         span: 40, stem: 20,
         alignment: .outerBottom,
-        spacingSize: .all(4)
+        spacingSize: .square(of: 4)
     )
     .caliperLabel(
         "Leading\nCaliper", to: .leading,
         span: 40, stem: 20,
         alignment: .outerTrailing,
-        spacingSize: .all(4)
+        spacingSize: .square(of: 4)
     )
     .caliperLabel(
         "Bottom Caliper", to: .bottom,
         span: 40, stem: 20,
         alignment: .outerTop,
-        spacingSize: .all(4)
+        spacingSize: .square(of: 4)
     )
     .caliperLabel(
         "Trailing\nCaliper", to: .trailing,
         span: 40, stem: 20,
         alignment: .outerLeading,
-        spacingSize: .all(4)
+        spacingSize: .square(of: 4)
     )
 }
