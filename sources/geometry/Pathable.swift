@@ -34,8 +34,15 @@ extension Pathable {
 }
 
 
+/// Alignment options for drawing strokes.
 public enum StrokeAlignment {
+
+    /// Draws the stroke inside its path.
     case inner
+
+    /// Draws the stroke centered on its path.
     case center
+
+    /// Draws the stroke outside its path.
     case outer
 }
