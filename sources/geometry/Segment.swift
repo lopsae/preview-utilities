@@ -7,10 +7,18 @@
 public import SwiftUI
 
 
+/// Linear segment between two points.
+///
+/// Segments represent a line between two points. Use functions like ``stroke(in:style:lineWidth:alignment:)``
+/// to draw the segment in a graphics context.
 nonisolated
 public struct Segment {
-    var start: CGPoint
-    var end: CGPoint
+
+    /// The start point.
+    public var start: CGPoint
+
+    /// The end point.
+    public var end: CGPoint
 }
 
 
@@ -29,9 +37,17 @@ extension Segment {
 
     /// Draws the aligned stroke in the given graphics context.
     ///
-    /// The stroke alignment shifts the line perpendicular to its `start` to `end` direction:
-    /// `inside` shifts towards the clockwise side, `outside` towards the opposite. This is
-    /// consistent with the direction of segments produced by functions like `CGRect/topSegment`.
+    /// The stroke alignment shifts the line perpendicular to its ``start`` to ``end`` direction:
+    /// ``StrokeAlignment/inner`` shifts towards the clockwise side, ``StrokeAlignment/outer``
+    /// towards the opposite. This is consistent with the direction of segments produced by
+    /// functions like ``CoreFoundation/CGRect/topSegment``.
+    ///
+    /// - Parameters:
+    ///   - context: The graphics context to use for drawing.
+    ///   - style: The style of the stroke.
+    ///   - lineWidth: The line width of the stroke.
+    ///   - alignment: The alignment of the stroke.
+    /// - Returns: `self`, unmodified.
     @discardableResult
     nonisolated
     public func stroke(
