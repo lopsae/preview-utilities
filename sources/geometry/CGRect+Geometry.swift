@@ -16,8 +16,10 @@ extension CGRect: Pathable {
 
 extension CGRect {
 
+    // FIXME: Add documentation.
+
     nonisolated
-    var topSegment: Segment {
+    public var topSegment: Segment {
         CGPoint(x: minX, y: minY)
         .segmentToOffset(x: width)
     }
@@ -29,7 +31,7 @@ extension CGRect {
     }
 
     nonisolated
-    var bottomSegment: Segment {
+    public var bottomSegment: Segment {
         CGPoint(x: maxX, y: maxY)
         .segmentToOffset(x: -width)
     }
