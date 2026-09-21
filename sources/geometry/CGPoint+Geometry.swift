@@ -4,13 +4,16 @@
 //
 
 
-import CoreFoundation
+public import CoreFoundation
+public import GeometryAdditions
 
 
 extension CGPoint {
 
-    nonisolated
-    func segmentToOffset(x: CGFloat = .zero, y: CGFloat = .zero) -> Segment {
+    // FIXME: Add documentation.
+
+    @inlinable nonisolated
+    public func segmentToOffset(x: CGFloat = .zero, y: CGFloat = .zero) -> Segment {
         .init(start: self, end: self.offset(x: x, y: y))
     }
 
