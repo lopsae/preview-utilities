@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "Draws the aligned stroke in the given graphics context.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -270,6 +276,131 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The graphics context to use for drawing.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "context"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The style of the stroke.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "style"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The line width of the stroke.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "lineWidth"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The alignment of the stroke.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "alignment"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "",
+              "type" : "text"
+            },
+            {
+              "code" : "self",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ", unmodified.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The drawn rectangle is inset, outset, or drawn as-is depending on the ",
+              "type" : "text"
+            },
+            {
+              "code" : "alignment",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " parameter,",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "so that the drawn stroke is exactly inside, outside, or centered in the rectangle path.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -353,7 +484,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/stroke(in:style:lineWidth:alignment:)": {
   "abstract" : [
-
+    {
+      "text" : "Draws the aligned stroke in the given graphics context.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -463,7 +597,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment": {
   "abstract" : [
-
+    {
+      "text" : "Alignment options for drawing strokes.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

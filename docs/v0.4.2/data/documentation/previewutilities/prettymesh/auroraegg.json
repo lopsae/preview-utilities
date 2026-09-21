@@ -164,7 +164,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/PrettyMesh": {
   "abstract" : [
-
+    {
+      "text" : "Collection of pretty ",
+      "type" : "text"
+    },
+    {
+      "code" : "MeshGradient",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " instances based on stock SwiftUI colors.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

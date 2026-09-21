@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "Draws the stroke centered on its path.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -105,7 +111,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment": {
   "abstract" : [
-
+    {
+      "text" : "Alignment options for drawing strokes.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -136,7 +145,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment/center": {
   "abstract" : [
-
+    {
+      "text" : "Draws the stroke centered on its path.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

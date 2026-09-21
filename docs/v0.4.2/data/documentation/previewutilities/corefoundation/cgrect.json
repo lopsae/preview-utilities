@@ -92,7 +92,9 @@
       "anchor" : "Instance-Properties",
       "generated" : true,
       "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/bottomSegment",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/leadingSegment",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/topSegment",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/trailingSegment"
       ],
       "title" : "Instance Properties"
@@ -177,9 +179,49 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/bottomSegment": {
+  "abstract" : [
+    {
+      "text" : "Bottom segment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "bottomSegment"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities7SegmentV",
+      "text" : "Segment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/bottomSegment",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "bottomSegment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/bottomsegment"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/leadingSegment": {
   "abstract" : [
-
+    {
+      "text" : "Leading segment.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -213,7 +255,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/stroke(in:style:lineWidth:alignment:)": {
   "abstract" : [
-
+    {
+      "text" : "Draws the aligned stroke in the given graphics context.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -321,9 +366,49 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/stroke(in:style:linewidth:alignment:)"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/topSegment": {
+  "abstract" : [
+    {
+      "text" : "Top segment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "topSegment"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities7SegmentV",
+      "text" : "Segment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/topSegment",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "topSegment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/topsegment"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/trailingSegment": {
   "abstract" : [
-
+    {
+      "text" : "Trailing segment.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

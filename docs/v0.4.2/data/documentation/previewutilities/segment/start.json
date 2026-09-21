@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Draws the stroke outside its path.",
+      "text" : "The start point.",
       "type" : "text"
     }
   ],
@@ -9,21 +9,21 @@
     "paths" : [
       [
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StrokeAlignment"
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment"
       ]
     ]
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StrokeAlignment\/outer"
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment\/start"
   },
   "kind" : "symbol",
   "metadata" : {
-    "externalID" : "s:16PreviewUtilities15StrokeAlignmentO5outeryA2CmF",
+    "externalID" : "s:16PreviewUtilities7SegmentV5startSo7CGPointVvp",
     "fragments" : [
       {
         "kind" : "keyword",
-        "text" : "case"
+        "text" : "var"
       },
       {
         "kind" : "text",
@@ -31,7 +31,16 @@
       },
       {
         "kind" : "identifier",
-        "text" : "outer"
+        "text" : "start"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "c:@S@CGPoint",
+        "text" : "CGPoint"
       }
     ],
     "modules" : [
@@ -40,9 +49,9 @@
       }
     ],
     "role" : "symbol",
-    "roleHeading" : "Case",
-    "symbolKind" : "case",
-    "title" : "StrokeAlignment.outer"
+    "roleHeading" : "Instance Property",
+    "symbolKind" : "property",
+    "title" : "start"
   },
   "primaryContentSections" : [
     {
@@ -57,7 +66,7 @@
           "tokens" : [
             {
               "kind" : "keyword",
-              "text" : "case"
+              "text" : "var"
             },
             {
               "kind" : "text",
@@ -65,7 +74,16 @@
             },
             {
               "kind" : "identifier",
-              "text" : "outer"
+              "text" : "start"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "c:@S@CGPoint",
+              "text" : "CGPoint"
             }
           ]
         }
@@ -84,7 +102,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/previewutilities\/strokealignment\/outer"
+        "\/documentation\/previewutilities\/segment\/start"
       ],
       "traits" : [
         {
@@ -109,17 +127,17 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/Segment": {
   "abstract" : [
     {
-      "text" : "Alignment options for drawing strokes.",
+      "text" : "Linear segment between two points.",
       "type" : "text"
     }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "enum"
+      "text" : "struct"
     },
     {
       "kind" : "text",
@@ -127,33 +145,33 @@
     },
     {
       "kind" : "identifier",
-      "text" : "StrokeAlignment"
+      "text" : "Segment"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StrokeAlignment",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment",
   "kind" : "symbol",
   "navigatorTitle" : [
     {
       "kind" : "identifier",
-      "text" : "StrokeAlignment"
+      "text" : "Segment"
     }
   ],
   "role" : "symbol",
-  "title" : "StrokeAlignment",
+  "title" : "Segment",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/strokealignment"
+  "url" : "\/documentation\/previewutilities\/segment"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment/outer": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/Segment/start": {
   "abstract" : [
     {
-      "text" : "Draws the stroke outside its path.",
+      "text" : "The start point.",
       "type" : "text"
     }
   ],
   "fragments" : [
     {
       "kind" : "keyword",
-      "text" : "case"
+      "text" : "var"
     },
     {
       "kind" : "text",
@@ -161,15 +179,24 @@
     },
     {
       "kind" : "identifier",
-      "text" : "outer"
+      "text" : "start"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGPoint",
+      "text" : "CGPoint"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StrokeAlignment\/outer",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment\/start",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "StrokeAlignment.outer",
+  "title" : "start",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/strokealignment\/outer"
+  "url" : "\/documentation\/previewutilities\/segment\/start"
 }
 }
 }

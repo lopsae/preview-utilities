@@ -1,7 +1,7 @@
 {
   "abstract" : [
     {
-      "text" : "Trailing segment.",
+      "text" : "Bottom segment.",
       "type" : "text"
     }
   ],
@@ -16,12 +16,12 @@
   },
   "identifier" : {
     "interfaceLanguage" : "swift",
-    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/trailingSegment"
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/bottomSegment"
   },
   "kind" : "symbol",
   "metadata" : {
     "extendedModule" : "CoreFoundation",
-    "externalID" : "s:So6CGRectV16PreviewUtilitiesE15trailingSegmentAC0E0Vvp",
+    "externalID" : "s:So6CGRectV16PreviewUtilitiesE13bottomSegmentAC0E0Vvp",
     "fragments" : [
       {
         "kind" : "keyword",
@@ -33,7 +33,7 @@
       },
       {
         "kind" : "identifier",
-        "text" : "trailingSegment"
+        "text" : "bottomSegment"
       },
       {
         "kind" : "text",
@@ -56,7 +56,7 @@
     "role" : "symbol",
     "roleHeading" : "Instance Property",
     "symbolKind" : "property",
-    "title" : "trailingSegment"
+    "title" : "bottomSegment"
   },
   "primaryContentSections" : [
     {
@@ -87,7 +87,7 @@
             },
             {
               "kind" : "identifier",
-              "text" : "trailingSegment"
+              "text" : "bottomSegment"
             },
             {
               "kind" : "text",
@@ -127,7 +127,7 @@
         {
           "inlineContent" : [
             {
-              "text" : "Segment from the top-trailing point, to the bottom-trailing.",
+              "text" : "Segment from the bottom-trailing point, to the bottom-leading.",
               "type" : "text"
             }
           ],
@@ -148,7 +148,7 @@
   "variants" : [
     {
       "paths" : [
-        "\/documentation\/previewutilities\/corefoundation\/cgrect\/trailingsegment"
+        "\/documentation\/previewutilities\/corefoundation\/cgrect\/bottomsegment"
       ],
       "traits" : [
         {
@@ -216,10 +216,10 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/trailingSegment": {
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/bottomSegment": {
   "abstract" : [
     {
-      "text" : "Trailing segment.",
+      "text" : "Bottom segment.",
       "type" : "text"
     }
   ],
@@ -234,7 +234,7 @@
     },
     {
       "kind" : "identifier",
-      "text" : "trailingSegment"
+      "text" : "bottomSegment"
     },
     {
       "kind" : "text",
@@ -246,12 +246,12 @@
       "text" : "Segment"
     }
   ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/trailingSegment",
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/bottomSegment",
   "kind" : "symbol",
   "role" : "symbol",
-  "title" : "trailingSegment",
+  "title" : "bottomSegment",
   "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/trailingsegment"
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/bottomsegment"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/Segment": {
   "abstract" : [

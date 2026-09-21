@@ -36,6 +36,7 @@
       "anchor" : "Extended-Structures",
       "generated" : true,
       "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGPoint",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect"
       ],
       "title" : "Extended Structures"
@@ -79,6 +80,38 @@
   "title" : "CoreFoundation",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/corefoundation"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGPoint": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "extension"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "preciseIdentifier" : "c:@S@CGPoint",
+      "text" : "CGPoint"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGPoint",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "CGPoint"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "CGPoint",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgpoint"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect": {
   "abstract" : [

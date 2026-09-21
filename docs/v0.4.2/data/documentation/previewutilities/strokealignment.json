@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "Alignment options for drawing strokes.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -157,7 +163,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment": {
   "abstract" : [
-
+    {
+      "text" : "Alignment options for drawing strokes.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -188,7 +197,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment/center": {
   "abstract" : [
-
+    {
+      "text" : "Draws the stroke centered on its path.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -213,7 +225,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment/inner": {
   "abstract" : [
-
+    {
+      "text" : "Draws the stroke inside its path.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -238,7 +253,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment/outer": {
   "abstract" : [
-
+    {
+      "text" : "Draws the stroke outside its path.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

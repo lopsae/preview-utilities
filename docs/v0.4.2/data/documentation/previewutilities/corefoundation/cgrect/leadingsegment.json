@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "Leading segment.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -109,6 +115,26 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Segment from the bottom-leading point, to the top-leading.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -192,7 +218,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/leadingSegment": {
   "abstract" : [
-
+    {
+      "text" : "Leading segment.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -226,7 +255,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/Segment": {
   "abstract" : [
-
+    {
+      "text" : "Linear segment between two points.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

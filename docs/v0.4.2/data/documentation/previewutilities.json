@@ -170,7 +170,6 @@
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationRenderer",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IllustrationStorage",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/IndexedCollection",
-        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/PreviewCaption",
         "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment"
       ],
@@ -1264,37 +1263,6 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/indexedcollection"
 },
-"doc://PreviewUtilities/documentation/PreviewUtilities/InsettableAlignment": {
-  "abstract" : [
-
-  ],
-  "fragments" : [
-    {
-      "kind" : "keyword",
-      "text" : "struct"
-    },
-    {
-      "kind" : "text",
-      "text" : " "
-    },
-    {
-      "kind" : "identifier",
-      "text" : "InsettableAlignment"
-    }
-  ],
-  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/InsettableAlignment",
-  "kind" : "symbol",
-  "navigatorTitle" : [
-    {
-      "kind" : "identifier",
-      "text" : "InsettableAlignment"
-    }
-  ],
-  "role" : "symbol",
-  "title" : "InsettableAlignment",
-  "type" : "topic",
-  "url" : "\/documentation\/previewutilities\/insettablealignment"
-},
 "doc://PreviewUtilities/documentation/PreviewUtilities/MainActorImageGenerator": {
   "abstract" : [
     {
@@ -1389,7 +1357,18 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/PrettyMesh": {
   "abstract" : [
-
+    {
+      "text" : "Collection of pretty ",
+      "type" : "text"
+    },
+    {
+      "code" : "MeshGradient",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : " instances based on stock SwiftUI colors.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -1501,7 +1480,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/Segment": {
   "abstract" : [
-
+    {
+      "text" : "Linear segment between two points.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -1616,7 +1598,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment": {
   "abstract" : [
-
+    {
+      "text" : "Alignment options for drawing strokes.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {

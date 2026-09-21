@@ -4761,37 +4761,6 @@
           {
             "children" : [
               {
-                "title" : "Type Properties",
-                "type" : "groupMarker"
-              },
-              {
-                "path" : "\/documentation\/previewutilities\/insettablealignment\/bottom",
-                "title" : "static let bottom: `Self`",
-                "type" : "property"
-              },
-              {
-                "path" : "\/documentation\/previewutilities\/insettablealignment\/leading",
-                "title" : "static let leading: `Self`",
-                "type" : "property"
-              },
-              {
-                "path" : "\/documentation\/previewutilities\/insettablealignment\/top",
-                "title" : "static let top: `Self`",
-                "type" : "property"
-              },
-              {
-                "path" : "\/documentation\/previewutilities\/insettablealignment\/trailing",
-                "title" : "static let trailing: `Self`",
-                "type" : "property"
-              }
-            ],
-            "path" : "\/documentation\/previewutilities\/insettablealignment",
-            "title" : "InsettableAlignment",
-            "type" : "struct"
-          },
-          {
-            "children" : [
-              {
                 "title" : "Initializers",
                 "type" : "groupMarker"
               },
@@ -4825,6 +4794,29 @@
           },
           {
             "children" : [
+              {
+                "title" : "Initializers",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/previewutilities\/segment\/init(start:end:)",
+                "title" : "init(start: CGPoint, end: CGPoint)",
+                "type" : "init"
+              },
+              {
+                "title" : "Instance Properties",
+                "type" : "groupMarker"
+              },
+              {
+                "path" : "\/documentation\/previewutilities\/segment\/end",
+                "title" : "var end: CGPoint",
+                "type" : "property"
+              },
+              {
+                "path" : "\/documentation\/previewutilities\/segment\/start",
+                "title" : "var start: CGPoint",
+                "type" : "property"
+              },
               {
                 "title" : "Instance Methods",
                 "type" : "groupMarker"
@@ -5017,12 +5009,38 @@
               {
                 "children" : [
                   {
+                    "title" : "Instance Methods",
+                    "type" : "groupMarker"
+                  },
+                  {
+                    "path" : "\/documentation\/previewutilities\/corefoundation\/cgpoint\/segmenttooffset(x:y:)",
+                    "title" : "func segmentToOffset(x: CGFloat, y: CGFloat) -> Segment",
+                    "type" : "method"
+                  }
+                ],
+                "path" : "\/documentation\/previewutilities\/corefoundation\/cgpoint",
+                "title" : "CGPoint",
+                "type" : "extension"
+              },
+              {
+                "children" : [
+                  {
                     "title" : "Instance Properties",
                     "type" : "groupMarker"
                   },
                   {
+                    "path" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/bottomsegment",
+                    "title" : "var bottomSegment: Segment",
+                    "type" : "property"
+                  },
+                  {
                     "path" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/leadingsegment",
                     "title" : "var leadingSegment: Segment",
+                    "type" : "property"
+                  },
+                  {
+                    "path" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/topsegment",
+                    "title" : "var topSegment: Segment",
                     "type" : "property"
                   },
                   {
@@ -5558,16 +5576,6 @@
                     "type" : "groupMarker"
                   },
                   {
-                    "path" : "\/documentation\/previewutilities\/swiftuicore\/view\/alignmentguide(_:moveto:insetby:)-6xbdi",
-                    "title" : "func alignmentGuide(InsettableAlignment<HorizontalAlignment>, moveTo: HorizontalAlignment?, insetBy: CGFloat) -> some View",
-                    "type" : "method"
-                  },
-                  {
-                    "path" : "\/documentation\/previewutilities\/swiftuicore\/view\/alignmentguide(_:moveto:insetby:)-7anp5",
-                    "title" : "func alignmentGuide(InsettableAlignment<VerticalAlignment>, moveTo: VerticalAlignment?, insetBy: CGFloat) -> some View",
-                    "type" : "method"
-                  },
-                  {
                     "path" : "\/documentation\/previewutilities\/swiftuicore\/view\/alignmentguide(_:moveto:offsetby:)-5jdxp",
                     "title" : "func alignmentGuide(HorizontalAlignment, moveTo: HorizontalAlignment?, offsetBy: CGFloat) -> some View",
                     "type" : "method"
@@ -5575,16 +5583,6 @@
                   {
                     "path" : "\/documentation\/previewutilities\/swiftuicore\/view\/alignmentguide(_:moveto:offsetby:)-7yr7e",
                     "title" : "func alignmentGuide(VerticalAlignment, moveTo: VerticalAlignment?, offsetBy: CGFloat) -> some View",
-                    "type" : "method"
-                  },
-                  {
-                    "path" : "\/documentation\/previewutilities\/swiftuicore\/view\/alignmentguide(_:moveto:outsetby:)-68hu9",
-                    "title" : "func alignmentGuide(InsettableAlignment<HorizontalAlignment>, moveTo: HorizontalAlignment?, outsetBy: CGFloat) -> some View",
-                    "type" : "method"
-                  },
-                  {
-                    "path" : "\/documentation\/previewutilities\/swiftuicore\/view\/alignmentguide(_:moveto:outsetby:)-78969",
-                    "title" : "func alignmentGuide(InsettableAlignment<VerticalAlignment>, moveTo: VerticalAlignment?, outsetBy: CGFloat) -> some View",
                     "type" : "method"
                   },
                   {

@@ -270,6 +270,95 @@
       "kind" : "declarations"
     },
     {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The graphics context to use for drawing.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "context"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The style of the stroke.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "style"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The line width of the stroke.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "lineWidth"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The alignment of the stroke.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "alignment"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "",
+              "type" : "text"
+            },
+            {
+              "code" : "self",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : ", unmodified.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
       "content" : [
         {
           "anchor" : "discussion",
@@ -280,43 +369,51 @@
         {
           "inlineContent" : [
             {
-              "text" : "The stroke alignment shifts the line perpendicular to its ",
+              "text" : "The stroke alignment shifts the drawn line perpendicular to its ",
               "type" : "text"
             },
             {
-              "code" : "start",
-              "type" : "codeVoice"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment\/start",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
               "text" : " to ",
               "type" : "text"
             },
             {
-              "code" : "end",
-              "type" : "codeVoice"
-            },
-            {
-              "text" : " direction:",
-              "type" : "text"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment\/end",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
               "text" : " ",
               "type" : "text"
             },
             {
-              "code" : "inside",
-              "type" : "codeVoice"
+              "text" : "direction: ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StrokeAlignment\/inner",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
               "text" : " shifts towards the clockwise side, ",
               "type" : "text"
             },
             {
-              "code" : "outside",
-              "type" : "codeVoice"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StrokeAlignment\/outer",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
-              "text" : " towards the opposite. This is",
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "towards the opposite. This is consistent with the direction of segments produced by",
               "type" : "text"
             },
             {
@@ -324,12 +421,13 @@
               "type" : "text"
             },
             {
-              "text" : "consistent with the direction of segments produced by functions like ",
+              "text" : "functions like ",
               "type" : "text"
             },
             {
-              "code" : "CGRect\/topSegment",
-              "type" : "codeVoice"
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/topSegment",
+              "isActive" : true,
+              "type" : "reference"
             },
             {
               "text" : ".",
@@ -378,9 +476,49 @@
   "type" : "topic",
   "url" : "\/documentation\/previewutilities"
 },
+"doc://PreviewUtilities/documentation/PreviewUtilities/CoreFoundation/CGRect/topSegment": {
+  "abstract" : [
+    {
+      "text" : "Top segment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "topSegment"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities7SegmentV",
+      "text" : "Segment"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/CoreFoundation\/CGRect\/topSegment",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "topSegment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/corefoundation\/cgrect\/topsegment"
+},
 "doc://PreviewUtilities/documentation/PreviewUtilities/Segment": {
   "abstract" : [
-
+    {
+      "text" : "Linear segment between two points.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -408,6 +546,80 @@
   "title" : "Segment",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/segment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Segment/end": {
+  "abstract" : [
+    {
+      "text" : "The end point.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "end"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGPoint",
+      "text" : "CGPoint"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment\/end",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "end",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/segment\/end"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/Segment/start": {
+  "abstract" : [
+    {
+      "text" : "The start point.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "start"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "c:@S@CGPoint",
+      "text" : "CGPoint"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/Segment\/start",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "start",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/segment\/start"
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/Segment/stroke(in:style:lineWidth:alignment:)": {
   "abstract" : [
@@ -524,7 +736,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment": {
   "abstract" : [
-
+    {
+      "text" : "Alignment options for drawing strokes.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
@@ -552,6 +767,62 @@
   "title" : "StrokeAlignment",
   "type" : "topic",
   "url" : "\/documentation\/previewutilities\/strokealignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment/inner": {
+  "abstract" : [
+    {
+      "text" : "Draws the stroke inside its path.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "inner"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StrokeAlignment\/inner",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "StrokeAlignment.inner",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/strokealignment\/inner"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/StrokeAlignment/outer": {
+  "abstract" : [
+    {
+      "text" : "Draws the stroke outside its path.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "outer"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/StrokeAlignment\/outer",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "StrokeAlignment.outer",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/strokealignment\/outer"
 }
 }
 }

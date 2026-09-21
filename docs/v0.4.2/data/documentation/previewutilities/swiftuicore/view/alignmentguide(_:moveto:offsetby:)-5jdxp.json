@@ -1,4 +1,10 @@
 {
+  "abstract" : [
+    {
+      "text" : "Offsets a horizontal alignment guide, optionally positioning it from another guide.",
+      "type" : "text"
+    }
+  ],
   "hierarchy" : {
     "paths" : [
       [
@@ -234,6 +240,202 @@
         }
       ],
       "kind" : "declarations"
+    },
+    {
+      "kind" : "parameters",
+      "parameters" : [
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The horizontal alignment to modify.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "alignment"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "The alignment whose position is used as the base for ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "alignment",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : "; When omitted",
+                  "type" : "text"
+                },
+                {
+                  "text" : " ",
+                  "type" : "text"
+                },
+                {
+                  "text" : "the default position of ",
+                  "type" : "text"
+                },
+                {
+                  "code" : "alignment",
+                  "type" : "codeVoice"
+                },
+                {
+                  "text" : " is used.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "target"
+        },
+        {
+          "content" : [
+            {
+              "inlineContent" : [
+                {
+                  "text" : "Offset to apply to the alignment position; Defaults to zero.",
+                  "type" : "text"
+                }
+              ],
+              "type" : "paragraph"
+            }
+          ],
+          "name" : "offset"
+        }
+      ]
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "return-value",
+          "level" : 2,
+          "text" : "Return Value",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "A view modified with respect to its vertical alignment.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Convenience function for ",
+              "type" : "text"
+            },
+            {
+              "code" : "View.alignmentGuide(_:computeValue:)",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " that places the",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "code" : "alignment",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " guide at an offset position of the ",
+              "type" : "text"
+            },
+            {
+              "code" : "target",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " guide. When ",
+              "type" : "text"
+            },
+            {
+              "code" : "target",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " is omitted",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "the guide is offset from its own default position.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Guide positions are measured in the view’s own coordinates, where positive values move in",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "the trailing direction. A positive ",
+              "type" : "text"
+            },
+            {
+              "code" : "offset",
+              "type" : "codeVoice"
+            },
+            {
+              "text" : " moves the guide towards the trailing side of the",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "view, which moves the view itself towards the leading direction with respect to the views",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "it is aligned with.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
     }
   ],
   "schemaVersion" : {
@@ -317,7 +519,10 @@
 },
 "doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/alignmentGuide(_:moveTo:offsetBy:)-5jdxp": {
   "abstract" : [
-
+    {
+      "text" : "Offsets a horizontal alignment guide, optionally positioning it from another guide.",
+      "type" : "text"
+    }
   ],
   "fragments" : [
     {
