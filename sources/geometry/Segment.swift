@@ -9,7 +9,7 @@ public import SwiftUI
 
 /// Linear segment between two points.
 ///
-/// Segments represent a line between two points. Use functions like ``stroke(in:style:lineWidth:alignment:)``
+/// A segment represents a line between two points. Use functions like ``stroke(in:style:lineWidth:alignment:)``
 /// to draw the segment in a graphics context.
 nonisolated
 public struct Segment {
