@@ -19,6 +19,16 @@ public struct Segment {
 
     /// The end point.
     public var end: CGPoint
+
+    /// Creates a segment between two points.
+    /// - Parameters:
+    ///   - start: The start point.
+    ///   - end: The end point.
+    public init(start: CGPoint, end: CGPoint) {
+        self.start = start
+        self.end   = end
+    }
+
 }
 
 
