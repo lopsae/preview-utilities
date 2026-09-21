@@ -83,8 +83,17 @@ extension CGRect {
 
 extension CGRect {
 
-    // FIXME: Add documentation.
-
+    /// Draws the aligned stroke in the given graphics context.
+    ///
+    /// The drawn rectangle is inset, outset, or drawn as-is depending on the `alignment` parameter,
+    /// so that the drawn stroke is exactly inside, outside, or centered in the rectangle path.
+    ///
+    /// - Parameters:
+    ///   - context: The graphics context to use for drawing.
+    ///   - style: The style of the stroke.
+    ///   - lineWidth: The line width of the stroke.
+    ///   - alignment: The alignment of the stroke.
+    /// - Returns: `self`, unmodified.
     @discardableResult
     public func stroke(
         in context: GraphicsContext,

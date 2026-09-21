@@ -47,8 +47,8 @@ extension Segment {
 
     /// Draws the aligned stroke in the given graphics context.
     ///
-    /// The stroke alignment shifts the line perpendicular to its ``start`` to ``end`` direction:
-    /// ``StrokeAlignment/inner`` shifts towards the clockwise side, ``StrokeAlignment/outer``
+    /// The stroke alignment shifts the drawn line perpendicular to its ``start`` to ``end``
+    /// direction: ``StrokeAlignment/inner`` shifts towards the clockwise side, ``StrokeAlignment/outer``
     /// towards the opposite. This is consistent with the direction of segments produced by
     /// functions like ``CoreFoundation/CGRect/topSegment``.
     ///
