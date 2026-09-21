@@ -4,7 +4,7 @@
 //
 
 
-import GeometryAdditions
+public import GeometryAdditions
 public import CoreFoundation
 public import SwiftUI
 
@@ -16,31 +16,41 @@ extension CGRect: Pathable {
 
 extension CGRect {
 
-    // FIXME: Add documentation.
-
-    nonisolated
+    /// Top segment.
+    ///
+    /// Segment from the top-leading point, to the top-trailing.
+    @inlinable nonisolated
     public var topSegment: Segment {
-        CGPoint(x: minX, y: minY)
-        .segmentToOffset(x: width)
+        topLeadingPoint.segmentToOffset(x: width)
     }
 
-    nonisolated
+
+    /// Trailing segment.
+    ///
+    /// Segment from the top-trailing point, to the bottom-trailing.
+    @inlinable nonisolated
     public var trailingSegment: Segment {
-        CGPoint(x: maxX, y: minY)
-        .segmentToOffset(y: height)
+        topTrailingPoint.segmentToOffset(y: height)
     }
 
-    nonisolated
+
+    /// Bottom segment.
+    ///
+    /// Segment from the bottom-trailing point, to the bottom-leading.
+    @inlinable nonisolated
     public var bottomSegment: Segment {
-        CGPoint(x: maxX, y: maxY)
-        .segmentToOffset(x: -width)
+        bottomTrailingPoint.segmentToOffset(x: -width)
     }
 
-    nonisolated
+
+    /// Leading segment.
+    ///
+    /// Segment from the bottom-leading point, to the top-leading.
+    @inlinable nonisolated
     public var leadingSegment: Segment {
-        CGPoint(x: minX, y: maxY)
-        .segmentToOffset(y: -height)
+        bottomLeadingPoint.segmentToOffset(y: -height)
     }
+
 
     // TODO: Could be moved to GeometryAdditions.
     nonisolated
@@ -72,6 +82,8 @@ extension CGRect {
 
 
 extension CGRect {
+
+    // FIXME: Add documentation.
 
     @discardableResult
     public func stroke(
