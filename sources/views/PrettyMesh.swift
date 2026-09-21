@@ -7,6 +7,7 @@
 public import SwiftUI
 
 
+/// Collection of pretty `MeshGradient` instances based on stock SwiftUI colors.
 public enum PrettyMesh {
 
     public static var summerDawnSplit: MeshGradient {
@@ -19,7 +20,7 @@ public enum PrettyMesh {
                 [0.0, 1.0], [0.5, 1.0], [1.0, 1.0],
             ],
             colors: [
-                .red, .red, .indigo,
+                .red,    .red, .indigo,
                 .yellow, .red, .indigo,
                 .yellow, .red, .indigo,
                 .yellow, .red, .red,
@@ -38,8 +39,8 @@ public enum PrettyMesh {
             ],
             colors: [
                 .orange, .orange, .yellow, .yellow,
-                .red, .red, .red, .red,
-                .blue, .blue, .blue, .blue
+                .red,    .red,    .red,    .red,
+                .blue,   .blue,   .blue,   .blue
             ]
         )
     }
@@ -58,13 +59,13 @@ public enum PrettyMesh {
                 [0.00, 1.00], [0.24, 1.00], [0.48, 1.00], [0.58, 1.00], [0.79, 1.00], [1.00, 1.00],
             ],
             colors: [
-                .blue,   .blue, .purple, .indigo, .indigo, .indigo,
-                .blue,   .blue, .purple, .indigo, .indigo, .indigo,
-                .blue,   .blue,   .indigo, .teal,   .blue,   .blue,
-                .blue,   .blue,   .indigo, .teal,   .blue,   .blue,
-                .blue,   .blue,   .indigo, .mint,   .blue,   .blue,
-                .teal,   .teal,   .teal,   .mint,  .blue,   .blue,
-                .teal,   .teal,   .teal,   .mint,  .blue,   .blue,
+                .blue, .blue, .purple, .indigo, .indigo, .indigo,
+                .blue, .blue, .purple, .indigo, .indigo, .indigo,
+                .blue, .blue, .indigo, .teal,   .blue,   .blue,
+                .blue, .blue, .indigo, .teal,   .blue,   .blue,
+                .blue, .blue, .indigo, .mint,   .blue,   .blue,
+                .teal, .teal, .teal,   .mint,   .blue,   .blue,
+                .teal, .teal, .teal,   .mint,   .blue,   .blue,
             ]
         )
     }
@@ -81,11 +82,11 @@ public enum PrettyMesh {
                 [0.00, 1.00], [0.31, 1.00], [0.50, 1.00], [0.81, 1.00], [0.90, 1.00], [1.00, 1.00],
             ],
             colors: [
-                .red,    .red, .orange, .yellow, .red,    .red,
-                .orange, .red,    .orange, .yellow, .red,    .orange,
-                .orange, .red,    .orange, .orange, .red,    .orange,
-                .orange, .red,    .yellow, .orange, .red,    .orange,
-                .red,    .red,    .yellow, .orange, .red, .red
+                .red,    .red, .orange, .yellow, .red, .red,
+                .orange, .red, .orange, .yellow, .red, .orange,
+                .orange, .red, .orange, .orange, .red, .orange,
+                .orange, .red, .yellow, .orange, .red, .orange,
+                .red,    .red, .yellow, .orange, .red, .red
             ]
         )
     }
@@ -104,9 +105,9 @@ public enum PrettyMesh {
                 },
             colors: [
                 .red,    .orange, .yellow, .yellow, .orange, .red,
-                .orange, .red,    .orange, .orange, .red, .orange,
-                .orange, .red,    .orange, .orange, .red, .orange,
-                .orange, .red,    .orange, .orange, .red, .orange,
+                .orange, .red,    .orange, .orange, .red,    .orange,
+                .orange, .red,    .orange, .orange, .red,    .orange,
+                .orange, .red,    .orange, .orange, .red,    .orange,
                 .red,    .orange, .yellow, .yellow, .orange, .red
             ]
         )
