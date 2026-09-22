@@ -47,6 +47,7 @@ Files that need version update:
 + `readme.md`: Link to latest, and all example links.
 + `documentation.md`: Add and update latest.
 + `release-notes.md`: Add notes of latest.
++ `.spi.yml`: Swift Package Index documentation.
 + `deploy-pages.yml`: In the docs worktree, to display the correct link when documentation is deployed to Github pages.
 
 
