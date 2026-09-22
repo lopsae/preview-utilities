@@ -9,7 +9,7 @@ import SwiftUI
 
 /// View that aligns content to a floating alignment.
 ///
-/// This view is the primary implementation to align any content to a ``FloatingAlignment``.
+/// Primary implementation to align any content to a ``FloatingAlignment``.
 ///
 /// The container view expands to the size available, and allows the given content to expand up to
 /// that size. The content is then aligned to the specified floating alignment.
@@ -50,21 +50,21 @@ struct FloatingAlignedContainer<Content: View>: View {
 
 
     var body: some View {
-        GeometryReader { geometry in
+        // Content is aligned based in the floating alignment, larger content floats due to this
+        // alignment.
+        GeometryReader(alignment: alignment.forContent) { geometry in
             let offset = calculateOffset(geometry: geometry)
 
             VStack(alignment: alignment.forContent.horizontal) {
                 let contentAlignments = FloatingAlignment.ContentAlignments(floatingAlignment: alignment)
                 content(contentAlignments)
             }
-            // This first frame constrains the content to the same size the geometry reader can take.
+            // This first frame constrains the content to the same size the geometry reader can
+            // take, even with the paddings, the content still is sized to the owner view size.
             .frame(size: geometry.size, alignment: alignment.forContent)
             // Padding is added on top, for spacing from the edge of the content.
             .padding(.horizontal, horizontalSpacing)
             .padding(.vertical, verticalSpacing)
-            // Aligns the content based in the floating alignment, larger content floats due to
-            // this alignment.
-            .frame(size: geometry.size, alignment: alignment.forContent)
             .offset(offset)
         } // GeometryReader
     }

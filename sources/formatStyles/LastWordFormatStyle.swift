@@ -4,6 +4,7 @@
 //
 
 
+public import Foundation
 import Playgrounds
 import SwiftUI
 

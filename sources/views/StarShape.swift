@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+nonisolated
 struct StarShape: Shape {
 
     let points: Int
@@ -16,8 +17,8 @@ struct StarShape: Shape {
 
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        let center = rect.center
-        let outerRadius = rect.size.min / 2
+        let center = rect.centerPoint
+        let outerRadius = rect.size.minComponent / 2
         let innerRadius = outerRadius * concaveVertexRatio
 
         // TODO: figure out angle operations using Angle?

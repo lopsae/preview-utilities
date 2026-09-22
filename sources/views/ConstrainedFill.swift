@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// View that expands to the available space and displays the given content constrained and aligned
@@ -28,8 +28,8 @@ import SwiftUI
 /// This view provides a behaviour that `.frame` is unable to support: using a `.frame` that expands
 /// to occupy all available space (with `.infinity` for width and height) will behave the same while
 /// the content is smaller that the available space. However, if the content is larger, then the
-/// size of the frame will expand to the size of the content. This view **always** contrains the content
-/// to the available space.
+/// size of the frame will expand to the size of the content. This view **always** constrains the
+/// content to the available space.
 @_documentation(visibility: internal)
 public struct ConstrainedFill<Content>: View where Content : View {
     let alignment: Alignment

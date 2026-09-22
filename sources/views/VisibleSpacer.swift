@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// A visible spacer view that expands to all available space in an specific axis.

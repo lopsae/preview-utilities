@@ -6,7 +6,7 @@ Utilities for SwiftUI previews.
 A collection of modifiers, views, extensions, and other utilities for building previews in 
 SwiftUI.
 
-Latest documentation: [v0.4.1][latest-documentation].
+Latest documentation: [v0.4.2][latest-documentation].
 
 See [Package Documentation](documentation.md) for documentation of earlier versions.
 
@@ -14,7 +14,7 @@ See [Package Documentation](documentation.md) for documentation of earlier versi
 > Package documentation is actively being written. Many of the utilities in this package have not 
 > been thoroughly documented yet.
 
-[latest-documentation]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/
+[latest-documentation]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/
 
 
 
@@ -44,8 +44,8 @@ Text("Judge my Vow")
 See the [Debug Overlay documentation][docs-debug-overlay-api] for more details.
 
 
-[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugoverlay(_:)
-[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-overlay-api
+[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/swiftuicore/view/debugoverlay(_:)
+[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/debug-overlay-api
 
 
 ### Debug Alignment Guides
@@ -75,8 +75,8 @@ Text("A new age\ndoes not begin all of a sudden")
 See the [Debug Alignment Guide documentation][docs-debug-alignment-guide-api] for more details.
 
 
-[docs-debug-alignment-guide-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/debugalignmentguide(_:_:)
-[docs-debug-alignment-guide-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/debug-alignment-guide-api
+[docs-debug-alignment-guide-function]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/swiftuicore/view/debugalignmentguide(_:_:)
+[docs-debug-alignment-guide-api]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/debug-alignment-guide-api
 
 
 
@@ -108,8 +108,8 @@ Circle()
 See the [Floating Caption documentation][docs-floating-caption-api] for more details.
 
 
-[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
-[docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/floating-caption-api
+[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
+[docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/floating-caption-api
 
 
 
@@ -123,9 +123,9 @@ Other utilities available in this package:
   asynchronously with different isolation contexts.
 
 
-[docs-format-style-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/format-styles-api
-[docs-preview-caption]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/previewcaption
-[docs-floating-alignment-api]: https://lopsae.github.io/preview-utilities/v0.4.1/documentation/previewutilities/floating-alignments-api
+[docs-format-style-api]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/format-styles-api
+[docs-preview-caption]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/previewcaption
+[docs-floating-alignment-api]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/floating-alignments-api
 
 
 

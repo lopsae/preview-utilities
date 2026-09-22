@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// View that displays the given content overlaid on a parent view that is hidden.

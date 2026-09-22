@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 public struct HeaderFooterContainer<Content: View>: View {

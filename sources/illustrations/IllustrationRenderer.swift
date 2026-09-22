@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 #if canImport(UIKit)
 import UIKit
@@ -257,17 +257,6 @@ public struct IllustrationRenderer {
                 "WindowHierarchy strategy is not available on this platform"
             }
         }
-    }
-
-}
-
-
-extension ImageRenderer {
-
-    /// Convenience initializer that renders the given content at the specified scale.
-    convenience init(scale: CGFloat, @ViewBuilder content: () -> Content) {
-        self.init(content: content())
-        self.scale = scale
     }
 
 }

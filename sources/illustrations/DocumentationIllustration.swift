@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Wraps content for rendering an illustration generated from a SwiftUI view body.

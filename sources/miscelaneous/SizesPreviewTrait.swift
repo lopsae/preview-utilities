@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 extension PreviewTrait where T == Preview.ViewTraits {
@@ -34,7 +34,20 @@ extension PreviewTrait where T == Preview.ViewTraits {
 // MARK: - Previews
 
 
-#Preview(traits: .iPhoneProSizeLayout) {
+#Preview("Default", traits: .iPhoneProSizeLayout) {
     ClearRectangle()
-        .debugOverlay(.size)
+    .debugOverlay(.size)
+}
+
+
+#Preview("Fixed", traits: .iPhoneProSizeLayout) {
+    CaptionRectangle(
+        "In macOS the fixed \n size of this view will \n override the preview \n size.",
+        color: .teal, size: .square(of: 120)
+    )
+}
+
+
+#Preview("Forced", traits: .iPhoneProSizeForcedLayout) {
+    CaptionRectangle("Fixed Size", color: .teal, size: .square(of: 120))
 }

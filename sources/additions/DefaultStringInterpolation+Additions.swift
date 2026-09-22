@@ -4,8 +4,8 @@
 //
 
 
+public import Foundation
 import Playgrounds
-import Foundation
 
 
 extension DefaultStringInterpolation {

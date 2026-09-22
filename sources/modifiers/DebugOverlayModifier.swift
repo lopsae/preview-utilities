@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Overlays a visual representation of a view's boundaries, origin, and safe areas.
@@ -205,7 +205,7 @@ public struct DebugOverlayModifier: ViewModifier {
         // When content view is smaller that `bordersWidth*2` the lineWidth used is reduced to
         // allow drawing at smaller sizes, otherwise strokes smaller that half the half the side
         // of the rectangle are NOT drawn.
-        let correctedLineWidth = min(geometry.size.min, boundedBordersWidth * 2) / 2.0
+        let correctedLineWidth = min(geometry.size.minComponent, boundedBordersWidth * 2) / 2.0
 
         let strokeStyle = StrokeStyle(
             lineWidth: correctedLineWidth,

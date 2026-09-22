@@ -25,18 +25,23 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             DashedDivider()
         }
 
-        sizingViewWithBackground.overlay {
-            GeometryReader { geometry in
-                let safeArea = geometry.safeAreaInsets[edge: edge]
-                let guidedAlignment: InsettableAlignment = switch edge {
-                case .top:    .top
-                case .bottom: .bottom
-                }
-                let alignment: Alignment = .init(
-                    horizontal: .center,
-                    vertical: guidedAlignment.baseAlignment)
+        SizingView()
+        .background {
+            ConcentricBackground(fill: .orange.tertiary)
+            .ignoresSafeArea()
+        }
+        .overlay {
+            let guidedAlignment: InsettableAlignment = switch edge {
+            case .top:    .top
+            case .bottom: .bottom
+            }
+            let contentAlignment = guidedAlignment.baseAlignment
+                .alignment(withOrthogonal: .center)
 
-                ZStack(alignment: alignment) {
+            GeometryReader(alignment: contentAlignment) { geometry in
+                let safeArea = geometry.safeAreaInsets[edge: edge]
+
+                ZStack(alignment: contentAlignment) {
                     let alignmentInset = textAlignmentInset(
                         containerHeight: geometry.size.height,
                         safeArea: safeArea)
@@ -52,45 +57,18 @@ struct SafeAreaPad<S: ShapeStyle>: View {
                         .alignmentGuide(guidedAlignment, insetBy: safeArea)
                     }
 
-                    // This retangle is required to stay true-bottom aligned to allow the other
+                    // This line is required to stay true-bottom aligned to allow the other
                     // views to offset their position. Its actual position is at the edge of the
                     // safe area.
-                    ClearRectangle(height: 10)
+                    AxialLine(.horizontal, style: .clear, lineWidth: 2)
                 } // ZStack
                 // The ZStack is positioned at the edge of the safeArea to then inset the internal views.
                 .alignmentGuide(guidedAlignment, outsetBy: safeArea)
-                .frame(size: geometry.size, alignment: alignment)
             } // GeometryReader
         } // overlay
 
         if showDivider && edge == .top {
             DashedDivider()
-        }
-    }
-
-
-
-    /// Base view that determines the overall size of the view and includes the background extending
-    /// into the safe areas. This base view contains a text to determine its height, but the text
-    /// remains hidden.
-    ///
-    /// The height of this view is always: text.height + 2 *defaultpPaddings + 2*halfPaddings
-    @ViewBuilder
-    private var sizingViewWithBackground: some View {
-        Text("SafeAreaPad")
-        .font(.caption)
-        .hidden()
-        .maxWidthFrame()
-        // Padding from edge of view, to match background padding.
-        .padding(.all)
-        // Padding from edge of background.
-        .padding(Defaults.padding / 2)
-        .background {
-            ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
-            .fill(.orange.tertiary)
-            // Padding from edge of view, to match background padding.
-            .padding(.all)
-            .ignoresSafeArea()
         }
     }
 
@@ -146,13 +124,59 @@ struct SafeAreaPad<S: ShapeStyle>: View {
 }
 
 
+// MARK: - SizingView
+
+
+/// Base that determines the overall size of the `SafeAreaPad`.
+///
+/// This view is used only to determine the size the `SafeAreaPad` will use, without displaying
+/// anything on its own. Backgrounds and overlays are applied to to draw content.
+///
+/// The height is determined by a hidden text and enough paddings to allow a minimum amount of
+/// background around the text displayed in `SafeAreaPad`.
+///
+/// The height of this view is always: text.height + 2*defaultPaddings + 2*halfPaddings
+private struct SizingView: View {
+    var body: some View {
+        Text("SafeAreaPad")
+        .font(.caption)
+        .hidden()
+        .expandingWidthFrame()
+        // Padding from edge of view, to match background padding.
+        .padding(.all)
+        // Padding from edge of background.
+        .padding(Defaults.padding / 2)
+    }
+}
+
+
+// MARK: - ConcentricBackground
+
+
+private struct ConcentricBackground<Style: ShapeStyle>: View {
+    let fill: Style
+    let padding: CGFloat?
+
+    init(fill: Style, padding: CGFloat? = nil) {
+        self.fill = fill
+        self.padding = padding
+    }
+
+    var body: some View {
+        ConcentricRectangle(minimumConcentricRadius: HeaderFooterContainer.minimumConcentricRadius)
+        .fill(fill)
+        .padding(.all, padding)
+    }
+}
+
+
 // MARK: - Previews
 
 
 @MainActor
 private struct PreviewContent {
 
-    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeForcedLayout
 
 }
 
@@ -240,4 +264,32 @@ private struct PreviewContent {
             .padding(.init(top: 0, leading: padding, bottom: padding, trailing: padding))
             .ignoresSafeArea()
         }
+}
+
+
+#Preview("Sizing", traits: .spacing(8), PreviewContent.layout) {
+    SizingView()
+    .background {
+        ConcentricBackground(fill: .orange.tertiary, padding: 8)
+        .ignoresSafeArea()
+    }
+    .floatingCaption("SizingView", .alignment(.outerBottomTrailing), .colorStyle(.orange))
+
+    VisibleSpacer()
+
+    SizingView()
+    .background {
+        ConcentricBackground(fill: .orange.tertiary, padding: 8)
+        .ignoresSafeArea()
+    }
+    .floatingCaption("SizingView", .alignment(.outerBottomTrailing), .colorStyle(.orange))
+
+    VisibleSpacer()
+
+    SizingView()
+    .background {
+        ConcentricBackground(fill: .orange.tertiary, padding: 8)
+        .ignoresSafeArea()
+    }
+    .floatingCaption("SizingView", .alignment(.outerTopTrailing), .colorStyle(.orange))
 }

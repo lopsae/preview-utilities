@@ -4,7 +4,7 @@
 //
 
 
-import Foundation
+public import Foundation
 
 
 /// Convenience protocol with a default implementation of `formatted(_:)`.

@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 extension DebugOverlayModifier {
@@ -99,7 +99,7 @@ extension DebugOverlayModifier.Configuration {
 
     /// Customizations that can be applied to the configuration of a `DebugOverlayModifier`.
     ///  
-    /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` or any [sibling function](doc:debug-overlay-api/View-Extensions)
+    /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` or any [sibling function](doc:debug-overlay-api#View-Extensions)
     /// to build the [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay.
     ///
     /// All passed traits are applied in order to a default configuration, each trait making a

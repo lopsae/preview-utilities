@@ -1,9 +1,21 @@
 Release Notes
 =============
 
-v0.4.1
---------------------
-Latest.
+v0.4.2 - GeometryAdditions & InternalImportsByDefault
+-----------------------------------------------------
++ Moved additions for `CGPoint`, `CGSize`, `CGRect`, `EdgeInsets`, and `UIEdgeInsets` into a separate `GeometryAdditions` package.
++ Enabled `InternalImportsByDefault` package upcoming feature.
++ Added `SheetPreview`.
++ Added `DebugTextRendered` and `HighlightTextRenderer`.
++ Added `Segment`.
++ Fixed new isolation conformances for `Shape` in iOS and macOS 27.
++ Removed Alignment Guide inset and outset functions.
+
+
+
+v0.4.1 - DebugAlignmentGuideModifier & EdgeGraticuleModifier
+------------------------------------------------------------
+Released 2026 August 20th.
 
 + Added `DebugAlignmentGuideModifier` and associated `View` extension functions.
 + Added `DebugAxisAlignmentGuideModifier` and associated `View` extension functions.
@@ -32,7 +44,7 @@ Released 2026 June 21st.
 
 
 
-v3.0.1 - Documentation Catalog
+v0.3.1 - Documentation Catalog
 ------------------------------
 Released 2026 May 25th.
 
@@ -42,7 +54,7 @@ Released 2026 May 25th.
 
 
 
-v3.0.0 - Initial tagged release
+v0.3.0 - Initial tagged release
 -------------------------------
 Released 2026 April 28th. 
 
