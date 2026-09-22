@@ -44,7 +44,7 @@ Released 2026 June 21st.
 
 
 
-v3.0.1 - Documentation Catalog
+v0.3.1 - Documentation Catalog
 ------------------------------
 Released 2026 May 25th.
 
@@ -54,7 +54,7 @@ Released 2026 May 25th.
 
 
 
-v3.0.0 - Initial tagged release
+v0.3.0 - Initial tagged release
 -------------------------------
 Released 2026 April 28th. 
 
