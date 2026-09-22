@@ -43,10 +43,12 @@ Documentation generation
 ------------------------
 
 Files that need version update:
-+ Documentation Catalog: package-version, on text and link.
-+ readme.md
-+ scripts/generate-static-docs
-+ scripts/serve-documentation
++ `VERSION`: Version used by the documentation scripts.
++ `readme.md`: Link to latest, and all example links.
++ `documentation.md`: Add and update latest.
++ `release-notes.md`: Add notes of latest.
++ `.spi.yml`: Swift Package Index documentation.
++ `deploy-pages.yml`: In the docs worktree, to display the correct link when documentation is deployed to Github pages.
 
 
 Build the documentation into the documentation worktree:

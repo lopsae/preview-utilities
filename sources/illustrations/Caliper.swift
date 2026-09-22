@@ -24,25 +24,25 @@ struct Caliper: Shape {
         Path { path in
             switch barEdge {
             case .leading:
-                path.move(to: [rect.minX, rect.minY])
-                path.addLine(to: [rect.minX, rect.maxY])
-                path.move(to: [rect.minX, rect.midY])
-                path.addLine(to: [rect.maxX, rect.midY])
+                rect.leadingSegment
+                    .add(to: &path)
+                rect.horizontalBisectorSegment
+                    .add(to: &path)
             case .trailing:
-                path.move(to: [rect.maxX, rect.minY])
-                path.addLine(to: [rect.maxX, rect.maxY])
-                path.move(to: [rect.minX, rect.midY])
-                path.addLine(to: [rect.maxX, rect.midY])
+                rect.trailingSegment
+                    .add(to: &path)
+                rect.horizontalBisectorSegment
+                    .add(to: &path)
             case .top:
-                path.move(to: [rect.minX, rect.minY])
-                path.addLine(to: [rect.maxX, rect.minY])
-                path.move(to: [rect.midX, rect.minY])
-                path.addLine(to: [rect.midX, rect.maxY])
+                rect.topSegment
+                    .add(to: &path)
+                rect.verticalBisectorSegment
+                    .add(to: &path)
             case .bottom:
-                path.move(to: [rect.minX, rect.maxY])
-                path.addLine(to: [rect.maxX, rect.maxY])
-                path.move(to: [rect.midX, rect.minY])
-                path.addLine(to: [rect.midX, rect.maxY])
+                rect.bottomSegment
+                    .add(to: &path)
+                rect.verticalBisectorSegment
+                    .add(to: &path)
             }
         }
     }
@@ -168,24 +168,24 @@ private struct PreviewContent {
         "Top Caliper", to: .top,
         span: 40, stem: 20,
         alignment: .outerBottom,
-        spacingSize: .all(4)
+        spacingSize: .square(of: 4)
     )
     .caliperLabel(
         "Leading\nCaliper", to: .leading,
         span: 40, stem: 20,
         alignment: .outerTrailing,
-        spacingSize: .all(4)
+        spacingSize: .square(of: 4)
     )
     .caliperLabel(
         "Bottom Caliper", to: .bottom,
         span: 40, stem: 20,
         alignment: .outerTop,
-        spacingSize: .all(4)
+        spacingSize: .square(of: 4)
     )
     .caliperLabel(
         "Trailing\nCaliper", to: .trailing,
         span: 40, stem: 20,
         alignment: .outerLeading,
-        spacingSize: .all(4)
+        spacingSize: .square(of: 4)
     )
 }

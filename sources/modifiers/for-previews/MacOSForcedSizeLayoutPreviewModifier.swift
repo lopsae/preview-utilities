@@ -4,21 +4,23 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 #if os(macOS)
 
-/// Wraps the preview content in a `VStack` and a `.frame` with a given size to force the preview
-/// size. Intended to fix layout issues in macOS previews.
-///
-/// Previews in macOS are able to override the size of the window even when `.fixedLayout` trait is
-/// used. This trait simply wraps the content to a given frame size, forcing the content to use that
+/// Wraps the preview content in a `VStack` and a `frame` with a given size to force the preview
 /// size.
 ///
-/// This modifier was built to fix issues with multiline `Text` views using `.fixedSize()`, which in
-/// macOS cause issues with other flexible views. In general this modifier is not necessary unless
-/// `Text` using `.()fixedSize` can influence the size of the preview, for example, when using
+/// Previews in macOS are able to override the size of the window even when `fixedLayout` trait is
+/// used. This trait wraps the content in a frame of fixed size, forcing the content to use that
+/// size.
+///
+/// Intended to fix layout issues in macOS previews.
+///
+/// This modifier was built to fix issues with multiline `Text` views using `fixedSize()`, which in
+/// macOS causes issues with other flexible views. In general this modifier is not necessary unless
+/// `Text` using `()fixedSize` can influence the size of the preview, for example, when using
 /// ``PreviewCaption``.
 ///
 /// See example previews for more details.
@@ -44,11 +46,11 @@ struct MacOSForcedSizeLayoutPreviewModifier: PreviewModifier {
 
 extension PreviewTrait where T == Preview.ViewTraits {
 
-    /// In macOS, applies a forced size modifier and the `.iPhoneProSizeLayout` trait; in other
-    /// platforms this returns only the `.iPhoneProSizeLayout` trait.
+    /// In macOS, applies a forced size modifier and the `iPhoneProSizeLayout` trait; in other
+    /// platforms this returns only the `siPhoneProSizeLayout` trait.
     ///
     /// In general this trait is not necessary unless `Text` with `fixedSize` can influence the size
-    /// of the preview, for example, when using ``PreviewCaption``. Use `.iPhoneProSizeLayout`
+    /// of the preview, for example, when using ``PreviewCaption``. Use `iPhoneProSizeLayout`
     /// directly unless the forced size is needed.
     public static var iPhoneProSizeForcedLayout: PreviewTrait {
         #if os(macOS)

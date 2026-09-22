@@ -4,7 +4,8 @@
 //
 
 
-import SwiftUI
+import GeometryAdditions
+public import SwiftUI
 
 
 extension VStack {

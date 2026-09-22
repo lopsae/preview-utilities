@@ -7,7 +7,7 @@
 #if canImport(AppKit)
 
 
-import AppKit
+public import AppKit
 
 
 // TODO: added as counterpart of UIEdgeInset, but has not been used. Double check the same idioms apply.

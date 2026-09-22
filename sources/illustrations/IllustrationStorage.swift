@@ -5,7 +5,9 @@
 
 
 import Foundation
-import SwiftUI
+import ImageIO
+public import SwiftUI
+public import CoreGraphics
 import UniformTypeIdentifiers.UTType
 
 

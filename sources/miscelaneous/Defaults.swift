@@ -4,6 +4,7 @@
 //
 
 
+public import CoreFoundation
 import SwiftUI
 
 

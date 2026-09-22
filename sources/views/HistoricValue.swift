@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Displays a value, along a history of previous values offset from the view.

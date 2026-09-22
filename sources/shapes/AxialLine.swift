@@ -61,6 +61,7 @@ extension AxialLine {
     /// bounds.
     ///
     /// To extend the line path to the edges of the shape, enable ``extendToEdges``.
+    nonisolated
     struct LineShape: Shape {
         let axis: Axis
         let extendToEdges: Bool

@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 // FUTURE: could this be abstracted into a modifier that uses `Edge`? parent.stack(on: .top) { ... }

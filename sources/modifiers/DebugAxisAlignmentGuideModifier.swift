@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Overlays a visual representation of a view's horizontal or vertical alignment guide.
@@ -73,7 +73,7 @@ where
         content.overlay(alignment: alignment) {
             let axis = axisAlignment.axis
             let orthogonal = axis.orthogonal
-            GeometryReader { geometry in
+            GeometryReader(alignment: alignment) { geometry in
                 let baseSize: CGSize = switch configuration.length {
                 case .container, .extended: geometry.size
                 case .fixed(let length):
@@ -92,7 +92,6 @@ where
 
                 AxialLine(orthogonal, style: configuration.shapeStyle, lineWidth: configuration.lineWidth)
                 .frame(size: markSize)
-                .frame(size: geometry.size, alignment: alignment)
             }
             .frame(length: configuration.lineWidth, along: axisAlignment.axis)
             .opacity(configuration.opacity)

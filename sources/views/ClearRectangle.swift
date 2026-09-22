@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Convenience view that contains an invisible rectangle framed to a given size.

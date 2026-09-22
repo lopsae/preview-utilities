@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// A divider line with a dashed line style.
@@ -18,6 +18,7 @@ public struct DashedDivider: View {
         self.lineWidth = lineWidth
     }
 
+    @_documentation(visibility: internal)
     public var body: some View {
         AxialLine(
             axis, style: .tertiary,

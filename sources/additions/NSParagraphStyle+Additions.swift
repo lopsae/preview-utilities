@@ -5,9 +5,9 @@
 
 
 #if canImport(AppKit)
-import AppKit
+public import AppKit
 #elseif canImport(UIKit)
-import UIKit
+public import UIKit
 #endif
 
 
