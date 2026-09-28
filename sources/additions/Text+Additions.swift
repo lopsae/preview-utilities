@@ -17,6 +17,7 @@ extension Text {
         Self(verbatim: string).font(.caption)
     }
 
+    // FIXME: Make extension of View, remove default value for textAlignment param to make it explictly different from `expandingWidthFrame()`.
     /// Expands the view's width with matching frame and multiline alignment.
     ///
     /// Applies the given multiline text alignment and warps the view in a horizontally expanding
@@ -27,7 +28,7 @@ extension Text {
     ///
     /// - Parameter textAlignment: The text alignment to apply to multiline text, and to the
     ///   expanding frame.
-    public func expandingWidthFrame(textAlignment: TextAlignment = .leading) -> some View {
+    public func expandingWidthFrame(textAlignment: TextAlignment) -> some View {
         self
         .multilineTextAlignment(textAlignment)
         .maxWidthFrame(
