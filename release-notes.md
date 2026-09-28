@@ -1,8 +1,16 @@
 Release Notes
 =============
 
+v0.5.0 - Rename to DebugGeometry
+--------------------------------
+In Development.
++ Renamed `DebugOverlayModifier` to `DebugGeometryModifier`.
+
+
+
 v0.4.2 - GeometryAdditions & InternalImportsByDefault
 -----------------------------------------------------
+Released 2026 September 22nd.
 + Moved additions for `CGPoint`, `CGSize`, `CGRect`, `EdgeInsets`, and `UIEdgeInsets` into a separate `GeometryAdditions` package.
 + Enabled `InternalImportsByDefault` package upcoming feature.
 + Added `SheetPreview`.
