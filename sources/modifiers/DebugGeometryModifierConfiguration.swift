@@ -18,17 +18,34 @@ extension DebugGeometryModifier {
     /// the [`Trait`](doc:Trait) instances passed to ``SwiftUICore/View/debugGeometry(_:)``.
     public struct Configuration {
 
+        /// The visibility of all elements drawn in the debug overlay.
+        ///
+        /// When set to `false` the modifier will draw no content.
         var isVisible: Bool = true
+
+        /// The caption displayed along the geometry information.
         var captionSource: CaptionSource? = nil
+
+        /// The visibility of the inner and outer borders.
         var areBordersEnabled: Bool = true
-        // FIXME: change default to 4, 1 quarter of default padding.
-        var bordersWidth: CGFloat = 5
+
+        /// The width of the inner and outer borders.
+        ///
+        /// Defaults to `4`, a quarter of the default iOS padding.
+        var bordersWidth: CGFloat = 4
+
+        // FIXME: Rename to geometryInfo
         var infoElements: InfoElements = .empty
         // FIXME: Rename to captionAlignment.
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
-        var drawsCaptionBorder: Bool = false
+
+        /// Enables a border around the debug caption.
+        ///
+        /// Used to test caption alignment distance.
+        internal var drawsCaptionBorder: Bool = false
 
 
+        // FIXME: Publicize inits and document.
         init() {}
 
 
