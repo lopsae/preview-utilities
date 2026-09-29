@@ -29,7 +29,7 @@ public struct PreviewCaption: View {
 
 
     public var body: some View {
-        VStack(spacing: Defaults.padding * 2 / 3 ) {
+        VStack(spacing: SpacingDefaults.padding * 2 / 3 ) {
             ForEach(strings.enumerated(), id: \.offset) { index, string in
                 // Markdown initializer without options removes new lines from the resulting string.
                 let markdownString = (try? AttributedString(markdown: string))

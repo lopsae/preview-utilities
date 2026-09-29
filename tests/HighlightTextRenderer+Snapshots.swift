@@ -53,7 +53,7 @@ struct HighlightTextRendererSnapshots {
 
         Snapshots.assertView("positions") {
             let highlight = Text("Highlight").customAttribute(HighlightTextRenderer.Highlight())
-            VStack(spacing: Defaults.padding) {
+            VStack(spacing: SpacingDefaults.padding) {
                 Text("\(highlight) Middle End")
                 Text("Start \(highlight) End")
                 Text("Start Middle \(highlight)")
@@ -73,7 +73,7 @@ struct HighlightTextRendererSnapshots {
 
         Snapshots.assertView("options", colorSchemes: .all) {
             let highlight = Text("Highlight").customAttribute(HighlightTextRenderer.Highlight())
-            VStack(spacing: Defaults.padding) {
+            VStack(spacing: SpacingDefaults.padding) {
                 Text("All \(highlight) Debug")
                 .expandingWidthFrame(textAlignment: .center)
                 .textRenderer(HighlightTextRenderer(debugRuns: .all, drawHighlight: drawHighlight))
@@ -93,7 +93,7 @@ struct HighlightTextRendererSnapshots {
 
     @Test(.snapshotTesting) func dashedCapsule() {
         Snapshots.assertView("default", colorSchemes: .all) {
-            VStack(spacing: Defaults.padding) {
+            VStack(spacing: SpacingDefaults.padding) {
                 Text("Default \(highlight: "ladybug", label: "Label")")
                 .textRenderer(HighlightTextRenderer.dashedCapsule())
 
@@ -106,7 +106,7 @@ struct HighlightTextRendererSnapshots {
         }
 
         Snapshots.assertView("foregroundStyle", colorSchemes: .all) {
-            VStack(spacing: Defaults.padding) {
+            VStack(spacing: SpacingDefaults.padding) {
                 Text("Default \(highlight: "ladybug", label: "Label")")
                 .textRenderer(HighlightTextRenderer.dashedCapsule())
 

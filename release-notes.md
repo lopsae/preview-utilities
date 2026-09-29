@@ -5,6 +5,7 @@ v0.5.0 - Rename to DebugGeometry
 --------------------------------
 In Development.
 + Renamed `DebugOverlayModifier` to `DebugGeometryModifier`.
++ Renamed `Defaults` to `SpacingDefaults`.
 
 
 

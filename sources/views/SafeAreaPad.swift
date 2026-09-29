@@ -74,7 +74,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
 
 
     private func textAlignmentInset(containerHeight: CGFloat, safeArea: CGFloat) -> CGFloat {
-        let padding = Defaults.padding
+        let padding = SpacingDefaults.padding
 
         // Container height, removing the top padding. This is the area
         // where the label can be.
@@ -145,7 +145,7 @@ private struct SizingView: View {
         // Padding from edge of view, to match background padding.
         .padding(.all)
         // Padding from edge of background.
-        .padding(Defaults.padding / 2)
+        .padding(SpacingDefaults.padding / 2)
     }
 }
 

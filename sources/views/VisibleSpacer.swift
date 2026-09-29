@@ -41,7 +41,7 @@ public struct VisibleSpacer: View {
             .foregroundStyle(.tertiary)
             .font(.caption)
             .fixedSize()
-            .padding(paddingEdges, Defaults.padding / 2)
+            .padding(paddingEdges, SpacingDefaults.padding / 2)
             .frame(
                 minWidth: minWidth,
                 maxWidth: maxWidth,
@@ -51,7 +51,7 @@ public struct VisibleSpacer: View {
             )
             .background(
                 .gray.quaternary,
-                in: RoundedRectangle(cornerRadius: Defaults.padding / 4)
+                in: RoundedRectangle(cornerRadius: SpacingDefaults.padding / 4)
             )
     }
 

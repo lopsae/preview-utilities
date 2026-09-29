@@ -11,7 +11,7 @@ public import SwiftUI
 struct PaddingSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
-        VStack(spacing: Defaults.padding) {
+        VStack(spacing: SpacingDefaults.padding) {
             content
         }
     }
@@ -24,7 +24,7 @@ struct PaddingSpacingPreviewModifier: PreviewModifier {
 private struct DebugPaddingSpacingPreviewModifier: PreviewModifier {
 
     func body(content: Content, context _: ()) -> some View {
-        VStack(spacing: Defaults.padding) {
+        VStack(spacing: SpacingDefaults.padding) {
             CaptionRectangle("DefaultSpacing Above", color: .gray, width: 150, height: 40)
             content
             CaptionRectangle("DefaultSpacing Below", color: .gray, width: 150, height: 40)

@@ -10,7 +10,7 @@ import SwiftUI
 
 /// Container of default values.
 nonisolated
-public enum Defaults {
+public enum SpacingDefaults {
 
     /// Default padding applied with the `padding()` modifier, in iOS.
     public static let padding: CGFloat = 16
@@ -19,7 +19,7 @@ public enum Defaults {
 
 
 #Preview("Paddings") {
-    @Previewable @ScaledMetric var scaledPadding = Defaults.padding
+    @Previewable @ScaledMetric var scaledPadding = SpacingDefaults.padding
 
     Rectangle()
     .fill(.cyan.gradient.secondary)

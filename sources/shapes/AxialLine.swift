@@ -175,7 +175,7 @@ private struct PreviewContent {
     AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: .square)
     .floatingCaption("Square", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottomTrailing))
 
-    HStack(spacing: Defaults.padding) {
+    HStack(spacing: SpacingDefaults.padding) {
         AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: .butt)
         .floatingCaption("Butt", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottom))
 
