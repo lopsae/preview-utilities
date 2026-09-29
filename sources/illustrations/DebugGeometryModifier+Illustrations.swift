@@ -34,7 +34,6 @@ extension DebugGeometryModifier.Illustrations {
         } // DocumentationIllustration
     }
 
-    // FIXME: Use calipers here.
 
     /// Illustration of the components of the `debugGeometry`.
     static var components: DocumentationIllustration {
@@ -43,108 +42,41 @@ extension DebugGeometryModifier.Illustrations {
             .fill(.gray.secondary)
             .frame(width: 140, height: 60)
             .debugGeometry(.caption("A `Capsule` shape"), .size, .alignment(.outerTop))
-            .overlay {
-                // Outer stroke.
-                FloatingAlignedContainer(alignment: .outerTrailing, spacing: 10) { contentAlignments in
-                    HStack(spacing: 4) {
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: .zero)
-                                path.addLine(to: [.zero, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [20, 60])
-
-                        Text.caption("Outer stroke\nin blue")
-                            .multilineTextAlignment(contentAlignments.text)
-                    }
-                }
-
-                // Safe area inset.
-                FloatingAlignedContainer(alignment: .outerTrailingUnder, spacing: 5) { contentAlignments in
-                    HStack(spacing: 4) {
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: .zero)
-                                path.addLine(to: [.zero, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [20, 30])
-
-                        Text.caption("Safe area inset\nin green")
-                            .multilineTextAlignment(contentAlignments.text)
-                    }
-                    .offset(x: 5)
-                }
-
-                // Inner stroke.
-                FloatingAlignedContainer(alignment: .innerTrailing, spacing: 10) { contentAlignments in
-                    HStack(spacing: 4) {
-                        Text.caption("Inner stroke\nin red")
-                            .multilineTextAlignment(contentAlignments.text)
-
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: [geometry.size.width, .zero])
-                                path.addLine(to: [geometry.size.width, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [20, 40])
-                    }
-                }
-
-                // Origin point.
-                FloatingAlignedContainer(alignment: .outerLeadingTop, spacing: 10) { contentAlignments in
-                    HStack(spacing: 4) {
-                        Text.caption("Origin point")
-                            .multilineTextAlignment(contentAlignments.text)
-
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: [geometry.size.width, .zero])
-                                path.addLine(to: [geometry.size.width, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [20, 11])
-                    }
-                    .offset(y: -17)
-                }
-
-                // Debug caption.
-                FloatingAlignedContainer(alignment: .outerLeadingAbove, spacing: 10) { contentAlignments in
-                    HStack(spacing: 4) {
-                        Text.caption("Debug caption")
-                            .multilineTextAlignment(contentAlignments.text)
-
-                        GeometryReader { geometry in
-                            Path { path in
-                                path.move(to: [geometry.size.width, .zero])
-                                path.addLine(to: [geometry.size.width, geometry.size.height])
-                                path.move(to: [.zero, geometry.size.height/2])
-                                path.addLine(to: [geometry.size.width, geometry.size.height/2])
-                            }
-                            .stroke(.primary, lineWidth: 1)
-                        }
-                        .frame(size: [20, 24])
-                    }
-                }
-            } // overlay
+            .caliperLabel(
+                "Outer stroke\nin blue", to: .leading,
+                span: 60, stem: 20,
+                alignment: .outerTrailing,
+                spacingSize: .square(of: 8)
+            )
+            .caliperLabel(
+                "Safe area inset\nin green", to: .leading,
+                span: 30, stem: 20,
+                alignment: .outerTrailingUnder,
+                spacingSize: [8, 4]
+            )
+            .caliperLabel(
+                "Inner stroke\nin red", to: .trailing,
+                span: 60 - 16, stem: 20,
+                alignment: .innerTrailing,
+                spacingSize: .square(of: 8)
+            )
+            .caliperLabel(
+                "Origin point", to: .trailing,
+                span: 9, stem: 20,
+                alignment: .outerLeadingTop,
+                spacingSize: [8, -4]
+            )
+            .caliperLabel(
+                "Debug caption", to: .trailing,
+                span: 25, stem: 20,
+                alignment: .outerLeadingAbove,
+                spacingSize: [8, 8]
+            )
             .safeAreaInset(edge: .bottom, spacing: .zero) {
-                ClearRectangle().frame(squareOf: 35)
+                ClearRectangle().frame(squareOf: 34)
             }
-            .offset(y: 20)
+            .expandingFrame(alignment: .bottom)
+            .offset(y: -34)
         } // DocumentationIllustration
     }
 }
