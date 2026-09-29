@@ -89,7 +89,7 @@ public import SwiftUI
 /// + ``Trait``
 public struct FloatingCaptionModifier: ViewModifier {
 
-    let localizedKey: LocalizedStringKey
+    let captionSource: TextSource
     let flatTraits: [Trait]
 
 
@@ -98,9 +98,16 @@ public struct FloatingCaptionModifier: ViewModifier {
     ///   - localizedKey: A Localized string key to display as caption.
     ///   - traits: The traits to configure the modifier.
     public init(localizedKey: LocalizedStringKey, traits: [Trait]) {
-        self.localizedKey = localizedKey
+        self.captionSource = .localizedKey(localizedKey)
         self.flatTraits = traits.flattenTraits()
     }
+
+
+    init(verbatim string: String, traits: [Trait]) {
+        self.captionSource = .verbatim(string)
+        self.flatTraits = traits.flattenTraits()
+    }
+
 
     @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
@@ -115,7 +122,7 @@ public struct FloatingCaptionModifier: ViewModifier {
                     VStack(alignment: alignments.content.horizontal) {
                         let textStyle: any ShapeStyle = flatTraits.captionStyle
                             ?? .secondary
-                        Text(localizedKey)
+                        captionSource.text
                             .font(.caption)
                             .foregroundStyle(textStyle)
                             .multilineTextAlignment(alignments.text)
@@ -368,6 +375,14 @@ extension View {
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
 
+
+    // FIXME: Search for `floatingCaption("\` to replace with verbatim.
+    func floatingCaption(verbatim string: String, _ traits: FloatingCaptionModifier.Trait...) -> some View {
+        modifier(FloatingCaptionModifier(verbatim: string, traits: traits))
+    }
+
+    // FIXME: Make caption optional, search for `floatingCaption(""` to find uses.
+
 }
 
 
@@ -404,6 +419,7 @@ private struct PreviewContent {
     Rectangle()
         .fill(.indigo.gradient.tertiary)
         .frame(squareOf: 100)
+        .floatingCaption(verbatim:"`verbatim`", .alignment(.center))
         .floatingCaption(
             "External", .size, .alignment(.outerBottom),
             .captionStyle(.indigo), .borderStyle(.indigo.tertiary),
@@ -422,4 +438,22 @@ private struct PreviewContent {
         }
     }
 
+}
+
+
+
+// FIXME: Move to its own file.
+nonisolated
+enum TextSource {
+    case localizedKey(LocalizedStringKey)
+    case verbatim(String)
+
+    var text: Text {
+        switch self {
+        case .localizedKey(let localizedStringKey):
+            Text(localizedStringKey)
+        case .verbatim(let string):
+            Text(verbatim: string)
+        }
+    }
 }
