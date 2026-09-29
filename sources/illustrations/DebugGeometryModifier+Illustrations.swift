@@ -4,9 +4,6 @@
 //
 
 
-// FIXME: Rename file.
-
-
 import SwiftUI
 
 
@@ -37,6 +34,7 @@ extension DebugGeometryModifier.Illustrations {
         } // DocumentationIllustration
     }
 
+    // FIXME: Use calipers here.
 
     /// Illustration of the components of the `debugGeometry`.
     static var components: DocumentationIllustration {
