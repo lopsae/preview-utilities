@@ -110,39 +110,4 @@ struct IllustrationsForDebugAlignmentGuideModifier {
         }
     }
 
-    // FIXME: Delete?
-
-
-//    @Test func alignments() throws {
-//        try storage.renderAndStore("debug-overlay", "alignments") {
-//            DocumentationIllustration(height: 180) {
-//                HStack(spacing: 16) {
-//                    Rectangle()
-//                        .fill(.green.gradient)
-//                        .frame(width: 100, height: 60)
-//                        .debugGeometry(.caption("Inner Top"), .alignment(.innerTop))
-//                    Rectangle()
-//                        .fill(.mint.gradient)
-//                        .frame(width: 100, height: 60)
-//                        .debugGeometry(.caption("Outer Bottom\nLeading"), .alignment(.outerBottomLeading))
-//                    Rectangle()
-//                        .fill(.teal.gradient)
-//                        .frame(width: 100, height: 60)
-//                        .debugGeometry(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
-//                }
-//            }
-//        }
-//    }
-
-
-//    @Test func torchTraits() throws {
-//        try storage.renderAndStore("debug-overlay", "torch-traits") {
-//            DocumentationIllustration(height: 100) {
-//                Text("a sort of splendid torch")
-//                    .debugGeometry(.width, .alignment(.outerTop))
-//                Text("which I have got hold of for the moment")
-//            }
-//        }
-//    }
-
 }
