@@ -126,6 +126,9 @@ extension DocumentationIllustration {
         /// aspect ration of `5/2`.
         public static let regular: Self = .init(height: 160)
 
+        // FUTURE: Start taking note of other common sizes.
+        // DebugGeometry: 180, 100
+
         /// Size for snippet illustrations with the default width and a given height.
         ///
         /// This illustration size uses the ``defaultWidth`` (`400`).

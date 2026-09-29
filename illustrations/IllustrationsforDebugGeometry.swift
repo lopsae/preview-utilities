@@ -25,11 +25,9 @@ struct IllustrationsForDebugOverlay {
     }
 
 
-    // FIXME: Use sizing for illustrations.
-
     @Test func `default`() throws {
         try storage.renderAndStore("debug-geometry", "default") {
-            DocumentationIllustration(height: 160) {
+            DocumentationIllustration(sizing: .regular) {
                 Text("Sphinx of Black Quartz")
                     .font(.title)
                 Text("Judge my Vow")
@@ -42,7 +40,7 @@ struct IllustrationsForDebugOverlay {
 
     @Test func simpleTraits() throws {
         try storage.renderAndStore("debug-geometry", "simple-traits") {
-            DocumentationIllustration(height: 160) {
+            DocumentationIllustration(sizing: .regular) {
                 Rectangle()
                 .fill(.yellow.gradient.secondary)
                 .frame(width: 200, height: 80)
