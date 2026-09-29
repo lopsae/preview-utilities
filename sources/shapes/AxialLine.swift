@@ -212,7 +212,7 @@ private struct PreviewContent {
 
 
 #Preview("StrokeStyle", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
-    ForEach(CGLineCap.butt, .round, .square) { lineCap in
+    ForEach(CGLineCap.allCases) { lineCap in
         AxialLine(
             .horizontal, style: .red.secondary,
             strokeStyle: .dashed(width: 10, cap: lineCap)
@@ -233,14 +233,31 @@ extension StrokeStyle {
 }
 
 
-extension ForEach /*<Data, ID, Content>*/ {
+extension CGLineCap: @retroactive CaseIterable {
 
-    // init(_ data: Data, id: KeyPath<Data.Element, ID>, @ContentBuilder content: @escaping (Data.Element) -> Content)
+    static let allCases: [CGLineCap] = [.butt, .round, .square]
+
+}
+
+
+// FIXME: Maybe use self identifiable.
+private extension ForEach {
+
     init(
-        _ items: ID...,
+        items: ID...,
         @ContentBuilder content: @escaping (ID) -> Content
     ) where Data == [ID] {
         self.init(items, id: \.self, content: content)
+    }
+
+    init(
+        _ data: Data,
+        @ContentBuilder content: @escaping (Data.Element) -> Content
+    ) where
+        Data.Element: Hashable,
+        Data.Element == ID
+    {
+        self.init(data, id: \.self, content: content)
     }
 
 }
