@@ -12,7 +12,7 @@ import SwiftUI
 nonisolated
 public enum Defaults {
 
-    /// Default padding applied with the `.padding()` modifier.
+    /// Default padding applied with the `padding()` modifier, in iOS.
     public static let padding: CGFloat = 16
 
 }
