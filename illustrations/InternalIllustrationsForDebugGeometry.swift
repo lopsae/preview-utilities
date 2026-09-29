@@ -9,8 +9,6 @@
 import SwiftUI
 import Testing
 
-// FIXME: File needs rename to DebugGeometry.
-// FIXME: Illustrations need rename to debug-geometry.
 
 /// Rendering functions for documentation illustrations for `DebugGeometryModifier`.
 ///
@@ -28,14 +26,14 @@ struct InternalIllustrationsForDebugOverlay {
 
 
     @Test func card() throws {
-        try storage.renderAndStore("debug-overlay", "card") {
+        try storage.renderAndStore("debug-geometry", "card") {
             DebugGeometryModifier.Illustrations.card
         }
     }
 
 
     @Test func components() throws {
-        try storage.renderAndStore("debug-overlay", "components") {
+        try storage.renderAndStore("debug-geometry", "components") {
             DebugGeometryModifier.Illustrations.components
         }
     }
