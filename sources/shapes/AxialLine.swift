@@ -187,27 +187,30 @@ private struct PreviewContent {
 }
 
 
-#Preview("LineCaps", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
+#Preview("LineCaps", traits: .spacing(30), .fixedHeaderFooter, PreviewContent.layout) {
     let lineWidth: CGFloat = 40
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: .butt)
-    .floatingCaption("Butt", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottomTrailing))
-
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: .round)
-    .floatingCaption("Round", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottomTrailing))
-
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: .square)
-    .floatingCaption("Square", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottomTrailing))
-
-    HStack(spacing: SpacingDefaults.padding) {
-        AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: .butt)
-        .floatingCaption("Butt", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottom))
-
-        AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: .round)
-        .floatingCaption("Round", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottom))
-
-        AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: .square)
-        .floatingCaption("Square", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottom))
+    ForEach(CGLineCap.allCases) { lineCap in
+        AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: lineCap)
+        .floatingCaption(
+            verbatim: lineCap.displayName.capitalized,
+            .alignment(.outerBottomTrailing),
+            .captionStyle(.green), .borderStyle(.green.tertiary),
+            .borderWidth(4)
+        )
     }
+
+    // FIXME: Add spacing parameter.
+    HStack(CGLineCap.allCases, id: \.self) { lineCap in
+        AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: lineCap)
+        .floatingCaption(
+            verbatim: lineCap.displayName.capitalized,
+            .alignment(.outerBottomTrailing),
+            .captionStyle(.green), .borderStyle(.green.tertiary),
+            .borderWidth(4)
+        )
+    }
+
+    VisibleSpacer()
 }
 
 
@@ -215,9 +218,20 @@ private struct PreviewContent {
     ForEach(CGLineCap.allCases) { lineCap in
         AxialLine(
             .horizontal, style: .red.secondary,
-            strokeStyle: .dashed(width: 10, cap: lineCap)
+            strokeStyle: .dashed(cap: lineCap)
         )
     }
+
+    let lineWidth: CGFloat = 10
+    VStack {
+        ForEach(CGLineCap.allCases) { lineCap in
+            AxialLine(
+                .horizontal, style: .red.secondary,
+                strokeStyle: .dashed(width: lineWidth, cap: lineCap)
+            )
+        }
+    }
+    .edgeGraticule(insetSpacing: lineWidth, insetCount: 0, .inset(.leading, count: 30))
 }
 
 
@@ -228,6 +242,21 @@ extension StrokeStyle {
             lineWidth: width, lineCap: cap, lineJoin: .round,
             dash: [width*5, width*6], dashPhase: .zero
         )
+    }
+
+}
+
+
+extension CGLineCap {
+
+    var displayName: String {
+        switch self {
+        case .butt:   "butt"
+        case .round:  "round"
+        case .square: "square"
+        @unknown default:
+            "unknown"
+        }
     }
 
 }
