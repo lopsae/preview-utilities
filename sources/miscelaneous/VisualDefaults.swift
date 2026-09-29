@@ -19,6 +19,8 @@ public enum Defaults {
 
 
 #Preview("Paddings") {
+    @Previewable @ScaledMetric var scaledPadding = Defaults.padding
+
     Rectangle()
     .fill(.cyan.gradient.secondary)
     .frame(squareOf: 200)
@@ -37,6 +39,9 @@ public enum Defaults {
                     .floatingCaption(
                         "Horizontal:\n`\(horizontalPadding, format: .fractionLength(2))`",
                         .alignment(.trailing))
+                    .floatingCaption(
+                        "Scaled:\n`\(scaledPadding, format: .fractionLength(2))`",
+                        .alignment(.bottom))
                 }
             }
             .padding()
