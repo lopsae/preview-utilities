@@ -94,7 +94,7 @@ private struct PreviewContent {
             "Tall", color: .yellow, size: .init(width: 100, height: tallHeight),
             traits: .alignment(.topTrailing))
     }
-    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .debugGeometry(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
 
     DashedDivider()
@@ -112,7 +112,7 @@ private struct PreviewContent {
         )
         .rotationEffect(.turn(1/4))
     }
-    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .debugGeometry(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
 }
 
@@ -144,7 +144,7 @@ private struct PreviewContent {
     TransposeLayout {
         Text(verbatim: textString)
     }
-    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .debugGeometry(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
 
     DashedDivider()
@@ -154,7 +154,7 @@ private struct PreviewContent {
         Text(verbatim: textString)
         .rotationEffect(.turn(1/4))
     }
-    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .debugGeometry(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
 }
 
@@ -180,7 +180,7 @@ private struct PreviewContent {
     TransposeLayout {
         view
     }
-    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .debugGeometry(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
 
     DashedDivider()
@@ -190,7 +190,7 @@ private struct PreviewContent {
         view
         .rotationEffect(.turn(1/4))
     }
-    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .debugGeometry(.size, .infoAlignment(.outerBottom))
     .maxSizeFrame()
 }
 

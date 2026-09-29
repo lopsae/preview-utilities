@@ -4,6 +4,9 @@
 //
 
 
+// FIXME: Rename file.
+
+
 import SwiftUI
 
 
@@ -23,7 +26,7 @@ extension DebugGeometryModifier.Illustrations {
             Capsule()
             .fill(.gray.gradient.secondary)
             .frame(width: 320, height: 180)
-            .debugOverlay(.bordersWidth(10))
+            .debugGeometry(.bordersWidth(10))
             .safeAreaInset(edge: .top, spacing: .zero) {
                 ClearRectangle().frame(squareOf: 40)
             }
@@ -35,13 +38,13 @@ extension DebugGeometryModifier.Illustrations {
     }
 
 
-    /// Illustration of the components of the `debugOverlay`.
+    /// Illustration of the components of the `debugGeometry`.
     static var components: DocumentationIllustration {
         DocumentationIllustration(height: 200) {
             Capsule()
             .fill(.gray.secondary)
             .frame(width: 140, height: 60)
-            .debugOverlay(.caption("A `Capsule` shape"), .size, .alignment(.outerTop))
+            .debugGeometry(.caption("A `Capsule` shape"), .size, .alignment(.outerTop))
             .overlay {
                 // Outer stroke.
                 FloatingAlignedContainer(alignment: .outerTrailing, spacing: 10) { contentAlignments in

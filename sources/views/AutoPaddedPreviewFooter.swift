@@ -206,8 +206,8 @@ private struct PreviewContent {
     }
     .font(.caption)
     AutoPaddedPreviewFooter(flexibleHeight: false)
-        .debugOverlay(.hairline)
+        .debugGeometry(.hairline)
     Divider()
     AutoPaddedPreviewFooter(flexibleHeight: false)
-        .debugOverlay(.hairline)
+        .debugGeometry(.hairline)
 }

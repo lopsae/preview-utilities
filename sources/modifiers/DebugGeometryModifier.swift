@@ -16,14 +16,14 @@ public import SwiftUI
 /// All content added by this modifier is layered in an overlay of the owner view; the original
 /// layout is never modified.
 ///
-/// Apply this modifier using ``SwiftUICore/View/debugOverlay(_:)``:
+/// Apply this modifier using ``SwiftUICore/View/debugGeometry(_:)``:
 ///
 /// ```swift
 /// Text("Sphinx of Black Quartz")
 ///    .font(.title)
 /// Text("Judge my Vow")
 ///     .font(.title)
-///     .debugOverlay()
+///     .debugGeometry()
 /// ```
 /// ![Debug overlay with default configuration.](debug-overlay-default)
 ///
@@ -31,13 +31,13 @@ public import SwiftUI
 /// ### Traits and Configuration
 ///
 /// The overlay can be configured by passing [`Trait`](doc:Configuration/Trait) instances to
-/// ``SwiftUICore/View/debugOverlay(_:)``:
+/// ``SwiftUICore/View/debugGeometry(_:)``:
 ///
 /// ```swift
 /// Rectangle()
 /// .fill(.yellow.gradient.secondary)
 /// .frame(width: 200, height: 80)
-/// .debugOverlay(
+/// .debugGeometry(
 ///     .size,                     // prints the size of the owner view
 ///     .bordersWidth(2),          // sets debug borders width to 2
 ///     .alignment(.innerTrailing) // aligns caption to trailing-center
@@ -67,15 +67,15 @@ public import SwiftUI
 ///     Rectangle()
 ///         .fill(.green.gradient)
 ///         .frame(width: 100, height: 60)
-///         .debugOverlay(.caption("Inner Top"), .alignment(.innerTop))
+///         .debugGeometry(.caption("Inner Top"), .alignment(.innerTop))
 ///     Rectangle()
 ///         .fill(.mint.gradient)
 ///         .frame(width: 100, height: 60)
-///         .debugOverlay(.caption("Outer Bottom\nLeading"), .alignment(.outerBottomLeading))
+///         .debugGeometry(.caption("Outer Bottom\nLeading"), .alignment(.outerBottomLeading))
 ///     Rectangle()
 ///         .fill(.teal.gradient)
 ///         .frame(width: 100, height: 60)
-///         .debugOverlay(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
+///         .debugGeometry(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
 /// }
 /// ```
 /// ![Debug overlay example alignments.](debug-overlay-alignments)
@@ -388,7 +388,6 @@ public struct DebugGeometryModifier: ViewModifier {
 
 // MARK: - View Extension
 
-// FIXME: Rename view extension functions.
 
 extension View {
 
@@ -403,7 +402,7 @@ extension View {
     ///
     /// ```swift
     /// Text("a sort of splendid torch")
-    ///     .debugOverlay(.width, .alignment(.outerTop))
+    ///     .debugGeometry(.width, .alignment(.outerTop))
     /// Text("which I have got hold of for the moment")
     /// ```
     /// ![Debug overlay with traits applied to a single Text.](debug-overlay-torch-traits)
@@ -412,7 +411,7 @@ extension View {
     ///   - traits: The traits to customize the default configuration.
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
-    public func debugOverlay(_ traits: DebugGeometryModifier.Configuration.Trait...) -> some View {
+    public func debugGeometry(_ traits: DebugGeometryModifier.Configuration.Trait...) -> some View {
         let configuration = DebugGeometryModifier.Configuration(traits: traits)
         return modifier(DebugGeometryModifier(configuration: configuration))
     }
@@ -431,7 +430,7 @@ extension View {
     ///   - traits: The traits to customize the default configuration.
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
-    public func debugOverlay(
+    public func debugGeometry(
         traits: [DebugGeometryModifier.Configuration.Trait],
     ) -> some View {
         let configuration = DebugGeometryModifier.Configuration(traits: traits)
@@ -493,7 +492,7 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
-    .debugOverlay()
+    .debugGeometry()
     .safeAreaPadding(.init(horizontal: 20, vertical: 30))
 }
 
@@ -541,14 +540,14 @@ private struct PreviewContent {
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
-            .debugOverlay(traits: traits)
+            .debugGeometry(traits: traits)
             .safeAreaPadding(20)
         Rectangle().fill(.gray.tertiary)
             .frame(width: 100)
             .floatingCaption("Spacer")
     } else {
         PreviewContent.star
-            .debugOverlay(traits: traits)
+            .debugGeometry(traits: traits)
             .safeAreaPadding(.init(horizontal: 50, vertical: 80))
     }
 
@@ -634,12 +633,12 @@ private struct PreviewContent {
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
-            .debugOverlay(traits: traits)
+            .debugGeometry(traits: traits)
             .safeAreaPadding(20)
         VisibleSpacer()
     } else {
         PreviewContent.star
-        .debugOverlay(traits: traits)
+        .debugGeometry(traits: traits)
         .safeAreaPadding(.init(horizontal: 100, vertical: 120))
     }
 
@@ -689,7 +688,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugOverlay(.bordersWidth(bordersWidth), .allGeometry, .outerInfo(.bottomLeading))
+        .debugGeometry(.bordersWidth(bordersWidth), .allGeometry, .outerInfo(.bottomLeading))
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
@@ -698,7 +697,7 @@ private struct PreviewContent {
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
-        .debugOverlay(.allGeometry, .outerInfo)
+        .debugGeometry(.allGeometry, .outerInfo)
         .safeAreaPadding(.init(
             top:      20,
             leading:  30,
@@ -716,7 +715,7 @@ private struct PreviewContent {
         Text("Preview Text").font(.title)
     }
     .frame(height: 100)
-    .debugOverlay(.caption("Caption text"), .size, .alignment(.outerBottom))
+    .debugGeometry(.caption("Caption text"), .size, .alignment(.outerBottom))
     .safeAreaPadding(.horizontal(40))
     .padding(.horizontal)
     .padding(.vertical, 50)
@@ -745,7 +744,7 @@ private struct PreviewContent {
         .buttonStyle(.borderedProminent)
         .padding()
     }
-    .debugOverlay(.allGeometry)
+    .debugGeometry(.allGeometry)
 }
 
 
@@ -760,7 +759,7 @@ private struct PreviewContent {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
                 ClearRectangle()
-                .debugOverlay(
+                .debugGeometry(
                     .width, .caption(verbatim: alignment.hyphenatedName),
                     .infoAlignment(alignment)
                 )
@@ -790,7 +789,7 @@ private struct PreviewContent {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
                 ClearRectangle()
-                .debugOverlay(.caption("Ag"), .alignment(alignment), .drawsCaptionBorder, .bordersWidth(bordersWidth))
+                .debugGeometry(.caption("Ag"), .alignment(alignment), .drawsCaptionBorder, .bordersWidth(bordersWidth))
             }
         }
         .debugAlignmentGuide(vertical: .top,      .extendedLength(100))

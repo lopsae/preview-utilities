@@ -156,11 +156,11 @@ private struct PreviewContent {
 #Preview("Default", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     AxialLine(.horizontal, style: .red.secondary, lineWidth: 2)
     .padding()
-    .debugOverlay(.hairline)
+    .debugGeometry(.hairline)
 
     AxialLine(.vertical, style: .red.secondary, lineWidth: 2)
     .padding()
-    .debugOverlay(.hairline)
+    .debugGeometry(.hairline)
 }
 
 

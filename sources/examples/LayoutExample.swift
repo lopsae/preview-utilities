@@ -92,5 +92,5 @@ private struct PreviewContent {
             "Tall", color: .yellow, size: .init(width: 100, height: tallHeight),
             traits: .alignment(.topTrailing))
     }
-    .debugOverlay(.size, .infoAlignment(.outerBottom))
+    .debugGeometry(.size, .infoAlignment(.outerBottom))
 }

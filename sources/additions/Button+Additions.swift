@@ -121,7 +121,7 @@ private struct PreviewContent {
     ) { circleToggle.toggle() }
     .buttonStyle(.borderedProminent)
     .labelStyle(.iconOnly)
-    .debugOverlay(.hairline, .size, .infoAlignment(.outerTrailing))
+    .debugGeometry(.hairline, .size, .infoAlignment(.outerTrailing))
 
     Button(
         "Vertical/Horizontal",
@@ -129,7 +129,7 @@ private struct PreviewContent {
     ) { guidepointToggle.toggle() }
     .buttonStyle(.borderedProminent)
     .labelStyle(.iconOnly)
-    .debugOverlay(.hairline, .size, .infoAlignment(.outerTrailing))
+    .debugGeometry(.hairline, .size, .infoAlignment(.outerTrailing))
 
     PreviewCaption("""
         Buttons using the default initializer and the `.iconOnly` style will change its size 

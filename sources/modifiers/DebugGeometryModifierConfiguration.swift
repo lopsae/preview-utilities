@@ -15,15 +15,16 @@ extension DebugGeometryModifier {
     /// alignment for the debug caption.
     ///
     /// Usually you don't build this object directly, instead one is created and configured using
-    /// the [`Trait`](doc:Trait) instances passed to ``SwiftUICore/View/debugOverlay(_:)``.
+    /// the [`Trait`](doc:Trait) instances passed to ``SwiftUICore/View/debugGeometry(_:)``.
     public struct Configuration {
 
         var isVisible: Bool = true
         var captionSource: CaptionSource? = nil
         var areBordersEnabled: Bool = true
+        // FIXME: change default to 4, 1 quarter of default padding.
         var bordersWidth: CGFloat = 5
         var infoElements: InfoElements = .empty
-        // TODO: Rename to captionAlignment.
+        // FIXME: Rename to captionAlignment.
         var infoAlignment: FloatingAlignment = .inner(.topLeading)
         var drawsCaptionBorder: Bool = false
 
@@ -99,7 +100,7 @@ extension DebugGeometryModifier.Configuration {
 
     /// Customizations that can be applied to the configuration of a `DebugGeometryModifier`.
     ///  
-    /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` or any [sibling function](doc:debug-overlay-api#View-Extensions)
+    /// Traits are passed to ``SwiftUICore/View/debugGeometry(_:)`` or any [sibling function](doc:debug-overlay-api#View-Extensions)
     /// to build the [`Configuration`](doc:DebugGeometryModifier/Configuration) of a debug overlay.
     ///
     /// All passed traits are applied in order to a default configuration, each trait making a
@@ -151,7 +152,7 @@ extension DebugGeometryModifier.Configuration {
             }
         }
 
-        // TODO: also implement opacity.
+        // FIXME: also implement opacity.
 
         /// Hides all elements of the debug overlay.
         public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
@@ -215,33 +216,33 @@ extension DebugGeometryModifier.Configuration {
             .modifier(CaptionModifier(source: .verbatim(string)))
         }
 
-        // TODO: deprecate.
+        // FIXME: deprecate.
         /// Aligns the debug caption to the given floating alignment.
         /// - Parameter alignment: Floating alignment of the debug caption.
         public static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: alignment))
         }
 
-        // TODO: deprecate, replace with innerAlignment
+        // FIXME: deprecate, replace with innerAlignment
         /// Aligns the debug caption to the default inner floating alignment.
         ///
         /// The default is ``FloatingAlignment/innerTopLeading``.
         public static let innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .innerTopLeading))
 
-        // TODO: deprecate.
+        // FIXME: deprecate.
         /// Aligns the debug caption to the given inner floating alignment.
         /// - Parameter innerAlignment: Inner floating alignment for the debug caption.
         public static func innerInfo(_ innerAlignment: FloatingAlignment.InnerAlignment) -> Trait {
             .modifier(InfoAlignmentModifier(alignment: .inner(innerAlignment)))
         }
 
-        // TODO: deprecate, replace with outerAlignment.
+        // FIXME: deprecate, replace with outerAlignment.
         /// Aligns the debug caption to the default outer floating alignment.
         ///
         /// The default is ``FloatingAlignment/outerTopLeading``.
         public static let outerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .outerTopLeading))
 
-        // TODO: deprecate.
+        // FIXME: deprecate.
         /// Aligns the debug caption to the given outer floating alignment.
         /// - Parameter outerAlignment: Outer floating alignment for the debug caption.
         public static func outerInfo(_ outerAlignment: FloatingAlignment.OuterAlignment) -> Trait {

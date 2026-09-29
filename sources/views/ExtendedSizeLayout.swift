@@ -195,7 +195,7 @@ private struct PreviewContent {
     }
     .floatingCaption("VStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
     .frame(squareOf: 200, alignment: .leading)
-    .debugOverlay(.hairline, .width, .alignment(.bottomTrailing))
+    .debugGeometry(.hairline, .width, .alignment(.bottomTrailing))
 }
 
 
@@ -240,7 +240,7 @@ private struct PreviewContent {
     }
     .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerTrailingBottom))
     .frame(squareOf: 200, alignment: .top)
-    .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
+    .debugGeometry(.hairline, .height, .alignment(.outerBottomTrailing))
 }
 
 
@@ -257,7 +257,7 @@ private struct PreviewContent {
         .floatingCaption("Fixed Width", .height, .captionStyle(.purple), .alignment(.outerTrailingTop))
     }
     .frame(squareOf: 200)
-    .debugOverlay(.hairline, .size, .alignment(.outerBottomTrailing))
+    .debugGeometry(.hairline, .size, .alignment(.outerBottomTrailing))
 
 }
 
@@ -282,9 +282,9 @@ private struct PreviewContent {
                 Text("Not used")
             }
         }
-        .debugOverlay(.height, .alignment(.outerTrailing))
+        .debugGeometry(.height, .alignment(.outerTrailing))
     }
-    .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
+    .debugGeometry(.hairline, .height, .alignment(.outerBottomTrailing))
 }
 
 
@@ -374,10 +374,10 @@ struct OverflowSizeLayout: Layout {
             }
 
         }
-        .debugOverlay(.height, .alignment(.outerTrailing))
+        .debugGeometry(.height, .alignment(.outerTrailing))
 
     }
-    .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
+    .debugGeometry(.hairline, .height, .alignment(.outerBottomTrailing))
 }
 
 
@@ -402,8 +402,8 @@ struct OverflowSizeLayout: Layout {
                 Text("Not Used")
             }
         }
-        .debugOverlay(.height, .alignment(.outerTrailing))
+        .debugGeometry(.height, .alignment(.outerTrailing))
     }
-    .debugOverlay(.hairline, .height, .alignment(.outerBottomTrailing))
+    .debugGeometry(.hairline, .height, .alignment(.outerBottomTrailing))
 }
 
