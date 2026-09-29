@@ -9,8 +9,6 @@ import PreviewUtilities
 import SwiftUI
 import Testing
 
-// FIXME: File needs rename to DebugGeometry.
-// FIXME: Illustrations need rename to debug-geometry.
 
 /// Rendering functions for documentation illustrations for `DebugGeometryModifier`.
 ///
@@ -27,8 +25,10 @@ struct IllustrationsForDebugOverlay {
     }
 
 
+    // FIXME: Use sizing for illustrations.
+
     @Test func `default`() throws {
-        try storage.renderAndStore("debug-overlay", "default") {
+        try storage.renderAndStore("debug-geometry", "default") {
             DocumentationIllustration(height: 160) {
                 Text("Sphinx of Black Quartz")
                     .font(.title)
@@ -41,7 +41,7 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func simpleTraits() throws {
-        try storage.renderAndStore("debug-overlay", "simple-traits") {
+        try storage.renderAndStore("debug-geometry", "simple-traits") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
                 .fill(.yellow.gradient.secondary)
@@ -57,7 +57,7 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func alignments() throws {
-        try storage.renderAndStore("debug-overlay", "alignments") {
+        try storage.renderAndStore("debug-geometry", "alignments") {
             DocumentationIllustration(height: 180) {
                 HStack(spacing: 16) {
                     Rectangle()
@@ -79,7 +79,7 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func torchTraits() throws {
-        try storage.renderAndStore("debug-overlay", "torch-traits") {
+        try storage.renderAndStore("debug-geometry", "torch-traits") {
             DocumentationIllustration(height: 100) {
                 Text("a sort of splendid torch")
                     .debugGeometry(.width, .alignment(.outerTop))
