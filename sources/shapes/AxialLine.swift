@@ -14,10 +14,18 @@ struct AxialLine<Style: ShapeStyle>: View {
 
     let axis: Axis
     let style: Style
-    let lineWidth: CGFloat
-    let lineCap: CGLineCap
-    let dash: [CGFloat]
-    let dashPhase: CGFloat
+    let strokeStyle: StrokeStyle
+
+
+    init(
+        _ axis: Axis,
+        style: Style,
+        strokeStyle: StrokeStyle
+    ) {
+        self.axis = axis
+        self.style = style
+        self.strokeStyle = strokeStyle
+    }
 
     init(
         _ axis: Axis,
@@ -29,22 +37,17 @@ struct AxialLine<Style: ShapeStyle>: View {
     ) {
         self.axis = axis
         self.style = style
-        self.lineWidth = lineWidth
-        self.lineCap = lineCap
-        self.dash = dash
-        self.dashPhase = dashPhase
+        self.strokeStyle = .init(
+            lineWidth: lineWidth, lineCap: lineCap,
+            dash: dash, dashPhase: dashPhase
+        )
     }
 
+
     var body: some View {
-        let strokeStyle = StrokeStyle(
-            lineWidth: lineWidth,
-            lineCap: lineCap,
-            dash: dash,
-            dashPhase: dashPhase
-        )
-        LineShape(axis, extendToEdges: lineCap.extendsToEdges)
+        LineShape(axis, extendToEdges: strokeStyle.lineCap.extendsToEdges)
         .stroke(style, style: strokeStyle)
-        .frame(length: lineWidth, along: axis.orthogonal)
+        .frame(length: strokeStyle.lineWidth, along: axis.orthogonal)
     }
 
 }
@@ -153,18 +156,38 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
+#Preview("Default", traits: .paddingSpacing, .fixedHeaderFooter, PreviewContent.layout) {
     AxialLine(.horizontal, style: .red.secondary, lineWidth: 2)
     .padding()
     .debugGeometry(.hairline)
 
-    AxialLine(.vertical, style: .red.secondary, lineWidth: 2)
+    AxialLine(.horizontal, style: .red.secondary, lineWidth: 4)
     .padding()
     .debugGeometry(.hairline)
+
+    AxialLine(.horizontal, style: .red.secondary, lineWidth: 8)
+    .padding()
+    .debugGeometry(.hairline)
+
+    HStack(spacing: SpacingDefaults.padding) {
+        AxialLine(.vertical, style: .red.secondary, lineWidth: 2)
+        .padding()
+        .debugGeometry(.hairline)
+
+        AxialLine(.vertical, style: .red.secondary, lineWidth: 4)
+        .padding()
+        .debugGeometry(.hairline)
+
+        AxialLine(.vertical, style: .red.secondary, lineWidth: 8)
+        .padding()
+        .debugGeometry(.hairline)
+    }
+
+    VisibleSpacer()
 }
 
 
-#Preview("StrokeStyle", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
+#Preview("LineCaps", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
     let lineWidth: CGFloat = 40
     AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: .butt)
     .floatingCaption("Butt", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottomTrailing))
@@ -185,4 +208,39 @@ private struct PreviewContent {
         AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: .square)
         .floatingCaption("Square", .colorStyle(.green), .borderWidth(4), .alignment(.outerBottom))
     }
+}
+
+
+#Preview("StrokeStyle", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
+    ForEach(CGLineCap.butt, .round, .square) { lineCap in
+        AxialLine(
+            .horizontal, style: .red.secondary,
+            strokeStyle: .dashed(width: 10, cap: lineCap)
+        )
+    }
+}
+
+
+extension StrokeStyle {
+
+    static func dashed(width: CGFloat = 1, cap: CGLineCap = .round) -> Self {
+        .init(
+            lineWidth: width, lineCap: cap, lineJoin: .round,
+            dash: [width*5, width*6], dashPhase: .zero
+        )
+    }
+
+}
+
+
+extension ForEach /*<Data, ID, Content>*/ {
+
+    // init(_ data: Data, id: KeyPath<Data.Element, ID>, @ContentBuilder content: @escaping (Data.Element) -> Content)
+    init(
+        _ items: ID...,
+        @ContentBuilder content: @escaping (ID) -> Content
+    ) where Data == [ID] {
+        self.init(items, id: \.self, content: content)
+    }
+
 }
