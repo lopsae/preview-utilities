@@ -7,9 +7,9 @@
 public import SwiftUI
 
 
-extension DebugOverlayModifier {
+extension DebugGeometryModifier {
 
-    /// Configuration of a `DebugOverlayModifier`.
+    /// Configuration of a `DebugGeometryModifier`.
     ///
     /// Contains the caption, border settings, geometry elements to display, and the floating
     /// alignment for the debug caption.
@@ -52,7 +52,7 @@ extension DebugOverlayModifier {
 // MARK: - CaptionSource
 
 
-extension DebugOverlayModifier.Configuration {
+extension DebugGeometryModifier.Configuration {
 
     enum CaptionSource {
         case localizedKey(LocalizedStringKey)
@@ -65,7 +65,7 @@ extension DebugOverlayModifier.Configuration {
 // MARK: - InfoElements
 
 
-extension DebugOverlayModifier.Configuration {
+extension DebugGeometryModifier.Configuration {
 
 
     // TODO: could use IdentifiableShift
@@ -95,12 +95,12 @@ extension DebugOverlayModifier.Configuration {
 // MARK: - Trait
 
 
-extension DebugOverlayModifier.Configuration {
+extension DebugGeometryModifier.Configuration {
 
-    /// Customizations that can be applied to the configuration of a `DebugOverlayModifier`.
+    /// Customizations that can be applied to the configuration of a `DebugGeometryModifier`.
     ///  
     /// Traits are passed to ``SwiftUICore/View/debugOverlay(_:)`` or any [sibling function](doc:debug-overlay-api#View-Extensions)
-    /// to build the [`Configuration`](doc:DebugOverlayModifier/Configuration) of a debug overlay.
+    /// to build the [`Configuration`](doc:DebugGeometryModifier/Configuration) of a debug overlay.
     ///
     /// All passed traits are applied in order to a default configuration, each trait making a
     /// modification towards the final configuration. If multiple traits modify the same
@@ -140,7 +140,7 @@ extension DebugOverlayModifier.Configuration {
         case traits([Trait])
 
 
-        func apply(to configuration: inout DebugOverlayModifier.Configuration) {
+        func apply(to configuration: inout DebugGeometryModifier.Configuration) {
             switch self {
             case .modifier(let modifier):
                 modifier.update(configuration: &configuration)
@@ -266,39 +266,39 @@ extension DebugOverlayModifier.Configuration {
 // MARK: - Modifiers
 
 
-extension DebugOverlayModifier.Configuration {
+extension DebugGeometryModifier.Configuration {
 
     /// Modifier for a debug overlay configuration.
     ///
-    /// Applies an update to a debug overlay configuration. Used by ``DebugOverlayModifier/Configuration/Trait``
+    /// Applies an update to a debug overlay configuration. Used by ``DebugGeometryModifier/Configuration/Trait``
     /// instances as building blocks for a configuration instance.
     public protocol Modifier: Sendable {
-        func update(configuration: inout DebugOverlayModifier.Configuration)
+        func update(configuration: inout DebugGeometryModifier.Configuration)
     }
 
     struct VisibilityModifier: Modifier {
         let isVisible: Bool
-        func update(configuration: inout DebugOverlayModifier.Configuration) {
+        func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.isVisible = isVisible
         }
     }
 
     struct CaptionModifier: Modifier {
-        let source: DebugOverlayModifier.Configuration.CaptionSource
-        func update(configuration: inout DebugOverlayModifier.Configuration) {
+        let source: DebugGeometryModifier.Configuration.CaptionSource
+        func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.captionSource = source
         }
     }
 
     struct HideBordersModifier: Modifier {
-        func update(configuration: inout DebugOverlayModifier.Configuration) {
+        func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.areBordersEnabled = false
             configuration.bordersWidth = 1
         }
     }
 
     struct HairlineModifier: Modifier {
-        func update(configuration: inout DebugOverlayModifier.Configuration) {
+        func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.areBordersEnabled = true
             configuration.bordersWidth = 1
         }
@@ -306,7 +306,7 @@ extension DebugOverlayModifier.Configuration {
 
     struct BordersWidthModifier: Modifier {
         let bordersWidth: CGFloat
-        func update(configuration: inout DebugOverlayModifier.Configuration) {
+        func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.areBordersEnabled = true
             configuration.bordersWidth = bordersWidth
         }
@@ -314,20 +314,20 @@ extension DebugOverlayModifier.Configuration {
 
     struct InfoElementsModifier: Modifier {
         let infoElements: InfoElements
-        func update(configuration: inout DebugOverlayModifier.Configuration) {
+        func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.infoElements.formUnion(infoElements)
         }
     }
 
     struct InfoAlignmentModifier: Modifier {
         let alignment: FloatingAlignment
-        func update(configuration: inout DebugOverlayModifier.Configuration) {
+        func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.infoAlignment = alignment
         }
     }
 
     struct EnableCaptionBorder: Modifier {
-        func update(configuration: inout DebugOverlayModifier.Configuration) {
+        func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.drawsCaptionBorder = true
         }
     }

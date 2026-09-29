@@ -70,7 +70,7 @@ import SwiftUI
 /// information to align their own content though their own implementation. Each floating alignment
 /// provides the appropriate ``ContentAlignments`` for content to align itself to the attached edge.
 ///
-/// Two examples of this implementations are ``DebugOverlayModifier`` and ``FloatingCaptionModifier``.
+/// Two examples of this implementations are ``DebugGeometryModifier`` and ``FloatingCaptionModifier``.
 public nonisolated
 enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
 

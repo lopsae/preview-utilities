@@ -7,15 +7,15 @@
 import SwiftUI
 
 
-extension DebugOverlayModifier {
+extension DebugGeometryModifier {
 
-    /// Container of specialized illustrations for ``DebugOverlayModifier``.
+    /// Container of specialized illustrations for ``DebugGeometryModifier``.
     enum Illustrations {}
 
 }
 
 
-extension DebugOverlayModifier.Illustrations {
+extension DebugGeometryModifier.Illustrations {
 
     /// Card illustration for <doc:debug-overlay-api>.
     static var card: DocumentationIllustration {
@@ -153,10 +153,10 @@ extension DebugOverlayModifier.Illustrations {
 
 
 #Preview("card", traits: .docsIllustration) {
-    DebugOverlayModifier.Illustrations.card
+    DebugGeometryModifier.Illustrations.card
 }
 
 
 #Preview("components", traits: .docsIllustration) {
-    DebugOverlayModifier.Illustrations.components
+    DebugGeometryModifier.Illustrations.components
 }

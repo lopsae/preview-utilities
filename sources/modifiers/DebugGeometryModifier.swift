@@ -80,7 +80,7 @@ public import SwiftUI
 /// ```
 /// ![Debug overlay example alignments.](debug-overlay-alignments)
 ///
-public struct DebugOverlayModifier: ViewModifier {
+public struct DebugGeometryModifier: ViewModifier {
 
     /// Minimum limit for the border width. Ensures there is always a visual overlay even on sizes
     /// approaching zero. Smaller values are overridden with the minimum.
@@ -388,12 +388,13 @@ public struct DebugOverlayModifier: ViewModifier {
 
 // MARK: - View Extension
 
+// FIXME: Rename view extension functions.
 
 extension View {
 
     /// Layers in front of this view a debug overlay customized with the given traits.
     ///
-    /// Applies the ``DebugOverlayModifier`` customized with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// Applies the ``DebugGeometryModifier`` customized with the given [`Trait`](doc:DebugGeometryModifier/Configuration/Trait)
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
     /// safe area insets.
     ///
@@ -411,15 +412,15 @@ extension View {
     ///   - traits: The traits to customize the default configuration.
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
-    public func debugOverlay(_ traits: DebugOverlayModifier.Configuration.Trait...) -> some View {
-        let configuration = DebugOverlayModifier.Configuration(traits: traits)
-        return modifier(DebugOverlayModifier(configuration: configuration))
+    public func debugOverlay(_ traits: DebugGeometryModifier.Configuration.Trait...) -> some View {
+        let configuration = DebugGeometryModifier.Configuration(traits: traits)
+        return modifier(DebugGeometryModifier(configuration: configuration))
     }
 
 
     /// Layers in front of this view a debug overlay customized with the given traits.
     ///
-    /// Applies the ``DebugOverlayModifier`` customized with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// Applies the ``DebugGeometryModifier`` customized with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
     /// safe area insets.
     ///
@@ -431,10 +432,10 @@ extension View {
     ///
     /// - Returns: A view with a configured debug overlay as foreground.
     public func debugOverlay(
-        traits: [DebugOverlayModifier.Configuration.Trait],
+        traits: [DebugGeometryModifier.Configuration.Trait],
     ) -> some View {
-        let configuration = DebugOverlayModifier.Configuration(traits: traits)
-        return modifier(DebugOverlayModifier(configuration: configuration))
+        let configuration = DebugGeometryModifier.Configuration(traits: traits)
+        return modifier(DebugGeometryModifier(configuration: configuration))
     }
 
 }
@@ -501,7 +502,7 @@ private struct PreviewContent {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var traitOptions: [(
         label: String,
-        trait: DebugOverlayModifier.Configuration.Trait,
+        trait: DebugGeometryModifier.Configuration.Trait,
         enabled: Bool
     )] = [
         ("Hidden",          .hidden,                                false),
@@ -566,15 +567,15 @@ private struct PreviewContent {
     @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
 
-    let defaultTraits: [DebugOverlayModifier.Configuration.Trait] = [
+    let defaultTraits: [DebugGeometryModifier.Configuration.Trait] = [
         .allGeometry,
         .caption("Caption\nwith `formatting`")
     ]
 
-    let makeTraits: () -> [DebugOverlayModifier.Configuration.Trait] = {
-        var traits: [DebugOverlayModifier.Configuration.Trait] = defaultTraits + [.bordersWidth(bordersWidth)]
+    let makeTraits: () -> [DebugGeometryModifier.Configuration.Trait] = {
+        var traits: [DebugGeometryModifier.Configuration.Trait] = defaultTraits + [.bordersWidth(bordersWidth)]
 
-        let positionTrait: DebugOverlayModifier.Configuration.Trait
+        let positionTrait: DebugGeometryModifier.Configuration.Trait
         switch positionKey {
         case .inner:
             positionTrait = .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))

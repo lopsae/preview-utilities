@@ -164,7 +164,7 @@ extension FloatingCaptionModifier {
 
     // This trait implementation is an experimental configuration object solely based on an
     // enumeration, in contrast with a structure containing all properties like
-    // `DebugOverlayModifier.Configuration`.
+    // `DebugGeometryModifier.Configuration`.
 
     /// Customizations that can be applied to a `FloatingCaptionModifier`.
     ///  
