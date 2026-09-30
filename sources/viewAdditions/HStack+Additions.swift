@@ -37,6 +37,33 @@ extension HStack {
 }
 
 
+// FIXME: Rename file to Stacks+Additions
+extension VStack {
+
+    /// Creates a vertical stack that generates its content with the elements of a given
+    /// collection identified through a key path.
+    public init<ValuesCollection, ElementContent, ElementID>(
+        _ collection: ValuesCollection,
+        id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
+        alignment: HorizontalAlignment = .center,
+        spacing: CGFloat? = nil,
+        @ViewBuilder elementContent: @escaping (ValuesCollection.Element) -> ElementContent
+    ) where
+        ValuesCollection: RandomAccessCollection,
+        ElementContent: View,
+        ElementID: Hashable,
+        Content == ForEach<ValuesCollection, ElementID, ElementContent>
+    {
+        self.init(alignment: alignment, spacing: spacing) {
+            ForEach(collection, id: idKeyPath) { element in
+                elementContent(element)
+            }
+        }
+    }
+
+}
+
+
 // MARK: - PreviewContent
 
 
@@ -51,10 +78,31 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .headerFooter, PreviewContent.layout) {
+#Preview("HStack", traits: .headerFooter, PreviewContent.layout) {
     ScrollView(.horizontal) {
         HStack(0...5, id: \.self) { index in
             CaptionRectangle("Item \(index)", color: .green, size: .square(of: 100))
+        }
+    }
+}
+
+
+#Preview("VStack", traits: .headerFooter, PreviewContent.layout) {
+    HStack {
+        VStack(0...2, id: \.self) { index in
+            CaptionRectangle("Item \(index)", color: .green, size: .square(of: 50))
+        }
+
+        DashedDivider(axis: .vertical)
+
+        VStack(3...6, id: \.self, spacing: .zero) { index in
+            CaptionRectangle("Item \(index)", color: .green, size: .square(of: 50))
+        }
+
+        DashedDivider(axis: .vertical)
+
+        VStack((7...9).enumerated(), id: \.offset, alignment: .trailing) { offset, element in
+            CaptionRectangle("Item \(element)", color: .green, size: [50+10*offset.asDouble, 50])
         }
     }
 }
