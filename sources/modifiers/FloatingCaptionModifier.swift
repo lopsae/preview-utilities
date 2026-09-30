@@ -89,7 +89,7 @@ public import SwiftUI
 /// + ``Trait``
 public struct FloatingCaptionModifier: ViewModifier {
 
-    let captionSource: TextSource
+    let captionSource: TextSource?
     let flatTraits: [Trait]
 
 
@@ -97,8 +97,8 @@ public struct FloatingCaptionModifier: ViewModifier {
     /// - Parameters:
     ///   - localizedKey: A Localized string key to display as caption.
     ///   - traits: The traits to configure the modifier.
-    public init(localizedKey: LocalizedStringKey, traits: [Trait]) {
-        self.captionSource = .localizedKey(localizedKey)
+    public init(localizedKey: LocalizedStringKey? = nil, traits: [Trait]) {
+        self.captionSource = localizedKey.map { .localizedKey($0) }
         self.flatTraits = traits.flattenTraits()
     }
 
@@ -120,12 +120,15 @@ public struct FloatingCaptionModifier: ViewModifier {
                     : 2 // Default without trait.
                 FloatingAlignedContainer(alignment: alignment) { alignments in
                     VStack(alignment: alignments.content.horizontal) {
-                        let textStyle: any ShapeStyle = flatTraits.captionStyle
-                            ?? .secondary
-                        captionSource.text
+                        let textStyle: any ShapeStyle = flatTraits.captionStyle ?? .secondary
+
+                        // Caption.
+                        if let captionSource {
+                            captionSource.text
                             .font(.caption)
                             .foregroundStyle(textStyle)
                             .multilineTextAlignment(alignments.text)
+                        }
 
                         // Width, Height, or Size.
                         Group {
@@ -382,6 +385,9 @@ extension View {
     }
 
     // FIXME: Make caption optional, search for `floatingCaption(""` to find uses.
+    func floatingCaption(_ traits: FloatingCaptionModifier.Trait...) -> some View {
+        modifier(FloatingCaptionModifier(traits: traits))
+    }
 
 }
 
@@ -405,8 +411,9 @@ private struct PreviewContent {
 
     Rectangle()
         .fill(.indigo.gradient.tertiary)
-        .frame(width: 200, height: 15)
-        .floatingCaption("Short Rectangle", .width, .border)
+        .frame(width: 150, height: 15)
+        .floatingCaption(.width, .border)
+        .floatingCaption("No Caption", .alignment(.outerTrailing))
 
     Rectangle()
         .fill(.indigo.gradient.tertiary)
