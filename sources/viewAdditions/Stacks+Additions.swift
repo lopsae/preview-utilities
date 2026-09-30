@@ -61,6 +61,25 @@ extension VStack {
         }
     }
 
+
+    init<Items, ItemContent>(
+        items: Items,
+        alignment: HorizontalAlignment = .center,
+        spacing: CGFloat? = nil,
+        @ViewBuilder itemContent: @escaping (Items.Element) -> ItemContent
+    ) where
+        Items: RandomAccessCollection,
+        Items.Element: Hashable,
+        ItemContent: View,
+        Content == ForEach<Items, Items.Element, ItemContent>
+    {
+        self.init(alignment: alignment, spacing: spacing) {
+            ForEach(items, id: \.self) { item in
+                itemContent(item)
+            }
+        }
+    }
+
 }
 
 
@@ -95,7 +114,7 @@ private struct PreviewContent {
 
         DashedDivider(axis: .vertical)
 
-        VStack(3...6, id: \.self, spacing: .zero) { index in
+        VStack(items: 3...6, spacing: .zero) { index in
             CaptionRectangle("Item \(index)", color: .green, size: .square(of: 50))
         }
 

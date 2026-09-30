@@ -10,6 +10,8 @@ public import SwiftUI
 
 extension VStack {
 
+    // TODO: Rename to expandingWidth.
+
     /// Creates a `VStack` using the specified alignment, wrapped in a frame that expands to use
     /// the available width.
     ///

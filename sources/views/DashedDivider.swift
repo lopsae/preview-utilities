@@ -99,11 +99,8 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    // FIXME: Use convenience ForEach
-    VStack {
-        ForEach([1, 2, 4, 6, 10, 16], id: \.self) { lineWidth in
-            DashedDivider(lineWidth: lineWidth)
-        }
+    VStack(items: [1, 2, 4, 6, 10, 16]) { lineWidth in
+        DashedDivider(lineWidth: lineWidth)
     }
 
     VisibleSpacer()
