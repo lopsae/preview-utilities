@@ -740,7 +740,7 @@ private struct PreviewContent {
                 FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
                     Text.caption(verbatim:alignment.hyphenatedName).fixedSize()
                     .padding(2)
-                    .floatingCaption("", .colorStyle(.mint))
+                    .border(.mint.secondary)
                 }
             }
         }

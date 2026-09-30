@@ -384,7 +384,6 @@ extension View {
         modifier(FloatingCaptionModifier(verbatim: string, traits: traits))
     }
 
-    // FIXME: Make caption optional, search for `floatingCaption(""` to find uses.
     func floatingCaption(_ traits: FloatingCaptionModifier.Trait...) -> some View {
         modifier(FloatingCaptionModifier(traits: traits))
     }

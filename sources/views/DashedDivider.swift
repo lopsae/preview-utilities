@@ -76,25 +76,25 @@ private struct PreviewContent {
 
 
 #Preview("Sizes", traits: .paddingSpacing, .fixedHeaderFooter, PreviewContent.layout) {
-    // FIXME: Allow empty floating caption.
     VStack(spacing: 32) {
         DashedDivider()
-            .floatingCaption("", .height, .colorStyle(.brown))
+            .floatingCaption(.height, .colorStyle(.brown))
         DashedDivider(lineWidth: 10)
-            .floatingCaption("", .height, .colorStyle(.brown))
+            .floatingCaption(.height, .colorStyle(.brown))
         DashedDivider(lineWidth: 20)
-            .floatingCaption("", .height, .colorStyle(.brown))
+            .floatingCaption(.height, .colorStyle(.brown))
     }
 
     DashedDivider()
 
+    // TODO: Could use vertical caption when implemented.
     HStack(spacing: 32) {
         DashedDivider(axis: .vertical)
-            .floatingCaption("", .width, .colorStyle(.brown), .alignment(.top))
+            .floatingCaption(.width, .colorStyle(.brown), .alignment(.top))
         DashedDivider(axis: .vertical, lineWidth: 10)
-            .floatingCaption("", .width, .colorStyle(.brown), .alignment(.center))
+            .floatingCaption(.width, .colorStyle(.brown), .alignment(.center))
         DashedDivider(axis: .vertical, lineWidth: 20)
-            .floatingCaption("", .width, .colorStyle(.brown), .alignment(.bottom))
+            .floatingCaption(.width, .colorStyle(.brown), .alignment(.bottom))
     }
 
     DashedDivider()
