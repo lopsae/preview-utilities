@@ -15,8 +15,9 @@ public import SwiftUI
 
 extension HStack {
 
+    // FIXME: Add spacing and alignment.
     /// Creates a horizontal stack that generates its content with the elements of a given
-    /// collection identified through a key path.
+    /// collection, identified through a key path.
     public init<ValuesCollection, ElementContent, ElementID>(
         _ collection: ValuesCollection,
         id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
@@ -37,11 +38,10 @@ extension HStack {
 }
 
 
-// FIXME: Rename file to Stacks+Additions
 extension VStack {
 
     /// Creates a vertical stack that generates its content with the elements of a given
-    /// collection identified through a key path.
+    /// collection, identified through a key path.
     public init<ValuesCollection, ElementContent, ElementID>(
         _ collection: ValuesCollection,
         id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
