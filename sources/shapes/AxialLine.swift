@@ -157,6 +157,7 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .paddingSpacing, .fixedHeaderFooter, PreviewContent.layout) {
+    // FIXME: use item stacks.
     AxialLine(.horizontal, style: .red.secondary, lineWidth: 2)
     .padding()
     .debugGeometry(.hairline)
@@ -189,7 +190,7 @@ private struct PreviewContent {
 
 #Preview("LineCaps", traits: .spacing(30), .fixedHeaderFooter, PreviewContent.layout) {
     let lineWidth: CGFloat = 40
-    ForEach(CGLineCap.allCases) { lineCap in
+    VStack(items: CGLineCap.allCases, spacing: 30) { lineCap in
         AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: lineCap)
         .floatingCaption(
             verbatim: lineCap.displayName.capitalized,
@@ -199,8 +200,7 @@ private struct PreviewContent {
         )
     }
 
-    // FIXME: Add spacing parameter.
-    HStack(CGLineCap.allCases, id: \.self) { lineCap in
+    HStack(items: CGLineCap.allCases, spacing: 30) { lineCap in
         AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: lineCap)
         .floatingCaption(
             verbatim: lineCap.displayName.capitalized,
@@ -223,13 +223,9 @@ private struct PreviewContent {
     }
 
     let lineWidth: CGFloat = 10
-    VStack {
-        ForEach(CGLineCap.allCases) { lineCap in
-            AxialLine(
-                .horizontal, style: .red.secondary,
-                strokeStyle: .dashed(width: lineWidth, cap: lineCap)
-            )
-        }
+    VStack(items: CGLineCap.allCases) { lineCap in
+        let strokeStyle: StrokeStyle = .dashed(width: lineWidth, cap: lineCap)
+        AxialLine(.horizontal, style: .red.secondary, strokeStyle: strokeStyle)
     }
     .edgeGraticule(insetSpacing: lineWidth, insetCount: 0, .inset(.leading, count: 30))
 }
@@ -269,7 +265,9 @@ extension CGLineCap: @retroactive CaseIterable {
 }
 
 
-// FIXME: Maybe use self identifiable.
+// TODO: Consider using selfidentifiable.
+// items param could be used for hashable values that self identify
+// identifiables: for self-identifying? Picker uses `selectable` since are selectable values.
 private extension ForEach {
 
     init(
@@ -279,6 +277,7 @@ private extension ForEach {
         self.init(items, id: \.self, content: content)
     }
 
+    // FIXME: use items as parameter for hashable elements.
     init(
         _ data: Data,
         @ContentBuilder content: @escaping (Data.Element) -> Content
