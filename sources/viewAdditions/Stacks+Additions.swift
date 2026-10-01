@@ -12,15 +12,17 @@ public import SwiftUI
 // `RandomAccessCollection` and `Hashable` are not not strictly necessary (the initializers would
 // still work without them) but are made implicit for completeness.
 
+// TODO: Can both stacks share a protocol (AxialStack)? to use the same initializer.
 
 extension HStack {
 
-    // FIXME: Add spacing and alignment.
     /// Creates a horizontal stack that generates its content with the elements of a given
     /// collection, identified through a key path.
     public init<ValuesCollection, ElementContent, ElementID>(
         _ collection: ValuesCollection,
         id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
+        alignment: VerticalAlignment = .center,
+        spacing: CGFloat? = nil,
         @ViewBuilder elementContent: @escaping (ValuesCollection.Element) -> ElementContent
     ) where
         ValuesCollection: RandomAccessCollection,
@@ -28,9 +30,27 @@ extension HStack {
         ElementID: Hashable,
         Content == ForEach<ValuesCollection, ElementID, ElementContent>
     {
-        self.init {
+        self.init(alignment: alignment, spacing: spacing) {
             ForEach(collection, id: idKeyPath) { element in
                 elementContent(element)
+            }
+        }
+    }
+
+    init<Items, ItemContent>(
+        items: Items,
+        alignment: VerticalAlignment = .center,
+        spacing: CGFloat? = nil,
+        @ViewBuilder itemContent: @escaping (Items.Element) -> ItemContent
+    ) where
+        Items: RandomAccessCollection,
+        Items.Element: Hashable,
+        ItemContent: View,
+        Content == ForEach<Items, Items.Element, ItemContent>
+    {
+        self.init(alignment: alignment, spacing: spacing) {
+            ForEach(items, id: \.self) { item in
+                itemContent(item)
             }
         }
     }
@@ -98,9 +118,21 @@ private struct PreviewContent {
 
 
 #Preview("HStack", traits: .headerFooter, PreviewContent.layout) {
-    ScrollView(.horizontal) {
-        HStack(0...5, id: \.self) { index in
-            CaptionRectangle("Item \(index)", color: .green, size: .square(of: 100))
+    VStack {
+        HStack(0...2, id: \.self) { index in
+            CaptionRectangle("Item \(index)", color: .green, size: .square(of: 50))
+        }
+
+        DashedDivider()
+
+        HStack(items: 3...6, spacing: .zero) { index in
+            CaptionRectangle("Item \(index)", color: .green, size: .square(of: 50))
+        }
+
+        DashedDivider()
+
+        HStack((7...9).enumerated(), id: \.offset, alignment: .bottom) { offset, element in
+            CaptionRectangle("Item \(element)", color: .green, size: [50, 50+10*offset.asDouble])
         }
     }
 }
