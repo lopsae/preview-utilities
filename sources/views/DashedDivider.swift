@@ -18,6 +18,7 @@ public struct DashedDivider: View {
         self.lineWidth = lineWidth
     }
 
+    // FIXME: Use the dashed strokeStyle?
     @_documentation(visibility: internal)
     public var body: some View {
         AxialLine(
@@ -76,25 +77,17 @@ private struct PreviewContent {
 
 
 #Preview("Sizes", traits: .paddingSpacing, .fixedHeaderFooter, PreviewContent.layout) {
-    VStack(spacing: 32) {
-        DashedDivider()
-            .floatingCaption(.height, .colorStyle(.brown))
-        DashedDivider(lineWidth: 10)
-            .floatingCaption(.height, .colorStyle(.brown))
-        DashedDivider(lineWidth: 20)
-            .floatingCaption(.height, .colorStyle(.brown))
+    VStack(items: [1, 10, 20]) { lineWidth in
+        DashedDivider(lineWidth: lineWidth)
+        .floatingCaption(.height, .colorStyle(.brown))
     }
 
     DashedDivider()
 
-    // TODO: Could use vertical caption when implemented.
-    HStack(spacing: 32) {
-        DashedDivider(axis: .vertical)
-            .floatingCaption(.width, .colorStyle(.brown), .alignment(.top))
-        DashedDivider(axis: .vertical, lineWidth: 10)
-            .floatingCaption(.width, .colorStyle(.brown), .alignment(.center))
-        DashedDivider(axis: .vertical, lineWidth: 20)
-            .floatingCaption(.width, .colorStyle(.brown), .alignment(.bottom))
+    // TODO: Could use vertical floatingCaption when implemented.
+    HStack([(1, FloatingAlignment.top), (10, .center), (20, .bottom)], id: \.0, spacing: 32) { lineWidth, alignment in
+        DashedDivider(axis: .vertical, lineWidth: lineWidth)
+        .floatingCaption(.width, .colorStyle(.brown), .alignment(alignment))
     }
 
     DashedDivider()
