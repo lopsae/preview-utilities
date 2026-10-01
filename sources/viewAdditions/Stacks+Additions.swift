@@ -18,6 +18,7 @@ extension HStack {
 
     /// Creates a horizontal stack that generates its content with the elements of a given
     /// collection, identified through a key path.
+    @_spi(ItemStacks)
     public init<ValuesCollection, ElementContent, ElementID>(
         _ collection: ValuesCollection,
         id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
@@ -37,7 +38,9 @@ extension HStack {
         }
     }
 
-    init<Items, ItemContent>(
+
+    @_spi(ItemStacks)
+    public init<Items, ItemContent>(
         items: Items,
         alignment: VerticalAlignment = .center,
         spacing: CGFloat? = nil,
@@ -62,6 +65,7 @@ extension VStack {
 
     /// Creates a vertical stack that generates its content with the elements of a given
     /// collection, identified through a key path.
+    @_spi(ItemStacks)
     public init<ValuesCollection, ElementContent, ElementID>(
         _ collection: ValuesCollection,
         id idKeyPath: KeyPath<ValuesCollection.Element, ElementID>,
@@ -82,7 +86,8 @@ extension VStack {
     }
 
 
-    init<Items, ItemContent>(
+    @_spi(ItemStacks)
+    public init<Items, ItemContent>(
         items: Items,
         alignment: HorizontalAlignment = .center,
         spacing: CGFloat? = nil,

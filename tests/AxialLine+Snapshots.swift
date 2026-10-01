@@ -4,6 +4,7 @@
 //
 
 
+@_spi(ItemStacks)
 @testable import PreviewUtilities
 
 import SwiftUI

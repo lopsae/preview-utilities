@@ -4,7 +4,7 @@
 //
 
 
-import PreviewUtilities
+@_spi(ItemStacks) import PreviewUtilities
 
 import SwiftUI
 import Testing
@@ -91,42 +91,27 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(.horizontal, 20)
         }
 
-
         Snapshots.assertView("bordersWidth") {
             // FIXME: Try to use item VStack.
-            VStack(spacing: 20) {
+            VStack(items: [Int(1), 2, 4, 8], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(1), .caption("`1`"))
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(2), .caption("`2`"))
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(4), .caption("`4`"))
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(8), .caption("`8`"))
+                .debugGeometry(.bordersWidth(borderWidth.asDouble), .caption("`\(borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
 
         Snapshots.assertView("small") {
-            VStack(spacing: 20) {
+            VStack(items: [CGFloat.zero, 0.5, 1], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(.zero), .caption("`zero`"))
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(0.5), .caption("`0.5`"))
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(.one), .caption("`one`"))
+                .debugGeometry(.bordersWidth(borderWidth), .caption("`\(borderWidth, format: .fractionLength(1))`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
 
         Snapshots.assertView("large") {
-            VStack(spacing: 20) {
+            VStack(items: [Int(8), 10, 15], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(8), .caption("`8`"))
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(10), .caption("`10`"))
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.bordersWidth(15), .caption("`15`"))
+                .debugGeometry(.bordersWidth(borderWidth.asDouble), .caption("`\(borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
