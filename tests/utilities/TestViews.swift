@@ -11,8 +11,16 @@ import SwiftUI
 enum TestViews {
 
     /// A quinary gray 100x100 square.
-    static let quinaryGraySquare: some View = Rectangle()
+    static func quinaryGraySquare(length: CGFloat = 100) -> some View {
+        Rectangle()
         .fill(.gray.quinary)
-        .frame(squareOf: 100)
+        .frame(squareOf: length)
+    }
+
+    static func quinaryGrayRect(size: CGSize = [120, 20]) -> some View {
+        Rectangle()
+        .fill(.gray.quinary)
+        .frame(size: size)
+    }
 
 }

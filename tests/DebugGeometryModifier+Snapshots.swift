@@ -15,13 +15,13 @@ struct DebugGeometryModifierSnapshots {
 
     @Test(.snapshotTesting) func defaults() {
         Snapshots.assertView("default", colorSchemes: .all) {
-            TestViews.quinaryGraySquare
+            TestViews.quinaryGraySquare()
             .debugGeometry()
             .safeAreaPadding(20)
         }
 
         Snapshots.assertView("caption", size: [400, 200], colorSchemes: .all) {
-            TestViews.quinaryGraySquare
+            TestViews.quinaryGraySquare()
             .debugGeometry(.caption("_Formatted_ Caption"), .allGeometry)
             .safeAreaPadding(20)
         }
@@ -47,12 +47,12 @@ struct DebugGeometryModifierSnapshots {
         }
 
         Snapshots.assertView("origin", size: [400, 200]) {
-            TestViews.quinaryGraySquare
+            TestViews.quinaryGraySquare()
             .debugGeometry(.origin)
         }
 
         Snapshots.assertView("insets") {
-            TestViews.quinaryGraySquare
+            TestViews.quinaryGraySquare()
             .debugGeometry(.safeAreaInsets)
             .safeAreaPadding(20)
         }
