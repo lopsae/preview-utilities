@@ -58,4 +58,9 @@ struct DebugGeometryModifierSnapshots {
         }
     }
 
+    // FIXME: Test hidden/visible.
+    // FIXME: Test hairline, no borders, width
+    // FIXME: Test caption, localized/verbatim
+    // FIXME: Test alignments, use drawsCaptionBorder
+
 }
