@@ -31,17 +31,11 @@ struct DebugGeometryModifierSnapshots {
     @Test(.snapshotTesting) func geometryProperties() {
         Snapshots.assertView("sizes") {
             VStack(spacing: 20) {
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.height)
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.width)
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.size)
             }
         }
@@ -62,13 +56,9 @@ struct DebugGeometryModifierSnapshots {
     @Test(.snapshotTesting) func visibility() {
         Snapshots.assertView("hidden") {
             VStack(spacing: 20) {
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 40])
+                TestViews.quinaryGrayRect(size: [120, 40])
                     .debugGeometry(.caption("`~hidden`"), .size)
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 40])
+                TestViews.quinaryGrayRect(size: [120, 40])
                     .debugGeometry(.caption("`hidden`"), .size, .hidden)
             }
             .safeAreaPadding(.horizontal, 20)
@@ -93,13 +83,9 @@ struct DebugGeometryModifierSnapshots {
     @Test(.snapshotTesting) func borders() {
         Snapshots.assertView("special") {
             VStack(spacing: 20) {
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.hairline, .caption("`hairline`"))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.noBorders, .caption("`noBorders`"))
             }
             .safeAreaPadding(.horizontal, 20)
@@ -109,21 +95,13 @@ struct DebugGeometryModifierSnapshots {
         Snapshots.assertView("bordersWidth") {
             // FIXME: Try to use item VStack.
             VStack(spacing: 20) {
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(1), .caption("`1`"))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(2), .caption("`2`"))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(4), .caption("`4`"))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(8), .caption("`8`"))
             }
             .safeAreaPadding(.horizontal, 20)
@@ -131,17 +109,11 @@ struct DebugGeometryModifierSnapshots {
 
         Snapshots.assertView("small") {
             VStack(spacing: 20) {
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(.zero), .caption("`zero`"))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(0.5), .caption("`0.5`"))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(.one), .caption("`one`"))
             }
             .safeAreaPadding(.horizontal, 20)
@@ -149,17 +121,11 @@ struct DebugGeometryModifierSnapshots {
 
         Snapshots.assertView("large") {
             VStack(spacing: 20) {
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(8), .caption("`8`"))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(10), .caption("`10`"))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 20])
+                TestViews.quinaryGrayRect()
                     .debugGeometry(.bordersWidth(15), .caption("`15`"))
             }
             .safeAreaPadding(.horizontal, 20)
