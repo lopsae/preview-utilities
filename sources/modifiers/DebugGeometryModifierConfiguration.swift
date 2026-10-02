@@ -23,7 +23,7 @@ extension DebugGeometryModifier {
         /// When set to `false` the modifier will draw no content.
         var isVisible: Bool = true
 
-        /// The caption displayed along the geometry information.
+        /// The caption displayed along the geometry properties.
         var captionSource: CaptionSource? = nil
 
         /// The visibility of the inner and outer borders.
@@ -34,10 +34,10 @@ extension DebugGeometryModifier {
         /// Defaults to `4`, a quarter of the default iOS padding.
         var bordersWidth: CGFloat = 4
 
-        // FIXME: Rename to geometryInfo
-        var infoElements: InfoElements = .empty
-        // FIXME: Rename to captionAlignment.
-        var infoAlignment: FloatingAlignment = .inner(.topLeading)
+        // FIXME: Document.
+        var geometryProperties: GeometryProperties = .empty
+        // FIXME: Document.
+        var captionAlignment: FloatingAlignment = .inner(.topLeading)
 
         /// Enables a border around the debug caption.
         ///
@@ -58,8 +58,8 @@ extension DebugGeometryModifier {
 
 
         /// Indicates if the configuration displays any elements in the debug caption.
-        var containsInfoCaptionElements: Bool {
-            !infoElements.isEmpty || captionSource != nil
+        var containsCaptionElements: Bool {
+            !geometryProperties.isEmpty || captionSource != nil
         }
 
     }
@@ -80,7 +80,7 @@ extension DebugGeometryModifier.Configuration {
 }
 
 
-// MARK: - InfoElements
+// MARK: - GeometryProperties
 
 
 extension DebugGeometryModifier.Configuration {
@@ -90,7 +90,7 @@ extension DebugGeometryModifier.Configuration {
 
     // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
     // and `PinnedScrollableViews`.
-    struct InfoElements: OptionSet, Sendable {
+    struct GeometryProperties: OptionSet, Sendable {
         let rawValue: Int
 
         nonisolated init(rawValue: Int) {
@@ -199,22 +199,22 @@ extension DebugGeometryModifier.Configuration {
         }
 
         /// Prints the width of the owner view in the debug caption.
-        public static let width: Trait = .modifier(InfoElementsModifier(infoElements: .width))
+        public static let width: Trait = .modifier(GeometryPropertiesModifier(property: .width))
 
         /// Prints the height of the owner view in the debug caption.
-        public static let height: Trait = .modifier(InfoElementsModifier(infoElements: .height))
+        public static let height: Trait = .modifier(GeometryPropertiesModifier(property: .height))
 
         /// Prints the global origin coordinate of the owner view in the debug caption.
-        public static let origin: Trait = .modifier(InfoElementsModifier(infoElements: .origin))
+        public static let origin: Trait = .modifier(GeometryPropertiesModifier(property: .origin))
 
         /// Prints the safe area insets applied to the owner view in the debug caption.
-        public static let safeAreaInsets: Trait = .modifier(InfoElementsModifier(infoElements: .safeAreaInsets))
+        public static let safeAreaInsets: Trait = .modifier(GeometryPropertiesModifier(property: .safeAreaInsets))
 
         /// Prints the width and height of the owner view in the debug caption.
-        public static let size: Trait = .modifier(InfoElementsModifier(infoElements: .size))
+        public static let size: Trait = .modifier(GeometryPropertiesModifier(property: .size))
 
-        /// Prints all supported geometry information in the debug caption.
-        public static let allGeometry: Trait = .modifier(InfoElementsModifier(infoElements: .allGeometry))
+        /// Prints all supported geometry properties in the debug caption.
+        public static let allGeometry: Trait = .modifier(GeometryPropertiesModifier(property: .allGeometry))
 
         /// Prints the given localized string in the debug caption.
         /// 
@@ -242,7 +242,7 @@ extension DebugGeometryModifier.Configuration {
         /// - Parameter alignment: Floating alignment of the debug caption.
         @available(*, deprecated)
         public static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
-            .modifier(InfoAlignmentModifier(alignment: alignment))
+            .modifier(CaptionAlignmentModifier(alignment: alignment))
         }
 
         // FIXME: Replace with innerAlignment
@@ -250,13 +250,13 @@ extension DebugGeometryModifier.Configuration {
         ///
         /// The default is ``FloatingAlignment/innerTopLeading``.
         @available(*, deprecated)
-        public static let innerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .innerTopLeading))
+        public static let innerInfo: Trait = .modifier(CaptionAlignmentModifier(alignment: .innerTopLeading))
 
         /// Aligns the debug caption to the given inner floating alignment.
         /// - Parameter innerAlignment: Inner floating alignment for the debug caption.
         @available(*, deprecated)
         public static func innerInfo(_ innerAlignment: FloatingAlignment.InnerAlignment) -> Trait {
-            .modifier(InfoAlignmentModifier(alignment: .inner(innerAlignment)))
+            .modifier(CaptionAlignmentModifier(alignment: .inner(innerAlignment)))
         }
 
         // FIXME: Replace with outerAlignment.
@@ -264,19 +264,19 @@ extension DebugGeometryModifier.Configuration {
         ///
         /// The default is ``FloatingAlignment/outerTopLeading``.
         @available(*, deprecated)
-        public static let outerInfo: Trait = .modifier(InfoAlignmentModifier(alignment: .outerTopLeading))
+        public static let outerInfo: Trait = .modifier(CaptionAlignmentModifier(alignment: .outerTopLeading))
 
         /// Aligns the debug caption to the given outer floating alignment.
         /// - Parameter outerAlignment: Outer floating alignment for the debug caption.
         @available(*, deprecated)
         public static func outerInfo(_ outerAlignment: FloatingAlignment.OuterAlignment) -> Trait {
-            .modifier(InfoAlignmentModifier(alignment: .outer(outerAlignment)))
+            .modifier(CaptionAlignmentModifier(alignment: .outer(outerAlignment)))
         }
 
         /// Aligns the debug caption to the given floating alignment.
         /// - Parameter alignment: Floating alignment of the debug caption.
         public static func alignment(_ alignment: FloatingAlignment) -> Trait {
-            .modifier(InfoAlignmentModifier(alignment: alignment))
+            .modifier(CaptionAlignmentModifier(alignment: alignment))
         }
 
         /// Enables drawing a border around the debug caption.
@@ -337,17 +337,17 @@ extension DebugGeometryModifier.Configuration {
         }
     }
 
-    struct InfoElementsModifier: Modifier {
-        let infoElements: InfoElements
+    struct GeometryPropertiesModifier: Modifier {
+        let property: GeometryProperties
         func update(configuration: inout DebugGeometryModifier.Configuration) {
-            configuration.infoElements.formUnion(infoElements)
+            configuration.geometryProperties.formUnion(property)
         }
     }
 
-    struct InfoAlignmentModifier: Modifier {
+    struct CaptionAlignmentModifier: Modifier {
         let alignment: FloatingAlignment
         func update(configuration: inout DebugGeometryModifier.Configuration) {
-            configuration.infoAlignment = alignment
+            configuration.captionAlignment = alignment
         }
     }
 

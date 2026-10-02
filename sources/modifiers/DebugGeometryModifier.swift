@@ -278,11 +278,11 @@ public struct DebugGeometryModifier: ViewModifier {
 
     @ViewBuilder
     private func debugCaptionView(_ geometry: GeometryProxy) -> some View {
-        if configuration.containsInfoCaptionElements {
+        if configuration.containsCaptionElements {
 
             let spacing = captionSpacing
             FloatingAlignedContainer(
-                alignment: configuration.infoAlignment,
+                alignment: configuration.captionAlignment,
                 horizontalSpacing: spacing.width,
                 verticalSpacing: spacing.height,
             ) { alignments in
@@ -306,27 +306,27 @@ public struct DebugGeometryModifier: ViewModifier {
                     }
 
                     // Width, Height, or Size.
-                    if configuration.infoElements.contains(.size) {
+                    if configuration.geometryProperties.contains(.size) {
                         let formattedWidth = globalFrame.width.formatted(fractionLength)
                         let formattedHeight = globalFrame.height.formatted(fractionLength)
                         Text("size: \(formattedWidth), \(formattedHeight)")
-                    } else if configuration.infoElements.contains(.width) {
+                    } else if configuration.geometryProperties.contains(.width) {
                         let formattedWidth = globalFrame.width.formatted(fractionLength)
                         Text("width: \(formattedWidth)")
-                    } else if configuration.infoElements.contains(.height) {
+                    } else if configuration.geometryProperties.contains(.height) {
                         let formattedHeight = globalFrame.height.formatted(fractionLength)
                         Text("height: \(formattedHeight)")
                     }
 
                     // Origin.
-                    if configuration.infoElements.contains(.origin) {
+                    if configuration.geometryProperties.contains(.origin) {
                         let formattedX = globalFrame.origin.x.formatted(fractionLength)
                         let formattedY = globalFrame.origin.y.formatted(fractionLength)
                         Text("origin: \(formattedX), \(formattedY)")
                     }
 
                     // SafeAreaInsets.
-                    if configuration.infoElements.contains(.safeAreaInsets) {
+                    if configuration.geometryProperties.contains(.safeAreaInsets) {
                         Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
                         .multilineTextAlignment(alignments.text)
                     }
@@ -372,7 +372,7 @@ public struct DebugGeometryModifier: ViewModifier {
         var horizontalSpacing = horizontalSpacingFromBoundary
         var verticalSpacing = verticalSpacingFromBoundary
 
-        if let outerAlignment = configuration.infoAlignment.outerAlignment {
+        if let outerAlignment = configuration.captionAlignment.outerAlignment {
             // For outer alignment with top/bottom major, the caption is always aligned 2 points
             // from the edge of the content. Otherwise it looks misaligned.
             if outerAlignment.key.isEqual(toAny: .top, .bottom) {
