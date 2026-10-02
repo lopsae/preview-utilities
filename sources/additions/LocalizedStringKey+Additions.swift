@@ -62,6 +62,38 @@ extension LocalizedStringKey.StringInterpolation {
 }
 
 
+// MARK: Fractionals
+
+
+extension LocalizedStringKey.StringInterpolation {
+
+    @_spi(FractionalInterpolation)
+    @inlinable nonisolated mutating
+    public func appendInterpolation<Value>(oneFractional value: Value)
+    where Value: BinaryFloatingPoint {
+        appendInterpolation(value, format: .fractionLength(1))
+    }
+
+    @_spi(FractionalInterpolation)
+    @inlinable nonisolated mutating
+    public func appendInterpolation<Value>(twoFractionals value: Value)
+    where Value: BinaryFloatingPoint {
+        appendInterpolation(value, format: .fractionLength(2))
+    }
+
+    @_spi(FractionalInterpolation)
+    @inlinable nonisolated mutating
+    public func appendInterpolation<Value>(threeFractionals value: Value)
+    where Value: BinaryFloatingPoint {
+        appendInterpolation(value, format: .fractionLength(3))
+    }
+
+}
+
+
+// MARK: CapsuleText Experiments
+
+
 private struct CapsuleText: View {
 
     let systemImage: String
