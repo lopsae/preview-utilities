@@ -282,7 +282,7 @@ extension DebugGeometryModifier.Configuration {
         /// Enables drawing a border around the debug caption.
         ///
         /// Used internally for alignment visualization and debugging.
-        static var drawsCaptionBorder: Trait { .modifier(EnableCaptionBorder()) }
+        public static var drawsCaptionBorder: Trait { .modifier(EnableCaptionBorder()) }
 
     }
 }
