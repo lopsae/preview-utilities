@@ -488,8 +488,8 @@ struct EdgeInsetPreviewFormatStyle: FormatStyle {
         let formattedBottom   = value.bottom.formatted(fractionLength)
         let formattedTrailing = value.trailing.formatted(fractionLength)
         return """
-            t:\(formattedTop), l:\(formattedLeading)
-            b:\(formattedBottom), r:\(formattedTrailing)
+            tp:\(formattedTop), ld:\(formattedLeading)
+            bt:\(formattedBottom), tr:\(formattedTrailing)
             """
     }
 
