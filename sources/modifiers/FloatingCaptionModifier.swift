@@ -444,21 +444,3 @@ private struct PreviewContent {
     }
 
 }
-
-
-
-// FIXME: Move to its own file when used more that once. Could be used in DebugGeometryModifier.
-nonisolated
-enum TextSource {
-    case localizedKey(LocalizedStringKey)
-    case verbatim(String)
-
-    var text: Text {
-        switch self {
-        case .localizedKey(let localizedStringKey):
-            Text(localizedStringKey)
-        case .verbatim(let string):
-            Text(verbatim: string)
-        }
-    }
-}
