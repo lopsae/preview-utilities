@@ -169,6 +169,9 @@ extension DebugGeometryModifier.Configuration {
             }
         }
 
+        /// A trait that performs no changes.
+        public static let empty: Trait = .traits([])
+
         // FIXME: also implement opacity.
 
         /// Hides all elements of the debug overlay.
