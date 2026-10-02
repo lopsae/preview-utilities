@@ -548,7 +548,7 @@ private struct PreviewContent {
         ("Origin",          .origin,                                false),
         ("SafeArea Insets", .safeAreaInsets,                        false),
         ("All Geometry",    .allGeometry,                           false),
-        ("Outer Info"    ,  .outerInfo,                             false)
+        ("Outer Alignment", .outerAlignment,                        false)
     ]
 
     let traits = traitOptions.compactMap { traitTuple in
@@ -613,7 +613,7 @@ private struct PreviewContent {
         let positionTrait: DebugGeometryModifier.Configuration.Trait
         switch positionKey {
         case .inner:
-            positionTrait = .innerInfo(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
+            positionTrait = .alignment(.inner(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment)))
         case .outer:
             let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMajorAlignment {
             case .top:      .top(     outerMinorHorizontalAlignment)
@@ -621,7 +621,7 @@ private struct PreviewContent {
             case .leading:  .leading( outerMinorVerticalAlignment)
             case .trailing: .trailing(outerMinorVerticalAlignment)
             }
-            positionTrait = .outerInfo(outerAlignment)
+            positionTrait = .alignment(.outer(outerAlignment))
         }
         traits.append(positionTrait)
         return traits
@@ -724,7 +724,7 @@ private struct PreviewContent {
             width: width,
             height: height
         )
-        .debugGeometry(.bordersWidth(bordersWidth), .allGeometry, .outerInfo(.bottomLeading))
+        .debugGeometry(.bordersWidth(bordersWidth), .allGeometry, .alignment(.outerBottomLeading))
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
@@ -733,7 +733,7 @@ private struct PreviewContent {
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
-        .debugGeometry(.allGeometry, .outerInfo)
+        .debugGeometry(.allGeometry, .outerAlignment)
         .safeAreaPadding(.init(
             top:      20,
             leading:  30,
@@ -797,7 +797,7 @@ private struct PreviewContent {
                 ClearRectangle()
                 .debugGeometry(
                     .width, .caption(verbatim: alignment.hyphenatedName),
-                    .infoAlignment(alignment)
+                    .alignment(alignment)
                 )
             }
         }

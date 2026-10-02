@@ -160,7 +160,7 @@ extension View {
     }
     .maxWidthFrame()
     .minimumSafeAreaPadding(.bottom, minimumInset: minimumInset, printsUpdates: true)
-    .debugGeometry(.safeAreaInsets, .outerInfo(.topLeading))
+    .debugGeometry(.safeAreaInsets, .alignment(.outerTopTrailing))
     .padding(.horizontal)
     .safeAreaInset(edge: .bottom, spacing: .zero) {
         Rectangle().fill(.red.tertiary)
