@@ -226,6 +226,15 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
+        Snapshots.assertView("traits") {
+            VStack(spacing: 20) {
+                TestViews.quinaryGrayRect()
+                    .debugGeometry(.caption("Outer"), .outerAlignment)
+                TestViews.quinaryGrayRect()
+                    .debugGeometry(.caption("Inner"), .innerAlignment)
+            }
+        }
+
         Snapshots.assertView("allWithBorders") {
             TestViews.quinaryGraySquare()
             .overlay {

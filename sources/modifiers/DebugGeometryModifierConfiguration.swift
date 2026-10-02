@@ -279,6 +279,16 @@ extension DebugGeometryModifier.Configuration {
             .modifier(CaptionAlignmentModifier(alignment: alignment))
         }
 
+        /// Aligns the debug caption to the default inner floating alignment.
+        ///
+        /// The default inner alignment is ``FloatingAlignment/innerTopLeading``.
+        public static let innerAlignment: Trait = .modifier(CaptionAlignmentModifier(alignment: .innerTopLeading))
+
+        /// Aligns the debug caption to the default outer floating alignment.
+        ///
+        /// The default outer alignment is ``FloatingAlignment/outerTopLeading``.
+        public static let outerAlignment: Trait = .modifier(CaptionAlignmentModifier(alignment: .outerTopLeading))
+
         /// Enables drawing a border around the debug caption.
         ///
         /// Used internally for alignment visualization and debugging.
