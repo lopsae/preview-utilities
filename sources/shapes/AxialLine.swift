@@ -157,29 +157,14 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .paddingSpacing, .fixedHeaderFooter, PreviewContent.layout) {
-    // FIXME: use item stacks.
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: 2)
-    .padding()
-    .debugGeometry(.hairline)
-
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: 4)
-    .padding()
-    .debugGeometry(.hairline)
-
-    AxialLine(.horizontal, style: .red.secondary, lineWidth: 8)
-    .padding()
-    .debugGeometry(.hairline)
-
-    HStack(spacing: SpacingDefaults.padding) {
-        AxialLine(.vertical, style: .red.secondary, lineWidth: 2)
+    VStack(items: [CGFloat(2), 4, 8], spacing: SpacingDefaults.padding) { lineWidth in
+        AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth)
         .padding()
         .debugGeometry(.hairline)
+    }
 
-        AxialLine(.vertical, style: .red.secondary, lineWidth: 4)
-        .padding()
-        .debugGeometry(.hairline)
-
-        AxialLine(.vertical, style: .red.secondary, lineWidth: 8)
+    HStack(items: [CGFloat(2), 4, 8], spacing: SpacingDefaults.padding) { lineWidth in
+        AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth)
         .padding()
         .debugGeometry(.hairline)
     }
