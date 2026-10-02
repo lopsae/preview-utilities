@@ -106,7 +106,10 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     var displayName: String { displayNameComponents.joined(separator: .space) }
     var hyphenatedName: String { displayNameComponents.joined(separator: .hyphen) }
 
-    var abbreviatedName: String {
+    /// The abbreviated name.
+    ///
+    /// For example, the abbreviated name of ``outerTop`` is `otc` for `outer-top-center`.
+    public var abbreviatedName: String {
         displayNameComponents.map(formatting: .firstCharacter).joined()
     }
 
