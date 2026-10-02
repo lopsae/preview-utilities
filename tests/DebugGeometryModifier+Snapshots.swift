@@ -120,8 +120,39 @@ struct DebugGeometryModifierSnapshots {
 
 
     // FIXME: Test caption, localized/verbatim
+//    @Test(.snapshotCapture) func captions() {
+//        Snapshots.assertView("localized") {
+//            TestViews.quinaryGraySquare()
+//                .debugGeometry(.caption("Caption `monospaced`\nNewLine _Formatted_"))
+//            .safeAreaPadding(20)
+//        }
+//
+//        Snapshots.assertView("verbatim") {
+//            TestViews.quinaryGraySquare()
+//            .debugGeometry(.caption(verbatim: "Verbatim caption\nNewLines\n_No Formatting_"))
+//            .safeAreaPadding(20)
+//        }
+//    }
+
+
+    // FIXME: Test small and zero sizes.
+//    @Test(.snapshotCapture) func smallSizes() {
+//        // FIXME: Snapshot shows a tiny mismatch between safe area rects and outer stroke.
+//        Snapshots.assertView("zero") {
+//            VStack.maxWidth(alignment: .leading) {
+//                TestViews.quinaryGraySquare(length: .zero)
+//                    .debugGeometry()
+//                    .safeAreaPadding([.top, .leading], 20)
+//                TestViews.quinaryGraySquare(length: .zero)
+//                    .debugGeometry(.caption("Caption still visible"), .size)
+//                    .safeAreaPadding([.top, .leading], 20)
+//            }
+//            .padding(20)
+//        }
+//    }
+
+
     // FIXME: Test alignments, use drawsCaptionBorder
     // FIXME: Test insets of different sizes.
-    // FIXME: Test small and zero sizes.
 
 }
