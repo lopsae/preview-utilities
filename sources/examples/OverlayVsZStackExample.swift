@@ -36,7 +36,7 @@ private struct PreviewContent {
         .floatingCaption("`overlay` content",
             .style(.brown), .alignment(.outerTopTrailing))
     }
-    .debugGeometry(.caption("overlay"), .size, .infoAlignment(.outerBottomTrailing))
+    .debugGeometry(.caption("overlay"), .size, .alignment(.outerBottomTrailing))
 }
 
 
@@ -53,7 +53,7 @@ private struct PreviewContent {
         .floatingCaption("`overlay` content",
             .style(.brown), .alignment(.outerTopTrailing))
     }
-    .debugGeometry(.caption("ZStack"), .size, .infoAlignment(.outerBottomTrailing))
+    .debugGeometry(.caption("ZStack"), .size, .alignment(.outerBottomTrailing))
 }
 
 
@@ -78,7 +78,7 @@ private struct PreviewContent {
         .floatingCaption("`GeometryReader`",
             .style(.brown), .alignment(.outerTopTrailing), .size)
     }
-    .debugGeometry(.caption("overlay"), .size, .infoAlignment(.outerBottomTrailing))
+    .debugGeometry(.caption("overlay"), .size, .alignment(.outerBottomTrailing))
 
     VisibleSpacer()
 }
@@ -106,7 +106,7 @@ private struct PreviewContent {
         .floatingCaption("`GeometryReader`",
             .style(.brown), .alignment(.outerTopTrailing), .size)
     }
-    .debugGeometry(.caption("overlay"), .size, .infoAlignment(.outerBottomTrailing))
+    .debugGeometry(.caption("overlay"), .size, .alignment(.outerBottomTrailing))
 
     VisibleSpacer()
 }

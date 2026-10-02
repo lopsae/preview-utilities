@@ -116,7 +116,7 @@ private struct PreviewContent {
         } completed: { platformImage in
             Image(platformImage: platformImage)
         }
-        .debugGeometry(.caption("TaskView"), .size, .infoAlignment(.outerBottomTrailing))
+        .debugGeometry(.caption("TaskView"), .size, .alignment(.outerBottomTrailing))
     }
 }
 
