@@ -61,7 +61,7 @@ private struct PreviewContent {
 
 
 #Preview("Default", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
-    ForEach(CGLineCap.allCases) { lineCap in
+    ForEach(items: CGLineCap.allCases) { lineCap in
         AxialLine(
             .horizontal, style: .red.secondary,
             strokeStyle: .dashed(cap: lineCap)
@@ -89,15 +89,14 @@ private extension ForEach {
         self.init(items, id: \.self, content: content)
     }
 
-    // FIXME: use items as parameter for hashable elements.
     init(
-        _ data: Data,
+        items: Data,
         @ContentBuilder content: @escaping (Data.Element) -> Content
     ) where
         Data.Element: Hashable,
         Data.Element == ID
     {
-        self.init(data, id: \.self, content: content)
+        self.init(items, id: \.self, content: content)
     }
 
 }
