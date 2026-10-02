@@ -334,7 +334,7 @@ public struct DebugGeometryModifier: ViewModifier {
                 .font(.caption.monospaced())
                 .foregroundStyle(.secondary)
                 .fixedSize()
-                .border(configuration.drawsCaptionBorder ? AnyShapeStyle(.secondary) : AnyShapeStyle(.clear))
+                .border(configuration.drawsCaptionBorder ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.clear))
             }// FloatingAlignedContainer
         } // if
     }
