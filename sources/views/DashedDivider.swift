@@ -18,14 +18,13 @@ public struct DashedDivider: View {
         self.lineWidth = lineWidth
     }
 
-    // FIXME: Use the dashed strokeStyle?
     @_documentation(visibility: internal)
     public var body: some View {
         AxialLine(
             axis, style: .tertiary,
-            lineWidth: lineWidth, lineCap: .round,
-            dash: [lineWidth*5, lineWidth*6]
+            strokeStyle: .dashed(width: lineWidth, cap: .round)
         )
+
     }
 
 }
