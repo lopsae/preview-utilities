@@ -86,6 +86,24 @@ extension View {
         return self.frame(width: width, height: height, alignment: alignment)
     }
 
+    /// Expands the view's width with matching frame and multiline alignment.
+    ///
+    /// Applies the given multiline text alignment and wraps the view in a horizontally expanding
+    /// frame with a matching alignment.
+    ///
+    /// When applied to `Text` views, allows the text to expand to the available width and remain
+    /// aligned when displaying multiple lines.
+    ///
+    /// - Parameter textAlignment: The text alignment to apply to multiline text, and to the
+    ///   expanding frame.
+    public func expandingWidthFrame(textAlignment: TextAlignment) -> some View {
+        self
+        .multilineTextAlignment(textAlignment)
+        .maxWidthFrame(
+            alignment: textAlignment.horizontalAlignment.alignment(withOrthogonal: .center)
+        )
+    }
+
 }
 
 
@@ -187,4 +205,44 @@ extension View {
         )
     }
 
+}
+
+
+// MARK: - PreviewContent
+
+
+@MainActor
+private struct PreviewContent {
+
+    static let layout: PreviewTrait<Preview.ViewTraits> = .iPhoneProSizeLayout
+
+}
+
+
+// MARK: - Previews
+
+
+#Preview("ExpandingWidthText", traits: .spacing(8), .headerFooter, PreviewContent.layout) {
+    Text("Single Line Default")
+    .expandingWidthFrame()
+
+    DashedDivider()
+
+    Text("Single Line Trailing")
+    .expandingWidthFrame(textAlignment: .trailing)
+
+    DashedDivider()
+
+    Text("Multiline text\nwith default alignment")
+    .expandingWidthFrame()
+
+    DashedDivider()
+
+    Text("Multiline text\nwith center alignment")
+    .expandingWidthFrame(textAlignment: .center)
+
+    DashedDivider()
+
+    Text("Multiline text\nwith trailing alignment")
+    .expandingWidthFrame(textAlignment: .trailing)
 }
