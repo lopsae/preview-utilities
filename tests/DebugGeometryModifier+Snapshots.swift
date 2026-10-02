@@ -135,7 +135,7 @@ struct DebugGeometryModifierSnapshots {
 
 
     @Test(.snapshotTesting) func smallSizes() {
-        // FIXME: Snapshot shows a tiny mismatch between safe area rects and outer stroke.
+        // BUG: Snapshot shows a tiny mismatch between safe area rects and outer stroke.
         Snapshots.assertView("zero") {
             VStack.maxWidth(alignment: .leading) {
                 TestViews.quinaryGraySquare(length: .zero)

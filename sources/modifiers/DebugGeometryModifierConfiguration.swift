@@ -34,9 +34,10 @@ extension DebugGeometryModifier {
         /// Defaults to `4`, a quarter of the default iOS padding.
         var bordersWidth: CGFloat = 4
 
-        // FIXME: Document.
+        /// The geometry properties displayed in the debug caption.
         var geometryProperties: GeometryProperties = .empty
-        // FIXME: Document.
+
+        /// The alignment of the debug caption.
         var captionAlignment: FloatingAlignment = .inner(.topLeading)
 
         /// Enables a border around the debug caption.
@@ -46,10 +47,15 @@ extension DebugGeometryModifier {
 
 
         // FIXME: Publicize inits and document.
-        init() {}
+        /// Creates a default configuration instance.
+        public init() {}
 
 
-        init(traits: [Trait]) {
+        /// Creates a configuration by applying the given traits, in order, to a default instance.
+        ///
+        /// The traits are applied in order, with each trait updating the resulting instance of
+        /// previously applied traits.
+        public init(traits: [Trait]) {
             self.init()
             for trait in traits {
                 trait.apply(to: &self)

@@ -11,7 +11,7 @@
 /// one to modify its state.
 ///  
 /// When multiple traits are applied in an instance, the application is done in order, with a each
-/// trait receiving the resulting instance of previously applied traits. If multiple traits modify
+/// trait updating the resulting instance of previously applied traits. If multiple traits modify
 /// the same configuration properties, the last one applied may overwrite former traits.
 ///  
 /// Traits are usually defined as static members of `ConfigurationTrait` constrained to a given
@@ -40,7 +40,7 @@ public enum ConfigurationTrait<Configuration>: Sendable {
 
     /// Applies the associated traits.
     ///
-    /// The contained traits are applied in order, with each trait receiving the resulting instance
+    /// The contained traits are applied in order, with each trait updating the resulting instance
     /// of previously applied traits.
     case traits([ConfigurationTrait<Configuration>])
 
@@ -142,7 +142,7 @@ extension TraitInitializable {
 
     /// Creates a configuration by applying the given traits, in order, to a default instance.
     ///
-    /// The traits are applied in order, with each trait receiving the resulting instance of
+    /// The traits are applied in order, with each trait updating the resulting instance of
     /// previously applied traits.
     public init(traits: [ConfigurationTrait<Self>]) {
         self.init()
