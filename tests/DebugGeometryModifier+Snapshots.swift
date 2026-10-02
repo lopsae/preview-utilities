@@ -4,7 +4,9 @@
 //
 
 
-@_spi(ItemStacks) import PreviewUtilities
+@_spi(ItemStacks)
+@_spi(FractionalInterpolation)
+import PreviewUtilities
 
 import SwiftUI
 import Testing
@@ -92,10 +94,9 @@ struct DebugGeometryModifierSnapshots {
         }
 
         Snapshots.assertView("bordersWidth") {
-            // FIXME: Try to use item VStack.
-            VStack(items: [Int(1), 2, 4, 8], spacing: 20) { borderWidth in
+            VStack(items: [CGFloat(1), 2, 4, 8], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                .debugGeometry(.bordersWidth(borderWidth.asDouble), .caption("`\(borderWidth)`"))
+                .debugGeometry(.bordersWidth(borderWidth), .caption("`\(oneFractional: borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
@@ -103,15 +104,15 @@ struct DebugGeometryModifierSnapshots {
         Snapshots.assertView("small") {
             VStack(items: [CGFloat.zero, 0.5, 1], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                .debugGeometry(.bordersWidth(borderWidth), .caption("`\(borderWidth, format: .fractionLength(1))`"))
+                .debugGeometry(.bordersWidth(borderWidth), .caption("`\(oneFractional: borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
 
         Snapshots.assertView("large") {
-            VStack(items: [Int(8), 10, 15], spacing: 20) { borderWidth in
+            VStack(items: [CGFloat(8), 10, 15], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                .debugGeometry(.bordersWidth(borderWidth.asDouble), .caption("`\(borderWidth)`"))
+                .debugGeometry(.bordersWidth(borderWidth.asDouble), .caption("`\(oneFractional: borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
