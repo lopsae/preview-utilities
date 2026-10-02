@@ -24,7 +24,7 @@ Essentials
 ### Debug Overlay
 Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.
 
-Apply [`debugOverlay()`][docs-debug-overlay-function] to a view to overlay the debug 
+Apply [`debugOverlay()`][docs-debug-geometry-function] to a view to overlay the debug 
 visualization:
 
 ```swift
@@ -36,16 +36,16 @@ Text("Judge my Vow")
 ```
 
 <img
-    src="sources/documentation.docc/resources/debug-overlay/debug-overlay-default@3x.png"
+    src="sources/documentation.docc/resources/debug-geometry/debug-geometry-default@3x.png"
     width="400px"
     alt="Debug overlay with default configuration."
 />
 
-See the [Debug Overlay documentation][docs-debug-overlay-api] for more details.
+See the [Debug Overlay documentation][docs-debug-geometry-api] for more details.
 
 
-[docs-debug-overlay-function]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/swiftuicore/view/debugoverlay(_:)
-[docs-debug-overlay-api]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/debug-overlay-api
+[docs-debug-geometry-function]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/swiftuicore/view/debugoverlay(_:)
+[docs-debug-geometry-api]: https://lopsae.github.io/preview-utilities/v0.4.2/documentation/previewutilities/debug-geometry-api
 
 
 ### Debug Alignment Guides

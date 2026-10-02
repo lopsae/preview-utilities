@@ -25,7 +25,7 @@ public import SwiftUI
 ///     .font(.title)
 ///     .debugGeometry()
 /// ```
-/// ![Debug overlay with default configuration.](debug-overlay-default)
+/// ![Debug overlay with default configuration.](debug-geometry-default)
 ///
 ///
 /// ### Traits and Configuration
@@ -43,7 +43,7 @@ public import SwiftUI
 ///     .alignment(.innerTrailing) // aligns caption to trailing-center
 /// )
 /// ```
-/// ![Debug overlay using traits.](debug-overlay-simple-traits)
+/// ![Debug overlay using traits.](debug-geometry-simple-traits)
 ///
 ///
 /// ### Visual Components
@@ -53,7 +53,7 @@ public import SwiftUI
 /// drawn outside. A cross `+` marks the origin point, and green rectangles represent safe area
 /// insets applied to the view.
 ///
-/// ![Visual components of the debug overlay.](debug-overlay-components)
+/// ![Visual components of the debug overlay.](debug-geometry-components)
 ///
 ///
 /// ### Caption Alignment
@@ -78,7 +78,7 @@ public import SwiftUI
 ///         .debugGeometry(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
 /// }
 /// ```
-/// ![Debug overlay example alignments.](debug-overlay-alignments)
+/// ![Debug overlay example alignments.](debug-geometry-alignments)
 ///
 public struct DebugGeometryModifier: ViewModifier {
 
@@ -441,7 +441,7 @@ extension View {
     ///     .debugGeometry(.width, .alignment(.outerTop))
     /// Text("which I have got hold of for the moment")
     /// ```
-    /// ![Debug overlay with traits applied to a single Text.](debug-overlay-torch-traits)
+    /// ![Debug overlay with traits applied to a single Text.](debug-geometry-torch-traits)
     ///
     /// - Parameters:
     ///   - traits: The traits to customize the default configuration.
@@ -455,7 +455,7 @@ extension View {
 
     /// Layers in front of this view a debug overlay customized with the given traits.
     ///
-    /// Applies the ``DebugGeometryModifier`` customized with the given [`Trait`](doc:DebugOverlayModifier/Configuration/Trait)
+    /// Applies the ``DebugGeometryModifier`` customized with the given [`Trait`](doc:DebugGeometryModifier/Configuration/Trait)
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
     /// safe area insets.
     ///

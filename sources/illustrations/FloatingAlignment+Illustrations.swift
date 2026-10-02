@@ -17,7 +17,7 @@ extension FloatingAlignment {
 
 extension FloatingAlignment.Illustrations {
 
-    /// Card illustration for <doc:debug-overlay>.
+    /// Card illustration for <doc:floating-alignments-api>.
     static var card: DocumentationIllustration {
         DocumentationIllustration(sizing: .card.half, drawsBorder: false) {
             RoundedRectangle(cornerRadius: SpacingDefaults.padding / 3)

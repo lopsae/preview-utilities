@@ -1,19 +1,19 @@
 # Debug Geometry
 
 @Metadata {
-    @PageImage(purpose: card, source: "debug-overlay-card")
+    @PageImage(purpose: card, source: "debug-geometry-card")
 }
 
 
 Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.
 
-Apply the ``DebugOverlayModifier`` using ``SwiftUICore/View/debugOverlay(_:)`` or any
-[sibling function](doc:debug-overlay-api#View-Extensions) to overlay a visualization of the 
+Apply the ``DebugGeometryModifier`` using ``SwiftUICore/View/debugOverlay(_:)`` or any
+[sibling function](doc:debug-geometry-api#View-Extensions) to overlay a visualization of the 
 boundaries, origin, and safe areas:
 
-![Visual components of the debug overlay.](debug-overlay-components)
+![Visual components of the debug overlay.](debug-geometry-components)
 
-The modifier can be configured by passing [`Trait`](doc:DebugOverlayModifier/Configuration/Trait) 
+The modifier can be configured by passing [`Trait`](doc:DebugGeometryModifier/Configuration/Trait) 
 instances:
 
 ```swift
@@ -26,15 +26,15 @@ Rectangle()
     .alignment(.innerTrailing) // aligns caption to trailing-center
 )
 ```
-![Debug overlay using traits.](debug-overlay-simple-traits)
+![Debug overlay using traits.](debug-geometry-simple-traits)
 
 
 ## Topics
 
 ### Modifier and Traits
-+ ``DebugOverlayModifier``
-+ ``DebugOverlayModifier/Configuration``
-+ ``DebugOverlayModifier/Configuration/Trait``
++ ``DebugGeometryModifier``
++ ``DebugGeometryModifier/Configuration``
++ ``DebugGeometryModifier/Configuration/Trait``
 
 
 ### View Extensions

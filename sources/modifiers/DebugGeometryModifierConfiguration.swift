@@ -110,7 +110,7 @@ extension DebugGeometryModifier.Configuration {
 
     /// Customizations that can be applied to the configuration of a `DebugGeometryModifier`.
     ///  
-    /// Traits are passed to ``SwiftUICore/View/debugGeometry(_:)`` or any [sibling function](doc:debug-overlay-api#View-Extensions)
+    /// Traits are passed to ``SwiftUICore/View/debugGeometry(_:)`` or any [sibling function](doc:debug-geometry-api#View-Extensions)
     /// to build the [`Configuration`](doc:DebugGeometryModifier/Configuration) of a debug overlay.
     ///
     /// All passed traits are applied in order to a default configuration, each trait making a
@@ -136,11 +136,8 @@ extension DebugGeometryModifier.Configuration {
     /// + ``caption(_:)``
     /// + ``caption(verbatim:)``
     /// + ``alignment(_:)``
-    /// + ``infoAlignment(_:)``
-    /// + ``innerInfo``
-    /// + ``innerInfo(_:)``
-    /// + ``outerInfo``
-    /// + ``outerInfo(_:)``
+    /// + ``innerAlignment``
+    /// + ``outerAlignment``
     ///
     public enum Trait: Sendable {
 

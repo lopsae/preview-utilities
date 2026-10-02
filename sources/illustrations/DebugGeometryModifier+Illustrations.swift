@@ -17,7 +17,7 @@ extension DebugGeometryModifier {
 
 extension DebugGeometryModifier.Illustrations {
 
-    /// Card illustration for <doc:debug-overlay-api>.
+    /// Card illustration for <doc:debug-geometry-api>.
     static var card: DocumentationIllustration {
         DocumentationIllustration(sizing: .card.half, alignment: .topLeading, drawsBorder: false) {
             Capsule()
