@@ -172,8 +172,6 @@ extension DebugGeometryModifier.Configuration {
         /// A trait that performs no changes.
         public static let empty: Trait = .traits([])
 
-        // FIXME: also implement opacity.
-
         /// Hides all elements of the debug overlay.
         public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
 
@@ -234,43 +232,6 @@ extension DebugGeometryModifier.Configuration {
         /// - Parameter string: Verbatim string to display.
         public static func caption(verbatim string: String) -> Trait {
             .modifier(CaptionModifier(source: .verbatim(string)))
-        }
-
-        // FIXME: Delete deprecations once unused.
-
-        /// Aligns the debug caption to the given floating alignment.
-        /// - Parameter alignment: Floating alignment of the debug caption.
-        @available(*, deprecated)
-        public static func infoAlignment(_ alignment: FloatingAlignment) -> Trait {
-            .modifier(CaptionAlignmentModifier(alignment: alignment))
-        }
-
-        // FIXME: Replace with innerAlignment
-        /// Aligns the debug caption to the default inner floating alignment.
-        ///
-        /// The default is ``FloatingAlignment/innerTopLeading``.
-        @available(*, deprecated)
-        public static let innerInfo: Trait = .modifier(CaptionAlignmentModifier(alignment: .innerTopLeading))
-
-        /// Aligns the debug caption to the given inner floating alignment.
-        /// - Parameter innerAlignment: Inner floating alignment for the debug caption.
-        @available(*, deprecated)
-        public static func innerInfo(_ innerAlignment: FloatingAlignment.InnerAlignment) -> Trait {
-            .modifier(CaptionAlignmentModifier(alignment: .inner(innerAlignment)))
-        }
-
-        // FIXME: Replace with outerAlignment.
-        /// Aligns the debug caption to the default outer floating alignment.
-        ///
-        /// The default is ``FloatingAlignment/outerTopLeading``.
-        @available(*, deprecated)
-        public static let outerInfo: Trait = .modifier(CaptionAlignmentModifier(alignment: .outerTopLeading))
-
-        /// Aligns the debug caption to the given outer floating alignment.
-        /// - Parameter outerAlignment: Outer floating alignment for the debug caption.
-        @available(*, deprecated)
-        public static func outerInfo(_ outerAlignment: FloatingAlignment.OuterAlignment) -> Trait {
-            .modifier(CaptionAlignmentModifier(alignment: .outer(outerAlignment)))
         }
 
         /// Aligns the debug caption to the given floating alignment.
