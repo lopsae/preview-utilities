@@ -231,8 +231,14 @@ private struct PreviewContent {
 }
 
 
+// FIXME: Move to its own file.
 extension StrokeStyle {
 
+    /// Default dashed configuration used by `DashedDivider`.
+    ///
+    /// Sets a dash configuration based on the line width: 5 measures of dash followed by 6 measures
+    /// of space. With a round cap this results visually in a 6 measure dash with 5 measures of
+    /// space.
     static func dashed(width: CGFloat = 1, cap: CGLineCap = .round) -> Self {
         .init(
             lineWidth: width, lineCap: cap, lineJoin: .round,
