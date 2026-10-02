@@ -181,7 +181,37 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
+    @Test(.snapshotTesting) func safeAreaInsets() {
+        Snapshots.assertView("all") {
+            let edgeInsets = EdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 40)
+            TestViews.quinaryGraySquare()
+            .debugGeometry(.safeAreaInsets)
+            .safeAreaPadding(edgeInsets)
+        }
+
+        Snapshots.assertView("each") {
+            HStack(spacing: 20) {
+                VStack(spacing: 20) {
+                    TestViews.quinaryGraySquare(length: 40)
+                        .debugGeometry()
+                        .safeAreaPadding(.top, 20)
+                    TestViews.quinaryGraySquare(length: 40)
+                        .debugGeometry()
+                        .safeAreaPadding(.leading, 20)
+                }
+                VStack(spacing: 20) {
+                    TestViews.quinaryGraySquare(length: 40)
+                        .debugGeometry()
+                        .safeAreaPadding(.trailing, 20)
+                    TestViews.quinaryGraySquare(length: 40)
+                        .debugGeometry()
+                        .safeAreaPadding(.bottom, 20)
+                }
+            }
+        }
+    }
+
+
     // FIXME: Test alignments, use drawsCaptionBorder
-    // FIXME: Test insets of different sizes.
 
 }
