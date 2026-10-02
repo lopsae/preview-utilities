@@ -119,37 +119,66 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    // FIXME: Test caption, localized/verbatim
-//    @Test(.snapshotCapture) func captions() {
-//        Snapshots.assertView("localized") {
-//            TestViews.quinaryGraySquare()
-//                .debugGeometry(.caption("Caption `monospaced`\nNewLine _Formatted_"))
-//            .safeAreaPadding(20)
-//        }
-//
-//        Snapshots.assertView("verbatim") {
-//            TestViews.quinaryGraySquare()
-//            .debugGeometry(.caption(verbatim: "Verbatim caption\nNewLines\n_No Formatting_"))
-//            .safeAreaPadding(20)
-//        }
-//    }
+    @Test(.snapshotTesting) func captions() {
+        Snapshots.assertView("localized") {
+            TestViews.quinaryGraySquare()
+                .debugGeometry(.caption("Caption `monospaced`\nNewLine _Formatted_"))
+            .safeAreaPadding(20)
+        }
+
+        Snapshots.assertView("verbatim") {
+            TestViews.quinaryGraySquare()
+            .debugGeometry(.caption(verbatim: "Verbatim caption\nNewLines\n_No Formatting_"))
+            .safeAreaPadding(20)
+        }
+    }
 
 
-    // FIXME: Test small and zero sizes.
-//    @Test(.snapshotCapture) func smallSizes() {
-//        // FIXME: Snapshot shows a tiny mismatch between safe area rects and outer stroke.
-//        Snapshots.assertView("zero") {
-//            VStack.maxWidth(alignment: .leading) {
-//                TestViews.quinaryGraySquare(length: .zero)
-//                    .debugGeometry()
-//                    .safeAreaPadding([.top, .leading], 20)
-//                TestViews.quinaryGraySquare(length: .zero)
-//                    .debugGeometry(.caption("Caption still visible"), .size)
-//                    .safeAreaPadding([.top, .leading], 20)
-//            }
-//            .padding(20)
-//        }
-//    }
+    @Test(.snapshotTesting) func smallSizes() {
+        // FIXME: Snapshot shows a tiny mismatch between safe area rects and outer stroke.
+        Snapshots.assertView("zero") {
+            VStack.maxWidth(alignment: .leading) {
+                TestViews.quinaryGraySquare(length: .zero)
+                    .debugGeometry()
+                    .safeAreaPadding([.top, .leading], 20)
+                TestViews.quinaryGraySquare(length: .zero)
+                    .debugGeometry(.caption("Caption still visible"), .size)
+                    .safeAreaPadding([.top, .leading], 20)
+            }
+            .padding(20)
+        }
+
+        Snapshots.assertView("safeAreas") {
+            HStack(alignment: .top, spacing: 20) {
+                VStack(items: [CGFloat(0), 0.5, 1, 2, 4], spacing: 10) { length in
+                    TestViews.quinaryGraySquare(length: length)
+                    .debugGeometry()
+                    .safeAreaPadding(10)
+                }
+                VStack(items: [CGFloat(6), 8, 10, 12], spacing: 10) { length in
+                    TestViews.quinaryGraySquare(length: length)
+                    .debugGeometry()
+                    .safeAreaPadding(10)
+                }
+            }
+        }
+
+        Snapshots.assertView("horizontal") {
+            VStack(items: [CGFloat(0), 1, 2, 4, 8, 10, 12], spacing: 20) { height in
+                TestViews.quinaryGrayRect(size: [120, height])
+                .debugGeometry()
+                .safeAreaPadding(.horizontal, 20)
+            }
+        }
+
+        Snapshots.assertView("vertical") {
+            HStack(items: [CGFloat(0), 1, 2, 4, 8, 10, 12], spacing: 20) { width in
+                TestViews.quinaryGrayRect(size: [width, 120])
+                .debugGeometry()
+                .safeAreaPadding(.vertical, 20)
+            }
+        }
+    }
 
 
     // FIXME: Test alignments, use drawsCaptionBorder
