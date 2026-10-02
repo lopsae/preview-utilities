@@ -212,6 +212,63 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    // FIXME: Test alignments, use drawsCaptionBorder
+    @Test(.snapshotTesting) func alignments() {
+        Snapshots.assertView("all") {
+            TestViews.quinaryGraySquare()
+            .overlay {
+                ForEach(FloatingAlignment.allCases) { alignment in
+                    ClearRectangle()
+                    .debugGeometry(
+                        .caption(verbatim: alignment.abbreviatedName),
+                        .alignment(alignment)
+                    )
+                }
+            }
+        }
+
+        Snapshots.assertView("allWithBorders") {
+            TestViews.quinaryGraySquare()
+            .overlay {
+                ForEach(FloatingAlignment.allCases) { alignment in
+                    ClearRectangle()
+                    .debugGeometry(
+                        .caption(verbatim: alignment.abbreviatedName),
+                        .alignment(alignment),
+                        .drawsCaptionBorder
+                    )
+                }
+            }
+        }
+
+        Snapshots.assertView("hairline") {
+            TestViews.quinaryGraySquare()
+            .overlay {
+                ForEach(FloatingAlignment.allCases) { alignment in
+                    ClearRectangle()
+                    .debugGeometry(
+                        .caption(verbatim: alignment.abbreviatedName),
+                        .alignment(alignment),
+                        .hairline,
+                        .drawsCaptionBorder
+                    )
+                }
+            }
+        }
+
+        Snapshots.assertView("thickBorder") {
+            TestViews.quinaryGraySquare()
+            .overlay {
+                ForEach(FloatingAlignment.allCases) { alignment in
+                    ClearRectangle()
+                    .debugGeometry(
+                        .caption(verbatim: alignment.abbreviatedName),
+                        .alignment(alignment),
+                        .bordersWidth(10),
+                        .drawsCaptionBorder
+                    )
+                }
+            }
+        }
+    }
 
 }
