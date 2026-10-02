@@ -24,7 +24,7 @@ extension DebugGeometryModifier {
         var isVisible: Bool = true
 
         /// The caption displayed along the geometry properties.
-        var captionSource: CaptionSource? = nil
+        var captionSource: TextSource? = nil
 
         /// The visibility of the inner and outer borders.
         var areBordersEnabled: Bool = true
@@ -62,19 +62,6 @@ extension DebugGeometryModifier {
             !geometryProperties.isEmpty || captionSource != nil
         }
 
-    }
-
-}
-
-
-// MARK: - CaptionSource
-
-
-extension DebugGeometryModifier.Configuration {
-
-    enum CaptionSource {
-        case localizedKey(LocalizedStringKey)
-        case verbatim(String)
     }
 
 }
@@ -280,7 +267,7 @@ extension DebugGeometryModifier.Configuration {
     }
 
     struct CaptionModifier: Modifier {
-        let source: DebugGeometryModifier.Configuration.CaptionSource
+        let source: TextSource
         func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.captionSource = source
         }
