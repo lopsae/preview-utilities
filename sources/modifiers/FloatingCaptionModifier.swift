@@ -379,7 +379,6 @@ extension View {
     }
 
 
-    // FIXME: Search for `floatingCaption("\` to replace with verbatim.
     func floatingCaption(verbatim string: String, _ traits: FloatingCaptionModifier.Trait...) -> some View {
         modifier(FloatingCaptionModifier(verbatim: string, traits: traits))
     }
@@ -448,7 +447,7 @@ private struct PreviewContent {
 
 
 
-// FIXME: Move to its own file.
+// FIXME: Move to its own file when used more that once. Could be used in DebugGeometryModifier.
 nonisolated
 enum TextSource {
     case localizedKey(LocalizedStringKey)
