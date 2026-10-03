@@ -91,11 +91,11 @@ public import SwiftUI
 public struct DebugGeometryModifier: ViewModifier {
 
     /// Minimum limit for the border width. Ensures there is always a visual overlay even on sizes
-    /// approaching zero. Smaller values are overridden with the minimum.
+    /// approaching zero. Smaller values are clamped to this minimum.
     private static let minBordersWidth: CGFloat = 1
 
     /// Minimum limit for the reticule length. Ensures there is always a visual reticule even on
-    /// sizes approaching zero. Smaller values are overridden with the minimum.
+    /// sizes approaching zero. Smaller values are clamped to this minimum.
     private static let minReticuleLength: CGFloat = 2
 
 
@@ -105,7 +105,7 @@ public struct DebugGeometryModifier: ViewModifier {
 
 
     /// Creates a modifier with the given configuration.
-    init(configuration: Configuration) {
+    public init(configuration: Configuration) {
         self.configuration = configuration
     }
 
@@ -155,31 +155,31 @@ public struct DebugGeometryModifier: ViewModifier {
         // Top.
         if topInset != .zero {
             Rectangle()
-                .fill(fillShapeStyle)
-                .frame(width: minWidth, height: topInset)
-                .offset(x: xOffset, y: -topInset)
+            .fill(fillShapeStyle)
+            .frame(width: minWidth, height: topInset)
+            .offset(x: xOffset, y: -topInset)
         }
         // Leading.
         if leadingInset != .zero {
             Rectangle()
-                .fill(fillShapeStyle)
-                .frame(width: leadingInset, height: minHeight)
-                .offset(x: -leadingInset, y: yOffset)
+            .fill(fillShapeStyle)
+            .frame(width: leadingInset, height: minHeight)
+            .offset(x: -leadingInset, y: yOffset)
         }
         // Bottom.
         if bottomInset != .zero {
             Rectangle()
-                .fill(fillShapeStyle)
-                .frame(width: minWidth, height: bottomInset)
-                .offset(x: xOffset, y: size.height)
+            .fill(fillShapeStyle)
+            .frame(width: minWidth, height: bottomInset)
+            .offset(x: xOffset, y: size.height)
         }
 
         // Trailing.
         if trailingInset != .zero {
             Rectangle()
-                .fill(fillShapeStyle)
-                .frame(width: trailingInset, height: minHeight)
-                .offset(x: size.width, y: yOffset)
+            .fill(fillShapeStyle)
+            .frame(width: trailingInset, height: minHeight)
+            .offset(x: size.width, y: yOffset)
         }
     }
 
@@ -193,8 +193,8 @@ public struct DebugGeometryModifier: ViewModifier {
         let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
 
         Rectangle()
-            // Stroke draws over the view's boundary, half inside half outside.
-            // Drawn with double width and masked to remove the inner half.
+            // Stroke draws over the rectangle boundary, half inside half outside.
+            // Drawn outset to sit outside the view's boundaries.
             .inset(by: -boundedBordersWidth/2)
             .stroke(outerStrokeShapeStyle, lineWidth: boundedBordersWidth)
             // Setting this frame is important to force the view to draw. If `content` size is too
@@ -241,6 +241,10 @@ public struct DebugGeometryModifier: ViewModifier {
             self.inset = inset
         }
 
+        func inset(by amount: CGFloat) -> Self {
+            .init(phase: phase, inset: inset + amount)
+        }
+
         func path(in rect: CGRect) -> Path {
             let insetRect = rect.inset(by: inset)
             var path = Path()
@@ -256,9 +260,6 @@ public struct DebugGeometryModifier: ViewModifier {
             return path
         }
 
-        func inset(by amount: CGFloat) -> Self {
-            .init(phase: phase, inset: inset + amount)
-        }
     }
 
 
@@ -272,13 +273,14 @@ public struct DebugGeometryModifier: ViewModifier {
         let reticuleLength = (boundedLength * 2) + thickness
 
         Rectangle()
-            .fill(.red)
-            .frame(width: thickness, height: reticuleLength)
-            .offset(y: -boundedLength)
+        .fill(.red)
+        .frame(width: thickness, height: reticuleLength)
+        .offset(y: -boundedLength)
+
         Rectangle()
-            .fill(.red)
-            .frame(width: reticuleLength, height: thickness)
-            .offset(x: -boundedLength)
+        .fill(.red)
+        .frame(width: reticuleLength, height: thickness)
+        .offset(x: -boundedLength)
     }
 
 
@@ -435,7 +437,7 @@ public struct DebugGeometryModifier: ViewModifier {
 
 extension View {
 
-    /// Layers in front of this view a debug overlay customized with the given traits.
+    /// Layers in front of this view a visual representation of a view's geometry properties.
     ///
     /// Applies the ``DebugGeometryModifier`` customized with the given [`Trait`](doc:DebugGeometryModifier/Configuration/Trait)
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
@@ -454,14 +456,14 @@ extension View {
     /// - Parameters:
     ///   - traits: The traits to customize the default configuration.
     ///
-    /// - Returns: A view with a configured debug overlay as foreground.
+    /// - Returns: A view with a configured geometry visualization as foreground.
     public func debugGeometry(_ traits: DebugGeometryModifier.Configuration.Trait...) -> some View {
         let configuration = DebugGeometryModifier.Configuration(traits: traits)
         return modifier(DebugGeometryModifier(configuration: configuration))
     }
 
 
-    /// Layers in front of this view a debug overlay customized with the given traits.
+    /// Layers in front of this view a visual representation of a view's geometry properties.
     ///
     /// Applies the ``DebugGeometryModifier`` customized with the given [`Trait`](doc:DebugGeometryModifier/Configuration/Trait)
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
@@ -473,7 +475,7 @@ extension View {
     /// - Parameters:
     ///   - traits: The traits to customize the default configuration.
     ///
-    /// - Returns: A view with a configured debug overlay as foreground.
+    /// - Returns: A view with a configured geometry visualization as foreground.
     public func debugGeometry(
         traits: [DebugGeometryModifier.Configuration.Trait],
     ) -> some View {

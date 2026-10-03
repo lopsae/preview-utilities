@@ -353,7 +353,7 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 extension View {
 
     /// Layers in front of this view a visual representation of the given horizontal alignment
-    /// guide, customized with the given traits.
+    /// guide.
     ///
     /// Applies the ``DebugHorizontalAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAxisAlignmentGuideModifier/Trait)
     /// instances, overlaying a visual representation of the given horizontal alignment.
@@ -380,7 +380,7 @@ extension View {
 
 
     /// Layers in front of this view a visual representation of the given vertical alignment
-    /// guide, customized with the given traits.
+    /// guide.
     ///
     /// Applies the ``DebugVerticalAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAxisAlignmentGuideModifier/Trait)
     /// instances, overlaying a visual representation of the given vertical alignment.

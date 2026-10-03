@@ -80,7 +80,7 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func torchTraits() throws {
-        try storage.renderAndStore("debug-geometry", "torch-traits") {
+        try pathStorage.renderAndStore("debug-geometry-torch-traits") {
             DocumentationIllustration(height: 100) {
                 Text("a sort of splendid torch")
                     .debugGeometry(.width, .alignment(.outerTop))

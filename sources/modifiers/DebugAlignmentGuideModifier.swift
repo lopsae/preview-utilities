@@ -350,8 +350,7 @@ extension DebugAlignmentGuideModifier.Configuration.Modifiers {
 
 extension View {
 
-    /// Layers in front of this view a visual representation of the given alignment guide,
-    /// customized with the given traits.
+    /// Layers in front of this view a visual representation of the given alignment guide.
     ///
     /// Applies the ``DebugAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAlignmentGuideModifier/Trait)
     /// instances, overlaying a visual representation of the given alignment.
