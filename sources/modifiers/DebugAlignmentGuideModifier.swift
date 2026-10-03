@@ -355,8 +355,8 @@ extension View {
     /// Applies the ``DebugAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAlignmentGuideModifier/Trait)
     /// instances, overlaying a visual representation of the given alignment.
     ///
-    /// The traits are applied in the order they are passed to a default configuration. Later
-    /// traits may override earlier ones depending on the configuration each trait modifies.
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
     ///
     /// - Parameters:
     ///   - alignment: The alignment to visualize.

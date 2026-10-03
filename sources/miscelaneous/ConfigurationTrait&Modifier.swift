@@ -140,7 +140,7 @@ public protocol TraitInitializable: TraitConfigurable {
 
 extension TraitInitializable {
 
-    /// Creates a configuration by applying the given traits, in order, to a default instance.
+    /// Creates a configuration by applying the given traits to a default instance.
     ///
     /// The traits are applied in order, with each trait updating the resulting instance of
     /// previously applied traits.

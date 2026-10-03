@@ -11,14 +11,14 @@ extension DebugGeometryModifier {
 
     /// Configuration of a `DebugGeometryModifier`.
     ///
-    /// Contains the caption, border settings, geometry elements to display, and the floating
+    /// Contains the caption, border settings, geometry properties to display, and the floating
     /// alignment for the debug caption.
     ///
     /// Usually you don't build this object directly, instead one is created and configured using
     /// the [`Trait`](doc:Trait) instances passed to ``SwiftUICore/View/debugGeometry(_:)``.
     public struct Configuration {
 
-        /// The visibility of all elements drawn in the debug overlay.
+        /// The visibility of all elements drawn in the geometry overlay.
         ///
         /// When set to `false` the modifier will draw no content.
         var isVisible: Bool = true
@@ -46,12 +46,11 @@ extension DebugGeometryModifier {
         internal var drawsCaptionBorder: Bool = false
 
 
-        // FIXME: Publicize inits and document.
         /// Creates a default configuration instance.
         public init() {}
 
 
-        /// Creates a configuration by applying the given traits, in order, to a default instance.
+        /// Creates a configuration by applying the given traits to a default instance.
         ///
         /// The traits are applied in order, with each trait updating the resulting instance of
         /// previously applied traits.
@@ -113,9 +112,8 @@ extension DebugGeometryModifier.Configuration {
     /// Traits are passed to ``SwiftUICore/View/debugGeometry(_:)`` or any [sibling function](doc:debug-geometry-api#View-Extensions)
     /// to build the [`Configuration`](doc:DebugGeometryModifier/Configuration) of a debug overlay.
     ///
-    /// All passed traits are applied in order to a default configuration, each trait making a
-    /// modification towards the final configuration. If multiple traits modify the same
-    /// configuration properties, the last one applied may overwrite former traits.
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
     ///
     ///
     /// ## Topics
@@ -162,24 +160,24 @@ extension DebugGeometryModifier.Configuration {
         /// A trait that performs no changes.
         public static let empty: Trait = .traits([])
 
-        /// Hides all elements of the debug overlay.
+        /// Hides all elements of the geometry overlay.
         public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
 
-        /// Sets the visibility of the debug overlay.
-        /// - Parameter isVisible: Indicates if the debug overlay is visible.
+        /// Sets the visibility of the geometry overlay.
+        /// - Parameter isVisible: Indicates if the geometry overlay is visible.
         public static func visible(_ isVisible: Bool) -> Trait {
             .modifier(VisibilityModifier(isVisible: isVisible))
         }
 
-        /// Hides the debug overlay borders.
+        /// Hides the geometry overlay borders.
         public static let noBorders: Trait = .modifier(HideBordersModifier())
 
-        /// Sets the debug overlay borders to a width of `1`.
+        /// Sets the geometry overlay borders to a width of `1`.
         public static let hairline: Trait = .modifier(HairlineModifier())
 
-        /// Sets the debug overlay borders to the given width.
+        /// Sets the inner and outer borders to the given width.
         ///
-        /// The debug overlay always draws with a minimal width of `1`, even if the width is set to
+        /// The geometry overlay always draws with a minimal width of `1`, even if the width is set to
         /// zero through this trait. To hide the borders use ``noBorders``.
         /// - Parameter bordersWidth: Width of the debug overlay borders.
         public static func bordersWidth(_ bordersWidth: CGFloat) -> Trait {
@@ -207,7 +205,7 @@ extension DebugGeometryModifier.Configuration {
         /// Prints the given localized string in the debug caption.
         /// 
         /// Only one caption is supported, passing this trait more that once will overwrite any
-        /// previous.
+        /// previous captions.
         ///
         /// - Parameter key: Localized string key to display.
         public static func caption(_ key: LocalizedStringKey) -> Trait {
@@ -217,7 +215,7 @@ extension DebugGeometryModifier.Configuration {
         /// Prints the given verbatim string in the debug caption.
         /// 
         /// Only one caption is supported, passing this trait more that once will overwrite any
-        /// previous.
+        /// previous captions.
         ///
         /// - Parameter string: Verbatim string to display.
         public static func caption(verbatim string: String) -> Trait {
@@ -254,9 +252,9 @@ extension DebugGeometryModifier.Configuration {
 
 extension DebugGeometryModifier.Configuration {
 
-    /// Modifier for a debug overlay configuration.
+    /// Modifier for a `DebugGeometryModifier` configuration.
     ///
-    /// Applies an update to a debug overlay configuration. Used by ``DebugGeometryModifier/Configuration/Trait``
+    /// Applies an update to a geometry overlay configuration. Used by ``DebugGeometryModifier/Configuration/Trait``
     /// instances as building blocks for a configuration instance.
     public protocol Modifier: Sendable {
         func update(configuration: inout DebugGeometryModifier.Configuration)

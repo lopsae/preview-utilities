@@ -33,7 +33,7 @@ public import SwiftUI
 ///     .font(.title)
 ///     .debugGeometry()
 /// ```
-/// ![Debug overlay with default configuration.](debug-geometry-default)
+/// ![Debug geometry overlay with default configuration.](debug-geometry-default)
 ///
 ///
 /// ### Traits and Configuration
@@ -51,7 +51,7 @@ public import SwiftUI
 ///     .alignment(.innerTrailing) // aligns caption to trailing-center
 /// )
 /// ```
-/// ![Debug overlay using traits.](debug-geometry-simple-traits)
+/// ![Debug geometry overlay using traits.](debug-geometry-simple-traits)
 ///
 ///
 /// ### Visual Components
@@ -61,7 +61,7 @@ public import SwiftUI
 /// drawn outside. A cross `+` marks the origin point, and green rectangles represent safe area
 /// insets applied to the view.
 ///
-/// ![Visual components of the debug overlay.](debug-geometry-components)
+/// ![Visual components of the debug geometry overlay.](debug-geometry-components)
 ///
 ///
 /// ### Caption Alignment
@@ -86,7 +86,7 @@ public import SwiftUI
 ///         .debugGeometry(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
 /// }
 /// ```
-/// ![Debug overlay example alignments.](debug-geometry-alignments)
+/// ![Debug geometry overlay example alignments.](debug-geometry-alignments)
 ///
 public struct DebugGeometryModifier: ViewModifier {
 
@@ -443,15 +443,15 @@ extension View {
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
     /// safe area insets.
     ///
-    /// The traits are applied in the order they are passed to a default configuration. Later
-    /// traits may override earlier ones depending on the configuration each trait modifies.
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
     ///
     /// ```swift
     /// Text("a sort of splendid torch")
     ///     .debugGeometry(.width, .alignment(.outerTop))
     /// Text("which I have got hold of for the moment")
     /// ```
-    /// ![Debug overlay with traits applied to a single Text.](debug-geometry-torch-traits)
+    /// ![Debug geometry overlay with traits applied to a single Text.](debug-geometry-torch-traits)
     ///
     /// - Parameters:
     ///   - traits: The traits to customize the default configuration.
@@ -469,8 +469,8 @@ extension View {
     /// instances, overlaying a visual representation of the views boundaries, origin point, and
     /// safe area insets.
     ///
-    /// The traits are applied in the order they are passed to a default configuration. Later
-    /// traits may override earlier ones depending on the configuration each trait modifies.
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
     ///
     /// - Parameters:
     ///   - traits: The traits to customize the default configuration.
