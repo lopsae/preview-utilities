@@ -127,8 +127,11 @@ extension DebugGeometryModifier.Configuration {
     /// + ``width``
     ///
     /// ### Visual Traits
+    /// + ``visible(_:)``
+    /// + ``hidden``
     /// + ``bordersWidth(_:)``
     /// + ``hairline``
+    /// + ``noBorders``
     ///
     /// ### Caption Traits
     /// + ``caption(_:)``
@@ -136,6 +139,10 @@ extension DebugGeometryModifier.Configuration {
     /// + ``alignment(_:)``
     /// + ``innerAlignment``
     /// + ``outerAlignment``
+    ///
+    /// ### Utility Traits
+    /// + ``empty``
+    /// + ``drawsCaptionBorder``
     ///
     public enum Trait: Sendable {
 
