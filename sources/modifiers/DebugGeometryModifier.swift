@@ -4,14 +4,22 @@
 //
 
 
+// FIXME: Update docs: this file.
+// FIXME: Update docs: configuration file.
+// FIXME: Update docs: readme.
+// FIXME: Update docs: Package docs main page.
+// FIXME: Update docs: apiCollection.
+// FIXME: Update docs: readme.
+
+
 public import SwiftUI
 
 
-/// Overlays a visual representation of a view's boundaries, origin, and safe areas.
+/// Overlays a visual representation of a view's geometry properties.
 ///
-/// Displays in an overlay a visual representation of a view's boundaries, its origin point, and any
-/// applied safe area insets. The overlay can be configured to also display geometry information
-/// like size, global origin coordinates, safe area insets, or a given text caption.
+/// Displays in an overlay a visual representation of a view's geometry properties: its boundaries,
+/// origin point, and any applied safe area insets. The overlay can also display a caption with the
+/// view's size, global origin coordinates, safe area insets, and a given text caption.
 ///
 /// All content added by this modifier is layered in an overlay of the owner view; the original
 /// layout is never modified.
@@ -20,7 +28,7 @@ public import SwiftUI
 ///
 /// ```swift
 /// Text("Sphinx of Black Quartz")
-///    .font(.title)
+///     .font(.title)
 /// Text("Judge my Vow")
 ///     .font(.title)
 ///     .debugGeometry()
@@ -34,7 +42,7 @@ public import SwiftUI
 /// ``SwiftUICore/View/debugGeometry(_:)``:
 ///
 /// ```swift
-/// Rectangle()
+/// RoundedRectangle(cornerRadius: 16)
 /// .fill(.yellow.gradient.secondary)
 /// .frame(width: 200, height: 80)
 /// .debugGeometry(

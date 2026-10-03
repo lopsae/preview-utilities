@@ -17,10 +17,10 @@ The modifier can be configured by passing [`Trait`](doc:DebugGeometryModifier/Co
 instances:
 
 ```swift
-Rectangle()
+RoundedRectangle(cornerRadius: 16)
 .fill(.yellow.gradient.secondary)
 .frame(width: 200, height: 80)
-.debugOverlay(
+.debugGeometry(
     .size,                     // prints the size of the owner view
     .bordersWidth(2),          // sets debug borders width to 2
     .alignment(.innerTrailing) // aligns caption to trailing-center

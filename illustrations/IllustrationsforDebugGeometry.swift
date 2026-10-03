@@ -18,15 +18,18 @@ import Testing
 /// each function is also used in code snippets.
 struct IllustrationsForDebugOverlay {
 
+    // FIXME: use only path storage after testing.
     let storage: IllustrationStorage
+    let pathStorage: IllustrationStorage
 
     init() throws {
         self.storage = try DocumentationResources.storage
+        self.pathStorage = try DocumentationResources.storage(at: "debug-geometry")
     }
 
 
     @Test func `default`() throws {
-        try storage.renderAndStore("debug-geometry", "default") {
+        try pathStorage.renderAndStore("debug-geometry-default") {
             DocumentationIllustration(sizing: .regular) {
                 Text("Sphinx of Black Quartz")
                     .font(.title)
@@ -39,9 +42,9 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func simpleTraits() throws {
-        try storage.renderAndStore("debug-geometry", "simple-traits") {
+        try pathStorage.renderAndStore("debug-geometry-simple-traits") {
             DocumentationIllustration(sizing: .regular) {
-                Rectangle()
+                RoundedRectangle(cornerRadius: 16)
                 .fill(.yellow.gradient.secondary)
                 .frame(width: 200, height: 80)
                 .debugGeometry(
@@ -55,18 +58,18 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func alignments() throws {
-        try storage.renderAndStore("debug-geometry", "alignments") {
+        try pathStorage.renderAndStore("debug-geometry-alignments") {
             DocumentationIllustration(height: 180) {
                 HStack(spacing: 16) {
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 16)
                         .fill(.green.gradient)
                         .frame(width: 100, height: 60)
                         .debugGeometry(.caption("Inner Top"), .alignment(.innerTop))
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 16)
                         .fill(.mint.gradient)
                         .frame(width: 100, height: 60)
                         .debugGeometry(.caption("Outer Bottom\nLeading"), .alignment(.outerBottomLeading))
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 16)
                         .fill(.teal.gradient)
                         .frame(width: 100, height: 60)
                         .debugGeometry(.caption("Outer Top\nTrailing"), .alignment(.outerTopTrailing))
