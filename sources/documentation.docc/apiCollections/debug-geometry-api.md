@@ -11,7 +11,7 @@ Apply the ``DebugGeometryModifier`` using ``SwiftUICore/View/debugGeometry(_:)``
 [sibling function](doc:debug-geometry-api#View-Extensions) to overlay a visualization of the 
 boundaries, origin, and safe areas:
 
-![Visual components of the debug overlay.](debug-geometry-components)
+![Visual components of the debug geometry overlay.](debug-geometry-components)
 
 The modifier can be configured by passing [`Trait`](doc:DebugGeometryModifier/Configuration/Trait) 
 instances:
@@ -26,7 +26,7 @@ RoundedRectangle(cornerRadius: 16)
     .alignment(.innerTrailing) // aligns caption to trailing-center
 )
 ```
-![Debug overlay using traits.](debug-geometry-simple-traits)
+![Debug geometry overlay using traits.](debug-geometry-simple-traits)
 
 
 ## Topics

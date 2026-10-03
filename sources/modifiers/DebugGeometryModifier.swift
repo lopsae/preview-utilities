@@ -4,11 +4,10 @@
 //
 
 
-// FIXME: Update docs: this file.
-// FIXME: Update docs: configuration file.
-// FIXME: Update docs: readme.
-// FIXME: Update docs: Package docs main page.
-// FIXME: Update docs: apiCollection.
+// FIXME: Done docs: this file.
+// FIXME: Done docs: configuration file.
+// FIXME: Done docs: Package docs main page.
+// FIXME: Done docs: apiCollection.
 // FIXME: Update docs: readme.
 
 
