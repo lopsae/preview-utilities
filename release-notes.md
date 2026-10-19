@@ -1,8 +1,15 @@
 Release Notes
 =============
 
+v0.5.1
+------
+In development.
+
+
+
 v0.5.0 - Rename to DebugGeometry
 --------------------------------
+Released 2026 October 18th.
 + Renamed `DebugOverlayModifier` to `DebugGeometryModifier`.
 + Renamed `Defaults` to `SpacingDefaults`.
 

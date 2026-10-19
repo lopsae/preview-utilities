@@ -2,11 +2,10 @@ Next Features
 =============
 
 
-For 0.5.0
+For 0.5.1
 ---------
-+ Migrate DebugOverlay to also use ConfigurationModifierTrait
-+ Rename DebugOverlay to DebugGeometry, to better match other possible debug modifiers.
 + Make alignment a parameter of FloatingCaption, CaptionRectangle, instead of a trait.
++ Migrate DebugOverlay to also use ConfigurationModifierTrait
 + DocumentationIllustration -> Illustration? SnippetIllustration?
 
 For future versions
