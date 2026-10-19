@@ -18,18 +18,15 @@ import Testing
 /// each function is also used in code snippets.
 struct IllustrationsForDebugOverlay {
 
-    // FIXME: use only path storage after testing.
     let storage: IllustrationStorage
-    let pathStorage: IllustrationStorage
 
     init() throws {
-        self.storage = try DocumentationResources.storage
-        self.pathStorage = try DocumentationResources.storage(at: "debug-geometry")
+        self.storage = try DocumentationResources.storage(at: "debug-geometry")
     }
 
 
     @Test func `default`() throws {
-        try pathStorage.renderAndStore("debug-geometry-default") {
+        try storage.renderAndStore("debug-geometry-default") {
             DocumentationIllustration(sizing: .regular) {
                 Text("Sphinx of Black Quartz")
                     .font(.title)
@@ -42,7 +39,7 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func simpleTraits() throws {
-        try pathStorage.renderAndStore("debug-geometry-simple-traits") {
+        try storage.renderAndStore("debug-geometry-simple-traits") {
             DocumentationIllustration(sizing: .regular) {
                 RoundedRectangle(cornerRadius: 16)
                 .fill(.yellow.gradient.secondary)
@@ -58,7 +55,7 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func alignments() throws {
-        try pathStorage.renderAndStore("debug-geometry-alignments") {
+        try storage.renderAndStore("debug-geometry-alignments") {
             DocumentationIllustration(height: 180) {
                 HStack(spacing: 16) {
                     RoundedRectangle(cornerRadius: 16)
@@ -80,7 +77,7 @@ struct IllustrationsForDebugOverlay {
 
 
     @Test func torchTraits() throws {
-        try pathStorage.renderAndStore("debug-geometry-torch-traits") {
+        try storage.renderAndStore("debug-geometry-torch-traits") {
             DocumentationIllustration(height: 100) {
                 Text("a sort of splendid torch")
                     .debugGeometry(.width, .alignment(.outerTop))
