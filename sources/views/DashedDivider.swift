@@ -22,9 +22,9 @@ public struct DashedDivider: View {
     public var body: some View {
         AxialLine(
             axis, style: .tertiary,
-            lineWidth: lineWidth, lineCap: .round,
-            dash: [lineWidth*5, lineWidth*6]
+            strokeStyle: .dashed(width: lineWidth, cap: .round)
         )
+
     }
 
 }
@@ -75,26 +75,27 @@ private struct PreviewContent {
 }
 
 
-#Preview("Sizes", traits: .paddingSpacing, .fixedHeader, PreviewContent.layout) {
-    VStack(spacing: 32) {
-        DashedDivider()
-            .floatingCaption("Default", .height, .colorStyle(.brown))
-        DashedDivider(lineWidth: 10)
-            .floatingCaption("Large", .height, .colorStyle(.brown))
-        DashedDivider(lineWidth: 20)
-            .floatingCaption("Huge", .height, .colorStyle(.brown))
+#Preview("Sizes", traits: .paddingSpacing, .fixedHeaderFooter, PreviewContent.layout) {
+    VStack(items: [1, 10, 20]) { lineWidth in
+        DashedDivider(lineWidth: lineWidth)
+        .floatingCaption(.height, .colorStyle(.brown))
     }
 
     DashedDivider()
 
-    HStack(spacing: 32) {
-        DashedDivider(axis: .vertical)
-            .floatingCaption("Default", .width, .colorStyle(.brown), .alignment(.top))
-        DashedDivider(axis: .vertical, lineWidth: 10)
-            .floatingCaption("Large", .width, .colorStyle(.brown), .alignment(.center))
-        DashedDivider(axis: .vertical, lineWidth: 20)
-            .floatingCaption("Huge", .width, .colorStyle(.brown), .alignment(.bottom))
+    // TODO: Could use vertical floatingCaption when implemented.
+    HStack([(1, FloatingAlignment.top), (10, .center), (20, .bottom)], id: \.0, spacing: 32) { lineWidth, alignment in
+        DashedDivider(axis: .vertical, lineWidth: lineWidth)
+        .floatingCaption(.width, .colorStyle(.brown), .alignment(alignment))
     }
+
+    DashedDivider()
+
+    VStack(items: [1, 2, 4, 6, 10, 16]) { lineWidth in
+        DashedDivider(lineWidth: lineWidth)
+    }
+
+    VisibleSpacer()
 }
 
 

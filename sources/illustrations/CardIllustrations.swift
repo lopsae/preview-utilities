@@ -103,7 +103,7 @@ struct CardIllustrations {
             }
             .frame(size: [220, 100])
             .background {
-                RoundedRectangle(cornerRadius: Defaults.padding / 3)
+                RoundedRectangle(cornerRadius: SpacingDefaults.padding / 3)
                 .fill(.indigo.gradient.secondary)
             }
 

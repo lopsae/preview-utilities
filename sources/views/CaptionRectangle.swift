@@ -108,7 +108,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
 
 
     public var body: some View {
-        RoundedRectangle(cornerRadius: Defaults.padding / 3)
+        RoundedRectangle(cornerRadius: SpacingDefaults.padding / 3)
             .fill(fill)
             .strokeBorder(stroke, lineWidth: borderWidth)
             .frame(width: width, height: height)

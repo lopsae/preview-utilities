@@ -61,7 +61,7 @@ public struct ClearRectangle<S: ShapeStyle> : View {
     ClearRectangle(size: .square(of: 50), fill: Color.red.opacity(0.3))
 
     ClearRectangle(size: .square(of: 100))
-        .debugOverlay()
+        .debugGeometry()
 
     ClearRectangle(width: 200, fill: .blue.opacity(0.3))
 }

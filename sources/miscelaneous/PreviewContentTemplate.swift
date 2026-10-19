@@ -37,5 +37,5 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.Silver()
-    .debugOverlay(.size, .noBorders)
+    .debugGeometry(.size, .noBorders)
 }

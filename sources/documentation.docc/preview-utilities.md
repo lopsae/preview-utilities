@@ -8,7 +8,7 @@ A collection of modifiers, views, extensions, and other utilities for building p
 
 ### Essentials
 @Links(visualStyle: detailedGrid) {
-    + <doc:debug-overlay-api>
+    + <doc:debug-geometry-api>
     + <doc:debug-alignment-guide-api>
     + <doc:floating-caption-api>
     + <doc:floating-alignments-api>
@@ -58,7 +58,7 @@ A collection of modifiers, views, extensions, and other utilities for building p
 
 
 ### API Collections
-+ <doc:debug-overlay-api>
++ <doc:debug-geometry-api>
 + <doc:debug-alignment-guide-api>
 + <doc:floating-caption-api>
 + <doc:floating-alignments-api>

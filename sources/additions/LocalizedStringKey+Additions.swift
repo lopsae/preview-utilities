@@ -62,6 +62,38 @@ extension LocalizedStringKey.StringInterpolation {
 }
 
 
+// MARK: Fractionals
+
+
+extension LocalizedStringKey.StringInterpolation {
+
+    @_spi(FractionalInterpolation)
+    @inlinable nonisolated mutating
+    public func appendInterpolation<Value>(oneFractional value: Value)
+    where Value: BinaryFloatingPoint {
+        appendInterpolation(value, format: .fractionLength(1))
+    }
+
+    @_spi(FractionalInterpolation)
+    @inlinable nonisolated mutating
+    public func appendInterpolation<Value>(twoFractionals value: Value)
+    where Value: BinaryFloatingPoint {
+        appendInterpolation(value, format: .fractionLength(2))
+    }
+
+    @_spi(FractionalInterpolation)
+    @inlinable nonisolated mutating
+    public func appendInterpolation<Value>(threeFractionals value: Value)
+    where Value: BinaryFloatingPoint {
+        appendInterpolation(value, format: .fractionLength(3))
+    }
+
+}
+
+
+// MARK: CapsuleText Experiments
+
+
 private struct CapsuleText: View {
 
     let systemImage: String
@@ -69,14 +101,14 @@ private struct CapsuleText: View {
     let color: Color
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: Defaults.padding / 3) {
+        HStack(alignment: .firstTextBaseline, spacing: SpacingDefaults.padding / 3) {
             Image(systemName: systemImage)
             Text(label)
         }
         .font(.body)
         .foregroundStyle(color)
-        .padding(.horizontal, Defaults.padding / 2)
-        .padding(.vertical, Defaults.padding / 4)
+        .padding(.horizontal, SpacingDefaults.padding / 2)
+        .padding(.vertical, SpacingDefaults.padding / 4)
         .background {
             Capsule()
             .strokeBorder(color, style: StrokeStyle(lineWidth: 1.5, dash: [4, 3]))

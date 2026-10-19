@@ -70,7 +70,7 @@ import SwiftUI
 /// information to align their own content though their own implementation. Each floating alignment
 /// provides the appropriate ``ContentAlignments`` for content to align itself to the attached edge.
 ///
-/// Two examples of this implementations are ``DebugOverlayModifier`` and ``FloatingCaptionModifier``.
+/// Two examples of this implementations are ``DebugGeometryModifier`` and ``FloatingCaptionModifier``.
 public nonisolated
 enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
@@ -106,7 +106,10 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     var displayName: String { displayNameComponents.joined(separator: .space) }
     var hyphenatedName: String { displayNameComponents.joined(separator: .hyphen) }
 
-    var abbreviatedName: String {
+    /// The abbreviated name.
+    ///
+    /// For example, the abbreviated name of ``outerTop`` is `otc` for `outer-top-center`.
+    public var abbreviatedName: String {
         displayNameComponents.map(formatting: .firstCharacter).joined()
     }
 
@@ -740,7 +743,7 @@ private struct PreviewContent {
                 FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
                     Text.caption(verbatim:alignment.hyphenatedName).fixedSize()
                     .padding(2)
-                    .floatingCaption("", .colorStyle(.mint))
+                    .border(.mint.secondary)
                 }
             }
         }
