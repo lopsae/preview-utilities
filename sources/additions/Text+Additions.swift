@@ -44,11 +44,14 @@ extension Text.Layout {
 
     func attributedRuns<Attribute>(
         with attributeType: Attribute.Type
-    ) -> [Run]
+    ) -> [(Run, Attribute)]
     where Attribute: TextAttribute {
         flatMap { line in
-            line.filter { run in
-                run[attributeType.self] != nil
+            line.compactMap { run in
+                if let attribute = run[attributeType.self] {
+                    return (run, attribute)
+                }
+                return nil
             }
         }
     }
