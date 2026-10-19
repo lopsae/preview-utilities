@@ -42,6 +42,17 @@ extension Text.Layout {
         }
     }
 
+    func attributedRuns<Attribute>(
+        with attributeType: Attribute.Type
+    ) -> [Run]
+    where Attribute: TextAttribute {
+        flatMap { line in
+            line.filter { run in
+                run[attributeType.self] != nil
+            }
+        }
+    }
+
 }
 
 
