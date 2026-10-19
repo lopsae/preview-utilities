@@ -4,7 +4,7 @@
 //
 
 
-@testable import PreviewUtilities
+import PreviewUtilities
 
 import SwiftUI
 import Testing
@@ -13,6 +13,7 @@ import Testing
 @MainActor
 struct PathAdditionsSnapshots {
 
+    /// Utility view to setup Paths based on a frame size, with a graticule drawn around.
     struct GraticuleRect<Content>: View where Content: View {
         @ViewBuilder var content: (CGFloat, CGRect) -> Content
         var body: some View {
