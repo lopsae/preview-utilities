@@ -106,13 +106,13 @@ private struct ContentView: View {
 }
 
 nonisolated
-protocol InnerOuterAlignmentID: AlignmentID, Sendable {
+private protocol InnerOuterAlignmentID: AlignmentID, Sendable {
     static var inner: HorizontalAlignment { get }
     static var outer: HorizontalAlignment { get }
 }
 
 nonisolated
-struct OuterTrailing: InnerOuterAlignmentID {
+private struct OuterTrailing: InnerOuterAlignmentID {
     static let inner: HorizontalAlignment = .trailing
     static let outer: HorizontalAlignment = .leading
     static func defaultValue(in context: ViewDimensions) -> CGFloat {
@@ -122,12 +122,12 @@ struct OuterTrailing: InnerOuterAlignmentID {
 }
 
 nonisolated
-extension HorizontalAlignment {
+private extension HorizontalAlignment {
     static let outerTrailing = HorizontalAlignment(OuterTrailing.self)
 }
 
 nonisolated
-struct HorizontalInnerOuterAlignment: Sendable {
+private struct HorizontalInnerOuterAlignment: Sendable {
     let alignmentID: InnerOuterAlignmentID.Type
     let anchorAlignment: HorizontalAlignment
     
@@ -140,7 +140,7 @@ struct HorizontalInnerOuterAlignment: Sendable {
     static let outerTrailing = HorizontalInnerOuterAlignment(OuterTrailing.self) 
 }
 
-extension View {
+private extension View {
     func alignmentGuide(innerOf inOutAlignment: HorizontalInnerOuterAlignment) -> some View {
         self.alignmentGuide(inOutAlignment.anchorAlignment) { dimension in
             dimension[inOutAlignment.alignmentID.inner]
@@ -148,7 +148,7 @@ extension View {
     }
 }
 
-extension View {
+private extension View {
     func overlay(
         inOutAlignment: HorizontalInnerOuterAlignment,
         @ViewBuilder content: () -> some View
@@ -175,7 +175,7 @@ extension View {
     }
 }
 
-extension Alignment {
+private extension Alignment {
     static func center(_ horizontalAlignment: HorizontalAlignment) -> Self {
         .init(horizontal: horizontalAlignment, vertical: .center)
     }
