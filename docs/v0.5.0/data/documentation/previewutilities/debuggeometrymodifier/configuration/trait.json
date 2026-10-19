@@ -1,0 +1,1502 @@
+{
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugGeometryModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "extendedModule" : "PreviewUtilities",
+    "externalID" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "enum"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "Trait"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "navigatorTitle" : [
+      {
+        "kind" : "identifier",
+        "text" : "Trait"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Enumeration",
+    "symbolKind" : "enum",
+    "title" : "DebugGeometryModifier.Configuration.Trait"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@"
+            },
+            {
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "enum"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "Trait"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "overview",
+          "level" : 2,
+          "text" : "Overview",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "Traits are passed to ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugGeometry(_:)",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : " or any ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-geometry-api#View-Extensions",
+              "isActive" : true,
+              "overridingTitle" : "sibling function",
+              "overridingTitleInlineContent" : [
+                {
+                  "text" : "sibling function",
+                  "type" : "text"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "to build the ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration",
+              "isActive" : true,
+              "overridingTitle" : "Configuration",
+              "overridingTitleInlineContent" : [
+                {
+                  "code" : "Configuration",
+                  "type" : "codeVoice"
+                }
+              ],
+              "type" : "reference"
+            },
+            {
+              "text" : " of a debug overlay.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The traits are applied in order to a default configuration. Later traits may override",
+              "type" : "text"
+            },
+            {
+              "text" : " ",
+              "type" : "text"
+            },
+            {
+              "text" : "earlier ones depending on the configuration each trait modifies.",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "relationshipsSections" : [
+    {
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/s8SendableP",
+        "doc:\/\/PreviewUtilities\/s16SendableMetatypeP"
+      ],
+      "kind" : "relationships",
+      "title" : "Conforms To",
+      "type" : "conformsTo"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "Modifier-and-Traits",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration"
+      ],
+      "title" : "Modifier and Traits"
+    }
+  ],
+  "topicSections" : [
+    {
+      "anchor" : "Geometry-Traits",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/allGeometry",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/safeAreaInsets",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/origin",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/size",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/height",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/width"
+      ],
+      "title" : "Geometry Traits"
+    },
+    {
+      "anchor" : "Visual-Traits",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/visible(_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/hidden",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/bordersWidth(_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/hairline",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/noBorders"
+      ],
+      "title" : "Visual Traits"
+    },
+    {
+      "anchor" : "Caption-Traits",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/caption(_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/caption(verbatim:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/alignment(_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/innerAlignment",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/outerAlignment"
+      ],
+      "title" : "Caption Traits"
+    },
+    {
+      "anchor" : "Utility-Traits",
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/empty",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/drawsCaptionBorder"
+      ],
+      "title" : "Utility Traits"
+    },
+    {
+      "anchor" : "Enumeration-Cases",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/modifier(_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/traits(_:)"
+      ],
+      "title" : "Enumeration Cases"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representation of a view’s geometry properties.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugGeometryModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugGeometryModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration": {
+  "abstract" : [
+    {
+      "text" : "Configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugGeometryModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Configuration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Configuration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier.Configuration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugGeometryModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier.Configuration.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/alignment(_:)": {
+  "abstract" : [
+    {
+      "text" : "Aligns the debug caption to the given floating alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "alignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities17FloatingAlignmentO",
+      "text" : "FloatingAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/alignment(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "alignment(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/alignment(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/allGeometry": {
+  "abstract" : [
+    {
+      "text" : "Prints all supported geometry properties in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "allGeometry"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/allGeometry",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "allGeometry",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/allgeometry"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/bordersWidth(_:)": {
+  "abstract" : [
+    {
+      "text" : "Sets the inner and outer borders to the given width.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "bordersWidth"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:14CoreFoundation7CGFloatV",
+      "text" : "CGFloat"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/bordersWidth(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "bordersWidth(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/borderswidth(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/caption(_:)": {
+  "abstract" : [
+    {
+      "text" : "Prints the given localized string in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "caption"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI18LocalizedStringKeyV",
+      "text" : "LocalizedStringKey"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/caption(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "caption(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/caption(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/caption(verbatim:)": {
+  "abstract" : [
+    {
+      "text" : "Prints the given verbatim string in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "caption"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "verbatim"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/caption(verbatim:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "caption(verbatim:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/caption(verbatim:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/drawsCaptionBorder": {
+  "abstract" : [
+    {
+      "text" : "Enables drawing a border around the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "var"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "drawsCaptionBorder"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/drawsCaptionBorder",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "drawsCaptionBorder",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/drawscaptionborder"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/empty": {
+  "abstract" : [
+    {
+      "text" : "A trait that performs no changes.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "empty"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/empty",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "empty",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/empty"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/hairline": {
+  "abstract" : [
+    {
+      "text" : "Sets the geometry overlay borders to a width of ",
+      "type" : "text"
+    },
+    {
+      "code" : "1",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "hairline"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/hairline",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "hairline",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/hairline"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/height": {
+  "abstract" : [
+    {
+      "text" : "Prints the height of the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "height"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/height",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "height",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/height"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/hidden": {
+  "abstract" : [
+    {
+      "text" : "Hides all elements of the geometry overlay.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "hidden"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/hidden",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "hidden",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/hidden"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/innerAlignment": {
+  "abstract" : [
+    {
+      "text" : "Aligns the debug caption to the default inner floating alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "innerAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/innerAlignment",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "innerAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/inneralignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/modifier(_:)": {
+  "abstract" : [
+    {
+      "text" : "Applies the associated modifier.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "modifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "keyword",
+      "text" : "any"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV0E0P",
+      "text" : "Modifier"
+    },
+    {
+      "kind" : "text",
+      "text" : ")"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/modifier(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier.Configuration.Trait.modifier(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/modifier(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/noBorders": {
+  "abstract" : [
+    {
+      "text" : "Hides the geometry overlay borders.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "noBorders"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/noBorders",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "noBorders",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/noborders"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/origin": {
+  "abstract" : [
+    {
+      "text" : "Prints the global origin coordinate of the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "origin"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/origin",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "origin",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/origin"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/outerAlignment": {
+  "abstract" : [
+    {
+      "text" : "Aligns the debug caption to the default outer floating alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "outerAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/outerAlignment",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "outerAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/outeralignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/safeAreaInsets": {
+  "abstract" : [
+    {
+      "text" : "Prints the safe area insets applied to the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "safeAreaInsets"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/safeAreaInsets",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "safeAreaInsets",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/safeareainsets"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/size": {
+  "abstract" : [
+    {
+      "text" : "Prints the width and height of the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "size"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/size",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "size",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/size"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/traits(_:)": {
+  "abstract" : [
+    {
+      "text" : "Applies the associated traits.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "case"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "traits"
+    },
+    {
+      "kind" : "text",
+      "text" : "(["
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    },
+    {
+      "kind" : "text",
+      "text" : "])"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/traits(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier.Configuration.Trait.traits(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/traits(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/visible(_:)": {
+  "abstract" : [
+    {
+      "text" : "Sets the visibility of the geometry overlay.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "visible"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:Sb",
+      "text" : "Bool"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/visible(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "visible(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/visible(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/width": {
+  "abstract" : [
+    {
+      "text" : "Prints the width of the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "width"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/width",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "width",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/width"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/SwiftUICore/View/debugGeometry(_:)": {
+  "abstract" : [
+    {
+      "text" : "Layers in front of this view a visual representation of a view’s geometry properties.",
+      "type" : "text"
+    }
+  ],
+  "conformance" : {
+    "availabilityPrefix" : [
+      {
+        "text" : "Available when",
+        "type" : "text"
+      }
+    ],
+    "conformancePrefix" : [
+      {
+        "text" : "Conforms when",
+        "type" : "text"
+      }
+    ],
+    "constraints" : [
+      {
+        "code" : "Self",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : " is ",
+        "type" : "text"
+      },
+      {
+        "code" : "View",
+        "type" : "codeVoice"
+      },
+      {
+        "text" : ".",
+        "type" : "text"
+      }
+    ]
+  },
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "debugGeometry"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV",
+      "text" : "DebugGeometryModifier"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV",
+      "text" : "Configuration"
+    },
+    {
+      "kind" : "text",
+      "text" : "."
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    },
+    {
+      "kind" : "text",
+      "text" : "...) -> "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "some"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI4ViewP",
+      "text" : "View"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/SwiftUICore\/View\/debugGeometry(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "debugGeometry(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/swiftuicore\/view\/debuggeometry(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/debug-geometry-api#View-Extensions": {
+  "abstract" : [
+
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/debug-geometry-api#View-Extensions",
+  "kind" : "section",
+  "title" : "View Extensions",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debug-geometry-api#View-Extensions"
+},
+"doc://PreviewUtilities/s16SendableMetatypeP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s16SendableMetatypeP",
+  "title" : "Swift.SendableMetatype",
+  "type" : "unresolvable"
+},
+"doc://PreviewUtilities/s8SendableP": {
+  "identifier" : "doc:\/\/PreviewUtilities\/s8SendableP",
+  "title" : "Swift.Sendable",
+  "type" : "unresolvable"
+}
+}
+}
