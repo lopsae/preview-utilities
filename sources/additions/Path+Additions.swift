@@ -20,3 +20,25 @@ extension Path {
     }
 
 }
+
+
+extension Path {
+
+    init(rect: CGRect) {
+        self.init()
+        addRect(rect)
+    }
+
+
+    init(crosshair point: CGPoint, length: CGFloat = 4) {
+        self.init()
+        // FIXME: Use segment pathable when exposed.
+        let hSegment = point.offset(x: -length).segmentToOffset(x: length*2)
+        move(to: hSegment.start)
+        addLine(to: hSegment.end)
+        let vSegment = point.offset(y: -length).segmentToOffset(y: length*2)
+        move(to: vSegment.start)
+        addLine(to: vSegment.end)
+    }
+
+}
