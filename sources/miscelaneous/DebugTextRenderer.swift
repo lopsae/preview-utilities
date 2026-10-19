@@ -132,14 +132,3 @@ private struct PreviewContent {
     .floatingCaption("Rects", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
 }
-
-
-extension Text.Layout {
-
-    var runs: [Run] {
-        flatMap { line in
-            line.map { run in run }
-        }
-    }
-
-}

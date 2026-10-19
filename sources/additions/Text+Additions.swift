@@ -34,6 +34,16 @@ extension TextAlignment {
 }
 
 
+extension Text.Layout {
+
+    var runs: [Run] {
+        flatMap { line in
+            line.map { run in run }
+        }
+    }
+
+}
+
 
 // MARK: - PreviewContent
 
