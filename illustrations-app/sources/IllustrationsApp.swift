@@ -24,7 +24,7 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Text("PreviewUtilities")
             Text("Illustrations App")
-                .debugOverlay(.size, .alignment(.outerBottomTrailing))
+                .debugGeometry(.size, .alignment(.outerBottomTrailing))
         }
         .padding()
     }
