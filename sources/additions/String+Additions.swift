@@ -11,6 +11,8 @@ extension String {
     nonisolated static var nbsp:       Self { "\u{00a0}" }
     nonisolated static var narrowNbsp: Self { "\u{202F}" }
     nonisolated static var hyphen:     Self { "-" }
+    nonisolated static let dot:        Self = "·"
+    nonisolated static let bullet:     Self = "•"
 
 }
 
