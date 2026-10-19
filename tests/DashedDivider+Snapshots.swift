@@ -4,6 +4,7 @@
 //
 
 
+@_spi(ItemStacks)
 import PreviewUtilities
 
 import SwiftUI
@@ -14,12 +15,20 @@ import Testing
 struct DashedDividerSnapshots {
 
     @Test(.snapshotTesting) func lineWidth() {
+        Snapshots.assertView("defaults", colorSchemes: .all) {
+            ZStack {
+                VStack(spacing: 10) {
+                    DashedDivider()
+                    DashedDivider(axis: .horizontal)
+                }
+                DashedDivider(axis: .vertical)
+            }
+            .padding(20)
+        }
+
         Snapshots.assertView("horizontal", colorSchemes: .all) {
-            VStack(spacing: 20) {
-                DashedDivider()
-                DashedDivider(lineWidth: 2)
-                DashedDivider(lineWidth: 4)
-                DashedDivider(lineWidth: 8)
+            VStack(items: [1, 2, 4, 8], spacing: 20) { lineWidth in
+                DashedDivider(lineWidth: lineWidth)
             }
             .padding(.vertical, 16)
             .border(.red.secondary)
@@ -27,11 +36,8 @@ struct DashedDividerSnapshots {
         }
 
         Snapshots.assertView("vertical", colorSchemes: .all) {
-            HStack(spacing: 20) {
-                DashedDivider(axis: .vertical)
-                DashedDivider(axis: .vertical, lineWidth: 2)
-                DashedDivider(axis: .vertical, lineWidth: 4)
-                DashedDivider(axis: .vertical, lineWidth: 8)
+            HStack(items: [1, 2, 4, 8], spacing: 20) { lineWidth in
+                DashedDivider(axis: .vertical, lineWidth: lineWidth)
             }
             .padding(.horizontal, 16)
             .border(.red.secondary)

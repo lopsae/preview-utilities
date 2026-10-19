@@ -1,0 +1,42 @@
+# Debug Geometry
+
+@Metadata {
+    @PageImage(purpose: card, source: "debug-geometry-card")
+}
+
+
+Visualize the boundaries, origin, and safe areas of a view, without impacting its layout.
+
+Apply the ``DebugGeometryModifier`` using ``SwiftUICore/View/debugGeometry(_:)`` or any
+[sibling function](doc:debug-geometry-api#View-Extensions) to overlay a visualization of the 
+boundaries, origin, and safe areas:
+
+![Visual components of the debug geometry overlay.](debug-geometry-components)
+
+The modifier can be configured by passing [`Trait`](doc:DebugGeometryModifier/Configuration/Trait) 
+instances:
+
+```swift
+RoundedRectangle(cornerRadius: 16)
+.fill(.yellow.gradient.secondary)
+.frame(width: 200, height: 80)
+.debugGeometry(
+    .size,                     // prints the size of the owner view
+    .bordersWidth(2),          // sets debug borders width to 2
+    .alignment(.innerTrailing) // aligns caption to trailing-center
+)
+```
+![Debug geometry overlay using traits.](debug-geometry-simple-traits)
+
+
+## Topics
+
+### Modifier and Traits
++ ``DebugGeometryModifier``
++ ``DebugGeometryModifier/Configuration``
++ ``DebugGeometryModifier/Configuration/Trait``
+
+
+### View Extensions
++ ``SwiftUICore/View/debugGeometry(_:)``
++ ``SwiftUICore/View/debugGeometry(traits:)``

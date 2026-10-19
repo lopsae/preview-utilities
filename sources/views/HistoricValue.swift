@@ -118,8 +118,8 @@ where
     private func markedCapsule(_ style: some ShapeStyle) -> some View {
         Capsule()
         .fill(style)
-        .padding(.horizontal, -Defaults.padding/2)
-        .padding(.vertical, -Defaults.padding/4)
+        .padding(.horizontal, -SpacingDefaults.padding/2)
+        .padding(.vertical, -SpacingDefaults.padding/4)
     }
 
 }

@@ -41,21 +41,21 @@ public struct SheetPreview<Content>: View where Content: View {
         let sheetTransitionId = "previewSheet.transtionId"
         VStack {
             if let captionKey {
-                VStack(spacing: Defaults.padding/3) {
+                VStack(spacing: SpacingDefaults.padding/3) {
                     Image(systemName: "info.circle")
                     .imageScale(.large)
                     Text(captionKey)
                     .expandingWidthFrame()
-                    .padding(.not(.top), Defaults.padding*1.5)
+                    .padding(.not(.top), SpacingDefaults.padding*1.5)
                 }
                 .maxWidthFrame()
                 .background {
                     ConcentricRectangle(
                         uniformTopCorners: .concentric,
-                        uniformBottomCorners: .concentric(minimum: .fixed(Defaults.padding))
+                        uniformBottomCorners: .concentric(minimum: .fixed(SpacingDefaults.padding))
                     )
                     .fill(.ultraThinMaterial)
-                    .padding(Defaults.padding/2)
+                    .padding(SpacingDefaults.padding/2)
                     .ignoresSafeArea()
                 }
             }

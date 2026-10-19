@@ -10,7 +10,7 @@ public import SwiftUI
 // FUTURE: Figure out a dynamic shape around a caption. Rounded border that surrounds several `Text`s
 // respecting each of their sizes. Make it a option/trait.
 
-// FUTURE: Here and in CaptionRectangle, localized key could be optional. At that point, debugOverlay could also use floating caption directly!
+// FUTURE: Here and in CaptionRectangle, localized key could be optional. At that point, debugGeometry could also use floating caption directly!
 
 /// Overlays a floating caption aligned to a `FloatingAlignment`.
 ///
@@ -89,7 +89,7 @@ public import SwiftUI
 /// + ``Trait``
 public struct FloatingCaptionModifier: ViewModifier {
 
-    let localizedKey: LocalizedStringKey
+    let captionSource: TextSource?
     let flatTraits: [Trait]
 
 
@@ -97,10 +97,17 @@ public struct FloatingCaptionModifier: ViewModifier {
     /// - Parameters:
     ///   - localizedKey: A Localized string key to display as caption.
     ///   - traits: The traits to configure the modifier.
-    public init(localizedKey: LocalizedStringKey, traits: [Trait]) {
-        self.localizedKey = localizedKey
+    public init(localizedKey: LocalizedStringKey? = nil, traits: [Trait]) {
+        self.captionSource = localizedKey.map { .localizedKey($0) }
         self.flatTraits = traits.flattenTraits()
     }
+
+
+    init(verbatim string: String, traits: [Trait]) {
+        self.captionSource = .verbatim(string)
+        self.flatTraits = traits.flattenTraits()
+    }
+
 
     @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
@@ -113,12 +120,15 @@ public struct FloatingCaptionModifier: ViewModifier {
                     : 2 // Default without trait.
                 FloatingAlignedContainer(alignment: alignment) { alignments in
                     VStack(alignment: alignments.content.horizontal) {
-                        let textStyle: any ShapeStyle = flatTraits.captionStyle
-                            ?? .secondary
-                        Text(localizedKey)
+                        let textStyle: any ShapeStyle = flatTraits.captionStyle ?? .secondary
+
+                        // Caption.
+                        if let captionSource {
+                            captionSource.text
                             .font(.caption)
                             .foregroundStyle(textStyle)
                             .multilineTextAlignment(alignments.text)
+                        }
 
                         // Width, Height, or Size.
                         Group {
@@ -164,7 +174,7 @@ extension FloatingCaptionModifier {
 
     // This trait implementation is an experimental configuration object solely based on an
     // enumeration, in contrast with a structure containing all properties like
-    // `DebugOverlayModifier.Configuration`.
+    // `DebugGeometryModifier.Configuration`.
 
     /// Customizations that can be applied to a `FloatingCaptionModifier`.
     ///  
@@ -368,6 +378,15 @@ extension View {
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
 
+
+    func floatingCaption(verbatim string: String, _ traits: FloatingCaptionModifier.Trait...) -> some View {
+        modifier(FloatingCaptionModifier(verbatim: string, traits: traits))
+    }
+
+    func floatingCaption(_ traits: FloatingCaptionModifier.Trait...) -> some View {
+        modifier(FloatingCaptionModifier(traits: traits))
+    }
+
 }
 
 
@@ -390,8 +409,9 @@ private struct PreviewContent {
 
     Rectangle()
         .fill(.indigo.gradient.tertiary)
-        .frame(width: 200, height: 15)
-        .floatingCaption("Short Rectangle", .width, .border)
+        .frame(width: 150, height: 15)
+        .floatingCaption(.width, .border)
+        .floatingCaption("No Caption", .alignment(.outerTrailing))
 
     Rectangle()
         .fill(.indigo.gradient.tertiary)
@@ -404,6 +424,7 @@ private struct PreviewContent {
     Rectangle()
         .fill(.indigo.gradient.tertiary)
         .frame(squareOf: 100)
+        .floatingCaption(verbatim:"`verbatim`", .alignment(.center))
         .floatingCaption(
             "External", .size, .alignment(.outerBottom),
             .captionStyle(.indigo), .borderStyle(.indigo.tertiary),

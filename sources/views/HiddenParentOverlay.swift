@@ -168,7 +168,7 @@ private struct PreviewContent {
         Text("Large Overlaid Text")
         .font(.title)
         .fixedSize()
-        .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+        .floatingCaption(.colorStyle(.indigo.opacity(0.3)))
     }
     .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
     .frame(height: viewHeight)
@@ -182,7 +182,7 @@ private struct PreviewContent {
         .font(.title)
         .fixedSize()
         .opacity(0.1)
-        .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+        .floatingCaption(.colorStyle(.indigo.opacity(0.3)))
     }
     .visibleParent()
     .floatingCaption("Visible Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
@@ -199,7 +199,7 @@ private struct PreviewContent {
             Image(systemName: "person.crop.square.on.square.angled")
             .font(.largeTitle)
             .opacity(0.2)
-            .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+            .floatingCaption(.colorStyle(.indigo.opacity(0.3)))
         }
         .visibleParent()
         .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
@@ -214,7 +214,7 @@ private struct PreviewContent {
             Image(systemName: "envelope.badge.shield.half.filled")
             .font(.largeTitle)
             .opacity(0.2)
-            .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+            .floatingCaption(.colorStyle(.indigo.opacity(0.3)))
         }
         .visibleParent()
         .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))
@@ -229,7 +229,7 @@ private struct PreviewContent {
             Image(systemName: "photo.badge.shield.exclamationmark")
             .font(.largeTitle)
             .opacity(0.2)
-            .floatingCaption("", .colorStyle(.indigo.opacity(0.3)))
+            .floatingCaption(.colorStyle(.indigo.opacity(0.3)))
         }
         .visibleParent()
         .floatingCaption("Parent", .colorStyle(.purple), .alignment(.outerTrailingUnder))

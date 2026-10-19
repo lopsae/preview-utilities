@@ -353,14 +353,14 @@ enum DebugAxisAlignmentModifiers<Configuration: DebugAxisAlignmentGuideConfigura
 extension View {
 
     /// Layers in front of this view a visual representation of the given horizontal alignment
-    /// guide, customized with the given traits.
+    /// guide.
     ///
     /// Applies the ``DebugHorizontalAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAxisAlignmentGuideModifier/Trait)
     /// instances, overlaying a visual representation of the given horizontal alignment.
-    /// 
-    /// The traits are applied in the order they are passed to a default configuration. Later
-    /// traits may override earlier ones depending on the configuration each trait modifies.
-    /// 
+    ///
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
+    ///
     /// - Parameters:
     ///   - horizontalAlignment: The horizontal alignment to visualize.
     ///   - traits: The traits to customize the default configuration.
@@ -380,13 +380,13 @@ extension View {
 
 
     /// Layers in front of this view a visual representation of the given vertical alignment
-    /// guide, customized with the given traits.
+    /// guide.
     ///
     /// Applies the ``DebugVerticalAlignmentGuideModifier`` customized with the given [`Trait`](doc:DebugAxisAlignmentGuideModifier/Trait)
     /// instances, overlaying a visual representation of the given vertical alignment.
     ///
-    /// The traits are applied in the order they are passed to a default configuration. Later
-    /// traits may override earlier ones depending on the configuration each trait modifies.
+    /// The traits are applied in order to a default configuration. Later traits may override
+    /// earlier ones depending on the configuration each trait modifies.
     ///
     /// - Parameters:
     ///   - verticalAlignment: The vertical alignment to visualize.

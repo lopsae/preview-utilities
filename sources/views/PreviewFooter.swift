@@ -128,13 +128,13 @@ private struct PreviewContent {
 
     PreviewFooter(enableBottomPadding: true, flexibleHeight: false)
         .floatingCaption("**Enabled** padding", .alignment(.inner(.topLeading)), .padding(25))
-        .debugOverlay(.bordersWidth(2))
+        .debugGeometry(.bordersWidth(2))
 
     VisibleSpacer()
 
     PreviewFooter(enableBottomPadding: false, flexibleHeight: false)
         .floatingCaption("**Disabled** padding", .alignment(.inner(.topLeading)), .padding(25))
-        .debugOverlay(.bordersWidth(2))
+        .debugGeometry(.bordersWidth(2))
 
     VisibleSpacer()
 
@@ -143,7 +143,7 @@ private struct PreviewContent {
             "Platform padding: **`\(PreviewContent.platformEnableBottomPadding.description)`**",
             .alignment(.inner(.topLeading)),
             .padding(25))
-        .debugOverlay(.bordersWidth(2))
+        .debugGeometry(.bordersWidth(2))
 }
 
 
