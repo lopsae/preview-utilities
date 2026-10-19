@@ -36,13 +36,13 @@ extension TextAlignment {
 
 extension Text.Layout {
 
-    var runs: [Run] {
+    public var runs: [Run] {
         flatMap { line in
             line.map { run in run }
         }
     }
 
-    func attributedRuns<Attribute>(
+    public func attributedRuns<Attribute>(
         with attributeType: Attribute.Type
     ) -> [(Run, Attribute)]
     where Attribute: TextAttribute {
