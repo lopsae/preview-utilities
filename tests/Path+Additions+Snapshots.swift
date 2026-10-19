@@ -13,30 +13,40 @@ import Testing
 @MainActor
 struct PathAdditionsSnapshots {
 
+    struct GraticuleRect<Content>: View where Content: View {
+        @ViewBuilder var content: (CGFloat, CGRect) -> Content
+        var body: some View {
+            let heightSpacing: CGFloat = 8
+            let frameSize: CGSize = [120, heightSpacing*3]
+            ZStack {
+                content(heightSpacing, frameSize.rect())
+            }
+            .frame(size: frameSize)
+            .background(.gray.quinary)
+            .edgeGraticule(spacing: 8)
+        }
+    }
+
     @Test(.snapshotTesting) func rect() {
         Snapshots.assertView("init") {
-            VStack(spacing: 20) {
-                let frameSize: CGSize = [120, 20]
+            VStack(spacing: 30) {
+                GraticuleRect { spacing, frame in
+                    let square: CGSize = .square(of: spacing*2)
+                    Path(rect: CGRect(origin: .zero, size: square))
+                    .stroke(.green)
 
-                Path(rect: CGRect(origin: .zero, size: .square(of: 20)))
-                .stroke(.green)
-                .frame(size: frameSize)
-                .border(.gray.secondary)
+                    Path(rect: CGRect(origin: [50, spacing], size: [spacing*3, spacing]))
+                    .stroke(.green)
+                }
 
-                Path(rect: CGRect(origin: [50, 5], size: [20, 10]))
-                .stroke(.green)
-                .frame(size: frameSize)
-                .border(.gray.secondary)
+                GraticuleRect { spacing, frame in
+                    let square: CGSize = .square(of: spacing*2)
+                    Path(rect: CGRect(origin: [-spacing, -spacing], size: square))
+                    .stroke(.green)
 
-                Path(rect: CGRect(origin: [-10, -10], size: .square(of: 10)))
-                .stroke(.green)
-                .frame(size: frameSize)
-                .border(.gray.secondary)
-
-                Path(rect: CGRect(origin: [120, 10], size: .square(of: 10)))
-                .stroke(.green)
-                .frame(size: frameSize)
-                .border(.gray.secondary)
+                    Path(rect: CGRect(origin: [120, spacing * 2], size: square))
+                    .stroke(.green)
+                }
             }
         }
     }
@@ -44,28 +54,25 @@ struct PathAdditionsSnapshots {
 
     @Test(.snapshotTesting) func crosshair() {
         Snapshots.assertView("init") {
-            VStack(spacing: 20) {
-                let frameSize: CGSize = [120, 20]
+            VStack(spacing: 30) {
+                GraticuleRect { spacing, frame in
+                    Path(crosshair: .zero)
+                    .stroke(.green)
 
-                Path(crosshair: .zero)
-                .stroke(.green)
-                .frame(size: frameSize)
-                .border(.gray.secondary)
+                    Path(crosshair: frame.centerPoint)
+                    .stroke(.green)
 
-                Path(crosshair: [60, 10], length: 10)
-                .stroke(.green)
-                .frame(size: frameSize)
-                .border(.gray.secondary)
+                    Path(crosshair: frame.maxPoint, length: spacing)
+                    .stroke(.green)
+                }
 
-                Path(crosshair: [-5, -5], length: 10)
-                .stroke(.green)
-                .frame(size: frameSize)
-                .border(.gray.secondary)
+                GraticuleRect { spacing, frame in
+                    Path(crosshair: [-spacing, -spacing])
+                    .stroke(.green)
 
-                Path(crosshair: [130, 10])
-                .stroke(.green)
-                .frame(size: frameSize)
-                .border(.gray.secondary)
+                    Path(crosshair: frame.maxPoint.offset(x: spacing, y: spacing), length: spacing*2)
+                    .stroke(.green)
+                }
             }
         }
     }
