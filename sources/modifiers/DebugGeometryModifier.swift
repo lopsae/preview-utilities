@@ -4,13 +4,6 @@
 //
 
 
-// FIXME: Done docs: this file.
-// FIXME: Done docs: configuration file.
-// FIXME: Done docs: Package docs main page.
-// FIXME: Done docs: apiCollection.
-// FIXME: Update docs: readme.
-
-
 public import SwiftUI
 
 
