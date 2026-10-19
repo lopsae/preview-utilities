@@ -18,7 +18,6 @@ import Testing
 /// snippets.
 struct InternalIllustrationsForDebugOverlay {
 
-    // FIXME: use only path storage after testing.
     let storage: IllustrationStorage
 
     init() throws {

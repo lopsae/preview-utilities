@@ -560,6 +560,7 @@ private struct PreviewContent {
     }
 
     VStack {
+        // FIXME: Search for `enumerated` and make sure offset is used clearly, or use Indexed.
         ForEach(traitOptions.enumerated(), id: \.offset) { index, optionTuple in
             Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
         }
