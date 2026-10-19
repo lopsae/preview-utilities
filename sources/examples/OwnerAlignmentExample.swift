@@ -105,13 +105,14 @@ private struct ContentView: View {
     }
 }
 
-
-protocol InnerOuterAlignmentID: AlignmentID {
+nonisolated
+protocol InnerOuterAlignmentID: AlignmentID, Sendable {
     static var inner: HorizontalAlignment { get }
     static var outer: HorizontalAlignment { get }
 }
 
-struct OuterTrailing: @MainActor InnerOuterAlignmentID {
+nonisolated
+struct OuterTrailing: InnerOuterAlignmentID {
     static let inner: HorizontalAlignment = .trailing
     static let outer: HorizontalAlignment = .leading
     static func defaultValue(in context: ViewDimensions) -> CGFloat {
@@ -120,11 +121,13 @@ struct OuterTrailing: @MainActor InnerOuterAlignmentID {
     }
 }
 
+nonisolated
 extension HorizontalAlignment {
     static let outerTrailing = HorizontalAlignment(OuterTrailing.self)
 }
 
-struct HorizontalInnerOuterAlignment {
+nonisolated
+struct HorizontalInnerOuterAlignment: Sendable {
     let alignmentID: InnerOuterAlignmentID.Type
     let anchorAlignment: HorizontalAlignment
     
