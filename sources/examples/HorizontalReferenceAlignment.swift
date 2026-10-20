@@ -9,20 +9,24 @@ import SwiftUI
 
 nonisolated
 private protocol HorizontalReferenceAlignmentID: AlignmentID, Sendable {
-    static var reference: HorizontalAlignment { get }
-    static var relative: HorizontalAlignment { get }
+    static var referenceAlignment: HorizontalAlignment { get }
+    static var relativeAlignment: HorizontalAlignment { get }
+}
 
-    // FIXME: Could have a default implementation for defaultValue.
+extension HorizontalReferenceAlignmentID {
+
+    nonisolated
+    static func defaultValue(in context: ViewDimensions) -> CGFloat {
+        context[horizontal: relativeAlignment]
+    }
+
 }
 
 
 nonisolated
 private struct OuterTrailing: HorizontalReferenceAlignmentID {
-    static let reference: HorizontalAlignment = .trailing
-    static let relative: HorizontalAlignment = .leading
-    static func defaultValue(in context: ViewDimensions) -> CGFloat {
-        context[horizontal: relative]
-    }
+    static let referenceAlignment: HorizontalAlignment = .trailing
+    static let relativeAlignment: HorizontalAlignment = .leading
 }
 
 
@@ -32,28 +36,31 @@ private extension HorizontalAlignment {
 }
 
 
-
 nonisolated
 private struct HorizontalReferenceAlignment: Sendable {
     let alignmentID: HorizontalReferenceAlignmentID.Type
-    // FIXME: Double check name, see if it is needed.
-    let anchorAlignment: HorizontalAlignment
 
     init(_ alignmentID: HorizontalReferenceAlignmentID.Type) {
         self.alignmentID = alignmentID
-        // FIXME: almost sure this should be initialized with outer.
-        self.anchorAlignment = .init(alignmentID)
     }
 
+    /// The `HorizontalAlignment` instance used by this reference alignment.
     var horizontalAlignment: HorizontalAlignment { .init(alignmentID) }
 
-    static let outerTrailing = HorizontalReferenceAlignment(OuterTrailing.self)
 }
+
+
+/// Static members available as parameter shorthands.
+extension HorizontalReferenceAlignment {
+    static let outerTrailing: Self = .init(OuterTrailing.self)
+}
+
+
 
 private extension View {
     func alignmentGuide(referenceOf referenceAlignment: HorizontalReferenceAlignment) -> some View {
         self.alignmentGuide(referenceAlignment.horizontalAlignment) { dimension in
-            dimension[referenceAlignment.alignmentID.reference]
+            dimension[referenceAlignment.alignmentID.referenceAlignment]
         }
     }
 }
@@ -70,7 +77,7 @@ private extension View {
         // Manual setup or reference alignment.
         .alignmentGuide(.outerTrailing) { dimension in
             // FIXME: Could this be .outerTrailing.reference?
-            dimension[OuterTrailing.reference]
+            dimension[OuterTrailing.referenceAlignment]
         }
 
         Text("Relative One")
