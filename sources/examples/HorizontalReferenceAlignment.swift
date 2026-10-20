@@ -46,6 +46,8 @@ private struct HorizontalReferenceAlignment: Sendable {
 
     /// The `HorizontalAlignment` instance used by this reference alignment.
     var horizontalAlignment: HorizontalAlignment { .init(alignmentID) }
+    var reference: HorizontalAlignment { alignmentID.referenceAlignment }
+    var relative: HorizontalAlignment { alignmentID.relativeAlignment }
 
 }
 
@@ -76,8 +78,7 @@ private extension View {
         .fontWeight(.bold)
         // Manual setup or reference alignment.
         .alignmentGuide(.outerTrailing) { dimension in
-            // FIXME: Could this be .outerTrailing.reference?
-            dimension[OuterTrailing.referenceAlignment]
+            dimension[referenceOf: .outerTrailing]
         }
 
         Text("Relative One")
@@ -92,7 +93,7 @@ private extension View {
         .multilineTextAlignment(.trailing)
         .fontWeight(.bold)
         .alignmentGuide(referenceOf: .outerTrailing)
-        // FIXME: Could this be just .referenceAlignment() using Enviroment values?
+        // FIXME: Could this be just .referenceAlignment() using Environment values?
 
         Text("Relative One")
         Text("Relative Two")
@@ -119,6 +120,11 @@ private extension ViewDimensions {
     nonisolated
     subscript(vertical guide: VerticalAlignment) -> CGFloat {
         self[guide]
+    }
+
+    nonisolated
+    subscript(referenceOf guide: HorizontalReferenceAlignment) -> CGFloat {
+        self[horizontal: guide.reference]
     }
 
 }
