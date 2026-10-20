@@ -65,6 +65,7 @@ private struct HorizontalReferenceAlignment: Sendable {
 
 /// Static members available as parameter shorthands.
 extension HorizontalReferenceAlignment {
+    nonisolated
     static let outerTrailing: Self = .init(OuterTrailing.self)
 }
 
@@ -93,6 +94,41 @@ private extension View {
         .overlay(alignment: referenceAlignment.horizontalAlignment.alignment(withOrthogonal: .center)) {
             content()
         }
+    }
+
+
+    /// This implementation has two issues:
+    /// + referenceAlignment defines only the horizontal, it is still unclear how the composite alignment
+    /// would be passed into.
+    /// + Since there is no other view to use as the reference role, the alignment has to be manually
+    /// adjusted so that it aligns to its default position (the relative role) but appears offset
+    /// like a reference role view was present.
+    func frame(
+        width: CGFloat? = nil,
+        height: CGFloat? = nil,
+        referenceAlignment: HorizontalReferenceAlignment
+    ) -> some View {
+        let horizontalAlignment = referenceAlignment.horizontalAlignment
+        let referenceCentered = referenceAlignment.reference.alignment(withOrthogonal: .center)
+        let relativeCentered = referenceAlignment.relative.alignment(withOrthogonal: .center)
+
+        return self
+        // First frame for the content to align to relative alignment.
+        .frame(width: width, height: height, alignment: horizontalAlignment.alignment(withOrthogonal: .center))
+        .border(.green.secondary, width: 2)
+//        .debugAlignmentGuide(horizontal: horizontalAlignment, .extendedLength(20))
+
+        // This implementation requires a manual adjustment of horizontalAlignment to relocate it at
+        // the trailing edge, since there is no other content which alignment can be updated to the
+        // reference role!
+        .alignmentGuide(horizontalAlignment) { $0[horizontalAlignment] - (width ?? .zero) }
+//        .debugAlignmentGuide(horizontal: horizontalAlignment, .extendedLength(10), .lineWidth(4))
+
+        // Second frame aligns again to horizontalAlignment, so that the content with the adjusted
+        // guide now appears as having a reference role view.
+        .frame(width: width, height: height, alignment: horizontalAlignment.alignment(withOrthogonal: .center))
+
+        .border(.blue.secondary, width: 8)
     }
 
 }
@@ -141,11 +177,17 @@ private extension View {
 }
 
 
-#Preview("Overlay") {
+#Preview("Overlay&Frame") {
     CaptionRectangle("Overlaid Content", color: .blue, size: [120, 40])
-        .overlay(referenceAlignment: .outerTrailing) {
-            Text("Relative One")
-        }
+    .overlay(referenceAlignment: .outerTrailing) {
+        Text("Relative Role")
+    }
+
+    DashedDivider()
+
+    Text("Relative Role")
+    .frame(width: 120, height: 40, referenceAlignment: .outerTrailing)
+    .border(.red.secondary, width: 4)
 }
 
 
