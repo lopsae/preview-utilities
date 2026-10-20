@@ -109,8 +109,6 @@ private extension View {
         referenceAlignment: HorizontalReferenceAlignment
     ) -> some View {
         let horizontalAlignment = referenceAlignment.horizontalAlignment
-        let referenceCentered = referenceAlignment.reference.alignment(withOrthogonal: .center)
-        let relativeCentered = referenceAlignment.relative.alignment(withOrthogonal: .center)
 
         return self
         // First frame for the content to align to relative alignment.
@@ -121,7 +119,10 @@ private extension View {
         // This implementation requires a manual adjustment of horizontalAlignment to relocate it at
         // the trailing edge, since there is no other content which alignment can be updated to the
         // reference role!
-        .alignmentGuide(horizontalAlignment) { $0[horizontalAlignment] - (width ?? .zero) }
+        .alignmentGuide(horizontalAlignment) { dimensions in
+            let shift = dimensions[referenceAlignment.reference] - dimensions[referenceAlignment.relative]
+            return dimensions[horizontalAlignment] - shift
+        }
 //        .debugAlignmentGuide(horizontal: horizontalAlignment, .extendedLength(10), .lineWidth(4))
 
         // Second frame aligns again to horizontalAlignment, so that the content with the adjusted
@@ -187,6 +188,9 @@ private extension View {
 
     Text("Relative Role")
     .frame(width: 120, height: 40, referenceAlignment: .outerTrailing)
+    .border(.red.secondary, width: 4)
+    Text("Relative Role")
+    .frame(referenceAlignment: .outerTrailing)
     .border(.red.secondary, width: 4)
 }
 
