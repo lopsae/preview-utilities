@@ -138,6 +138,60 @@ private extension View {
 }
 
 
+private struct HorizontalRelativeAlignmentKey: EnvironmentKey {
+    static let defaultValue: HorizontalRelativeAlignment? = nil
+}
+
+
+extension EnvironmentValues {
+    fileprivate var horizontalRelativeAlignment: HorizontalRelativeAlignment? {
+        get { self[HorizontalRelativeAlignmentKey.self] }
+        set { self[HorizontalRelativeAlignmentKey.self] = newValue }
+    }
+}
+
+
+private extension VStack {
+
+    static func relativeAlignment(
+        _ relativeAlignment: HorizontalRelativeAlignment,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        VStack(alignment: relativeAlignment.horizontalAlignment) {
+            content()
+        }
+        .environment(\.horizontalRelativeAlignment, relativeAlignment)
+    }
+}
+
+
+private struct AlignedReferenceView<Content>: View where Content: View {
+
+    @Environment(\.horizontalRelativeAlignment) private var relativeAlignment
+
+    let content: () -> Content
+
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+
+    var body: some View {
+        if let relativeAlignment {
+            content().alignmentGuide(referenceOf: relativeAlignment)
+        } else {
+            content()
+        }
+    }
+
+}
+
+
+private extension View {
+    func horizontalAlignmentReference() -> some View {
+        AlignedReferenceView { self }
+    }
+}
+
 
 // MARK: - Previews
 
@@ -164,7 +218,6 @@ private extension View {
         .multilineTextAlignment(.trailing)
         .fontWeight(.bold)
         .alignmentGuide(referenceOf: .outerTrailing)
-        // FIXME: Could this be just .referenceAlignment() using Environment values?
 
         Text("Relative One")
         Text("Relative Two")
@@ -195,6 +248,30 @@ private extension View {
     Text("Relative Role")
     .frame(relativeAlignment: .outerTrailing)
     .border(.red.secondary, width: 4)
+}
+
+
+#Preview("EnviromentValue") {
+    VStack.relativeAlignment(.outerTrailing) {
+        Text("No Reference\n`VStack+Environment`")
+        .multilineTextAlignment(.trailing)
+        .fontWeight(.bold)
+
+        Text("Relative One")
+        Text("Relative Two")
+    }
+
+    DashedDivider()
+
+    VStack.relativeAlignment(.outerTrailing) {
+        Text("Reference\n`VStack+Environment`")
+        .multilineTextAlignment(.trailing)
+        .fontWeight(.bold)
+        .horizontalAlignmentReference()
+
+        Text("Relative One")
+        Text("Relative Two")
+    }
 }
 
 
