@@ -81,6 +81,24 @@ private extension View {
 }
 
 
+private extension View {
+
+    func overlay(
+        referenceAlignment: HorizontalReferenceAlignment,
+        @ViewBuilder content: () -> some View
+    ) -> some View {
+        self
+        .alignmentGuide(referenceOf: referenceAlignment)
+        // FIXME: Convenience function for orthogonalCentered? .centered? .alignmentWithCenter? .orthogonalCenterAlignment?
+        .overlay(alignment: referenceAlignment.horizontalAlignment.alignment(withOrthogonal: .center)) {
+            content()
+        }
+    }
+
+}
+
+
+
 // MARK: - Previews
 
 
@@ -120,6 +138,14 @@ private extension View {
         Text("1st Relative")
         Text("Second Relative")
     }
+}
+
+
+#Preview("Overlay") {
+    CaptionRectangle("Overlaid Content", color: .blue, size: [120, 40])
+        .overlay(referenceAlignment: .outerTrailing) {
+            Text("Relative One")
+        }
 }
 
 
