@@ -8,12 +8,13 @@ import SwiftUI
 
 
 nonisolated
-private protocol HorizontalReferenceAlignmentID: AlignmentID, Sendable {
+private protocol HorizontalRelativeAlignmentID: AlignmentID, Sendable {
     static var referenceAlignment: HorizontalAlignment { get }
     static var relativeAlignment: HorizontalAlignment { get }
 }
 
-extension HorizontalReferenceAlignmentID {
+
+extension HorizontalRelativeAlignmentID {
 
     nonisolated
     static func defaultValue(in context: ViewDimensions) -> CGFloat {
@@ -24,7 +25,7 @@ extension HorizontalReferenceAlignmentID {
 
 
 nonisolated
-private struct OuterTrailing: HorizontalReferenceAlignmentID {
+private struct OuterTrailing: HorizontalRelativeAlignmentID {
     static let referenceAlignment: HorizontalAlignment = .trailing
     static let relativeAlignment: HorizontalAlignment = .leading
 }
@@ -48,10 +49,10 @@ private extension HorizontalAlignment {
 /// content. This is the behaviour of `outerTrailing`, since relative content aligned with
 /// `outerTrailing` is always aligned outside the trailing edge of its reference content.
 nonisolated
-private struct HorizontalReferenceAlignment: Sendable {
-    let alignmentID: HorizontalReferenceAlignmentID.Type
+private struct HorizontalRelativeAlignment: Sendable {
+    let alignmentID: HorizontalRelativeAlignmentID.Type
 
-    init(_ alignmentID: HorizontalReferenceAlignmentID.Type) {
+    init(_ alignmentID: HorizontalRelativeAlignmentID.Type) {
         self.alignmentID = alignmentID
     }
 
@@ -64,7 +65,7 @@ private struct HorizontalReferenceAlignment: Sendable {
 
 
 /// Static members available as parameter shorthands.
-extension HorizontalReferenceAlignment {
+extension HorizontalRelativeAlignment {
     nonisolated
     static let outerTrailing: Self = .init(OuterTrailing.self)
 }
@@ -74,9 +75,9 @@ extension HorizontalReferenceAlignment {
 private extension View {
 
     /// Adjusts the view reference alignment guide to is reference role.
-    func alignmentGuide(referenceOf referenceAlignment: HorizontalReferenceAlignment) -> some View {
-        self.alignmentGuide(referenceAlignment.horizontalAlignment) { dimension in
-            dimension[referenceAlignment.alignmentID.referenceAlignment]
+    func alignmentGuide(referenceOf relativeAlignment: HorizontalRelativeAlignment) -> some View {
+        self.alignmentGuide(relativeAlignment.horizontalAlignment) { dimension in
+            dimension[horizontal: relativeAlignment.alignmentID.referenceAlignment]
         }
     }
 }
@@ -85,13 +86,13 @@ private extension View {
 private extension View {
 
     func overlay(
-        referenceAlignment: HorizontalReferenceAlignment,
+        relativeAlignment: HorizontalRelativeAlignment,
         @ViewBuilder content: () -> some View
     ) -> some View {
         self
-        .alignmentGuide(referenceOf: referenceAlignment)
+        .alignmentGuide(referenceOf: relativeAlignment)
         // FIXME: Convenience function for orthogonalCentered? .centered? .alignmentWithCenter? .orthogonalCenterAlignment?
-        .overlay(alignment: referenceAlignment.horizontalAlignment.alignment(withOrthogonal: .center)) {
+        .overlay(alignment: relativeAlignment.horizontalAlignment.alignment(withOrthogonal: .center)) {
             content()
         }
     }
@@ -106,9 +107,9 @@ private extension View {
     func frame(
         width: CGFloat? = nil,
         height: CGFloat? = nil,
-        referenceAlignment: HorizontalReferenceAlignment
+        relativeAlignment: HorizontalRelativeAlignment
     ) -> some View {
-        let horizontalAlignment = referenceAlignment.horizontalAlignment
+        let horizontalAlignment = relativeAlignment.horizontalAlignment
 
         return self
         // First frame for the content to align to relative alignment.
@@ -120,7 +121,9 @@ private extension View {
         // the trailing edge, since there is no other content which alignment can be updated to the
         // reference role!
         .alignmentGuide(horizontalAlignment) { dimensions in
-            let shift = dimensions[referenceAlignment.reference] - dimensions[referenceAlignment.relative]
+            let referencePosition = dimensions[horizontal: relativeAlignment.reference]
+            let relativePosition  = dimensions[horizontal: relativeAlignment.relative]
+            let shift = referencePosition - relativePosition
             return dimensions[horizontalAlignment] - shift
         }
 //        .debugAlignmentGuide(horizontal: horizontalAlignment, .extendedLength(10), .lineWidth(4))
@@ -180,17 +183,17 @@ private extension View {
 
 #Preview("Overlay&Frame") {
     CaptionRectangle("Overlaid Content", color: .blue, size: [120, 40])
-    .overlay(referenceAlignment: .outerTrailing) {
+    .overlay(relativeAlignment: .outerTrailing) {
         Text("Relative Role")
     }
 
     DashedDivider()
 
     Text("Relative Role")
-    .frame(width: 120, height: 40, referenceAlignment: .outerTrailing)
+    .frame(width: 120, height: 40, relativeAlignment: .outerTrailing)
     .border(.red.secondary, width: 4)
     Text("Relative Role")
-    .frame(referenceAlignment: .outerTrailing)
+    .frame(relativeAlignment: .outerTrailing)
     .border(.red.secondary, width: 4)
 }
 
@@ -208,7 +211,7 @@ private extension ViewDimensions {
     }
 
     nonisolated
-    subscript(referenceOf guide: HorizontalReferenceAlignment) -> CGFloat {
+    subscript(referenceOf guide: HorizontalRelativeAlignment) -> CGFloat {
         self[horizontal: guide.reference]
     }
 
