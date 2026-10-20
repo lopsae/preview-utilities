@@ -36,6 +36,17 @@ private extension HorizontalAlignment {
 }
 
 
+/// A horizontal alignment guide that can set its guide in two roles: reference and relative.
+///
+/// A horizontal reference alignment guide aligns content with two different roles: reference
+/// content and relative content. Each role provides its own alignment to use, causing the relative
+/// content to be aligned to an given alignment of the reference content.
+///
+/// For example, to align content next to each other, a reference alignment instance can define
+/// its reference content to use its `trailing` edge, and its relative content its `leading` edge.
+/// Using this alignment will cause reference content to always sit on the leading side of relative
+/// content. This is the behaviour of `outerTrailing`, since relative content aligned with
+/// `outerTrailing` is always aligned outside the trailing edge of its reference content.
 nonisolated
 private struct HorizontalReferenceAlignment: Sendable {
     let alignmentID: HorizontalReferenceAlignmentID.Type
@@ -60,6 +71,8 @@ extension HorizontalReferenceAlignment {
 
 
 private extension View {
+
+    /// Adjusts the view reference alignment guide to is reference role.
     func alignmentGuide(referenceOf referenceAlignment: HorizontalReferenceAlignment) -> some View {
         self.alignmentGuide(referenceAlignment.horizontalAlignment) { dimension in
             dimension[referenceAlignment.alignmentID.referenceAlignment]
