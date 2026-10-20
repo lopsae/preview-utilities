@@ -36,6 +36,7 @@ private extension HorizontalAlignment {
 nonisolated
 private struct HorizontalReferenceAlignment: Sendable {
     let alignmentID: HorizontalReferenceAlignmentID.Type
+    // FIXME: Double check name, see if it is needed.
     let anchorAlignment: HorizontalAlignment
 
     init(_ alignmentID: HorizontalReferenceAlignmentID.Type) {
@@ -44,12 +45,14 @@ private struct HorizontalReferenceAlignment: Sendable {
         self.anchorAlignment = .init(alignmentID)
     }
 
+    var horizontalAlignment: HorizontalAlignment { .init(alignmentID) }
+
     static let outerTrailing = HorizontalReferenceAlignment(OuterTrailing.self)
 }
 
 private extension View {
     func alignmentGuide(referenceOf referenceAlignment: HorizontalReferenceAlignment) -> some View {
-        self.alignmentGuide(referenceAlignment.anchorAlignment) { dimension in
+        self.alignmentGuide(referenceAlignment.horizontalAlignment) { dimension in
             dimension[referenceAlignment.alignmentID.reference]
         }
     }
@@ -61,11 +64,28 @@ private extension View {
 
 #Preview("Default") {
     VStack(alignment: .outerTrailing) {
-        Text("Reference").fontWeight(.bold)
-        // FIXME: Manual setup of ReferenceAlignment
+        Text("Reference\nManual")
+        .multilineTextAlignment(.trailing)
+        .fontWeight(.bold)
+        // Manual setup or reference alignment.
         .alignmentGuide(.outerTrailing) { dimension in
+            // FIXME: Could this be .outerTrailing.reference?
             dimension[OuterTrailing.reference]
         }
+
+        Text("Relative One")
+        Text("Relative Two")
+    }
+
+
+    DashedDivider()
+
+    VStack(alignment: .outerTrailing) {
+        Text("Reference\n`referenceOf`")
+        .multilineTextAlignment(.trailing)
+        .fontWeight(.bold)
+        .alignmentGuide(referenceOf: .outerTrailing)
+        // FIXME: Could this be just .referenceAlignment() using Enviroment values?
 
         Text("Relative One")
         Text("Relative Two")
