@@ -11,7 +11,8 @@ extension Alignment {
 
     /// A guide that marks the center of the view.
     ///
-    /// Convenience accessor for `Alignment.center`, to disambiguate from other `center` alignments.
+    /// Convenience accessor for `Alignment.center`, to disambiguate from horizontal and vertical
+    /// `center` alignments.
     nonisolated
     static var centerCenter: Self { .center }
 }
@@ -50,7 +51,7 @@ public nonisolated
 protocol AlignmentWithOrthogonal: Sendable {
 
     /// Orthogonal alignment to `self`.
-    associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, Sendable
+    associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, AlignmentWithDefault, Sendable
 
     /// The axis of the alignment.
     var axis: Axis { get }
@@ -59,6 +60,19 @@ protocol AlignmentWithOrthogonal: Sendable {
     /// - Parameter orthogonalAlignment: The orthogonal alignment to use.
     /// - Returns: An `Alignment` composed of `self` and the given orthogonal alignment.
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
+
+    /// The `Alignment` with the center orthogonal alignment.
+    var orthogonalCenterAlignment: Alignment { get }
+}
+
+
+extension AlignmentWithOrthogonal {
+
+    nonisolated
+    public var orthogonalCenterAlignment: Alignment {
+        self.alignment(withOrthogonal: .center)
+    }
+
 }
 
 
@@ -85,6 +99,7 @@ extension VerticalAlignment: AlignmentWithOrthogonal {
 // MARK: - With Default
 
 
+// FIXME: Rename to AlignmentWithCenter
 /// Defines a default alignment for an alignment type.
 ///
 /// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol and return their
@@ -94,6 +109,7 @@ protocol AlignmentWithDefault {
 
     /// The default alignment of the type.
     static var `default`: Self { get }
+    static var center: Self { get }
 }
 
 
