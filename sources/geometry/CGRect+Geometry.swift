@@ -52,25 +52,12 @@ extension CGRect {
     }
 
 
-    // FIXME: Could be moved to GeometryAdditions.
-    nonisolated
-    var topCenterPoint: CGPoint {
-        .init(x: minX, y: minY)
-        .offset(x: width/2)
-    }
-
-    // FIXME: Could be moved to GeometryAdditions.
-    nonisolated
-    var leadingCenterPoint: CGPoint {
-        .init(x: minX, y: minY)
-        .offset(y: height/2)
-    }
-
     nonisolated
     var horizontalBisectorSegment: Segment {
         leadingCenterPoint
         .segmentToOffset(x: width)
     }
+
 
     nonisolated
     var verticalBisectorSegment: Segment {

@@ -43,8 +43,8 @@ extension Path {
     nonisolated
     public init(crosshair point: CGPoint, length: CGFloat = 4) {
         self.init()
-        let hSegment = point.offset(x: -length).segmentToOffset(x: length*2)
-        let vSegment = point.offset(y: -length).segmentToOffset(y: length*2)
+        let hSegment = point.adding(x: -length).segmentToOffset(x: length*2)
+        let vSegment = point.adding(y: -length).segmentToOffset(y: length*2)
         hSegment.add(to: &self)
         vSegment.add(to: &self)
     }

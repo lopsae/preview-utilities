@@ -71,7 +71,7 @@ struct PathAdditionsSnapshots {
                     Path(crosshair: [-spacing, -spacing])
                     .stroke(.green)
 
-                    Path(crosshair: frame.maxPoint.offset(x: spacing, y: spacing), length: spacing*2)
+                    Path(crosshair: frame.maxPoint.adding(x: spacing, y: spacing), length: spacing*2)
                     .stroke(.green)
                 }
             }

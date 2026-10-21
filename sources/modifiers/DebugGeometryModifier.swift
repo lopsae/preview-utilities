@@ -243,7 +243,7 @@ public struct DebugGeometryModifier: ViewModifier {
 
             let yOffset = (insetRect.minY + phase).clamped(to: ...insetRect.maxY)
 
-            path.move(to: insetRect.topLeadingPoint.offset(y: yOffset))
+            path.move(to: insetRect.topLeadingPoint.adding(y: yOffset))
             path.addLine(to: insetRect.topLeadingPoint)
             path.addLine(to: insetRect.topTrailingPoint)
             path.addLine(to: insetRect.bottomTrailingPoint)

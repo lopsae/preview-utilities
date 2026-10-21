@@ -105,8 +105,8 @@ private extension CGPoint {
     nonisolated
     func offset(along axis: Axis, by distance: CGFloat) -> Self {
         switch axis {
-        case .horizontal: self.offset(x: distance)
-        case .vertical:   self.offset(y: distance)
+        case .horizontal: self.adding(x: distance)
+        case .vertical:   self.adding(y: distance)
         }
     }
 

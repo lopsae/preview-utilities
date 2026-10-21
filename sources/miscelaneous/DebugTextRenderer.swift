@@ -39,13 +39,13 @@ public struct DebugTextRenderer: TextRenderer {
         }
 
         if configuration.drawsAscent {
-            bounds.origin.offset(x: 1)
+            bounds.origin.adding(x: 1)
             .segmentToOffset(y: -bounds.ascent)
             .stroke(in: context, style: .red.secondary, lineWidth: 2)
         }
 
         if configuration.drawsDescent {
-            bounds.origin.offset(x: 3)
+            bounds.origin.adding(x: 3)
             .segmentToOffset(y: bounds.descent)
             .stroke(in: context, style: .blue.secondary, lineWidth: 2)
         }
