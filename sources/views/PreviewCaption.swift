@@ -30,7 +30,7 @@ public struct PreviewCaption: View {
 
     public var body: some View {
         VStack(spacing: SpacingDefaults.padding * 2 / 3 ) {
-            ForEach(strings.enumerated(), id: \.offset) { index, string in
+            ForEach(strings.indexed(), id: \.index) { index, string in
                 // Markdown initializer without options removes new lines from the resulting string.
                 let markdownString = (try? AttributedString(markdown: string))
                     ?? AttributedString("[markdown failed!] " + string)
@@ -61,7 +61,7 @@ public struct PreviewCaption: View {
     /// Any whitespace present at the edges of two strings is preserved; if no whitespace is present
     /// between two strings a single space is added between them.
     private static func joinStrings(_ strings: [String]) -> String {
-        let stringsToJoin: [String] = strings.enumerated().map { index, string in
+        let stringsToJoin: [String] = strings.indexed().map { index, string in
             let nextIndex = strings.index(after: index)
             guard strings.indices.contains(nextIndex) else {
                 // Last, no modification.
