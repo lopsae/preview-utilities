@@ -25,15 +25,9 @@ extension HorizontalRelativeAlignmentID {
 
 
 nonisolated
-private struct OuterTrailing: HorizontalRelativeAlignmentID {
-    static let referenceAlignment: HorizontalAlignment = .trailing
-    static let relativeAlignment: HorizontalAlignment = .leading
-}
-
-
-nonisolated
 private extension HorizontalAlignment {
-    static let outerTrailing = HorizontalAlignment(OuterTrailing.self)
+    static let relativeOuterLeading = HorizontalAlignment(HorizontalRelativeAlignment.OuterLeading.self)
+    static let relativeOuterTrailing = HorizontalAlignment(HorizontalRelativeAlignment.OuterTrailing.self)
 }
 
 
@@ -64,8 +58,29 @@ private struct HorizontalRelativeAlignment: Sendable {
 }
 
 
+/// Relative Alignment implementations.
+private extension HorizontalRelativeAlignment {
+
+    nonisolated
+    struct OuterLeading: HorizontalRelativeAlignmentID {
+        static let referenceAlignment: HorizontalAlignment = .leading
+        static let relativeAlignment: HorizontalAlignment = .trailing
+    }
+
+    nonisolated
+    struct OuterTrailing: HorizontalRelativeAlignmentID {
+        static let referenceAlignment: HorizontalAlignment = .trailing
+        static let relativeAlignment: HorizontalAlignment = .leading
+    }
+
+}
+
+
 /// Static members available as parameter shorthands.
-extension HorizontalRelativeAlignment {
+private extension HorizontalRelativeAlignment {
+    nonisolated
+    static let outerLeading: Self = .init(OuterLeading.self)
+
     nonisolated
     static let outerTrailing: Self = .init(OuterTrailing.self)
 }
@@ -197,12 +212,41 @@ private extension View {
 
 
 #Preview("Default") {
-    VStack(alignment: .outerTrailing) {
-        Text("Reference\nManual")
+    VStack(alignment: .relativeOuterLeading) {
+        Text("Leading\nManual")
+        .multilineTextAlignment(.leading)
+        .fontWeight(.bold)
+        // Manual setup or reference alignment.
+        .alignmentGuide(.relativeOuterLeading) { dimension in
+            // FIXME: Different names, is this ok? can it be retrieved from .relativeOuterTrailing?
+            dimension[referenceOf: .outerLeading]
+        }
+
+        Text("Relative One")
+        Text("Relative Two")
+    }
+
+    DashedDivider()
+
+    VStack(alignment: .relativeOuterLeading) {
+        Text("Reference\n`referenceOf`")
+        .multilineTextAlignment(.leading)
+        .fontWeight(.bold)
+        .alignmentGuide(referenceOf: .outerLeading)
+
+        Text("Relative One")
+        Text("Relative Two")
+    }
+
+    DashedDivider()
+
+    VStack(alignment: .relativeOuterTrailing) {
+        Text("Trailing\nManual")
         .multilineTextAlignment(.trailing)
         .fontWeight(.bold)
         // Manual setup or reference alignment.
-        .alignmentGuide(.outerTrailing) { dimension in
+        .alignmentGuide(.relativeOuterTrailing) { dimension in
+            // FIXME: Different names, is this ok? can it be retrieved from .relativeOuterTrailing?
             dimension[referenceOf: .outerTrailing]
         }
 
@@ -213,7 +257,7 @@ private extension View {
 
     DashedDivider()
 
-    VStack(alignment: .outerTrailing) {
+    VStack(alignment: .relativeOuterTrailing) {
         Text("Reference\n`referenceOf`")
         .multilineTextAlignment(.trailing)
         .fontWeight(.bold)
@@ -226,8 +270,20 @@ private extension View {
 
 
 #Preview("NoReference") {
-    VStack(alignment: .outerTrailing) {
-        Text("No Reference").fontWeight(.bold)
+    VStack(alignment: .relativeOuterLeading) {
+        Text("No Reference\nLeading")
+            .multilineTextAlignment(.trailing)
+            .fontWeight(.bold)
+        Text("1st Relative")
+        Text("Second Relative")
+    }
+
+    DashedDivider()
+
+    VStack(alignment: .relativeOuterTrailing) {
+        Text("No Reference\nTrailing")
+            .multilineTextAlignment(.leading)
+            .fontWeight(.bold)
         Text("1st Relative")
         Text("Second Relative")
     }
@@ -236,29 +292,70 @@ private extension View {
 
 #Preview("Overlay&Frame") {
     CaptionRectangle("Overlaid Content", color: .blue, size: [120, 40])
-    .overlay(relativeAlignment: .outerTrailing) {
-        Text("Relative Role")
+    .overlay(relativeAlignment: .outerLeading) {
+        Text("Relative Leading")
+        .fixedSize()
     }
 
     DashedDivider()
 
-    Text("Relative Role")
-    .frame(width: 120, height: 40, relativeAlignment: .outerTrailing)
+    CaptionRectangle("Overlaid Content", color: .blue, size: [120, 40])
+    .overlay(relativeAlignment: .outerTrailing) {
+        Text("Relative Trailing")
+        .fixedSize()
+    }
+
+    DashedDivider()
+
+    Text("Framed Leading")
+    .frame(width: 140, height: 40, relativeAlignment: .outerLeading)
     .border(.red.secondary, width: 4)
-    Text("Relative Role")
+    Text("Framed Trailing")
+    .frame(relativeAlignment: .outerLeading)
+    .border(.red.secondary, width: 4)
+
+    DashedDivider()
+
+    Text("Framed Trailing")
+    .frame(width: 140, height: 40, relativeAlignment: .outerTrailing)
+    .border(.red.secondary, width: 4)
+    Text("Framed Trailing")
     .frame(relativeAlignment: .outerTrailing)
     .border(.red.secondary, width: 4)
 }
 
 
 #Preview("EnviromentValue") {
-    VStack.relativeAlignment(.outerTrailing) {
+    VStack.relativeAlignment(.outerLeading) {
         Text("No Reference\n`VStack+Environment`")
         .multilineTextAlignment(.trailing)
         .fontWeight(.bold)
 
-        Text("Relative One")
-        Text("Relative Two")
+        Text("Leading One")
+        Text("Leading Two")
+    }
+
+    DashedDivider()
+
+    VStack.relativeAlignment(.outerTrailing) {
+        Text("No Reference\n`VStack+Environment`")
+        .multilineTextAlignment(.leading)
+        .fontWeight(.bold)
+
+        Text("Trailing One")
+        Text("Trailing Two")
+    }
+
+    DashedDivider()
+
+    VStack.relativeAlignment(.outerLeading) {
+        Text("Reference\n`VStack+Environment`")
+        .multilineTextAlignment(.leading)
+        .fontWeight(.bold)
+        .horizontalAlignmentReference()
+
+        Text("Leading One")
+        Text("Leading Two")
     }
 
     DashedDivider()
@@ -269,8 +366,8 @@ private extension View {
         .fontWeight(.bold)
         .horizontalAlignmentReference()
 
-        Text("Relative One")
-        Text("Relative Two")
+        Text("Trailing One")
+        Text("Trailing Two")
     }
 }
 

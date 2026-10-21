@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+// FIXME: All experiment migrated to RelativeAlignment. Can delete this file.
 private struct ContentView: View {
     var body: some View {
         VStack {
