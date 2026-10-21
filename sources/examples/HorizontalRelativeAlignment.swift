@@ -106,8 +106,7 @@ private extension View {
     ) -> some View {
         self
         .alignmentGuide(referenceOf: relativeAlignment)
-        // FIXME: Convenience function for orthogonalCentered? .centered? .alignmentWithCenter? .orthogonalCenterAlignment?
-        .overlay(alignment: relativeAlignment.horizontalAlignment.alignment(withOrthogonal: .center)) {
+        .overlay(alignment: relativeAlignment.horizontalAlignment.orthogonalCenterAlignment) {
             content()
         }
     }
@@ -128,7 +127,7 @@ private extension View {
 
         return self
         // First frame for the content to align to relative alignment.
-        .frame(width: width, height: height, alignment: horizontalAlignment.alignment(withOrthogonal: .center))
+        .frame(width: width, height: height, alignment: horizontalAlignment.orthogonalCenterAlignment)
         .border(.green.secondary, width: 2)
 //        .debugAlignmentGuide(horizontal: horizontalAlignment, .extendedLength(20))
 
@@ -145,7 +144,7 @@ private extension View {
 
         // Second frame aligns again to horizontalAlignment, so that the content with the adjusted
         // guide now appears as having a reference role view.
-        .frame(width: width, height: height, alignment: horizontalAlignment.alignment(withOrthogonal: .center))
+        .frame(width: width, height: height, alignment: horizontalAlignment.orthogonalCenterAlignment)
 
         .border(.blue.secondary, width: 8)
     }

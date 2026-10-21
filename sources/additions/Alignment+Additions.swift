@@ -68,6 +68,7 @@ protocol AlignmentWithOrthogonal: Sendable {
 
 extension AlignmentWithOrthogonal {
 
+    /// The `Alignment` with `self` and its orthogonal center.
     nonisolated
     public var orthogonalCenterAlignment: Alignment {
         self.alignment(withOrthogonal: .center)
