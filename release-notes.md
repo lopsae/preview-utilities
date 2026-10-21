@@ -7,6 +7,9 @@ In development.
 + Publicized static properties of `String` for common strings, like `empty` and `space`.
 + Publicized additions to `Text.Layout`.
 + Added convenience initializers for `Path` to draw rectangles and crosshairs.
++ Added experimental `HorizontalRelativeAlignment`.
++ Removed `ZeroSpacingPreviewModifier` and `PaddingSpacingPreviewModifier`.
++ Renamed `AlignmentWithDefault` to `AlignmentWithCenter`.
 
 
 
