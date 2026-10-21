@@ -7,9 +7,6 @@
 public import SwiftUI
 
 
-// FIXME: replace ZeroSpacingModifier and PaddingSpacingModifier with instances of this.
-
-
 /// Wraps the preview content in a `VStack` with the given spacing.
 struct SpacingPreviewModifier: PreviewModifier {
 

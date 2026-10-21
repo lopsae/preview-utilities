@@ -134,7 +134,6 @@ private struct HorizontalInnerOuterAlignment: Sendable {
     
     init(_ alignmentID: InnerOuterAlignmentID.Type) {
         self.alignmentID = alignmentID
-        // FIXME: almost sure this should be initialized with outer.
         self.anchorAlignment = .init(alignmentID)
     }
     
