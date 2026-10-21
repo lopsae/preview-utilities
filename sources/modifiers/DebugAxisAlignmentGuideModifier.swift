@@ -55,7 +55,7 @@ public import SwiftUI
 public struct DebugAxisAlignmentGuideModifier<AxisAlignment>: ViewModifier
 where
     AxisAlignment: AlignmentWithOrthogonal,
-    AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
+    AxisAlignment.OrthogonalAlignment: AlignmentWithCenter
 {
 
     /// The concrete type implementing `DebugAxisAlignmentGuideConfigurationProtocol`.
@@ -131,7 +131,7 @@ public protocol DebugAxisAlignmentGuideConfigurationProtocol: Sendable {
     ///
     /// The anchor alignment is expected to be the ``AlignmentWithOrthogonal/OrthogonalAlignment``
     /// the alignment type being visualized.
-    associatedtype AnchorAlignment: AlignmentWithDefault
+    associatedtype AnchorAlignment: AlignmentWithCenter
 
     /// The opacity of the alignment marker.
     var opacity: Double { get set }
@@ -156,14 +156,14 @@ nonisolated
 public struct DebugAxisAlignmentGuideConfiguration<AxisAlignment>: DebugAxisAlignmentGuideConfigurationProtocol
 where
     AxisAlignment: AlignmentWithOrthogonal,
-    AxisAlignment.OrthogonalAlignment: AlignmentWithDefault
+    AxisAlignment.OrthogonalAlignment: AlignmentWithCenter
 {
     public typealias AnchorAlignment = AxisAlignment.OrthogonalAlignment
     public var opacity: Double = .one
     public var shapeStyle: AnyShapeStyle = AnyShapeStyle(.red.secondary)
     public var lineWidth: CGFloat = 2
     public var length: DebugAxisAlignmentConfigurationLength = .container
-    public var anchor: AnchorAlignment = .default
+    public var anchor: AnchorAlignment = .center
     public init() {}
 }
 

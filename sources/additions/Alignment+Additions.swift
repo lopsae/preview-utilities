@@ -51,7 +51,7 @@ public nonisolated
 protocol AlignmentWithOrthogonal: Sendable {
 
     /// Orthogonal alignment to `self`.
-    associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, AlignmentWithDefault, Sendable
+    associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, AlignmentWithCenter, Sendable
 
     /// The axis of the alignment.
     var axis: Axis { get }
@@ -97,33 +97,28 @@ extension VerticalAlignment: AlignmentWithOrthogonal {
 }
 
 
-// MARK: - With Default
+// MARK: - With Center
 
 
-// FIXME: Rename to AlignmentWithCenter
-/// Defines a default alignment for an alignment type.
+/// Defines a center alignment for an alignment type.
 ///
 /// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol and return their
-/// `center` alignment as default.
+/// `center` alignment.
 public nonisolated
-protocol AlignmentWithDefault {
+protocol AlignmentWithCenter {
 
-    /// The default alignment of the type.
-    static var `default`: Self { get }
+    /// The center alignment of the type.
     static var center: Self { get }
+
 }
 
 
 nonisolated
-extension HorizontalAlignment: AlignmentWithDefault {
-    public static var `default`: Self { .center }
-}
+extension HorizontalAlignment: AlignmentWithCenter { }
 
 
 nonisolated
-extension VerticalAlignment: AlignmentWithDefault {
-    public static var `default`: Self { .center }
-}
+extension VerticalAlignment: AlignmentWithCenter { }
 
 
 // MARK: - Enums
