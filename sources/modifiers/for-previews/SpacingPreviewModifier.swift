@@ -56,6 +56,15 @@ extension PreviewTrait where T == Preview.ViewTraits {
     }
 
 
+    /// Wraps the preview content in a `VStack` with the default padding value.
+    ///
+    /// The default padding value is ``SpacingDefaults/padding``.
+    public static var paddingSpacing: PreviewTrait {
+        let spacingModifier = SpacingPreviewModifier(spacing: SpacingDefaults.padding)
+        return .modifier(spacingModifier)
+    }
+
+
     /// Wraps the preview content in a `VStack` with the given spacing and surrounded by two
     /// additional views to visualize the order of preview trait application.
     fileprivate static func debugSpacing(_ spacing: CGFloat) -> Self {
@@ -97,7 +106,12 @@ private struct PreviewContent {
 }
 
 
-#Preview("Spacing", traits: .spacing(16)) {
+#Preview("Spacing", traits: .spacing(4)) {
+    PreviewContent.Items()
+}
+
+
+#Preview("Padding", traits: .paddingSpacing) {
     PreviewContent.Items()
 }
 
