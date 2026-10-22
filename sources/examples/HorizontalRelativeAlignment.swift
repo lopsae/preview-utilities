@@ -217,7 +217,10 @@ private extension View {
         .fontWeight(.bold)
         // Manual setup or reference alignment.
         .alignmentGuide(.relativeOuterLeading) { dimension in
-            // FIXME: Different names, is this ok? can it be retrieved from .relativeOuterTrailing?
+            // Likely will keep different names between static accessors in HorizontalAlignment and
+            // in RelativeHorizontalAlignment. This also allows functions that could receive either
+            // to prevent the collision.
+            // Most likely overlay may offer an override to accept RelativeAlignments.
             dimension[referenceOf: .outerLeading]
         }
 
@@ -245,7 +248,6 @@ private extension View {
         .fontWeight(.bold)
         // Manual setup or reference alignment.
         .alignmentGuide(.relativeOuterTrailing) { dimension in
-            // FIXME: Different names, is this ok? can it be retrieved from .relativeOuterTrailing?
             dimension[referenceOf: .outerTrailing]
         }
 
