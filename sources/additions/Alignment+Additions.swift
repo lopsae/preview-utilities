@@ -209,7 +209,7 @@ private struct PreviewContent {
             traits: .size, .alignment(.topLeading))
         Text("Text with\nmultiple\nlines")
     }
-    .floatingCaption("VStack", .colorStyle(.indigo), .alignment(.outerBottomTrailing))
+    .floatingCaption("VStack", alignment: .outerBottomTrailing, .colorStyle(.indigo))
 
     DashedDivider()
         .padding(.vertical)
@@ -228,7 +228,7 @@ private struct PreviewContent {
             traits: .size, .alignment(.top))
         Text("Text with\nmultiple\nlines")
     }
-    .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
+    .floatingCaption("HStack", alignment: .outerBottomTrailing, .colorStyle(.purple))
 
     VisibleSpacer()
 }

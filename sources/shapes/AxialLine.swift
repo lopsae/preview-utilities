@@ -179,7 +179,7 @@ private struct PreviewContent {
         AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: lineCap)
         .floatingCaption(
             verbatim: lineCap.displayName.capitalized,
-            .alignment(.outerBottomTrailing),
+            alignment: .outerBottomTrailing,
             .captionStyle(.green), .borderStyle(.green.tertiary),
             .borderWidth(4)
         )
@@ -189,7 +189,7 @@ private struct PreviewContent {
         AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: lineCap)
         .floatingCaption(
             verbatim: lineCap.displayName.capitalized,
-            .alignment(.outerBottomTrailing),
+            alignment: .outerBottomTrailing,
             .captionStyle(.green), .borderStyle(.green.tertiary),
             .borderWidth(4)
         )

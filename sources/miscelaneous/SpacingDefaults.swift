@@ -35,13 +35,13 @@ public enum SpacingDefaults {
                     ClearRectangle()
                     .floatingCaption(
                         "Vertical: `\(verticalPadding, format: .fractionLength(2))`",
-                        .alignment(.top))
+                        alignment: .top)
                     .floatingCaption(
                         "Horizontal:\n`\(horizontalPadding, format: .fractionLength(2))`",
-                        .alignment(.trailing))
+                        alignment: .trailing)
                     .floatingCaption(
                         "Scaled:\n`\(scaledPadding, format: .fractionLength(2))`",
-                        .alignment(.bottom))
+                        alignment: .bottom)
                 }
             }
             .padding()

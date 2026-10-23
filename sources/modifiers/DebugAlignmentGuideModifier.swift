@@ -418,7 +418,7 @@ private struct PreviewContent {
 
 #Preview("Default", traits: .paddingSpacing, .headerFooter, PreviewContent.layout) {
     PreviewContent.single
-    .floatingCaption("Composite", .alignment(.outerLeading))
+    .floatingCaption("Composite", alignment: .outerLeading)
     .debugAlignmentGuide(.topLeading)
     .debugAlignmentGuide(.centerFirstTextBaseline)
     .debugAlignmentGuide(.bottomTrailing)
@@ -427,7 +427,7 @@ private struct PreviewContent {
 
 #Preview("Traits", traits: .spacing(30), .headerFooter, PreviewContent.layout) {
     PreviewContent.single
-    .floatingCaption("Extended", .alignment(.outerLeading))
+    .floatingCaption("Extended", alignment: .outerLeading)
     .edgeGraticule(
         spacing: 10,
         .outset(.horizontal, spacing: 25),
@@ -446,7 +446,7 @@ private struct PreviewContent {
     DashedDivider()
 
     PreviewContent.single
-    .floatingCaption("Extended\n& Anchored", .alignment(.outerLeading))
+    .floatingCaption("Extended\n& Anchored", alignment: .outerLeading)
     .edgeGraticule(
         spacing: 20,
         .outset(.horizontal, spacing: 25, count: 2),
