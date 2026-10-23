@@ -24,18 +24,22 @@ struct IllustrationsForFloatingCaption {
         self.storage = try DocumentationResources.storage(at: "floating-caption")
     }
 
+    // FIXME: Update code for all snippets.
 
     @Test func `default`() throws {
         try storage.renderAndStore("floating-caption-default") {
-            DocumentationIllustration(height: 160) {
-                HStack {
-                    Rectangle()
+            DocumentationIllustration(sizing: .regular) {
+                VStack {
+                    RoundedRectangle(cornerRadius: 8)
                         .fill(.blue.gradient.secondary)
-                        .frame(width: 80, height: 80)
-                    Rectangle()
+                        .frame(width: 100, height: 40)
+                    RoundedRectangle(cornerRadius: 8)
                         .fill(.indigo.gradient.secondary)
-                        .frame(width: 80, height: 80)
-                        .floatingCaption("A floating caption\noverflowing the parent view")
+                        .frame(width: 100, height: 40)
+                        .floatingCaption(
+                            "A floating caption\ntrailing the owner view",
+                            alignment: .outerTrailing
+                        )
                 }
             }
         }
@@ -44,14 +48,16 @@ struct IllustrationsForFloatingCaption {
 
     @Test func traitsExplained() throws {
         try storage.renderAndStore("floating-caption-traits-explained") {
-            DocumentationIllustration(height: 160) {
-                Rectangle()
+            DocumentationIllustration(sizing: .regular) {
+                RoundedRectangle(cornerRadius: 16)
                 .fill(.purple.gradient)
                 .frame(width: 80, height: 80)
                 .floatingCaption(
-                    "A **Purple**\nSquare `Rectangle`",
-                    .alignment(.outerTrailingTop), // sets the caption alignment
-                    .height                        // prints the height of the owner view
+                    "A **Purple** square\nwith border",
+                    alignment: .outerTrailingTop,
+                    .borderStyle(.blue.secondary), // draws a border over the owner view
+                    .borderWidth(2),               // sets the width of the border
+                    .height,                       // prints the height of the owner view
                 )
             }
         }
@@ -60,13 +66,13 @@ struct IllustrationsForFloatingCaption {
 
     @Test func styleAndBorder() throws {
         try storage.renderAndStore("floating-caption-style-and-border") {
-            DocumentationIllustration(height: 160) {
+            DocumentationIllustration(sizing: .regular) {
                 Circle()
                 .fill(.tertiary)
                 .frame(width: 80, height: 80)
                 .floatingCaption(
                     "A `Circle` Shape",
-                    .alignment(.outerLeadingBottom),
+                    alignment: .outerLeadingBottom,
                     .captionStyle(.purple),
                     .borderStyle(.indigo.tertiary),
                     .borderWidth(4)
@@ -78,11 +84,11 @@ struct IllustrationsForFloatingCaption {
 
     @Test func simpleTraits() throws {
         try storage.renderAndStore("floating-caption-simple-traits") {
-            DocumentationIllustration(height: 160) {
-                Rectangle()
+            DocumentationIllustration(sizing: .regular) {
+                RoundedRectangle(cornerRadius: 8)
                 .fill(.purple.gradient)
                 .frame(width: 80, height: 80)
-                .floatingCaption("A Square Rectangle", .height, .alignment(.outerTrailingTop))
+                .floatingCaption("A Square Rectangle", alignment: .outerLeading, .height)
             }
         }
     }
@@ -90,16 +96,16 @@ struct IllustrationsForFloatingCaption {
 
     @Test func readmeTraits() throws {
         try storage.renderAndStore("floating-caption-readme-traits") {
-            DocumentationIllustration(height: 160) {
+            DocumentationIllustration(sizing: .regular) {
                 Circle()
                 .fill(.tertiary)
                 .frame(width: 80, height: 80)
                 .floatingCaption(
-                    "A `Circle` Shape",              // caption localized string
-                    .height,                         // prints the height of the owner view
-                    .alignment(.outerLeadingBottom), // sets the caption alignment
-                    .colorStyle(.indigo),            // sets the caption and border color
-                    .borderWidth(4)                  // sets the border width
+                    "A `Circle` Shape",             // caption localized string
+                    alignment: .outerLeadingBottom, // the caption alignment
+                    .height,                        // prints the height of the owner view
+                    .colorStyle(.indigo),           // sets the caption and border color
+                    .borderWidth(4)                 // sets the border width
                 )
             }
         }
