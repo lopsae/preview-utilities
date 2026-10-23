@@ -220,19 +220,3 @@ struct FloatingCaptionModifierSnapshots {
     }
 
 }
-
-
-// FIXME: Move to test utilities. Update tests for DebugGeometry.
-extension View {
-
-    func overlayFloatingAlignments<Content: View>(
-        @ViewBuilder content: @escaping (_ alignment: FloatingAlignment) -> Content
-    ) -> some View {
-        self.overlay {
-            ForEach(FloatingAlignment.allCases) { alignment in
-                content(alignment)
-            }
-        }
-    }
-
-}
