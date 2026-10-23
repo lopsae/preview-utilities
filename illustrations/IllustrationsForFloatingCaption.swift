@@ -21,12 +21,12 @@ struct IllustrationsForFloatingCaption {
     let storage: IllustrationStorage
 
     init() throws {
-        self.storage = try DocumentationResources.storage
+        self.storage = try DocumentationResources.storage(at: "floating-caption")
     }
 
 
     @Test func `default`() throws {
-        try storage.renderAndStore("floating-caption", "default") {
+        try storage.renderAndStore("floating-caption-default") {
             DocumentationIllustration(height: 160) {
                 HStack {
                     Rectangle()
@@ -43,7 +43,7 @@ struct IllustrationsForFloatingCaption {
 
 
     @Test func traitsExplained() throws {
-        try storage.renderAndStore("floating-caption", "traits-explained") {
+        try storage.renderAndStore("floating-caption-traits-explained") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
                 .fill(.purple.gradient)
@@ -59,7 +59,7 @@ struct IllustrationsForFloatingCaption {
 
 
     @Test func styleAndBorder() throws {
-        try storage.renderAndStore("floating-caption", "style-and-border") {
+        try storage.renderAndStore("floating-caption-style-and-border") {
             DocumentationIllustration(height: 160) {
                 Circle()
                 .fill(.tertiary)
@@ -77,7 +77,7 @@ struct IllustrationsForFloatingCaption {
 
 
     @Test func simpleTraits() throws {
-        try storage.renderAndStore("floating-caption", "simple-traits") {
+        try storage.renderAndStore("floating-caption-simple-traits") {
             DocumentationIllustration(height: 160) {
                 Rectangle()
                 .fill(.purple.gradient)
@@ -89,7 +89,7 @@ struct IllustrationsForFloatingCaption {
 
 
     @Test func readmeTraits() throws {
-        try storage.renderAndStore("floating-caption", "readme-traits") {
+        try storage.renderAndStore("floating-caption-readme-traits") {
             DocumentationIllustration(height: 160) {
                 Circle()
                 .fill(.tertiary)
