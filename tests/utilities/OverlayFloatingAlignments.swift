@@ -25,8 +25,8 @@ extension View {
 }
 
 
-// FIXME: Add tests.
-@Suite(.snapshotTesting) struct OverlayFloatingAlignmentsSnapshots {
+@Suite(.snapshotTesting)
+struct OverlayFloatingAlignmentsSnapshots {
 
     @Test func defaults() {
         Snapshots.assertView("all") {
