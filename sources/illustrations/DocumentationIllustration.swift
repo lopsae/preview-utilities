@@ -120,7 +120,7 @@ extension DocumentationIllustration {
         /// effect.
         public static let card: Self = .init(640, 360)
 
-        /// Regular size for snippet illustrations
+        /// Regular size for snippet illustrations, 400x160.
         ///
         /// This illustration size uses the ``defaultWidth`` (`400`) and a height of `160`, for an
         /// aspect ration of `5/2`.
