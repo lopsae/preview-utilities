@@ -7,6 +7,12 @@
 public import SwiftUI
 
 
+// FIXME: Update documents in this file.
+// FIXME: Update documentation in api catalog.
+// FIXME: Update documentation in Readme
+// FIXME: Update illustrations.
+
+
 // FUTURE: Figure out a dynamic shape around a caption. Rounded border that surrounds several `Text`s
 // respecting each of their sizes. Make it a option/trait.
 
@@ -97,7 +103,10 @@ public struct FloatingCaptionModifier: ViewModifier {
     /// - Parameters:
     ///   - localizedKey: A Localized string key to display as caption.
     ///   - traits: The traits to configure the modifier.
-    public init(localizedKey: LocalizedStringKey? = nil, traits: [Trait]) {
+    public init(
+        localizedKey: LocalizedStringKey? = nil,
+        traits: some BidirectionalCollection<Trait>
+    ) {
         self.captionSource = localizedKey.map { .localizedKey($0) }
         self.flatTraits = traits.flattenTraits()
     }
@@ -238,6 +247,16 @@ extension FloatingCaptionModifier {
             }
         }
 
+        /// Builds the default set of traits with the optional parameters of the `View` extension
+        /// functions.
+        static func `default`(alignment: FloatingAlignment?) -> [Self] {
+            var result: [Self] = []
+            if let alignment {
+                result.append(.alignment(alignment))
+            }
+            return result
+        }
+
 
         /// Configures the caption with the default border style.
         ///
@@ -357,8 +376,13 @@ extension View {
     /// - Parameters:
     ///   - key: Localized string key to display.
     ///   - traits: The traits to modify the floating caption.
-    public func floatingCaption(_ key: LocalizedStringKey, _ traits: FloatingCaptionModifier.Trait...) -> some View {
-        modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
+    public func floatingCaption(
+        _ key: LocalizedStringKey,
+        alignment: FloatingAlignment? = nil,
+        _ traits: FloatingCaptionModifier.Trait...
+    ) -> some View {
+        let defaultTraits = FloatingCaptionModifier.Trait.default(alignment: alignment)
+        return modifier(FloatingCaptionModifier(localizedKey: key, traits: defaultTraits + traits))
     }
 
 
@@ -374,19 +398,31 @@ extension View {
     /// - Parameters:
     ///   - key: Localized string key to display.
     ///   - traits: The traits to modify the floating caption.
-    public func floatingCaption(_ key: LocalizedStringKey, traits: [FloatingCaptionModifier.Trait]) -> some View {
+    public func floatingCaption(
+        _ key: LocalizedStringKey,
+        traits: some BidirectionalCollection<FloatingCaptionModifier.Trait>
+    ) -> some View {
+        // FIXME: All properties, including caption, could be contained in the traits.
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
 
-
     // FIXME: Document.
-    public func floatingCaption(verbatim string: String, _ traits: FloatingCaptionModifier.Trait...) -> some View {
-        modifier(FloatingCaptionModifier(verbatim: string, traits: traits))
+    public func floatingCaption(
+        verbatim string: String,
+        alignment: FloatingAlignment? = nil,
+        _ traits: FloatingCaptionModifier.Trait...
+    ) -> some View {
+        let defaultTraits = FloatingCaptionModifier.Trait.default(alignment: alignment)
+        return modifier(FloatingCaptionModifier(verbatim: string, traits: defaultTraits + traits))
     }
 
     // FIXME: Document.
-    public func floatingCaption(_ traits: FloatingCaptionModifier.Trait...) -> some View {
-        modifier(FloatingCaptionModifier(traits: traits))
+    public func floatingCaption(
+        alignment: FloatingAlignment? = nil,
+        _ traits: FloatingCaptionModifier.Trait...
+    ) -> some View {
+        let defaultTraits = FloatingCaptionModifier.Trait.default(alignment: alignment)
+        return modifier(FloatingCaptionModifier(traits: defaultTraits + traits))
     }
 
 }
@@ -413,24 +449,25 @@ private struct PreviewContent {
         .fill(.indigo.gradient.tertiary)
         .frame(width: 150, height: 15)
         .floatingCaption(.width, .border)
-        .floatingCaption("No Caption", .alignment(.outerTrailing))
+        .floatingCaption("No Caption", alignment: .outerTrailing)
 
     Rectangle()
         .fill(.indigo.gradient.tertiary)
         .frame(width: 200, height: 100)
-        .floatingCaption("Default Padding\n(no trait)", .alignment(.innerLeading))
-        .floatingCaption("Zero Padding",   .alignment(.trailing),       .zeroPadding)
-        .floatingCaption("10 Padding",     .alignment(.bottomLeading),  .padding(10))
-        .floatingCaption("System Padding", .alignment(.bottomTrailing), .systemPadding)
+        .floatingCaption("Default Padding\n(no trait)", alignment: .innerLeading)
+        .floatingCaption("Zero Padding",   alignment: .trailing,       .zeroPadding)
+        .floatingCaption("10 Padding",     alignment: .bottomLeading,  .padding(10))
+        .floatingCaption("System Padding", alignment: .bottomTrailing, .systemPadding)
 
     Rectangle()
         .fill(.indigo.gradient.tertiary)
         .frame(squareOf: 100)
-        .floatingCaption(verbatim:"`verbatim`", .alignment(.center))
+        .floatingCaption(verbatim:"`verbatim`", alignment: .center)
         .floatingCaption(
-            "External", .size, .alignment(.outerBottom),
-            .captionStyle(.indigo), .borderStyle(.indigo.tertiary),
-            .borderWidth(3))
+            "External", alignment: .outerBottom,
+            .size, .borderWidth(3),
+            .captionStyle(.indigo), .borderStyle(.indigo.tertiary)
+        )
 }
 
 
@@ -441,7 +478,7 @@ private struct PreviewContent {
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in
             ClearRectangle()
-            .floatingCaption("aligned\n\(alignment.abbreviatedName)", .alignment(alignment))
+            .floatingCaption("aligned\n\(alignment.abbreviatedName)", alignment: alignment)
         }
     }
 
