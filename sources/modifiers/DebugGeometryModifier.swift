@@ -572,17 +572,13 @@ private struct PreviewContent {
     DashedDivider()
 
     if useSmallContent {
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 100)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
             .debugGeometry(traits: traits)
             .safeAreaPadding(20)
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 100)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
     } else {
         PreviewContent.star
             .debugGeometry(traits: traits)
