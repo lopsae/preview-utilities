@@ -32,12 +32,12 @@ struct IllustrationsForFloatingCaption {
                 VStack {
                     RoundedRectangle(cornerRadius: 8)
                         .fill(.blue.gradient.secondary)
-                        .frame(width: 100, height: 40)
+                        .frame(width: 120, height: 40)
                     RoundedRectangle(cornerRadius: 8)
                         .fill(.indigo.gradient.secondary)
-                        .frame(width: 100, height: 40)
+                        .frame(width: 120, height: 40)
                         .floatingCaption(
-                            "A floating caption\ntrailing the owner view",
+                            "A outer trailing\nfloating caption",
                             alignment: .outerTrailing
                         )
                 }
