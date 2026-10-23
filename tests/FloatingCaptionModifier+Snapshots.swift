@@ -56,7 +56,7 @@ struct FloatingCaptionModifierSnapshots {
             .overlay {
                 ForEach(FloatingAlignment.allCases) { alignment in
                     ClearRectangle()
-                    .floatingCaption(verbatim: alignment.abbreviatedName, .alignment(alignment))
+                    .floatingCaption(verbatim: alignment.abbreviatedName, alignment: alignment)
                 }
             }
         }
@@ -68,7 +68,7 @@ struct FloatingCaptionModifierSnapshots {
                     ClearRectangle()
                     .floatingCaption(
                         verbatim: alignment.abbreviatedName,
-                        .alignment(alignment),
+                        alignment: alignment,
                         .borderStyle(.teal)
                     )
                 }
@@ -82,7 +82,7 @@ struct FloatingCaptionModifierSnapshots {
                     ClearRectangle()
                     .floatingCaption(
                         verbatim: alignment.abbreviatedName,
-                        .alignment(alignment),
+                        alignment: alignment,
                         .borderStyle(.teal),
                         .borderWidth(1)
                     )
@@ -97,7 +97,7 @@ struct FloatingCaptionModifierSnapshots {
                     ClearRectangle()
                     .floatingCaption(
                         verbatim: alignment.abbreviatedName,
-                        .alignment(alignment),
+                        alignment: alignment,
                         .borderStyle(.teal),
                         .borderWidth(10)
                     )
@@ -114,7 +114,7 @@ struct FloatingCaptionModifierSnapshots {
                 ClearRectangle()
                 .floatingCaption(
                     verbatim: alignment.abbreviatedName,
-                    .alignment(alignment),
+                    alignment: alignment,
                     // TODO: actually sets the padding to default padding. In the future default
                     // padding should be a fixed value: 2.
                     .padding(nil)
@@ -128,7 +128,7 @@ struct FloatingCaptionModifierSnapshots {
                 ClearRectangle()
                 .floatingCaption(
                     verbatim: alignment.abbreviatedName,
-                    .alignment(alignment),
+                    alignment: alignment,
                     .padding(.zero)
                 )
             }
@@ -140,7 +140,7 @@ struct FloatingCaptionModifierSnapshots {
                 ClearRectangle()
                 .floatingCaption(
                     verbatim: alignment.abbreviatedName,
-                    .alignment(alignment),
+                    alignment: alignment,
                     .padding(10)
                 )
             }
@@ -163,13 +163,13 @@ struct FloatingCaptionModifierSnapshots {
 
         Snapshots.assertView("aligned", spacing: 10) {
             TestViews.quinaryGrayRect(size: rectSize)
-            .floatingCaption("Caption", .size, .alignment(.leading))
+            .floatingCaption("Caption", alignment: .leading, .size)
 
             TestViews.quinaryGrayRect(size: rectSize)
-            .floatingCaption("Caption", .width, .alignment(.leading))
+            .floatingCaption("Caption", alignment: .leading, .width)
 
             TestViews.quinaryGrayRect(size: rectSize)
-            .floatingCaption("Caption", .height, .alignment(.leading))
+            .floatingCaption("Caption", alignment: .leading, .height)
         }
     }
 
@@ -186,12 +186,12 @@ struct FloatingCaptionModifierSnapshots {
             .border(.gray.quinary)
 
             TestViews.quinaryGraySquare(length: .zero)
-            .floatingCaption("Caption", .alignment(.leading))
+            .floatingCaption("Caption", alignment: .leading)
             .padding(10)
             .border(.gray.quinary)
 
             TestViews.quinaryGraySquare(length: .zero)
-            .floatingCaption("Caption", .alignment(.leading), .colorStyle(.teal))
+            .floatingCaption("Caption", alignment: .leading, .colorStyle(.teal))
             .padding(10)
             .border(.gray.quinary)
         }
@@ -200,7 +200,7 @@ struct FloatingCaptionModifierSnapshots {
         Snapshots.assertView("square") {
             VStack(items: [CGFloat(0.5), 1, 2, 4], spacing: 10) { length in
                 TestViews.quinaryGraySquare(length: length)
-                .floatingCaption("Caption", .alignment(.outerTrailing), .colorStyle(.teal))
+                .floatingCaption("Caption", alignment: .outerTrailing, .colorStyle(.teal))
             }
         }
 
