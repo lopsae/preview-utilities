@@ -10,6 +10,7 @@ In development.
 + Added experimental `HorizontalRelativeAlignment`.
 + Removed `ZeroSpacingPreviewModifier` and `PaddingSpacingPreviewModifier`.
 + Renamed `AlignmentWithDefault` to `AlignmentWithCenter`.
++ Added `alignment` parameter to `View/floatingCaption` functions.
 
 
 
