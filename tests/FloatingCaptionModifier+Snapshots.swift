@@ -173,6 +173,7 @@ struct FloatingCaptionModifierSnapshots {
         }
     }
 
+
     @Test func smallSizes() {
         Snapshots.assertView("zero", spacing: 10) {
             TestViews.quinaryGraySquare(length: .zero)
@@ -216,6 +217,21 @@ struct FloatingCaptionModifierSnapshots {
                 TestViews.quinaryGrayRect(size: [width, 120])
                 .floatingCaption(.borderStyle(.teal))
             }
+        }
+    }
+
+
+    @Test func alignmentOverride() {
+        let rectSize: CGSize = [120, 40]
+        Snapshots.assertView("default", spacing: 10) {
+            TestViews.quinaryGrayRect(size: rectSize)
+            .floatingCaption("LocalizedKey", alignment: .outerTrailing, .alignment(.leading))
+
+            TestViews.quinaryGrayRect(size: rectSize)
+            .floatingCaption(verbatim: "Verbatim", alignment: .outerTrailing, .alignment(.leading))
+
+            TestViews.quinaryGrayRect(size: rectSize)
+                .floatingCaption(alignment: .outerTrailing, .height, .alignment(.leading))
         }
     }
 
