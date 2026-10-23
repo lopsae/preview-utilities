@@ -4,8 +4,10 @@
 //
 
 
-import PreviewUtilities
+@testable import PreviewUtilities
+
 import SwiftUI
+import Testing
 
 
 extension View {
@@ -24,3 +26,24 @@ extension View {
 
 
 // FIXME: Add tests.
+@Suite(.snapshotTesting) struct OverlayFloatingAlignmentsSnapshots {
+
+    @Test func defaults() {
+        Snapshots.assertView("all") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                FloatingAlignedContainer(alignment: alignment, spacing: 4) { alignments in
+                    ZStack(alignment: alignments.content) {
+                        Rectangle().fill(.brown.secondary)
+                        .frame(squareOf: 25)
+
+                        Text(alignment.abbreviatedName)
+                        .font(.caption)
+                        .border(.brown)
+                    }
+                }
+            }
+        }
+    }
+
+}
