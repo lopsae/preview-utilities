@@ -24,8 +24,6 @@ struct IllustrationsForFloatingCaption {
         self.storage = try DocumentationResources.storage(at: "floating-caption")
     }
 
-    // FIXME: Update code for all snippets.
-
     @Test func `default`() throws {
         try storage.renderAndStore("floating-caption-default") {
             DocumentationIllustration(sizing: .regular) {

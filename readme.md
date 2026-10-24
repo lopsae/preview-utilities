@@ -83,8 +83,8 @@ See the [Debug Alignment Guide documentation][docs-debug-alignment-guide-api] fo
 ### Floating Caption
 Add a floating caption, border, and size information to a view, without impacting its layout.
 
-Apply the [`floatingCaption(_:_:)`][docs-floating-caption-function] modifier to a view to overlay a 
-floating caption, and optionally draw a border over the owner view:
+Apply the [`floatingCaption(_:alignment:_:)`][docs-floating-caption-function] modifier to a view to 
+overlay a floating caption, and optionally draw a border over the owner view:
 
 ```swift
 Circle()
@@ -108,7 +108,7 @@ Circle()
 See the [Floating Caption documentation][docs-floating-caption-api] for more details.
 
 
-[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
+[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/swiftuicore/view/floatingCaption(_:alignment:_:)
 [docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/floating-caption-api
 
 

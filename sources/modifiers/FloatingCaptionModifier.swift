@@ -7,9 +7,6 @@
 public import SwiftUI
 
 
-// FIXME: Update documentation in Readme
-
-
 // FUTURE: Figure out a dynamic shape around a caption. Rounded border that surrounds several `Text`s
 // respecting each of their sizes. Make it a option/trait.
 
@@ -431,7 +428,7 @@ extension View {
         _ key: LocalizedStringKey,
         traits: some BidirectionalCollection<FloatingCaptionModifier.Trait>
     ) -> some View {
-        // FIXME: All properties, including caption, could be contained in the traits.
+        // TODO: All properties, including caption, could be contained in the traits.
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
 
