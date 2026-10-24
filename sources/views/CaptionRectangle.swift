@@ -9,6 +9,9 @@ public import SwiftUI
 // TODO: clarify that note that FloatingCaptionModifier.Trait also has properties like .border, but this view
 // draws its own border.
 
+// FIXME: Create its own type of traits based on FloatingCaption Traits.
+// FIXME: Add tests.
+
 /// Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.
 public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     let localizationKey: LocalizedStringKey
