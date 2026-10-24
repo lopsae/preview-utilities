@@ -10,6 +10,7 @@ In development.
 + Added experimental `HorizontalRelativeAlignment`.
 + Removed `ZeroSpacingPreviewModifier` and `PaddingSpacingPreviewModifier`.
 + Renamed `AlignmentWithDefault` to `AlignmentWithCenter`.
++ Renamed function `VStack/maxWidth` to `expandingWidth`.
 + Added `alignment` parameter to `View/floatingCaption` functions.
 
 
