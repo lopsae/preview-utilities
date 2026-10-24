@@ -7,10 +7,7 @@
 public import SwiftUI
 
 
-// FIXME: Update documents in this file.
-// FIXME: Update documentation in api catalog.
 // FIXME: Update documentation in Readme
-// FIXME: Update illustrations.
 
 
 // FUTURE: Figure out a dynamic shape around a caption. Rounded border that surrounds several `Text`s
@@ -28,17 +25,19 @@ public import SwiftUI
 /// All content added by this modifier is layered in an overlay of the owner view; the original
 /// layout is never modified.
 ///
-/// Apply this modifier using ``SwiftUICore/View/floatingCaption(_:_:)``, by default the caption
-/// is center aligned:
+/// Apply this modifier using ``SwiftUICore/View/floatingCaption(_:alignment:_:)``:
 /// ```swift
-/// HStack {
-///     Rectangle()
+/// VStack {
+///     RoundedRectangle(cornerRadius: 8)
 ///         .fill(.blue.gradient.secondary)
-///         .frame(width: 80, height: 80)
-///     Rectangle()
+///         .frame(width: 120, height: 40)
+///     RoundedRectangle(cornerRadius: 8)
 ///         .fill(.indigo.gradient.secondary)
-///         .frame(width: 80, height: 80)
-///         .floatingCaption("A floating caption\noverflowing the parent view")
+///         .frame(width: 120, height: 40)
+///         .floatingCaption(
+///             "A outer trailing\nfloating caption",
+///             alignment: .outerTrailing
+///         )
 /// }
 /// ```
 /// ![Floating caption with default configuration.](floating-caption-default)
@@ -46,20 +45,23 @@ public import SwiftUI
 ///
 /// ### Text and Alignment
 ///
-/// The caption can be configured by passing ``Trait`` instances to ``SwiftUICore/View/floatingCaption(_:_:)``,
-/// the [`alignment(_:)`](doc:Trait/alignment(_:)) trait determines the position of the caption.
+/// The caption can be configured by passing ``Trait`` instances to ``SwiftUICore/View/floatingCaption(_:alignment:_:)``,
+/// the `alignment` parameter determines the position of the caption, and the `traits` allow further
+/// customization.
 ///
 /// Markdown formatting is supported in the given localized string key. The caption text treats the
 /// localized key similar to `SwiftUICore/Text/init(_:tableName:bundle:comment:)`. See `SwiftUICore/Text`
 /// for more information about localizing and formatting strings.
 ///
 /// ```swift
-/// Rectangle()
+/// RoundedRectangle(cornerRadius: 16)
 /// .fill(.purple.gradient)
 /// .frame(width: 80, height: 80)
 /// .floatingCaption(
-///     "A **Purple**\nSquare `Rectangle`",
-///     .alignment(.outerTrailingTop), // sets the caption alignment
+///     "A **Purple** square\nwith border",
+///     alignment: .outerTrailingTop,
+///     .borderStyle(.blue.secondary), // draws a border over the owner view
+///     .borderWidth(2),               // sets the width of the border
 ///     .height                        // prints the height of the owner view
 /// )
 /// ```
@@ -68,7 +70,7 @@ public import SwiftUI
 ///
 /// ### Borders and Styles
 ///
-/// The style of the caption text can be modified with the [`captionStyle(_:)`](doc:FloatingCaptionModifier/Trait/captionStyle(_:))
+/// The foreground style of the caption text can be modified with the [`captionStyle(_:)`](doc:FloatingCaptionModifier/Trait/captionStyle(_:))
 /// trait.
 ///
 /// Additionally an inset border can be drawn around the owner view using the [`borderStyle(_:)`](doc:FloatingCaptionModifier/Trait/borderStyle(_:))
@@ -79,7 +81,7 @@ public import SwiftUI
 /// .frame(width: 80, height: 80)
 /// .floatingCaption(
 ///     "A `Circle` Shape",
-///     .alignment(.outerLeadingBottom),
+///     alignment: .outerLeadingBottom,
 ///     .captionStyle(.purple),
 ///     .borderStyle(.indigo.tertiary),
 ///     .borderWidth(4)
@@ -187,13 +189,35 @@ extension FloatingCaptionModifier {
 
     /// Customizations that can be applied to a `FloatingCaptionModifier`.
     ///  
-    /// Traits are passed to ``SwiftUICore/View/floatingCaption(_:_:)`` to configure a floating
-    /// caption overlay. All passed traits are applied in order: if multiple traits modify the same
-    /// configuration, usually the last overwrites any former.
+    /// Traits are passed to ``SwiftUICore/View/floatingCaption(alignment:_:)`` or any [sibling function](doc:floating-caption-api#View-Extensions)
+    /// to configure a floating caption overlay. All passed traits are applied in order: if multiple
+    /// traits modify the same configuration, usually the last overwrites any former.
+    ///
+    /// ## Topics
+    ///
+    /// ### Layout Traits
+    /// + ``padding(_:)``
+    /// + ``zeroPadding``
+    /// + ``systemPadding``
+    /// + ``alignment(_:)``
+    ///
+    /// ### Style Traits
+    /// + ``captionStyle(_:)``
+    /// + ``borderStyle(_:)``
+    /// + ``colorStyle(_:)``
+    /// + ``style(_:)``
+    /// + ``borderWidth(_:)``
+    /// + ``border``
+    ///
+    /// ### Geometry Traits
+    /// + ``size``
+    /// + ``height``
+    /// + ``width``
+    ///
+    /// ### Utility Traits
+    /// + ``traits(_:)``
+    ///
     public enum Trait: IdentifiableCase {
-
-        /// Aligns the caption to the given floating alignment.
-        case alignment(FloatingAlignment)
 
         /// Pads the caption from the aligned edge.
         ///
@@ -218,6 +242,9 @@ extension FloatingCaptionModifier {
         /// Sets the border to the given width
         case borderWidth(CGFloat)
 
+        /// Aligns the caption to the given floating alignment.
+        case alignment(FloatingAlignment)
+
         /// Applies the associated traits.
         case traits([Trait])
 
@@ -225,9 +252,10 @@ extension FloatingCaptionModifier {
         /// Enumeration to identify each trait case.
         @_documentation(visibility: internal)
         public enum Case {
-            case alignment, padding
+            case padding
             case width, height
             case captionStyle, borderStyle, borderWidth
+            case alignment
             case traits
         }
 
@@ -236,13 +264,13 @@ extension FloatingCaptionModifier {
         @_documentation(visibility: internal)
         public var `case`: Case {
             switch self {
-            case .alignment:    .alignment
             case .padding:      .padding
             case .width:        .width
             case .height:       .height
             case .captionStyle: .captionStyle
             case .borderStyle:  .borderStyle
             case .borderWidth:  .borderWidth
+            case .alignment:    .alignment
             case .traits:       .traits
             }
         }
@@ -279,8 +307,8 @@ extension FloatingCaptionModifier {
 
         /// Configures the text caption and border with the given color.
         ///
-        /// This trait sets the caption to the given color, and the border to its `secondary`
-        /// hierarchical level.
+        /// Sets the caption to the given color, and the border to its `secondary` hierarchical
+        /// level.
         public static func colorStyle(_ color: Color) -> Self {
             .traits([.captionStyle(color), .borderStyle(color.secondary)])
         }
@@ -357,25 +385,26 @@ extension BidirectionalCollection where Element == FloatingCaptionModifier.Trait
 extension View {
 
     /// Layers in front of this view a floating caption.
-    /// 
+    ///  
     /// Applies the ``FloatingCaptionModifier``, overlaying a floating caption configured with the
     /// given ``FloatingCaptionModifier/Trait`` instances.
-    /// 
+    ///  
     /// ```swift
-    /// Rectangle()
-    /// .fill(.indigo.gradient)
+    /// RoundedRectangle(cornerRadius: 8)
+    /// .fill(.purple.gradient)
     /// .frame(width: 80, height: 80)
-    /// .floatingCaption("A Square Rectangle", .height, .alignment(.outerTrailingTop))
+    /// .floatingCaption("A Square Rectangle", alignment: .outerLeading, .height)
     /// ```
     /// ![Floating caption with traits applied to a rectangle.](floating-caption-simple-traits)
-    ///
+    /// 
     /// The traits are applied in the order they are passed. Later traits may override earlier ones
     /// depending on the configuration each trait modifies.
-    ///
+    /// 
     /// - Returns: A view with a floating caption as foreground.
     /// - Parameters:
     ///   - key: Localized string key to display.
-    ///   - traits: The traits to modify the floating caption.
+    ///   - alignment: The alignment of the caption.
+    ///   - traits: The traits to customize the floating caption.
     public func floatingCaption(
         _ key: LocalizedStringKey,
         alignment: FloatingAlignment? = nil,
@@ -397,7 +426,7 @@ extension View {
     /// - Returns: A view with a floating caption as foreground.
     /// - Parameters:
     ///   - key: Localized string key to display.
-    ///   - traits: The traits to modify the floating caption.
+    ///   - traits: The traits to customize the floating caption.
     public func floatingCaption(
         _ key: LocalizedStringKey,
         traits: some BidirectionalCollection<FloatingCaptionModifier.Trait>
@@ -406,7 +435,20 @@ extension View {
         modifier(FloatingCaptionModifier(localizedKey: key, traits: traits))
     }
 
-    // FIXME: Document.
+
+    /// Layers in front of this view a floating caption with a given verbatim string.
+    ///
+    /// Applies the ``FloatingCaptionModifier``, overlaying a floating caption configured with the
+    /// given ``FloatingCaptionModifier/Trait`` instances.
+    ///
+    /// The traits are applied in the order they are passed. Later traits may override earlier ones
+    /// depending on the configuration each trait modifies.
+    ///
+    /// - Returns: A view with a floating caption as foreground.
+    /// - Parameters:
+    ///   - string: The string to display verbatim.
+    ///   - alignment: The alignment of the caption.
+    ///   - traits: The traits to customize the floating caption.
     public func floatingCaption(
         verbatim string: String,
         alignment: FloatingAlignment? = nil,
@@ -416,7 +458,22 @@ extension View {
         return modifier(FloatingCaptionModifier(verbatim: string, traits: defaultTraits + traits))
     }
 
-    // FIXME: Document.
+
+    /// Layers in front of this view a floating caption with no caption.
+    ///
+    /// Applies the ``FloatingCaptionModifier``, overlaying a floating caption configured with the
+    /// given ``FloatingCaptionModifier/Trait`` instances.
+    ///
+    /// The overlay can still draw a border over the owner view, and display a caption if geometry
+    /// traits like ``FloatingCaptionModifier/Trait/size`` are passed.
+    ///
+    /// The traits are applied in the order they are passed. Later traits may override earlier ones
+    /// depending on the configuration each trait modifies.
+    ///
+    /// - Returns: A view with a floating caption as foreground.
+    /// - Parameters:
+    ///   - alignment: The alignment of the caption.
+    ///   - traits: The traits to customize the floating caption.
     public func floatingCaption(
         alignment: FloatingAlignment? = nil,
         _ traits: FloatingCaptionModifier.Trait...

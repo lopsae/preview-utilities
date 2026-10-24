@@ -91,11 +91,11 @@ Circle()
 .fill(.tertiary)
 .frame(width: 80, height: 80)
 .floatingCaption(
-    "A `Circle` Shape",              // caption localized string
-    .height,                         // prints the height of the owner view
-    .alignment(.outerLeadingBottom), // sets the caption alignment
-    .colorStyle(.indigo),            // sets the caption and border color
-    .borderWidth(4)                  // sets the border width
+    "A `Circle` Shape",             // caption localized string
+    alignment: .outerLeadingBottom, // the caption alignment
+    .height,                        // prints the height of the owner view
+    .colorStyle(.indigo),           // sets the caption and border color
+    .borderWidth(4)                 // sets the border width
 )
 ```
 

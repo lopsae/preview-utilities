@@ -57,7 +57,7 @@ struct IllustrationsForFloatingCaption {
                     alignment: .outerTrailingTop,
                     .borderStyle(.blue.secondary), // draws a border over the owner view
                     .borderWidth(2),               // sets the width of the border
-                    .height,                       // prints the height of the owner view
+                    .height                        // prints the height of the owner view
                 )
             }
         }
