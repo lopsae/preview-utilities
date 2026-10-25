@@ -114,7 +114,10 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         .overlay {
             GeometryReader { geometry in
                 let alignment = flatTraits.alignment ?? .center
-                FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
+                let spacing: CGFloat = alignment.key == .inner
+                    ? borderWidth + 2
+                    : 2
+                FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignments in
                     VStack(alignment: alignments.content.horizontal) {
                         // TODO: Add support for verbatim and no caption. See `TextSource`.
                         Text(localizationKey)
@@ -145,6 +148,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
 
                     } // VStack
                     .fixedSize()
+                    .border(flatTraits.containsCase(.drawsCaptionBorder) ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.clear))
                 } // FloatingAlignedContainer
             } // GeometryReader
         } // overlay
@@ -171,6 +175,11 @@ public enum CaptionRectangleTrait: IdentifiableCase {
     /// Aligns the caption to the given floating alignment.
     case alignment(FloatingAlignment)
 
+    /// Enables drawing a border around the caption.
+    ///
+    /// Used internally for alignment visualization and debugging.
+    case drawsCaptionBorder
+
     /// Applies the associated traits.
     case traits([Self])
 
@@ -180,6 +189,7 @@ public enum CaptionRectangleTrait: IdentifiableCase {
     public enum Case {
         case width, height
         case alignment
+        case drawsCaptionBorder
         case traits
     }
 
@@ -188,10 +198,11 @@ public enum CaptionRectangleTrait: IdentifiableCase {
     @_documentation(visibility: internal)
     public var `case`: Case {
         switch self {
-        case .width:        .width
-        case .height:       .height
-        case .alignment:    .alignment
-        case .traits:       .traits
+        case .width:              .width
+        case .height:             .height
+        case .alignment:          .alignment
+        case .drawsCaptionBorder: .drawsCaptionBorder
+        case .traits:             .traits
         }
     }
 
@@ -277,8 +288,41 @@ extension BidirectionalCollection where Element == CaptionRectangleTrait {
 }
 
 
+#Preview("Aligned", traits: .iPhoneProSizeForcedLayout) {
+    CaptionRectangle(
+        "Top Leading\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.topLeading), .height)
+
+    CaptionRectangle(
+        "Bottom Trailing\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.bottomTrailing), .height)
+
+    CaptionRectangle(
+        "Leading Top\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.outerLeadingTop), .height)
+
+    CaptionRectangle(
+        "Trailing\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.outerTrailing), .height)
+
+    CaptionRectangle(
+        "Leading Under\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.outerLeadingUnder), .height)
+}
+
+
 #Preview("Border", traits: .fixedHeaderFooter) {
-    @Previewable @State var borderWidth: CGFloat = 4
+    @Previewable @State var borderWidth: CGFloat = 8
 
     Slider.captioned(
         "Border Width",
@@ -295,11 +339,10 @@ extension BidirectionalCollection where Element == CaptionRectangleTrait {
             let stroke: Color = alignment == .center ? .mint : .clear
             CaptionRectangle(
                 "aligned\n\(alignment.abbreviatedName)\ncontent",
-                fill: .clear,
-                stroke: stroke,
-                borderWidth: borderWidth,
-                size: .square(of: 200),
-                traits: .alignment(alignment))
+                fill: .clear, stroke: stroke,
+                borderWidth: borderWidth, size: .square(of: 200),
+                traits: .alignment(alignment), .drawsCaptionBorder
+            )
         }
     }
 
