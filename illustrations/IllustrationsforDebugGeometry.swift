@@ -16,7 +16,7 @@ import Testing
 ///
 /// This file MUST NOT have internal access to the `PreviewUtilities` package, since the code in
 /// each function is also used in code snippets.
-struct IllustrationsForDebugOverlay {
+struct IllustrationsForDebugGeometry {
 
     let storage: IllustrationStorage
 
