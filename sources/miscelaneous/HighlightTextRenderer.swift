@@ -332,7 +332,7 @@ extension LocalizedStringKey.StringInterpolation {
 }
 
 
-// TODO: move to GeometryAdditions.
+// FIXME: move to GeometryAdditions.
 extension CGRect {
 
     mutating func envelop(_ other: CGRect) {

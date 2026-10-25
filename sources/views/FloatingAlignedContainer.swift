@@ -19,7 +19,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 
     let alignment: FloatingAlignment
     // TODO: nil could be unnecessary here, if a view wants default padding they could define it in the content.
-    // TODO: Instead of spacing, consider naming this padding.
+    // TODO: Instead of spacing, consider renaming this padding.
     let horizontalSpacing: CGFloat?
     let verticalSpacing: CGFloat?
     let content: (FloatingAlignment.ContentAlignments) -> Content

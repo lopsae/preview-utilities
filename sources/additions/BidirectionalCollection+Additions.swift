@@ -16,11 +16,6 @@ extension BidirectionalCollection {
     public var finalIndex: Index { index(before: endIndex) }
 
 
-    // TODO: remove once deprecations are deleted.
-    @available(*, deprecated, renamed: "finalIndex")
-    public var beforeEndIndex: Index { finalIndex }
-
-
     // TODO: is array the appropriate return for a mapping/replace function? check what does a BidirectionalCollection.map implements to
     // Initially copied from ScrumDinger project.
     func replaceLast(_ transform: (inout Element) throws -> Void) rethrows -> [Element] {

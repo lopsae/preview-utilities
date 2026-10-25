@@ -13,6 +13,7 @@ In development.
 + Renamed function `VStack/maxWidth` to `expandingWidth`.
 + Added `alignment` parameter to `View/floatingCaption` functions.
 + Added `CaptionRectangleTrait`.
++ Remove deprecated `BidirectionalCollection/beforeEndIndex`.
 
 
 
