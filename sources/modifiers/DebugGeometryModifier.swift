@@ -822,13 +822,20 @@ private struct PreviewContent {
         .overlay {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
+                // TODO: Maybe implement borderVisibility trait, to allow only one border to draw, but keeping caption spacing.
+//                let noBorderTrait = alignment.innerAlignment?.vertical == .center
+//                    ? DebugGeometryModifier.Configuration.Trait.empty
+//                    : .noBorders
                 ClearRectangle()
-                .debugGeometry(.caption("Ag"), .alignment(alignment), .drawsCaptionBorder, .bordersWidth(bordersWidth))
+                .debugGeometry(
+                    .caption("Ag"), .alignment(alignment),
+                    .drawsCaptionBorder, .bordersWidth(bordersWidth)
+                )
             }
         }
-        .debugAlignmentGuide(vertical: .top,      .extendedLength(100))
-        .debugAlignmentGuide(vertical: .bottom,   .extendedLength(100))
-        .debugAlignmentGuide(horizontal: .center, .extendedLength(40))
+        .debugAlignmentGuide(horizontal: horizontalAlignment.swiftAlignment, .extendedLength(50))
+        .debugAlignmentGuide(vertical: .top,    .extendedLength(100))
+        .debugAlignmentGuide(vertical: .bottom, .extendedLength(100))
         .padding(.vertical, 20)
     }
     DashedDivider()
