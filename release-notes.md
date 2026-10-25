@@ -12,6 +12,7 @@ In development.
 + Renamed `AlignmentWithDefault` to `AlignmentWithCenter`.
 + Renamed function `VStack/maxWidth` to `expandingWidth`.
 + Added `alignment` parameter to `View/floatingCaption` functions.
++ Added `CaptionRectangleTrait`.
 
 
 
