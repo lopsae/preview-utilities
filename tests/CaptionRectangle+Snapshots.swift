@@ -73,6 +73,15 @@ struct CaptionRectangleSnapshots {
             }
         }
 
+        Snapshots.assertView("allWithBorders") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                let stroke: Color = alignment == .center ? .pink : .clear
+                // TODO: Needs verbatim.
+                CaptionRectangle("\(alignment.abbreviatedName)", fill: .clear, stroke: stroke, traits: .alignment(alignment), .drawsCaptionBorder)
+            }
+        }
+
         Snapshots.assertView("thickBorder") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
