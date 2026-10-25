@@ -33,6 +33,9 @@ extension GeometryReader {
 }
 
 
+// MARK: - FixedFrameGroup
+
+
 /// Views wrapped individually in a frame of fixed size.
 ///
 /// Provides a concrete type for a group of views individually framed with a ``SwiftUICore/View/frame(size:alignment:)``
@@ -51,6 +54,27 @@ public struct FixedFrameGroup<Content>: View where Content: View {
         // Frame is applied to each view in content individually.
         content.frame(size: size, alignment: alignment)
     }
+}
+
+
+// MARK: - View Extensions
+
+
+extension View {
+
+    func geometryReaderOverlay(
+        @ViewBuilder content: @escaping (GeometryProxy) -> some View
+    ) -> some View {
+        self.overlay { GeometryReader(content: content) }
+    }
+
+    func geometryReaderOverlay(
+        alignment: Alignment,
+        @ViewBuilder content: @escaping (GeometryProxy) -> some View
+    ) -> some View {
+        self.overlay { GeometryReader(alignment: alignment, content: content) }
+    }
+
 }
 
 
@@ -153,7 +177,7 @@ private struct PreviewContent {
     .border(.indigo.secondary, width: 2)
 
     PreviewCaption("""
-        Stock `GeometryRender` does not use alignment guides for its layout.
+        Stock `GeometryReader` does not use alignment guides for its layout.
         """)
 
     GeometryReader { geometry in
@@ -163,4 +187,21 @@ private struct PreviewContent {
             .alignmentGuide(.leading, insetBy: 15)
     }
     .border(.indigo.secondary, width: 2)
+}
+
+
+#Preview("Overlays", traits: .fixedHeader, PreviewContent.layout) {
+
+    Rectangle().fill(.quinary)
+    .frame(squareOf: 200)
+    .geometryReaderOverlay { geometry in
+        Text("\(geometry.size)")
+    }
+
+    Rectangle().fill(.quinary)
+    .frame(squareOf: 200)
+    .geometryReaderOverlay(alignment: .center) { geometry in
+        Text("\(geometry.size)")
+    }
+
 }
