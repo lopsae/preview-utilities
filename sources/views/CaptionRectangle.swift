@@ -111,47 +111,45 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         .fill(fill)
         .strokeBorder(stroke, lineWidth: borderWidth)
         .frame(width: width, height: height)
-        .overlay {
-            GeometryReader { geometry in
-                let alignment = flatTraits.alignment ?? .center
-                let spacing: CGFloat = alignment.key == .inner
-                    ? borderWidth + 2
-                    : 2
-                FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignments in
-                    VStack(alignment: alignments.content.horizontal) {
-                        // TODO: Add support for verbatim and no caption. See `TextSource`.
-                        Text(localizationKey)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(alignments.text)
+        .geometryReaderOverlay { geometry in
+            let alignment = flatTraits.alignment ?? .center
+            let spacing: CGFloat = alignment.key == .inner
+                ? borderWidth + 2
+                : 2
+            FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignments in
+                VStack(alignment: alignments.content.horizontal) {
+                    // TODO: Add support for verbatim and no caption. See `TextSource`.
+                    Text(localizationKey)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(alignments.text)
 
-                        // TODO: Code shared with FloatingCaption and DebugGeometry. Think to DRY.
-                        // Maybe a style for geometryProxy?
+                    // TODO: Code shared with FloatingCaption and DebugGeometry. Think to DRY.
+                    // Maybe a style for geometryProxy?
 
-                        // Width, Height, or Size.
-                        Group {
-                            let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
-                            if flatTraits.containsCase(.width) && flatTraits.containsCase(.height) {
-                                let formattedWidth = geometry.size.width.formatted(fractionLength)
-                                let formattedHeight = geometry.size.height.formatted(fractionLength)
-                                Text("size: \(formattedWidth), \(formattedHeight)")
-                            } else if flatTraits.containsCase(.width) {
-                                let formattedWidth = geometry.size.width.formatted(fractionLength)
-                                Text("width: \(formattedWidth)")
-                            } else if flatTraits.containsCase(.height) {
-                                let formattedHeight = geometry.size.height.formatted(fractionLength)
-                                Text("height: \(formattedHeight)")
-                            }
-                        } // Group
-                        .font(.caption.monospaced())
-                        .foregroundStyle(.secondary)
+                    // Width, Height, or Size.
+                    Group {
+                        let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
+                        if flatTraits.containsCase(.width) && flatTraits.containsCase(.height) {
+                            let formattedWidth = geometry.size.width.formatted(fractionLength)
+                            let formattedHeight = geometry.size.height.formatted(fractionLength)
+                            Text("size: \(formattedWidth), \(formattedHeight)")
+                        } else if flatTraits.containsCase(.width) {
+                            let formattedWidth = geometry.size.width.formatted(fractionLength)
+                            Text("width: \(formattedWidth)")
+                        } else if flatTraits.containsCase(.height) {
+                            let formattedHeight = geometry.size.height.formatted(fractionLength)
+                            Text("height: \(formattedHeight)")
+                        }
+                    } // Group
+                    .font(.caption.monospaced())
+                    .foregroundStyle(.secondary)
 
-                    } // VStack
-                    .fixedSize()
-                    .border(flatTraits.containsCase(.drawsCaptionBorder) ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.clear))
-                } // FloatingAlignedContainer
-            } // GeometryReader
-        } // overlay
+                } // VStack
+                .fixedSize()
+                .border(flatTraits.containsCase(.drawsCaptionBorder) ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.clear))
+            } // FloatingAlignedContainer
+        } // geometryReaderOverlay
     }
 
 }
