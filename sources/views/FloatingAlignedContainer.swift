@@ -26,7 +26,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 
 
     init(
-        alignment: FloatingAlignment = .inner(.center),
+        alignment: FloatingAlignment = .center,
         horizontalSpacing: CGFloat? = .zero,
         verticalSpacing: CGFloat? = .zero,
         @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
@@ -39,7 +39,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 
 
     init(
-        alignment: FloatingAlignment = .inner(.center),
+        alignment: FloatingAlignment = .center,
         spacing: CGFloat,
         @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
     ) {
