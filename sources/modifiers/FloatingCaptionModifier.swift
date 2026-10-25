@@ -531,8 +531,7 @@ private struct PreviewContent {
     .overlay {
         ForEach(FloatingAlignment.allCases) { alignment in
             ClearRectangle()
-            .floatingCaption("aligned\n\(alignment.abbreviatedName)", alignment: alignment)
+            .floatingCaption("aligned\n\(alignment.abbreviatedName)\ncontent", alignment: alignment)
         }
     }
-
 }
