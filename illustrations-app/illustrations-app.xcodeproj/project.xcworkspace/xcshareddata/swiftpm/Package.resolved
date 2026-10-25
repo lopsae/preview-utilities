@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lopsae/geometry-additions",
       "state" : {
-        "revision" : "5d7f4ab79e18865df940fbb438a58eab5ed626ae",
-        "version" : "0.6.1"
+        "branch" : "feature/additions-for-0.6.2",
+        "revision" : "449ae301b54964764aba1e7ff548b6293127b9fe"
       }
     }
   ],
