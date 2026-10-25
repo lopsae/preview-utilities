@@ -275,3 +275,33 @@ extension BidirectionalCollection where Element == CaptionRectangleTrait {
         width: 150, height: 100,
         traits: .height)
 }
+
+
+#Preview("Border", traits: .fixedHeaderFooter) {
+    @Previewable @State var borderWidth: CGFloat = 4
+
+    Slider.captioned(
+        "Border Width",
+        value: $borderWidth,
+        in: 1...16,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger
+    )
+
+    VisibleSpacer()
+
+    ZStack {
+        ForEach(FloatingAlignment.allCases) { alignment in
+            let stroke: Color = alignment == .center ? .mint : .clear
+            CaptionRectangle(
+                "aligned\n\(alignment.abbreviatedName)\ncontent",
+                fill: .clear,
+                stroke: stroke,
+                borderWidth: borderWidth,
+                size: .square(of: 200),
+                traits: .alignment(alignment))
+        }
+    }
+
+    VisibleSpacer()
+}
