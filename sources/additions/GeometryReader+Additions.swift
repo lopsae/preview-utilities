@@ -195,13 +195,13 @@ private struct PreviewContent {
     Rectangle().fill(.quinary)
     .frame(squareOf: 200)
     .geometryReaderOverlay { geometry in
-        Text("\(geometry.size)")
+        Text("\(geometry.size.debugDescription)")
     }
 
     Rectangle().fill(.quinary)
     .frame(squareOf: 200)
     .geometryReaderOverlay(alignment: .center) { geometry in
-        Text("\(geometry.size)")
+        Text("\(geometry.size.debugDescription)")
     }
 
 }
