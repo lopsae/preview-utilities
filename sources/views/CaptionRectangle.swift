@@ -116,6 +116,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
                 let alignment = flatTraits.alignment ?? .center
                 FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
                     VStack(alignment: alignments.content.horizontal) {
+                        // TODO: Add support for verbatim and no caption. See `TextSource`.
                         Text(localizationKey)
                         .font(.caption)
                         .foregroundStyle(.secondary)
@@ -158,7 +159,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
 // enumeration, in contrast to a structure containing all properties like
 // `DebugGeometryModifier.Configuration`.
 
-// FIXME: Document.
+/// Customizations that can be applied to a `CaptionRectangle`.
 public enum CaptionRectangleTrait: IdentifiableCase {
 
     /// Prints the width of the owner view along the text caption.
