@@ -1,0 +1,565 @@
+{
+  "abstract" : [
+    {
+      "text" : "Prints all supported geometry properties in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/allGeometry"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO03allD0AGvpZ",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "static"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "let"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "allGeometry"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+        "text" : "Trait"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Type Property",
+    "symbolKind" : "property",
+    "title" : "allGeometry"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@"
+            },
+            {
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "static"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "let"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "allGeometry"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+              "text" : "Trait"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "Geometry-Traits",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/safeAreaInsets",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/origin",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/size",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/height",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/width"
+      ],
+      "title" : "Geometry Traits"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/allgeometry"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representation of a view’s geometry properties.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugGeometryModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugGeometryModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration": {
+  "abstract" : [
+    {
+      "text" : "Configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugGeometryModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Configuration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Configuration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier.Configuration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugGeometryModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier.Configuration.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/allGeometry": {
+  "abstract" : [
+    {
+      "text" : "Prints all supported geometry properties in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "allGeometry"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/allGeometry",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "allGeometry",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/allgeometry"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/height": {
+  "abstract" : [
+    {
+      "text" : "Prints the height of the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "height"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/height",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "height",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/height"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/origin": {
+  "abstract" : [
+    {
+      "text" : "Prints the global origin coordinate of the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "origin"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/origin",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "origin",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/origin"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/safeAreaInsets": {
+  "abstract" : [
+    {
+      "text" : "Prints the safe area insets applied to the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "safeAreaInsets"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/safeAreaInsets",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "safeAreaInsets",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/safeareainsets"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/size": {
+  "abstract" : [
+    {
+      "text" : "Prints the width and height of the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "size"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/size",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "size",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/size"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/width": {
+  "abstract" : [
+    {
+      "text" : "Prints the width of the owner view in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "width"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/width",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "width",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/width"
+}
+}
+}

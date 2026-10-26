@@ -1,0 +1,36 @@
+.package-version-badge {
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.package-version-badge--inline {
+    margin-inline-start: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: .82rem;
+    line-height: 1.5;
+    color: var(--color-figure-gray-secondary, #6e6e73);
+    background: var(--color-fill-secondary, rgba(0, 0, 0, 0.06));
+    white-space: nowrap;
+}
+.package-version-badge--fixed {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2000;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: .82rem;
+    background: var(--color-fill-secondary, rgba(0, 0, 0, 0.06));
+    color: var(--color-figure-gray-secondary, #6e6e73);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+.package-version-badge:hover {
+    text-decoration: underline;
+}
+@media (prefers-color-scheme: dark) {
+    .package-version-badge--fixed {
+        background: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+}
