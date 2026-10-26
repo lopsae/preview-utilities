@@ -18,7 +18,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}v0.5.0/documentation/previewutilities/
+      url: ${{ steps.deployment.outputs.page_url }}v0.5.1/documentation/previewutilities/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
