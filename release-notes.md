@@ -3,17 +3,16 @@ Release Notes
 
 v0.5.1
 ------
-In development.
 + Publicized static properties of `String` for common strings, like `empty` and `space`.
 + Publicized additions to `Text.Layout`.
 + Added convenience initializers for `Path` to draw rectangles and crosshairs.
-+ Added experimental `HorizontalRelativeAlignment`.
-+ Removed `ZeroSpacingPreviewModifier` and `PaddingSpacingPreviewModifier`.
-+ Renamed `AlignmentWithDefault` to `AlignmentWithCenter`.
-+ Renamed function `VStack/maxWidth` to `expandingWidth`.
 + Added `alignment` parameter to `View/floatingCaption` functions.
 + Added `CaptionRectangleTrait`.
-+ Remove deprecated `BidirectionalCollection/beforeEndIndex`.
++ Removed `ZeroSpacingPreviewModifier` and `PaddingSpacingPreviewModifier`.
++ Removed deprecated `BidirectionalCollection/beforeEndIndex`.
++ Renamed `AlignmentWithDefault` to `AlignmentWithCenter`.
++ Renamed function `VStack/maxWidth` to `expandingWidth`.
++ Added experimental `HorizontalRelativeAlignment`.
 
 
 
