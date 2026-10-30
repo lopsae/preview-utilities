@@ -137,7 +137,7 @@ struct DebugGeometryModifierSnapshots {
     @Test(.snapshotTesting) func smallSizes() {
         // BUG: Snapshot shows a tiny mismatch between safe area rects and outer stroke.
         Snapshots.assertView("zero") {
-            VStack.maxWidth(alignment: .leading) {
+            VStack.expandingWidth(alignment: .leading) {
                 TestViews.quinaryGraySquare(length: .zero)
                     .debugGeometry()
                     .safeAreaPadding([.top, .leading], 20)
@@ -215,14 +215,12 @@ struct DebugGeometryModifierSnapshots {
     @Test(.snapshotTesting) func alignments() {
         Snapshots.assertView("all") {
             TestViews.quinaryGraySquare()
-            .overlay {
-                ForEach(FloatingAlignment.allCases) { alignment in
-                    ClearRectangle()
-                    .debugGeometry(
-                        .caption(verbatim: alignment.abbreviatedName),
-                        .alignment(alignment)
-                    )
-                }
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment)
+                )
             }
         }
 
@@ -237,45 +235,39 @@ struct DebugGeometryModifierSnapshots {
 
         Snapshots.assertView("allWithBorders") {
             TestViews.quinaryGraySquare()
-            .overlay {
-                ForEach(FloatingAlignment.allCases) { alignment in
-                    ClearRectangle()
-                    .debugGeometry(
-                        .caption(verbatim: alignment.abbreviatedName),
-                        .alignment(alignment),
-                        .drawsCaptionBorder
-                    )
-                }
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment),
+                    .drawsCaptionBorder
+                )
             }
         }
 
         Snapshots.assertView("hairline") {
             TestViews.quinaryGraySquare()
-            .overlay {
-                ForEach(FloatingAlignment.allCases) { alignment in
-                    ClearRectangle()
-                    .debugGeometry(
-                        .caption(verbatim: alignment.abbreviatedName),
-                        .alignment(alignment),
-                        .hairline,
-                        .drawsCaptionBorder
-                    )
-                }
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment),
+                    .hairline,
+                    .drawsCaptionBorder
+                )
             }
         }
 
         Snapshots.assertView("thickBorder") {
             TestViews.quinaryGraySquare()
-            .overlay {
-                ForEach(FloatingAlignment.allCases) { alignment in
-                    ClearRectangle()
-                    .debugGeometry(
-                        .caption(verbatim: alignment.abbreviatedName),
-                        .alignment(alignment),
-                        .bordersWidth(10),
-                        .drawsCaptionBorder
-                    )
-                }
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment),
+                    .bordersWidth(10),
+                    .drawsCaptionBorder
+                )
             }
         }
     }

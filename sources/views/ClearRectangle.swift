@@ -46,8 +46,8 @@ public struct ClearRectangle<S: ShapeStyle> : View {
 
     public var body: some View {
         Rectangle()
-            .fill(fill)
-            .frame(width: width, height: height)
+        .fill(fill)
+        .frame(width: width, height: height)
     }
 
 }

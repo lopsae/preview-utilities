@@ -17,6 +17,13 @@ extension Trait where Self == _SnapshotsTestTrait {
         .snapshots(record: .all)
     }
 
+    /// Configures snapshot testing to record all failed snapshots.
+    ///
+    /// Intended for new and updating tests.
+    static var snapshotRecaptureFailed: Self {
+        .snapshots(record: .failed)
+    }
+
     /// Configures snapshot testing to never record new snapshots and use `ksdiff` for failure
     /// messages.
     ///

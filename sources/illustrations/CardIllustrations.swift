@@ -72,14 +72,13 @@ struct CardIllustrations {
     static var floatingCaption: DocumentationIllustration {
         DocumentationIllustration(sizing: .card.half, drawsBorder: false) {
             RoundedRectangle(cornerRadius: 44)
-                .fill(.tertiary)
+            .fill(.tertiary)
             .frame(size: contentSize)
             .floatingCaption(
                 "Floating Caption",
-                .captionStyle(.purple),
-                .borderStyle(.purple.secondary),
-                .borderWidth(4),
-                .alignment(.outerBottomTrailing)
+                alignment: .outerBottomTrailing,
+                .colorStyle(.purple),
+                .borderWidth(4)
             )
         }
     }

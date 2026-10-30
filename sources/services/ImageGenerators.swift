@@ -358,7 +358,7 @@ extension PreviewContent {
 
         var body: some View {
             VStack {
-                ForEach(strings.enumerated(), id: \.offset) { index, string in
+                ForEach(strings.indexed(), id: \.index) { index, string in
                     Group {
                         if let image = images[index] {
                             image.resizable()

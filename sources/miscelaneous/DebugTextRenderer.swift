@@ -39,13 +39,13 @@ public struct DebugTextRenderer: TextRenderer {
         }
 
         if configuration.drawsAscent {
-            bounds.origin.offset(x: 1)
+            bounds.origin.adding(x: 1)
             .segmentToOffset(y: -bounds.ascent)
             .stroke(in: context, style: .red.secondary, lineWidth: 2)
         }
 
         if configuration.drawsDescent {
-            bounds.origin.offset(x: 3)
+            bounds.origin.adding(x: 3)
             .segmentToOffset(y: bounds.descent)
             .stroke(in: context, style: .blue.secondary, lineWidth: 2)
         }
@@ -131,15 +131,4 @@ private struct PreviewContent {
     .frame(width: fixedWidth)
     .floatingCaption("Rects", .colorStyle(.orange), .alignment(.outerBottomTrailing))
     .padding(.bottom)
-}
-
-
-extension Text.Layout {
-
-    var runs: [Run] {
-        flatMap { line in
-            line.map { run in run }
-        }
-    }
-
 }

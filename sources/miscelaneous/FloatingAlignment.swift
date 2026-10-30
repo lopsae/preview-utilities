@@ -114,6 +114,13 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
     }
 
 
+    var innerAlignment: InnerAlignment? {
+        switch self {
+        case .inner(let innerAlignment): innerAlignment
+        case .outer: nil
+        }
+    }
+
     var outerAlignment: OuterAlignment? {
         switch self {
         case .outer(let outerAlignment): outerAlignment

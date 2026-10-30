@@ -90,9 +90,9 @@ where
     /// farther away.
     @ViewBuilder
     private var historicValues: some View {
-        ForEach(history.enumerated(), id: \.offset) { index, historyItem in
+        ForEach(history.enumerated(), id: \.offset) { offset, historyItem in
             let valueString = formatter.format(historyItem.value)
-            let offsetValue = ((index.asDouble + 1.0) * historySpacing) + historyPadding
+            let offsetValue = ((offset.asDouble + 1.0) * historySpacing) + historyPadding
             let offsetSize = switch historyEdge {
             case .top:      CGSize(width: .zero, height: -offsetValue)
             case .leading:  CGSize(width: -offsetValue, height: .zero)
@@ -109,7 +109,7 @@ where
                     markedCapsule(.blue.tertiary)
                 }
             }
-            .opacity(1.0 - (index.asDouble / historyLength.asDouble))
+            .opacity(1.0 - (offset.asDouble / historyLength.asDouble))
             .offset(offsetSize)
         }
     }

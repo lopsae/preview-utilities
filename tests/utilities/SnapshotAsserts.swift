@@ -17,6 +17,7 @@ enum Snapshots {
 
     static func assertView<Content: View>(
         _ name: String,
+        spacing: CGFloat? = nil,
         size: CGSize = .square(of: 200),
         colorSchemes: Set<ColorScheme> = defaultColorSchemes,
         timeout: TimeInterval = 5,
@@ -63,10 +64,12 @@ enum Snapshots {
                 continue
             }
 
-            let configuredContent = content()
-                .frame(size: size)
-                .background(.background)
-                .environment(\.colorScheme, scheme)
+            let configuredContent = VStack(spacing: spacing) {
+                content()
+            }
+            .frame(size: size)
+            .background(.background)
+            .environment(\.colorScheme, scheme)
 
             #if canImport(UIKit)
                 let layout:SwiftUISnapshotLayout = .fixed(width: size.width, height: size.height)

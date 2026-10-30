@@ -6,8 +6,6 @@
 
 public import SwiftUI
 
-// TODO: clarify that note that FloatingCaptionModifier.Trait also has properties like .border, but this view
-// draws its own border.
 
 /// Rectangle view configured with stroke, fill, floating caption, and optionally fixed size.
 public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
@@ -17,7 +15,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     let width: CGFloat?
     let height: CGFloat?
     let borderWidth: CGFloat
-    let traits: [FloatingCaptionModifier.Trait]
+    let flatTraits: [CaptionRectangleTrait]
 
 
     public init(
@@ -27,7 +25,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         borderWidth: CGFloat = 1,
         width: CGFloat? = nil,
         height: CGFloat? = nil,
-        traits: [FloatingCaptionModifier.Trait]
+        traits: some Sequence<CaptionRectangleTrait>
     ) {
         self.localizationKey = localizationKey
         self.fill        = fill
@@ -35,7 +33,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         self.width       = width
         self.height      = height
         self.borderWidth = borderWidth
-        self.traits      = traits
+        self.flatTraits  = traits.flattenTraits()
     }
 
 
@@ -46,7 +44,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         borderWidth: CGFloat = 1,
         width: CGFloat? = nil,
         height: CGFloat? = nil,
-        traits: FloatingCaptionModifier.Trait...
+        traits: CaptionRectangleTrait...
     ) {
         self.init(
             localizationKey, fill: fill, stroke: stroke, borderWidth: borderWidth,
@@ -60,7 +58,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         stroke: Stroke = .tertiary,
         borderWidth: CGFloat = 1,
         size: CGSize,
-        traits: FloatingCaptionModifier.Trait...
+        traits: CaptionRectangleTrait...
     ) {
         self.init(
             localizationKey, fill: fill, stroke: stroke, borderWidth: borderWidth,
@@ -75,7 +73,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         borderWidth: CGFloat = 1,
         width: CGFloat? = nil,
         height: CGFloat? = nil,
-        traits: FloatingCaptionModifier.Trait...
+        traits: CaptionRectangleTrait...
     )
         where Fill == AnyShapeStyle, Stroke == AnyShapeStyle
     {
@@ -93,7 +91,7 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         color: Color,
         borderWidth: CGFloat = 1,
         size: CGSize,
-        traits: FloatingCaptionModifier.Trait...
+        traits: CaptionRectangleTrait...
     )
         where Fill == AnyShapeStyle, Stroke == AnyShapeStyle
     {
@@ -107,13 +105,145 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
     }
 
 
+    @_documentation(visibility: internal)
     public var body: some View {
         RoundedRectangle(cornerRadius: SpacingDefaults.padding / 3)
-            .fill(fill)
-            .strokeBorder(stroke, lineWidth: borderWidth)
-            .frame(width: width, height: height)
-            .floatingCaption(localizationKey, traits: traits)
+        .fill(fill)
+        .strokeBorder(stroke, lineWidth: borderWidth)
+        .frame(width: width, height: height)
+        .geometryReaderOverlay { geometry in
+            let alignment = flatTraits.alignment ?? .center
+            let spacing: CGFloat = alignment.key == .inner
+                ? borderWidth + 2
+                : 2
+            FloatingAlignedContainer(alignment: alignment, spacing: spacing) { alignments in
+                VStack(alignment: alignments.content.horizontal) {
+                    // TODO: Add support for verbatim and no caption. See `TextSource`.
+                    Text(localizationKey)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(alignments.text)
+
+                    // TODO: Code shared with FloatingCaption and DebugGeometry. Think to DRY.
+                    // Maybe a style for geometryProxy?
+
+                    // Width, Height, or Size.
+                    Group {
+                        let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
+                        if flatTraits.containsCase(.width) && flatTraits.containsCase(.height) {
+                            let formattedWidth = geometry.size.width.formatted(fractionLength)
+                            let formattedHeight = geometry.size.height.formatted(fractionLength)
+                            Text("size: \(formattedWidth), \(formattedHeight)")
+                        } else if flatTraits.containsCase(.width) {
+                            let formattedWidth = geometry.size.width.formatted(fractionLength)
+                            Text("width: \(formattedWidth)")
+                        } else if flatTraits.containsCase(.height) {
+                            let formattedHeight = geometry.size.height.formatted(fractionLength)
+                            Text("height: \(formattedHeight)")
+                        }
+                    } // Group
+                    .font(.caption.monospaced())
+                    .foregroundStyle(.secondary)
+
+                } // VStack
+                .fixedSize()
+                .border(flatTraits.containsCase(.drawsCaptionBorder) ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.clear))
+            } // FloatingAlignedContainer
+        } // geometryReaderOverlay
     }
+
+}
+
+
+// MARK: - Traits
+
+// This trait implementation is an experimental configuration object solely based on an
+// enumeration, in contrast to a structure containing all properties like
+// `DebugGeometryModifier.Configuration`.
+
+/// Customizations that can be applied to a `CaptionRectangle`.
+public enum CaptionRectangleTrait: IdentifiableCase {
+
+    /// Prints the width of the owner view along the text caption.
+    case width
+
+    /// Prints the height of the owner view along the text caption.
+    case height
+
+    /// Aligns the caption to the given floating alignment.
+    case alignment(FloatingAlignment)
+
+    /// Enables drawing a border around the caption.
+    ///
+    /// Used internally for alignment visualization and debugging.
+    case drawsCaptionBorder
+
+    /// Applies the associated traits.
+    case traits([Self])
+
+
+    /// Enumeration to identify each trait case.
+    @_documentation(visibility: internal)
+    public enum Case {
+        case width, height
+        case alignment
+        case drawsCaptionBorder
+        case traits
+    }
+
+
+    /// Identifier of the trait case.
+    @_documentation(visibility: internal)
+    public var `case`: Case {
+        switch self {
+        case .width:              .width
+        case .height:             .height
+        case .alignment:          .alignment
+        case .drawsCaptionBorder: .drawsCaptionBorder
+        case .traits:             .traits
+        }
+    }
+
+    /// Prints the width and height of the owner view along the text caption.
+    public static let size: Self = .traits([.width, .height])
+
+}
+
+
+// MARK: - Trait Collection
+
+// For case with an associated value, there needs to be a helper function to extract the last
+// value of that case. This means that traits of a given type cannot be additive or build on top
+// of each other.
+
+// The behaviour of the trait becomes either one of presence: A trait is activated if it is present
+// in the collection of traits.
+// Or by overwrite: the last present trait is the active configuration.
+
+extension Sequence where Element == CaptionRectangleTrait {
+
+    func flattenTraits() -> [Element] {
+        return self.flatMap { trait in
+            guard case .traits(let traits) = trait else {
+                return [trait]
+            }
+            return traits.flattenTraits()
+        }
+    }
+
+}
+
+
+extension BidirectionalCollection where Element == CaptionRectangleTrait {
+
+    var alignment: FloatingAlignment? {
+        let caseInstance = lastCase(.alignment)
+        if case .alignment(let alignment) = caseInstance {
+            return alignment
+        }
+        return nil
+    }
+
 }
 
 
@@ -150,7 +280,69 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
         "Border Width",
         fill: .mint.gradient.tertiary,
         stroke: .teal,
-        borderWidth: 5,
+        borderWidth: 4,
         width: 150, height: 100,
         traits: .height)
+}
+
+
+#Preview("Aligned", traits: .iPhoneProSizeForcedLayout) {
+    CaptionRectangle(
+        "Top Leading\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.topLeading), .height)
+
+    CaptionRectangle(
+        "Bottom Trailing\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.bottomTrailing), .height)
+
+    CaptionRectangle(
+        "Leading Top\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.outerLeadingTop), .height)
+
+    CaptionRectangle(
+        "Trailing\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.outerTrailing), .height)
+
+    CaptionRectangle(
+        "Leading Under\nCaption",
+        color: .mint,
+        size: [150, 100],
+        traits: .alignment(.outerLeadingUnder), .height)
+}
+
+
+#Preview("Border", traits: .fixedHeaderFooter) {
+    @Previewable @State var borderWidth: CGFloat = 8
+
+    Slider.captioned(
+        "Border Width",
+        value: $borderWidth,
+        in: 1...16,
+        currentValueFormat: .fractionLength(2),
+        boundsValueFormat: .arithmeticRoundedInteger
+    )
+
+    VisibleSpacer()
+
+    ZStack {
+        ForEach(FloatingAlignment.allCases) { alignment in
+            let stroke: Color = alignment == .center ? .mint : .clear
+            CaptionRectangle(
+                "aligned\n\(alignment.abbreviatedName)\ncontent",
+                fill: .clear, stroke: stroke,
+                borderWidth: borderWidth, size: .square(of: 200),
+                traits: .alignment(alignment), .drawsCaptionBorder
+            )
+        }
+    }
+
+    VisibleSpacer()
 }

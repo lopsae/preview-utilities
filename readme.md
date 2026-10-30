@@ -6,7 +6,7 @@ Utilities for SwiftUI previews.
 A collection of modifiers, views, extensions, and other utilities for building previews in 
 SwiftUI.
 
-Latest documentation: [v0.5.0][latest-documentation].
+Latest documentation: [v0.5.1][latest-documentation].
 
 See [Package Documentation](documentation.md) for documentation of earlier versions.
 
@@ -14,7 +14,7 @@ See [Package Documentation](documentation.md) for documentation of earlier versi
 > Package documentation is actively being written. Many of the utilities in this package have not 
 > been thoroughly documented yet.
 
-[latest-documentation]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/
+[latest-documentation]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/
 
 
 
@@ -44,8 +44,8 @@ Text("Judge my Vow")
 See the [Debug Geometry documentation][docs-debug-geometry-api] for more details.
 
 
-[docs-debug-geometry-function]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/swiftuicore/view/debuggeometry(_:)
-[docs-debug-geometry-api]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/debug-geometry-api
+[docs-debug-geometry-function]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/swiftuicore/view/debuggeometry(_:)
+[docs-debug-geometry-api]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/debug-geometry-api
 
 
 ### Debug Alignment Guides
@@ -75,27 +75,27 @@ Text("A new age\ndoes not begin all of a sudden")
 See the [Debug Alignment Guide documentation][docs-debug-alignment-guide-api] for more details.
 
 
-[docs-debug-alignment-guide-function]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/swiftuicore/view/debugalignmentguide(_:_:)
-[docs-debug-alignment-guide-api]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/debug-alignment-guide-api
+[docs-debug-alignment-guide-function]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/swiftuicore/view/debugalignmentguide(_:_:)
+[docs-debug-alignment-guide-api]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/debug-alignment-guide-api
 
 
 
 ### Floating Caption
 Add a floating caption, border, and size information to a view, without impacting its layout.
 
-Apply the [`floatingCaption(_:_:)`][docs-floating-caption-function] modifier to a view to overlay a 
-floating caption, and optionally draw a border over the owner view:
+Apply the [`floatingCaption(_:alignment:_:)`][docs-floating-caption-function] modifier to a view to 
+overlay a floating caption, and optionally draw a border over the owner view:
 
 ```swift
 Circle()
 .fill(.tertiary)
 .frame(width: 80, height: 80)
 .floatingCaption(
-    "A `Circle` Shape",              // caption localized string
-    .height,                         // prints the height of the owner view
-    .alignment(.outerLeadingBottom), // sets the caption alignment
-    .colorStyle(.indigo),            // sets the caption and border color
-    .borderWidth(4)                  // sets the border width
+    "A `Circle` Shape",             // caption localized string
+    alignment: .outerLeadingBottom, // the caption alignment
+    .height,                        // prints the height of the owner view
+    .colorStyle(.indigo),           // sets the caption and border color
+    .borderWidth(4)                 // sets the border width
 )
 ```
 
@@ -108,8 +108,8 @@ Circle()
 See the [Floating Caption documentation][docs-floating-caption-api] for more details.
 
 
-[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/swiftuicore/view/floatingcaption(_:_:)
-[docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/floating-caption-api
+[docs-floating-caption-function]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/swiftuicore/view/floatingCaption(_:alignment:_:)
+[docs-floating-caption-api]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/floating-caption-api
 
 
 
@@ -123,9 +123,9 @@ Other utilities available in this package:
   asynchronously with different isolation contexts.
 
 
-[docs-format-style-api]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/format-styles-api
-[docs-preview-caption]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/previewcaption
-[docs-floating-alignment-api]: https://lopsae.github.io/preview-utilities/v0.5.0/documentation/previewutilities/floating-alignments-api
+[docs-format-style-api]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/format-styles-api
+[docs-preview-caption]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/previewcaption
+[docs-floating-alignment-api]: https://lopsae.github.io/preview-utilities/v0.5.1/documentation/previewutilities/floating-alignments-api
 
 
 

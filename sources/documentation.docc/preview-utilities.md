@@ -54,7 +54,7 @@ A collection of modifiers, views, extensions, and other utilities for building p
 
 ### Alignment Additions
 + ``AlignmentWithOrthogonal``
-+ ``AlignmentWithDefault``
++ ``AlignmentWithCenter``
 
 
 ### API Collections

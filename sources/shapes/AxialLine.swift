@@ -105,8 +105,8 @@ private extension CGPoint {
     nonisolated
     func offset(along axis: Axis, by distance: CGFloat) -> Self {
         switch axis {
-        case .horizontal: self.offset(x: distance)
-        case .vertical:   self.offset(y: distance)
+        case .horizontal: self.adding(x: distance)
+        case .vertical:   self.adding(y: distance)
         }
     }
 
@@ -179,7 +179,7 @@ private struct PreviewContent {
         AxialLine(.horizontal, style: .red.secondary, lineWidth: lineWidth, lineCap: lineCap)
         .floatingCaption(
             verbatim: lineCap.displayName.capitalized,
-            .alignment(.outerBottomTrailing),
+            alignment: .outerBottomTrailing,
             .captionStyle(.green), .borderStyle(.green.tertiary),
             .borderWidth(4)
         )
@@ -189,7 +189,7 @@ private struct PreviewContent {
         AxialLine(.vertical, style: .red.secondary, lineWidth: lineWidth, lineCap: lineCap)
         .floatingCaption(
             verbatim: lineCap.displayName.capitalized,
-            .alignment(.outerBottomTrailing),
+            alignment: .outerBottomTrailing,
             .captionStyle(.green), .borderStyle(.green.tertiary),
             .borderWidth(4)
         )

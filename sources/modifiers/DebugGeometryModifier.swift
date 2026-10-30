@@ -4,13 +4,6 @@
 //
 
 
-// FIXME: Done docs: this file.
-// FIXME: Done docs: configuration file.
-// FIXME: Done docs: Package docs main page.
-// FIXME: Done docs: apiCollection.
-// FIXME: Update docs: readme.
-
-
 public import SwiftUI
 
 
@@ -250,7 +243,7 @@ public struct DebugGeometryModifier: ViewModifier {
 
             let yOffset = (insetRect.minY + phase).clamped(to: ...insetRect.maxY)
 
-            path.move(to: insetRect.topLeadingPoint.offset(y: yOffset))
+            path.move(to: insetRect.topLeadingPoint.adding(y: yOffset))
             path.addLine(to: insetRect.topLeadingPoint)
             path.addLine(to: insetRect.topTrailingPoint)
             path.addLine(to: insetRect.bottomTrailingPoint)
@@ -567,7 +560,7 @@ private struct PreviewContent {
     }
 
     VStack {
-        ForEach(traitOptions.enumerated(), id: \.offset) { index, optionTuple in
+        ForEach(traitOptions.indexed(), id: \.index) { index, optionTuple in
             Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
         }
 
@@ -579,17 +572,13 @@ private struct PreviewContent {
     DashedDivider()
 
     if useSmallContent {
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 100)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
             .debugGeometry(traits: traits)
             .safeAreaPadding(20)
-        Rectangle().fill(.gray.tertiary)
-            .frame(width: 100)
-            .floatingCaption("Spacer")
+        VisibleSpacer()
     } else {
         PreviewContent.star
             .debugGeometry(traits: traits)
@@ -833,13 +822,20 @@ private struct PreviewContent {
         .overlay {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
+                // TODO: Maybe implement borderVisibility trait, to allow only one border to draw, but keeping caption spacing.
+//                let noBorderTrait = alignment.innerAlignment?.vertical == .center
+//                    ? DebugGeometryModifier.Configuration.Trait.empty
+//                    : .noBorders
                 ClearRectangle()
-                .debugGeometry(.caption("Ag"), .alignment(alignment), .drawsCaptionBorder, .bordersWidth(bordersWidth))
+                .debugGeometry(
+                    .caption("Ag"), .alignment(alignment),
+                    .drawsCaptionBorder, .bordersWidth(bordersWidth)
+                )
             }
         }
-        .debugAlignmentGuide(vertical: .top,      .extendedLength(100))
-        .debugAlignmentGuide(vertical: .bottom,   .extendedLength(100))
-        .debugAlignmentGuide(horizontal: .center, .extendedLength(40))
+        .debugAlignmentGuide(horizontal: horizontalAlignment.swiftAlignment, .extendedLength(50))
+        .debugAlignmentGuide(vertical: .top,    .extendedLength(100))
+        .debugAlignmentGuide(vertical: .bottom, .extendedLength(100))
         .padding(.vertical, 20)
     }
     DashedDivider()

@@ -33,12 +33,12 @@ struct StarShape: Shape {
             // TODO: could be angle.cosSin
             let outerPoint = CGPoint(x: cos(outerAngle), y: sin(outerAngle))
                 .multiplying(by: outerRadius)
-                .offset(by: center)
+                .adding(point: center)
 
             // TODO: could be angle.cosSin
             let innerPoint = CGPoint(x: cos(innerAngle), y: sin(innerAngle))
                 .multiplying(by: innerRadius)
-                .offset(by: center)
+                .adding(point: center)
 
             if index == .zero {
                 path.move(to: outerPoint)

@@ -9,7 +9,8 @@ import SwiftUI
 import Testing
 
 
-/// Draws a graticule and provides a closure with a `CGRect` to draw in a canvas.
+/// Draws a graticule and provides a closure with a `GraphicsContext` and `CGRect` to draw in a
+/// canvas.
 ///
 /// The rectangle passed into the closure is positioned so that the graticule has line sets inset
 /// and outset from the rectangle. This can be used to test drawing routines based on the rectangle.

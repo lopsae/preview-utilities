@@ -98,9 +98,9 @@ extension Segment {
         let offsetX = -delta.height / length * distance
         let offsetY = +delta.width  / length * distance
 
-        return Self(
-            start: start.offset(x: offsetX, y: offsetY),
-            end:     end.offset(x: offsetX, y: offsetY),
+        return .init(
+            start: start.adding(x: offsetX, y: offsetY),
+            end:     end.adding(x: offsetX, y: offsetY),
         )
     }
 

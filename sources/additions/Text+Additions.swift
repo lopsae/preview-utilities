@@ -34,6 +34,33 @@ extension TextAlignment {
 }
 
 
+extension Text.Layout {
+
+    /// All the runs of the layout.
+    public var runs: [Run] {
+        flatMap { line in
+            line.map { run in run }
+        }
+    }
+
+    /// All the runs of the layout that have an attribute of the given type.
+    /// - Parameter attributeType: The type of the attribute to find.
+    /// - Returns: An array of tuples containing the run and associated attribute.
+    public func attributedRuns<Attribute>(
+        with attributeType: Attribute.Type
+    ) -> [(Run, Attribute)]
+    where Attribute: TextAttribute {
+        flatMap { line in
+            line.compactMap { run in
+                run[attributeType.self].map { attribute in
+                    (run, attribute)
+                }
+            }
+        }
+    }
+
+}
+
 
 // MARK: - PreviewContent
 
