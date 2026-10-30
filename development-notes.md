@@ -1,7 +1,7 @@
 Development Notes
 =================
 
-Notes through the development process.
+Notes of the development process and tools.
 
 
 `swift` Command Line
@@ -41,15 +41,6 @@ xcodebuild -scheme PreviewUtilities -showdestinations
 
 Documentation generation
 ------------------------
-
-Files that need version update:
-+ `VERSION`: Version used by the documentation scripts.
-+ `readme.md`: Link to latest, and all example links.
-+ `documentation.md`: Add and update latest.
-+ `release-notes.md`: Add notes of latest.
-+ `.spi.yml`: Swift Package Index documentation.
-+ `deploy-pages.yml`: In the docs worktree, to display the correct link when documentation is deployed to Github pages.
-
 
 Build the documentation into the documentation worktree:
 ```zsh

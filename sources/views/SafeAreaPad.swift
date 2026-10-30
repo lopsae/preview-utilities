@@ -35,8 +35,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             case .top:    .top
             case .bottom: .bottom
             }
-            let contentAlignment = guidedAlignment.baseAlignment
-                .alignment(withOrthogonal: .center)
+            let contentAlignment = guidedAlignment.baseAlignment.orthogonalCenterAlignment
 
             GeometryReader(alignment: contentAlignment) { geometry in
                 let safeArea = geometry.safeAreaInsets[edge: edge]

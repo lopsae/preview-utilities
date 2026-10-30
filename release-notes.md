@@ -1,8 +1,24 @@
 Release Notes
 =============
 
+v0.5.1
+------
++ Publicized static properties of `String` for common strings, like `empty` and `space`.
++ Publicized additions to `Text.Layout`.
++ Added convenience initializers for `Path` to draw rectangles and crosshairs.
++ Added `alignment` parameter to `View/floatingCaption` functions.
++ Added `CaptionRectangleTrait`.
++ Removed `ZeroSpacingPreviewModifier` and `PaddingSpacingPreviewModifier`.
++ Removed deprecated `BidirectionalCollection/beforeEndIndex`.
++ Renamed `AlignmentWithDefault` to `AlignmentWithCenter`.
++ Renamed function `VStack/maxWidth` to `expandingWidth`.
++ Added experimental `HorizontalRelativeAlignment`.
+
+
+
 v0.5.0 - Rename to DebugGeometry
 --------------------------------
+Released 2026 October 18th.
 + Renamed `DebugOverlayModifier` to `DebugGeometryModifier`.
 + Renamed `Defaults` to `SpacingDefaults`.
 

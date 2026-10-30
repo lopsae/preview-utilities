@@ -19,13 +19,14 @@ struct FloatingAlignedContainer<Content: View>: View {
 
     let alignment: FloatingAlignment
     // TODO: nil could be unnecessary here, if a view wants default padding they could define it in the content.
+    // TODO: Instead of spacing, consider renaming this padding.
     let horizontalSpacing: CGFloat?
     let verticalSpacing: CGFloat?
     let content: (FloatingAlignment.ContentAlignments) -> Content
 
 
     init(
-        alignment: FloatingAlignment = .inner(.center),
+        alignment: FloatingAlignment = .center,
         horizontalSpacing: CGFloat? = .zero,
         verticalSpacing: CGFloat? = .zero,
         @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
@@ -38,7 +39,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 
 
     init(
-        alignment: FloatingAlignment = .inner(.center),
+        alignment: FloatingAlignment = .center,
         spacing: CGFloat,
         @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
     ) {
@@ -55,6 +56,7 @@ struct FloatingAlignedContainer<Content: View>: View {
         GeometryReader(alignment: alignment.forContent) { geometry in
             let offset = calculateOffset(geometry: geometry)
 
+            // TODO: Rethink if VStack is appropriate here, since there is no easy way to provide spacing. ZStack may work better.
             VStack(alignment: alignment.forContent.horizontal) {
                 let contentAlignments = FloatingAlignment.ContentAlignments(floatingAlignment: alignment)
                 content(contentAlignments)

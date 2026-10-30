@@ -4,13 +4,16 @@
 //
 
 
+nonisolated
 extension String {
 
-    nonisolated static var empty:      Self { .init() }
-    nonisolated static var space:      Self { " " }
-    nonisolated static var nbsp:       Self { "\u{00a0}" }
-    nonisolated static var narrowNbsp: Self { "\u{202F}" }
-    nonisolated static var hyphen:     Self { "-" }
+    public static let empty:      Self = .init()
+    public static let space:      Self = " "
+    public static let nbsp:       Self = "\u{00a0}"
+    public static let narrowNbsp: Self = "\u{202F}"
+    public static let hyphen:     Self = "-"
+    public static let dot:        Self = "·"
+    public static let bullet:     Self = "•"
 
 }
 

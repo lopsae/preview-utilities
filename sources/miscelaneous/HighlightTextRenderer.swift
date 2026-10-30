@@ -332,20 +332,6 @@ extension LocalizedStringKey.StringInterpolation {
 }
 
 
-// TODO: move to GeometryAdditions.
-extension CGRect {
-
-    mutating func envelop(_ other: CGRect) {
-        self = union(other)
-    }
-
-    var horizontalBisector: CGRect {
-        self.setting(y: minY + height/2, height: .zero)
-    }
-
-}
-
-
 // MARK: - PreviewContent
 
 

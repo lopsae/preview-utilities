@@ -58,4 +58,27 @@ struct IndexedCollectionTests {
         }
     }
 
+
+    /// Uses a string to test non-integer indexes.
+    @Test func indexedWithString() {
+        let string: String = "string"
+        var iterator = string.indexed().makeIterator()
+
+        var index = string.startIndex
+        var counter = 0
+
+        while let tuple = iterator.next() {
+            let element = string[index]
+            #expect(tuple.index == index)
+            #expect(tuple.element == element)
+            #expect(string[tuple.index] == element)
+
+            index = string.index(after: index)
+            counter += 1
+        }
+
+        #expect(string.endIndex == index)
+        #expect(counter == 6)
+    }
+
 }

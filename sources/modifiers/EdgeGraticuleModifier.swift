@@ -304,7 +304,7 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Only Spacing", .alignment(.outerTop))
+    .floatingCaption("Only Spacing", alignment: .outerTop)
     .edgeGraticule(spacing: 20)
 
     DashedDivider()
@@ -312,7 +312,7 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Both Spacings", .alignment(.outerTop))
+    .floatingCaption("Both Spacings", alignment: .outerTop)
     .edgeGraticule(insetSpacing: 10, outsetSpacing: 20)
 }
 
@@ -321,8 +321,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Only Outset", .alignment(.outerTop))
-    .floatingCaption("2", .alignment(.outerTrailing))
+    .floatingCaption("Only Outset", alignment: .outerTop)
+    .floatingCaption("2", alignment: .outerTrailing)
     .edgeGraticule(outsetSpacing: 20, outsetCount: 2)
 
     DashedDivider()
@@ -330,8 +330,8 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Only Inset", .alignment(.outerTop))
-    .floatingCaption("3", .alignment(.top))
+    .floatingCaption("Only Inset", alignment: .outerTop)
+    .floatingCaption("3", alignment: .top)
     .edgeGraticule(insetSpacing: 10, insetCount: 3)
 
     DashedDivider()
@@ -339,9 +339,9 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Inset & Outset", .alignment(.outerTop))
-    .floatingCaption("3", .alignment(.top))
-    .floatingCaption("2", .alignment(.outerTrailing))
+    .floatingCaption("Inset & Outset", alignment: .outerTop)
+    .floatingCaption("3", alignment: .top)
+    .floatingCaption("2", alignment: .outerTrailing)
     .edgeGraticule(insetSpacing: 10, insetCount: 3, outsetSpacing: 20, outsetCount: 2)
 }
 
@@ -351,9 +351,9 @@ private struct PreviewContent {
     .font(.title.pointSize(100))
     .foregroundStyle(.quinary)
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Only Inset", .alignment(.outerTop))
-    .floatingCaption("3", .alignment(.top))
-    .floatingCaption("5+SP", .alignment(.trailing))
+    .floatingCaption("Only Inset", alignment: .outerTop)
+    .floatingCaption("3", alignment: .top)
+    .floatingCaption("5+SP", alignment: .trailing)
     .edgeGraticule(insetSpacing: 10, outsetSpacing: 20,
         .inset(.vertical, count: 3),
         .inset(.trailing, spacing: 15, count: 5)
@@ -364,9 +364,9 @@ private struct PreviewContent {
     Text("Ag")
     .font(.title.pointSize(100))
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Only Outset", .alignment(.outerTop))
-    .floatingCaption("2", .alignment(.outerBottom))
-    .floatingCaption("3+SP", .alignment(.outerLeading))
+    .floatingCaption("Only Outset", alignment: .outerTop)
+    .floatingCaption("2", alignment: .outerBottom)
+    .floatingCaption("3+SP", alignment: .outerLeading)
     .edgeGraticule(insetSpacing: 10, outsetSpacing: 20,
         .outset(.vertical, count: 2),
         .outset(.leading, spacing: 30, count: 3)
@@ -378,9 +378,9 @@ private struct PreviewContent {
     .font(.title.pointSize(100))
     .foregroundStyle(.quinary)
     .border(.green.tertiary, width: 10)
-    .floatingCaption("Only Outset", .alignment(.outerTop))
-    .floatingCaption("3+SP", .alignment(.top))
-    .floatingCaption("2", .alignment(.outerTrailing))
+    .floatingCaption("Only Outset", alignment: .outerTop)
+    .floatingCaption("3+SP", alignment: .top)
+    .floatingCaption("2", alignment: .outerTrailing)
     .edgeGraticule(insetSpacing: 10, outsetSpacing: 20,
         .inset(.vertical, spacing: 15, count: 3),
         .outset(.horizontal, count: 2)

@@ -11,7 +11,8 @@ extension Alignment {
 
     /// A guide that marks the center of the view.
     ///
-    /// Convenience accessor for `Alignment.center`, to disambiguate from other `center` alignments.
+    /// Convenience accessor for `Alignment.center`, to disambiguate from horizontal and vertical
+    /// `center` alignments.
     nonisolated
     static var centerCenter: Self { .center }
 }
@@ -50,7 +51,7 @@ public nonisolated
 protocol AlignmentWithOrthogonal: Sendable {
 
     /// Orthogonal alignment to `self`.
-    associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, Sendable
+    associatedtype OrthogonalAlignment: AlignmentWithOrthogonal, AlignmentWithCenter, Sendable
 
     /// The axis of the alignment.
     var axis: Axis { get }
@@ -59,6 +60,20 @@ protocol AlignmentWithOrthogonal: Sendable {
     /// - Parameter orthogonalAlignment: The orthogonal alignment to use.
     /// - Returns: An `Alignment` composed of `self` and the given orthogonal alignment.
     func alignment(withOrthogonal orthogonalAlignment: OrthogonalAlignment) -> Alignment
+
+    /// The `Alignment` with the center orthogonal alignment.
+    var orthogonalCenterAlignment: Alignment { get }
+}
+
+
+extension AlignmentWithOrthogonal {
+
+    /// The `Alignment` with `self` and its orthogonal center.
+    nonisolated
+    public var orthogonalCenterAlignment: Alignment {
+        self.alignment(withOrthogonal: .center)
+    }
+
 }
 
 
@@ -82,31 +97,28 @@ extension VerticalAlignment: AlignmentWithOrthogonal {
 }
 
 
-// MARK: - With Default
+// MARK: - With Center
 
 
-/// Defines a default alignment for an alignment type.
+/// Defines a center alignment for an alignment type.
 ///
 /// `HorizontalAlignment` and `VerticalAlignment` conform to this protocol and return their
-/// `center` alignment as default.
+/// `center` alignment.
 public nonisolated
-protocol AlignmentWithDefault {
+protocol AlignmentWithCenter {
 
-    /// The default alignment of the type.
-    static var `default`: Self { get }
+    /// The center alignment of the type.
+    static var center: Self { get }
+
 }
 
 
 nonisolated
-extension HorizontalAlignment: AlignmentWithDefault {
-    public static var `default`: Self { .center }
-}
+extension HorizontalAlignment: AlignmentWithCenter { }
 
 
 nonisolated
-extension VerticalAlignment: AlignmentWithDefault {
-    public static var `default`: Self { .center }
-}
+extension VerticalAlignment: AlignmentWithCenter { }
 
 
 // MARK: - Enums
@@ -197,7 +209,7 @@ private struct PreviewContent {
             traits: .size, .alignment(.topLeading))
         Text("Text with\nmultiple\nlines")
     }
-    .floatingCaption("VStack", .colorStyle(.indigo), .alignment(.outerBottomTrailing))
+    .floatingCaption("VStack", alignment: .outerBottomTrailing, .colorStyle(.indigo))
 
     DashedDivider()
         .padding(.vertical)
@@ -216,7 +228,7 @@ private struct PreviewContent {
             traits: .size, .alignment(.top))
         Text("Text with\nmultiple\nlines")
     }
-    .floatingCaption("HStack", .colorStyle(.purple), .alignment(.outerBottomTrailing))
+    .floatingCaption("HStack", alignment: .outerBottomTrailing, .colorStyle(.purple))
 
     VisibleSpacer()
 }

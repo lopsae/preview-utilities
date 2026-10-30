@@ -18,7 +18,7 @@ extension CGPoint {
     /// - Returns: A segment from `self` to the offset end point.
     @inlinable nonisolated
     public func segmentToOffset(x: CGFloat = .zero, y: CGFloat = .zero) -> Segment {
-        .init(start: self, end: self.offset(x: x, y: y))
+        .init(start: self, end: self.adding(x: x, y: y))
     }
 
 }

@@ -292,7 +292,7 @@ private struct PreviewContent {
     let items: [String] = ["One", "Two", "Three", "Four"]
 
     VStack {
-        ForEach(items.enumerated(), id: \.offset) { index, item in
+        ForEach(items.indexed(), id: \.index) { index, item in
             HStack {
                 PreviewContent.ImageWithButtons(
                     image: imageGenerator.images[item],

@@ -100,7 +100,7 @@ extension View {
         self
         .multilineTextAlignment(textAlignment)
         .maxWidthFrame(
-            alignment: textAlignment.horizontalAlignment.alignment(withOrthogonal: .center)
+            alignment: textAlignment.horizontalAlignment.orthogonalCenterAlignment
         )
     }
 
@@ -222,9 +222,19 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("ExpandingWidthText", traits: .spacing(8), .headerFooter, PreviewContent.layout) {
+#Preview("ExpandingWidthText", traits: .spacing(8), .fixedHeaderFooter, PreviewContent.layout) {
     Text("Single Line Default")
     .expandingWidthFrame()
+
+    DashedDivider()
+
+    Text("Multiline text\nwith default alignment")
+    .expandingWidthFrame()
+
+    DashedDivider()
+
+    Text("Single Line Leading")
+    .expandingWidthFrame(textAlignment: .leading)
 
     DashedDivider()
 
@@ -233,8 +243,8 @@ private struct PreviewContent {
 
     DashedDivider()
 
-    Text("Multiline text\nwith default alignment")
-    .expandingWidthFrame()
+    Text("Multiline text\nwith leading alignment")
+    .expandingWidthFrame(textAlignment: .leading)
 
     DashedDivider()
 
@@ -245,4 +255,6 @@ private struct PreviewContent {
 
     Text("Multiline text\nwith trailing alignment")
     .expandingWidthFrame(textAlignment: .trailing)
+
+    VisibleSpacer()
 }

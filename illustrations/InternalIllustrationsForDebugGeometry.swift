@@ -18,25 +18,22 @@ import Testing
 /// snippets.
 struct InternalIllustrationsForDebugOverlay {
 
-    // FIXME: use only path storage after testing.
     let storage: IllustrationStorage
-    let pathStorage: IllustrationStorage
 
     init() throws {
-        self.storage = try DocumentationResources.storage
-        self.pathStorage = try DocumentationResources.storage(at: "debug-geometry")
+        self.storage = try DocumentationResources.storage(at: "debug-geometry")
     }
 
 
     @Test func card() throws {
-        try storage.renderAndStore("debug-geometry", "card") {
+        try storage.renderAndStore("debug-geometry-card") {
             DebugGeometryModifier.Illustrations.card
         }
     }
 
 
     @Test func components() throws {
-        try pathStorage.renderAndStore("debug-geometry-components") {
+        try storage.renderAndStore("debug-geometry-components") {
             DebugGeometryModifier.Illustrations.components
         }
     }
