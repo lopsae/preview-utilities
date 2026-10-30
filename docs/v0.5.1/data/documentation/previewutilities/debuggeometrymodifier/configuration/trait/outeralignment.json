@@ -1,0 +1,620 @@
+{
+  "abstract" : [
+    {
+      "text" : "Aligns the debug caption to the default outer floating alignment.",
+      "type" : "text"
+    }
+  ],
+  "hierarchy" : {
+    "paths" : [
+      [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait"
+      ]
+    ]
+  },
+  "identifier" : {
+    "interfaceLanguage" : "swift",
+    "url" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/outerAlignment"
+  },
+  "kind" : "symbol",
+  "metadata" : {
+    "externalID" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO14outerAlignmentAGvpZ",
+    "fragments" : [
+      {
+        "kind" : "keyword",
+        "text" : "static"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "keyword",
+        "text" : "let"
+      },
+      {
+        "kind" : "text",
+        "text" : " "
+      },
+      {
+        "kind" : "identifier",
+        "text" : "outerAlignment"
+      },
+      {
+        "kind" : "text",
+        "text" : ": "
+      },
+      {
+        "kind" : "typeIdentifier",
+        "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+        "text" : "Trait"
+      }
+    ],
+    "modules" : [
+      {
+        "name" : "PreviewUtilities"
+      }
+    ],
+    "role" : "symbol",
+    "roleHeading" : "Type Property",
+    "symbolKind" : "property",
+    "title" : "outerAlignment"
+  },
+  "primaryContentSections" : [
+    {
+      "declarations" : [
+        {
+          "languages" : [
+            "swift"
+          ],
+          "platforms" : [
+            "macOS"
+          ],
+          "tokens" : [
+            {
+              "kind" : "attribute",
+              "text" : "@"
+            },
+            {
+              "kind" : "attribute",
+              "preciseIdentifier" : "s:ScM",
+              "text" : "MainActor"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "static"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "keyword",
+              "text" : "let"
+            },
+            {
+              "kind" : "text",
+              "text" : " "
+            },
+            {
+              "kind" : "identifier",
+              "text" : "outerAlignment"
+            },
+            {
+              "kind" : "text",
+              "text" : ": "
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait",
+              "kind" : "typeIdentifier",
+              "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+              "text" : "Trait"
+            }
+          ]
+        }
+      ],
+      "kind" : "declarations"
+    },
+    {
+      "content" : [
+        {
+          "anchor" : "discussion",
+          "level" : 2,
+          "text" : "Discussion",
+          "type" : "heading"
+        },
+        {
+          "inlineContent" : [
+            {
+              "text" : "The default outer alignment is ",
+              "type" : "text"
+            },
+            {
+              "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingAlignment\/outerTopLeading",
+              "isActive" : true,
+              "type" : "reference"
+            },
+            {
+              "text" : ".",
+              "type" : "text"
+            }
+          ],
+          "type" : "paragraph"
+        }
+      ],
+      "kind" : "content"
+    }
+  ],
+  "schemaVersion" : {
+    "major" : 0,
+    "minor" : 3,
+    "patch" : 0
+  },
+  "sections" : [
+
+  ],
+  "seeAlsoSections" : [
+    {
+      "anchor" : "Caption-Traits",
+      "generated" : true,
+      "identifiers" : [
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/caption(_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/caption(verbatim:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/alignment(_:)",
+        "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/innerAlignment"
+      ],
+      "title" : "Caption Traits"
+    }
+  ],
+  "variants" : [
+    {
+      "paths" : [
+        "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/outeralignment"
+      ],
+      "traits" : [
+        {
+          "interfaceLanguage" : "swift"
+        }
+      ]
+    }
+  ]
+, 
+"references": {
+"doc://PreviewUtilities/documentation/PreviewUtilities": {
+  "abstract" : [
+    {
+      "text" : "Utilities for SwiftUI previews.",
+      "type" : "text"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities",
+  "kind" : "symbol",
+  "role" : "collection",
+  "title" : "PreviewUtilities",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier": {
+  "abstract" : [
+    {
+      "text" : "Overlays a visual representation of a view’s geometry properties.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "DebugGeometryModifier"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "DebugGeometryModifier"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration": {
+  "abstract" : [
+    {
+      "text" : "Configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugGeometryModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "struct"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Configuration"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Configuration"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier.Configuration",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait": {
+  "abstract" : [
+    {
+      "text" : "Customizations that can be applied to the configuration of a ",
+      "type" : "text"
+    },
+    {
+      "code" : "DebugGeometryModifier",
+      "type" : "codeVoice"
+    },
+    {
+      "text" : ".",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "enum"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait",
+  "kind" : "symbol",
+  "navigatorTitle" : [
+    {
+      "kind" : "identifier",
+      "text" : "Trait"
+    }
+  ],
+  "role" : "symbol",
+  "title" : "DebugGeometryModifier.Configuration.Trait",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/alignment(_:)": {
+  "abstract" : [
+    {
+      "text" : "Aligns the debug caption to the given floating alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "alignment"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities17FloatingAlignmentO",
+      "text" : "FloatingAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/alignment(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "alignment(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/alignment(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/caption(_:)": {
+  "abstract" : [
+    {
+      "text" : "Prints the given localized string in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "caption"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:7SwiftUI18LocalizedStringKeyV",
+      "text" : "LocalizedStringKey"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/caption(_:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "caption(_:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/caption(_:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/caption(verbatim:)": {
+  "abstract" : [
+    {
+      "text" : "Prints the given verbatim string in the debug caption.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "func"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "caption"
+    },
+    {
+      "kind" : "text",
+      "text" : "("
+    },
+    {
+      "kind" : "externalParam",
+      "text" : "verbatim"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:SS",
+      "text" : "String"
+    },
+    {
+      "kind" : "text",
+      "text" : ") -> "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/caption(verbatim:)",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "caption(verbatim:)",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/caption(verbatim:)"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/innerAlignment": {
+  "abstract" : [
+    {
+      "text" : "Aligns the debug caption to the default inner floating alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "innerAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/innerAlignment",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "innerAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/inneralignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/DebugGeometryModifier/Configuration/Trait/outerAlignment": {
+  "abstract" : [
+    {
+      "text" : "Aligns the debug caption to the default outer floating alignment.",
+      "type" : "text"
+    }
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "outerAlignment"
+    },
+    {
+      "kind" : "text",
+      "text" : ": "
+    },
+    {
+      "kind" : "typeIdentifier",
+      "preciseIdentifier" : "s:16PreviewUtilities21DebugGeometryModifierV13ConfigurationV5TraitO",
+      "text" : "Trait"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/DebugGeometryModifier\/Configuration\/Trait\/outerAlignment",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "outerAlignment",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/debuggeometrymodifier\/configuration\/trait\/outeralignment"
+},
+"doc://PreviewUtilities/documentation/PreviewUtilities/FloatingAlignment/outerTopLeading": {
+  "abstract" : [
+
+  ],
+  "fragments" : [
+    {
+      "kind" : "keyword",
+      "text" : "static"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "keyword",
+      "text" : "let"
+    },
+    {
+      "kind" : "text",
+      "text" : " "
+    },
+    {
+      "kind" : "identifier",
+      "text" : "outerTopLeading"
+    },
+    {
+      "kind" : "text",
+      "text" : ": `Self`"
+    }
+  ],
+  "identifier" : "doc:\/\/PreviewUtilities\/documentation\/PreviewUtilities\/FloatingAlignment\/outerTopLeading",
+  "kind" : "symbol",
+  "role" : "symbol",
+  "title" : "outerTopLeading",
+  "type" : "topic",
+  "url" : "\/documentation\/previewutilities\/floatingalignment\/outertopleading"
+}
+}
+}
