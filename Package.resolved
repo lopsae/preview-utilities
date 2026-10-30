@@ -1,13 +1,13 @@
 {
-  "originHash" : "44fee465fab93d5cc86ccb187645c486be159efc7dbe163d99ed1d0c7a899af8",
+  "originHash" : "bcbb8af5d814343f3ff7078a61d76f30b7b2c921e9053b9103e8b806c78d5565",
   "pins" : [
     {
       "identity" : "geometry-additions",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lopsae/geometry-additions",
       "state" : {
-        "branch" : "feature/additions-for-0.6.2",
-        "revision" : "7e68241a6cfb27bbc8275b5d4971372465174361"
+        "revision" : "d7f2b93905365a94ab178d2f4337ded804317945",
+        "version" : "0.6.2"
       }
     },
     {
