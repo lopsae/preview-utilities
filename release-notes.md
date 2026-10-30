@@ -1,18 +1,26 @@
 Release Notes
 =============
 
-v0.5.1
-------
-+ Publicized static properties of `String` for common strings, like `empty` and `space`.
-+ Publicized additions to `Text.Layout`.
+v0.5.2 - Duo Geometry Properties
+--------------------------------
+In Development.
++ Added convenience initializers for `Path` to draw rectangles and crosshairs.
+
+
+
+v0.5.1 - Alignment Parameter for Floating Caption
+-------------------------------------------------
+Released 2026 October 30th.
 + Added convenience initializers for `Path` to draw rectangles and crosshairs.
 + Added `alignment` parameter to `View/floatingCaption` functions.
 + Added `CaptionRectangleTrait`.
++ Added experimental `HorizontalRelativeAlignment`.
++ Publicized static properties of `String` for common strings, like `empty` and `space`.
++ Publicized additions to `Text.Layout`.
 + Removed `ZeroSpacingPreviewModifier` and `PaddingSpacingPreviewModifier`.
 + Removed deprecated `BidirectionalCollection/beforeEndIndex`.
 + Renamed `AlignmentWithDefault` to `AlignmentWithCenter`.
 + Renamed function `VStack/maxWidth` to `expandingWidth`.
-+ Added experimental `HorizontalRelativeAlignment`.
 
 
 
