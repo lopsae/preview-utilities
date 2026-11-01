@@ -33,9 +33,9 @@ extension FormatStyle {
 
 // MARK: - Convenience Properties
 
-// `arithmeticRoundedInteger` could be defined as functions to allow a single generic implementation
-// for `BinaryFloatingPoint`. However, these are kept deliberately as vars to eschew the terminating
-// parenthesis of the function call.
+// Convenience vars like `arithmeticRoundedInteger` could be defined instead as a single functions
+// for a single generic implementation for `BinaryFloatingPoint`. However, these are kept
+// deliberately as vars to eschew the terminating parenthesis of the function call.
 
 
 extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
@@ -48,6 +48,16 @@ extension FormatStyle where Self == FloatingPointFormatStyle<Double> {
     public nonisolated
     static var arithmeticRoundedInteger: Self {
         .number.rounded(rule: .toNearestOrEven, increment: 1)
+    }
+
+
+    /// A `Double` format style that constrains formatted values to two digits in the fraction part.
+    ///
+    /// Shorthand for ``Foundation/FormatStyle/fractionLength(_:)`` configured to `2`.
+    @inlinable
+    public nonisolated
+    static var twoFractionals: Self {
+        .fractionLength(2)
     }
 
 }
@@ -63,6 +73,15 @@ extension FormatStyle where Self == FloatingPointFormatStyle<CGFloat> {
     public nonisolated
     static var arithmeticRoundedInteger: Self {
         .init().rounded(rule: .toNearestOrEven, increment: 1)
+    }
+
+    /// A `CGFloat` format style that constrains formatted values to two digits in the fraction part.
+    ///
+    /// Shorthand for ``Foundation/FormatStyle/fractionLength(_:)`` configured to `2`.
+    @inlinable
+    public nonisolated
+    static var twoFractionals: Self {
+        .fractionLength(2)
     }
 
 }
