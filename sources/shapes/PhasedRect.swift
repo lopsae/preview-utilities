@@ -37,12 +37,11 @@ struct PhasedRect: InsettableShape {
 
     func path(in rect: CGRect) -> Path {
         let insetRect = rect.inset(by: inset)
+
+        let yPhased = (insetRect.minY + phase).clamped(to: insetRect.minY...insetRect.maxY)
+
         var path = Path()
-
-        // FIXME: Negative phase can happen with negative insets.
-        let yOffset = (insetRect.minY + phase).clamped(to: insetRect.minY...insetRect.maxY)
-
-        path.move(to: insetRect.topLeadingPoint.adding(y: yOffset))
+        path.move(to: insetRect.topLeadingPoint.setting(y: yPhased))
         path.addLine(to: insetRect.topLeadingPoint)
         path.addLine(to: insetRect.topTrailingPoint)
         path.addLine(to: insetRect.bottomTrailingPoint)
@@ -91,10 +90,50 @@ struct PhasedRect: InsettableShape {
 
     VisibleSpacer()
 
-    PhasedRect(phase: phase, inset: inset)
-    .stroke(.red, style: .dashed(width: lineWidth))
+    ZStack {
+        PhasedRect(phase: phase, inset: inset)
+        .stroke(.red, style: .dashed(width: lineWidth))
+
+        PathShape { rect in
+            let offset: CGFloat = 4 + lineWidth
+            let corner = rect.inset(by: inset).topLeadingPoint
+            let phasedCorner = corner.adding(x: -offset, y: phase)
+            // FIXME: Path for a tiny arrow.
+            return .init(crosshair: phasedCorner, length: 6)
+        }
+        .stroke(.blue, lineWidth: 2)
+
+    }
     .frame(squareOf: length)
     .border(.red.tertiary, width: 1)
 
     VisibleSpacer()
+}
+
+
+// FIXME: Move to GeometryAdditions
+extension CGPoint {
+
+    nonisolated
+    func setting(
+        x newX: CGFloat? = nil,
+        y newY: CGFloat? = nil,
+    ) -> Self {
+        var mutablePoint = self
+        if let newX { mutablePoint.x = newX }
+        if let newY { mutablePoint.y = newY }
+        return mutablePoint
+    }
+
+}
+
+
+// FIXME: Move to its own file.
+nonisolated
+struct PathShape: Shape {
+
+    let pathClosure: @Sendable (CGRect) -> Path
+
+    func path(in rect: CGRect) -> Path { pathClosure(rect) }
+
 }
