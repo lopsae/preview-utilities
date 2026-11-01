@@ -7,12 +7,33 @@
 import SwiftUI
 
 
+// FIXME: Consider to publicize this protocol.
+
+
 /// Experimental protocol for `OptionSet`s that defines `Shift` a type that can be used to
 /// instantiate `OptionSet` instances representing an specific option.
 ///
-/// The intendended use for the `Shift` type is to contain the shift of each specific option
-/// contained in the `OptionSet`. This shift can the be used to instantiate option set instances, or
-/// to perform set operations using only the shift value.
+/// The intended use for the `Shift` type is to contain the shift value of each option contained in
+/// the `OptionSet`. This shift can be used to instantiate option set instances, or to perform set
+/// operations using only the shift value.
+///
+/// ```
+/// struct Firings: OptionSet, IdentifiableShift {
+///     let rawValue: Int
+///
+///     enum Shift: Int, CaseIterable, SelfIdentifiable {
+///         case greenware = 0, bisque, glaze
+///     }
+///
+///     static let glaze: Self = .init(shift: .glaze)
+/// }
+///
+/// let options: Firings = [
+///     .init(shift: .greenware), // Option sets can be initialized with a Shift
+///     .glaze                    // Or with the usual static properties.
+/// ]
+///
+/// ```
 ///
 /// See the example previews in this file for a example implementation of an `OptionSet` using
 /// `IdentifiableShift`.
@@ -203,83 +224,92 @@ private struct PreviewContent {
     // MARK: Example OptionSet
 
 
-    struct Firings: OptionSet, IdentifiableShiftWithDynamicMemberLookup {
+    struct Firings: OptionSet, IdentifiableShift {
         let rawValue: Int
 
-        enum Shift: Int, CaseIterable, SelfIdentifiable, DisplayKeyProvider {
+        enum Shift: Int, CaseIterable, SelfIdentifiable {
             case greenware = 0, bisque, glaze
-
-            // These properties define the available `KeyPath<Shift.Type, ValueKey<Shift>>` and thus
-            // the actual names of the dynamic members to retrieve the value.
-            // Sadly, keypath cannot read the cases directly, in which case these would be unnecessary.
-            static var greenwareValue: ValueKey<Self> { .key(.greenware) }
-            static var bisqueValue:    ValueKey<Self> { .key(.bisque) }
-            static var glazeValue:     ValueKey<Self> { .key(.glaze) }
-
-            // Implementation for DisplayKeyProvider, allows the OptionSet to produce DisplayProperties.
-            var displayKey: LocalizedStringKey {
-                switch self {
-                case .greenware: "Greenware"
-                case .bisque:    "Bisque"
-                case .glaze:     "Glaze"
-                }
-            }
-            // These properties define the available `KeyPath<Shift.Type, DisplayKey<Shift>>` and
-            // thus the actual names of the dynamic members to retrieve a DisplayProperty.
-            // If none are added, a DisplayProperty can still be produced using
-            // `optionSet.displayProperty(for:)`.
-            static var greenwareDisplay: DisplayKey<Self> { .key(.greenware) }
-            static var bisqueDisplay:    DisplayKey<Self> { .key(.bisque) }
-            static var glazeDisplay:     DisplayKey<Self> { .key(.glaze) }
-
-            // Not required, but can be used to use [dynamicMember:] subscript directly to retrieve
-            // the value for a component.
-            var keyPath: KeyPath<Self.Type, ValueKey<Self>> {
-                switch self {
-                case .greenware: \.greenwareValue
-                case .bisque:    \.bisqueValue
-                case .glaze:     \.glazeValue
-                }
-            }
-
-            // Not required, but can be used to use [dynamicMember:] subscript directly to retrieve
-            // a DisplayProperty for a component.
-            var displayKeyPath: KeyPath<Self.Type, DisplayKey<Self>> {
-                switch self {
-                case .greenware: \.greenwareDisplay
-                case .bisque:    \.bisqueDisplay
-                case .glaze:     \.glazeDisplay
-                }
-            }
-
-            // Not required, but can be used to use Binding[dynamicMember:] subscript directly to
-            // retrieve a binding to the value of a component.
-            // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
-            var bindingValueKeyPath: WritableKeyPath<Firings, Bool> {
-                switch self {
-                case .greenware: \.greenwareValue
-                case .bisque:    \.bisqueValue
-                case .glaze:     \.glazeValue
-                }
-            }
-
-            // Not required, but can be used to use Binding[dynamicMember:] subscript directly to
-            // retrieve a binding to the DisplayProperty of a component.
-            // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
-            var bindingDisplayKeyPath: WritableKeyPath<Firings, DisplayProperty<Bool>> {
-                switch self {
-                case .greenware: \.greenwareDisplay
-                case .bisque:    \.bisqueDisplay
-                case .glaze:     \.glazeDisplay
-                }
-            }
         }
 
         // The usual static properties to define each OptionSet component are not required, although
-        // these are still useful.
+        // these are still useful as shorthands.
         static let glaze: Self = .init(shift: .glaze)
     }
 
+}
+
+extension PreviewContent.Firings: IdentifiableShiftWithDynamicMemberLookup {}
+extension PreviewContent.Firings.Shift {
+
+    // These properties define the available `KeyPath<Shift.Type, ValueKey<Shift>>` and thus
+    // the actual names of the dynamic members to retrieve the value.
+    // Sadly, keypath cannot read the cases directly, in which case these would be unnecessary.
+    fileprivate static var greenwareValue: ValueKey<Self> { .key(.greenware) }
+    fileprivate static var bisqueValue:    ValueKey<Self> { .key(.bisque) }
+    fileprivate static var glazeValue:     ValueKey<Self> { .key(.glaze) }
+
+}
+
+
+extension PreviewContent.Firings.Shift: DisplayKeyProvider {
+
+    // Implementation for DisplayKeyProvider, allows the OptionSet to produce DisplayProperties.
+    var displayKey: LocalizedStringKey {
+        switch self {
+        case .greenware: "Greenware"
+        case .bisque:    "Bisque"
+        case .glaze:     "Glaze"
+        }
+    }
+    // These properties define the available `KeyPath<Shift.Type, DisplayKey<Shift>>` and
+    // thus the actual names of the dynamic members to retrieve a DisplayProperty.
+    // If none are added, a DisplayProperty can still be produced using
+    // `optionSet.displayProperty(for:)`.
+    fileprivate static var greenwareDisplay: DisplayKey<Self> { .key(.greenware) }
+    fileprivate static var bisqueDisplay:    DisplayKey<Self> { .key(.bisque) }
+    fileprivate static var glazeDisplay:     DisplayKey<Self> { .key(.glaze) }
+
+    // Not required, but can be used to use [dynamicMember:] subscript directly to retrieve
+    // the value for a component.
+    fileprivate var keyPath: KeyPath<Self.Type, ValueKey<Self>> {
+        switch self {
+        case .greenware: \.greenwareValue
+        case .bisque:    \.bisqueValue
+        case .glaze:     \.glazeValue
+        }
+    }
+
+    // Not required, but can be used to use [dynamicMember:] subscript directly to retrieve
+    // a DisplayProperty for a component.
+    fileprivate var displayKeyPath: KeyPath<Self.Type, DisplayKey<Self>> {
+        switch self {
+        case .greenware: \.greenwareDisplay
+        case .bisque:    \.bisqueDisplay
+        case .glaze:     \.glazeDisplay
+        }
+    }
+
+    // Not required, but can be used to use Binding[dynamicMember:] subscript directly to
+    // retrieve a binding to the value of a component.
+    // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
+    fileprivate var bindingValueKeyPath: WritableKeyPath<PreviewContent.Firings, Bool> {
+        switch self {
+        case .greenware: \.greenwareValue
+        case .bisque:    \.bisqueValue
+        case .glaze:     \.glazeValue
+        }
+    }
+
+    // Not required, but can be used to use Binding[dynamicMember:] subscript directly to
+    // retrieve a binding to the DisplayProperty of a component.
+    // The returned keypaths require IdentifiableShiftWithDynamicMemberLookup.
+    fileprivate var bindingDisplayKeyPath: WritableKeyPath<PreviewContent.Firings, DisplayProperty<Bool>> {
+        switch self {
+        case .greenware: \.greenwareDisplay
+        case .bisque:    \.bisqueDisplay
+        case .glaze:     \.glazeDisplay
+        }
+    }
 }
 
 
