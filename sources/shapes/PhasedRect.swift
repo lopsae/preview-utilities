@@ -14,6 +14,13 @@ import SwiftUI
 ///
 /// This shape phases the start point in the _y_ component, allowing the dashed pattern to draw
 /// property in all corners.
+///
+/// A positive `phase` value offsets the start point of the rectangle shape along the leading side.
+/// The rectangle start point can be phased as much as the rectangle height, larger values result
+/// in the rectangle shape starting at the bottom-leading corner.
+///
+/// Negative `phase` values are ignored, resulting in the rectangle shape starting at the
+/// top-leading corner.
 nonisolated
 struct PhasedRect: InsettableShape {
     let phase: CGFloat
@@ -32,8 +39,7 @@ struct PhasedRect: InsettableShape {
         let insetRect = rect.inset(by: inset)
         var path = Path()
 
-        // FIXME: Negative values produces negative phasing, should clamp to zero too.
-        let yOffset = (insetRect.minY + phase).clamped(to: ...insetRect.maxY)
+        let yOffset = (insetRect.minY + phase).clamped(to: insetRect.minY...insetRect.maxY)
 
         path.move(to: insetRect.topLeadingPoint.adding(y: yOffset))
         path.addLine(to: insetRect.topLeadingPoint)
@@ -50,6 +56,7 @@ struct PhasedRect: InsettableShape {
 // MARK: - Previews
 
 
+// FIXME: Add inset slider, lineWidth.
 #Preview("Default", traits: .fixedHeaderFooter) {
     @Previewable @State var phase: CGFloat = 10
     @Previewable @State var length: CGFloat = 120
