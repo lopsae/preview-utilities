@@ -688,6 +688,8 @@ private struct PreviewContent {
 
     let values: [Double] = Array(
         [
+            // FIXME: Possible utility.
+            // (0.0...2.0).stride(by: 0.1)
             stride(from: 0.0, to: 2.0, by: 0.1),
             stride(from: 2.0, to: 16.0, by: 1.0),
             stride(from: 20.0, to: 101.0, by: 10.0)
@@ -718,11 +720,9 @@ private struct PreviewContent {
     }
 
     PreviewContent.star
-        .frame(
-            width: width,
-            height: height
+        .frame(size: [width, height])
+        .debugGeometry(.bordersWidth(bordersWidth), .allGeometry, .alignment(.outerBottomLeading)
         )
-        .debugGeometry(.bordersWidth(bordersWidth), .allGeometry, .alignment(.outerBottomLeading))
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
@@ -740,6 +740,54 @@ private struct PreviewContent {
         ))
         .border(.gray.tertiary)
         .padding(.vertical)
+}
+
+
+#Preview("Corners", traits: PreviewContent.layout) {
+    @Previewable @State var printOnce: PrintOnce = .previewStarted
+
+    printOnce.print()
+
+    ZStack {
+        ConcentricRectangle(minimumConcentricRadius: .zero)
+            .fill(.orange)
+
+        let uneven = UnevenRoundedRectangle(
+            topLeadingRadius: 30,
+            bottomLeadingRadius: 10,
+            bottomTrailingRadius: 30,
+            topTrailingRadius: 10,
+            style: .continuous
+        )
+        ZStack {
+            ConcentricRectangle(minimumConcentricRadius: .zero)
+            .fill(.purple)
+
+            GeometryReader { geometry in
+                VStack {
+                    Text("GeometryProxy")
+                    if #available(anyAppleOS 27.0, *) {
+                        if let cornerRadii = geometry.concentricCornerRadii {
+                            Text(cornerRadii, format: .concentricRadiiDebugString)
+                                .monospaced()
+                        } else {
+                            Text("nil corner-radii")
+                                .monospaced()
+                        }
+                    } else {
+                        Text("unavailable corner-radii")
+                            .monospaced()
+                    }
+                }
+                .font(.caption)
+                .fixedSize()
+            }
+        }
+        .containerShape(uneven)
+        .frame(squareOf: 200)
+    }
+    .padding(8)
+    .ignoresSafeArea()
 }
 
 
@@ -843,12 +891,61 @@ private struct PreviewContent {
 
 
 
+// FIXME: Move to own file, add tests.
 extension Hashable {
 
     nonisolated
     func isEqual(toAny others: Self...) -> Bool {
         let set = Set(others)
         return set.contains(self)
+    }
+
+}
+
+
+// MARK: - GeometryProxyFormatStyle
+
+// FIXME: Move to its own file.
+
+
+nonisolated
+enum GeometryProxyFormatStyle {
+
+    nonisolated
+    struct ConcentricCornerRadiiDebugString: FormatStyle, Sendable {
+
+        // TODO: add parameter to add newline after some data?
+
+        init() { }
+
+        @_documentation(visibility: internal)
+        func format(_ value: RectangleCornerRadii) -> String {
+            let initialLabel = "CorderRadii:"
+            let tl = value.topLeading
+            let tt = value.topTrailing
+            let bl = value.bottomLeading
+            let bt = value.bottomTrailing
+
+            let fractionLength = FloatingPointFormatStyle<CGFloat>.fractionLength(2)
+            let radiiString = """
+                \(initialLabel)
+                tl: \(tl, format: fractionLength), tt: \(tt, format: fractionLength),
+                bl: \(bl, format: fractionLength), bt: \(bt, format: fractionLength)
+                """
+
+            return radiiString
+        }
+
+    }
+
+}
+
+
+extension FormatStyle where Self == GeometryProxyFormatStyle.ConcentricCornerRadiiDebugString {
+
+    nonisolated
+    static var concentricRadiiDebugString: Self {
+        return .init()
     }
 
 }
