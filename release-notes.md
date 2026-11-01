@@ -4,7 +4,8 @@ Release Notes
 v0.5.2 - Duo Geometry Properties
 --------------------------------
 In Development.
-+ Added convenience initializers for `Path` to draw rectangles and crosshairs.
++ Publicized `DebugGeometryModifier.Configuration.GeometryProperties`
++ Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
 
 
 
