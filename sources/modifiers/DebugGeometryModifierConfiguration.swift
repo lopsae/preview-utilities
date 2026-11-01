@@ -77,23 +77,27 @@ extension DebugGeometryModifier {
 
 extension DebugGeometryModifier.Configuration {
 
+    nonisolated
+    public struct GeometryProperties: OptionSet, IdentifiableShift, Sendable {
+        public let rawValue: Int
 
-    // TODO: could use IdentifiableShift
-
-    // Extends `Sendable` based in other `OptionSet`s present in SwiftUI, like `ContentShapeKinds`
-    // and `PinnedScrollableViews`.
-    struct GeometryProperties: OptionSet, Sendable {
-        let rawValue: Int
-
-        nonisolated init(rawValue: Int) {
+        nonisolated
+        public init(rawValue: Int) {
             self.rawValue = rawValue
         }
 
+        enum Shift: Int, CaseIterable, SelfIdentifiable {
+            case width = 0,
+                 height,
+                 origin,
+                 safeAreaInsets
+        }
+
         static let empty: Self =          .init(rawValue: .zero)
-        static let width: Self =          .init(shiftedBy: 0)
-        static let height: Self =         .init(shiftedBy: 1)
-        static let origin: Self =         .init(shiftedBy: 2)
-        static let safeAreaInsets: Self = .init(shiftedBy: 3)
+        static let width: Self =          .init(shift: .width)
+        static let height: Self =         .init(shift: .height)
+        static let origin: Self =         .init(shift: .origin)
+        static let safeAreaInsets: Self = .init(shift: .safeAreaInsets)
 
         static let size: Self = [.width, .height]
         static let allGeometry: Self = [.width, .height, .origin, .safeAreaInsets]
