@@ -206,15 +206,26 @@ public struct DebugGeometryModifier: ViewModifier {
         // allow drawing at smaller sizes, otherwise strokes smaller that half the half the side
         // of the rectangle are NOT drawn.
         let correctedLineWidth = min(geometry.size.minComponent, boundedBordersWidth * 2) / 2.0
-
         let strokeStyle = StrokeStyle(
             lineWidth: correctedLineWidth, lineCap: .butt,
             dash: [boundedBordersWidth * 3, boundedBordersWidth * 2]
         )
-
-        PhasedRect(phase: boundedBordersWidth)
+        // FIXME: Cleanup availability access.
+        // FIXME: Add support of styling inner and outer strokes.
+        // FIXME: Add support for innerStrokePosition: .inner .outer .middle? .inset? .outset?
+        // FIXME: Add support to ignore concentricCornerRadii.
+        // FIXME: If cornerRadii is zero, should draw with PhasedRect!
+        if #available(anyAppleOS 27.0, *), let cornerRadii = geometry.concentricCornerRadii {
+            UnevenRoundedRectangle(cornerRadii: cornerRadii)
             .strokeBorder(innerStrokeShapeStyle, style: strokeStyle)
+        } else {
+            PhasedRect(phase: boundedBordersWidth)
+            .strokeBorder(innerStrokeShapeStyle, style: strokeStyle)
+        }
     }
+
+
+    // FIXME: Move to its own file.
 
     /// Rectangle shape with a phased start.
     ///
@@ -714,6 +725,7 @@ private struct PreviewContent {
 }
 
 
+// FIXME: Add capsule container shape, to test small sizes.
 #Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var bordersWidth: Double = 5
     @Previewable @State var widthIndex: Double = .zero
@@ -828,8 +840,8 @@ private struct PreviewContent {
 
             ConcentricRectangle()
             .fill(.purple.quinary)
+            .debugGeometry(.concentricCornerRadii)
             .containerShape(uneven)
-            .debugGeometry(.safeAreaInsets)
             .frame(squareOf: 200)
         }
     }
@@ -917,6 +929,7 @@ private struct PreviewContent {
         .overlay {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
+                // FIXME: Implement style for all borders, setting it to clear would respect caption position, with no borders.
                 // TODO: Maybe implement borderVisibility trait, to allow only one border to draw, but keeping caption spacing.
 //                let noBorderTrait = alignment.innerAlignment?.vertical == .center
 //                    ? DebugGeometryModifier.Configuration.Trait.empty
