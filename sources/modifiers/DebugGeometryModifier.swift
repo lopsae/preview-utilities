@@ -288,16 +288,18 @@ public struct DebugGeometryModifier: ViewModifier {
                 horizontalSpacing: spacing.width,
                 verticalSpacing: spacing.height,
             ) { alignments in
-                // Spacing derived from the contained Text elements, which so far works well.
+                // Spacing is derived from the contained Text elements, which so far works well.
                 VStack(alignment: alignments.content.horizontal) {
                     let globalFrame = geometry.frame(in: .global)
-                    let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
+                    // FIXME: Rename to twoFractionals.
+                    let fractionLength: FloatingPointFormatStyle<Double> = .twoFractionals
 
                     // Caption.
                     switch configuration.captionSource {
                     case .localizedKey(let localizedStringKey):
                         Text(localizedStringKey)
                         .font(.caption)
+                        // FIXME: can multiline text alignment be moved to outside the group?
                         .multilineTextAlignment(alignments.text)
                     case .verbatim(let string):
                         Text(verbatim: string)
@@ -331,6 +333,22 @@ public struct DebugGeometryModifier: ViewModifier {
                     if configuration.geometryProperties.contains(.safeAreaInsets) {
                         Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
                         .multilineTextAlignment(alignments.text)
+                    }
+
+                    // ConcentricCornerRadii
+                    if configuration.geometryProperties.contains(.concentricCornerRadii) {
+                        // FIXME: Simplify Availability api
+                        if #available(anyAppleOS 27.0, *) {
+                            if let cornerRadii = geometry.concentricCornerRadii {
+                                Text("concentricCornerRadii:\n\(cornerRadii, format: .concentricRadiiDebugString)")
+                                    .multilineTextAlignment(alignments.text)
+                            } else {
+                                Text("concentricCornerRadii: nil)")
+                            }
+                        } else {
+                            Text("concentricCornerRadii: unavailable)")
+                        }
+
                     }
                 } // Group
                 .font(.caption.monospaced())
@@ -542,15 +560,16 @@ private struct PreviewContent {
         trait: DebugGeometryModifier.Configuration.Trait,
         enabled: Bool
     )] = [
-        ("Hidden",          .hidden,                                false),
-        ("Caption",         .caption("Caption\nwith `formatting`"), false),
-        ("Hairline",        .hairline,                              false),
-        ("Width",           .width,                                 true),
-        ("Height",          .height,                                false),
-        ("Origin",          .origin,                                false),
-        ("SafeArea Insets", .safeAreaInsets,                        false),
-        ("All Geometry",    .allGeometry,                           false),
-        ("Outer Alignment", .outerAlignment,                        false)
+        ("Hidden",       .hidden,                                false),
+        ("Caption",      .caption("Caption\nwith `formatting`"), false),
+        ("Hairline",     .hairline,                              false),
+        ("Width",        .width,                                 true),
+        ("Height",       .height,                                false),
+        ("Origin",       .origin,                                false),
+        ("SafeAreas",    .safeAreaInsets,                        false),
+        ("CornerRadii",  .concentricCornerRadii,                 true),
+        ("All Geometry", .allGeometry,                           false),
+        ("Outer Align.", .outerAlignment,                        false)
     ]
 
     let traits = traitOptions.compactMap { traitTuple in
@@ -559,14 +578,22 @@ private struct PreviewContent {
             : nil
     }
 
-    VStack {
+    LazyVGrid(
+        // FIXME: Convenience, .repeating(2, .flexible())
+        columns: Array(
+            repeating: .init(.flexible()),
+            count: 2
+        ),
+        alignment: .leading,
+        spacing: 4.0
+    ) {
         ForEach(traitOptions.indexed(), id: \.index) { index, optionTuple in
             Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
         }
 
-        DashedDivider()
-
-        Toggle("Use Small Content", isOn: $useSmallContent)
+        // FIXME: Separate to its own grid, or can there be a grid separator?
+        // FIXME: add toggle for wrapping in container shape.
+        Toggle("Small Content", isOn: $useSmallContent)
     }
 
     DashedDivider()
@@ -577,11 +604,19 @@ private struct PreviewContent {
             .foregroundStyle(.quaternary)
             .monospaced()
             .debugGeometry(traits: traits)
+            .containerShape(.capsule)
             .safeAreaPadding(20)
         VisibleSpacer()
     } else {
+        let roundedRect = UnevenRoundedRectangle(
+            topLeadingRadius: 38,
+            bottomLeadingRadius: 12,
+            bottomTrailingRadius: 12,
+            topTrailingRadius: 38
+        )
         PreviewContent.star
             .debugGeometry(traits: traits)
+            .containerShape(roundedRect)
             .safeAreaPadding(.init(horizontal: 50, vertical: 80))
     }
 
@@ -700,7 +735,9 @@ private struct PreviewContent {
     VStack {
         Slider.captioned(
             "Line Width", value: $bordersWidth, in: 0...15,
-            valueFormat: .arithmeticRoundedInteger)
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger
+        )
 
         Slider(
             "Width", collection: values,
@@ -743,6 +780,7 @@ private struct PreviewContent {
 }
 
 
+// FIXME: Cleanup or delete.
 #Preview("Corners", traits: PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .previewStarted
 
@@ -753,38 +791,47 @@ private struct PreviewContent {
             .fill(.orange)
 
         let uneven = UnevenRoundedRectangle(
-            topLeadingRadius: 30,
-            bottomLeadingRadius: 10,
-            bottomTrailingRadius: 30,
-            topTrailingRadius: 10,
+            topLeadingRadius: 50,
+            bottomLeadingRadius: 20,
+            bottomTrailingRadius: 50,
+            topTrailingRadius: 20,
             style: .continuous
         )
-        ZStack {
-            ConcentricRectangle(minimumConcentricRadius: .zero)
-            .fill(.purple)
 
-            GeometryReader { geometry in
-                VStack {
-                    Text("GeometryProxy")
-                    if #available(anyAppleOS 27.0, *) {
-                        if let cornerRadii = geometry.concentricCornerRadii {
-                            Text(cornerRadii, format: .concentricRadiiDebugString)
-                                .monospaced()
+        VStack {
+            ZStack {
+                ConcentricRectangle(minimumConcentricRadius: .zero)
+                .fill(.purple)
+
+                GeometryReader { geometry in
+                    VStack {
+                        Text("GeometryProxy")
+                        if #available(anyAppleOS 27.0, *) {
+                            if let cornerRadii = geometry.concentricCornerRadii {
+                                Text(cornerRadii, format: .concentricRadiiDebugString)
+                                    .monospaced()
+                            } else {
+                                Text("nil corner-radii")
+                                    .monospaced()
+                            }
                         } else {
-                            Text("nil corner-radii")
+                            Text("unavailable corner-radii")
                                 .monospaced()
                         }
-                    } else {
-                        Text("unavailable corner-radii")
-                            .monospaced()
                     }
+                    .font(.caption)
+                    .fixedSize()
                 }
-                .font(.caption)
-                .fixedSize()
             }
+            .containerShape(uneven)
+            .frame(squareOf: 200)
+
+            ConcentricRectangle()
+            .fill(.purple.quinary)
+            .containerShape(uneven)
+            .debugGeometry(.safeAreaInsets)
+            .frame(squareOf: 200)
         }
-        .containerShape(uneven)
-        .frame(squareOf: 200)
     }
     .padding(8)
     .ignoresSafeArea()
@@ -920,17 +967,15 @@ enum GeometryProxyFormatStyle {
 
         @_documentation(visibility: internal)
         func format(_ value: RectangleCornerRadii) -> String {
-            let initialLabel = "CorderRadii:"
             let tl = value.topLeading
             let tt = value.topTrailing
             let bl = value.bottomLeading
             let bt = value.bottomTrailing
 
-            let fractionLength = FloatingPointFormatStyle<CGFloat>.fractionLength(2)
+            let twoFractionals = FloatingPointFormatStyle<CGFloat>.twoFractionals
             let radiiString = """
-                \(initialLabel)
-                tl: \(tl, format: fractionLength), tt: \(tt, format: fractionLength),
-                bl: \(bl, format: fractionLength), bt: \(bt, format: fractionLength)
+                tl: \(tl, format: twoFractionals), tt: \(tt, format: twoFractionals),
+                bl: \(bl, format: twoFractionals), bt: \(bt, format: twoFractionals)
                 """
 
             return radiiString
@@ -944,9 +989,7 @@ enum GeometryProxyFormatStyle {
 extension FormatStyle where Self == GeometryProxyFormatStyle.ConcentricCornerRadiiDebugString {
 
     nonisolated
-    static var concentricRadiiDebugString: Self {
-        return .init()
-    }
+    static var concentricRadiiDebugString: Self { .init() }
 
 }
 
