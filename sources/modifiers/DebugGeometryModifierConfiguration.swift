@@ -90,14 +90,16 @@ extension DebugGeometryModifier.Configuration {
             case width = 0,
                  height,
                  origin,
-                 safeAreaInsets
+                 safeAreaInsets,
+                 concentricCornerRadii
         }
 
-        static let empty: Self =          .init(rawValue: .zero)
-        static let width: Self =          .init(shift: .width)
-        static let height: Self =         .init(shift: .height)
-        static let origin: Self =         .init(shift: .origin)
-        static let safeAreaInsets: Self = .init(shift: .safeAreaInsets)
+        static let empty:                 Self = .init(rawValue: .zero)
+        static let width:                 Self = .init(shift: .width)
+        static let height:                Self = .init(shift: .height)
+        static let origin:                Self = .init(shift: .origin)
+        static let safeAreaInsets:        Self = .init(shift: .safeAreaInsets)
+        static let concentricCornerRadii: Self = .init(shift: .concentricCornerRadii)
 
         static let size: Self = [.width, .height]
         static let allGeometry: Self = [.width, .height, .origin, .safeAreaInsets]
@@ -122,9 +124,10 @@ extension DebugGeometryModifier.Configuration {
     ///
     /// ## Topics
     ///
-    /// ### Geometry Traits
+    /// ### Geometry Properties Traits
     /// + ``allGeometry``
     /// + ``safeAreaInsets``
+    /// + ``concentricCornerRadii``
     /// + ``origin``
     /// + ``size``
     /// + ``height``
@@ -206,6 +209,9 @@ extension DebugGeometryModifier.Configuration {
 
         /// Prints the safe area insets applied to the owner view in the debug caption.
         public static let safeAreaInsets: Trait = .modifier(GeometryPropertiesModifier(property: .safeAreaInsets))
+
+        /// Prints the concentric corner radii applied to the owner view in the debug caption.
+        public static let concentricCornerRadii: Trait = .modifier(GeometryPropertiesModifier(property: .concentricCornerRadii))
 
         /// Prints the width and height of the owner view in the debug caption.
         public static let size: Trait = .modifier(GeometryPropertiesModifier(property: .size))
