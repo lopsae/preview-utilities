@@ -39,6 +39,7 @@ struct PhasedRect: InsettableShape {
         let insetRect = rect.inset(by: inset)
         var path = Path()
 
+        // FIXME: Negative phase can happen with negative insets.
         let yOffset = (insetRect.minY + phase).clamped(to: insetRect.minY...insetRect.maxY)
 
         path.move(to: insetRect.topLeadingPoint.adding(y: yOffset))
@@ -56,13 +57,26 @@ struct PhasedRect: InsettableShape {
 // MARK: - Previews
 
 
-// FIXME: Add inset slider, lineWidth.
 #Preview("Default", traits: .fixedHeaderFooter) {
     @Previewable @State var phase: CGFloat = 10
+    @Previewable @State var inset: CGFloat = 4
     @Previewable @State var length: CGFloat = 120
+    @Previewable @State var lineWidth: CGFloat = 4
 
     Slider.captioned(
         "Phase", value: $phase, in: -20...50,
+        currentValueFormat: .twoFractionals,
+        boundsValueFormat: .arithmeticRoundedInteger
+    )
+
+    Slider.captioned(
+        "Inset", value: $inset, in: -20...30,
+        currentValueFormat: .twoFractionals,
+        boundsValueFormat: .arithmeticRoundedInteger
+    )
+
+    Slider.captioned(
+        "Line Width", value: $lineWidth, in: -20...30,
         currentValueFormat: .twoFractionals,
         boundsValueFormat: .arithmeticRoundedInteger
     )
@@ -77,9 +91,10 @@ struct PhasedRect: InsettableShape {
 
     VisibleSpacer()
 
-    PhasedRect(phase: phase, inset: .zero)
-    .stroke(.red, style: .dashed(width: 4))
+    PhasedRect(phase: phase, inset: inset)
+    .stroke(.red, style: .dashed(width: lineWidth))
     .frame(squareOf: length)
+    .border(.red.tertiary, width: 1)
 
     VisibleSpacer()
 }
