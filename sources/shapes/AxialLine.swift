@@ -102,6 +102,7 @@ private extension CGPoint {
         }
     }
 
+    // FIXME: Use adding instead.
     nonisolated
     func offset(along axis: Axis, by distance: CGFloat) -> Self {
         switch axis {
@@ -113,15 +114,14 @@ private extension CGPoint {
 }
 
 
-private extension CGSize {
+// FIXME: Move to GeometryAdditions.
+extension CGSize {
 
     nonisolated
     func length(along axis: Axis) -> CGFloat {
         switch axis {
-        case .horizontal:
-            width
-        case .vertical:
-            height
+        case .horizontal: width
+        case .vertical:   height
         }
     }
 
