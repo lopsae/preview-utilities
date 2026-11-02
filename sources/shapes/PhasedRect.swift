@@ -115,6 +115,20 @@ struct PhasedRect: InsettableShape {
 extension CGPoint {
 
     nonisolated
+    func adding(
+        _ distance: CGFloat,
+        perpendicular: CGFloat = .zero,
+        along axis: Axis
+    ) -> Self {
+        switch axis {
+        case .horizontal: self.adding(x: distance,      y: perpendicular)
+        case .vertical:   self.adding(x: perpendicular, y: distance)
+        }
+    }
+
+
+
+    nonisolated
     func setting(
         x newX: CGFloat? = nil,
         y newY: CGFloat? = nil,
@@ -123,6 +137,13 @@ extension CGPoint {
         if let newX { mutablePoint.x = newX }
         if let newY { mutablePoint.y = newY }
         return mutablePoint
+    }
+
+
+    // FIXME: Move to CGPoint+Geometry.
+    nonisolated
+    func segmentTo(point: CGPoint) -> Segment {
+        .init(start: self, end: point)
     }
 
 }
@@ -136,4 +157,100 @@ struct PathShape: Shape {
 
     func path(in rect: CGRect) -> Path { pathClosure(rect) }
 
+}
+
+
+extension Path {
+
+    nonisolated
+    init(
+        arrowAt point: CGPoint,
+        towards edge: Edge,
+        size: CGSize
+    ) {
+        self.init()
+
+        let length = size.length(along: edge.axis)
+        let width = size.length(along: edge.axis.orthogonal)
+
+        // FIXME: Dry this code.
+        switch edge {
+        case .top:
+            let end = point.adding(length, along: .vertical)
+            point.segmentTo(point: end).add(to: &self)
+            let wingOne = point.adding(width/2, perpendicular: +width/2, along: .vertical)
+            let wingTwo = point.adding(width/2, perpendicular: -width/2, along: .vertical)
+            point.segmentTo(point: wingOne).add(to: &self)
+            point.segmentTo(point: wingTwo).add(to: &self)
+        case .bottom:
+            let end = point.adding(-length, along: .vertical)
+            point.segmentTo(point: end).add(to: &self)
+            let wingOne = point.adding(-width/2, perpendicular: +width/2, along: .vertical)
+            let wingTwo = point.adding(-width/2, perpendicular: -width/2, along: .vertical)
+            point.segmentTo(point: wingOne).add(to: &self)
+            point.segmentTo(point: wingTwo).add(to: &self)
+        case .leading:
+            let end = point.adding(length, along: .horizontal)
+            point.segmentTo(point: end).add(to: &self)
+            let wingOne = point.adding(width/2, perpendicular: +width/2, along: .horizontal)
+            let wingTwo = point.adding(width/2, perpendicular: -width/2, along: .horizontal)
+            point.segmentTo(point: wingOne).add(to: &self)
+            point.segmentTo(point: wingTwo).add(to: &self)
+        case .trailing:
+            let end = point.adding(-length, along: .horizontal)
+            point.segmentTo(point: end).add(to: &self)
+            let wingOne = point.adding(-width/2, perpendicular: +width/2, along: .horizontal)
+            let wingTwo = point.adding(-width/2, perpendicular: -width/2, along: .horizontal)
+            point.segmentTo(point: wingOne).add(to: &self)
+            point.segmentTo(point: wingTwo).add(to: &self)
+        }
+
+    }
+
+}
+
+
+#Preview("Arrow") {
+    ZStack {
+        PathShape { rect in
+            Path(crosshair: rect.centerPoint)
+        }
+        .stroke(.primary, lineWidth: 2)
+
+        PathShape { rect in
+            Path(
+                arrowAt: rect.centerPoint.adding(y: -10),
+                towards: .bottom,
+                size: [20, 40]
+            )
+        }
+        .stroke(.blue, lineWidth: 2)
+
+        PathShape { rect in
+            Path(
+                arrowAt: rect.centerPoint.adding(x: 10),
+                towards: .leading,
+                size: [40, 20]
+            )
+        }
+        .stroke(.orange, lineWidth: 2)
+
+        PathShape { rect in
+            Path(
+                arrowAt: rect.centerPoint.adding(y: 10),
+                towards: .top,
+                size: [20, 40]
+            )
+        }
+        .stroke(.purple, lineWidth: 2)
+
+        PathShape { rect in
+            Path(
+                arrowAt: rect.centerPoint.adding(x: -10),
+                towards: .trailing,
+                size: [40, 20]
+            )
+        }
+        .stroke(.green, lineWidth: 2)
+    }
 }
