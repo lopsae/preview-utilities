@@ -210,7 +210,6 @@ public struct DebugGeometryModifier: ViewModifier {
             lineWidth: correctedLineWidth, lineCap: .butt,
             dash: [boundedBordersWidth * 3, boundedBordersWidth * 2]
         )
-        // FIXME: Cleanup availability access.
         // FIXME: Add support of styling inner and outer strokes.
         // FIXME: Add support for innerStrokePosition: .inner .outer .middle? .inset? .outset?
         // FIXME: Add support to ignore concentricCornerRadii.
@@ -308,18 +307,16 @@ public struct DebugGeometryModifier: ViewModifier {
 
                     // ConcentricCornerRadii
                     if configuration.geometryProperties.contains(.concentricCornerRadii) {
-                        // FIXME: Simplify Availability api
-                        if #available(anyAppleOS 27.0, *) {
-                            if let cornerRadii = geometry.concentricCornerRadii {
-                                Text("concentricCornerRadii:\n\(cornerRadii, format: .concentricRadiiDebugString)")
-                                    .multilineTextAlignment(alignments.text)
-                            } else {
-                                Text("concentricCornerRadii: nil)")
-                            }
-                        } else {
-                            Text("concentricCornerRadii: unavailable)")
+                        let label = "concentricCornerRadii"
+                        switch geometry.backport.concentricCornerRadii {
+                        case .available(.some(let cornerRadii)):
+                            Text("\(label):\n\(cornerRadii, format: .concentricRadiiDebugString)")
+                            .multilineTextAlignment(alignments.text)
+                        case .available(.none):
+                            Text("\(label): nil)")
+                        case .unavailable:
+                            Text("\(label): unavailable)")
                         }
-
                     }
                 } // Group
                 .font(.caption.monospaced())
@@ -778,17 +775,16 @@ private struct PreviewContent {
                 GeometryReader { geometry in
                     VStack {
                         Text("GeometryProxy")
-                        if #available(anyAppleOS 27.0, *) {
-                            if let cornerRadii = geometry.concentricCornerRadii {
-                                Text(cornerRadii, format: .concentricRadiiDebugString)
-                                    .monospaced()
-                            } else {
-                                Text("nil corner-radii")
-                                    .monospaced()
-                            }
-                        } else {
+                        switch geometry.backport.concentricCornerRadii {
+                        case .available(.some(let cornerRadii)):
+                            Text(cornerRadii, format: .concentricRadiiDebugString)
+                            .monospaced()
+                        case .available(.none):
+                            Text("nil corner-radii")
+                            .monospaced()
+                        case .unavailable:
                             Text("unavailable corner-radii")
-                                .monospaced()
+                            .monospaced()
                         }
                     }
                     .font(.caption)
