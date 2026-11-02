@@ -94,7 +94,7 @@ struct PhasedRect: InsettableShape {
         PhasedRect(phase: phase, inset: inset)
         .stroke(.red, style: .dashed(width: lineWidth))
 
-        PathShape { rect in
+        PathShape { [phase, inset, lineWidth] rect in
             let offset: CGFloat = 4 + lineWidth
             let corner = rect.inset(by: inset).topLeadingPoint
             let phasedCorner = corner.adding(x: -offset, y: phase)
@@ -183,51 +183,55 @@ struct PathShape: Shape {
 }
 
 
-extension Path {
+// FIXME: Move to its own file.
+enum Paths {}
+
+
+extension Paths {
 
     nonisolated
-    init(
-        arrowAt point: CGPoint,
+    static func arrow(
+        point: CGPoint,
         towards edge: Edge,
         size: CGSize
-    ) {
-        self.init()
-
+    ) -> Path {
         let length = size.length(along: edge.axis)
         let width = size.length(along: edge.axis.orthogonal)
 
+        var path = Path()
         // FIXME: Dry this code.
         switch edge {
         case .top:
             let end = point.adding(length, along: .vertical)
-            point.segmentTo(point: end).add(to: &self)
+            point.segmentTo(point: end).add(to: &path)
             let wingOne = point.adding(width/2, orthogonal: +width/2, along: .vertical)
             let wingTwo = point.adding(width/2, orthogonal: -width/2, along: .vertical)
-            point.segmentTo(point: wingOne).add(to: &self)
-            point.segmentTo(point: wingTwo).add(to: &self)
+            point.segmentTo(point: wingOne).add(to: &path)
+            point.segmentTo(point: wingTwo).add(to: &path)
         case .bottom:
             let end = point.adding(-length, along: .vertical)
-            point.segmentTo(point: end).add(to: &self)
+            point.segmentTo(point: end).add(to: &path)
             let wingOne = point.adding(-width/2, orthogonal: +width/2, along: .vertical)
             let wingTwo = point.adding(-width/2, orthogonal: -width/2, along: .vertical)
-            point.segmentTo(point: wingOne).add(to: &self)
-            point.segmentTo(point: wingTwo).add(to: &self)
+            point.segmentTo(point: wingOne).add(to: &path)
+            point.segmentTo(point: wingTwo).add(to: &path)
         case .leading:
             let end = point.adding(length, along: .horizontal)
-            point.segmentTo(point: end).add(to: &self)
+            point.segmentTo(point: end).add(to: &path)
             let wingOne = point.adding(width/2, orthogonal: +width/2, along: .horizontal)
             let wingTwo = point.adding(width/2, orthogonal: -width/2, along: .horizontal)
-            point.segmentTo(point: wingOne).add(to: &self)
-            point.segmentTo(point: wingTwo).add(to: &self)
+            point.segmentTo(point: wingOne).add(to: &path)
+            point.segmentTo(point: wingTwo).add(to: &path)
         case .trailing:
             let end = point.adding(-length, along: .horizontal)
-            point.segmentTo(point: end).add(to: &self)
+            point.segmentTo(point: end).add(to: &path)
             let wingOne = point.adding(-width/2, orthogonal: +width/2, along: .horizontal)
             let wingTwo = point.adding(-width/2, orthogonal: -width/2, along: .horizontal)
-            point.segmentTo(point: wingOne).add(to: &self)
-            point.segmentTo(point: wingTwo).add(to: &self)
+            point.segmentTo(point: wingOne).add(to: &path)
+            point.segmentTo(point: wingTwo).add(to: &path)
         }
 
+        return path
     }
 
 }
@@ -241,8 +245,8 @@ extension Path {
         .stroke(.primary, lineWidth: 2)
 
         PathShape { rect in
-            Path(
-                arrowAt: rect.centerPoint.adding(y: -10),
+            Paths.arrow(
+                point: rect.centerPoint.adding(y: -10),
                 towards: .bottom,
                 size: [20, 40]
             )
@@ -250,8 +254,8 @@ extension Path {
         .stroke(.blue, lineWidth: 2)
 
         PathShape { rect in
-            Path(
-                arrowAt: rect.centerPoint.adding(x: 10),
+            Paths.arrow(
+                point: rect.centerPoint.adding(x: 10),
                 towards: .leading,
                 size: [40, 20]
             )
@@ -259,8 +263,8 @@ extension Path {
         .stroke(.orange, lineWidth: 2)
 
         PathShape { rect in
-            Path(
-                arrowAt: rect.centerPoint.adding(y: 10),
+            Paths.arrow(
+                point: rect.centerPoint.adding(y: 10),
                 towards: .top,
                 size: [20, 40]
             )
@@ -268,8 +272,8 @@ extension Path {
         .stroke(.purple, lineWidth: 2)
 
         PathShape { rect in
-            Path(
-                arrowAt: rect.centerPoint.adding(x: -10),
+            Paths.arrow(
+                point: rect.centerPoint.adding(x: -10),
                 towards: .trailing,
                 size: [40, 20]
             )
