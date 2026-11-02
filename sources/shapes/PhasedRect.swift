@@ -329,42 +329,22 @@ extension Paths {
         let padding: CGFloat = 20
         let lineWidth: CGFloat = 16
 
-        // FIXME: Dry this code, use ForEach.
+        let edgesAndColors: [(edge: Edge, color: Color)] = [
+            (.top,      .purple),
+            (.leading,  .orange),
+            (.bottom,   .blue),
+            (.trailing, .green),
+        ]
 
-        PathShape { rect in
-            Paths.arrow(
-                tip: rect.centerPoint.adding(y: -padding),
-                towards: .bottom,
-                size: size.transposed
-            )
+        ForEach(edgesAndColors, id: \.edge) { edge, color in
+            PathShape { rect in
+                Paths.arrow(
+                    tip: rect.centerPoint.adding(padding, towards: edge.opposite),
+                    towards: edge,
+                    size: edge.axis == .horizontal ? size : size.transposed
+                )
+            }
+            .stroke(color, lineWidth: lineWidth)
         }
-        .stroke(.blue, lineWidth: lineWidth)
-
-        PathShape { rect in
-            Paths.arrow(
-                tip: rect.centerPoint.adding(x: padding),
-                towards: .leading,
-                size: size
-            )
-        }
-        .stroke(.orange, lineWidth: lineWidth)
-
-        PathShape { rect in
-            Paths.arrow(
-                tip: rect.centerPoint.adding(y: padding),
-                towards: .top,
-                size: size.transposed
-            )
-        }
-        .stroke(.purple, lineWidth: lineWidth)
-
-        PathShape { rect in
-            Paths.arrow(
-                tip: rect.centerPoint.adding(x: -padding),
-                towards: .trailing,
-                size: size
-            )
-        }
-        .stroke(.green, lineWidth: lineWidth)
     }
 }
