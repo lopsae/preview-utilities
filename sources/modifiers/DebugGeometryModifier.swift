@@ -214,12 +214,14 @@ public struct DebugGeometryModifier: ViewModifier {
         // FIXME: Add support of styling inner and outer strokes.
         // FIXME: Add support for innerStrokePosition: .inner .outer .middle? .inset? .outset?
         // FIXME: Add support to ignore concentricCornerRadii.
-        // FIXME: If cornerRadii is zero, should draw with PhasedRect!
-        if #available(anyAppleOS 27.0, *), let cornerRadii = geometry.concentricCornerRadii {
+        if #available(anyAppleOS 27.0, *),
+           let cornerRadii = geometry.concentricCornerRadii,
+           cornerRadii != .zero
+        {
             UnevenRoundedRectangle(cornerRadii: cornerRadii)
             .strokeBorder(innerStrokeShapeStyle, style: strokeStyle)
         } else {
-            PhasedRect(phase: boundedBordersWidth)
+            PhasedRect(phase: boundedBordersWidth * 1.5)
             .strokeBorder(innerStrokeShapeStyle, style: strokeStyle)
         }
     }
@@ -963,5 +965,14 @@ extension FormatStyle where Self == GeometryProxyFormatStyle.ConcentricCornerRad
     nonisolated
     static var concentricRadiiDebugString: Self { .init() }
 
+}
+
+
+// FIXME: Move to its own file.
+extension RectangleCornerRadii {
+    static let zero: Self = .init(
+        topLeading: .zero, bottomLeading: .zero,
+        bottomTrailing: .zero, topTrailing: .zero
+    )
 }
 
