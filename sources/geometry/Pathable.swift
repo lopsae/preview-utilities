@@ -9,7 +9,11 @@ import SwiftUI
 
 nonisolated
 protocol Pathable {
+
+    // TODO: Consider if `path` could be a convenience property that calls add(to) with a new path.
     var path: Path { get }
+
+    func add(to container: inout Path) -> Self
 }
 
 

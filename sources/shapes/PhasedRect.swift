@@ -242,6 +242,44 @@ extension Edge {
 }
 
 
+// FIXME: Move to CGPoint+Pathable?
+nonisolated
+extension Array: Pathable where Element == CGPoint {
+
+    var path: Path {
+        .init { path in add(to: &path) }
+    }
+
+    @discardableResult
+    func add(to container: inout Path) -> Array<CGPoint> {
+        guard let firstPoint = first else { return self }
+
+        container.move(to: firstPoint)
+        self.dropFirst().forEach { point in
+            container.addLine(to: point)
+        }
+        return self
+    }
+
+}
+
+
+// FIXME: Move to Pathable.
+extension Path {
+
+    nonisolated
+    mutating func addPath(_ pathable: some Pathable) {
+        addPath(pathable.path)
+    }
+
+    nonisolated
+    mutating func addPath(points: CGPoint...) {
+        addPath(points)
+    }
+
+}
+
+
 // FIXME: Move to its own file.
 enum Paths {}
 
@@ -261,17 +299,10 @@ extension Paths {
         let wingClock   = tip.adding(width, orthogonal: +width, towards: edge.clockwise)
         let wingCounter = tip.adding(width, orthogonal: -width, towards: edge.counterClockwise)
 
-        var path = Path()
-
-        tip.segmentTo(point: end).add(to: &path)
-        path.move(to: wingCounter)
-        path.addLine(to: tip)
-        path.addLine(to: wingClock)
-
-        // FIXME: Add [CGPoint] as pathable.
-//            [wingCounter, point, wingClock].add(to: &path)
-
-        return path
+        return .init { path in
+            path.addPath(points: tip, end)
+            path.addPath(points: wingCounter, tip, wingClock)
+        }
     }
 
 }
