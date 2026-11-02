@@ -63,7 +63,7 @@ struct PhasedRect: InsettableShape {
     @Previewable @State var lineWidth: CGFloat = 4
 
     Slider.captioned(
-        "Phase", value: $phase, in: -20...50,
+        "Phase", value: $phase, in: -20...100,
         currentValueFormat: .twoFractionals,
         boundsValueFormat: .arithmeticRoundedInteger
     )
@@ -98,8 +98,7 @@ struct PhasedRect: InsettableShape {
             let offset: CGFloat = 4 + lineWidth
             let corner = rect.inset(by: inset).topLeadingPoint
             let phasedCorner = corner.adding(x: -offset, y: phase)
-            // FIXME: Path for a tiny arrow.
-            return .init(crosshair: phasedCorner, length: 6)
+            return Paths.arrow(tip: phasedCorner, towards: .trailing, size: .square(of: 8))
         }
         .stroke(.blue, lineWidth: 2)
 
