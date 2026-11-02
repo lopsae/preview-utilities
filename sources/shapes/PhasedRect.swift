@@ -116,13 +116,13 @@ extension CGPoint {
 
     nonisolated
     func adding(
-        _ distance: CGFloat,
-        perpendicular: CGFloat = .zero,
+        _ value: CGFloat,
+        orthogonal: CGFloat = .zero,
         along axis: Axis
     ) -> Self {
         switch axis {
-        case .horizontal: self.adding(x: distance,      y: perpendicular)
-        case .vertical:   self.adding(x: perpendicular, y: distance)
+        case .horizontal: self.adding(x: value,      y: orthogonal)
+        case .vertical:   self.adding(x: orthogonal, y: value)
         }
     }
 
@@ -178,29 +178,29 @@ extension Path {
         case .top:
             let end = point.adding(length, along: .vertical)
             point.segmentTo(point: end).add(to: &self)
-            let wingOne = point.adding(width/2, perpendicular: +width/2, along: .vertical)
-            let wingTwo = point.adding(width/2, perpendicular: -width/2, along: .vertical)
+            let wingOne = point.adding(width/2, orthogonal: +width/2, along: .vertical)
+            let wingTwo = point.adding(width/2, orthogonal: -width/2, along: .vertical)
             point.segmentTo(point: wingOne).add(to: &self)
             point.segmentTo(point: wingTwo).add(to: &self)
         case .bottom:
             let end = point.adding(-length, along: .vertical)
             point.segmentTo(point: end).add(to: &self)
-            let wingOne = point.adding(-width/2, perpendicular: +width/2, along: .vertical)
-            let wingTwo = point.adding(-width/2, perpendicular: -width/2, along: .vertical)
+            let wingOne = point.adding(-width/2, orthogonal: +width/2, along: .vertical)
+            let wingTwo = point.adding(-width/2, orthogonal: -width/2, along: .vertical)
             point.segmentTo(point: wingOne).add(to: &self)
             point.segmentTo(point: wingTwo).add(to: &self)
         case .leading:
             let end = point.adding(length, along: .horizontal)
             point.segmentTo(point: end).add(to: &self)
-            let wingOne = point.adding(width/2, perpendicular: +width/2, along: .horizontal)
-            let wingTwo = point.adding(width/2, perpendicular: -width/2, along: .horizontal)
+            let wingOne = point.adding(width/2, orthogonal: +width/2, along: .horizontal)
+            let wingTwo = point.adding(width/2, orthogonal: -width/2, along: .horizontal)
             point.segmentTo(point: wingOne).add(to: &self)
             point.segmentTo(point: wingTwo).add(to: &self)
         case .trailing:
             let end = point.adding(-length, along: .horizontal)
             point.segmentTo(point: end).add(to: &self)
-            let wingOne = point.adding(-width/2, perpendicular: +width/2, along: .horizontal)
-            let wingTwo = point.adding(-width/2, perpendicular: -width/2, along: .horizontal)
+            let wingOne = point.adding(-width/2, orthogonal: +width/2, along: .horizontal)
+            let wingTwo = point.adding(-width/2, orthogonal: -width/2, along: .horizontal)
             point.segmentTo(point: wingOne).add(to: &self)
             point.segmentTo(point: wingTwo).add(to: &self)
         }
