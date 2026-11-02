@@ -80,7 +80,7 @@ extension AxialLine {
             let length = rect.size.length(along: axis) - distanceToEdge * 2
 
             let startPoint = CGPoint(on: axis, along: distanceToEdge, across: halfPerpendicular)
-            let endPoint = startPoint.offset(along: axis, by: length)
+            let endPoint = startPoint.adding(length, along: axis)
 
             var path = Path()
             path.move(to: startPoint)
@@ -99,15 +99,6 @@ private extension CGPoint {
         switch axis {
         case .horizontal: self.init(x: along,  y: across)
         case .vertical:   self.init(x: across, y: along)
-        }
-    }
-
-    // FIXME: Use adding instead.
-    nonisolated
-    func offset(along axis: Axis, by distance: CGFloat) -> Self {
-        switch axis {
-        case .horizontal: self.adding(x: distance)
-        case .vertical:   self.adding(y: distance)
         }
     }
 
