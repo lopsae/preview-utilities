@@ -92,33 +92,6 @@ extension AxialLine {
 }
 
 
-private extension CGPoint {
-
-    nonisolated
-    init(on axis: Axis, along: CGFloat, across: CGFloat) {
-        switch axis {
-        case .horizontal: self.init(x: along,  y: across)
-        case .vertical:   self.init(x: across, y: along)
-        }
-    }
-
-}
-
-
-// FIXME: Move to GeometryAdditions.
-extension CGSize {
-
-    nonisolated
-    func length(along axis: Axis) -> CGFloat {
-        switch axis {
-        case .horizontal: width
-        case .vertical:   height
-        }
-    }
-
-}
-
-
 private extension CGLineCap {
 
     var extendsToEdges: Bool {
