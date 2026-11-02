@@ -214,8 +214,7 @@ public struct DebugGeometryModifier: ViewModifier {
         // FIXME: Add support of styling inner and outer strokes.
         // FIXME: Add support for innerStrokePosition: .inner .outer .middle? .inset? .outset?
         // FIXME: Add support to ignore concentricCornerRadii.
-        if #available(anyAppleOS 27.0, *),
-           let cornerRadii = geometry.concentricCornerRadii,
+        if let cornerRadii = geometry.backport.concentricCornerRadii.unwrappedValue,
            cornerRadii != .zero
         {
             UnevenRoundedRectangle(cornerRadii: cornerRadii)
@@ -974,5 +973,80 @@ extension RectangleCornerRadii {
         topLeading: .zero, bottomLeading: .zero,
         bottomTrailing: .zero, topTrailing: .zero
     )
+}
+
+
+// FIXME: Figure out Backporting API.
+// Inspired by https://swiftwithmajid.com/2026/09/22/backporting-swiftui-apis/
+
+struct Backport<Content> {
+    let content: Content
+    init(_ content: Content) {
+        self.content = content
+    }
+}
+
+
+enum BackportProperty<Property> {
+    case available(Property)
+    case unavailable
+
+    var value: Property? {
+        switch self {
+        case .available(let property): property
+        case .unavailable: nil
+        }
+    }
+}
+
+
+protocol OptionalProtocol {
+    associatedtype Wrapped
+    var optionalValue: Wrapped? { get }
+}
+
+
+extension Optional: OptionalProtocol {
+
+    var optionalValue: Wrapped? {
+        return self
+    }
+
+}
+
+
+extension BackportProperty where Property: OptionalProtocol {
+
+    var unwrappedValue: Property.Wrapped? {
+        switch self {
+        case .available(let optional):
+            switch optional.optionalValue {
+            case .some(let value): return value
+            case .none: return nil
+            }
+        case .unavailable: return nil
+        }
+    }
+
+}
+
+
+extension GeometryProxy {
+
+    var backport: Backport<Self> { .init(self) }
+
+}
+
+
+extension Backport where Content == GeometryProxy {
+
+    var concentricCornerRadii: BackportProperty<RectangleCornerRadii?> {
+        if #available(anyAppleOS 27.0, *) {
+            return .available(content.concentricCornerRadii)
+        } else {
+            return .unavailable
+        }
+    }
+
 }
 
