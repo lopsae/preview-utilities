@@ -308,7 +308,7 @@ public struct DebugGeometryModifier: ViewModifier {
                         case .available(.some(let cornerRadii)):
                             Text("\(label):\n\(cornerRadii, format: .concentricRadiiDebugString)")
                         case .available(.none):
-                            Text("\(label): nil)")
+                            Text("\(label): none)")
                         case .unavailable:
                             Text("\(label): unavailable)")
                         }
@@ -519,6 +519,7 @@ private struct PreviewContent {
 
 #Preview("Configuration", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
+    @Previewable @State var useContainerShape: Bool = true
     @Previewable @State var traitOptions: [(
         label: String,
         trait: DebugGeometryModifier.Configuration.Trait,
@@ -555,9 +556,15 @@ private struct PreviewContent {
             Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
         }
 
-        // FIXME: Separate to its own grid, or can there be a grid separator?
         // FIXME: add toggle for wrapping in container shape.
-        Toggle("Small Content", isOn: $useSmallContent)
+
+        Section {
+            Toggle("Small Content", isOn: $useSmallContent)
+            Toggle("ContainerShape", isOn: $useContainerShape)
+        } header: {
+            DashedDivider()
+            .padding(.vertical, 4)
+        }
     }
 
     DashedDivider()
@@ -568,6 +575,7 @@ private struct PreviewContent {
             .foregroundStyle(.quaternary)
             .monospaced()
             .debugGeometry(traits: traits)
+            // FIXME: This will need a function that can take a optional shape.
             .containerShape(.capsule)
             .safeAreaPadding(20)
         VisibleSpacer()
@@ -580,7 +588,7 @@ private struct PreviewContent {
         )
         PreviewContent.star
             .debugGeometry(traits: traits)
-            .containerShape(roundedRect)
+            .containerShape(useContainerShape ? roundedRect : .zero)
             .safeAreaPadding(.init(horizontal: 50, vertical: 80))
     }
 
@@ -961,10 +969,18 @@ extension FormatStyle where Self == GeometryProxyFormatStyle.ConcentricCornerRad
 
 // FIXME: Move to its own file.
 extension RectangleCornerRadii {
+    nonisolated
     static let zero: Self = .init(
         topLeading: .zero, bottomLeading: .zero,
         bottomTrailing: .zero, topTrailing: .zero
     )
+}
+
+
+// FIXME: Move to its own file.
+extension UnevenRoundedRectangle {
+    nonisolated
+    static let zero: Self = .init(cornerRadii: .zero)
 }
 
 
