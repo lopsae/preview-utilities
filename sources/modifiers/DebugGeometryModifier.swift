@@ -261,8 +261,7 @@ public struct DebugGeometryModifier: ViewModifier {
                 // Spacing is derived from the contained Text elements, which so far works well.
                 VStack(alignment: alignments.content.horizontal) {
                     let globalFrame = geometry.frame(in: .global)
-                    // FIXME: Rename to twoFractionals.
-                    let fractionLength: FloatingPointFormatStyle<Double> = .twoFractionals
+                    let twoFractionals: FloatingPointFormatStyle<Double> = .twoFractionals
 
                     // Caption.
                     switch configuration.captionSource {
@@ -270,39 +269,36 @@ public struct DebugGeometryModifier: ViewModifier {
                         Text(localizedStringKey)
                         .font(.caption)
                         // FIXME: can multiline text alignment be moved to outside the group?
-                        .multilineTextAlignment(alignments.text)
                     case .verbatim(let string):
                         Text(verbatim: string)
                         .font(.caption)
-                        .multilineTextAlignment(alignments.text)
                     case .none:
                         EmptyView()
                     }
 
                     // Width, Height, or Size.
                     if configuration.geometryProperties.contains(.size) {
-                        let formattedWidth = globalFrame.width.formatted(fractionLength)
-                        let formattedHeight = globalFrame.height.formatted(fractionLength)
+                        let formattedWidth = globalFrame.width.formatted(twoFractionals)
+                        let formattedHeight = globalFrame.height.formatted(twoFractionals)
                         Text("size: \(formattedWidth), \(formattedHeight)")
                     } else if configuration.geometryProperties.contains(.width) {
-                        let formattedWidth = globalFrame.width.formatted(fractionLength)
+                        let formattedWidth = globalFrame.width.formatted(twoFractionals)
                         Text("width: \(formattedWidth)")
                     } else if configuration.geometryProperties.contains(.height) {
-                        let formattedHeight = globalFrame.height.formatted(fractionLength)
+                        let formattedHeight = globalFrame.height.formatted(twoFractionals)
                         Text("height: \(formattedHeight)")
                     }
 
                     // Origin.
                     if configuration.geometryProperties.contains(.origin) {
-                        let formattedX = globalFrame.origin.x.formatted(fractionLength)
-                        let formattedY = globalFrame.origin.y.formatted(fractionLength)
+                        let formattedX = globalFrame.origin.x.formatted(twoFractionals)
+                        let formattedY = globalFrame.origin.y.formatted(twoFractionals)
                         Text("origin: \(formattedX), \(formattedY)")
                     }
 
                     // SafeAreaInsets.
                     if configuration.geometryProperties.contains(.safeAreaInsets) {
                         Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
-                        .multilineTextAlignment(alignments.text)
                     }
 
                     // ConcentricCornerRadii
@@ -311,7 +307,6 @@ public struct DebugGeometryModifier: ViewModifier {
                         switch geometry.backport.concentricCornerRadii {
                         case .available(.some(let cornerRadii)):
                             Text("\(label):\n\(cornerRadii, format: .concentricRadiiDebugString)")
-                            .multilineTextAlignment(alignments.text)
                         case .available(.none):
                             Text("\(label): nil)")
                         case .unavailable:
@@ -321,6 +316,7 @@ public struct DebugGeometryModifier: ViewModifier {
                 } // Group
                 .font(.caption.monospaced())
                 .foregroundStyle(.secondary)
+                .multilineTextAlignment(alignments.text)
                 .fixedSize()
                 .border(configuration.drawsCaptionBorder ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.clear))
             }// FloatingAlignedContainer
