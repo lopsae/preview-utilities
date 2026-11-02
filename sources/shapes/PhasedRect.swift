@@ -219,8 +219,13 @@ extension Edge {
         }
     }
 
+    // Rotates towards the trailing edge.
+    //
+    // Clockwise in left-to-right layout direction.
+    //
+    // top → trailing → bottom → leading → top
     nonisolated
-    var clockwise: Self {
+    var rotated: Self {
         switch self {
         case .top:      .trailing
         case .trailing: .bottom
@@ -229,8 +234,13 @@ extension Edge {
         }
     }
 
+    // Rotates towards the leading edge.
+    //
+    // Counter-clockwise in left-to-right layout direction.
+    //
+    // top → leading → bottom → trailing → top
     nonisolated
-    var counterClockwise: Self {
+    var counterRotated: Self {
         switch self {
         case .top:      .leading
         case .leading:  .bottom
@@ -296,8 +306,8 @@ extension Paths {
         let width = size.length(along: edge.axis.orthogonal) / 2
 
         let end = tip.adding(length, towards: edge.opposite)
-        let wingClock   = tip.adding(width, orthogonal: +width, towards: edge.clockwise)
-        let wingCounter = tip.adding(width, orthogonal: -width, towards: edge.counterClockwise)
+        let wingClock   = tip.adding(width, orthogonal: +width, towards: edge.rotated)
+        let wingCounter = tip.adding(width, orthogonal: -width, towards: edge.counterRotated)
 
         return .init { path in
             path.addPath(points: tip, end)
