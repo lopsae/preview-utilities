@@ -136,6 +136,29 @@ extension CGPoint {
     }
 
 
+    // Adds towards a given edge.
+    //
+    // Orthogonal adds towards the next clockwise edge. For example adding towards `trailing`,
+    // adds in the orthogonal direction towards `bottom`.
+    nonisolated
+    func adding(
+        _ value: CGFloat,
+        orthogonal: CGFloat = .zero,
+        towards edge: Edge
+    ) -> Self {
+        switch edge {
+        case .top:
+            self.adding(x: orthogonal, y: -value)
+        case .trailing:
+            self.adding(x: value, y: orthogonal)
+        case .bottom:
+            self.adding(x: -orthogonal, y: value)
+        case .leading:
+            self.adding(x: -value, y: orthogonal)
+        }
+    }
+
+
     nonisolated
     func setting(
         x newX: CGFloat? = nil,
@@ -183,6 +206,42 @@ struct PathShape: Shape {
 }
 
 
+// FIXME: Move to its own addition.
+extension Edge {
+
+    nonisolated
+    var opposite: Self {
+        switch self {
+        case .top:      .bottom
+        case .leading:  .trailing
+        case .bottom:   .top
+        case .trailing: .leading
+        }
+    }
+
+    nonisolated
+    var clockwise: Self {
+        switch self {
+        case .top:      .trailing
+        case .trailing:  .bottom
+        case .bottom:   .leading
+        case .leading: .top
+        }
+    }
+
+    nonisolated
+    var counterClockwise: Self {
+        switch self {
+        case .top:      .leading
+        case .leading:  .bottom
+        case .bottom:   .trailing
+        case .trailing: .top
+        }
+    }
+
+}
+
+
 // FIXME: Move to its own file.
 enum Paths {}
 
@@ -196,37 +255,44 @@ extension Paths {
         size: CGSize
     ) -> Path {
         let length = size.length(along: edge.axis)
-        let width = size.length(along: edge.axis.orthogonal)
+        let width = size.length(along: edge.axis.orthogonal) / 2
 
         var path = Path()
         // FIXME: Dry this code.
         switch edge {
         case .top:
-            let end = point.adding(length, along: .vertical)
+            let end = point.adding(length, towards: edge.opposite)
+
+            let wingClock   = point.adding(width, orthogonal: width, towards: edge.clockwise)
+            let wingCounter = point.adding(width, orthogonal: width, towards: edge.counterClockwise)
+
             point.segmentTo(point: end).add(to: &path)
-            let wingOne = point.adding(width/2, orthogonal: +width/2, along: .vertical)
-            let wingTwo = point.adding(width/2, orthogonal: -width/2, along: .vertical)
-            point.segmentTo(point: wingOne).add(to: &path)
-            point.segmentTo(point: wingTwo).add(to: &path)
+            path.move(to: wingCounter)
+            path.addLine(to: point)
+            path.addLine(to: wingClock)
+
+            // FIXME: Add [CGPoint] as pathable.
+//            [wingCounter, point, wingClock].add(to: &path)
+
         case .bottom:
             let end = point.adding(-length, along: .vertical)
             point.segmentTo(point: end).add(to: &path)
-            let wingOne = point.adding(-width/2, orthogonal: +width/2, along: .vertical)
-            let wingTwo = point.adding(-width/2, orthogonal: -width/2, along: .vertical)
+            let wingOne = point.adding(-width, orthogonal: +width, along: .vertical)
+            let wingTwo = point.adding(-width, orthogonal: -width, along: .vertical)
             point.segmentTo(point: wingOne).add(to: &path)
             point.segmentTo(point: wingTwo).add(to: &path)
         case .leading:
             let end = point.adding(length, along: .horizontal)
             point.segmentTo(point: end).add(to: &path)
-            let wingOne = point.adding(width/2, orthogonal: +width/2, along: .horizontal)
-            let wingTwo = point.adding(width/2, orthogonal: -width/2, along: .horizontal)
+            let wingOne = point.adding(width, orthogonal: +width, along: .horizontal)
+            let wingTwo = point.adding(width, orthogonal: -width, along: .horizontal)
             point.segmentTo(point: wingOne).add(to: &path)
             point.segmentTo(point: wingTwo).add(to: &path)
         case .trailing:
             let end = point.adding(-length, along: .horizontal)
             point.segmentTo(point: end).add(to: &path)
-            let wingOne = point.adding(-width/2, orthogonal: +width/2, along: .horizontal)
-            let wingTwo = point.adding(-width/2, orthogonal: -width/2, along: .horizontal)
+            let wingOne = point.adding(-width, orthogonal: +width, along: .horizontal)
+            let wingTwo = point.adding(-width, orthogonal: -width, along: .horizontal)
             point.segmentTo(point: wingOne).add(to: &path)
             point.segmentTo(point: wingTwo).add(to: &path)
         }
@@ -264,12 +330,12 @@ extension Paths {
 
         PathShape { rect in
             Paths.arrow(
-                point: rect.centerPoint.adding(y: 10),
+                point: rect.centerPoint.adding(y: 20),
                 towards: .top,
-                size: [20, 40]
+                size: [100, 150]
             )
         }
-        .stroke(.purple, lineWidth: 2)
+        .stroke(.purple, lineWidth: 16)
 
         PathShape { rect in
             Paths.arrow(
