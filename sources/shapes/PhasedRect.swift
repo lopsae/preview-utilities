@@ -257,49 +257,19 @@ extension Paths {
         let length = size.length(along: edge.axis)
         let width = size.length(along: edge.axis.orthogonal) / 2
 
+        let end = tip.adding(length, towards: edge.opposite)
+        let wingClock   = tip.adding(width, orthogonal: +width, towards: edge.clockwise)
+        let wingCounter = tip.adding(width, orthogonal: -width, towards: edge.counterClockwise)
+
         var path = Path()
-        // FIXME: Dry this code.
 
-        switch edge {
-        case .top:
-            let end = tip.adding(length, towards: edge.opposite)
+        tip.segmentTo(point: end).add(to: &path)
+        path.move(to: wingCounter)
+        path.addLine(to: tip)
+        path.addLine(to: wingClock)
 
-            let wingClock   = tip.adding(width, orthogonal: +width, towards: edge.clockwise)
-            let wingCounter = tip.adding(width, orthogonal: -width, towards: edge.counterClockwise)
-
-            tip.segmentTo(point: end).add(to: &path)
-            path.move(to: wingCounter)
-            path.addLine(to: tip)
-            path.addLine(to: wingClock)
-
-            // FIXME: Add [CGPoint] as pathable.
+        // FIXME: Add [CGPoint] as pathable.
 //            [wingCounter, point, wingClock].add(to: &path)
-
-        case .bottom:
-            let end = tip.adding(-length, along: .vertical)
-            tip.segmentTo(point: end).add(to: &path)
-            let wingOne = tip.adding(-width, orthogonal: +width, along: .vertical)
-            let wingTwo = tip.adding(-width, orthogonal: -width, along: .vertical)
-            tip.segmentTo(point: wingOne).add(to: &path)
-            tip.segmentTo(point: wingTwo).add(to: &path)
-        case .leading:
-            let end = tip.adding(length, along: .horizontal)
-            tip.segmentTo(point: end).add(to: &path)
-            let wingOne = tip.adding(width, orthogonal: +width, along: .horizontal)
-            let wingTwo = tip.adding(width, orthogonal: -width, along: .horizontal)
-            tip.segmentTo(point: wingOne).add(to: &path)
-            tip.segmentTo(point: wingTwo).add(to: &path)
-        case .trailing:
-            let end = tip.adding(length, towards: edge.opposite)
-
-            let wingClock   = tip.adding(width, orthogonal: +width, towards: edge.clockwise)
-            let wingCounter = tip.adding(width, orthogonal: -width, towards: edge.counterClockwise)
-
-            tip.segmentTo(point: end).add(to: &path)
-            path.move(to: wingCounter)
-            path.addLine(to: tip)
-            path.addLine(to: wingClock)
-        }
 
         return path
     }
@@ -314,40 +284,46 @@ extension Paths {
         }
         .stroke(.primary, lineWidth: 2)
 
+        let size: CGSize = [150, 100]
+        let padding: CGFloat = 20
+        let lineWidth: CGFloat = 16
+
+        // FIXME: Dry this code, use ForEach.
+
         PathShape { rect in
             Paths.arrow(
-                tip: rect.centerPoint.adding(y: -10),
+                tip: rect.centerPoint.adding(y: -padding),
                 towards: .bottom,
-                size: [20, 40]
+                size: size.transposed
             )
         }
-        .stroke(.blue, lineWidth: 2)
+        .stroke(.blue, lineWidth: lineWidth)
 
         PathShape { rect in
             Paths.arrow(
-                tip: rect.centerPoint.adding(x: 10),
+                tip: rect.centerPoint.adding(x: padding),
                 towards: .leading,
-                size: [40, 20]
+                size: size
             )
         }
-        .stroke(.orange, lineWidth: 2)
+        .stroke(.orange, lineWidth: lineWidth)
 
         PathShape { rect in
             Paths.arrow(
-                tip: rect.centerPoint.adding(y: 20),
+                tip: rect.centerPoint.adding(y: padding),
                 towards: .top,
-                size: [100, 150]
+                size: size.transposed
             )
         }
-        .stroke(.purple, lineWidth: 16)
+        .stroke(.purple, lineWidth: lineWidth)
 
         PathShape { rect in
             Paths.arrow(
-                tip: rect.centerPoint.adding(x: -20),
+                tip: rect.centerPoint.adding(x: -padding),
                 towards: .trailing,
-                size: [150, 100]
+                size: size
             )
         }
-        .stroke(.green, lineWidth: 16)
+        .stroke(.green, lineWidth: lineWidth)
     }
 }
