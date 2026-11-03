@@ -4,18 +4,22 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
-// FIXME: Publicize.
 extension StrokeStyle {
 
     /// Default dashed stroke style used by `DashedDivider`.
-    ///
+    /// 
     /// Creates a dashed stroke based on the line width: 5 measures of dash followed by 6 measures
     /// of space. With a round cap this results visually in a 6 measure dash with 5 measures of
     /// space.
-    static func dividerDash(width: CGFloat = 1, cap: CGLineCap = .round) -> Self {
+    ///
+    /// - Parameters:
+    ///   - width: The line width of the stroke style.
+    ///   - cap: The endpoint style.
+    /// - Returns: A `DashedDivider` stroke style.
+    static public func dividerDash(width: CGFloat = 1, cap: CGLineCap = .round) -> Self {
         .dashed(width: width, dash: 5, space: 6, cap: cap)
     }
 
@@ -29,18 +33,19 @@ extension StrokeStyle {
     /// ```
     /// // Dashed stroke with a 70 point dash, and 30 point space.
     /// StrokeStyle.dashed(width: 10, length: 7, space: 3, cap: .butt)
-    /// 
+    ///
     /// // Dashed stroke with a 80 point dash, and 20 point space.
     /// StrokeStyle.dashed(width: 10, length: 7, space: 3, cap: .round)
     /// ```
-    /// 
+    ///
     /// - Parameters:
     ///   - width: The line width of the stroke style, and the unit of measure for dash and space
     ///       length.
-    ///   - length: The length of the dash, in line-widths.
+    ///   - dash: The length of the dash, in line-widths.
     ///   - space: The length of the space, in line-widths
     ///   - cap: The endpoint style.
-    static func dashed(
+    /// - Returns: A dashed stroke style with the given measures.
+    static public func dashed(
         width: CGFloat = 1,
         dash: CGFloat,
         space: CGFloat,
@@ -72,7 +77,7 @@ extension CGLineCap {
 
 extension CGLineCap: @retroactive CaseIterable {
 
-    static let allCases: [CGLineCap] = [.butt, .round, .square]
+    public static let allCases: [CGLineCap] = [.butt, .round, .square]
 
 }
 
