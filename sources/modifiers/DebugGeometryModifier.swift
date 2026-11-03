@@ -463,6 +463,7 @@ extension View {
 // MARK: - EdgeInsetPreviewFormatStyle
 
 
+// FIXME: Move to its own file, along concentricCornerRadii formatter.
 struct EdgeInsetPreviewFormatStyle: FormatStyle {
 
     func format(_ value: EdgeInsets) -> String {
@@ -484,6 +485,20 @@ extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
     internal static var previewPrintout: EdgeInsetPreviewFormatStyle {
         EdgeInsetPreviewFormatStyle()
     }
+}
+
+
+private extension View {
+
+    @ContentBuilder
+    func optionalContainerShape(_ shape: some RoundedRectangularShape?) -> some View {
+        if let shape {
+            self.containerShape(shape)
+        } else {
+            self
+        }
+    }
+
 }
 
 
@@ -575,8 +590,7 @@ private struct PreviewContent {
             .foregroundStyle(.quaternary)
             .monospaced()
             .debugGeometry(traits: traits)
-            // FIXME: This will need a function that can take a optional shape.
-            .containerShape(.capsule)
+            .optionalContainerShape(useContainerShape ? Capsule() : nil)
             .safeAreaPadding(20)
         VisibleSpacer()
     } else {
@@ -588,7 +602,7 @@ private struct PreviewContent {
         )
         PreviewContent.star
             .debugGeometry(traits: traits)
-            .containerShape(useContainerShape ? roundedRect : .zero)
+            .optionalContainerShape(useContainerShape ? roundedRect : nil)
             .safeAreaPadding(.init(horizontal: 50, vertical: 80))
     }
 
@@ -736,7 +750,6 @@ private struct PreviewContent {
         .safeAreaPadding(.init(horizontal: 50, vertical: 30))
         .border(.gray.tertiary)
 }
-
 
 
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
@@ -908,7 +921,6 @@ private struct PreviewContent {
     }
     DashedDivider()
 }
-
 
 
 // FIXME: Move to own file, add tests.
