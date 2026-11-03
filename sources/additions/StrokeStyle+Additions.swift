@@ -7,16 +7,16 @@
 import SwiftUI
 
 
+// FIXME: Publicize.
 extension StrokeStyle {
 
-    // FIXME: Rename to dividerDash.
-    /// Default dashed configuration used by `DashedDivider`.
+    /// Default dashed stroke style used by `DashedDivider`.
     ///
-    /// Sets a dash configuration based on the line width: 5 measures of dash followed by 6 measures
+    /// Creates a dashed stroke based on the line width: 5 measures of dash followed by 6 measures
     /// of space. With a round cap this results visually in a 6 measure dash with 5 measures of
     /// space.
-    static func dashed(width: CGFloat = 1, cap: CGLineCap = .round) -> Self {
-        .dashed(width: width, dash: 5, space: 6, cap: .round)
+    static func dividerDash(width: CGFloat = 1, cap: CGLineCap = .round) -> Self {
+        .dashed(width: width, dash: 5, space: 6, cap: cap)
     }
 
 
@@ -124,20 +124,20 @@ private struct PreviewContent {
     ForEach(items: CGLineCap.allCases) { lineCap in
         AxialLine(
             .horizontal, style: .red.secondary,
-            strokeStyle: .dashed(cap: lineCap)
+            strokeStyle: .dividerDash(cap: lineCap)
         )
     }
 
     ForEach(items: CGLineCap.allCases) { lineCap in
         AxialLine(
             .horizontal, style: .red.secondary,
-            strokeStyle: .dashed(width: 4, cap: lineCap)
+            strokeStyle: .dividerDash(width: 4, cap: lineCap)
         )
     }
 
     let lineWidth: CGFloat = 20
     VStack(items: CGLineCap.allCases) { lineCap in
-        let strokeStyle: StrokeStyle = .dashed(width: lineWidth, cap: lineCap)
+        let strokeStyle: StrokeStyle = .dividerDash(width: lineWidth, cap: lineCap)
         AxialLine(.horizontal, style: .red.secondary, strokeStyle: strokeStyle)
     }
     .edgeGraticule(insetSpacing: lineWidth, insetCount: .zero, .inset(.leading, count: 20))

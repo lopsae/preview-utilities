@@ -22,7 +22,7 @@ public struct DashedDivider: View {
     public var body: some View {
         AxialLine(
             axis, style: .tertiary,
-            strokeStyle: .dashed(width: lineWidth, cap: .round)
+            strokeStyle: .dividerDash(width: lineWidth, cap: .round)
         )
 
     }

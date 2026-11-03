@@ -92,7 +92,7 @@ struct PhasedRect: InsettableShape {
 
     ZStack {
         PhasedRect(phase: phase, inset: inset)
-        .stroke(.red, style: .dashed(width: lineWidth))
+        .stroke(.red, style: .dividerDash(width: lineWidth))
 
         PathShape { [phase, inset, lineWidth] rect in
             let offset: CGFloat = 4 + lineWidth
