@@ -11,10 +11,10 @@ import Testing
 
 
 @MainActor
+@Suite(.snapshotTesting)
 struct CaliperSnapshots {
 
-    @Test(.snapshots(record: .missing, diffTool: .ksdiff))
-    func labeled() {
+    @Test func labeled() {
         Snapshots.assertView("all", colorSchemes: .all) {
             Rectangle()
             .fill(.gray.tertiary)
