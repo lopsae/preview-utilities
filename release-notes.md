@@ -6,6 +6,7 @@ v0.5.2 - Duo Geometry Properties
 In Development.
 + Added support to print and visualize `concentricCornerRadii` with `DebugGeometryModifier`.
 + Publicized `DebugGeometryModifier.Configuration.GeometryProperties`
++ Publicized `StrokeStyle.dividerDash` and `StrokeStyle.dashed`.
 + Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
 + Added `FloatingPointFormatStyle.twoFractionals`.
 + Added `PathShape`. 

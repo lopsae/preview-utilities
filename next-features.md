@@ -6,16 +6,11 @@ For 0.5.3
 ---------
 + DocumentationIllustration -> Illustration? SnippetIllustration?
 
+
 For 0.5.2
 ---------
 + Add container shape capabilities to debugGeometry.
 + Migrate DebugOverlay to also use ConfigurationModifierTrait 
-
-
-For 0.5.1
----------
-+ Make alignment a parameter of FloatingCaption.
-
 
 
 For future versions
