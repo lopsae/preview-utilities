@@ -113,6 +113,7 @@ struct PhasedRect: InsettableShape {
 // FIXME: Move to GeometryAdditions
 extension CGPoint {
 
+    // FIXME: MOVED.
     nonisolated
     init(on axis: Axis, along: CGFloat, across: CGFloat) {
         switch axis {
@@ -122,6 +123,7 @@ extension CGPoint {
     }
 
 
+    // FIXME: MOVED.
     nonisolated
     func adding(
         _ value: CGFloat,
@@ -135,6 +137,7 @@ extension CGPoint {
     }
 
 
+    // FIXME: MOVED.
     // Adds towards a given edge.
     //
     // Orthogonal adds towards the next clockwise edge. For example adding towards `trailing`,
@@ -158,6 +161,7 @@ extension CGPoint {
     }
 
 
+    // FIXME: MOVED.
     nonisolated
     func setting(
         x newX: CGFloat? = nil,
@@ -169,19 +173,13 @@ extension CGPoint {
         return mutablePoint
     }
 
-
-    // FIXME: Move to CGPoint+Geometry.
-    nonisolated
-    func segmentTo(point: CGPoint) -> Segment {
-        .init(start: self, end: point)
-    }
-
 }
 
 
 // FIXME: Move to GeometryAdditions.
 extension CGSize {
 
+    // FIXME: MOVED.
     nonisolated
     func length(along axis: Axis) -> CGFloat {
         switch axis {

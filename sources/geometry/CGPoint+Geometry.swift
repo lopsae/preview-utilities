@@ -10,6 +10,15 @@ public import GeometryAdditions
 
 extension CGPoint {
 
+    /// Creates a segment from `self` to a given point.
+    ///
+    /// - Parameter point: The end point of the segment.
+    /// - Returns: A segment from `self` to the given end point.
+    @inlinable nonisolated
+    public func segmentTo(point: CGPoint) -> Segment {
+        .init(start: self, end: point)
+    }
+
     /// Creates a segment from `self` to a point offset by the given coordinate values.
     ///
     /// - Parameters:
