@@ -10,15 +10,58 @@ public import SwiftUI
 extension Edge {
 
     nonisolated
-    var set: Edge.Set { .init(self) }
-
-    nonisolated
     var axis: Axis {
         switch self {
         case .top, .bottom:       .vertical
         case .leading, .trailing: .horizontal
         }
     }
+
+
+    nonisolated
+    var opposite: Self {
+        switch self {
+        case .top:      .bottom
+        case .leading:  .trailing
+        case .bottom:   .top
+        case .trailing: .leading
+        }
+    }
+
+    // Rotates towards the trailing edge.
+    //
+    // Clockwise in left-to-right layout direction.
+    //
+    // top → trailing → bottom → leading → top
+    nonisolated
+    var rotated: Self {
+        switch self {
+        case .top:      .trailing
+        case .trailing: .bottom
+        case .bottom:   .leading
+        case .leading:  .top
+        }
+    }
+
+
+    // Rotates towards the leading edge.
+    //
+    // Counter-clockwise in left-to-right layout direction.
+    //
+    // top → leading → bottom → trailing → top
+    nonisolated
+    var counterRotated: Self {
+        switch self {
+        case .top:      .leading
+        case .leading:  .bottom
+        case .bottom:   .trailing
+        case .trailing: .top
+        }
+    }
+
+
+    nonisolated
+    var set: Edge.Set { .init(self) }
 
 
     nonisolated
