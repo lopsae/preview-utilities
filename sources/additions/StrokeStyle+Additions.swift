@@ -49,7 +49,7 @@ extension StrokeStyle {
         width: CGFloat = 1,
         dash: CGFloat,
         space: CGFloat,
-        cap: CGLineCap = .round
+        cap: CGLineCap = .butt
     ) -> Self {
         .init(
             lineWidth: width, lineCap: cap, lineJoin: .round,
