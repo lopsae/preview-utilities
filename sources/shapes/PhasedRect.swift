@@ -58,9 +58,9 @@ struct PhasedRect: InsettableShape {
 
 #Preview("Default", traits: .fixedHeaderFooter) {
     @Previewable @State var phase: CGFloat = 10
-    @Previewable @State var inset: CGFloat = 4
-    @Previewable @State var length: CGFloat = 120
-    @Previewable @State var lineWidth: CGFloat = 4
+    @Previewable @State var inset: CGFloat = 0
+    @Previewable @State var length: CGFloat = 100
+    @Previewable @State var lineWidth: CGFloat = 10
 
     Slider.captioned(
         "Phase", value: $phase, in: -20...100,
@@ -92,7 +92,7 @@ struct PhasedRect: InsettableShape {
 
     ZStack {
         PhasedRect(phase: phase, inset: inset)
-        .stroke(.red, style: .dividerDash(width: lineWidth))
+        .stroke(.red, style: .dashed(width: lineWidth, dash: 4, space: 4))
 
         PathShape { [phase, inset, lineWidth] rect in
             let offset: CGFloat = 4 + lineWidth
@@ -193,6 +193,7 @@ extension CGSize {
 
 
 // FIXME: Move to its own file.
+// FIXME: Also send a new path as parameter.
 nonisolated
 struct PathShape: Shape {
 
