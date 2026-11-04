@@ -14,6 +14,7 @@ protocol Pathable {
     var path: Path { get }
 
     func add(to container: inout Path) -> Self
+
 }
 
 
