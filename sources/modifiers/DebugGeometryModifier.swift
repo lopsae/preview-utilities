@@ -708,16 +708,12 @@ private struct PreviewContent {
     @Previewable @State var width: Double = .zero
     @Previewable @State var height: Double = .zero
 
-    let values: [Double] = Array(
-        [
-            // FIXME: Possible utility.
-            // (0.0...2.0).stride(by: 0.1)
-            stride(from: 0.0, to: 2.0, by: 0.1),
-            stride(from: 2.0, to: 16.0, by: 1.0),
-            stride(from: 20.0, to: 101.0, by: 10.0)
-        ]
-        .joined()
-    )
+    // FIXME: use strideThrough instead.
+    let values: [Double] = [
+        (0...2)  .strideTo(by: 0.1),
+        (2...16) .strideTo(by: 1),
+        (20...101).strideTo(by: 10)
+    ].joined().toArray
 
     VStack {
         Slider.captioned(
@@ -1070,3 +1066,19 @@ extension Backport where Content == GeometryProxy {
 
 }
 
+
+// FIXME: Move to additions.
+// FIXME: ClosedRange should produce strideThrough, OpenRange should produce strideTo.
+extension ClosedRange where Bound: BinaryFloatingPoint/*, Bound: Strideable*/ {
+
+    // strideTo strides from lowerBound to upperBound, not including upperBound
+    func strideTo(by stride: Bound.Stride) -> StrideTo<Bound> {
+        Swift.stride(from: lowerBound, to: upperBound, by: stride)
+    }
+
+    // strideThrough strides from lowerBound to upperBound, not including upperBound
+    func strideThrough(by stride: Bound.Stride) -> StrideThrough<Bound> {
+        Swift.stride(from: lowerBound, through: upperBound, by: stride)
+    }
+
+}
