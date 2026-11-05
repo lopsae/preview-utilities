@@ -14,7 +14,7 @@ extension Range where Bound: Strideable {
 }
 
 
-extension ClosedRange where Bound: BinaryFloatingPoint/*, Bound: Strideable*/ {
+extension ClosedRange where Bound: Strideable {
 
     // strides from lowerBound to upperBound, including upperBound
     func stride(by stride: Bound.Stride) -> StrideThrough<Bound> {
