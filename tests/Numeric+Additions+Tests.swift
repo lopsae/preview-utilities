@@ -13,7 +13,7 @@ import Testing
 struct NumericAdditionTests {
 
 
-    @Test func asInt() async throws {
+    @Test func asInt() {
         #expect(Int(55).asDouble == 55)
 
         #expect(Int8(55).asDouble == 55)
@@ -22,7 +22,7 @@ struct NumericAdditionTests {
         #expect(Int64(55).asDouble == 55)
     }
 
-    @Test func asDouble() async throws {
+    @Test func asDouble() {
         // Marked as deprecated.
         // _ = Double(55.7).asDouble
         // _ = Float64(55.5).asDouble
@@ -35,7 +35,7 @@ struct NumericAdditionTests {
     }
 
 
-    @Test func arithmeticRoundedInt() async throws {
+    @Test func arithmeticRoundedInt() {
         #expect(7.4.arithmeticRoundedInt == 7)
         #expect(7.5.arithmeticRoundedInt == 8)
         #expect(8.5.arithmeticRoundedInt == 8)
@@ -48,7 +48,7 @@ struct NumericAdditionTests {
     }
 
 
-    @Test func stabilizedValue() async throws {
+    @Test func stabilizedValue() {
         #expect(7.0.stabilizedValue(5.9, threshold: 1) == 5.9)
         #expect(7.0.stabilizedValue(6.0, threshold: 1) == 6.0)
         #expect(7.0.stabilizedValue(6.1, threshold: 1) == 7.0)

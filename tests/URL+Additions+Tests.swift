@@ -12,7 +12,7 @@ import Testing
 
 struct URLAdditionTests {
 
-    @Test func appendingPathComponents() async throws {
+    @Test func appendingPathComponents() {
         let base = URL(filePath: "/tmp")
 
         #expect(base.appending(pathComponents: [String]()) == base)
@@ -21,7 +21,7 @@ struct URLAdditionTests {
     }
 
 
-    @Test func appendingPathComponentsWithStringProtocol() async throws {
+    @Test func appendingPathComponentsWithStringProtocol() {
         let base = URL(filePath: "/tmp")
 
         let substrings = "one/two".split(separator: "/")
@@ -29,7 +29,7 @@ struct URLAdditionTests {
     }
 
 
-    @Test func deletingPathComponents() async throws {
+    @Test func deletingPathComponents() {
         let fileUrl = URL(filePath: "/one/two/three")
         #expect(fileUrl.deletingPathComponents(count: 0) == fileUrl)
         #expect(fileUrl.deletingPathComponents(count: 1).path() == "/one/two/")
@@ -59,7 +59,7 @@ struct URLAdditionTests {
     }
 
 
-    @Test func deletingPathComponentsUntil() async throws {
+    @Test func deletingPathComponentsUntil() {
         let fileUrl = URL(filePath: "/one/two/three")
 
         #expect(fileUrl.deletingPathComponents(until: "three") == fileUrl)
@@ -81,13 +81,13 @@ struct URLAdditionTests {
     }
 
 
-    @Test func deletingPathComponentsUntilWithRepeatedComponents() async throws {
+    @Test func deletingPathComponentsUntilWithRepeatedComponents() {
         let repeatedUrl = URL(filePath: "/root/rep/rep/some")
         #expect(repeatedUrl.deletingPathComponents(until: "rep")?.path() == "/root/rep/rep/")
     }
 
 
-    @Test func deletingPathComponentsUntilWithMaxDeletions() async throws {
+    @Test func deletingPathComponentsUntilWithMaxDeletions() {
         let fileUrl = URL(filePath: "/one/two/three")
 
         // Deletions within `maxDeletions`.

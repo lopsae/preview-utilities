@@ -11,12 +11,12 @@ import Testing
 
 struct DurationAdditionsTests {
 
-    @Test func secondsRange() async throws {
+    @Test func secondsRange() {
         #expect(ClosedRange<Duration>.seconds(0...0) == Duration.seconds(0)...Duration.seconds(0))
         #expect(ClosedRange<Duration>.seconds(1...5) == Duration.seconds(1)...Duration.seconds(5))
     }
 
-    @Test func randomDuration() async throws {
+    @Test func randomDuration() {
         let iterations: Int = 1000
         // Whole seconds
         for _ in 0 ..< iterations {
@@ -48,7 +48,7 @@ struct DurationAdditionsTests {
     }
 
 
-    @Test func randomDurationSingleValueRange() async throws {
+    @Test func randomDurationSingleValueRange() {
         let iterations: Int = 1000
         // Whole seconds
         for _ in 0 ..< iterations {

@@ -11,8 +11,7 @@ import Testing
 
 struct ComparableAdditionTests {
 
-    // FIXME: Remove async throws, search to see if other tests also can be cleaned.
-    @Test func clampClosedRange() async throws {
+    @Test func clampClosedRange() {
         #expect(Int(1).clamped(to: 4...6) == 4)
         #expect(Int(4).clamped(to: 4...6) == 4)
         #expect(Int(5).clamped(to: 4...6) == 5)
@@ -29,14 +28,14 @@ struct ComparableAdditionTests {
     }
 
 
-    @Test func clampPartialRangeFrom() async throws {
+    @Test func clampPartialRangeFrom() {
         #expect(Int(2).clamped(to: 5...) == 5)
         #expect(Int(5).clamped(to: 5...) == 5)
         #expect(Int(7).clamped(to: 5...) == 7)
     }
 
 
-    @Test func clampPartialRangeThrough() async throws {
+    @Test func clampPartialRangeThrough() {
         #expect(Int(2).clamped(to: ...5) == 2)
         #expect(Int(5).clamped(to: ...5) == 5)
         #expect(Int(7).clamped(to: ...5) == 5)

@@ -25,7 +25,7 @@ struct ConfigurationTraitTests {
     }
 
 
-    @Test func initializationWithNoTraits() async throws {
+    @Test func initializationWithNoTraits() {
         let configuration = DummyConfiguration(traits: [])
         #expect(configuration.flag == false)
         #expect(configuration.value == .zero)

@@ -11,7 +11,7 @@ import Testing
 
 struct SequenceAdditions {
 
-    @Test func toArray() async throws {
+    @Test func toArray() {
         let slice = Strings.natoPhoneticAlphabet[2...4]
         #expect(slice.toArray == ["charlie", "delta", "echo"])
 

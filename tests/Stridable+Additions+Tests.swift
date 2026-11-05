@@ -11,7 +11,7 @@ import Testing
 
 struct StridableAdditionTests {
 
-    @Test func clamp() async throws {
+    @Test func clamp() {
         #expect(1.clamped(to: 4..<7) == 4)
         #expect(4.clamped(to: 4..<7) == 4)
         #expect(5.clamped(to: 4..<7) == 5)
