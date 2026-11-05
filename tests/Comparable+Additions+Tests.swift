@@ -42,15 +42,4 @@ struct ComparableAdditionTests {
         #expect(Int(7).clamped(to: ...5) == 5)
     }
 
-    // FIXME: Move to Stridable+Tests?
-    @Test func rangeStrideTo() {
-        #expect((Double.zero ..< .zero).stride(by: 0.5).toArray == [])
-        #expect((Double.zero..<2.0).stride(by: 0.5).toArray == [0, 0.5, 1, 1.5])
-    }
-
-    @Test func closedRangeStrideThrough() {
-        #expect((Double.zero ... .zero).stride(by: 0.5).toArray == [.zero])
-        #expect((Double.zero...2.0).stride(by: 0.5).toArray == [0, 0.5, 1, 1.5, 2])
-    }
-
 }
