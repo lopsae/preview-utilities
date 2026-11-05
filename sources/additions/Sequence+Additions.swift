@@ -9,6 +9,10 @@ import Foundation
 
 extension Sequence {
 
+    var toArray: [Element] {
+        Array(self)
+    }
+
     /// Produces a dictionary mapping each elements of the sequence to a key and their corresponding
     /// value.
     ///
