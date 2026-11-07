@@ -26,13 +26,27 @@ extension DebugGeometryModifier {
         /// The caption displayed along the geometry properties.
         var captionSource: TextSource? = nil
 
-        /// The visibility of the inner and outer borders.
-        var areBordersEnabled: Bool = true
+        /// The visibility of the inner borders.
+        var innerBorderVisibility: Visibility = .visible
 
-        /// The width of the inner and outer borders.
+        /// The width of the inner border.
         ///
         /// Defaults to `4`, a quarter of the default iOS padding.
-        var bordersWidth: CGFloat = 4
+        var innerBorderWidth: CGFloat = 4
+
+        /// The style of the inner border.
+        var innerBorderStyle: AnyShapeStyle? = nil
+
+        /// The visibility of the outer border.
+        var outerBorderVisibility: Visibility = .visible
+
+        /// The width of the outer border.
+        ///
+        /// Defaults to `4`, a quarter of the default iOS padding.
+        var outerBorderWidth: CGFloat = 4
+
+        /// The style of the outer border.
+        var outerBorderStyle: AnyShapeStyle? = nil
 
         /// The geometry properties displayed in the debug caption.
         var geometryProperties: GeometryProperties = .empty
@@ -153,6 +167,9 @@ extension DebugGeometryModifier.Configuration {
     ///
     public enum Trait: Sendable {
 
+        /// Applies the associated mutating closure.
+        case mutate(@Sendable (inout DebugGeometryModifier.Configuration) -> Void)
+
         /// Applies the associated modifier.
         case modifier(any Modifier)
 
@@ -162,6 +179,8 @@ extension DebugGeometryModifier.Configuration {
 
         func apply(to configuration: inout DebugGeometryModifier.Configuration) {
             switch self {
+            case .mutate(let closure):
+                closure(&configuration)
             case .modifier(let modifier):
                 modifier.update(configuration: &configuration)
             case .traits(let traits):
@@ -184,10 +203,17 @@ extension DebugGeometryModifier.Configuration {
         }
 
         /// Hides the geometry overlay borders.
-        public static let noBorders: Trait = .modifier(HideBordersModifier())
+        public static let noBorders: Trait = .mutate { configuration in
+            configuration.innerBorderVisibility = .hidden
+            configuration.outerBorderVisibility = .hidden
+        }
 
+        // FIXME: Recheck tests, now it updates only border width.
         /// Sets the geometry overlay borders to a width of `1`.
-        public static let hairline: Trait = .modifier(HairlineModifier())
+        public static let hairline: Trait = .mutate { configuration in
+            configuration.innerBorderWidth = .one
+            configuration.outerBorderWidth = .one
+        }
 
         /// Sets the inner and outer borders to the given width.
         ///
@@ -195,7 +221,26 @@ extension DebugGeometryModifier.Configuration {
         /// zero through this trait. To hide the borders use ``noBorders``.
         /// - Parameter bordersWidth: Width of the debug overlay borders.
         public static func bordersWidth(_ bordersWidth: CGFloat) -> Trait {
-            .modifier(BordersWidthModifier(bordersWidth: bordersWidth))
+            .mutate { configuration in
+                configuration.innerBorderWidth = bordersWidth
+                configuration.outerBorderWidth = bordersWidth
+            }
+        }
+
+        // FIXME: Document, add to Trait list.
+        // FIXME: Add snapshot testing.
+        public static func innerBordersStyle(style: some ShapeStyle) -> Trait {
+            .mutate { configuration in
+                configuration.innerBorderStyle = AnyShapeStyle(style)
+            }
+        }
+
+        // FIXME: Document, add to Trait list.
+        // FIXME: Add snapshot testing.
+        public static func outerBordersStyle(style: some ShapeStyle) -> Trait {
+            .mutate { configuration in
+                configuration.outerBorderStyle = AnyShapeStyle(style)
+            }
         }
 
         /// Prints the width of the owner view in the debug caption.
@@ -288,28 +333,6 @@ extension DebugGeometryModifier.Configuration {
         let source: TextSource
         func update(configuration: inout DebugGeometryModifier.Configuration) {
             configuration.captionSource = source
-        }
-    }
-
-    struct HideBordersModifier: Modifier {
-        func update(configuration: inout DebugGeometryModifier.Configuration) {
-            configuration.areBordersEnabled = false
-            configuration.bordersWidth = 1
-        }
-    }
-
-    struct HairlineModifier: Modifier {
-        func update(configuration: inout DebugGeometryModifier.Configuration) {
-            configuration.areBordersEnabled = true
-            configuration.bordersWidth = 1
-        }
-    }
-
-    struct BordersWidthModifier: Modifier {
-        let bordersWidth: CGFloat
-        func update(configuration: inout DebugGeometryModifier.Configuration) {
-            configuration.areBordersEnabled = true
-            configuration.bordersWidth = bordersWidth
         }
     }
 

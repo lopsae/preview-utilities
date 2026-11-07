@@ -107,8 +107,10 @@ public struct DebugGeometryModifier: ViewModifier {
         content.overlay {
             GeometryReader { geometry in
                 safeAreaRects(geometry: geometry)
-                if configuration.areBordersEnabled {
+                if configuration.outerBorderVisibility.isEqual(toAny: .visible, .automatic) {
                     outerStrokeRect(geometry: geometry)
+                }
+                if configuration.innerBorderVisibility.isEqual(toAny: .visible, .automatic) {
                     innerStrokeRect(geometry: geometry)
                 }
                 originReticuleRects(geometry: geometry)
@@ -125,7 +127,7 @@ public struct DebugGeometryModifier: ViewModifier {
     @ViewBuilder
     private func safeAreaRects(geometry: GeometryProxy) -> some View {
         let size = geometry.size
-        let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
+        let boundedBordersWidth = configuration.outerBorderWidth.clamped(to: Self.minBordersWidth...)
 
         // When content view is smaller that `bordersWidth*2` the safe areas are still drawn with a
         // thickness of `bordersWidth*2` to remain visible, and offset to stay centered with the
@@ -182,7 +184,7 @@ public struct DebugGeometryModifier: ViewModifier {
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
         let correctedFrame = correctZeroRect(localFrame)
-        let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
+        let boundedBordersWidth = configuration.outerBorderWidth.clamped(to: Self.minBordersWidth...)
 
         Rectangle()
             // Stroke draws over the rectangle boundary, half inside half outside.
@@ -201,7 +203,7 @@ public struct DebugGeometryModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
-        let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
+        let boundedBordersWidth = configuration.innerBorderWidth.clamped(to: Self.minBordersWidth...)
         // When content view is smaller that `bordersWidth*2` the lineWidth used is reduced to
         // allow drawing at smaller sizes, otherwise strokes smaller that half the half the side
         // of the rectangle are NOT drawn.
@@ -229,11 +231,16 @@ public struct DebugGeometryModifier: ViewModifier {
 
     @ViewBuilder
     private func originReticuleRects(geometry: GeometryProxy) -> some View {
-        let thickness: CGFloat = 1
-        let boundedLength = configuration.bordersWidth.clamped(to: Self.minReticuleLength...)
+        // FIXME: Add to documentation that the reticule depends only on the outerBorderWidth.
+        // FIXME: Add to test reticule size with different border widths and visibilities.
+        let thickness: CGFloat = .one
+        let borderWidth = configuration.outerBorderVisibility == .hidden ?
+            .one : configuration.outerBorderWidth
+        let boundedLength = borderWidth.clamped(to: Self.minReticuleLength...)
         // `+ thickness` to correctly center the reticule, specially at very small sizes.
         let reticuleLength = (boundedLength * 2) + thickness
 
+        // FIXME: Figure out if this can be done with AxialLines or Paths.crosshair.
         Rectangle()
         .fill(.red)
         .frame(width: thickness, height: reticuleLength)
@@ -344,7 +351,20 @@ public struct DebugGeometryModifier: ViewModifier {
 
 
     private var captionSpacing: CGSize {
-        let boundedBordersWidth = configuration.bordersWidth.clamped(to: Self.minBordersWidth...)
+        let outerAlignment = configuration.captionAlignment.outerAlignment
+
+        let borderWidth: CGFloat
+        if outerAlignment == nil {
+            // Inner caption.
+            borderWidth = configuration.innerBorderVisibility == .hidden
+                ? .one : configuration.innerBorderWidth
+        } else {
+            // Outer caption.
+            borderWidth = configuration.outerBorderVisibility == .hidden
+                ? .one : configuration.outerBorderWidth
+        }
+
+        let boundedBordersWidth = borderWidth.clamped(to: Self.minBordersWidth...)
 
         // At most, the caption sits 4 points away from the borders.
         let maxSpacingFromBoundary = boundedBordersWidth + 4
@@ -356,7 +376,7 @@ public struct DebugGeometryModifier: ViewModifier {
         var horizontalSpacing = horizontalSpacingFromBoundary
         var verticalSpacing = verticalSpacingFromBoundary
 
-        if let outerAlignment = configuration.captionAlignment.outerAlignment {
+        if let outerAlignment {
             // For outer alignment with top/bottom major, the caption is always aligned 2 points
             // from the edge of the content. Otherwise it looks misaligned.
             if outerAlignment.key.isEqual(toAny: .top, .bottom) {
@@ -368,7 +388,8 @@ public struct DebugGeometryModifier: ViewModifier {
                 verticalSpacing = 0
             }
         }
-        return CGSize(width: horizontalSpacing, height: verticalSpacing)
+
+        return [horizontalSpacing, verticalSpacing]
     }
 
 
