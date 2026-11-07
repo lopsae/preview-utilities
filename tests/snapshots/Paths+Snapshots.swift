@@ -25,7 +25,7 @@ struct PathsSnapshots {
         Snapshots.assertView("all") {
             ZStack {
                 PathShape { rect in
-                    Path(crosshair: rect.centerPoint)
+                    Paths.crosshair(at: rect.centerPoint)
                 }
                 .stroke(.black)
 

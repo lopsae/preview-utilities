@@ -42,22 +42,4 @@ extension Path {
         self.init(rect)
     }
 
-
-    // FIXME: Move to Paths.
-    /// Creates a path containing a crosshair at the given point.
-    ///
-    /// The crosshair total size is a square of `length * 2`.
-    ///
-    /// - Parameters:
-    ///   - point: The center of the crosshair.
-    ///   - length: The length of each crosshair arm.
-    nonisolated
-    public init(crosshair point: CGPoint, length: CGFloat = 4) {
-        self.init()
-        let hSegment = point.adding(x: -length).segmentToOffset(x: length*2)
-        let vSegment = point.adding(y: -length).segmentToOffset(y: length*2)
-        hSegment.add(to: &self)
-        vSegment.add(to: &self)
-    }
-
 }

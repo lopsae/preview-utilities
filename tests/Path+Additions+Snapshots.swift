@@ -53,25 +53,26 @@ struct PathAdditionsSnapshots {
     }
 
 
+    // FIXME: Move to Paths+Snapshots, move also snapshot image.
     @Test(.snapshotTesting) func crosshair() {
         Snapshots.assertView("init") {
             VStack(spacing: 30) {
                 GraticuleRect { spacing, frame in
-                    Path(crosshair: .zero)
+                    Paths.crosshair(at: .zero)
                     .stroke(.green)
 
-                    Path(crosshair: frame.centerPoint)
+                    Paths.crosshair(at: frame.centerPoint)
                     .stroke(.green)
 
-                    Path(crosshair: frame.maxPoint, length: spacing)
+                    Paths.crosshair(at: frame.maxPoint, length: spacing)
                     .stroke(.green)
                 }
 
                 GraticuleRect { spacing, frame in
-                    Path(crosshair: [-spacing, -spacing])
+                    Paths.crosshair(at: [-spacing, -spacing])
                     .stroke(.green)
 
-                    Path(crosshair: frame.maxPoint.adding(x: spacing, y: spacing), length: spacing*2)
+                    Paths.crosshair(at: frame.maxPoint.adding(x: spacing, y: spacing), length: spacing*2)
                     .stroke(.green)
                 }
             }

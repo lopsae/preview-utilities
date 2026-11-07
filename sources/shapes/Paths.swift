@@ -4,11 +4,37 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Namespace for custom drawn paths.
-enum Paths {}
+public enum Paths {}
+
+
+// MARK: - Crosshair
+
+
+extension Paths {
+
+    /// Creates a path containing a crosshair at the given point.
+    ///
+    /// The crosshair total size is a square of `length * 2` per side.
+    ///
+    /// - Parameters:
+    ///   - point: The center of the crosshair.
+    ///   - length: The length of each crosshair arm.
+    nonisolated
+    public static func crosshair(at point: CGPoint, length: CGFloat = 4) -> Path {
+        return .init { path in
+            let hSegment = point.adding(x: -length).segmentToOffset(x: length*2)
+            let vSegment = point.adding(y: -length).segmentToOffset(y: length*2)
+            path.addPath(hSegment)
+            path.addPath(vSegment)
+        }
+
+    }
+
+}
 
 
 // MARK: - Arrow
@@ -16,6 +42,8 @@ enum Paths {}
 
 extension Paths {
 
+
+    // FIXME: Document and publicize. Remove @Testable from snapshot tests.
     nonisolated
     static func arrow(
         tip: CGPoint,
@@ -52,7 +80,7 @@ extension Paths {
 
     ZStack {
         PathShape { rect in
-            Path(crosshair: rect.centerPoint)
+            Paths.crosshair(at: rect.centerPoint)
         }
         .stroke(.primary, lineWidth: 2)
 
