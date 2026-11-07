@@ -9,7 +9,16 @@ In Development.
 + Publicized `StrokeStyle.dividerDash` and `StrokeStyle.dashed`.
 + Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
 + Added `FloatingPointFormatStyle.twoFractionals`.
-+ Added `PathShape`. 
++ Added `PathShape`.
++ Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
++ For `DebugGeometryModifier.Configuration`:
+    + Updated `areBordersEnabled` to `innerBorderVisibility` and `outerBorderVisibility`.
+    + Updated `bordersWidth` to `innerBorderWidth` and `outerBorderWidth`.
+    + Added `innerBorderStyle` and `outerBorderStyle`.
++ For `DebugGeometryModifier.Configuration.Trait`:
+    + Adeed `innerBorderStyle`, `outerBorderStyle`.
+    + Updated `hairline` to update only borders widths.
+    + Updated `noBorder` to update only borders visibility.
 
 
 
