@@ -110,28 +110,6 @@ struct PhasedRect: InsettableShape {
 }
 
 
-// FIXME: Move to CGPoint+Pathable?
-nonisolated
-extension Array: Pathable where Element == CGPoint {
-
-    var path: Path {
-        .init { path in add(to: &path) }
-    }
-
-    @discardableResult
-    func add(to container: inout Path) -> Array<CGPoint> {
-        guard let firstPoint = first else { return self }
-
-        container.move(to: firstPoint)
-        self.dropFirst().forEach { point in
-            container.addLine(to: point)
-        }
-        return self
-    }
-
-}
-
-
 // FIXME: Move to Pathable.
 extension Path {
 
