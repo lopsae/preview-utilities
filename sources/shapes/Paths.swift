@@ -85,20 +85,3 @@ extension Paths {
         .floatingCaption(verbatim: String(describing: edge), alignment: .outerTrailingBottom, .colorStyle(color))
     }
 }
-
-
-// FIXME: Move to GeometryAdditions.
-extension CGRect {
-
-    nonisolated
-    func edgeCenterPoint(on edge: Edge) -> CGPoint {
-        switch edge {
-        case .top:      topCenterPoint
-        case .leading:  leadingCenterPoint
-        case .bottom:   bottomCenterPoint
-        case .trailing: trailingCenterPoint
-        }
-    }
-
-}
-
