@@ -3,12 +3,21 @@
 //  Created by Maic Lopez Saenz.
 //
 
+// FIXME Rename to Hashable+Hasher
+
 
 extension Hashable {
 
     /// Returns the hash value produced by combining self along a given hashable.
     func hash(with hashable: any Hashable) -> Int {
         Hasher.combining(self, hashable)
+    }
+
+
+    nonisolated
+    func isEqual(toAny others: Self...) -> Bool {
+        let set = Set(others)
+        return set.contains(self)
     }
 
 }

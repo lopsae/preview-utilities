@@ -919,18 +919,6 @@ private struct PreviewContent {
 }
 
 
-// FIXME: Move to own file, add tests.
-extension Hashable {
-
-    nonisolated
-    func isEqual(toAny others: Self...) -> Bool {
-        let set = Set(others)
-        return set.contains(self)
-    }
-
-}
-
-
 // MARK: - GeometryProxyFormatStyle
 
 // FIXME: Move to its own file.
