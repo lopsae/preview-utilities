@@ -108,19 +108,3 @@ struct PhasedRect: InsettableShape {
 
     VisibleSpacer()
 }
-
-
-// FIXME: Move to Pathable.
-extension Path {
-
-    nonisolated
-    mutating func addPath(_ pathable: some Pathable) {
-        addPath(pathable.path)
-    }
-
-    nonisolated
-    mutating func addPath(points: CGPoint...) {
-        addPath(points)
-    }
-
-}

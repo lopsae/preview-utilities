@@ -26,6 +26,16 @@ extension Path {
 
 extension Path {
 
+    nonisolated
+    mutating func addPath(_ pathable: some Pathable) {
+        addPath(pathable.path)
+    }
+
+}
+
+
+extension Path {
+
     /// Creates a path containing a rectangle.
     @inlinable nonisolated
     public init(rect: CGRect) {
@@ -33,6 +43,7 @@ extension Path {
     }
 
 
+    // FIXME: Move to Paths.
     /// Creates a path containing a crosshair at the given point.
     ///
     /// The crosshair total size is a square of `length * 2`.
