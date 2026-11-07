@@ -3,8 +3,6 @@
 //  Created by Maic Lopez Saenz.
 //
 
-// FIXME Rename to Hashable+Hasher
-
 
 extension Hashable {
 
