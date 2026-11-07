@@ -13,25 +13,10 @@ import Testing
 @MainActor
 struct PathAdditionsSnapshots {
 
-    /// Utility view to setup Paths based on a frame size, with a graticule drawn around.
-    struct GraticuleRect<Content>: View where Content: View {
-        @ViewBuilder var content: (CGFloat, CGRect) -> Content
-        var body: some View {
-            let heightSpacing: CGFloat = 8
-            let frameSize: CGSize = [120, heightSpacing*3]
-            ZStack {
-                content(heightSpacing, frameSize.rect())
-            }
-            .frame(size: frameSize)
-            .background(.gray.quinary)
-            .edgeGraticule(spacing: 8)
-        }
-    }
-
     @Test(.snapshotTesting) func rect() {
         Snapshots.assertView("init") {
             VStack(spacing: 30) {
-                GraticuleRect { spacing, frame in
+                TestViews.GraticuleRect { spacing, frame in
                     let square: CGSize = .square(of: spacing*2)
                     Path(rect: CGRect(origin: .zero, size: square))
                     .stroke(.green)
@@ -40,39 +25,12 @@ struct PathAdditionsSnapshots {
                     .stroke(.green)
                 }
 
-                GraticuleRect { spacing, frame in
+                TestViews.GraticuleRect { spacing, frame in
                     let square: CGSize = .square(of: spacing*2)
                     Path(rect: CGRect(origin: [-spacing, -spacing], size: square))
                     .stroke(.green)
 
                     Path(rect: CGRect(origin: [120, spacing * 2], size: square))
-                    .stroke(.green)
-                }
-            }
-        }
-    }
-
-
-    // FIXME: Move to Paths+Snapshots, move also snapshot image.
-    @Test(.snapshotTesting) func crosshair() {
-        Snapshots.assertView("init") {
-            VStack(spacing: 30) {
-                GraticuleRect { spacing, frame in
-                    Paths.crosshair(at: .zero)
-                    .stroke(.green)
-
-                    Paths.crosshair(at: frame.centerPoint)
-                    .stroke(.green)
-
-                    Paths.crosshair(at: frame.maxPoint, length: spacing)
-                    .stroke(.green)
-                }
-
-                GraticuleRect { spacing, frame in
-                    Paths.crosshair(at: [-spacing, -spacing])
-                    .stroke(.green)
-
-                    Paths.crosshair(at: frame.maxPoint.adding(x: spacing, y: spacing), length: spacing*2)
                     .stroke(.green)
                 }
             }

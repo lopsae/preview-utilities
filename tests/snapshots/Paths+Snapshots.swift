@@ -72,4 +72,30 @@ struct PathsSnapshots {
         } // for
     }
 
+
+    @Test func crosshair() {
+        Snapshots.assertView("all") {
+            VStack(spacing: 30) {
+                TestViews.GraticuleRect { spacing, frame in
+                    Paths.crosshair(at: .zero)
+                    .stroke(.green)
+
+                    Paths.crosshair(at: frame.centerPoint)
+                    .stroke(.green)
+
+                    Paths.crosshair(at: frame.maxPoint, length: spacing)
+                    .stroke(.green)
+                }
+
+                TestViews.GraticuleRect { spacing, frame in
+                    Paths.crosshair(at: [-spacing, -spacing])
+                    .stroke(.green)
+
+                    Paths.crosshair(at: frame.maxPoint.adding(x: spacing, y: spacing), length: spacing*2)
+                    .stroke(.green)
+                }
+            }
+        }
+    }
+
 }
