@@ -24,14 +24,15 @@ extension Paths {
     ) -> Path {
         let length = size.length(along: edge.axis)
         let width = size.length(along: edge.axis.orthogonal) / 2
+        let boundedWidth = width.clamped(to: ...length)
 
-        let end = tip.adding(length, towards: edge.opposite)
-        let wingClock   = tip.adding(width, orthogonal: +width, towards: edge.rotated)
-        let wingCounter = tip.adding(width, orthogonal: -width, towards: edge.counterRotated)
+        let shaftEnd    = tip.adding(length, towards: edge.opposite)
+        let wingForward = tip.adding(boundedWidth, orthogonal: +boundedWidth, towards: edge.rotated)
+        let wingReverse = tip.adding(boundedWidth, orthogonal: -boundedWidth, towards: edge.counterRotated)
 
         return .init { path in
-            path.addPath(points: tip, end)
-            path.addPath(points: wingCounter, tip, wingClock)
+            path.addPath(points: tip, shaftEnd)
+            path.addPath(points: wingReverse, tip, wingForward)
         }
     }
 
@@ -71,7 +72,6 @@ extension Paths {
         }
     }
 
-    // FIXME: Top and bottom arrows have issues.
     ForEach(edgesAndColors, id: \.edge) { edge, color in
         PathShape { rect, path in
             path = Paths.arrow(
