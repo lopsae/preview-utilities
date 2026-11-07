@@ -995,6 +995,10 @@ extension UnevenRoundedRectangle {
 // FIXME: Figure out Backporting API.
 // Inspired by https://swiftwithmajid.com/2026/09/22/backporting-swiftui-apis/
 
+/// Instance namespace for features only available after an specific version.
+///
+/// Add a `backport: Backport<Self>` property to a type and add an extension to that constrained
+/// backport to provide access to features only available at specific OS versions.
 struct Backport<Content> {
     let content: Content
     init(_ content: Content) {
@@ -1003,6 +1007,9 @@ struct Backport<Content> {
 }
 
 
+/// Availability and value of a backported property.
+///
+/// Allows to report the availability and value of a backported property.
 enum BackportProperty<Property> {
     case available(Property)
     case unavailable
@@ -1016,12 +1023,17 @@ enum BackportProperty<Property> {
 }
 
 
+// FIXME: Maybe rename OptionalProvider?
+/// Provider of an optional value.
+///
+/// Optional implements this protocol to allow protocol based type constrains for optionals.
 protocol OptionalProtocol {
     associatedtype Wrapped
     var optionalValue: Wrapped? { get }
 }
 
 
+/// Implementation of `OptionalProtocol` to allow type constrains for optionals.
 extension Optional: OptionalProtocol {
 
     var optionalValue: Wrapped? {
