@@ -41,26 +41,6 @@ enum BackportProperty<Property> {
 }
 
 
-// FIXME: Move to its own file.
-/// Provider of an optional value.
-///
-/// Optional implements this protocol to allow protocol based type constrains for optionals.
-protocol OptionalProvider {
-    associatedtype Wrapped
-    var optionalValue: Wrapped? { get }
-}
-
-
-/// Implementation of `OptionalProtocol` to allow type constrains for optionals.
-extension Optional: OptionalProvider {
-
-    var optionalValue: Wrapped? {
-        return self
-    }
-
-}
-
-
 extension BackportProperty where Property: OptionalProvider {
 
     /// Unwrapped value of an optional backported property.
