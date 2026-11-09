@@ -63,15 +63,15 @@ extension GeometryProxyFormatStyles {
 
         @_documentation(visibility: internal)
         func format(_ value: EdgeInsets) -> String {
-            // FIXME: use twoFractionals.
-            let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
-            let formattedTop      = value.top.formatted(fractionLength)
-            let formattedLeading  = value.leading.formatted(fractionLength)
-            let formattedBottom   = value.bottom.formatted(fractionLength)
-            let formattedTrailing = value.trailing.formatted(fractionLength)
+            let top      = value.top
+            let leading  = value.leading
+            let bottom   = value.bottom
+            let trailing = value.trailing
+
+            let twoFractionals = FloatingPointFormatStyle<CGFloat>.twoFractionals
             return """
-                tp:\(formattedTop), ld:\(formattedLeading)
-                bt:\(formattedBottom), tr:\(formattedTrailing)
+                tp:\(top, format: twoFractionals), ld:\(leading, format: twoFractionals)
+                bt:\(bottom, format: twoFractionals), tr:\(trailing, format: twoFractionals)
                 """
         }
 
