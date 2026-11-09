@@ -35,7 +35,7 @@ extension TestViews {
     /// Utility view to setup Paths based on a frame size. The content closure receives spacing
     /// value for the graticule, and the rectangle.
     struct GraticuleRect<Content>: View where Content: View {
-        @ViewBuilder var content: (_ graticuleSpacing: CGFloat, _ rect: CGRect) -> Content
+        @ViewBuilder var content: (_ graticuleSpacing: CGFloat, _ frame: CGRect) -> Content
         var body: some View {
             let heightSpacing: CGFloat = 8
             let frameSize: CGSize = [120, heightSpacing*3]
