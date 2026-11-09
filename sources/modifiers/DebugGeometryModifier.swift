@@ -580,11 +580,7 @@ private struct PreviewContent {
     }
 
     LazyVGrid(
-        // FIXME: Convenience, .repeating(2, .flexible())
-        columns: Array(
-            repeating: .init(.flexible()),
-            count: 2
-        ),
+        columns: .repeating(2, .flexible),
         alignment: .leading,
         spacing: 4.0
     ) {
@@ -1043,3 +1039,13 @@ extension Backport where Content == GeometryProxy {
 
 }
 
+
+// FIXME: Move to additions
+
+extension Array {
+
+    static func repeating(_ count: Int, _ element: Element) -> Self {
+        .init(repeating: element, count: count)
+    }
+
+}
