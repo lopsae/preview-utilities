@@ -908,23 +908,6 @@ private struct PreviewContent {
 }
 
 
-// FIXME: Move to its own file.
-extension RectangleCornerRadii {
-    nonisolated
-    static let zero: Self = .init(
-        topLeading: .zero, bottomLeading: .zero,
-        bottomTrailing: .zero, topTrailing: .zero
-    )
-}
-
-
-// FIXME: Move to its own file.
-extension UnevenRoundedRectangle {
-    nonisolated
-    static let zero: Self = .init(cornerRadii: .zero)
-}
-
-
 // FIXME: Figure out Backporting API.
 // Inspired by https://swiftwithmajid.com/2026/09/22/backporting-swiftui-apis/
 
