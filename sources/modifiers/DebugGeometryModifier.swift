@@ -305,7 +305,7 @@ public struct DebugGeometryModifier: ViewModifier {
 
                     // SafeAreaInsets.
                     if configuration.geometryProperties.contains(.safeAreaInsets) {
-                        Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .previewPrintout)")
+                        Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .edgeInsetDebugString)")
                     }
 
                     // ConcentricCornerRadii
@@ -478,34 +478,6 @@ extension View {
         return modifier(DebugGeometryModifier(configuration: configuration))
     }
 
-}
-
-
-// MARK: - EdgeInsetPreviewFormatStyle
-
-
-// FIXME: Move to its own file, along concentricCornerRadii formatter.
-struct EdgeInsetPreviewFormatStyle: FormatStyle {
-
-    func format(_ value: EdgeInsets) -> String {
-        let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
-        let formattedTop      = value.top.formatted(fractionLength)
-        let formattedLeading  = value.leading.formatted(fractionLength)
-        let formattedBottom   = value.bottom.formatted(fractionLength)
-        let formattedTrailing = value.trailing.formatted(fractionLength)
-        return """
-            tp:\(formattedTop), ld:\(formattedLeading)
-            bt:\(formattedBottom), tr:\(formattedTrailing)
-            """
-    }
-
-}
-
-
-extension FormatStyle where Self == EdgeInsetPreviewFormatStyle {
-    internal static var previewPrintout: EdgeInsetPreviewFormatStyle {
-        EdgeInsetPreviewFormatStyle()
-    }
 }
 
 

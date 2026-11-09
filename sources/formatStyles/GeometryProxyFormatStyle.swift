@@ -6,9 +6,15 @@
 
 import SwiftUI
 
-
+// FIXME: Rename file to FormatStyles.
 nonisolated
-enum GeometryProxyFormatStyles {
+enum GeometryProxyFormatStyles {}
+
+
+// MARK: - CornerRadii
+
+
+extension GeometryProxyFormatStyles {
 
     nonisolated
     struct ConcentricCornerRadiiDebugString: FormatStyle, Sendable {
@@ -42,5 +48,40 @@ extension FormatStyle where Self == GeometryProxyFormatStyles.ConcentricCornerRa
 
     nonisolated
     static var concentricRadiiDebugString: Self { .init() }
+
+}
+
+
+// MARK: - EdgeInset
+
+
+extension GeometryProxyFormatStyles {
+
+    nonisolated
+    struct EdgeInsetDebugString: FormatStyle, Sendable {
+
+        @_documentation(visibility: internal)
+        func format(_ value: EdgeInsets) -> String {
+            // FIXME: use twoFractionals.
+            let fractionLength: FloatingPointFormatStyle<Double> = .fractionLength(2)
+            let formattedTop      = value.top.formatted(fractionLength)
+            let formattedLeading  = value.leading.formatted(fractionLength)
+            let formattedBottom   = value.bottom.formatted(fractionLength)
+            let formattedTrailing = value.trailing.formatted(fractionLength)
+            return """
+                tp:\(formattedTop), ld:\(formattedLeading)
+                bt:\(formattedBottom), tr:\(formattedTrailing)
+                """
+        }
+
+    }
+
+}
+
+
+extension FormatStyle where Self == GeometryProxyFormatStyles.EdgeInsetDebugString {
+
+    nonisolated
+    static var edgeInsetDebugString: Self { .init() }
 
 }
