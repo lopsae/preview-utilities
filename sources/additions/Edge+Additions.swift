@@ -9,8 +9,11 @@ public import SwiftUI
 
 extension Edge {
 
-    nonisolated
-    var axis: Axis {
+    /// The axis of the edge.
+    ///
+    /// `horizontal` for `leading` and `trailing`;` `vertical` for `top` and `bottom`.`
+    @inlinable nonisolated
+    public var axis: Axis {
         switch self {
         case .top, .bottom:       .vertical
         case .leading, .trailing: .horizontal
@@ -18,8 +21,9 @@ extension Edge {
     }
 
 
-    nonisolated
-    var opposite: Self {
+    /// The opposite edge.
+    @inlinable nonisolated
+    public var opposite: Self {
         switch self {
         case .top:      .bottom
         case .leading:  .trailing
@@ -28,13 +32,16 @@ extension Edge {
         }
     }
 
-    // Rotates towards the trailing edge.
-    //
-    // Clockwise in left-to-right layout direction.
-    //
-    // top → trailing → bottom → leading → top
-    nonisolated
-    var rotated: Self {
+    /// The edge rotated towards the trailing edge.
+    ///
+    /// Rotates in the direction of `top` towards `trailing`:
+    /// ```
+    /// top → trailing → bottom → leading → top
+    /// ```
+    ///
+    /// Clockwise in left-to-right layout direction.
+    @inlinable nonisolated
+    public var rotated: Self {
         switch self {
         case .top:      .trailing
         case .trailing: .bottom
@@ -44,13 +51,16 @@ extension Edge {
     }
 
 
-    // Rotates towards the leading edge.
-    //
-    // Counter-clockwise in left-to-right layout direction.
-    //
-    // top → leading → bottom → trailing → top
-    nonisolated
-    var counterRotated: Self {
+    /// The edge rotated towards the leading edge.
+    ///
+    /// Rotates in the direction of `top` towards `leading`:
+    /// ```
+    /// top → leading → bottom → trailing → top
+    /// ```
+    ///
+    /// Counter-clockwise in left-to-right layout direction.
+    @inlinable nonisolated
+    public var counterRotated: Self {
         switch self {
         case .top:      .leading
         case .leading:  .bottom
