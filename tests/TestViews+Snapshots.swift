@@ -37,25 +37,23 @@ struct TestViewsSnapshots {
 
 
     @Test func graticuleRect() {
-        Snapshots.assertView("defaults") {
-            VStack(spacing: 30) { // FIXME: Use snapshot spacing.
-                TestViews.GraticuleRect { spacing, frame in
-                    // Empty.
-                }
+        Snapshots.assertView("defaults", spacing: 30) {
+            TestViews.GraticuleRect { spacing, frame in
+                // Empty.
+            }
 
-                TestViews.GraticuleRect { spacing, frame in
-                    let originRect = CGRect(origin: frame.origin, size: .square(of: spacing))
-                    Path(originRect)
-                    .fill(.green.secondary)
+            TestViews.GraticuleRect { spacing, frame in
+                let originRect = CGRect(origin: frame.origin, size: .square(of: spacing))
+                Path(originRect)
+                .fill(.green.secondary)
 
-                    let centerRect = CGSize.square(of: spacing).centered(in: frame)
-                    Path(centerRect)
-                    .fill(.green.secondary)
+                let centerRect = CGSize.square(of: spacing).centered(in: frame)
+                Path(centerRect)
+                .fill(.green.secondary)
 
-                    let endRect = CGRect(origin: frame.maxPoint, size: .square(of: spacing))
-                    Path(endRect)
-                    .fill(.green.secondary)
-                }
+                let endRect = CGRect(origin: frame.maxPoint, size: .square(of: spacing))
+                Path(endRect)
+                .fill(.green.secondary)
             }
         }
     }

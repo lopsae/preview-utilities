@@ -28,8 +28,6 @@ enum TestViews {
 
 extension TestViews {
 
-    // FIXME: Add snapshot test to TestViews+Snapshots.
-
     /// Rectangle with a graticule drawn around.
     ///
     /// Utility view to setup Paths based on a frame size. The content closure receives spacing
