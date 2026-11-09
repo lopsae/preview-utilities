@@ -4,22 +4,39 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
+/// A shape that draws a path provided through a closure.
+///
+/// The path the shape draws is provided by a closure that receives the rect where the shape will
+/// be drawn.
 nonisolated
-struct PathShape: Shape {
+public struct PathShape: Shape {
 
-    typealias PathProvider = @Sendable (_ rect: CGRect) -> Path
-    typealias PathMutator = @Sendable (_ rect: CGRect, _ path: inout Path) -> Void
+    /// Closure that receives the shape rect, and returns the path to draw.
+    public typealias PathProvider = @Sendable (_ rect: CGRect) -> Path
+
+    /// Closure that receives the shape rect and a mutable empty path that will be drawn.
+    public typealias PathMutator = @Sendable (_ rect: CGRect, _ path: inout Path) -> Void
 
     let pathProvider: PathProvider
 
-    init(pathProvider: @escaping PathProvider) {
+
+    /// Creates a shape that draws the path provided by the given closure.
+    ///
+    /// - Parameter pathProvider: A closure that receives the shape rect, and returns the path to
+    ///   draw.
+    public init(pathProvider: @escaping PathProvider) {
         self.pathProvider = pathProvider
     }
 
-    init(pathMutator: @escaping PathMutator) {
+
+    /// Creates a shape that draws the path passed to the given closure.
+    ///
+    /// - Parameter pathMutator: A closure that receives the shape rect and a mutable empty path
+    ///   that will be drawn.
+    public init(pathMutator: @escaping PathMutator) {
         self.pathProvider = { rect in
             var path = Path()
             pathMutator(rect, &path)
@@ -27,7 +44,9 @@ struct PathShape: Shape {
         }
     }
 
-    func path(in rect: CGRect) -> Path { pathProvider(rect) }
+
+    @_documentation(visibility: internal)
+    public func path(in rect: CGRect) -> Path { pathProvider(rect) }
 
 }
 
