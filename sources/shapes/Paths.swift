@@ -23,6 +23,7 @@ extension Paths {
     /// - Parameters:
     ///   - point: The center of the crosshair.
     ///   - length: The length of each crosshair arm.
+    /// - Returns: A path containing a crosshair.
     nonisolated
     public static func crosshair(at point: CGPoint, length: CGFloat = 4) -> Path {
         return .init { path in
@@ -42,10 +43,18 @@ extension Paths {
 
 extension Paths {
 
-
-    // FIXME: Document and publicize. Remove @Testable from snapshot tests.
+    /// Creates a path containing an arrow pointed towards a given edge.
+    ///
+    /// The tip of the arrow is always drawn at the given `tip` point, with the arrow pointing
+    /// towards the `edge` direction, and occupying as much space as possible of the given `size`.
+    ///
+    /// - Parameters:
+    ///   - tip: The location of the tip of the arrow.
+    ///   - edge: The edge towards which the arrow is drawn.
+    ///   - size: The size of the arrow.
+    /// - Returns: A path containing an arrow.
     nonisolated
-    static func arrow(
+    public static func arrow(
         tip: CGPoint,
         towards edge: Edge,
         size: CGSize

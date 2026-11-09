@@ -4,7 +4,7 @@
 //
 
 
-@testable import PreviewUtilities
+import PreviewUtilities
 
 import SwiftUI
 import Testing
