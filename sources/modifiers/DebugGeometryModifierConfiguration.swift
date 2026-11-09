@@ -100,7 +100,7 @@ extension DebugGeometryModifier.Configuration {
             self.rawValue = rawValue
         }
 
-        enum Shift: Int, CaseIterable, SelfIdentifiable {
+        public enum Shift: Int, CaseIterable, SelfIdentifiable {
             case width = 0,
                  height,
                  origin,

@@ -7,24 +7,21 @@
 import SwiftUI
 
 
-// FIXME: Consider to publicize this protocol.
 // TODO: Make a private extension to validate the snippet code. Or try to add it through Docc snippets.
 
 
-/// `OptionSet` that defines a `Shift` type to instantiate instances of a single option.
+/// `OptionSet` with a `Shift` type to instantiate instances of a single option.
 ///
-/// Experimental protocol for `OptionSet`s that defines `Shift`: A type that represents an
-/// individual option of the the option set and can be used to initialize an instance of that
-/// specific option.
+/// Protocol for `OptionSet` that defines `Shift`: A type that represents an individual option of
+/// the option set and can be used to initialize an instance of that specific option.
 ///
 /// For option sets which raw value is `FixedWidthInteger`, the shift is the value by which `1` is
-/// binary shifted to make the raw value of an option set instancevalue is the `
-/// val a type that can be used to:
+/// binary shifted to make the raw value of an option set:
 ///
 /// ```
-/// let shifted = AnOptionSet(shift: 2)
+/// let shifted = AnOptionSet(shift: 4)
 /// // is equal to
-/// let raw     = AnOptionSet(rawValue: 1 << 2)
+/// let raw     = AnOptionSet(rawValue: 1 << 4)
 /// ```
 ///
 /// The intended use for the `Shift` type is to contain the shift value of each option contained in
@@ -35,26 +32,27 @@ import SwiftUI
 /// struct Firings: OptionSet, IdentifiableShift {
 ///     let rawValue: Int
 ///
-///     enum Shift: Int, SelfIdentifiable {
+///     enum Shift: Int {
 ///         case greenware = 0, bisque, glaze
 ///     }
 ///
 ///     static let glaze: Self = .init(shift: .glaze)
 /// }
 ///
-/// let options: Firings = [
-///     .init(shift: .greenware), // Option sets can be initialized with a Shift
+/// let someOptions: Firings = [
+///     .init(shift: .greenware), // Can be initialized with a Shift
 ///     .glaze                    // Or with the usual static properties.
 /// ]
 /// ```
 ///
 nonisolated
-protocol IdentifiableShift: OptionSet {
+public protocol IdentifiableShift: OptionSet {
     associatedtype Shift: RawRepresentable & Hashable
     // TODO: Check if shift needs this constrain. It is likely that it is needed only for the
     // `FixedWidthInteger` constraint in the extension below.
     where Shift.RawValue == Self.RawValue
 
+    /// Creates an instance with the given shift value.
     init(shift: Shift)
 }
 
@@ -65,7 +63,8 @@ where
     Self.RawValue: FixedWidthInteger
 {
 
-    init(shift: Shift) {
+    // Creates an instance with the raw value of 1 shifted by the given shift value.
+    public init(shift: Shift) {
         self.init(shiftedBy: shift.rawValue)
     }
 

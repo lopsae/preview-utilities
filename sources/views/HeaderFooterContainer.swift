@@ -89,7 +89,7 @@ public struct HeaderFooterContainerOptions: OptionSet, IdentifiableShift, Sendab
         self.rawValue = rawValue
     }
 
-    enum Shift: Int, CaseIterable, SelfIdentifiable, DisplayKeyProvider {
+    public enum Shift: Int, CaseIterable, SelfIdentifiable, DisplayKeyProvider {
         case fixedHeader = 0,
              fixedFooter,
              showDividers,

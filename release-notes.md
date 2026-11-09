@@ -6,6 +6,7 @@ v0.5.2 - Corner Geometry Properties
 In Development.
 + Added support to print and visualize `concentricCornerRadii` with `DebugGeometryModifier`.
 + Publicized `DebugGeometryModifier.Configuration.GeometryProperties`
++ Publicized `IdentifiableShift`.
 + Publicized `StrokeStyle.dividerDash` and `StrokeStyle.dashed`.
 + Publicized `Edge/axis`.
 + Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
@@ -23,6 +24,7 @@ In Development.
     + Adeed `innerBorderStyle`, `outerBorderStyle`.
     + Updated `hairline` to update only borders widths.
     + Updated `noBorder` to update only borders visibility.
++ Implemented `IdentifiableShift` in `DebugGeometryModifier.Configuration.GeometryProperties`.
 
 
 
