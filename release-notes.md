@@ -1,16 +1,20 @@
 Release Notes
 =============
 
-v0.5.2 - Duo Geometry Properties
---------------------------------
+v0.5.2 - Corner Geometry Properties
+-----------------------------------
 In Development.
 + Added support to print and visualize `concentricCornerRadii` with `DebugGeometryModifier`.
 + Publicized `DebugGeometryModifier.Configuration.GeometryProperties`
 + Publicized `StrokeStyle.dividerDash` and `StrokeStyle.dashed`.
++ Publicized `Edge/axis`.
 + Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
 + Added `FloatingPointFormatStyle.twoFractionals`.
 + Added `PathShape`.
++ Added `Paths.arrow`.
++ Moved `Path(crosshair:)` to `Paths.crosshair`.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
++ Added `Edge/opposite`, `rotated`, and `counterRotated`.
 + For `DebugGeometryModifier.Configuration`:
     + Updated `areBordersEnabled` to `innerBorderVisibility` and `outerBorderVisibility`.
     + Updated `bordersWidth` to `innerBorderWidth` and `outerBorderWidth`.
