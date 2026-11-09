@@ -9,6 +9,10 @@ public import SwiftUI
 
 extension GridItem {
 
+    public static var flexible: Self {
+        .init(.flexible())
+    }
+
     public static func adaptive(
         minimum: CGFloat,
         maximum: CGFloat = .infinity,
