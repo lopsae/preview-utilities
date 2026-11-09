@@ -6,7 +6,8 @@
 
 import SwiftUI
 
-// FIXME: Rename file to FormatStyles.
+
+/// Namespace for format styles for `GeometryProxy`.
 nonisolated
 enum GeometryProxyFormatStyles {}
 
