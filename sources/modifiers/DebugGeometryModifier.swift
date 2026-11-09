@@ -908,28 +908,6 @@ private struct PreviewContent {
 }
 
 
-// FIXME: Move to GeometryProxyAdditions.
-
-extension GeometryProxy {
-
-    var backport: Backport<Self> { .init(self) }
-
-}
-
-
-extension Backport where Content == GeometryProxy {
-
-    var concentricCornerRadii: BackportProperty<RectangleCornerRadii?> {
-        if #available(anyAppleOS 27.0, *) {
-            return .available(content.concentricCornerRadii)
-        } else {
-            return .unavailable
-        }
-    }
-
-}
-
-
 // FIXME: Move to additions
 
 extension Array {
