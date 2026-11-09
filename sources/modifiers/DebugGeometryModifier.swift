@@ -552,7 +552,7 @@ private struct PreviewContent {
     }
 
     LazyVGrid(
-        columns: .repeating(2, .flexible),
+        columns: .repeating(.flexible, count: 2),
         alignment: .leading,
         spacing: 4.0
     ) {
@@ -905,15 +905,4 @@ private struct PreviewContent {
         .padding(.vertical, 20)
     }
     DashedDivider()
-}
-
-
-// FIXME: Move to additions
-
-extension Array {
-
-    static func repeating(_ count: Int, _ element: Element) -> Self {
-        .init(repeating: element, count: count)
-    }
-
 }
