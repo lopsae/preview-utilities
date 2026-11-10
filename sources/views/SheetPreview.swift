@@ -91,7 +91,8 @@ public struct SheetPreview<Content>: View where Content: View {
 
 
 // TODO: Brough from Trailing{Closure}, consider exposing or moving to its own package.
-struct BaselinedIconLabelStyle: LabelStyle {
+// TODO: Check what happens to the accessibility label of a label with this style.
+private struct BaselinedIconLabelStyle: LabelStyle {
     let length: CGFloat
     func makeBody(configuration: Configuration) -> some View {
         Image(systemName: "circle")
