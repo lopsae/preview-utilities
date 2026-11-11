@@ -9,6 +9,40 @@ public import SwiftUI
 
 extension Button {
 
+    init<Icon>(
+        _ key: LocalizedStringKey,
+        action: @escaping VoidClosure,
+        @ViewBuilder icon: () -> Icon
+    ) where
+        Icon: View,
+        Label == SwiftUI.Label<Text, Icon>
+    {
+        self.init(
+            action: action,
+            label: { Label(key, icon: icon) }
+        )
+    }
+
+
+    init<Icon>(
+        _ key: LocalizedStringKey,
+        action: @escaping VoidClosure,
+        icon: Icon
+    ) where
+        Icon: View,
+        Label == SwiftUI.Label<Text, Icon>
+    {
+        self.init(
+            action: action,
+            label: { Label(key, icon: icon) }
+        )
+    }
+
+}
+
+
+extension Button {
+
 
     // FUTURE: Would this work better as a button style? Likely no, because then that would exclude
     // other button styles like .iconOnly. Unless styles can be stacked together.
