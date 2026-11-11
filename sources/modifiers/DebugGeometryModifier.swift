@@ -1078,7 +1078,3 @@ private struct BaselinedImageView: View {
     .debugAlignmentGuide(vertical: .firstTextBaseline)
 
 }
-
-
-// FIXME: Move to Globals
-typealias VoidClosure = () -> Void
