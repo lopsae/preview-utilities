@@ -10,12 +10,15 @@ In Development.
 + Publicized `StrokeStyle.dividerDash` and `StrokeStyle.dashed`.
 + Publicized `Edge/axis`.
 + Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
++ Moved `Path(crosshair:)` to `Paths.crosshair`.
 + Added `FloatingPointFormatStyle.twoFractionals`.
 + Added `PathShape`.
 + Added `Paths.arrow`.
-+ Moved `Path(crosshair:)` to `Paths.crosshair`.
++ Added `FilledRectangle`.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
 + Added `Edge/opposite`, `rotated`, and `counterRotated`.
++ Added `Label.init(_:icon:)`.
++ Added `Button.init(_:icon:)`.
 + For `DebugGeometryModifier.Configuration`:
     + Updated `areBordersEnabled` to `innerBorderVisibility` and `outerBorderVisibility`.
     + Updated `bordersWidth` to `innerBorderWidth` and `outerBorderWidth`.
@@ -24,7 +27,7 @@ In Development.
     + Adeed `innerBorderStyle`, `outerBorderStyle`.
     + Updated `hairline` to update only borders widths.
     + Updated `noBorder` to update only borders visibility.
-+ Implemented `IdentifiableShift` in `DebugGeometryModifier.Configuration.GeometryProperties`.
++ Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
 
 
 
