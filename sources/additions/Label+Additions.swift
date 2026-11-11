@@ -48,11 +48,18 @@ extension Label {
 
 
 #Preview("Default") {
-    Label("With Closure") {
-        Rectangle()
-        .fill(.red.gradient)
-        .frame(squareOf: 20)
-    }
+    Group {
+        Label("With Closure") {
+            FilledRectangle(.orange.gradient, size: .square(of: 20))
+        }
 
-    Label("With Value", icon: Image(systemName: "ladybug"))
+        Label("With Closure") {
+            FilledRectangle(.orange.gradient, size: .square(of: 40))
+        }
+
+        Label("With Value", icon: Image(systemName: "ladybug"))
+
+        Label("With Value", icon: Image(systemName: "square"))
+    }
+    .debugAlignmentGuide(vertical: .firstTextBaseline)
 }
