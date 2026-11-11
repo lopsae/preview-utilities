@@ -11,16 +11,17 @@ import SwiftUI
 struct RoundToggle: View {
 
     @Binding private var isOn: Bool
-    private let stringKey: LocalizedStringKey
 
-    init(_ stringKey: LocalizedStringKey, isOn: Binding<Bool>) {
-        self.stringKey = stringKey
+    private let titleKey: LocalizedStringKey
+
+    init(_ titleKey: LocalizedStringKey, isOn: Binding<Bool>) {
+        self.titleKey = titleKey
         self._isOn = isOn
     }
 
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            Text(stringKey)
+            Text(titleKey)
             Spacer()
 
             let imageName = isOn ? "checkmark" : "xmark"
@@ -69,31 +70,10 @@ struct RoundToggle: View {
                                 insertion: .opacity,
                                 removal: .scale(scale: 0.5).combined(with: .opacity)
                             ))
-    //                        .animation(isOn ? .default.speed(0.5).delay(1.3) : .default.speed(0.5), value: isOn)
                         }
                     }
                     .animation(.default.speed(isOn ? 0.2 : 0.2).delay(isOn ? 0 : 0.5), value: isOn)
-
-
                 }
-
-
-//                Group {
-//                    if isOn {
-//                        BaselinedImageView(systemName: "checkmark")
-//                        .transition(.asymmetric(
-//                            insertion: .scale(scale: 2).combined(with: .opacity),
-//                            removal: .scale(scale: 0.5).combined(with: .opacity)
-//                        ))
-//                    } else {
-//                        BaselinedImageView(systemName: "xmark")
-//                        .transition(.asymmetric(
-//                            insertion: .opacity,
-//                            removal: .scale(scale: 0.5).combined(with: .opacity)
-//                        ))
-//                    }
-//                }
-//                .animation(.default.speed(0.5), value: isOn)
             }
             .buttonStyle(AnimatedPressedButtonStyle(isOn: isOn))
 
@@ -130,6 +110,7 @@ struct RoundToggle: View {
 
 
 // FIXME: Move to its own file.
+// FIXME: Rename:  UniformSymbol, SquareSymbol, FixedFootprintImage. FixedSizeImage
 // TODO: Based/Brough from Trailing{Closure}, consider exposing or moving to its own package.
 // TODO: Check what happens to the accessibility label of a label with this style.
 
