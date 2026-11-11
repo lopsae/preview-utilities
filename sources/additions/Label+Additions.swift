@@ -42,3 +42,17 @@ extension Label {
     }
 
 }
+
+
+// MARK: - Previews
+
+
+#Preview("Default") {
+    Label("With Closure") {
+        Rectangle()
+        .fill(.red.gradient)
+        .frame(squareOf: 20)
+    }
+
+    Label("With Value", icon: Image(systemName: "ladybug"))
+}
