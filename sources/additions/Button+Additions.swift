@@ -9,6 +9,14 @@ public import SwiftUI
 
 extension Button {
 
+    /// Creates a button that generates its label from a localized string resource and a custom
+    /// icon.
+    ///
+    /// - Parameters:
+    ///   - key: The key for the button’s localized title, that describes the purpose of the
+    ///       button’s action.
+    ///   - action: The action to perform when the user triggers the button.
+    ///   - icon: The view to use as the button icon.
     init<Icon>(
         _ key: LocalizedStringKey,
         action: @escaping VoidClosure,
@@ -24,6 +32,14 @@ extension Button {
     }
 
 
+    /// Creates a button that generates its label from a localized string resource and a custom
+    /// icon.
+    ///
+    /// - Parameters:
+    ///   - key: The key for the button’s localized title, that describes the purpose of the
+    ///       button’s action.
+    ///   - action: The action to perform when the user triggers the button.
+    ///   - icon: The view to use as the button icon.
     init<Icon>(
         _ key: LocalizedStringKey,
         action: @escaping VoidClosure,
