@@ -32,8 +32,9 @@ struct RoundToggle: View {
             } icon: {
                 ZStack {
                     // FIXME: With BaselinedImageView with an empty overlay.
+                    // This view keeps stable the size of the button while transition are playing.
                     Image(systemName: "circle")
-                        .hidden()
+                    .hidden()
 
                     // The ZStacks are required for the dismiss animation to perform properly.
 
@@ -41,6 +42,7 @@ struct RoundToggle: View {
                     ZStack {
                         if isOn {
                             BaselinedImageView(systemName: "checkmark")
+                            .foregroundStyle(.background)
                             .transition(.asymmetric(
                                 insertion: .scale(scale: 2),
                                 removal: .scale(scale: 0.5)
@@ -52,6 +54,7 @@ struct RoundToggle: View {
                     ZStack {
                         if !isOn {
                             BaselinedImageView(systemName: "xmark")
+                            .foregroundStyle(.secondary)
                             .transition(.asymmetric(
                                 insertion: .opacity,
                                 removal: .scale(scale: 0.5).combined(with: .opacity)
@@ -71,12 +74,9 @@ struct RoundToggle: View {
         let speedFactor: CGFloat
 
         func makeBody(configuration: Configuration) -> some View {
-            let foregroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.background) : AnyShapeStyle(.primary.secondary)
             let backgroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.tint) : AnyShapeStyle(.gray.secondary)
             configuration.label
             .labelStyle(.iconOnly)
-            // FIXME: Should foreground be applied to each mark view?
-            .foregroundStyle(foregroundStyle)
             .padding(4)
             .background(backgroundStyle, in: .capsule)
             // Animation for background color.
