@@ -935,8 +935,92 @@ struct RoundToggle: View {
             .background(backgroundStyle, in: .circle)
             .animation(.default.speed(5), value: isOn)
             .onTapGesture { isOn.toggle() }
+
+            Button {
+                isOn.toggle()
+            } label: {
+                Label {
+                    Text("Toggle")
+                } icon: {
+                    BaselinedImageView(systemName: imageName)
+                    .animation(.default.speed(5), value: isOn)
+                }
+            }
+            .buttonStyle(AnimatedPressedButtonStyle(isOn: isOn))
+
+            Button("Toggle") {
+                isOn.toggle()
+            } icon: {
+                ZStack {
+                    Image(systemName: "circle")
+                        .hidden()
+
+                    ZStack {
+                        if isOn {
+                            BaselinedImageView(systemName: "checkmark")
+                            .transition(.asymmetric(
+                                insertion: .scale(scale: 2)/*.combined(with: .opacity)*/,
+                                removal: .scale(scale: 0.5)/*.combined(with: .opacity)*/
+                            ).combined(with: .opacity))
+                        }
+                    }.animation(.default.speed(0.5), value: isOn)
+
+                    ZStack {
+                        if !isOn {
+                            BaselinedImageView(systemName: "xmark")
+                            .transition(.asymmetric(
+                                insertion: .opacity,
+                                removal: .scale(scale: 0.5).combined(with: .opacity)
+                            ))
+    //                        .animation(isOn ? .default.speed(0.5).delay(1.3) : .default.speed(0.5), value: isOn)
+                        }
+                    }
+                    .animation(.default.speed(isOn ? 0.2 : 0.2).delay(isOn ? 0 : 0.5), value: isOn)
+
+
+                }
+
+
+//                Group {
+//                    if isOn {
+//                        BaselinedImageView(systemName: "checkmark")
+//                        .transition(.asymmetric(
+//                            insertion: .scale(scale: 2).combined(with: .opacity),
+//                            removal: .scale(scale: 0.5).combined(with: .opacity)
+//                        ))
+//                    } else {
+//                        BaselinedImageView(systemName: "xmark")
+//                        .transition(.asymmetric(
+//                            insertion: .opacity,
+//                            removal: .scale(scale: 0.5).combined(with: .opacity)
+//                        ))
+//                    }
+//                }
+//                .animation(.default.speed(0.5), value: isOn)
+            }
+            .buttonStyle(AnimatedPressedButtonStyle(isOn: isOn))
+
         }
     }
+
+    struct AnimatedPressedButtonStyle: ButtonStyle {
+        let isOn: Bool
+
+        func makeBody(configuration: Configuration) -> some View {
+            let foregroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.background) : AnyShapeStyle(.primary.secondary)
+            let backgroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.tint) : AnyShapeStyle(.gray.secondary)
+            configuration.label
+            .labelStyle(.iconOnly)
+            .foregroundStyle(foregroundStyle)
+            .padding(4)
+            .background(backgroundStyle, in: .capsule)
+            .animation(.default.speed(5), value: isOn)
+            .scaleEffect(configuration.isPressed ? 1.4 : 1.0, anchor: .center)
+            .animation(.bouncy(duration: 0.3, extraBounce: 0.3), value: configuration.isPressed)
+        }
+
+    }
+
 }
 
 
@@ -992,5 +1076,74 @@ private struct BaselinedImageView: View {
         BaselinedImageView(systemName: imageName)
     }
     .debugAlignmentGuide(vertical: .firstTextBaseline)
+
+}
+
+
+// FIXME: Move to Globals
+typealias VoidClosure = () -> Void
+
+
+// FIXME: Move to ButtonAdditions.
+extension Button {
+
+    // FIXME: Consider if action should come first, to mimic the Button(action:label:) init.
+    init<Icon>(
+        _ key: LocalizedStringKey,
+        action: @escaping VoidClosure,
+        @ViewBuilder icon: () -> Icon
+    ) where
+        Icon: View,
+        Label == SwiftUI.Label<Text, Icon>
+    {
+        self.init(
+            action: action,
+            label: { Label(key, icon: icon) }
+        )
+    }
+
+
+    // FIXME: Consider if action should come first, to mimic the Button(action:label:) init.
+    init<Icon>(
+        _ key: LocalizedStringKey,
+        action: @escaping VoidClosure,
+        icon: Icon
+    ) where
+        Icon: View,
+        Label == SwiftUI.Label<Text, Icon>
+    {
+        self.init(
+            action: action,
+            label: { Label(key, icon: icon) }
+        )
+    }
+
+}
+
+
+// FIXME: Move to Label+Additions.
+extension Label {
+
+    init(
+        _ key: LocalizedStringKey,
+        @ViewBuilder icon: () -> Icon
+    ) where
+        Title == Text
+    {
+        self.init(
+            title: { Text(key) },
+            icon: icon
+        )
+    }
+
+
+    init(_ key: LocalizedStringKey, icon: Icon)
+    where Title == Text
+    {
+        self.init(
+            title: { Text(key) },
+            icon: { icon }
+        )
+    }
 
 }
