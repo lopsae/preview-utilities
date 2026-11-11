@@ -13,16 +13,16 @@ struct RoundToggle: View {
     @Binding private var isOn: Bool
 
     private let titleKey: LocalizedStringKey
-    private let animationModifier: AnimationModifier
+    private let playback: AnimationPlayback
 
     init(
         _ titleKey: LocalizedStringKey,
         isOn: Binding<Bool>,
-        animationModifier: AnimationModifier = .identity
+        animations playback: AnimationPlayback = .normal
     ) {
         self.titleKey = titleKey
         self._isOn = isOn
-        self.animationModifier = animationModifier
+        self.playback = playback
     }
 
     var body: some View {
@@ -51,7 +51,7 @@ struct RoundToggle: View {
                                 removal: .scale(scale: 0.5)
                             ).combined(with: .opacity))
                         }
-                    }.animation(.default.speed(3).modify(animationModifier), value: isOn)
+                    }.animation(.default.speed(3).playback(playback), value: isOn)
 
                     // Xmark is fades in with a slight delay, and fades out +scale.
                     ZStack {
@@ -63,10 +63,10 @@ struct RoundToggle: View {
                                 removal: .scale(scale: 0.5).combined(with: .opacity)
                             ))
                         }
-                    }.animation(.default.speed(2).delay(isOn ? 0 : 0.1).modify(animationModifier), value: isOn)
+                    }.animation(.default.speed(2).delay(isOn ? 0 : 0.1).playback(playback), value: isOn)
                 }
             }
-            .buttonStyle(AnimatedPressedButtonStyle(isOn: isOn, animationModifier: animationModifier))
+            .buttonStyle(AnimatedPressedButtonStyle(isOn: isOn, playback: playback))
 
         }
     }
@@ -74,7 +74,7 @@ struct RoundToggle: View {
     /// Configures the round toggle button to animate its background.
     struct AnimatedPressedButtonStyle: ButtonStyle {
         let isOn: Bool
-        let animationModifier: AnimationModifier
+        let playback: AnimationPlayback
 
         func makeBody(configuration: Configuration) -> some View {
             let backgroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.tint) : AnyShapeStyle(.gray.secondary)
@@ -83,10 +83,10 @@ struct RoundToggle: View {
             .padding(4)
             .background(backgroundStyle, in: .capsule)
             // Animation for background color.
-            .animation(.default.speed(2).modify(animationModifier), value: isOn)
+            .animation(.default.speed(2).playback(playback), value: isOn)
             .scaleEffect(configuration.isPressed ? 1.4 : 1.0, anchor: .center)
             // Animation for scale effect.
-            .animation(.bouncy(duration: 0.3, extraBounce: 0.4).modify(animationModifier), value: configuration.isPressed)
+            .animation(.bouncy(duration: 0.3, extraBounce: 0.4).playback(playback), value: configuration.isPressed)
         }
 
     }
@@ -97,25 +97,22 @@ struct RoundToggle: View {
 // MARK: - AnimationModifier.
 
 
-enum AnimationModifier {
-    case identity
-    case speed(CGFloat)
-    case none
+enum AnimationPlayback {
+    case normal
+    case scaled(CGFloat)
+    case disabled
 
-    static let slow: Self = .speed(0.2)
+    static let slow: Self = .scaled(0.2)
 }
 
 
 extension Animation {
 
-    func modify(_ modifier: AnimationModifier) -> Self? {
-        switch modifier {
-        case .identity:
-            self
-        case .speed(let speed):
-            self.speed(speed)
-        case .none:
-            nil
+    func playback(_ playback: AnimationPlayback) -> Self? {
+        switch playback {
+        case .normal:            self
+        case .scaled(let speed): self.speed(speed)
+        case .disabled:          nil
         }
     }
 
@@ -127,15 +124,15 @@ extension Animation {
 
 #Preview("Default", traits: .fixedHeader) {
     @Previewable @State var toggleValues: [
-        (title: LocalizedStringKey, isOn: Bool, modifier: AnimationModifier)
+        (title: LocalizedStringKey, isOn: Bool, playback: AnimationPlayback)
     ] = [
-        ("First Toggle",  true,  .identity),
-        ("Second Toggle", false, .identity),
+        ("First Toggle",  true,  .normal),
+        ("Second Toggle", false, .normal),
         ("Slow Toggle",   true,  .slow),
-        ("No Animations", true,  .none)
+        ("No Animations", true,  .disabled)
     ]
     VStack($toggleValues.indexed(), id: \.index) { index, $values in
-        RoundToggle(values.title, isOn: $values.isOn, animationModifier: values.modifier)
+        RoundToggle(values.title, isOn: $values.isOn, animations: values.playback)
     }
 }
 
