@@ -139,6 +139,23 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
+#Preview("IconInit") {
+    Group {
+        Button("With Icon Closure", action: {}) {
+            FilledRectangle(.teal.gradient, size: .square(of: 20))
+        }
+
+        Button("With Icon Closure", action: {}) {
+            FilledRectangle(.teal.gradient, size: .square(of: 40))
+        }
+
+        Button("With Icon Value", action: {}, icon: Image(systemName: "ladybug"))
+        Button("With Icon Value", action: {}, icon: Image(systemName: "square"))
+    }
+    .debugAlignmentGuide(vertical: .firstTextBaseline)
+}
+
+
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var circleToggle: Bool = false
     @Previewable @State var guidepointToggle: Bool = false
