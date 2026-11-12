@@ -42,28 +42,37 @@ struct RoundToggle: View {
                     // The ZStacks are required for the dismiss animation to perform properly.
 
                     // Checkmark is animated with a scale+opacity fast animation.
+                    let checkmarkTransition: AnyTransition = .asymmetric(
+                        insertion: .scale(scale: 2),
+                        removal:   .scale(scale: 0.5)
+                    ).combined(with: .opacity)
+                    let checkmarkAnimation: Animation? = .default.speed(3)
+                        .playback(playback)
+
+                    // Xmark is fades in with a slight delay, and fades out with scale.
+                    let xmarkTransition: AnyTransition = .asymmetric(
+                        insertion: .identity,
+                        removal:   .scale(scale: 0.5)
+                    ).combined(with: .opacity)
+                    let xmarkAnimation: Animation? = .default.speed(2).delay(isOn ? 0 : 0.1)
+                        .playback(playback)
+
                     ZStack {
                         if isOn {
                             BaselinedImageView(systemName: "checkmark")
                             .foregroundStyle(.background)
-                            .transition(.asymmetric(
-                                insertion: .scale(scale: 2),
-                                removal: .scale(scale: 0.5)
-                            ).combined(with: .opacity))
+                            .transition(checkmarkTransition)
                         }
-                    }.animation(.default.speed(3).playback(playback), value: isOn)
+                    }.animation(checkmarkAnimation, value: isOn)
 
-                    // Xmark is fades in with a slight delay, and fades out +scale.
+
                     ZStack {
                         if !isOn {
                             BaselinedImageView(systemName: "xmark")
                             .foregroundStyle(.secondary)
-                            .transition(.asymmetric(
-                                insertion: .opacity,
-                                removal: .scale(scale: 0.5).combined(with: .opacity)
-                            ))
+                            .transition(xmarkTransition)
                         }
-                    }.animation(.default.speed(2).delay(isOn ? 0 : 0.1).playback(playback), value: isOn)
+                    }.animation(xmarkAnimation, value: isOn)
                 }
             }
             .buttonStyle(AnimatedPressedButtonStyle(isOn: isOn, playback: playback))
@@ -77,16 +86,27 @@ struct RoundToggle: View {
         let playback: AnimationPlayback
 
         func makeBody(configuration: Configuration) -> some View {
-            let backgroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.tint) : AnyShapeStyle(.gray.secondary)
+            let isPressed = configuration.isPressed
+            let colorAnimation: Animation? = .default.speed(2).playback(playback)
+            let scaleAnimation: Animation? = .bouncy(duration: 0.3, extraBounce: 0.4).playback(playback)
+
+//            let backgroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.tint) : AnyShapeStyle(.gray.secondary)
+            let backgroundStyle: AnyShapeStyle = .if(isOn, then: .tint, else: .gray.secondary)
+
+            // When animations are disabled, scale is also disabled.
+            let pressedScale: CGFloat = playback.isDisabled ? .one : 1.4
+
             configuration.label
             .labelStyle(.iconOnly)
             .padding(4)
-            .background(backgroundStyle, in: .capsule)
-            // Animation for background color.
-            .animation(.default.speed(2).playback(playback), value: isOn)
-            .scaleEffect(configuration.isPressed ? 1.4 : 1.0, anchor: .center)
-            // Animation for scale effect.
-            .animation(.bouncy(duration: 0.3, extraBounce: 0.4).playback(playback), value: configuration.isPressed)
+            .background {
+                Capsule()
+                .fill(backgroundStyle)
+                .brightness(isPressed ? 0.2 : .zero)
+            }
+            .animation(colorAnimation, value: Hasher.combining(isOn, isPressed))
+            .scaleEffect(configuration.isPressed ? pressedScale : 1.0, anchor: .center)
+            .animation(scaleAnimation, value: isPressed)
         }
 
     }
@@ -101,6 +121,14 @@ enum AnimationPlayback {
     case normal
     case scaled(CGFloat)
     case disabled
+
+    var isDisabled: Bool {
+        switch self {
+        case .normal:   false
+        case .scaled:   false
+        case .disabled: true
+        }
+    }
 
     static let slow: Self = .scaled(0.2)
 }
@@ -123,6 +151,7 @@ extension Animation {
 
 
 #Preview("Default", traits: .fixedHeader) {
+    @Previewable @State var comparisonValue = true
     @Previewable @State var toggleValues: [
         (title: LocalizedStringKey, isOn: Bool, playback: AnimationPlayback)
     ] = [
@@ -131,8 +160,30 @@ extension Animation {
         ("Slow Toggle",   true,  .slow),
         ("No Animations", true,  .disabled)
     ]
+
     VStack($toggleValues.indexed(), id: \.index) { index, $values in
         RoundToggle(values.title, isOn: $values.isOn, animations: values.playback)
+    }
+
+    DashedDivider()
+    HStack {
+        RoundToggle("Comparison", isOn: $comparisonValue)
+        Toggle(isOn: $comparisonValue) { EmptyView() }
+        .frame(width: 80)
+        .debugAlignmentGuide(vertical: .top, .extendedLength(50), .anchor(.trailing))
+        .debugAlignmentGuide(vertical: .bottom, .extendedLength(50), .anchor(.trailing))
+    }
+}
+
+
+// FIXME: Move to additions.
+extension AnyShapeStyle {
+    static func `if`(
+        _ condition: Bool,
+        then trueStyle: some ShapeStyle,
+        else falseStyle: some ShapeStyle
+    ) -> Self {
+        condition ? Self(trueStyle) : Self(falseStyle)
     }
 }
 
