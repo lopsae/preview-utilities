@@ -65,6 +65,39 @@ extension Animation {
 }
 
 
+extension Animation {
+
+    /// A collection of all cases of this type with fixed values.
+    static let fixedCases: [Self] = [
+        .default, .linear, .bouncy,
+        .easeIn, .easeOut, .easeInOut,
+        .smooth, .snappy, .spring,
+        .interactiveSpring, .interpolatingSpring,
+    ]
+
+    /// A collection of all cases of this type with fixed values, excluding those intended for
+    /// interactive or interpolated animations.
+    static let fixedSimpleCases: [Self] = [
+        .default, .linear, .bouncy,
+        .easeIn, .easeOut, .easeInOut,
+        .smooth, .snappy, .spring,
+    ]
+
+    static let fixedSimpleDisplayCases: [DisplayProperty<Self>] = [
+        DisplayProperty("default", value: .default),
+        DisplayProperty("linear", value: .linear),
+        DisplayProperty("bouncy", value: .bouncy),
+        DisplayProperty("ease in", value: .easeIn),
+        DisplayProperty("ease out", value: .easeOut),
+        DisplayProperty("ease in out", value: .easeInOut),
+        DisplayProperty("smooth", value: .smooth),
+        DisplayProperty("snappy", value: .snappy),
+        DisplayProperty("spring", value: .spring),
+    ]
+
+}
+
+
 // MARK: - Previews
 
 
@@ -76,46 +109,23 @@ extension Animation {
     Picker(
         "Playback", selection: $playback,
         collection: AnimationPlayback.fixedCases, id: \.displayName,
-        elementFormat: .property(\.displayName).capitalized
+        elementFormat: .capitalize(property: \.displayName)
     )
     .pickerStyle(.segmented)
 
     DashedDivider()
 
-    Button("Animate") { toggle.toggle() }
+    Button("Animate") {
+        toggle.toggle()
+        alignment = toggle ? .leading : .trailing
+    }
     .buttonStyle(.borderedProminent)
 
-    // FIXME: Dry into a foreach.
-    CaptionRectangle("Default", color: .brown, size: [100, 50])
-    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
-    .animation(.default.playback(playback), value: alignment)
-
-    CaptionRectangle("EaseInOut", color: .brown, size: [100, 50])
-    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
-    .animation(.easeInOut.playback(playback), value: alignment)
-
-    CaptionRectangle("Linear", color: .brown, size: [100, 50])
-    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
-    .animation(.linear.playback(playback), value: alignment)
-
-    CaptionRectangle("Smooth", color: .brown, size: [100, 50])
-    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
-    .animation(.smooth.playback(playback), value: alignment)
-
-    CaptionRectangle("Snappy", color: .brown, size: [100, 50])
-    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
-    .animation(.snappy.playback(playback), value: alignment)
-
-    CaptionRectangle("Spring", color: .brown, size: [100, 50])
-    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
-    .animation(.spring.playback(playback), value: alignment)
-
-    CaptionRectangle("Bouncy", color: .brown, size: [100, 50])
-    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
-    .onChange(of: toggle) {
-        let newAlignment: HorizontalAlignment = toggle ? .leading : .trailing
-        withAnimation(.bouncy.playback(playback)) {
-            alignment = newAlignment
-        }
+    ForEach(Animation.fixedSimpleDisplayCases, id: \.value) { property in
+        let caption = property.displayString
+        CaptionRectangle("\(caption)", color: .brown, size: [100, 50])
+        .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+        .animation(property.value.playback(playback), value: alignment)
     }
+
 }
