@@ -57,10 +57,11 @@ struct FloatingAlignedContainer<Content: View>: View {
             let offset = calculateOffset(geometry: geometry)
 
             // TODO: Rethink if VStack is appropriate here, since there is no easy way to provide spacing. ZStack may work better.
+            let contentAlignments = FloatingAlignment.ContentAlignments(floatingAlignment: alignment)
             VStack(alignment: alignment.forContent.horizontal) {
-                let contentAlignments = FloatingAlignment.ContentAlignments(floatingAlignment: alignment)
                 content(contentAlignments)
             }
+            .multilineTextAlignment(contentAlignments.text)
             // This first frame constrains the content to the same size the geometry reader can
             // take, even with the paddings, the content still is sized to the owner view size.
             .frame(size: geometry.size, alignment: alignment.forContent)

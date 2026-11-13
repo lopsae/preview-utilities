@@ -39,7 +39,7 @@ struct OverlayFloatingAlignmentsSnapshots {
 
                         Text(alignment.abbreviatedName)
                         .font(.caption)
-                        .border(.brown)
+                        .background(.brown)
                     }
                 }
             }
