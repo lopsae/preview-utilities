@@ -114,39 +114,6 @@ struct RoundToggle: View {
 }
 
 
-// MARK: - AnimationModifier.
-
-
-enum AnimationPlayback {
-    case normal
-    case scaled(CGFloat)
-    case disabled
-
-    var isDisabled: Bool {
-        switch self {
-        case .normal:   false
-        case .scaled:   false
-        case .disabled: true
-        }
-    }
-
-    static let slow: Self = .scaled(0.2)
-}
-
-
-extension Animation {
-
-    func playback(_ playback: AnimationPlayback) -> Self? {
-        switch playback {
-        case .normal:            self
-        case .scaled(let speed): self.speed(speed)
-        case .disabled:          nil
-        }
-    }
-
-}
-
-
 // MARK: - Previews
 
 
