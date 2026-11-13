@@ -14,6 +14,7 @@ extension String {
     public static let hyphen:     Self = "-"
     public static let dot:        Self = "·"
     public static let bullet:     Self = "•"
+    public static let newLine:    Self = "\n"
 
 }
 
