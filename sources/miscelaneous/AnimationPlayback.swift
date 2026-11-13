@@ -56,3 +56,57 @@ extension Animation {
     }
 
 }
+
+
+// MARK: - Previews
+
+
+#Preview("Default", traits: .headerFooter) {
+    @Previewable @State var toggle = true
+    @Previewable @State var alignment: HorizontalAlignment = .leading
+    @Previewable @State var playback: AnimationPlayback = .normal
+
+    let playbacks: [AnimationPlayback] = [.normal, .slow, .disabled]
+    // FIXME: Can an extension of FormatStyle<Generic, String> be done to capitalized()? Where it produces a composite?
+    Picker("Playback", selection: $playback, collection: playbacks, id: \.displayName, elementFormat: .property(\.displayName))
+        .pickerStyle(.segmented)
+
+    DashedDivider()
+
+    Button("Animate") { toggle.toggle() }
+    .buttonStyle(.borderedProminent)
+
+    // FIXME: Dry into a foreach.
+    CaptionRectangle("Default", color: .brown, size: [100, 50])
+    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+    .animation(.default.playback(playback), value: alignment)
+
+    CaptionRectangle("EaseInOut", color: .brown, size: [100, 50])
+    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+    .animation(.easeInOut.playback(playback), value: alignment)
+
+    CaptionRectangle("Linear", color: .brown, size: [100, 50])
+    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+    .animation(.linear.playback(playback), value: alignment)
+
+    CaptionRectangle("Smooth", color: .brown, size: [100, 50])
+    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+    .animation(.smooth.playback(playback), value: alignment)
+
+    CaptionRectangle("Snappy", color: .brown, size: [100, 50])
+    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+    .animation(.snappy.playback(playback), value: alignment)
+
+    CaptionRectangle("Spring", color: .brown, size: [100, 50])
+    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+    .animation(.spring.playback(playback), value: alignment)
+
+    CaptionRectangle("Bouncy", color: .brown, size: [100, 50])
+    .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+    .onChange(of: toggle) {
+        let newAlignment: HorizontalAlignment = toggle ? .leading : .trailing
+        withAnimation(.bouncy.playback(playback)) {
+            alignment = newAlignment
+        }
+    }
+}
