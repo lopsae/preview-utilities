@@ -7,26 +7,30 @@
 import SwiftUI
 
 
-/// Modifications for animations in a view or controls.
-///  
-/// Views and controls can expose an `AnimationPlayback` property or parameter to configure the
-/// internal animations all together.
+/// Modifications for animations in a view or control.
+///
+/// Views and controls can expose an `AnimationPlayback` property or parameter to configure its
+/// internal animations.
 nonisolated
 enum AnimationPlayback: Hashable, Sendable {
 
     /// Animations play normally.
     case normal
 
-    /// Animation speed is scaled by the associated speed factor.
-    case scaled(CGFloat)
+    /// Animations play at a fifth of the normal speed.
+    case slow
 
     /// Animations are disabled.
     case disabled
+
+    /// Animation speed is scaled by the associated speed factor.
+    case scaled(CGFloat)
 
     /// Indicates if the instance is the disabled case.
     var isDisabled: Bool {
         switch self {
         case .normal:   false
+        case .slow:     false
         case .scaled:   false
         case .disabled: true
         }
@@ -35,13 +39,15 @@ enum AnimationPlayback: Hashable, Sendable {
     var displayName: String {
         switch self {
         case .normal:   "normal"
-        case .scaled:   "scaled"
+        case .slow:     "slow"
         case .disabled: "disabled"
+        case .scaled:   "scaled"
         }
     }
 
-    /// Scales animation to at fifth of normal speed.
-    static let slow: Self = .scaled(1/5)
+    /// A collection of all cases of this type with fixed values.
+    static let fixedCases: [Self] = [.normal, .slow, .disabled]
+
 }
 
 
@@ -50,8 +56,9 @@ extension Animation {
     func playback(_ playback: AnimationPlayback) -> Self? {
         switch playback {
         case .normal:            self
-        case .scaled(let speed): self.speed(speed)
+        case .slow:              self.speed(1/5)
         case .disabled:          nil
+        case .scaled(let speed): self.speed(speed)
         }
     }
 
@@ -66,10 +73,12 @@ extension Animation {
     @Previewable @State var alignment: HorizontalAlignment = .leading
     @Previewable @State var playback: AnimationPlayback = .normal
 
-    let playbacks: [AnimationPlayback] = [.normal, .slow, .disabled]
-    // FIXME: Can an extension of FormatStyle<Generic, String> be done to capitalized()? Where it produces a composite?
-    Picker("Playback", selection: $playback, collection: playbacks, id: \.displayName, elementFormat: .property(\.displayName))
-        .pickerStyle(.segmented)
+    Picker(
+        "Playback", selection: $playback,
+        collection: AnimationPlayback.fixedCases, id: \.displayName,
+        elementFormat: .property(\.displayName).capitalized
+    )
+    .pickerStyle(.segmented)
 
     DashedDivider()
 
