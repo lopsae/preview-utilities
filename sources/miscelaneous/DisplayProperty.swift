@@ -8,11 +8,17 @@ import SwiftUI
 
 
 /// Experimental struct that contains a value and a localized string key to display along the value.
-/// Can be received by views to display properties names and their value in a standarized format.
+/// Can be received by views to display properties names and their value in a standardized format.
 ///
 /// See the preview in this file for an example of a `bool` stored in a `DisplayProperty`, which
 /// be directly displayed in a `Text`.
 struct DisplayProperty<Value> {
+
+    init(_ displayKey: LocalizedStringKey, value: Value) {
+        self.displayKey = displayKey
+        self.value = value
+    }
+
     let displayKey: LocalizedStringKey
     var value: Value
 }
@@ -24,7 +30,11 @@ protocol DisplayKeyProvider {
 }
 
 
-// Used to define functions with a specific return type for dynamic member lookup.
+/// Used to define functions with a specific return type for dynamic member lookup.
+///
+/// See usage in IdentifiableShift examples.
+// TODO: Consider renaming to DisplayPropertyKey? DisplayPropertyMember?
+// TODO: Should Key be constrained to DisplayKeyProvider to make clear its use?
 struct DisplayKey<Key> {
     let key: Key
     static func key(_ key: Key) -> Self { .init(key: key) }
@@ -60,7 +70,7 @@ extension Toggle {
 
 
 #Preview("Default", traits: .headerFooter, .iPhoneProSizeForcedLayout) {
-    @Previewable @State var property = DisplayProperty(displayKey: "Display Boolean", value: true)
+    @Previewable @State var property = DisplayProperty("Display Boolean", value: true)
 
     Text(property: property)
     Toggle(property: $property)

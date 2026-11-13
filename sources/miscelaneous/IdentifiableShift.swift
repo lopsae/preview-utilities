@@ -161,7 +161,7 @@ where
 
     subscript(displayFor shift: Shift) -> DisplayProperty<Bool> {
         get {
-            .init(displayKey: shift.displayKey, value: self[shift: shift])
+            .init(shift.displayKey, value: self[shift: shift])
         }
         mutating set {
             self[shift: shift] = newValue.value
