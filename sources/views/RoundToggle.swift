@@ -88,13 +88,13 @@ struct RoundToggle: View {
         func makeBody(configuration: Configuration) -> some View {
             let isPressed = configuration.isPressed
             let colorAnimation: Animation? = .default.speed(2).playback(playback)
-            let scaleAnimation: Animation? = .bouncy(duration: 0.3, extraBounce: 0.4).playback(playback)
+            let scaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
 //            let backgroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.tint) : AnyShapeStyle(.gray.secondary)
             let backgroundStyle: AnyShapeStyle = .if(isOn, then: .tint, else: .gray.secondary)
 
             // When animations are disabled, scale is also disabled.
-            let pressedScale: CGFloat = playback.isDisabled ? .one : 1.4
+            let pressedScale: CGFloat = playback.isDisabled ? .one : 1.5
 
             configuration.label
             .labelStyle(.iconOnly)
