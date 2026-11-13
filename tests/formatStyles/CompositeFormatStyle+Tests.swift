@@ -11,9 +11,14 @@ import Testing
 
 struct CompositeFormatStyleTests {
 
-    @Test func extensions() {
+    @Test func compositeFunction() {
         #expect("black quartz".formatted(.composite(input: .firstWord, output: .capitalize)) == "Black")
         #expect("black quartz".formatted(.composite(input: .lastWord, output: .capitalize)) == "Quartz")
+    }
+
+    @Test func thenFunction() {
+        #expect("black quartz".formatted(.firstWord.then(.capitalize)) == "Black")
+        #expect("black quartz".formatted(.lastWord.then(.capitalize)) == "Quartz")
     }
 
     @Test func lastWordCapitalized() {

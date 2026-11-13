@@ -12,13 +12,20 @@ import SwiftUI
 /// A format style that joins two format styles.
 ///
 /// The `CompositeFormatStyle` joins two format styles into a single one, routing the input data
-/// first into the input format style, and then through the output format style.
+/// into the input format style, and then through the output format style.
 ///
-/// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/composite(input:output:)``:
+/// Apply this style using the static function ``Foundation/FormatStyle/composite(input:output:)``:
 ///
 /// ```swift
 /// // Displays "Quartz"
 /// Text("black quartz", format: .composite(input: .lastWord, output: .capitalize))
+/// ```
+///
+/// Or the instance function ``Foundation/FormatStyle/then(_:)``:
+///
+/// ```swift
+/// // Displays "Rose"
+/// Text("rose quartz", format: .firstWord.then(.capitalize))
 /// ```
 ///
 /// ## Topics
@@ -58,8 +65,8 @@ extension FormatStyle {
 
     /// A format style that joins two format styles.
     ///
-    /// Returns a ``CompositeFormatStyle`` configured to join two format styles into a single one.
-    /// The input data is routed first into the input format style, and then through the output
+    /// Returns a ``CompositeFormatStyle`` that joins two format styles into a single one. The input
+    /// data is routed into the input format style, and then through the output
     /// format style.
     ///
     /// ```swift
@@ -70,8 +77,7 @@ extension FormatStyle {
     /// - Parameters:
     ///   - input: The format style that formats the input data first.
     ///   - output: The format style that produces the output with the formatted data.
-    /// - Returns: Returns a ``CompositeFormatStyle`` configured with the given input and output
-    ///   styles.
+    /// - Returns: A `CompositeFormatStyle` configured with the given input and output styles.
     public nonisolated
     static func composite<InputStyle, OutputStyle>(
         input: InputStyle,
@@ -84,6 +90,23 @@ extension FormatStyle {
         Self == CompositeFormatStyle<InputStyle, OutputStyle>
     {
         return CompositeFormatStyle(input: input, output: output)
+    }
+
+}
+
+
+extension FormatStyle {
+    
+    /// Joins `self` with another format style.
+    ///
+    /// Returns a ``CompositeFormatStyle`` that joins `self` with another format style. The output
+    /// of self is formatted through the output format style.
+    ///
+    /// - Parameter outputStyle: The format style that produces the output formatted data.
+    /// - Returns: A `CompositeFormatStyle` configured with `self` and the output format style.
+    public nonisolated
+    func then<OutputStyle: FormatStyle>(_ outputStyle: OutputStyle) -> CompositeFormatStyle<Self, OutputStyle> {
+        return CompositeFormatStyle(input: self, output: outputStyle)
     }
 
 }
@@ -105,11 +128,20 @@ private typealias Sphinx = FormatStyleExamples.Sphinx
 }
 
 
+#Playground("Then") {
+    _ = "black quartz".formatted(.firstWord.then(.capitalize))
+    _ = "black quartz".formatted(.capitalize.then(.lastWord))
+    _ = Sphinx().formatted(.property(\.material).then(.capitalize))
+}
+
+
 // MARK: - Previews
 
 
 #Preview("Snippets", traits: .sizeThatFitsLayout) {
     // Displays "Quartz"
     Text("black quartz", format: .composite(input: .lastWord, output: .capitalize))
-    .padding()
+
+    // Displays "Rose"
+    Text("rose quartz", format: .firstWord.then(.capitalize))
 }
