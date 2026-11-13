@@ -59,6 +59,7 @@ struct PropertyFormatStyle<Input: Sendable>: FormatStyle, Sendable {
     /// `PropertyFormatStyle` cannot be meaningfully encoded/decoded. This function stores a dummy
     /// value and succeeds.
     public func encode(to encoder: any Encoder) throws {
+        // TODO: Consider throwing EncodingError.invalidValue.
         var container = encoder.singleValueContainer()
         try container.encode("PropertyFormatStyle")
     }
