@@ -10,15 +10,20 @@ In Development.
 + Publicized `StrokeStyle.dividerDash` and `StrokeStyle.dashed`.
 + Publicized `Edge/axis`.
 + Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
++ Updated `FloatingAlignedContainer` to apply `multilineTextAlignment` to its content.
 + Moved `Path(crosshair:)` to `Paths.crosshair`.
 + Added `FloatingPointFormatStyle.twoFractionals`.
 + Added `PathShape`.
 + Added `Paths.arrow`.
 + Added `FilledRectangle`.
++ Added `RoundToggle`.
++ Added `AnimationPlayback`.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
 + Added `Edge/opposite`, `rotated`, and `counterRotated`.
 + Added `Label.init(_:icon:)`.
 + Added `Button.init(_:icon:)`.
++ Added `FormatStyle/then(_:)`, and `FormatStyle/capitalized`.
++ Added `String.newLine`.
 + For `DebugGeometryModifier.Configuration`:
     + Updated `areBordersEnabled` to `innerBorderVisibility` and `outerBorderVisibility`.
     + Updated `bordersWidth` to `innerBorderWidth` and `outerBorderWidth`.

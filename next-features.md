@@ -2,6 +2,10 @@ Next Features
 =============
 
 
+For 0.5.4
+---------
++ Fleshout `HorizontalRelativeAlignment`, publicize `FloatingAlignedContainer` if still useful.
+
 For 0.5.3
 ---------
 + DocumentationIllustration -> Illustration? SnippetIllustration?
@@ -18,7 +22,7 @@ For future versions
 + Update CaptionRectangle to use its own traits, instead of FloatingCaption traits, also expose alignment as a parameter.
 + Use FloatingCaption as the main text component in DebugOverlay.
 + Figure out vertical text views that comply with layouts.
-+ Enable vertical texts in FloatingCaption and DebugOverlay.
++ Enable vertical texts in FloatingCaption and DebugGeometry.
 + Use SafeAreaPad for header and footers, add option to display safe area divider.
 + Reimplement FloatingContent to actually use the top/leading/bottom/trailing alingments to position its content.
 
