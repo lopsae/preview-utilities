@@ -95,7 +95,7 @@ public struct HeaderFooterContainerOptions: OptionSet, IdentifiableShift, Sendab
              showDividers,
              padContent
 
-        var displayKey: LocalizedStringKey {
+        var displayString: String {
             switch self {
             case .fixedHeader:  "Fixed Header"
             case .fixedFooter:  "Fixed Footer"
@@ -167,6 +167,7 @@ private struct PreviewContent {
 
     HeaderFooterContainer(enableEdgePadding: enableEdgePadding, options: options) {
         ForEach(HeaderFooterContainerOptions.Shift.allCases) { shift in
+            // TODO: Since display property now provides string, toggle could receive a format for the display property.
             Toggle(property: $options.displayProperty(for: shift))
         }
 

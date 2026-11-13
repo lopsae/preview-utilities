@@ -161,7 +161,7 @@ where
 
     subscript(displayFor shift: Shift) -> DisplayProperty<Bool> {
         get {
-            .init(shift.displayKey, value: self[shift: shift])
+            .init(shift.displayString, value: self[shift: shift])
         }
         mutating set {
             self[shift: shift] = newValue.value
@@ -266,7 +266,8 @@ extension PreviewContent.Firings.Shift {
 extension PreviewContent.Firings.Shift: DisplayKeyProvider {
 
     // Implementation for DisplayKeyProvider, allows the OptionSet to produce DisplayProperties.
-    var displayKey: LocalizedStringKey {
+    var displayString: String {
+        // TODO: Consider if the expected format for display string should be lowercase, and use formatters to capitalize.
         switch self {
         case .greenware: "Greenware"
         case .bisque:    "Bisque"
@@ -360,7 +361,7 @@ extension PreviewContent.Firings.Shift: DisplayKeyProvider {
 
     PreviewContent.captioned("Toggles iterating through `Shift` cases.") {
         ForEach(PreviewContent.Firings.Shift.allCases) { shift in
-            Toggle(shift.displayKey, isOn: $options.binding(for: shift))
+            Toggle(shift.displayString, isOn: $options.binding(for: shift))
         }
     }
 
@@ -368,15 +369,15 @@ extension PreviewContent.Firings.Shift: DisplayKeyProvider {
 
     PreviewContent.captioned("Using `Binding` inherited value dynamic member.") {
         let shift = PreviewContent.Firings.Shift.greenware
-        Toggle(shift.displayKey, isOn: $options.greenwareValue)
+        Toggle(shift.displayString, isOn: $options.greenwareValue)
     }
     PreviewContent.captioned("Using `Binding[shift:]` inherited subscript.") {
         let shift = PreviewContent.Firings.Shift.bisque
-        Toggle(shift.displayKey, isOn: $options[shift: shift])
+        Toggle(shift.displayString, isOn: $options[shift: shift])
     }
     PreviewContent.captioned("Using `Binding[dynamicMember:]` inherited subscript.") {
         let shift = PreviewContent.Firings.Shift.glaze
-        Toggle(shift.displayKey, isOn: $options[dynamicMember: shift.bindingValueKeyPath])
+        Toggle(shift.displayString, isOn: $options[dynamicMember: shift.bindingValueKeyPath])
     }
 
     DashedDivider()

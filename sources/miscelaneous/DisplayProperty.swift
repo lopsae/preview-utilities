@@ -7,26 +7,27 @@
 import SwiftUI
 
 
-/// Experimental struct that contains a value and a localized string key to display along the value.
+/// Experimental struct that contains a value and a string to display along the value.
+///
 /// Can be received by views to display properties names and their value in a standardized format.
 ///
 /// See the preview in this file for an example of a `bool` stored in a `DisplayProperty`, which
 /// be directly displayed in a `Text`.
 struct DisplayProperty<Value> {
 
-    init(_ displayKey: LocalizedStringKey, value: Value) {
-        self.displayKey = displayKey
+    let displayString: String
+    var value: Value
+
+    init(_ displayString: String, value: Value) {
+        self.displayString = displayString
         self.value = value
     }
-
-    let displayKey: LocalizedStringKey
-    var value: Value
 }
 
 
 /// Experimental protocol for an instance to provide its own `DisplayProperty`.
 protocol DisplayKeyProvider {
-    var displayKey: LocalizedStringKey { get }
+    var displayString: String { get }
 }
 
 
@@ -49,7 +50,7 @@ extension Text {
     init<Value>(
         property: DisplayProperty<Value>
     ) {
-        let text = Text(property.displayKey)
+        let text = Text(property.displayString)
         let valueString = String(describing: property.value)
         self.init("\(text): \(valueString)")
     }
@@ -60,7 +61,8 @@ extension Text {
 extension Toggle {
 
     init(property: Binding<DisplayProperty<Bool>>) where Label == Text {
-        self.init(property.wrappedValue.displayKey, isOn: property.value)
+        let displayString = property.wrappedValue.displayString
+        self.init(displayString, isOn: property.value)
     }
 
 }
@@ -70,6 +72,7 @@ extension Toggle {
 
 
 #Preview("Default", traits: .headerFooter, .iPhoneProSizeForcedLayout) {
+    // TODO: Consider if the expected format for display string should be lowercase, and use formatters to capitalize.
     @Previewable @State var property = DisplayProperty("Display Boolean", value: true)
 
     Text(property: property)
