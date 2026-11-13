@@ -105,6 +105,7 @@ enum FloatingAlignment: CaseIterable, SelfIdentifiable, Sendable {
 
     var displayName: String { displayNameComponents.joined(separator: .space) }
     var hyphenatedName: String { displayNameComponents.joined(separator: .hyphen) }
+    var multilineName: String { displayNameComponents.joined(separator: .newLine) }
 
     /// The abbreviated name.
     ///
@@ -741,14 +742,14 @@ private struct PreviewContent {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
         Text(horizontalAlignment.displayName, format: .capitalize)
-        FilledRectangle(.teal.gradient.secondary, size: .square(of: 100))
+        FilledRectangle(.teal.gradient, size: .square(of: 100))
         .overlay {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
                 FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
                     Text.caption(verbatim:alignment.hyphenatedName).fixedSize()
                     .padding(2)
-                    .border(.mint.secondary)
+                    .background(.gray.tertiary)
                 }
             }
         }
@@ -789,7 +790,6 @@ private struct PreviewContent {
     }
     .pickerStyle(.segmented)
 
-    let positionTrait: DebugGeometryModifier.Configuration.Trait
     let alignment: FloatingAlignment = switch positionKey {
     case .inner:
         .inner(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
@@ -802,15 +802,13 @@ private struct PreviewContent {
         }
     }
 
-    FilledRectangle(.teal.gradient.secondary, size: .square(of: 100))
+    FilledRectangle(.teal.gradient, size: .square(of: 100))
     .overlay {
         FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
-            let name = alignment.displayNameComponents.joined(separator: .newLine)
-            Text.caption(verbatim:name)
+            Text.caption(verbatim: alignment.multilineName)
             .fixedSize()
-            .multilineTextAlignment(alignments.text)
             .padding(2)
-            .border(.mint.secondary)
+            .background(.gray.tertiary)
         }
     }
     .padding(.vertical, 50)
