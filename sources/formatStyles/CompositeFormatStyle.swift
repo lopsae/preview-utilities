@@ -78,8 +78,8 @@ extension FormatStyle {
     ///   - input: The format style that formats the input data first.
     ///   - output: The format style that produces the output with the formatted data.
     /// - Returns: A `CompositeFormatStyle` configured with the given input and output styles.
-    public nonisolated
-    static func composite<InputStyle, OutputStyle>(
+    nonisolated
+    public static func composite<InputStyle, OutputStyle>(
         input: InputStyle,
         output: OutputStyle
     ) -> Self
@@ -104,8 +104,8 @@ extension FormatStyle {
     ///
     /// - Parameter outputStyle: The format style that produces the output formatted data.
     /// - Returns: A `CompositeFormatStyle` configured with `self` and the output format style.
-    public nonisolated
-    func then<OutputStyle: FormatStyle>(_ outputStyle: OutputStyle) -> CompositeFormatStyle<Self, OutputStyle> {
+    nonisolated
+    public func then<OutputStyle: FormatStyle>(_ outputStyle: OutputStyle) -> CompositeFormatStyle<Self, OutputStyle> {
         return CompositeFormatStyle(input: self, output: outputStyle)
     }
 

@@ -15,10 +15,16 @@ struct CapitalizeFormatStyleTests {
         let label = "agate"
     }
 
-    @Test func extensions() {
+    @Test func extensionCapitalize() {
         #expect("black quartz".formatted(.capitalize) == "Black Quartz")
         #expect("black quartz".formatted(.capitalize(.firstWord)) == "Black")
         #expect(Sample().formatted(.capitalize(property: \.label)) == "Agate")
+    }
+
+    @Test func extensionCapitalized() {
+        #expect("rose quartz".formatted(.firstWord.capitalized) == "Rose")
+        #expect("rose quartz".formatted(.lastWord.capitalized) == "Quartz")
+        #expect(Sample().formatted(.property(\.label).capitalized) == "Agate")
     }
 
     @Test func words() {

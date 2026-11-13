@@ -49,10 +49,29 @@ extension FormatStyle where Self == CapitalizeFormatStyle {
     /// ```swift
     /// Text("black quartz", format: .capitalize) // Displays "Black Quartz"
     /// ```
-    public nonisolated
-    static var capitalize: Self { CapitalizeFormatStyle() }
+    nonisolated
+    public static var capitalize: Self { CapitalizeFormatStyle() }
 
 }
+
+
+extension FormatStyle where Self: Sendable, FormatOutput == String {
+
+    /// Capitalizes the output of `self`.
+    ///
+    /// Returns a ``CompositeFormatStyle`` that joins `self` with ``CapitalizeFormatStyle`` to
+    /// capitalize the output of `self`.
+    ///
+    /// ```swift
+    /// Text("rose quartz", format: .firstWord.capitalized) // Displays "Rose"
+    /// ```
+    nonisolated
+    public var capitalized: CompositeFormatStyle<Self, CapitalizeFormatStyle> {
+        return CompositeFormatStyle(input: self, output: .capitalize)
+    }
+
+}
+
 
 
 extension FormatStyle {
@@ -64,13 +83,13 @@ extension FormatStyle {
     /// ``CapitalizeFormatStyle`` to capitalize the output.
     ///
     /// ```swift
-    /// Text("black quartz", format: .capitalize(.firstWord)) // Displays "Black"
+    /// Text("black quartz", format: .capitalize(.lastWord)) // Displays "Quartz"
     /// ```
     ///
     /// - Parameters:
     ///   - input: The format style that produces a string from the input data.
-    public nonisolated
-    static func capitalize<InputStyle: FormatStyle>(
+    nonisolated
+    public static func capitalize<InputStyle: FormatStyle>(
         _ input: InputStyle
     ) -> Self
     where
@@ -95,8 +114,8 @@ extension FormatStyle {
     /// ```
     ///
     /// - Parameter property: The key path to a string property to capitalize.
-    public nonisolated
-    static func capitalize<Input>(
+    nonisolated
+    public static func capitalize<Input>(
         property: KeyPath<Input, String> & Sendable
     ) -> Self
     where
@@ -125,13 +144,20 @@ private typealias Quartz = FormatStyleExamples.Quartz
 }
 
 
+#Playground("Capitalized") {
+    _ = Sphinx().formatted(.property(\.material).capitalized)
+}
+
+
 // MARK: - Previews
 
 
 #Preview("Snippets") {
     Text("black quartz", format: .capitalize) // Displays "Black Quartz"
 
-    Text("black quartz", format: .capitalize(.firstWord)) // Displays "Black"
+    Text("black quartz", format: .capitalize(.lastWord)) // Displays "Quartz"
+
+    Text("rose quartz", format: .firstWord.capitalized) // Displays "Rose"
 
     Text(Sphinx(), format: .capitalize(property: \.material)) // Displays "Quartz"
 }
