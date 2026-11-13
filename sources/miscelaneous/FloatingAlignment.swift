@@ -741,9 +741,7 @@ private struct PreviewContent {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
         Text(horizontalAlignment.displayName, format: .capitalize)
-        Rectangle()
-            .fill(.teal.gradient.secondary)
-        .frame(width: 100, height: 100)
+        FilledRectangle(.teal.gradient.secondary, size: .square(of: 100))
         .overlay {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
@@ -758,4 +756,62 @@ private struct PreviewContent {
     }
 
     DashedDivider()
+}
+
+
+#Preview("Pickers", traits: .headerFooter) {
+    @Previewable @State var positionKey: FloatingAlignment.Key = .outer
+    @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
+    @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
+
+    @Previewable @State var outerMajorAlignment: FloatingAlignment.OuterAlignment.Key = .top
+    @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
+    @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
+
+    Group {
+        Picker("Position", selection: $positionKey, caseFormat: .rawValueCapitalized())
+
+        switch positionKey {
+        case .inner:
+            Picker("Horizontal Alignment", selection: $innerHorizontalAlignment, caseFormat: .rawValueCapitalized())
+            Picker("Vertical Alignment", selection: $innerVerticalAlignment, caseFormat: .rawValueCapitalized())
+
+        case .outer:
+            Picker("Outer Major Alignment", selection: $outerMajorAlignment, caseFormat: .rawValueCapitalized())
+
+            switch outerMajorAlignment {
+            case .top, .bottom:
+                Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment, caseFormat: .rawValueCapitalized())
+            case .leading, .trailing:
+                Picker("Vertical Minor Alignment", selection: $outerMinorVerticalAlignment, caseFormat: .rawValueCapitalized())
+            }
+        }
+    }
+    .pickerStyle(.segmented)
+
+    let positionTrait: DebugGeometryModifier.Configuration.Trait
+    let alignment: FloatingAlignment = switch positionKey {
+    case .inner:
+        .inner(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment))
+    case .outer:
+        switch outerMajorAlignment {
+        case .top:      .outer(.top(     outerMinorHorizontalAlignment))
+        case .bottom:   .outer(.bottom(  outerMinorHorizontalAlignment))
+        case .leading:  .outer(.leading( outerMinorVerticalAlignment))
+        case .trailing: .outer(.trailing(outerMinorVerticalAlignment))
+        }
+    }
+
+    FilledRectangle(.teal.gradient.secondary, size: .square(of: 100))
+    .overlay {
+        FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
+            let name = alignment.displayNameComponents.joined(separator: .newLine)
+            Text.caption(verbatim:name)
+            .fixedSize()
+            .multilineTextAlignment(alignments.text)
+            .padding(2)
+            .border(.mint.secondary)
+        }
+    }
+    .padding(.vertical, 50)
 }
