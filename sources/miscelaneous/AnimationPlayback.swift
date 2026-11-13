@@ -69,29 +69,30 @@ extension Animation {
 
     /// A collection of all cases of this type with fixed values.
     static let fixedCases: [Self] = [
-        .default, .linear, .bouncy,
+        .default, .linear,
         .easeIn, .easeOut, .easeInOut,
-        .smooth, .snappy, .spring,
+        .snappy, .bouncy, .smooth, .spring,
         .interactiveSpring, .interpolatingSpring,
     ]
 
     /// A collection of all cases of this type with fixed values, excluding those intended for
     /// interactive or interpolated animations.
     static let fixedSimpleCases: [Self] = [
-        .default, .linear, .bouncy,
+        .default, .linear,
         .easeIn, .easeOut, .easeInOut,
-        .smooth, .snappy, .spring,
+        .snappy, .bouncy,
+        .smooth, .spring,
     ]
 
     static let fixedSimpleDisplayCases: [DisplayProperty<Self>] = [
         DisplayProperty("default", value: .default),
         DisplayProperty("linear", value: .linear),
-        DisplayProperty("bouncy", value: .bouncy),
         DisplayProperty("ease in", value: .easeIn),
         DisplayProperty("ease out", value: .easeOut),
         DisplayProperty("ease in out", value: .easeInOut),
-        DisplayProperty("smooth", value: .smooth),
         DisplayProperty("snappy", value: .snappy),
+        DisplayProperty("bouncy", value: .bouncy),
+        DisplayProperty("smooth", value: .smooth),
         DisplayProperty("spring", value: .spring),
     ]
 
@@ -106,6 +107,12 @@ extension Animation {
     @Previewable @State var alignment: HorizontalAlignment = .leading
     @Previewable @State var playback: AnimationPlayback = .normal
 
+    @Previewable @State var toggles: [
+        (property: DisplayProperty<Animation>, toggle: Bool)
+    ] = Animation.fixedSimpleDisplayCases.map { property in
+        (property, true)
+    }
+
     Picker(
         "Playback", selection: $playback,
         collection: AnimationPlayback.fixedCases, id: \.displayName,
@@ -115,19 +122,17 @@ extension Animation {
 
     DashedDivider()
 
-    Button("Animate") {
-        toggle.toggle()
-        alignment = toggle ? .leading : .trailing
-    }
-    .buttonStyle(.borderedProminent)
+    ForEach($toggles, id: \.wrappedValue.property.displayString) { $tuple in
+        ZStack {
+            let caption = tuple.property.displayString.formatted(.capitalize.removingSpaces)
+            let alignment: HorizontalAlignment = tuple.toggle ? .leading : .trailing
+            CaptionRectangle("\(caption)", color: .brown, size: [100, 50])
+            .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
+            .animation(tuple.property.value.playback(playback), value: alignment)
 
-    ForEach(Animation.fixedSimpleDisplayCases, id: \.value) { property in
-        let caption = property.displayString.formatted(.capitalize.removingSpaces)
-        CaptionRectangle("\(caption)", color: .brown, size: [100, 50])
-        .expandingWidthFrame(alignment: alignment.orthogonalCenterAlignment)
-        .animation(property.value.playback(playback), value: alignment)
+            Button("Animate") { tuple.toggle.toggle() }
+        }
     }
-
 }
 
 
