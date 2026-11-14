@@ -117,12 +117,11 @@ extension ShapeStyle where Self == AnyShapeStyle {
 
 
 // FIXME: Move to its own file.
-// FIXME: Rename:  UniformSymbol, SquareSymbol, FixedFootprintImage. FixedSizeImage, UniformSizeSymbol
 // TODO: Based/Brough from Trailing{Closure}, consider exposing or moving to its own package.
 // TODO: Check what happens to the accessibility label of a label with this style.
 
 /// Image framed to a square view size, irregardless of the image size.
-private struct BaselinedImageView: View {
+private struct UniformSizeSymbol: View {
 
     private let image: Image
 
@@ -153,12 +152,12 @@ private struct BaselinedImageView: View {
     ]
 
     ForEach(imageNames, id: \.self) { imageName in
-        BaselinedImageView(systemName: imageName)
+        UniformSizeSymbol(systemName: imageName)
         .floatingCaption(alignment: .outerTrailingTop, .colorStyle(.cyan), .size)
     }
 
     HStack(imageNames, id: \.self, spacing: 8) { imageName in
-        BaselinedImageView(systemName: imageName)
+        UniformSizeSymbol(systemName: imageName)
     }
     .debugAlignmentGuide(vertical: .firstTextBaseline)
 
@@ -225,7 +224,7 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
 
                 ZStack {
                     if toggle {
-                        BaselinedImageView(systemName: "checkmark")
+                        UniformSizeSymbol(systemName: "checkmark")
                         .foregroundStyle(firstStyle)
                         .transition(checkmarkTransition)
                     }
@@ -234,7 +233,7 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
 
                 ZStack {
                     if !toggle {
-                        BaselinedImageView(systemName: "xmark")
+                        UniformSizeSymbol(systemName: "xmark")
                         .foregroundStyle(secondStyle)
                         .transition(xmarkTransition)
                     }
