@@ -150,6 +150,7 @@ private struct PreviewContent {
 
 
 // TODO: Consider using selfidentifiable.
+// TODO: Move to internal extension, use Item for hashable elements, like HStack/VStack.
 // items param could be used for hashable values that self identify
 // identifiables: for self-identifying? Picker uses `selectable` since are selectable values.
 private extension ForEach {
