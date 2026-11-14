@@ -17,26 +17,40 @@ public import SwiftUI
 /// symbol, and aligned to `centerFirstTextBaseline`. The result is a system symbol that is always
 /// laid out with a uniform size, irregardless of the size of the displayed symbol.
 ///
-/// The view respects the environment foreground style, image scale, and related modifiers.
+/// The view respects the environment font, foreground style, image scale, and related modifiers.
 ///
 /// Based on: https://trailing-closure.com/2026/intricacies-of-circular-buttons.
-public struct UniformSizeSymbol: View {
+public struct UniformSizeSymbol<Content>: View where Content: View {
 
-    private let image: Image
+    private let content: () -> Content
+
 
     /// Creates a view displaying a system symbol image.
     ///
     /// - Parameter systemName: The name of the system symbol image.
-    public init(systemName: String) {
-        self.image = Image(systemName: systemName)
+    public init(systemName: String) where Content == Image {
+        self.content = { Image(systemName: systemName) }
     }
+
+
+    // FIXME: Document.
+    public init(@ContentBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+
+
+    // FIXME: Document.
+    public init(content: Content) {
+        self.content = { content }
+    }
+
 
     @_documentation(visibility: internal)
     public var body: some View {
         Image(systemName: "circle")
         .hidden()
         .overlay(alignment: .centerFirstTextBaseline) {
-            image
+            content()
         }
         .contentShape(.circle)
     }
@@ -44,24 +58,51 @@ public struct UniformSizeSymbol: View {
 }
 
 
+// MARK: - Previews
+
+
 #Preview("Default", traits: .paddingSpacing) {
-    let imageNames = [
-        "ladybug",
+    // TODO: Collection Extension method .appending(contentsOf:) that returns a collection view.
+    let imageNames = Image.awkwardSizeSystemImageNames + ["ladybug", "circle"]
+    // TODO: This could use ForEach(items:) if public.
+    ForEach(imageNames, id: \.self) { imageName in
+        UniformSizeSymbol(systemName: imageName)
+        .floatingCaption(alignment: .outerTrailingTop, .colorStyle(.cyan), .size)
+    }
+
+    DashedDivider()
+
+    HStack(items: imageNames, spacing: 8) { imageName in
+        UniformSizeSymbol(systemName: imageName)
+    }
+    .debugAlignmentGuide(vertical: .firstTextBaseline)
+    .font(.title)
+}
+
+
+// MARK: Sizes
+#Preview("Sizes") {
+    let imageNames = Image.awkwardSizeSystemImageNames + ["ladybug", "circle"]
+    HStack(items: imageNames, spacing: 8) { imageName in
+        UniformSizeSymbol {
+            Image(systemName: imageName)
+            .background(.orange.secondary)
+        }
+        .border(.teal.secondary, width: 3)
+    }
+    .debugAlignmentGuide(vertical: .firstTextBaseline)
+    .font(.largeTitle)
+}
+
+
+extension Image {
+
+    static let awkwardSizeSystemImageNames: [String] = [
         "guidepoint.horizontal",
         "guidepoint.vertical",
         "minus",
         "photo.badge.shield.exclamationmark",
         "clock.badge.airplane"
     ]
-
-    ForEach(imageNames, id: \.self) { imageName in
-        UniformSizeSymbol(systemName: imageName)
-        .floatingCaption(alignment: .outerTrailingTop, .colorStyle(.cyan), .size)
-    }
-
-    HStack(imageNames, id: \.self, spacing: 8) { imageName in
-        UniformSizeSymbol(systemName: imageName)
-    }
-    .debugAlignmentGuide(vertical: .firstTextBaseline)
 
 }
