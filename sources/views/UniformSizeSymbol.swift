@@ -57,7 +57,9 @@ public struct UniformSizeSymbol<Content>: View where Content: View {
 
     @_documentation(visibility: internal)
     public var body: some View {
-        Image(systemName: "circle")
+        SquareFillLayout {
+            Image(systemName: "circle")
+        }
         .hidden()
         .overlay(alignment: .centerFirstTextBaseline) {
             content()
@@ -65,6 +67,39 @@ public struct UniformSizeSymbol<Content>: View where Content: View {
         .contentShape(.circle)
     }
 
+}
+
+
+/// Lays out its contents in a square frame, with content filling the square.
+///
+/// The side length of the frame is the shortest dimension of the content. All content is centered
+/// in the frame and overflows along its longer axis.
+private struct SquareFillLayout: Layout {
+
+    // FIXME: Have layout get the smallest length of all subviews, not just the first.
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) -> CGSize {
+        guard let subview = subviews.first else { return .zero }
+        let size = subview.sizeThatFits(proposal)
+        let side = min(size.width, size.height)
+        return CGSize(width: side, height: side)
+    }
+
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) {
+        subviews.first?.place(
+            at: CGPoint(x: bounds.midX, y: bounds.midY),
+            anchor: .center,
+            proposal: proposal
+        )
+    }
 }
 
 
@@ -102,6 +137,35 @@ public struct UniformSizeSymbol<Content>: View where Content: View {
     }
     .debugAlignmentGuide(vertical: .firstTextBaseline)
     .font(.largeTitle)
+}
+
+
+// MARK: SquareFillLayout
+#Preview("SquareFillLayout", traits: .spacing(20)) {
+    // FIXME: Dry.
+    Image(systemName: "circle")
+    .floatingCaption("Circle Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
+
+    SquareFillLayout {
+        Image(systemName: "circle")
+    }
+    .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
+
+    Image(systemName: "guidepoint.vertical")
+    .floatingCaption("Guidepoint Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
+
+    SquareFillLayout {
+        Image(systemName: "guidepoint.vertical")
+    }
+    .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
+
+    Image(systemName: "guidepoint.horizontal")
+    .floatingCaption("Guidepoint Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
+
+    SquareFillLayout {
+        Image(systemName: "guidepoint.horizontal")
+    }
+    .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
 }
 
 
