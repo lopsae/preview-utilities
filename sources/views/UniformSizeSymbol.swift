@@ -33,13 +33,23 @@ public struct UniformSizeSymbol<Content>: View where Content: View {
     }
 
 
-    // FIXME: Document.
+    /// Creates a view displaying the given content as a symbol image.
+    ///
+    /// The displayed content is not required to be a symbol image, but it will be displayed
+    /// aligned to the uniform symbol size.
+    ///
+    /// - Parameter content: The symbol image content.
     public init(@ContentBuilder content: @escaping () -> Content) {
         self.content = content
     }
 
 
-    // FIXME: Document.
+    /// Creates a view displaying the given content as a symbol image.
+    ///
+    /// The displayed content is not required to be a symbol image, but it will be displayed
+    /// aligned to the uniform symbol size.
+    ///
+    /// - Parameter content: The symbol image content.
     public init(content: Content) {
         self.content = { content }
     }
@@ -73,7 +83,7 @@ public struct UniformSizeSymbol<Content>: View where Content: View {
     DashedDivider()
 
     HStack(items: imageNames, spacing: 8) { imageName in
-        UniformSizeSymbol(systemName: imageName)
+        UniformSizeSymbol(content: Image(systemName: imageName))
     }
     .debugAlignmentGuide(vertical: .firstTextBaseline)
     .font(.title)
