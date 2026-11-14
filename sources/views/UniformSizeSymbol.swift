@@ -4,24 +4,35 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
-// FIXME: Add docs.
+
 // FIXME: Add tests.
-// FIXME: Publicize.
-// TODO: Based/Brough from Trailing{Closure}, consider exposing or moving to its own package.
 // TODO: Check what happens to the accessibility label of a label with this style.
 
-/// Image framed to a square view size, irregardless of the image size.
-struct UniformSizeSymbol: View {
+
+/// A view that displays a symbol image framed in an uniform symbol square size.
+///
+/// This view places the displayed image in an overlay with a fixed size based on the `circle`
+/// symbol, and aligned to `centerFirstTextBaseline`. The result is a system symbol that is always
+/// laid out with a uniform size, irregardless of the size of the displayed symbol.
+///
+/// The view respects the environment foreground style, image scale, and related modifiers.
+///
+/// Based on: https://trailing-closure.com/2026/intricacies-of-circular-buttons.
+public struct UniformSizeSymbol: View {
 
     private let image: Image
 
-    init(systemName: String) {
+    /// Creates a view displaying a system symbol image.
+    ///
+    /// - Parameter systemName: The name of the system symbol image.
+    public init(systemName: String) {
         self.image = Image(systemName: systemName)
     }
 
-    var body: some View {
+    @_documentation(visibility: internal)
+    public var body: some View {
         Image(systemName: "circle")
         .hidden()
         .overlay(alignment: .centerFirstTextBaseline) {
