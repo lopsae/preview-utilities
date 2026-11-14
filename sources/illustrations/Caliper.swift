@@ -113,10 +113,9 @@ extension View {
                 verticalSpacing: spacingSize.height
             ) { contentAlignments in
                 Text.caption(key)
-                    .fixedSize()
-                    .multilineTextAlignment(contentAlignments.text)
-                    .frame(length: span, along: edge.axis.orthogonal, alignment: .center)
-                    .caliper(to: edge, span: span, stem: stem)
+                .fixedSize()
+                .frame(length: span, along: edge.axis.orthogonal, alignment: .center)
+                .caliper(to: edge, span: span, stem: stem)
             }
         }
     }

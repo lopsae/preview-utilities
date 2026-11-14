@@ -122,7 +122,6 @@ public struct CaptionRectangle<Fill: ShapeStyle, Stroke: ShapeStyle>: View {
                     Text(localizationKey)
                     .font(.caption)
                     .foregroundStyle(.secondary)
-                    .multilineTextAlignment(alignments.text)
 
                     // TODO: Code shared with FloatingCaption and DebugGeometry. Think to DRY.
                     // Maybe a style for geometryProxy?

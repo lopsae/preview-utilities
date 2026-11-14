@@ -134,7 +134,6 @@ public struct FloatingCaptionModifier: ViewModifier {
                             captionSource.text
                             .font(.caption)
                             .foregroundStyle(textStyle)
-                            .multilineTextAlignment(alignments.text)
                         }
 
                         // Width, Height, or Size.

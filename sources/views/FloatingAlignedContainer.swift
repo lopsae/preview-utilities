@@ -39,6 +39,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 
 
     init(
+        // FIXME: Remove default value.
         alignment: FloatingAlignment = .center,
         spacing: CGFloat,
         @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
@@ -239,7 +240,6 @@ private struct PreviewContent {
             }
             .foregroundStyle(.secondary)
             .font(.caption.monospaced())
-            .multilineTextAlignment(alignments.text)
             .fixedSize()
         }
     }
@@ -278,7 +278,6 @@ private struct PreviewContent {
             FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
                 Text("black\nquartz")
                     .font(.caption)
-                    .multilineTextAlignment(alignments.text)
                 Image(systemName: "target")
                     .foregroundStyle(.tertiary)
                 Text(alignment.abbreviatedName)

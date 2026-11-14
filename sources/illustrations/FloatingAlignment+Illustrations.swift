@@ -68,17 +68,13 @@ extension FloatingAlignment.Illustrations {
                     horizontalSpacing: .zero,
                     verticalSpacing: 2
                 ) { contentAlignments in
-                    Text("Content aligned to\nOuter Top Leading")
-                    .font(.caption)
-                    .multilineTextAlignment(contentAlignments.text)
+                    Text.caption("Content aligned to\nOuter Top Leading")
                 }
                 FloatingAlignedContainer(
                     alignment: .innerBottomTrailing,
                     spacing: 2
                 ) { contentAlignments in
-                    Text("Content aligned to\nInner Bottom Trailing")
-                    .font(.caption)
-                    .multilineTextAlignment(contentAlignments.text)
+                    Text.caption("Content aligned to\nInner Bottom Trailing")
                 }
             }
             .offset(y: 10)
@@ -101,16 +97,15 @@ extension FloatingAlignment.Illustrations {
                                     vertical: verticalAlignment
                                 ))
                                 let alignmentName = alignment.displayNameComponents
-                                    .suffix(2)
-                                    .map(formatting: .capitalize)
-                                    .joined(separator: "\n")
+                                .suffix(2)
+                                .map(formatting: .capitalize)
+                                .joined(separator: .newLine)
 
                                 FloatingAlignedContainer(
                                     alignment: alignment,
                                     spacing: 4
                                 ) { contentAlignments in
-                                    Text.caption("\(alignmentName)")
-                                        .multilineTextAlignment(contentAlignments.text)
+                                    Text.caption(verbatim: alignmentName)
                                 }
                             }
                         }
@@ -144,14 +139,13 @@ extension FloatingAlignment.Illustrations {
                         let alignmentName = alignment.displayNameComponents
                             .suffix(2)
                             .map(formatting: .capitalize)
-                            .joined(separator: "\n")
+                            .joined(separator: .newLine)
 
                         FloatingAlignedContainer(
                             alignment: alignment,
                             spacing: 4
                         ) { contentAlignments in
-                            Text.caption("\(alignmentName)")
-                                .multilineTextAlignment(contentAlignments.text)
+                            Text.caption(verbatim: alignmentName)
                         }
                     }
                 } // ForEach
@@ -196,15 +190,14 @@ extension FloatingAlignment.Illustrations {
                     let alignmentName = alignment.displayNameComponents
                         .suffix(2)
                         .map(formatting: .capitalize)
-                        .joined(separator: "\n")
+                        .joined(separator: .newLine)
 
                     FloatingAlignedContainer(
                         alignment: alignment,
                         horizontalSpacing: 4,
                         verticalSpacing: 2
                     ) { contentAlignments in
-                        Text.caption("\(alignmentName)")
-                            .multilineTextAlignment(contentAlignments.text)
+                        Text.caption(verbatim: alignmentName)
                     }
                 }
 
@@ -213,7 +206,6 @@ extension FloatingAlignment.Illustrations {
                     spacing: 4
                 ) { contentAlignments in
                     Text.caption("Top and Bottom\nOuter Alignments")
-                    .multilineTextAlignment(contentAlignments.text)
                     .foregroundStyle(.orange)
                 }
 
@@ -251,15 +243,14 @@ extension FloatingAlignment.Illustrations {
                     let alignmentName = alignment.displayNameComponents
                         .suffix(2)
                         .map(formatting: .capitalize)
-                        .joined(separator: "\n")
+                        .joined(separator: .newLine)
 
                     FloatingAlignedContainer(
                         alignment: alignment,
                         horizontalSpacing: 4,
                         verticalSpacing: 2
                     ) { contentAlignments in
-                        Text.caption("\(alignmentName)")
-                            .multilineTextAlignment(contentAlignments.text)
+                        Text.caption(verbatim: alignmentName)
                     }
                 }
 
@@ -268,7 +259,6 @@ extension FloatingAlignment.Illustrations {
                     spacing: 4
                 ) { contentAlignments in
                     Text.caption("Leading and Trailing\nOuter Alignments")
-                    .multilineTextAlignment(contentAlignments.text)
                     .foregroundStyle(.orange)
                 }
 

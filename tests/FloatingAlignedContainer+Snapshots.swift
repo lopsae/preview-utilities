@@ -35,10 +35,8 @@ struct FloatingAlignedContainerSnapshots {
             .overlayFloatingAlignments { alignment in
                 FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
                     ZStack(alignment: alignments.content) {
-                        let name = alignment.displayNameComponents.joined(separator: .newLine)
-                        Text(name)
+                        Text(alignment.multilineName)
                         .font(.caption.pointSize(6))
-                        .multilineTextAlignment(alignments.text)
                         .background(.gray.secondary)
                     }
                 }
