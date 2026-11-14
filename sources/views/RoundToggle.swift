@@ -30,57 +30,19 @@ struct RoundToggle: View {
             Text(titleKey)
             Spacer()
 
-            Button("Toggle") {
-                isOn.toggle()
-            } icon: {
-                ZStack {
-                    // FIXME: With BaselinedImageView with an empty overlay.
-                    // This view keeps stable the size of the button while transition are playing.
-                    Image(systemName: "circle")
-                    .hidden()
-
-                    // The ZStacks are required for the dismiss animation to perform properly.
-
-                    // Checkmark is animated with a scale+opacity fast animation.
-                    let checkmarkTransition: AnyTransition = .asymmetric(
-                        insertion: .scale(scale: 2),
-                        removal:   .scale(scale: 0.5)
-                    ).combined(with: .opacity)
-                    let checkmarkAnimation: Animation? = .default.speed(3)
-                        .playback(playback)
-
-                    // Xmark is fades in with a slight delay, and fades out with scale.
-                    let xmarkTransition: AnyTransition = .asymmetric(
-                        insertion: .identity,
-                        removal:   .scale(scale: 0.5)
-                    ).combined(with: .opacity)
-                    let xmarkAnimation: Animation? = .default.speed(2).delay(isOn ? 0 : 0.1)
-                        .playback(playback)
-
-                    ZStack {
-                        if isOn {
-                            BaselinedImageView(systemName: "checkmark")
-                            .foregroundStyle(.background)
-                            .transition(checkmarkTransition)
-                        }
-                    }.animation(checkmarkAnimation, value: isOn)
-
-
-                    ZStack {
-                        if !isOn {
-                            BaselinedImageView(systemName: "xmark")
-                            .foregroundStyle(.secondary)
-                            .transition(xmarkTransition)
-                        }
-                    }.animation(xmarkAnimation, value: isOn)
-                }
-            }
+            SymbolToggleButton(
+                "Toggle", toggle: $isOn,
+                firstStyle: .background, secondStyle: .secondary,
+                animations: playback
+            )
+            .labelStyle(.iconOnly)
             .buttonStyle(AnimatedPressedButtonStyle(isOn: isOn, playback: playback))
 
         }
     }
 
-    // FIXME: Move to extension and MARK.
+    // FIXME: Move to its own file.
+    // FIXME: Rename to PopCapsuleButtonStyle.
     /// Configures the round toggle button to animate its background.
     struct AnimatedPressedButtonStyle: ButtonStyle {
         let isOn: Bool
@@ -97,7 +59,6 @@ struct RoundToggle: View {
             let pressedScale: CGFloat = playback.isDisabled ? .one : 1.5
 
             configuration.label
-            .labelStyle(.iconOnly)
             .padding(4)
             .background {
                 Capsule()
