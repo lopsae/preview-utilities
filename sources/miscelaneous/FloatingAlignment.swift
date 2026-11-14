@@ -738,11 +738,12 @@ private struct PreviewContent {
 // MARK: - Previews
 
 
-#Preview("All Alignments", traits: PreviewContent.layout) {
+// MARK: All Alignments
+#Preview("Default", traits: PreviewContent.layout) {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
         Text(horizontalAlignment.displayName, format: .capitalize)
-        FilledRectangle(.teal.gradient, size: .square(of: 100))
+        FilledRectangle(.teal.gradient.secondary, size: .square(of: 100))
         .overlay {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
@@ -760,6 +761,7 @@ private struct PreviewContent {
 }
 
 
+// MARK: Pickers
 #Preview("Pickers", traits: .headerFooter) {
     @Previewable @State var positionKey: FloatingAlignment.Key = .outer
     @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center

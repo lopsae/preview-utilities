@@ -80,6 +80,7 @@ struct RoundToggle: View {
         }
     }
 
+    // FIXME: Move to extension and MARK.
     /// Configures the round toggle button to animate its background.
     struct AnimatedPressedButtonStyle: ButtonStyle {
         let isOn: Bool
@@ -90,7 +91,6 @@ struct RoundToggle: View {
             let colorAnimation: Animation? = .default.speed(2).playback(playback)
             let scaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
-//            let backgroundStyle: AnyShapeStyle = isOn ? AnyShapeStyle(.tint) : AnyShapeStyle(.gray.secondary)
             let backgroundStyle: AnyShapeStyle = .if(isOn, then: .tint, else: .gray.secondary)
 
             // When animations are disabled, scale is also disabled.
@@ -144,7 +144,7 @@ struct RoundToggle: View {
 
 
 // FIXME: Move to additions.
-extension AnyShapeStyle {
+extension ShapeStyle where Self == AnyShapeStyle {
     static func `if`(
         _ condition: Bool,
         then trueStyle: some ShapeStyle,
@@ -156,7 +156,7 @@ extension AnyShapeStyle {
 
 
 // FIXME: Move to its own file.
-// FIXME: Rename:  UniformSymbol, SquareSymbol, FixedFootprintImage. FixedSizeImage
+// FIXME: Rename:  UniformSymbol, SquareSymbol, FixedFootprintImage. FixedSizeImage, UniformSizeSymbol
 // TODO: Based/Brough from Trailing{Closure}, consider exposing or moving to its own package.
 // TODO: Check what happens to the accessibility label of a label with this style.
 
