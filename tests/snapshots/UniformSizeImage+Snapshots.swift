@@ -4,6 +4,7 @@
 //
 
 
+@_spi(ItemStacks)
 import PreviewUtilities
 
 import SwiftUI
@@ -13,9 +14,6 @@ import Testing
 @MainActor
 @Suite(.snapshotTesting)
 struct UniformSizeImageSnapshots {
-
-    // FIXME: Test sizes of image vs size of layout.
-    // FIXME: Test alignment.
 
     @Test func inits() {
         Snapshots.assertView("all", spacing: 20, colorSchemes: .all) {
@@ -108,6 +106,101 @@ struct UniformSizeImageSnapshots {
                 }
             }
         }
+    }
+
+
+    @Test func alignment() {
+        // FIXME: Use dictionary instead.
+        let images: [(font: Font, imageName: String)] = [
+            (.caption2, "ladybug"),
+            (.caption,  "guidepoint.horizontal"),
+            (.footnote, "guidepoint.vertical"),
+            (.body,     "photo.badge.shield.exclamationmark"),
+            (.title2,   "clock.badge.airplane"),
+            (.title,    "circle"),
+        ]
+
+        let alignments: [String: VerticalAlignment] = [
+            "firstTextBaseline": .firstTextBaseline,
+            "top": .top, "bottom": .bottom
+        ]
+
+        for (key, alignment) in alignments {
+            Snapshots.assertView(key, spacing: 20) {
+                HStack(images, id: \.imageName, alignment: alignment, spacing: 8) { font, imageName in
+                    UniformSizeSymbol(systemName: imageName)
+                }
+                .debugAlignmentGuide(vertical: alignment)
+
+                HStack(images, id: \.imageName, alignment: alignment, spacing: 8) { font, imageName in
+                    UniformSizeSymbol(systemName: imageName)
+                    .font(font)
+                }
+                .debugAlignmentGuide(vertical: alignment)
+
+                DashedDivider()
+
+                HStack(images, id: \.imageName, alignment: alignment, spacing: 8) { font, imageName in
+                    Image(systemName: imageName)
+                }
+                .debugAlignmentGuide(vertical: alignment)
+            }
+        }
+    }
+
+
+    @Test func sizes() {
+        let imageNames: [String] = [
+            "ladybug",
+            "guidepoint.horizontal",
+            "guidepoint.vertical",
+            "photo.badge.shield.exclamationmark",
+            "clock.badge.airplane",
+            "circle",
+        ]
+
+        // FIXME: Dry with a local function.
+
+        Snapshots.assertView("comparison", spacing: 20) {
+            ForEach([Font.caption, .body], id: \.self) { font in
+                HStack(items: imageNames, alignment: .firstTextBaseline, spacing: 8) { imageName in
+                    UniformSizeSymbol {
+                        Image(systemName: imageName)
+                        .background(.orange.secondary)
+                    }
+                    .border(.teal.secondary, width: 2)
+                }
+                .debugAlignmentGuide(vertical: .firstTextBaseline)
+                .font(font)
+            }
+
+            ForEach(imageNames.splitting().enumerated(), id: \.offset) { offset, halfImageNames in
+                HStack(items: halfImageNames, alignment: .firstTextBaseline, spacing: 8) { imageName in
+                    UniformSizeSymbol {
+                        Image(systemName: imageName)
+                        .background(.orange.secondary)
+                    }
+                    .border(.teal.secondary, width: 2)
+                }
+                .debugAlignmentGuide(vertical: .firstTextBaseline)
+                .font(.title)
+            }
+        }
+    }
+
+}
+
+
+extension RandomAccessCollection {
+
+    // FIXME: Update function to split into any number of splits.
+    func splitting(/*into: Int*/) -> [SubSequence] {
+        let halfDistance: Int = ceil(count.asDouble / 2.0).asInt
+        let halfIndex: Index = self.index(startOffsetBy: halfDistance)
+        return [
+            self[self.startIndex..<halfIndex],
+            self[halfIndex...]
+        ]
     }
 
 }
