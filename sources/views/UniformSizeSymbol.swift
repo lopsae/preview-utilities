@@ -17,7 +17,8 @@ public import SwiftUI
 /// symbol, and aligned to `centerFirstTextBaseline`. The result is a system symbol that is always
 /// laid out with a uniform size, irregardless of the size of the displayed symbol.
 ///
-/// The view respects the environment font, foreground style, image scale, and related modifiers.
+/// The displayed image uses the environment font, foreground style, image scale, and related
+/// modifiers.
 ///
 /// Based on: https://trailing-closure.com/2026/intricacies-of-circular-buttons.
 public struct UniformSizeSymbol<Content>: View where Content: View {
