@@ -7,6 +7,10 @@
 import SwiftUI
 
 
+/// Button that displays two symbols with independent styles and can toggle between them.
+///
+/// The symbol size is stabilized using ``UniformSizeSymbol``, so that toggling between them does
+/// not change the size of the button.
 struct SymbolToggleButton<FirstStyle, SecondStyle>: View
 where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
 {
@@ -32,6 +36,7 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
         self.playback = playback
     }
 
+    @_documentation(visibility: internal)
     var body: some View {
         // TODO: Review how accessibility would work for this control, since the control has a title, and this
         // button  also has a title. Compare with the stock Toggle.
@@ -39,9 +44,8 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
             toggle.toggle()
         } icon: {
             ZStack {
-                // FIXME: With BaselinedImageView with an empty overlay.
                 // This view keeps stable the size of the button while transition are playing.
-                Image(systemName: "circle")
+                UniformSizeSymbol(systemName: "circle")
                 .hidden()
 
                 // The ZStacks are required for the dismiss animation to perform properly.
@@ -84,9 +88,28 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
 
 }
 
-#Preview("SymbolToggleButton") {
-    @Previewable @State var toggle = true
 
-    SymbolToggleButton("Default", toggle: $toggle)
-    SymbolToggleButton("Styled", toggle: $toggle, firstStyle: .red, secondStyle: .secondary)
+// MARK: - Previews
+
+
+#Preview("Default", traits: .spacing(16)) {
+    @Previewable @State var symbolToggle = true
+    @Previewable @State var imageToggle = true
+
+    SymbolToggleButton("Default", toggle: $symbolToggle)
+    .caliperLabel("Default", to: .leading, span: 12, stem: 16, alignment: .outerTrailing, spacingSize: .square(of: 8))
+
+    SymbolToggleButton("Styled", toggle: $symbolToggle, firstStyle: .red, secondStyle: .secondary)
+    .caliperLabel("Styled", to: .leading, span: 12, stem: 16, alignment: .outerTrailing, spacingSize: .square(of: 8))
+
+    Button("Action") {
+        imageToggle.toggle()
+    } icon: {
+        if imageToggle {
+            Image(systemName: "guidepoint.horizontal")
+        } else {
+            Image(systemName: "guidepoint.vertical")
+        }
+    }
+    .caliperLabel("Using plain\nimages", to: .leading, span: 12, stem: 16, alignment: .outerTrailing, spacingSize: .square(of: 8))
 }
