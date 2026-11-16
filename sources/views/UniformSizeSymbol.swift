@@ -7,7 +7,6 @@
 public import SwiftUI
 
 
-// FIXME: Add tests.
 // TODO: Check what happens to the accessibility label of a label with this style.
 
 
@@ -58,7 +57,7 @@ public struct UniformSizeSymbol<Content>: View where Content: View {
 
     @_documentation(visibility: internal)
     public var body: some View {
-        SquareFillLayout {
+        FirstSubviewFillSquareLayout {
             Image(systemName: "circle")
         }
         .hidden()
@@ -71,13 +70,13 @@ public struct UniformSizeSymbol<Content>: View where Content: View {
 }
 
 
-/// Lays out its contents in a square frame, with content filling the square.
+/// Lays out its contents in a square frame, with the first subview defining the size of the frame.
 ///
-/// The side length of the frame is the shortest dimension of the content. All content is centered
-/// in the frame and overflows along its longer axis.
-private struct SquareFillLayout: Layout {
+/// The side length of the frame is the shortest dimension of the first subview, such as the subview
+/// fills the square when placed. All content is centered in the frame and overflows when larger
+/// than the square frame.
+private struct FirstSubviewFillSquareLayout: Layout {
 
-    // FIXME: Have layout get the smallest length of all subviews, not just the first.
     func sizeThatFits(
         proposal: ProposedViewSize,
         subviews: Subviews,
@@ -86,7 +85,7 @@ private struct SquareFillLayout: Layout {
         guard let subview = subviews.first else { return .zero }
         let size = subview.sizeThatFits(proposal)
         let side = min(size.width, size.height)
-        return CGSize(width: side, height: side)
+        return .square(of: side)
     }
 
     func placeSubviews(
@@ -95,11 +94,9 @@ private struct SquareFillLayout: Layout {
         subviews: Subviews,
         cache: inout ()
     ) {
-        subviews.first?.place(
-            at: CGPoint(x: bounds.midX, y: bounds.midY),
-            anchor: .center,
-            proposal: proposal
-        )
+        for subview in subviews {
+            subview.place(at: bounds.centerPoint, anchor: .center, proposal: proposal)
+        }
     }
 }
 
@@ -108,7 +105,7 @@ private struct SquareFillLayout: Layout {
 
 
 #Preview("Default", traits: .paddingSpacing) {
-    // TODO: Collection Extension method .appending(contentsOf:) that returns a collection view.
+    // TODO: Collection Extension method .appending(contentsOf:) that returns a view of the collection.
     let imageNames = Image.awkwardSizeSystemImageNames + ["ladybug", "circle"]
     // TODO: This could use ForEach(items:) if public.
     ForEach(imageNames, id: \.self) { imageName in
@@ -142,12 +139,12 @@ private struct SquareFillLayout: Layout {
 
 
 // MARK: SquareFillLayout
-#Preview("SquareFillLayout", traits: .spacing(20)) {
+#Preview("FirstSubviewFillSquareLayout", traits: .spacing(30)) {
     // FIXME: Dry.
     Image(systemName: "circle")
     .floatingCaption("Circle Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
 
-    SquareFillLayout {
+    FirstSubviewFillSquareLayout {
         Image(systemName: "circle")
     }
     .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
@@ -155,7 +152,7 @@ private struct SquareFillLayout: Layout {
     Image(systemName: "guidepoint.vertical")
     .floatingCaption("Guidepoint Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
 
-    SquareFillLayout {
+    FirstSubviewFillSquareLayout {
         Image(systemName: "guidepoint.vertical")
     }
     .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
@@ -163,10 +160,26 @@ private struct SquareFillLayout: Layout {
     Image(systemName: "guidepoint.horizontal")
     .floatingCaption("Guidepoint Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
 
-    SquareFillLayout {
+    FirstSubviewFillSquareLayout {
         Image(systemName: "guidepoint.horizontal")
     }
     .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
+
+    DashedDivider()
+
+    FirstSubviewFillSquareLayout {
+        Image(systemName: "circle")
+        Image(systemName: "guidepoint.horizontal")
+        Image(systemName: "guidepoint.vertical")
+    }
+    .floatingCaption("Circle First", alignment: .outerTrailing, .colorStyle(.teal), .size)
+
+    FirstSubviewFillSquareLayout {
+        Image(systemName: "guidepoint.horizontal")
+        Image(systemName: "guidepoint.vertical")
+        Image(systemName: "circle")
+    }
+    .floatingCaption("Guidepoint First", alignment: .outerTrailing, .colorStyle(.teal), .size)
 }
 
 
