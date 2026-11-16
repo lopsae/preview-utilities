@@ -174,7 +174,7 @@ struct UniformSizeImageSnapshots {
             }
 
             // Images with Title font, list is split in half.
-            ForEach(imageNames.splitting().enumerated(), id: \.offset) { offset, halfImageNames in
+            ForEach(imageNames.splitting(into: 2).enumerated(), id: \.offset) { offset, halfImageNames in
                 sizeComparisonStack(imageNames: halfImageNames, font: .title)
             }
         }
@@ -183,16 +183,30 @@ struct UniformSizeImageSnapshots {
 }
 
 
-extension RandomAccessCollection {
+// TODO: Test and move into library.
+private extension RandomAccessCollection {
 
-    // FIXME: Update function to split into any number of splits.
-    func splitting(/*into: Int*/) -> [SubSequence] {
-        let halfDistance: Int = ceil(count.asDouble / 2.0).asInt
-        let halfIndex: Index = self.index(startOffsetBy: halfDistance)
-        return [
-            self[self.startIndex..<halfIndex],
-            self[halfIndex...]
-        ]
+    /// Splits the collection into `splitCount` contiguous subsequences of
+    /// near-equal length.
+    ///
+    /// When the elements cannot be distributed evenly, the leading splits
+    /// receive one extra element each. If `splitCount` exceeds the number of
+    /// elements, the trailing splits are empty.
+    func splitting(into splitCount: Int) -> [SubSequence] {
+        precondition(splitCount > 0, "splitCount must be greater than zero")
+        let baseLength = count / splitCount
+        let remainder = count % splitCount
+
+        var splits: [SubSequence] = []
+        splits.reserveCapacity(splitCount)
+        var splitStart = startIndex
+        for splitOffset in 0..<splitCount {
+            let splitLength = baseLength + (splitOffset < remainder ? 1 : 0)
+            let splitEnd = index(splitStart, offsetBy: splitLength)
+            splits.append(self[splitStart..<splitEnd])
+            splitStart = splitEnd
+        }
+        return splits
     }
 
 }
