@@ -36,8 +36,13 @@ import SwiftUI
 nonisolated
 public struct RemoveSpacesFormatStyle: FormatStyle, Sendable {
 
+    /// Creates a format style that removes whitespace from a string.
     public init() {}
 
+
+    /// Formats a string value, using this style
+    /// - Parameter value: The string value to format.
+    /// - Returns: `value` without any whitespace characters.
     public func format(_ value: String) -> String {
         return value.components(separatedBy: .whitespaces).joined()
     }
@@ -47,6 +52,13 @@ public struct RemoveSpacesFormatStyle: FormatStyle, Sendable {
 
 extension FormatStyle where Self == RemoveSpacesFormatStyle {
 
+    /// Returns a format style that removes whitespace from a string.
+    ///
+    /// Returns a ``RemoveSpacesFormatStyle`` that removes whitespace from a string.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .removeSpaces) // Displays "blackquartz"
+    /// ```
     nonisolated
     public static var removeSpaces: Self { RemoveSpacesFormatStyle() }
 
@@ -55,6 +67,14 @@ extension FormatStyle where Self == RemoveSpacesFormatStyle {
 
 extension FormatStyle where Self: Sendable, FormatOutput == String {
 
+    /// Removes whitespace from the output of `self`.
+    ///
+    /// Returns a ``CompositeFormatStyle`` that joins `self` with ``RemoveSpacesFormatStyle`` to
+    /// remove whitespace from the output of `self`.
+    ///
+    /// ```swift
+    /// Text("black quartz", format: .capitalize.removingSpaces) // Displays "BlackQuartz"
+    /// ```
     nonisolated
     public var removingSpaces: CompositeFormatStyle<Self, RemoveSpacesFormatStyle> {
         return CompositeFormatStyle(input: self, output: .removeSpaces)
