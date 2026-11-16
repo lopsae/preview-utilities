@@ -25,6 +25,7 @@ For future versions
 + Enable vertical texts in FloatingCaption and DebugGeometry.
 + Use SafeAreaPad for header and footers, add option to display safe area divider.
 + Reimplement FloatingContent to actually use the top/leading/bottom/trailing alingments to position its content.
++ Add FloatingCaption color parameter, that activates both caption and border style, and add `traits` parameter labels.
 
 
 Library Separation

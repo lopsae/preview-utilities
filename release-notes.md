@@ -16,7 +16,7 @@ In Development.
 + Added `PathShape`.
 + Added `Paths.arrow`.
 + Added `FilledRectangle`.
-+ Added `RoundToggle`.
++ Added `RoundToggle`, `SymbolToggleButton`, `UniformSizeSymbol`.
 + Added `AnimationPlayback`.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
 + Added `Edge/opposite`, `rotated`, and `counterRotated`.
