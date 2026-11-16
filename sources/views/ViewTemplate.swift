@@ -9,22 +9,29 @@ import SwiftUI
 
 /// Structure that produces views with a given input.
 ///
-/// Use `ViewTemplate` to create an inline structure that produces a custom view with a given
-/// parameter. For example in Previews, where a local function cannot be created for repeating
-/// parametrized views, create a `ViewTemplate` based in a parameter.
-struct ViewTemplate<Content: View, Input> {
+/// Use `ViewTemplate` to create an inline structure that produces a custom view with the given
+/// parameters.
+///
+/// In Previews local functions cannot be defined to create repeating parametrized views. Use
+/// `ViewTemplate` to create an inline local value that can create repeating views using the given
+/// parameters.
+struct ViewTemplate<Content: View, each Input> {
 
-    let content: (Input) -> Content
+    let content: (repeat each Input) -> Content
 
     init(
-        taking: Input.Type = Input.self,
-        @ViewBuilder content: @escaping (Input) -> Content
+        taking: repeat (each Input).Type,
+        @ViewBuilder content: @escaping (repeat each Input) -> Content
     ) {
         self.content = content
     }
 
-    @ViewBuilder func callAsFunction(_ parameter: Input) -> some View {
-        content(parameter)
+    init(@ViewBuilder content: @escaping (repeat each Input) -> Content) {
+        self.content = content
+    }
+
+    @ViewBuilder func callAsFunction(_ input: repeat each Input) -> some View {
+        content(repeat each input)
     }
 
 }
@@ -50,4 +57,14 @@ struct ViewTemplate<Content: View, Input> {
     onlyClosure("Uno")
     onlyClosure("Dos")
     onlyClosure("Tres")
+
+    // Multiple inputs.
+    let multiple = ViewTemplate(taking: String.self, Color.self) { imageName, color in
+        Label(imageName.capitalized, systemImage: imageName)
+        .foregroundStyle(color)
+        DashedDivider()
+    }
+    multiple("leaf",  .green)
+    multiple("moon",  .blue)
+    multiple("flame", .red)
 }
