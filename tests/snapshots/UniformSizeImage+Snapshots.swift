@@ -108,29 +108,28 @@ struct UniformSizeImageSnapshots {
 
 
     @Test func alignment() {
-        // FIXME: Use dictionary instead.
-        let images: [(font: Font, imageName: String)] = [
-            (.caption2, "ladybug"),
-            (.caption,  "guidepoint.horizontal"),
-            (.footnote, "guidepoint.vertical"),
-            (.body,     "photo.badge.shield.exclamationmark"),
-            (.title2,   "clock.badge.airplane"),
-            (.title,    "circle"),
+        let images: KeyValuePairs<Font, String> = [
+            .caption2: "ladybug",
+            .caption:  "guidepoint.horizontal",
+            .footnote: "guidepoint.vertical",
+            .body:     "photo.badge.shield.exclamationmark",
+            .title2:   "clock.badge.airplane",
+            .title:    "circle",
         ]
 
-        let alignments: [String: VerticalAlignment] = [
+        let alignments: KeyValuePairs<String, VerticalAlignment> = [
             "firstTextBaseline": .firstTextBaseline,
             "top": .top, "bottom": .bottom
         ]
 
         for (key, alignment) in alignments {
             Snapshots.assertView(key, spacing: 20) {
-                HStack(images, id: \.imageName, alignment: alignment, spacing: 8) { font, imageName in
+                HStack(images, id: \.key, alignment: alignment, spacing: 8) { font, imageName in
                     UniformSizeSymbol(systemName: imageName)
                 }
                 .debugAlignmentGuide(vertical: alignment)
 
-                HStack(images, id: \.imageName, alignment: alignment, spacing: 8) { font, imageName in
+                HStack(images, id: \.key, alignment: alignment, spacing: 8) { font, imageName in
                     UniformSizeSymbol(systemName: imageName)
                     .font(font)
                 }
@@ -138,7 +137,7 @@ struct UniformSizeImageSnapshots {
 
                 DashedDivider()
 
-                HStack(images, id: \.imageName, alignment: alignment, spacing: 8) { font, imageName in
+                HStack(images, id: \.key, alignment: alignment, spacing: 8) { font, imageName in
                     Image(systemName: imageName)
                 }
                 .debugAlignmentGuide(vertical: alignment)
@@ -157,31 +156,26 @@ struct UniformSizeImageSnapshots {
             "circle",
         ]
 
-        // FIXME: Dry with a local function.
+        func sizeComparisonStack(imageNames: some RandomAccessCollection<String>, font: Font) -> some View {
+            HStack(items: imageNames, alignment: .firstTextBaseline, spacing: 8) { imageName in
+                UniformSizeSymbol {
+                    Image(systemName: imageName)
+                    .background(.orange.secondary)
+                }
+                .border(.teal.secondary, width: 2)
+            }
+            .debugAlignmentGuide(vertical: .firstTextBaseline)
+            .font(font)
+        }
 
         Snapshots.assertView("comparison", spacing: 20) {
             ForEach([Font.caption, .body], id: \.self) { font in
-                HStack(items: imageNames, alignment: .firstTextBaseline, spacing: 8) { imageName in
-                    UniformSizeSymbol {
-                        Image(systemName: imageName)
-                        .background(.orange.secondary)
-                    }
-                    .border(.teal.secondary, width: 2)
-                }
-                .debugAlignmentGuide(vertical: .firstTextBaseline)
-                .font(font)
+                sizeComparisonStack(imageNames: imageNames, font: font)
             }
 
+            // Images with Title font, list is split in half.
             ForEach(imageNames.splitting().enumerated(), id: \.offset) { offset, halfImageNames in
-                HStack(items: halfImageNames, alignment: .firstTextBaseline, spacing: 8) { imageName in
-                    UniformSizeSymbol {
-                        Image(systemName: imageName)
-                        .background(.orange.secondary)
-                    }
-                    .border(.teal.secondary, width: 2)
-                }
-                .debugAlignmentGuide(vertical: .firstTextBaseline)
-                .font(.title)
+                sizeComparisonStack(imageNames: halfImageNames, font: .title)
             }
         }
     }
