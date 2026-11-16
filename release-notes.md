@@ -18,6 +18,7 @@ In Development.
 + Added `FilledRectangle`.
 + Added `RoundToggle`, `SymbolToggleButton`, `UniformSizeSymbol`.
 + Added `AnimationPlayback`.
++ Added `ViewTemplate`.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
 + Added `Edge/opposite`, `rotated`, and `counterRotated`.
 + Added `Label.init(_:icon:)`.

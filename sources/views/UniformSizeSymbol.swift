@@ -140,7 +140,7 @@ private struct FirstSubviewFillSquareLayout: Layout {
 
 // MARK: SquareFillLayout
 #Preview("FirstSubviewFillSquareLayout", traits: .spacing(30)) {
-    let symbolPair = Encloser(with: String.self) { imageName in
+    let symbolPair = ViewTemplate(taking: String.self) { imageName in
         Image(systemName: imageName)
         .floatingCaption(verbatim: imageName, alignment: .outerTrailing, .colorStyle(.teal), .size)
 
@@ -186,13 +186,18 @@ extension Image {
 }
 
 
-// FIXME: Figure out name and location.
-struct Encloser<Content: View, Param> {
-    let content: (Param) -> Content
-    init(with: Param.Type, @ViewBuilder content: @escaping (Param) -> Content) {
+// FIXME: Move to its own file.
+/// Structure that produces views with a given input.
+///
+/// Use `ViewTemplate` to create an inline structure that produces a custom view with a given
+/// parameter. For example in Previews, where a local function cannot be created for repeating
+/// parametrized views, create a `ViewTemplate` based in a parameter.
+struct ViewTemplate<Content: View, Input> {
+    let content: (Input) -> Content
+    init(taking: Input.Type, @ViewBuilder content: @escaping (Input) -> Content) {
         self.content = content
     }
-    @ViewBuilder func callAsFunction(_ parameter: Param) -> some View {
+    @ViewBuilder func callAsFunction(_ parameter: Input) -> some View {
         content(parameter)
     }
 }
