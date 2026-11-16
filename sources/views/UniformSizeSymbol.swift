@@ -140,30 +140,20 @@ private struct FirstSubviewFillSquareLayout: Layout {
 
 // MARK: SquareFillLayout
 #Preview("FirstSubviewFillSquareLayout", traits: .spacing(30)) {
-    // FIXME: Dry.
-    Image(systemName: "circle")
-    .floatingCaption("Circle Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
+    let symbolPair = Encloser(with: String.self) { imageName in
+        Image(systemName: imageName)
+        .floatingCaption(verbatim: imageName, alignment: .outerTrailing, .colorStyle(.teal), .size)
 
-    FirstSubviewFillSquareLayout {
-        Image(systemName: "circle")
+        FirstSubviewFillSquareLayout {
+            Image(systemName: imageName)
+        }
+        .floatingCaption("in Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
     }
-    .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
 
-    Image(systemName: "guidepoint.vertical")
-    .floatingCaption("Guidepoint Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
-
-    FirstSubviewFillSquareLayout {
-        Image(systemName: "guidepoint.vertical")
-    }
-    .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
-
-    Image(systemName: "guidepoint.horizontal")
-    .floatingCaption("Guidepoint Image", alignment: .outerTrailing, .colorStyle(.teal), .size)
-
-    FirstSubviewFillSquareLayout {
-        Image(systemName: "guidepoint.horizontal")
-    }
-    .floatingCaption("Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
+    symbolPair("circle")
+    symbolPair("guidepoint.vertical")
+    symbolPair("guidepoint.horizontal")
+    symbolPair("circle")
 
     DashedDivider()
 
@@ -193,4 +183,16 @@ extension Image {
         "clock.badge.airplane"
     ]
 
+}
+
+
+// FIXME: Figure out name and location.
+struct Encloser<Content: View, Param> {
+    let content: (Param) -> Content
+    init(with: Param.Type, @ViewBuilder content: @escaping (Param) -> Content) {
+        self.content = content
+    }
+    @ViewBuilder func callAsFunction(_ parameter: Param) -> some View {
+        content(parameter)
+    }
 }
