@@ -138,9 +138,9 @@ private struct FirstSubviewFillSquareLayout: Layout {
 }
 
 
-// MARK: SquareFillLayout
-#Preview("FirstSubviewFillSquareLayout", traits: .spacing(30)) {
-    let symbolPair = ViewTemplate(taking: String.self) { imageName in
+// MARK: SquareLayout
+#Preview("SquareLayout", traits: .spacing(30)) {
+    let template = ViewTemplate(taking: String.self) { imageName in
         Image(systemName: imageName)
         .floatingCaption(verbatim: imageName, alignment: .outerTrailing, .colorStyle(.teal), .size)
 
@@ -150,10 +150,10 @@ private struct FirstSubviewFillSquareLayout: Layout {
         .floatingCaption("in Square Layout", alignment: .outerTrailing, .colorStyle(.teal), .size)
     }
 
-    symbolPair("circle")
-    symbolPair("guidepoint.vertical")
-    symbolPair("guidepoint.horizontal")
-    symbolPair("circle")
+    template("circle")
+    template("guidepoint.vertical")
+    template("guidepoint.horizontal")
+    template("circle")
 
     DashedDivider()
 
