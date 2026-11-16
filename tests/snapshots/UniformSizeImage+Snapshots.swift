@@ -51,37 +51,35 @@ struct UniformSizeImageSnapshots {
                 UniformSizeSymbol(systemName: "circle")
                 .floatingCaption("Default", alignment: .outerTrailing, .colorStyle(.teal), .size)
 
-                let fonts: [(label: String, font: Font)] = [
-                    ("Caption",  .caption),
-                    ("Body",     .body),
-                    ("Title",    .title),
+                let fonts: KeyValuePairs<String, Font> = [
+                    "Caption": .caption,
+                    "Body":    .body,
+                    "Title":   .title,
                 ]
-                ForEach(fonts, id: \.label) { label, font in
+                ForEach(fonts, id: \.key) { key, font in
                     UniformSizeSymbol(systemName: "circle")
                     .font(font)
-                    .floatingCaption(verbatim: label, alignment: .outerTrailing, .colorStyle(.teal), .size)
+                    .floatingCaption(verbatim: key, alignment: .outerTrailing, .colorStyle(.teal), .size)
                 }
             }
             .padding(.horizontal, 20)
         }
 
         Snapshots.assertView("imageScales") {
-            // FIXME: Dry like above.
             VStack.expandingWidth(alignment: .leading, spacing: 20) {
                 UniformSizeSymbol(systemName: "circle")
                 .floatingCaption("Default", alignment: .outerTrailing, .colorStyle(.teal), .size)
 
-                UniformSizeSymbol(systemName: "circle")
-                .imageScale(.small)
-                .floatingCaption("Small", alignment: .outerTrailing, .colorStyle(.teal), .size)
-
-                UniformSizeSymbol(systemName: "circle")
-                .imageScale(.medium)
-                .floatingCaption("Medium", alignment: .outerTrailing, .colorStyle(.teal), .size)
-
-                UniformSizeSymbol(systemName: "circle")
-                .font(.title)
-                .floatingCaption("Large", alignment: .outerTrailing, .colorStyle(.teal), .size)
+                let scales: KeyValuePairs<String, Image.Scale> = [
+                    "Small":  .small,
+                    "Medium": .medium,
+                    "Large":  .large,
+                ]
+                ForEach(scales, id: \.key) { key, scale in
+                    UniformSizeSymbol(systemName: "circle")
+                    .imageScale(scale)
+                    .floatingCaption(verbatim: key, alignment: .outerTrailing, .colorStyle(.teal), .size)
+                }
             }
             .padding(.horizontal, 20)
         }
