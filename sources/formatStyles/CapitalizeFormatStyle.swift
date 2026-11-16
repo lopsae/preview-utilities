@@ -17,12 +17,21 @@ import SwiftUI
 /// Text("black quartz", format: .capitalize) // Displays "Black Quartz"
 /// ```
 ///
+/// Or form a composite `FormatStyle` with another by using ``Foundation/FormatStyle/capitalized``:
+///
+/// ```swift
+/// Text("rose quartz", format: .firstWord.capitalized) // Displays "Rose"
+/// ```
+///
 /// ## Topics
 ///
 /// ### FormatStyle Extensions
 /// + ``Foundation/FormatStyle/capitalize``
 /// + ``Foundation/FormatStyle/capitalize(_:)``
 /// + ``Foundation/FormatStyle/capitalize(property:)``
+///
+/// ### FormatStyle Modifiers
+/// + ``Foundation/FormatStyle/capitalized``
 ///
 nonisolated
 public struct CapitalizeFormatStyle: FormatStyle, Sendable {
@@ -40,6 +49,9 @@ public struct CapitalizeFormatStyle: FormatStyle, Sendable {
 }
 
 
+// MARK: - Capitalize
+
+
 extension FormatStyle where Self == CapitalizeFormatStyle {
 
     /// Returns a format style that outputs a capitalized string.
@@ -53,6 +65,9 @@ extension FormatStyle where Self == CapitalizeFormatStyle {
     public static var capitalize: Self { CapitalizeFormatStyle() }
 
 }
+
+
+// MARK: - Capitalized
 
 
 extension FormatStyle where Self: Sendable, FormatOutput == String {
@@ -72,6 +87,8 @@ extension FormatStyle where Self: Sendable, FormatOutput == String {
 
 }
 
+
+// MARK: - Capitalize Input
 
 
 extension FormatStyle {
@@ -99,6 +116,13 @@ extension FormatStyle {
         return .init(input: input, output: CapitalizeFormatStyle())
     }
 
+}
+
+
+// MARK: - Capitalize Property
+
+
+extension FormatStyle {
 
     /// Returns a composite format style that outputs a capitalized string value retrieved through a
     /// key path.
