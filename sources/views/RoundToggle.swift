@@ -163,7 +163,7 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
                     insertion: .scale(scale: 2),
                     removal:   .scale(scale: 0.5)
                 ).combined(with: .opacity)
-                let checkmarkAnimation: Animation? = .default.speed(3)
+                let checkmarkAnimation: Animation? = .default.speed(2)
                     .playback(playback)
 
                 // Xmark is fades in with a slight delay, and fades out with scale.
@@ -171,7 +171,7 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
                     insertion: .identity,
                     removal:   .scale(scale: 0.5)
                 ).combined(with: .opacity)
-                let xmarkAnimation: Animation? = .default.speed(2).delay(toggle ? 0 : 0.1)
+                let xmarkAnimation: Animation? = .default.speed(2).delay(toggle ? 0 : 0.2)
                     .playback(playback)
 
                 ZStack {
