@@ -13,13 +13,20 @@ import SwiftUI
 /// parameter. For example in Previews, where a local function cannot be created for repeating
 /// parametrized views, create a `ViewTemplate` based in a parameter.
 struct ViewTemplate<Content: View, Input> {
+
     let content: (Input) -> Content
-    init(taking: Input.Type = Input.self, @ViewBuilder content: @escaping (Input) -> Content) {
+
+    init(
+        taking: Input.Type = Input.self,
+        @ViewBuilder content: @escaping (Input) -> Content
+    ) {
         self.content = content
     }
+
     @ViewBuilder func callAsFunction(_ parameter: Input) -> some View {
         content(parameter)
     }
+
 }
 
 
