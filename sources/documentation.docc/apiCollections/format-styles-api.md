@@ -20,6 +20,7 @@ string raw value, and any type into a string ready to display.
 + ``FirstCharacterFormatStyle``
 + ``FirstWordFormatStyle``
 + ``LastWordFormatStyle``
++ ``RemoveSpacesFormatStyle``
 + ``RawValueFormatStyle``
 + ``StringDescriptionFormatStyle``
 + ``PropertyFormatStyle``
