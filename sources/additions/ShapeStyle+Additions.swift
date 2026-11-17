@@ -21,7 +21,7 @@ extension ShapeStyle where Self == AnyShapeStyle {
 // MARK: - Preview
 
 
-#Preview("Default") {
+#Preview("Default", traits: .headerFooter) {
     @Previewable @State var toggle = true
 
     Toggle("Toggle Style", isOn: $toggle)
