@@ -102,15 +102,3 @@ struct RoundToggle: View {
         .debugAlignmentGuide(vertical: .bottom, .extendedLength(50), .anchor(.trailing))
     }
 }
-
-
-// FIXME: Move to additions.
-extension ShapeStyle where Self == AnyShapeStyle {
-    static func `if`(
-        _ condition: Bool,
-        then trueStyle: some ShapeStyle,
-        else falseStyle: some ShapeStyle
-    ) -> Self {
-        condition ? Self(trueStyle) : Self(falseStyle)
-    }
-}
