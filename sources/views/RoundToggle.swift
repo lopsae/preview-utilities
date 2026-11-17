@@ -36,15 +36,14 @@ struct RoundToggle: View {
                 animations: playback
             )
             .labelStyle(.iconOnly)
-            .buttonStyle(AnimatedPressedButtonStyle(isOn: isOn, playback: playback))
+            .buttonStyle(PopCapsuleButtonStyle(isOn: isOn, playback: playback))
 
         }
     }
 
     // FIXME: Move to its own file.
-    // FIXME: Rename to PopCapsuleButtonStyle.
     /// Configures the round toggle button to animate its background.
-    struct AnimatedPressedButtonStyle: ButtonStyle {
+    struct PopCapsuleButtonStyle: ButtonStyle {
         let isOn: Bool
         let playback: AnimationPlayback
 
