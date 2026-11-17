@@ -16,3 +16,18 @@ extension ShapeStyle where Self == AnyShapeStyle {
         condition ? Self(trueStyle) : Self(falseStyle)
     }
 }
+
+
+// MARK: - Preview
+
+
+#Preview("Default") {
+    @Previewable @State var toggle = true
+
+    Toggle("Toggle Style", isOn: $toggle)
+
+    let style: some ShapeStyle = .if(toggle, then: .pink, else: .secondary)
+    Image(systemName: "ladybug")
+    .font(.largeTitle)
+    .foregroundStyle(style)
+}
