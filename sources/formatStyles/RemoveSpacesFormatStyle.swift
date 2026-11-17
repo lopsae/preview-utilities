@@ -9,10 +9,10 @@ public import Foundation
 import SwiftUI
 
 
-// FIXME: Document, publicize, test, list in api-docs.
-
-
 /// A format style that removes whitespace from a string.
+///
+/// `CharacterSet/whitespaces` is used to define whitespace, which includes space and tab
+/// characters.
 ///
 /// Use this format style through the `FormatStyle` extension ``Foundation/FormatStyle/removeSpaces``:
 ///
