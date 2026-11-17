@@ -9,6 +9,7 @@ extension String {
 
     public static let empty:      Self = .init()
     public static let space:      Self = " "
+    public static let tab:        Self = "\u{0009}"
     public static let nbsp:       Self = "\u{00a0}"
     public static let narrowNbsp: Self = "\u{202F}"
     public static let hyphen:     Self = "-"
