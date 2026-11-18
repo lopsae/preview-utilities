@@ -9,6 +9,7 @@ import SwiftUI
 
 /// Configures the round toggle button to animate its background.
 struct PopCapsuleButtonStyle: ButtonStyle {
+
     let capsuleStyle: AnyShapeStyle
     let playback: AnimationPlayback
 
@@ -19,6 +20,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         let isPressed = configuration.isPressed
+        let capsuleBrightness = isPressed ? 0.15 : .zero
         let colorAnimation: Animation? = .default.speed(2).playback(playback)
         let scaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
@@ -28,23 +30,13 @@ struct PopCapsuleButtonStyle: ButtonStyle {
         configuration.label
         // FIXME: Also make padding a parameter.
         .padding(4)
-        .background { // FIXME: is this background needed? could the background be set in animation closure?
-            // Work around to animating the background color. capsuleStyle is not hashable, thus
-            // cannot be checked for equality. Using foregroundColor to paint a shape does not
-            // animate between styles.
-            Color.clear.animation(colorAnimation, body: { content in
-                content
-                .background(capsuleStyle, in: .capsule)
-                .brightness(isPressed ? 0.2 : .zero)
-            })
+        .animation(colorAnimation) { content in
+            content.background {
+                Capsule()
+                .fill(capsuleStyle)
+                .brightness(capsuleBrightness)
+            }
         }
-        // FIXME: Could this be done in animation closure?
-//        .background {
-//            Capsule()
-//            .fill(capsuleStyle)
-//            .brightness(isPressed ? 0.2 : .zero)
-//        }
-//        .animation(colorAnimation, value: Hasher.combining(capsuleStyle, isPressed))
         .scaleEffect(configuration.isPressed ? pressedScale : 1.0, anchor: .center)
         .animation(scaleAnimation, value: isPressed)
     }
@@ -55,9 +47,9 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .paddingSpacing) {
+#Preview("Default", traits: .headerFooter) {
     @Previewable @State var colorToggle = true
-    Group {
+    VStack.expandingWidth(alignment: .leading, spacing: SpacingDefaults.padding) {
         Button("Pop Capsule") {}
             .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .tint, animations: .normal))
 
