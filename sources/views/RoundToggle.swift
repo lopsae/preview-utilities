@@ -30,13 +30,14 @@ struct RoundToggle: View {
             Text(titleKey)
             Spacer()
 
+            let backgroundStyle: AnyShapeStyle = .if(isOn, then: .tint, else: .gray.secondary)
             SymbolToggleButton(
                 "Toggle", toggle: $isOn,
                 firstStyle: .background, secondStyle: .secondary,
                 animations: playback
             )
             .labelStyle(.iconOnly)
-            .buttonStyle(PopCapsuleButtonStyle(isOn: isOn, playback: playback))
+            .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: backgroundStyle, animations: playback))
 
         }
     }
