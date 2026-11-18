@@ -16,7 +16,8 @@ In Development.
 + Added `PathShape`.
 + Added `Paths.arrow`.
 + Added `FilledRectangle`.
-+ Added `RoundToggle`, `SymbolToggleButton`, `UniformSizeSymbol`.
++ Added `RoundToggle`, `SymbolToggleButton`, and `PopCapsuleButtonStyle`.
++ Added `UniformSizeSymbol`.
 + Added `AnimationPlayback`.
 + Added `ViewTemplate`.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
@@ -24,13 +25,14 @@ In Development.
 + Added `Label.init(_:icon:)`.
 + Added `Button.init(_:icon:)`.
 + Added `FormatStyle/then(_:)`, and `FormatStyle/capitalized`.
-+ Added `String.newLine`.
++ Added `String.newLine` and `tab`.
++ Added `AnyShapeStyle.if(_:then:else:)`.
 + For `DebugGeometryModifier.Configuration`:
     + Updated `areBordersEnabled` to `innerBorderVisibility` and `outerBorderVisibility`.
     + Updated `bordersWidth` to `innerBorderWidth` and `outerBorderWidth`.
     + Added `innerBorderStyle` and `outerBorderStyle`.
 + For `DebugGeometryModifier.Configuration.Trait`:
-    + Adeed `innerBorderStyle`, `outerBorderStyle`.
+    + Added `innerBorderStyle`, `outerBorderStyle`.
     + Updated `hairline` to update only borders widths.
     + Updated `noBorder` to update only borders visibility.
 + Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.

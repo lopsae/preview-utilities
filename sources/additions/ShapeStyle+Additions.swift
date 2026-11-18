@@ -8,6 +8,8 @@ import SwiftUI
 
 
 extension ShapeStyle where Self == AnyShapeStyle {
+
+    // FIXME: Doc, publicize, test.
     static func `if`(
         _ condition: Bool,
         then trueStyle: some ShapeStyle,
@@ -15,6 +17,7 @@ extension ShapeStyle where Self == AnyShapeStyle {
     ) -> Self {
         condition ? Self(trueStyle) : Self(falseStyle)
     }
+
 }
 
 
