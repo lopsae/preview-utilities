@@ -10,22 +10,34 @@ import SwiftUI
 /// Configures the round toggle button to animate its background.
 struct PopCapsuleButtonStyle: ButtonStyle {
 
+    static let defaultPressedScale: CGFloat = 1.5
+
     let capsuleStyle: AnyShapeStyle
+//    let padding:
+    let pressedScale: CGFloat
     let playback: AnimationPlayback
 
-    init(capsuleStyle: some ShapeStyle, animations playback: AnimationPlayback) {
+    init(
+        capsuleStyle: some ShapeStyle,
+        pressedScale: CGFloat = defaultPressedScale,
+        animations playback: AnimationPlayback
+    ) {
         self.capsuleStyle = AnyShapeStyle(capsuleStyle)
+        self.pressedScale = pressedScale
         self.playback = playback
     }
 
     func makeBody(configuration: Configuration) -> some View {
         let isPressed = configuration.isPressed
+
         let capsuleBrightness = isPressed ? 0.15 : .zero
-        let colorAnimation: Animation? = .default.speed(2).playback(playback)
-        let scaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
         // When animations are disabled, scale is also disabled.
-        let pressedScale: CGFloat = playback.isDisabled ? .one : 1.5
+        let targetScale: CGFloat = playback.isDisabled ? .one : pressedScale
+        let scale = isPressed ? targetScale : .one
+
+        let colorAnimation: Animation? = .default.speed(2).playback(playback)
+        let scaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
         configuration.label
         // FIXME: Also make padding a parameter.
@@ -37,7 +49,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
                 .brightness(capsuleBrightness)
             }
         }
-        .scaleEffect(configuration.isPressed ? pressedScale : 1.0, anchor: .center)
+        .scaleEffect(scale, anchor: .center)
         .animation(scaleAnimation, value: isPressed)
     }
 
