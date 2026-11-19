@@ -12,11 +12,11 @@ public import SwiftUI
 
 /// A view that displays a symbol image framed in an uniform symbol square size.
 ///
-/// This view places the displayed image in an overlay with a fixed size based on the `circle`
-/// symbol, and aligned to `centerFirstTextBaseline`. The result is a system symbol that is always
-/// laid out with a uniform size, irregardless of the size of the displayed symbol.
+/// This view places its content in an overlay with a fixed size based on the `circle` symbol, and
+/// aligned to `centerFirstTextBaseline`. The result is a system symbol that is always laid out in
+/// a uniform square size, irregardless of the size of actual content.
 ///
-/// The displayed image uses the environment font, foreground style, image scale, and related
+/// The displayed content uses the environment font, foreground style, image scale, and related
 /// modifiers.
 ///
 /// Based on: https://trailing-closure.com/2026/intricacies-of-circular-buttons.
