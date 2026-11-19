@@ -8,21 +8,26 @@ import SwiftUI
 
 
 /// Configures the round toggle button to animate its background.
+///
+/// Style is animated when changed.
+/// Paddings and scale are animated when isPressed changes.
+/// Pressed paddings is applied negative to paddings, only when pressed.
 struct PopCapsuleButtonStyle: ButtonStyle {
 
     static let defaultPressedScale: CGFloat = 1.5
     static let defaultPaddings: EdgeInsets = .all(4)
+    static let defaultPressedPaddings: EdgeInsets = .zero
 
     let capsuleStyle: AnyShapeStyle
     let paddings: EdgeInsets
-    let pressedPaddings: EdgeInsets?
+    let pressedPaddings: EdgeInsets
     let pressedScale: CGFloat
     let playback: AnimationPlayback
 
     init(
         capsuleStyle: some ShapeStyle,
         paddings: EdgeInsets = defaultPaddings,
-        pressedPaddings: EdgeInsets? = nil,
+        pressedPaddings: EdgeInsets = defaultPressedPaddings,
         pressedScale: CGFloat = defaultPressedScale,
         animations playback: AnimationPlayback = .normal
     ) {
@@ -43,12 +48,13 @@ struct PopCapsuleButtonStyle: ButtonStyle {
         let targetScale: CGFloat = playback.isDisabled ? .one : pressedScale
         let scale = isPressed ? targetScale : .one
 
-        let targetPressedPaddings = isPressed ? pressedPaddings ?? .all(.zero) : .all(.zero)
-//        let animatedPaddings = isPressed ? targetPressedPaddings : paddings
+        let targetPressedPaddings = isPressed ? pressedPaddings : .all(.zero)
 
+        // Color is animated automatically when it changes. There is no way to directly track for
+        // `capsuleStyle` changes.
         let colorAnimation: Animation? = .default.speed(2).playback(playback)
-        // FIXME: Rename, this animates both scale and padding.
-        let scaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
+        // Paddings and scale are animated only when isPressed changes.
+        let paddingsAndScaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
         configuration.label
         .padding(paddings)
@@ -62,22 +68,10 @@ struct PopCapsuleButtonStyle: ButtonStyle {
                 }
             }
             .padding(targetPressedPaddings.negative)
-            .animation(scaleAnimation, value: isPressed)
+            .animation(paddingsAndScaleAnimation, value: isPressed)
         }
-
-//        .animation(colorAnimation) { content in
-//            content.background {
-//                Capsule()
-//                .fill(capsuleStyle)
-//                .brightness(capsuleBrightness)
-//                // Padding animates along scale automatically, since isPressed changes value.
-//                .padding(targetPressedPaddings.negative)
-//            }
-//        }
-
-
         .scaleEffect(scale, anchor: .center)
-        .animation(scaleAnimation, value: isPressed)
+        .animation(paddingsAndScaleAnimation, value: isPressed)
     }
 
 }
@@ -184,5 +178,8 @@ extension EdgeInsets {
             bottom: -bottom, trailing: -trailing
         )
     }
+
+
+    static let zero: Self = .all(.zero)
 
 }
