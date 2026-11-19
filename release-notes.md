@@ -23,6 +23,7 @@ In Development.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
 + Added `Edge/opposite`, `rotated`, and `counterRotated`.
 + Added `Label.init(_:icon:)`.
++ Added `UniformSizeSymbolLabelStyle` and `LabelStyle.uniformIcon`.
 + Added `Button.init(_:icon:)`.
 + Added `FormatStyle/then(_:)`, and `FormatStyle/capitalized`.
 + Added `String.newLine` and `tab`.

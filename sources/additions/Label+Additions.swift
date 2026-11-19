@@ -50,10 +50,44 @@ extension Label {
 // MARK: - UniformIcon
 
 
-// FIXME: Doc, publicize, test.
-struct UniformSizeSymbolLabelStyle: LabelStyle {
+// FIXME: Test.
 
-    func makeBody(configuration: Configuration) -> some View {
+/// A label style that places the icon inside a `UniformSizeSymbol`.
+///
+/// ``UniformSizeSymbol`` frames the icon in an uniform square size based on the `circle` symbol,
+/// irregardless of the size of actual icon. This allows labels to have a consistent icon size even
+/// with different or changing symbols.
+///
+/// Use this style through the `LabelStyle` extension ``SwiftUI/LabelStyle/uniformIcon``:
+///
+/// ```swift
+/// Label("Label", systemImage: "ladybug")
+/// .labelStyle(.uniformIcon)
+/// ```
+///
+/// This style is composable, stack it with other label styles to compose its effects:
+///
+/// ```swift
+/// Label("Label", systemImage: "ladybug")
+/// .labelStyle(.uniformIcon)
+/// .labelStyle(.iconOnly)
+/// ```
+///
+/// The order matters, if applied outside a terminal style, such as `.iconOnly`, this style has
+/// no effect.
+///
+///
+/// ### LabelStyle Extensions
+/// + ``SwiftUI/LabelStyle/uniformIcon``
+///
+nonisolated
+public struct UniformSizeSymbolLabelStyle: LabelStyle {
+
+    /// Creates label style with a uniform icon size.
+    public init() {}
+
+    @_documentation(visibility: internal)
+    public func makeBody(configuration: Configuration) -> some View {
         Label {
             configuration.title
         } icon: {
@@ -66,14 +100,13 @@ struct UniformSizeSymbolLabelStyle: LabelStyle {
 
 extension LabelStyle where Self == UniformSizeSymbolLabelStyle {
 
-    static var uniformIcon: Self {
+    /// A label style with a uniform icon size.
+    nonisolated
+    public static var uniformIcon: Self {
         UniformSizeSymbolLabelStyle()
     }
 
 }
-
-
-
 
 
 // MARK: - Previews
@@ -95,6 +128,9 @@ extension LabelStyle where Self == UniformSizeSymbolLabelStyle {
     }
     .debugAlignmentGuide(vertical: .firstTextBaseline)
 }
+
+
+// MARK: UniformIcon
 
 
 #Preview("UniformIcon", traits: .paddingSpacing, .headerFooter) {
@@ -126,4 +162,17 @@ extension LabelStyle where Self == UniformSizeSymbolLabelStyle {
     .labelStyle(.uniformIcon)
     .labelStyle(.iconOnly)
     .floatingCaption("Uniform+IconOnly", alignment: .outerTrailing)
+}
+
+
+// MARK: Snippets
+
+
+#Preview("Snippets", traits: .paddingSpacing) {
+    Label("Label", systemImage: "ladybug")
+    .labelStyle(.uniformIcon)
+
+    Label("Label", systemImage: "ladybug")
+    .labelStyle(.uniformIcon)
+    .labelStyle(.iconOnly)
 }
