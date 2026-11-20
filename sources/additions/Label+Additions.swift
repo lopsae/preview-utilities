@@ -96,6 +96,9 @@ public struct UniformSizeSymbolLabelStyle: LabelStyle {
 }
 
 
+// MARK: - LabelStyle Extension
+
+
 extension LabelStyle where Self == UniformSizeSymbolLabelStyle {
 
     /// A label style with a uniform icon size.

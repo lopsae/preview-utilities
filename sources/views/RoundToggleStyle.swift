@@ -42,6 +42,16 @@ struct RoundToggleStyle: ToggleStyle {
 }
 
 
+// MARK: - ToggleStyle Extension
+
+
+extension ToggleStyle where Self == RoundToggleStyle {
+
+    static var roundCheckmark: Self { .init() }
+
+}
+
+
 // MARK: - Previews
 
 
@@ -70,7 +80,7 @@ struct RoundToggleStyle: ToggleStyle {
         Text("Comparison")
         Spacer()
         Toggle("Comparison", isOn: $comparisonValue)
-        .toggleStyle(RoundToggleStyle())
+        .toggleStyle(.roundCheckmark)
         .labelStyle(.iconOnly)
 
         Toggle(isOn: $comparisonValue) { EmptyView() }
@@ -99,10 +109,10 @@ struct RoundToggleStyle: ToggleStyle {
     Toggle("Toggle", isOn: $toggle)
 
     Toggle("Round", isOn: $toggle)
-    .toggleStyle(RoundToggleStyle())
+    .toggleStyle(.roundCheckmark)
 
     Toggle("Round", isOn: $toggle)
-    .toggleStyle(RoundToggleStyle())
+    .toggleStyle(.roundCheckmark)
     .labelStyle(.iconOnly)
 
 }
