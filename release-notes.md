@@ -11,20 +11,20 @@ In Development.
 + Publicized `Edge/axis`.
 + Updated `DebugGeometryModifier.Configuration.GeometryProperties` to implement `IdentifiableShift`.
 + Updated `FloatingAlignedContainer` to apply `multilineTextAlignment` to its content.
-+ Moved `Path(crosshair:)` to `Paths.crosshair`.
-+ Added `FloatingPointFormatStyle.twoFractionals`.
-+ Added `PathShape`.
 + Added `Paths.arrow`.
++ Moved `Path(crosshair:)` to `Paths.crosshair`.
++ Added `PathShape`.
 + Added `FilledRectangle`.
 + Added `RoundToggle`, `SymbolToggleButton`, and `PopCapsuleButtonStyle`.
 + Added `UniformSizeSymbol`.
 + Added `AnimationPlayback`.
 + Added `ViewTemplate`.
++ Added `FloatingPointFormatStyle.twoFractionals`.
++ Added `GeometryProxyFormatStyles` containing `ConcentricCornerRadiiDebugString` and `EdgeInsetsDebugString`.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
 + Added `Edge/opposite`, `rotated`, and `counterRotated`.
-+ Added `Label.init(_:icon:)`.
 + Added `UniformSizeSymbolLabelStyle` and `LabelStyle.uniformIcon`.
-+ Added `Button.init(_:icon:)`.
++ Added `Button.init(_:icon:)` and `Label.init(_:icon:)`.
 + Added `FormatStyle/then(_:)`, and `FormatStyle/capitalized`.
 + Added `String.newLine` and `tab`.
 + Added `AnyShapeStyle.if(_:then:else:)`.

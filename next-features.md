@@ -2,19 +2,24 @@ Next Features
 =============
 
 
-For 0.5.4
+For 0.5.5
 ---------
 + Fleshout `HorizontalRelativeAlignment`, publicize `FloatingAlignedContainer` if still useful.
 
-For 0.5.3
+For 0.5.4
 ---------
 + DocumentationIllustration -> Illustration? SnippetIllustration?
 
 
+For 0.5.3
+---------
++ Migrate DebugOverlay to also use ConfigurationModifierTrait
++ Add explicit trait parameter label to DebugGeometry and FloatingCaption.
+
+
 For 0.5.2
 ---------
-+ Add container shape capabilities to debugGeometry.
-+ Migrate DebugOverlay to also use ConfigurationModifierTrait 
++ Add container shape capabilities to debugGeometry. 
 
 
 For future versions
