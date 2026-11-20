@@ -50,8 +50,6 @@ extension Label {
 // MARK: - UniformIcon
 
 
-// FIXME: Test.
-
 /// A label style that places the icon inside a `UniformSizeSymbol`.
 ///
 /// ``UniformSizeSymbol`` frames the icon in an uniform square size based on the `circle` symbol,
@@ -122,9 +120,16 @@ extension LabelStyle where Self == UniformSizeSymbolLabelStyle {
             FilledRectangle(.orange.gradient, size: .square(of: 40))
         }
 
-        Label("With Value", icon: Image(systemName: "ladybug"))
+        Label("With Closure") {
+            Image(systemName: "clock.badge.airplane")
+            .background(.green.secondary)
+        }
 
+        DashedDivider()
+
+        Label("With Value", icon: Image(systemName: "ladybug"))
         Label("With Value", icon: Image(systemName: "square"))
+        Label("With Value", icon: Image(systemName: "clock.badge.airplane").background(.green.secondary))
     }
     .debugAlignmentGuide(vertical: .firstTextBaseline)
 }
