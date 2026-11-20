@@ -10,7 +10,7 @@ import SwiftUI
 ///
 /// This style is composable with `LabelStyle`, stack it with other label styles to compose its
 /// effects.
-struct RoundToggleStyle: ToggleStyle {
+struct RoundCheckmarkToggleStyle: ToggleStyle {
 
     private let playback: AnimationPlayback
 
@@ -45,7 +45,7 @@ struct RoundToggleStyle: ToggleStyle {
 // MARK: - ToggleStyle Extension
 
 
-extension ToggleStyle where Self == RoundToggleStyle {
+extension ToggleStyle where Self == RoundCheckmarkToggleStyle {
 
     static var roundCheckmark: Self { .init() }
 
@@ -68,7 +68,7 @@ extension ToggleStyle where Self == RoundToggleStyle {
 
     VStack($toggleValues.indexed(), id: \.index, alignment: .leading) { index, $values in
         Toggle(values.title, isOn: $values.isOn)
-        .toggleStyle(RoundToggleStyle(playback: values.playback))
+        .toggleStyle(RoundCheckmarkToggleStyle(playback: values.playback))
 
 //        RoundToggle(values.title, isOn: $values.isOn, animations: values.playback)
     }
@@ -103,7 +103,7 @@ extension ToggleStyle where Self == RoundToggleStyle {
 // FIXME: Create convenience static accessor.
 
 
-#Preview("RoundToggleStyle", traits: .headerFooter) {
+#Preview("RoundCheckmarkToggleStyle", traits: .headerFooter) {
     @Previewable @State var toggle = true
 
     Toggle("Toggle", isOn: $toggle)

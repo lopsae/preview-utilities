@@ -15,7 +15,7 @@ In Development.
 + Moved `Path(crosshair:)` to `Paths.crosshair`.
 + Added `PathShape`.
 + Added `FilledRectangle`.
-+ Added `RoundToggle`, `SymbolToggleButton`, and `PopCapsuleButtonStyle`.
++ Added `SymbolToggleButton`, and `PopCapsuleButtonStyle`.
 + Added `UniformSizeSymbol`.
 + Added `AnimationPlayback`.
 + Added `ViewTemplate`.
@@ -24,6 +24,7 @@ In Development.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
 + Added `Edge/opposite`, `rotated`, and `counterRotated`.
 + Added `UniformSizeSymbolLabelStyle` and `LabelStyle.uniformIcon`.
++ Added `RoundCheckmarkToggleStyle` and `ToggleStyle.roundCheckmark`.
 + Added `Button.init(_:icon:)` and `Label.init(_:icon:)`.
 + Added `FormatStyle/then(_:)`, and `FormatStyle/capitalized`.
 + Added `String.newLine` and `tab`.

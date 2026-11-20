@@ -842,7 +842,7 @@ private struct PreviewContent {
                     }
 
                     Toggle("Toggle", isOn: isOn)
-                    .toggleStyle(RoundToggleStyle())
+                    .toggleStyle(.roundCheckmark)
                     .labelStyle(.iconOnly)
                     .frame(squareOf: toggleLength)
                 }
