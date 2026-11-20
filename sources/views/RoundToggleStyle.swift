@@ -6,39 +6,36 @@
 
 import SwiftUI
 
+/// A toggle style that displays a leading round button along a label.
+///
+/// This style is composable with `LabelStyle`, stack it with other label styles to compose its
+/// effects.
+struct RoundToggleStyle: ToggleStyle {
 
-/// Toggle control with a label and a round toggle button.
-struct RoundToggle: View {
-
-    @Binding private var isOn: Bool
-
-    private let titleKey: LocalizedStringKey
     private let playback: AnimationPlayback
 
-    init(
-        _ titleKey: LocalizedStringKey,
-        isOn: Binding<Bool>,
-        animations playback: AnimationPlayback = .normal
-    ) {
-        self.titleKey = titleKey
-        self._isOn = isOn
+    init(playback: AnimationPlayback = .normal) {
         self.playback = playback
     }
 
-    var body: some View {
-        HStack(alignment: .firstTextBaseline) {
-            Text(titleKey)
-            Spacer()
+    func makeBody(configuration: Configuration) -> some View {
+        let backgroundStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
+        let buttonStyle = PopCapsuleButtonStyle(
+            capsuleStyle: backgroundStyle,
+            animations: playback
+        )
 
-            let backgroundStyle: AnyShapeStyle = .if(isOn, then: .tint, else: .gray.secondary)
+
+        Label {
+            configuration.label
+        } icon: {
             SymbolToggleButton(
-                "Toggle", toggle: $isOn,
+                "Toggle", toggle: configuration.$isOn,
                 firstStyle: .background, secondStyle: .secondary,
                 animations: playback
             )
             .labelStyle(.iconOnly)
-            .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: backgroundStyle, animations: playback))
-
+            .buttonStyle(buttonStyle)
         }
     }
 
@@ -89,42 +86,11 @@ struct RoundToggle: View {
     .frame(width: 59, alignment: .trailing)
     .border(.orange.secondary, width: 3)
     .expandingWidthFrame(alignment: .leading)
-
 }
 
 
 // FIXME: Keep and replace RoundToggle.
 // FIXME: Create convenience static accessor.
-struct RoundToggleStyle: ToggleStyle {
-
-    private let playback: AnimationPlayback
-
-    init(playback: AnimationPlayback = .normal) {
-        self.playback = playback
-    }
-
-    func makeBody(configuration: Configuration) -> some View {
-        let backgroundStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
-        let buttonStyle = PopCapsuleButtonStyle(
-            capsuleStyle: backgroundStyle,
-            animations: playback
-        )
-
-
-        Label {
-            configuration.label
-        } icon: {
-            SymbolToggleButton(
-                "Toggle", toggle: configuration.$isOn,
-                firstStyle: .background, secondStyle: .secondary,
-                animations: playback
-            )
-            .labelStyle(.iconOnly)
-            .buttonStyle(buttonStyle)
-        }
-    }
-
-}
 
 
 #Preview("RoundToggleStyle", traits: .headerFooter) {
