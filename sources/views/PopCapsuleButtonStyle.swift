@@ -150,19 +150,3 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     }
     .foregroundStyle(.background)
 }
-
-
-// FIXME: Move to GeometryAdditions.
-extension EdgeInsets {
-
-    var negative: Self {
-        .init(
-            top:    -top,    leading:  -leading,
-            bottom: -bottom, trailing: -trailing
-        )
-    }
-
-
-    static let zero: Self = .all(.zero)
-
-}

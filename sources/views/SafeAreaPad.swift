@@ -38,7 +38,7 @@ struct SafeAreaPad<S: ShapeStyle>: View {
             let contentAlignment = guidedAlignment.baseAlignment.orthogonalCenterAlignment
 
             GeometryReader(alignment: contentAlignment) { geometry in
-                let safeArea = geometry.safeAreaInsets[edge: edge]
+                let safeArea = geometry.safeAreaInsets[vertical: edge]
 
                 ZStack(alignment: contentAlignment) {
                     let alignmentInset = textAlignmentInset(
