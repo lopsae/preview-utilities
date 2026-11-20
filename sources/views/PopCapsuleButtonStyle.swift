@@ -43,11 +43,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 
         let capsuleBrightness = isPressed ? 0.15 : .zero
 
-        // When animations are disabled, scale is also disabled.
-        // FIXME: Since pressed scale can be configured, always use scale. Scale can be disabled through the parameter.
-        let targetScale: CGFloat = playback.isDisabled ? .one : pressedScale
-        let scale = isPressed ? targetScale : .one
-
+        let targetScale = isPressed ? pressedScale : .one
         let targetPressedPaddings = isPressed ? pressedPaddings : .all(.zero)
 
         // Color is animated automatically when it changes. There is no way to directly track for
@@ -70,7 +66,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
             .padding(targetPressedPaddings.negative)
             .animation(paddingsAndScaleAnimation, value: isPressed)
         }
-        .scaleEffect(scale, anchor: .center)
+        .scaleEffect(targetScale, anchor: .center)
         .animation(paddingsAndScaleAnimation, value: isPressed)
     }
 
@@ -80,33 +76,11 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .headerFooter) {
+#Preview("Default", traits: .paddingSpacing, .headerFooter) {
     @Previewable @State var colorToggle = true
-    VStack.expandingWidth(alignment: .leading, spacing: SpacingDefaults.padding) {
+    HStack(spacing: SpacingDefaults.padding) {
         Button("Pop Capsule") {}
-            .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .tint))
-
-        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
-        Button("Uniform Size") {
-            colorToggle.toggle()
-        } icon: {
-            UniformSizeSymbol(systemName: "popcorn")
-        }
-        .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: capsuleStyle))
-
-        Button("Uniform Size - Slow") {
-            colorToggle.toggle()
-        } icon: {
-            UniformSizeSymbol(systemName: "popcorn")
-        }
-        .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: capsuleStyle, animations: .slow))
-
-        Button("Uniform Size - None") {
-            colorToggle.toggle()
-        } icon: {
-            UniformSizeSymbol(systemName: "popcorn")
-        }
-        .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: capsuleStyle))
+        .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .tint))
 
         Button("Icon Only", action: {}, icon: UniformSizeSymbol(systemName: "party.popper"))
         .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .purple))
@@ -114,62 +88,71 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     }
     .foregroundStyle(.background)
 
+    VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
+        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
+        let buttonStyle = PopCapsuleButtonStyle(capsuleStyle: capsuleStyle, animations: playback)
+        Button("Uniform", systemImage: "popcorn") { colorToggle.toggle() }
+        .labelStyle(.uniformIcon)
+        .buttonStyle(buttonStyle)
+    }
+    .foregroundStyle(.background)
 }
 
 
-#Preview("Scale&Padding", traits: .headerFooter) {
+#Preview("Scale&Padding", traits: .paddingSpacing, .headerFooter) {
     @Previewable @State var colorToggle = true
-    VStack.expandingWidth(alignment: .center, spacing: SpacingDefaults.padding) {
-        Button("Scale") {}
 
+    VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
         let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
-
-        Button("Small Scale") {
-            colorToggle.toggle()
-        } icon: {
-            UniformSizeSymbol(systemName: "popcorn")
-        }
-        .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .tint, pressedScale: 1.2))
-
-        Button("No Scale") {
-            colorToggle.toggle()
-        } icon: {
-            UniformSizeSymbol(systemName: "popcorn")
-        }
-        .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .tint, pressedScale: .one))
-
-        Button("No Scale + Paddings") {
-            colorToggle.toggle()
-        } icon: {
-            UniformSizeSymbol(systemName: "popcorn")
-        }
-        .buttonStyle(PopCapsuleButtonStyle(
+        let buttonStyle = PopCapsuleButtonStyle(
             capsuleStyle: capsuleStyle,
             paddings: .init(horizontal: 8, vertical: 4),
             pressedPaddings: .all(4),
             pressedScale: .one,
-            animations: .normal
-        ))
-
-        Button("No Scale + Paddings - Slow") {
-            colorToggle.toggle()
-        } icon: {
-            UniformSizeSymbol(systemName: "popcorn")
-        }
-        .buttonStyle(PopCapsuleButtonStyle(
-            capsuleStyle: capsuleStyle,
-            paddings: .init(horizontal: 8, vertical: 4),
-            pressedPaddings: .all(4),
-            pressedScale: .one,
-            animations: .slow
-        ))
+            animations: playback
+        )
+        Button("Only Paddings", systemImage: "popcorn") { colorToggle.toggle() }
+        .labelStyle(.uniformIcon)
+        .buttonStyle(buttonStyle)
     }
     .foregroundStyle(.background)
 
+    DashedDivider()
+
+    VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
+        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
+        let buttonStyle = PopCapsuleButtonStyle(
+            capsuleStyle: capsuleStyle,
+            paddings: .init(horizontal: 8, vertical: 4),
+            pressedPaddings: .all(4),
+            pressedScale: 1.2,
+            animations: playback
+        )
+        Button("Paddings + Scale", systemImage: "popcorn") { colorToggle.toggle() }
+        .labelStyle(.uniformIcon)
+        .buttonStyle(buttonStyle)
+    }
+    .foregroundStyle(.background)
+
+    DashedDivider()
+
+    VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
+        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
+        let buttonStyle = PopCapsuleButtonStyle(
+            capsuleStyle: capsuleStyle,
+            paddings: .init(horizontal: 8, vertical: 4),
+            pressedScale: .one,
+            animations: playback
+        )
+        Button("No Scale", systemImage: "popcorn") { colorToggle.toggle() }
+        .labelStyle(.uniformIcon)
+        .buttonStyle(buttonStyle)
+    }
+    .foregroundStyle(.background)
 }
 
 
-// FIXME: Move to additions.
+// FIXME: Move to GeometryAdditions.
 extension EdgeInsets {
 
     var negative: Self {
