@@ -49,7 +49,7 @@ struct RoundToggle: View {
 
 
 #Preview("Default", traits: .fixedHeader) {
-    @Previewable @State var comparisonValue = true
+    @Previewable @State var comparisonValue = false
     @Previewable @State var toggleValues: [
         (title: LocalizedStringKey, isOn: Bool, playback: AnimationPlayback)
     ] = [
@@ -59,18 +59,37 @@ struct RoundToggle: View {
         ("No Animations", true,  .disabled)
     ]
 
-    VStack($toggleValues.indexed(), id: \.index) { index, $values in
-        RoundToggle(values.title, isOn: $values.isOn, animations: values.playback)
+    VStack($toggleValues.indexed(), id: \.index, alignment: .leading) { index, $values in
+        Toggle(values.title, isOn: $values.isOn)
+        .toggleStyle(RoundToggleStyle(playback: values.playback))
+
+//        RoundToggle(values.title, isOn: $values.isOn, animations: values.playback)
     }
+    .expandingWidthFrame(alignment: .leading)
 
     DashedDivider()
+
     HStack {
-        RoundToggle("Comparison", isOn: $comparisonValue)
+        Text("Comparison")
+        Spacer()
+        Toggle("Comparison", isOn: $comparisonValue)
+        .toggleStyle(RoundToggleStyle())
+        .labelStyle(.iconOnly)
+
         Toggle(isOn: $comparisonValue) { EmptyView() }
         .frame(width: 80)
         .debugAlignmentGuide(vertical: .top, .extendedLength(50), .anchor(.trailing))
         .debugAlignmentGuide(vertical: .bottom, .extendedLength(50), .anchor(.trailing))
     }
+
+    DashedDivider()
+
+    Text("Standalone")
+    Toggle(isOn: $comparisonValue) { EmptyView() }
+    .frame(width: 59, alignment: .trailing)
+    .border(.orange.secondary, width: 3)
+    .expandingWidthFrame(alignment: .leading)
+
 }
 
 
