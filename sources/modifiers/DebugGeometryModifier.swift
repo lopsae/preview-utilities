@@ -305,7 +305,7 @@ public struct DebugGeometryModifier: ViewModifier {
 
                     // SafeAreaInsets.
                     if configuration.geometryProperties.contains(.safeAreaInsets) {
-                        Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .edgeInsetDebugString)")
+                        Text("safeAreaInsets:\n\(geometry.safeAreaInsets, format: .edgeInsetsDebugString)")
                     }
 
                     // ConcentricCornerRadii

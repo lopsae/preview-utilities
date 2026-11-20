@@ -53,13 +53,13 @@ extension FormatStyle where Self == GeometryProxyFormatStyles.ConcentricCornerRa
 }
 
 
-// MARK: - EdgeInset
+// MARK: - EdgeInsets
 
 
 extension GeometryProxyFormatStyles {
 
     nonisolated
-    struct EdgeInsetDebugString: FormatStyle, Sendable {
+    struct EdgeInsetsDebugString: FormatStyle, Sendable {
 
         @_documentation(visibility: internal)
         func format(_ value: EdgeInsets) -> String {
@@ -80,9 +80,9 @@ extension GeometryProxyFormatStyles {
 }
 
 
-extension FormatStyle where Self == GeometryProxyFormatStyles.EdgeInsetDebugString {
+extension FormatStyle where Self == GeometryProxyFormatStyles.EdgeInsetsDebugString {
 
     nonisolated
-    static var edgeInsetDebugString: Self { .init() }
+    static var edgeInsetsDebugString: Self { .init() }
 
 }
