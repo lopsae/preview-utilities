@@ -72,3 +72,52 @@ struct RoundToggle: View {
         .debugAlignmentGuide(vertical: .bottom, .extendedLength(50), .anchor(.trailing))
     }
 }
+
+
+// FIXME: Keep and replace RoundToggle.
+// FIXME: Create convenience static accessor.
+struct RoundToggleStyle: ToggleStyle {
+
+    private let playback: AnimationPlayback
+
+    init(playback: AnimationPlayback = .normal) {
+        self.playback = playback
+    }
+
+    func makeBody(configuration: Configuration) -> some View {
+        let backgroundStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
+        let buttonStyle = PopCapsuleButtonStyle(
+            capsuleStyle: backgroundStyle,
+            animations: playback
+        )
+
+
+        Label {
+            configuration.label
+        } icon: {
+            SymbolToggleButton(
+                "Toggle", toggle: configuration.$isOn,
+                firstStyle: .background, secondStyle: .secondary,
+                animations: playback
+            )
+            .labelStyle(.iconOnly)
+            .buttonStyle(buttonStyle)
+        }
+    }
+
+}
+
+
+#Preview("RoundToggleStyle", traits: .headerFooter) {
+    @Previewable @State var toggle = true
+
+    Toggle("Toggle", isOn: $toggle)
+
+    Toggle("Round", isOn: $toggle)
+    .toggleStyle(RoundToggleStyle())
+
+    Toggle("Round", isOn: $toggle)
+    .toggleStyle(RoundToggleStyle())
+    .labelStyle(.iconOnly)
+
+}
