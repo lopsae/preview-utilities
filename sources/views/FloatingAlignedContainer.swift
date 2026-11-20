@@ -26,7 +26,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 
 
     init(
-        alignment: FloatingAlignment = .center,
+        alignment: FloatingAlignment,
         horizontalSpacing: CGFloat? = .zero,
         verticalSpacing: CGFloat? = .zero,
         @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
@@ -39,8 +39,7 @@ struct FloatingAlignedContainer<Content: View>: View {
 
 
     init(
-        // FIXME: Remove default value.
-        alignment: FloatingAlignment = .center,
+        alignment: FloatingAlignment,
         spacing: CGFloat,
         @ViewBuilder content: @escaping (FloatingAlignment.ContentAlignments) -> Content
     ) {
@@ -123,7 +122,7 @@ private struct PreviewContent {
     .fill(.teal.gradient.secondary)
     .frame(squareOf: 100)
     .overlay {
-        FloatingAlignedContainer { _ in
+        FloatingAlignedContainer(alignment: .center) { _ in
             Group {
                 Text("Sphinx of black quartz,")
                 Text("judge my vow")
