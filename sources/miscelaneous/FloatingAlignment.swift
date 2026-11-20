@@ -804,14 +804,64 @@ private struct PreviewContent {
         }
     }
 
-    FilledRectangle(.teal.gradient, size: .square(of: 100))
+    FilledRectangle(.teal.gradient.secondary, size: .square(of: 150))
     .overlay {
         FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
-            Text.caption(verbatim: alignment.multilineName)
+            Text(verbatim: alignment.multilineName)
             .fixedSize()
             .padding(2)
-            .background(.gray.tertiary)
+            .background(.quaternary)
         }
     }
-    .padding(.vertical, 50)
+    .padding(.vertical, 80)
+}
+
+
+// MARK: RoundToggles
+#Preview("RoundToggles", traits: .headerFooter) {
+    @Previewable @State var alignment: FloatingAlignment = .bottom
+
+    let toggleLength: CGFloat = 30
+    let toggleSpacing: CGFloat = 8
+    let edgeSpacing: CGFloat = 4
+
+    Rectangle()
+    .stroke(.gray.secondary)
+    .frame(size: .square(of: toggleLength*3 + toggleSpacing*2 + edgeSpacing*2))
+    .overlay {
+        ForEach(FloatingAlignment.allCases) { floatingAlignment in
+            FloatingAlignedContainer(alignment:floatingAlignment ,spacing: edgeSpacing) { contentAlignments in
+                // TODO: ZStack should be implicit in FloatingAlignedContainer.
+                ZStack {
+                    let isOn = Binding<Bool> {
+                        alignment == floatingAlignment
+                    } set: { newValue in
+                        if newValue {
+                            alignment = floatingAlignment
+                        }
+                    }
+
+                    Toggle("Toggle", isOn: isOn)
+                    .toggleStyle(RoundToggleStyle())
+                    .labelStyle(.iconOnly)
+                    .frame(squareOf: toggleLength)
+                }
+
+            }
+        }
+    }
+    .padding(.vertical, toggleLength + edgeSpacing)
+
+    DashedDivider()
+
+    FilledRectangle(.teal.gradient.secondary, size: .square(of: 150))
+    .overlay {
+        FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
+            Text(verbatim: alignment.multilineName)
+            .fixedSize()
+            .padding(2)
+            .background(.quaternary)
+        }
+    }
+    .padding(.vertical, 80)
 }
