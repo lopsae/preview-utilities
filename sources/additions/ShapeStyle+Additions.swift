@@ -9,8 +9,6 @@ public import SwiftUI
 
 extension ShapeStyle where Self == AnyShapeStyle {
 
-    // FIXME: Test.
-
     /// Either of two styles, wrapped in `AnyShapeStyle`.
     ///
     /// - Parameters:
