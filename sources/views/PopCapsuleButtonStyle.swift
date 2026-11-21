@@ -14,7 +14,7 @@ import SwiftUI
 /// Pressed paddings is applied negative to paddings, only when pressed.
 struct PopCapsuleButtonStyle: ButtonStyle {
 
-    static let defaultPressedScale: CGFloat = 1.5
+    static let defaultPressedScale: CGFloat = 1.4
     static let defaultPaddings: EdgeInsets = .all(4)
     static let defaultPressedPaddings: EdgeInsets = .zero
 
