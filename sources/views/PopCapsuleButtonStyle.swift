@@ -150,3 +150,130 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     }
     .foregroundStyle(.background)
 }
+
+
+// MARK: - PopCapsule
+
+
+// FIXME: Likely move to its own file.
+
+
+enum PopCapsuleDefaults {
+    // FIXME: Remove default prefix.
+    static let defaultPressedScale: CGFloat = 1.4
+    static let defaultPaddings: EdgeInsets = .all(4)
+    static let defaultPressedPaddings: EdgeInsets = .zero
+}
+
+
+/// Applies to the given content a capsule background and a scale effect.
+///
+/// The capsule effect has two states controlled through the `pop` parameter. When popping changes,
+/// the scale and paddings are animated with a bouncy animation.
+///
+/// The style of capsule background is animated anytime the style changes.
+///
+/// The `playback` parameter can be used to modify the animations, or disable them entirely.
+///
+// FIXME: animation should happen to when padding or scale changes.
+struct PopCapsule<Content>: View where Content: View {
+
+    let isPopping: Bool
+    let capsuleStyle: AnyShapeStyle
+    let paddings: EdgeInsets
+    let pressedPaddings: EdgeInsets
+    let pressedScale: CGFloat
+    let playback: AnimationPlayback
+
+    let content: () -> Content
+
+    init(
+        isPopping: Bool,
+        capsuleStyle: some ShapeStyle,
+        paddings: EdgeInsets = PopCapsuleDefaults.defaultPaddings,
+        pressedPaddings: EdgeInsets = PopCapsuleDefaults.defaultPressedPaddings,
+        pressedScale: CGFloat = PopCapsuleDefaults.defaultPressedScale,
+        animations playback: AnimationPlayback = .normal,
+        @ContentBuilder content: @escaping () -> Content
+    ) {
+        self.isPopping = isPopping
+        self.capsuleStyle = AnyShapeStyle(capsuleStyle)
+        self.paddings = paddings
+        self.pressedPaddings = pressedPaddings
+        self.pressedScale = pressedScale
+        self.playback = playback
+        self.content = content
+    }
+
+    var body: some View {
+        let capsuleBrightness = isPopping ? 0.15 : .zero
+
+        let targetScale = isPopping ? pressedScale : .one
+        let targetPressedPaddings = isPopping ? pressedPaddings : .all(.zero)
+
+        // Color is animated automatically when it changes. There is no way to directly track for
+        // `capsuleStyle` changes.
+        let colorAnimation: Animation? = .default.speed(2).playback(playback)
+        // Paddings and scale are animated only when isPressed changes.
+        let paddingsAndScaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
+
+        content()
+        .padding(paddings)
+        .background {
+            ClearRectangle()
+            .animation(colorAnimation) { content in
+                content.background {
+                    Capsule()
+                    .fill(capsuleStyle)
+                    .brightness(capsuleBrightness)
+                }
+            }
+            .padding(targetPressedPaddings.negative)
+            .animation(paddingsAndScaleAnimation, value: isPopping)
+        }
+        .scaleEffect(targetScale, anchor: .center)
+        .animation(paddingsAndScaleAnimation, value: isPopping)
+    }
+
+}
+
+
+#Preview("PopCapsule", traits: .spacing(20)) {
+    @Previewable @State var pop = false
+    @Previewable @State var style = true
+
+    Button("Default Bordered", systemImage: "circle") {}
+    .buttonStyle(.borderedProminent)
+
+    let popStyle: AnyShapeStyle = .if(style, then: .tint, else: .gray.secondary)
+    PopCapsule(isPopping: pop, capsuleStyle: popStyle) {
+        Label("PopCapsule", systemImage: "popcorn")
+        .foregroundStyle(.background)
+    }
+
+    Button("Pop") {
+        if pop {
+            style.toggle()
+        }
+        pop.toggle()
+    }
+    Group {
+        Text("pop: \(pop.description)")
+        Text("style: \(style.description)")
+    }
+    .font(.caption.monospaced())
+
+
+    // Expected API:
+
+//    Button("PopCapsule", systemImage: "popcorn") { }
+//    .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .brown))
+//    .environment(\.backgroundProminence, .increased)
+//    .foregroundStyle(.background)
+
+//    Button("PopCapsuleIcon", systemImage: "popcorn") { }
+//    .buttonStyle(PopCapsuleIconButtonStyle(capsuleStyle: .brown))
+//    .labelStyle(.iconOnly)
+//    .labelStyle(PopCapsuleIconLabelStyle(isPopping: false, capsuleStyle: .brown))
+//    .foregroundStyle(.background)
+}
