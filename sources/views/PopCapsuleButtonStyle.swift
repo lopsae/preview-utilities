@@ -233,11 +233,10 @@ struct PopCapsule<Content>: View where Content: View {
                 }
             }
             .padding(targetPopPaddings.negative)
-            // FIXME: Would it be sufficient to just animate with targetPopPaddings?
-            .animation(paddingsAndScaleAnimation, value: .hashOf(pop, targetPopPaddings))
+            .animation(paddingsAndScaleAnimation, value: targetPopPaddings)
         }
         .scaleEffect(targetScale, anchor: .center)
-        .animation(paddingsAndScaleAnimation, value: .hashOf(pop, targetScale))
+        .animation(paddingsAndScaleAnimation, value: targetScale)
     }
 
 }
@@ -283,14 +282,14 @@ struct PopCapsule<Content>: View where Content: View {
 #Preview("Properties", traits: .spacing(20), .fixedHeaderFooter) {
     @Previewable @State var popToggle = false
     @Previewable @State var styleToggle = true
-    @Previewable @State var paddingsToggle = true
-    @Previewable @State var popPaddingsToggle = true
-    @Previewable @State var popScaleToggle = true
+    @Previewable @State var paddingsToggle = false
+    @Previewable @State var popPaddingsToggle = false
+    @Previewable @State var popScaleToggle = false
 
     let capsuleStyle: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
-    let paddings: EdgeInsets = paddingsToggle ? PopCapsuleDefaults.paddings : .all(8)
+    let paddings:    EdgeInsets = paddingsToggle    ? .all(8) : PopCapsuleDefaults.paddings
     let popPaddings: EdgeInsets = popPaddingsToggle ? .all(8) : PopCapsuleDefaults.popPaddings
-    let popScale: CGFloat = popScaleToggle ? 2 : PopCapsuleDefaults.popScale
+    let popScale:    CGFloat    = popScaleToggle    ? 2       : PopCapsuleDefaults.popScale
 
     VisibleSpacer()
 
