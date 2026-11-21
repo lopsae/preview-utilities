@@ -12,6 +12,7 @@ import SwiftUI
 /// effects.
 struct RoundCheckmarkToggleStyle: ToggleStyle {
 
+    // FIXME: When animations are off, pressedScale may need to be adjusted to prevent the pop.
     private let playback: AnimationPlayback
 
     init(playback: AnimationPlayback = .normal) {
@@ -24,7 +25,6 @@ struct RoundCheckmarkToggleStyle: ToggleStyle {
             capsuleStyle: backgroundStyle,
             animations: playback
         )
-
 
         Label {
             configuration.label
@@ -79,8 +79,7 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
 // MARK: - Previews
 
 
-#Preview("Default", traits: .fixedHeader) {
-    @Previewable @State var comparisonValue = false
+#Preview("Default", traits: .headerFooter) {
     @Previewable @State var toggleValues: [
         (title: LocalizedStringKey, isOn: Bool, playback: AnimationPlayback)
     ] = [
@@ -93,41 +92,13 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
     VStack($toggleValues.indexed(), id: \.index, alignment: .leading) { index, $values in
         Toggle(values.title, isOn: $values.isOn)
         .toggleStyle(RoundCheckmarkToggleStyle(playback: values.playback))
-
-//        RoundToggle(values.title, isOn: $values.isOn, animations: values.playback)
     }
-    .expandingWidthFrame(alignment: .leading)
-
-    DashedDivider()
-
-    HStack {
-        Text("Comparison")
-        Spacer()
-        Toggle("Comparison", isOn: $comparisonValue)
-        .toggleStyle(.roundCheckmark)
-        .labelStyle(.iconOnly)
-
-        Toggle(isOn: $comparisonValue) { EmptyView() }
-        .frame(width: 80)
-        .debugAlignmentGuide(vertical: .top, .extendedLength(50), .anchor(.trailing))
-        .debugAlignmentGuide(vertical: .bottom, .extendedLength(50), .anchor(.trailing))
-    }
-
-    DashedDivider()
-
-    Text("Standalone")
-    Toggle(isOn: $comparisonValue) { EmptyView() }
-    .frame(width: 59, alignment: .trailing)
-    .border(.orange.secondary, width: 3)
     .expandingWidthFrame(alignment: .leading)
 }
 
 
-// FIXME: Keep and replace RoundToggle.
-// FIXME: Create convenience static accessor.
-
-
-#Preview("RoundCheckmarkToggleStyle", traits: .headerFooter) {
+// MARK: Styles
+#Preview("Styles", traits: .headerFooter) {
     @Previewable @State var toggle = true
 
     Toggle("Toggle", isOn: $toggle)
@@ -138,7 +109,36 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
     Toggle("Round", isOn: $toggle)
     .toggleStyle(.roundCheckmark)
     .labelStyle(.iconOnly)
+}
 
+
+// MARK: Comparison
+#Preview("Comparison", traits: .headerFooter) {
+    @Previewable @State var toggle = false
+    Text("Comparison")
+    let comparisonView = VStack(spacing: .zero) {
+        DashedDivider()
+
+        HStack {
+            Toggle("Comparison", isOn: $toggle)
+            .toggleStyle(.roundCheckmark)
+            .labelStyle(.iconOnly)
+
+            Toggle("Toggle", isOn: $toggle)
+            .toggleStyle(.onlySwitch)
+        }
+        .debugAlignmentGuide(vertical: .top, .extendedLength(50))
+        .debugAlignmentGuide(vertical: .bottom, .extendedLength(50))
+        .padding(.vertical, 5)
+
+        DashedDivider()
+    }
+
+    comparisonView
+
+    comparisonView
+    .scaleEffect(2)
+    .padding(.vertical, 20)
 }
 
 
