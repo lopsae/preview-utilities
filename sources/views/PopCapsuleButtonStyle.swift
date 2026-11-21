@@ -288,36 +288,38 @@ struct PopCapsule<Content>: View where Content: View {
     let popPaddings: EdgeInsets = popPaddingsToggle ? PopCapsuleDefaults.popPaddings : .all(8)
     let popScale: CGFloat = popScaleToggle ? PopCapsuleDefaults.popScale : 2
 
-    PopCapsule(
-        pop: popToggle,
-        capsuleStyle: capsuleStyle,
-        paddings: paddings,
-        popPaddings: popPaddings,
-        popScale: popScale,
-        animations: .normal
-    ) {
-        Label("Pop Capsule", systemImage: "popcorn")
-        .foregroundStyle(.white)
-    }
-    .expandingWidthFrame(height: 120, alignment: .center)
-    .overlay {
-        Rectangle()
-        .strokeBorder(.quinary, style: .dividerDash(width: 2))
+    VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
+        PopCapsule(
+            pop: popToggle,
+            capsuleStyle: capsuleStyle,
+            paddings: paddings,
+            popPaddings: popPaddings,
+            popScale: popScale,
+            animations: playback
+        ) {
+            Label("Pop Capsule", systemImage: "popcorn")
+            .foregroundStyle(.white)
+        }
+        .expandingWidthFrame(height: 120, alignment: .center)
+        .overlay {
+            Rectangle().strokeBorder(.quinary, style: .dividerDash(width: 2))
+        }
     }
 
     VStack {
-        // FIXME: Use button toggles.
         HStack {
-            Button("Pop")      { popToggle.toggle() }
-            Button("Style")    { styleToggle.toggle() }
-            Button("Pad")      { paddingsToggle.toggle() }
+            Toggle("Pop", isOn: $popToggle)
+            Toggle("Style", isOn: $styleToggle)
+            Toggle("Pad", isOn: $paddingsToggle)
         }
         HStack {
-            Button("PopPad")   { popPaddingsToggle.toggle() }
-            Button("PopScale") { popScaleToggle.toggle() }
+            Toggle("PopPad", isOn: $popPaddingsToggle)
+            Toggle("PopScale", isOn: $popScaleToggle)
         }
     }
+    .toggleStyle(.button)
     .buttonStyle(.bordered)
+    .tint(.orange)
 
     Text("""
         pop:      \(popToggle.description)
