@@ -274,3 +274,57 @@ struct PopCapsule<Content>: View where Content: View {
 //    .labelStyle(PopCapsuleIconLabelStyle(isPopping: false, capsuleStyle: .brown))
 //    .foregroundStyle(.background)
 }
+
+
+#Preview("Properties", traits: .spacing(20)) {
+    @Previewable @State var popToggle = false
+    @Previewable @State var styleToggle = true
+    @Previewable @State var paddingsToggle = true
+    @Previewable @State var popPaddingsToggle = true
+    @Previewable @State var popScaleToggle = true
+
+    let capsuleStyle: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
+    let paddings: EdgeInsets = paddingsToggle ? PopCapsuleDefaults.paddings : .all(8)
+    let popPaddings: EdgeInsets = popPaddingsToggle ? PopCapsuleDefaults.popPaddings : .all(8)
+    let popScale: CGFloat = popScaleToggle ? PopCapsuleDefaults.popScale : 2
+
+    PopCapsule(
+        pop: popToggle,
+        capsuleStyle: capsuleStyle,
+        paddings: paddings,
+        popPaddings: popPaddings,
+        popScale: popScale,
+        animations: .normal
+    ) {
+        Label("Pop Capsule", systemImage: "popcorn")
+        .foregroundStyle(.white)
+    }
+    .expandingWidthFrame(height: 120, alignment: .center)
+    .overlay {
+        Rectangle()
+        .strokeBorder(.quinary, style: .dividerDash(width: 2))
+    }
+
+    VStack {
+        // FIXME: Use button toggles.
+        HStack {
+            Button("Pop")      { popToggle.toggle() }
+            Button("Style")    { styleToggle.toggle() }
+            Button("Pad")      { paddingsToggle.toggle() }
+        }
+        HStack {
+            Button("PopPad")   { popPaddingsToggle.toggle() }
+            Button("PopScale") { popScaleToggle.toggle() }
+        }
+    }
+    .buttonStyle(.bordered)
+
+    Text("""
+        pop:      \(popToggle.description)
+        style:    \(styleToggle.description)
+        pad:      \(paddingsToggle.description)
+        popPad:   \(popPaddingsToggle.description)
+        popScale: \(popScaleToggle.description)
+        """)
+    .font(.caption.monospaced())
+}
