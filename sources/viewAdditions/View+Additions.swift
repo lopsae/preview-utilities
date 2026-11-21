@@ -30,7 +30,7 @@ extension View {
 
 
     @inlinable nonisolated
-    public func maxWidthFrame(height: CGFloat, alignment: Alignment = .center) -> some View {
+    public func expandingWidthFrame(height: CGFloat, alignment: Alignment = .center) -> some View {
         self.frame(maxWidth: .infinity, alignment: alignment)
             .frame(height: height, alignment: alignment)
     }
