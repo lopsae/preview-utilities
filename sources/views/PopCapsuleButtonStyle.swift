@@ -4,7 +4,7 @@
 //
 
 
-import SwiftUI
+public import SwiftUI
 
 
 /// Configures the round toggle button to animate its background.
@@ -218,6 +218,9 @@ struct PopCapsule<Content>: View where Content: View {
         // Paddings and scale are animated only when isPressed changes.
         let paddingsAndScaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
+        // Paddings on is own is expected to never change, since it changes the view layout.
+        // It is explicitly NOT animated.
+
         content()
         .padding(paddings)
         .background {
@@ -230,10 +233,11 @@ struct PopCapsule<Content>: View where Content: View {
                 }
             }
             .padding(targetPopPaddings.negative)
-            .animation(paddingsAndScaleAnimation, value: pop)
+            // FIXME: Would it be sufficient to just animate with targetPopPaddings?
+            .animation(paddingsAndScaleAnimation, value: .hashOf(pop, targetPopPaddings))
         }
         .scaleEffect(targetScale, anchor: .center)
-        .animation(paddingsAndScaleAnimation, value: pop)
+        .animation(paddingsAndScaleAnimation, value: .hashOf(pop, targetScale))
     }
 
 }
@@ -276,7 +280,7 @@ struct PopCapsule<Content>: View where Content: View {
 }
 
 
-#Preview("Properties", traits: .spacing(20)) {
+#Preview("Properties", traits: .spacing(20), .fixedHeaderFooter) {
     @Previewable @State var popToggle = false
     @Previewable @State var styleToggle = true
     @Previewable @State var paddingsToggle = true
@@ -285,8 +289,10 @@ struct PopCapsule<Content>: View where Content: View {
 
     let capsuleStyle: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
     let paddings: EdgeInsets = paddingsToggle ? PopCapsuleDefaults.paddings : .all(8)
-    let popPaddings: EdgeInsets = popPaddingsToggle ? PopCapsuleDefaults.popPaddings : .all(8)
-    let popScale: CGFloat = popScaleToggle ? PopCapsuleDefaults.popScale : 2
+    let popPaddings: EdgeInsets = popPaddingsToggle ? .all(8) : PopCapsuleDefaults.popPaddings
+    let popScale: CGFloat = popScaleToggle ? 2 : PopCapsuleDefaults.popScale
+
+    VisibleSpacer()
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
         PopCapsule(
@@ -329,4 +335,25 @@ struct PopCapsule<Content>: View where Content: View {
         popScale: \(popScaleToggle.description)
         """)
     .font(.caption.monospaced())
+    .fixedSize()
+}
+
+
+// FIXME: Move to own additions.
+extension Equatable where Self == Int {
+
+    static func hashOf(_ hashables: any Hashable...) -> Self {
+        Hasher.combining(hashables: hashables)
+    }
+
+}
+
+
+// FIXME: Move to its own file, remove public from SwiftUI import here.
+extension EdgeInsets: @retroactive Hashable {
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(all: top, leading, bottom, trailing)
+    }
+
 }
