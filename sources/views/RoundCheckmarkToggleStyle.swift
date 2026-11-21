@@ -52,6 +52,30 @@ extension ToggleStyle where Self == RoundCheckmarkToggleStyle {
 }
 
 
+// MARK: - OnlyToggle
+
+
+/// A toggle style that displays only the switch.
+///
+/// This style uses fixed sizes to force the switch in place, different devices or operating systems
+/// may show incorrectly framed switches.
+struct OnlySwitchToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        Toggle(isOn: configuration.$isOn) {
+            EmptyView()
+        }
+        // TODO: Should the label be added as accessibility element?
+        .toggleStyle(.switch)
+        .frame(width: 59, alignment: .trailing)
+    }
+}
+
+
+extension ToggleStyle where Self == OnlySwitchToggleStyle {
+    static var onlySwitch: Self { .init() }
+}
+
+
 // MARK: - Previews
 
 
@@ -115,4 +139,41 @@ extension ToggleStyle where Self == RoundCheckmarkToggleStyle {
     .toggleStyle(.roundCheckmark)
     .labelStyle(.iconOnly)
 
+}
+
+
+// MARK: Standalone
+#Preview("Standalone", traits: .headerFooter) {
+    @Previewable @State var toggleTrue = true
+    @Previewable @State var toggleFalse = false
+
+    HStack {
+        Toggle("Labeled", isOn: $toggleTrue)
+        .toggleStyle(.onlySwitch)
+        Text("Labeled")
+    }
+    .expandingWidthFrame(alignment: .leading)
+
+    HStack {
+        Toggle("Extra Style", isOn: $toggleFalse)
+        .toggleStyle(.onlySwitch)
+        // This external style does not apply, because `onlySwitch` forces it to switch.
+        // FUTURE: roundCheckmark could display only the button, and an additional `labeled` style
+        // could wrap it in a label.
+        .toggleStyle(.button)
+        Text("Extra Style")
+    }
+    .expandingWidthFrame(alignment: .leading)
+
+    DashedDivider()
+
+    HStack {
+        Toggle("True", isOn: $toggleTrue)
+            .border(.orange.secondary, width: 3)
+        Toggle("False", isOn: $toggleFalse)
+            .border(.orange.secondary, width: 3)
+    }
+    .toggleStyle(.onlySwitch)
+    .scaleEffect(2.5)
+    .padding(.vertical, 20)
 }
