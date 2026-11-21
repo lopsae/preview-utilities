@@ -23,13 +23,25 @@ extension Hashable {
 
 extension Hasher {
 
-    /// Returns the has value produced by combining a number of hashables.
-    static func combining(_ hashables: any Hashable...) -> Int {
+    /// Returns the hash value produced by combining a number of hashables.
+    static func combining(hashables: [any Hashable]) -> Int {
         var hasher = Hasher()
         for hashable in hashables {
             hasher.combine(hashable)
         }
         return hasher.finalize()
+    }
+
+    /// Returns the hash value produced by combining a number of hashables.
+    static func combining(_ hashables: any Hashable...) -> Int {
+        combining(hashables: hashables)
+    }
+
+    // mutating func combine<H>(_ value: borrowing H) where H : Hashable, H : ~Copyable, H : ~Escapable
+    mutating func combine(all hashables: any Hashable...) {
+        for hashable in hashables {
+            combine(hashable)
+        }
     }
 
 }
