@@ -159,10 +159,10 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 
 
 enum PopCapsuleDefaults {
-    // FIXME: Remove default prefix.
-    static let defaultPressedScale: CGFloat = 1.4
-    static let defaultPaddings: EdgeInsets = .all(4)
-    static let defaultPressedPaddings: EdgeInsets = .zero
+    // These defaults configure an icon-only button to pop and scale similar to the toggle button.
+    static let paddings: EdgeInsets = .all(4)
+    static let popPaddings: EdgeInsets = .zero
+    static let popScale: CGFloat = 1.4
 }
 
 
@@ -175,45 +175,46 @@ enum PopCapsuleDefaults {
 ///
 /// The `playback` parameter can be used to modify the animations, or disable them entirely.
 ///
-// FIXME: animation should happen to when padding or scale changes.
 struct PopCapsule<Content>: View where Content: View {
 
-    let isPopping: Bool
+    let pop: Bool
     let capsuleStyle: AnyShapeStyle
     let paddings: EdgeInsets
-    let pressedPaddings: EdgeInsets
-    let pressedScale: CGFloat
+    let popPaddings: EdgeInsets
+    let popScale: CGFloat
     let playback: AnimationPlayback
 
     let content: () -> Content
 
     init(
-        isPopping: Bool,
+        pop: Bool,
         capsuleStyle: some ShapeStyle,
-        paddings: EdgeInsets = PopCapsuleDefaults.defaultPaddings,
-        pressedPaddings: EdgeInsets = PopCapsuleDefaults.defaultPressedPaddings,
-        pressedScale: CGFloat = PopCapsuleDefaults.defaultPressedScale,
+        paddings: EdgeInsets = PopCapsuleDefaults.paddings,
+        popPaddings: EdgeInsets = PopCapsuleDefaults.popPaddings,
+        popScale: CGFloat = PopCapsuleDefaults.popScale,
         animations playback: AnimationPlayback = .normal,
         @ContentBuilder content: @escaping () -> Content
     ) {
-        self.isPopping = isPopping
+        self.pop = pop
         self.capsuleStyle = AnyShapeStyle(capsuleStyle)
         self.paddings = paddings
-        self.pressedPaddings = pressedPaddings
-        self.pressedScale = pressedScale
+        self.popPaddings = popPaddings
+        self.popScale = popScale
         self.playback = playback
         self.content = content
     }
 
     var body: some View {
-        let capsuleBrightness = isPopping ? 0.15 : .zero
+        let capsuleBrightness = pop ? 0.15 : .zero
 
-        let targetScale = isPopping ? pressedScale : .one
-        let targetPressedPaddings = isPopping ? pressedPaddings : .all(.zero)
+        let targetScale = pop ? popScale : .one
+        let targetPopPaddings = pop ? popPaddings : .zero
 
         // Color is animated automatically when it changes. There is no way to directly track for
         // `capsuleStyle` changes.
         let colorAnimation: Animation? = .default.speed(2).playback(playback)
+
+        // FIXME: animation should happen to when padding or scale changes too.
         // Paddings and scale are animated only when isPressed changes.
         let paddingsAndScaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
@@ -228,11 +229,11 @@ struct PopCapsule<Content>: View where Content: View {
                     .brightness(capsuleBrightness)
                 }
             }
-            .padding(targetPressedPaddings.negative)
-            .animation(paddingsAndScaleAnimation, value: isPopping)
+            .padding(targetPopPaddings.negative)
+            .animation(paddingsAndScaleAnimation, value: pop)
         }
         .scaleEffect(targetScale, anchor: .center)
-        .animation(paddingsAndScaleAnimation, value: isPopping)
+        .animation(paddingsAndScaleAnimation, value: pop)
     }
 
 }
@@ -246,22 +247,18 @@ struct PopCapsule<Content>: View where Content: View {
     .buttonStyle(.borderedProminent)
 
     let popStyle: AnyShapeStyle = .if(style, then: .tint, else: .gray.secondary)
-    PopCapsule(isPopping: pop, capsuleStyle: popStyle) {
+    PopCapsule(pop: pop, capsuleStyle: popStyle) {
         Label("PopCapsule", systemImage: "popcorn")
         .foregroundStyle(.background)
     }
 
     Button("Pop") {
-        if pop {
-            style.toggle()
-        }
+        if pop { style.toggle() }
         pop.toggle()
     }
-    Group {
-        Text("pop: \(pop.description)")
-        Text("style: \(style.description)")
-    }
+    Text("pop: \(pop.description)\nstyle: \(style.description)")
     .font(.caption.monospaced())
+
 
 
     // Expected API:
