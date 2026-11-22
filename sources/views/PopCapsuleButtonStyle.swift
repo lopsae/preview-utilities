@@ -14,6 +14,7 @@ public import SwiftUI
 /// Pressed paddings is applied negative to paddings, only when pressed.
 struct PopCapsuleButtonStyle: ButtonStyle {
 
+    // FIXME: update defaults to make this buttons resemble bordered buttons.
     static let defaultPressedScale: CGFloat = 1.4
     static let defaultPaddings: EdgeInsets = .all(4)
     static let defaultPressedPaddings: EdgeInsets = .zero
@@ -39,35 +40,16 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     }
 
     func makeBody(configuration: Configuration) -> some View {
-        let isPressed = configuration.isPressed
-
-        let capsuleBrightness = isPressed ? 0.15 : .zero
-
-        let targetScale = isPressed ? pressedScale : .one
-        let targetPressedPaddings = isPressed ? pressedPaddings : .all(.zero)
-
-        // Color is animated automatically when it changes. There is no way to directly track for
-        // `capsuleStyle` changes.
-        let colorAnimation: Animation? = .default.speed(2).playback(playback)
-        // Paddings and scale are animated only when isPressed changes.
-        let paddingsAndScaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
-
-        configuration.label
-        .padding(paddings)
-        .background {
-            ClearRectangle()
-            .animation(colorAnimation) { content in
-                content.background {
-                    Capsule()
-                        .fill(capsuleStyle)
-                        .brightness(capsuleBrightness)
-                }
-            }
-            .padding(targetPressedPaddings.negative)
-            .animation(paddingsAndScaleAnimation, value: isPressed)
+        PopCapsule(
+            pop: configuration.isPressed,
+            capsuleStyle: capsuleStyle,
+            paddings: paddings,
+            popPaddings: pressedPaddings,
+            popScale: pressedScale,
+            animations: playback
+        ) {
+            configuration.label
         }
-        .scaleEffect(targetScale, anchor: .center)
-        .animation(paddingsAndScaleAnimation, value: isPressed)
     }
 
 }
@@ -306,7 +288,7 @@ struct PopCapsule<Content>: View where Content: View {
             .foregroundStyle(.white)
         }
         .expandingWidthFrame(height: 120, alignment: .center)
-        .overlay {
+        .background {
             Rectangle().strokeBorder(.quinary, style: .dividerDash(width: 2))
         }
     }
