@@ -7,6 +7,7 @@
 public import SwiftUI
 
 
+// FIXME: Recheck docs. This style creates a button similar to .borderedProminent with a pop effect.
 /// Configures the round toggle button to animate its background.
 ///
 /// Style is animated when changed.
@@ -15,24 +16,25 @@ public import SwiftUI
 struct PopCapsuleButtonStyle: ButtonStyle {
 
     // FIXME: update defaults to make this buttons resemble bordered buttons.
-    static let defaultPressedScale: CGFloat = 1.4
+    // FIXME: Use this defaults for icon only style, since these are used for RoundToggle.
     static let defaultPaddings: EdgeInsets = .all(4)
     static let defaultPressedPaddings: EdgeInsets = .zero
+    static let defaultPressedScale: CGFloat = 1.4
 
-    let capsuleStyle: AnyShapeStyle
+    let style: AnyShapeStyle
     let paddings: EdgeInsets
     let pressedPaddings: EdgeInsets
     let pressedScale: CGFloat
     let playback: AnimationPlayback
 
     init(
-        capsuleStyle: some ShapeStyle,
+        style: some ShapeStyle,
         paddings: EdgeInsets = defaultPaddings,
         pressedPaddings: EdgeInsets = defaultPressedPaddings,
         pressedScale: CGFloat = defaultPressedScale,
         animations playback: AnimationPlayback = .normal
     ) {
-        self.capsuleStyle = AnyShapeStyle(capsuleStyle)
+        self.style = AnyShapeStyle(style)
         self.paddings = paddings
         self.pressedPaddings = pressedPaddings
         self.pressedScale = pressedScale
@@ -40,15 +42,22 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     }
 
     func makeBody(configuration: Configuration) -> some View {
-        PopCapsuleBackup(
-            pop: configuration.isPressed,
-            capsuleStyle: capsuleStyle,
-            paddings: paddings,
-            popPaddings: pressedPaddings,
-            popScale: pressedScale,
+        let isPressed = configuration.isPressed
+
+        let brightness = isPressed ? 0.15 : .zero
+        let targetScale = isPressed ? pressedScale : .one
+        let targetPressedPaddings = isPressed ? pressedPaddings : .zero
+
+        PopCapsule(
+            style: style,
+            brightness: brightness,
+            paddings: targetPressedPaddings,
+            scale: targetScale,
             animations: playback
         ) {
             configuration.label
+            .foregroundStyle(.white)
+            .padding(paddings)
         }
     }
 
@@ -62,17 +71,17 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     @Previewable @State var colorToggle = true
     HStack(spacing: SpacingDefaults.padding) {
         Button("Pop Capsule") {}
-        .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .tint))
+        .buttonStyle(PopCapsuleButtonStyle(style: .tint))
 
         Button("Icon Only", action: {}, icon: UniformSizeSymbol(systemName: "party.popper"))
-        .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .purple))
+        .buttonStyle(PopCapsuleButtonStyle(style: .purple))
         .labelStyle(.iconOnly)
     }
     .foregroundStyle(.background)
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
         let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
-        let buttonStyle = PopCapsuleButtonStyle(capsuleStyle: capsuleStyle, animations: playback)
+        let buttonStyle = PopCapsuleButtonStyle(style: capsuleStyle, animations: playback)
         Button("Uniform", systemImage: "popcorn") { colorToggle.toggle() }
         .labelStyle(.uniformIcon)
         .buttonStyle(buttonStyle)
@@ -88,7 +97,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
         let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
         let buttonStyle = PopCapsuleButtonStyle(
-            capsuleStyle: capsuleStyle,
+            style: capsuleStyle,
             paddings: .init(horizontal: 8, vertical: 4),
             pressedPaddings: .all(4),
             pressedScale: .one,
@@ -105,7 +114,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
         let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
         let buttonStyle = PopCapsuleButtonStyle(
-            capsuleStyle: capsuleStyle,
+            style: capsuleStyle,
             paddings: .init(horizontal: 8, vertical: 4),
             pressedPaddings: .all(4),
             pressedScale: 1.2,
@@ -122,7 +131,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
         let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
         let buttonStyle = PopCapsuleButtonStyle(
-            capsuleStyle: capsuleStyle,
+            style: capsuleStyle,
             paddings: .init(horizontal: 8, vertical: 4),
             pressedScale: .one,
             animations: playback

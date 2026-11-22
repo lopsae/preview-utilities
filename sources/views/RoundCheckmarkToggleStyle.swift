@@ -21,8 +21,9 @@ struct RoundCheckmarkToggleStyle: ToggleStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         let backgroundStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
+        // FIXME: This will likely use PopCapsuleIconButtonStyle.
         let buttonStyle = PopCapsuleButtonStyle(
-            capsuleStyle: backgroundStyle,
+            style: backgroundStyle,
             animations: playback
         )
 
