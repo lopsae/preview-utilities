@@ -374,17 +374,13 @@ struct PopCapsule<Content>: View where Content: View {
 
 
 #Preview("PopCapsule", traits: .spacing(20)) {
-    @Previewable @State var scaleToggle = false
+    @Previewable @State var popToggle = false
     @Previewable @State var styleToggle = true
 
-
-    Button("Default Bordered", systemImage: "circle") {}
-    .buttonStyle(.borderedProminent)
-
     let style: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
-    let brightness: CGFloat = scaleToggle ? 0.15 : .zero
-    let paddings: EdgeInsets = scaleToggle ? .init(horizontal: 6, vertical: 4) : .zero
-    let scale: CGFloat = scaleToggle ? 1.2 : .one
+    let brightness: CGFloat =  popToggle ? 0.15 : .zero
+    let paddings: EdgeInsets = popToggle ? .init(horizontal: 6, vertical: 4) : .zero
+    let scale: CGFloat =       popToggle ? 1.2 : .one
     PopCapsule(
         style: style,
         brightness: brightness,
@@ -410,15 +406,73 @@ struct PopCapsule<Content>: View where Content: View {
     }
 
     Button("Pop") {
-        if scaleToggle { styleToggle.toggle() }
-        scaleToggle.toggle()
+        if popToggle { styleToggle.toggle() }
+        popToggle.toggle()
     }.buttonStyle(.bordered)
 
     Text("""
-        scale: \(scaleToggle.description)
+        pop:   \(popToggle.description)
         style: \(styleToggle.description)
         """
     ).font(.caption.monospaced())
+}
+
+
+#Preview("Properties", traits: .spacing(20), .fixedHeaderFooter) {
+    @Previewable @State var styleToggle = true
+    @Previewable @State var brightnessToggle = false
+    @Previewable @State var paddingsToggle = false
+    @Previewable @State var scaleToggle = false
+
+    let style: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
+    let brightness: CGFloat = brightnessToggle ? 0.3 : .zero
+    let paddings: EdgeInsets = paddingsToggle ? .all(8) : .zero
+    let scale: CGFloat = scaleToggle ? 1.4 : .one
+
+    VisibleSpacer()
+
+    VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
+        PopCapsule(
+            style: style,
+            brightness: brightness,
+            paddings: paddings,
+            scale: scale,
+            animations: playback
+        ) {
+            Label("Pop Padding", systemImage: "popcorn")
+            .padding(horizontal: 12, vertical: 7)
+            .labelStyle(.uniformIcon)
+            .foregroundStyle(.white)
+        }
+        .expandingWidthFrame(height: 120, alignment: .center)
+        .background {
+            Rectangle().strokeBorder(.quinary, style: .dividerDash(width: 2))
+        }
+    }
+
+    VStack {
+        HStack {
+            Toggle("Style", isOn: $styleToggle)
+            Toggle("Bright", isOn: $brightnessToggle)
+            Toggle("Pad", isOn: $paddingsToggle)
+            Toggle("Scale", isOn: $scaleToggle)
+        }
+        HStack {
+
+        }
+    }
+    .toggleStyle(.button)
+    .buttonStyle(.bordered)
+    .tint(.orange)
+
+    Text("""
+        style:  \(styleToggle.description)
+        bright: \(brightnessToggle.description)
+        pad:    \(paddingsToggle.description)
+        scale:  \(scaleToggle.description)
+        """)
+    .font(.caption.monospaced())
+    .fixedSize()
 }
 
 
