@@ -135,7 +135,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 }
 
 
-// MARK: - PopCapsule
+// MARK: - PopCapsuleBackup
 
 
 // FIXME: Likely move to its own file.
@@ -149,6 +149,7 @@ enum PopCapsuleDefaults {
 }
 
 
+// FIXME: Delete if PopCapsule is sufficient.
 /// Applies to the given content a capsule background and a scale effect.
 ///
 /// The capsule effect has two states controlled through the `pop` parameter. When popping changes,
@@ -169,7 +170,6 @@ struct PopCapsuleBackup<Content>: View where Content: View {
 
     let content: () -> Content
 
-    // FIXME: Consider if pop is necessary. capsulePadding and scale could just be animated when changed from outside.
     init(
         pop: Bool,
         capsuleStyle: some ShapeStyle,
@@ -198,8 +198,7 @@ struct PopCapsuleBackup<Content>: View where Content: View {
         // `capsuleStyle` changes.
         let colorAnimation: Animation? = .default.speed(2).playback(playback)
 
-        // FIXME: animation should happen to when padding or scale changes too.
-        // Paddings and scale are animated only when isPressed changes.
+        // Paddings and scale are animated when each changes.
         let paddingsAndScaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
 
         // Paddings on is own is expected to never change, since it changes the view layout.
@@ -307,6 +306,122 @@ struct PopCapsuleBackup<Content>: View where Content: View {
 }
 
 
+// MARK: - PopCapsule
+
+
+/// Applies an animated scale effect and a padded capsule background.
+///
+/// Applies to the given content a background padded outwardly with the given padding and
+/// brightness, and a scale effect to the whole view.
+///
+/// The style and brightness is animated when those given properties change.
+///
+/// The padding and scale are animated with a fast bouncy animation when those properties change.
+///
+/// The `playback` parameter can be used to modify the animations, or disable them entirely.
+struct PopCapsule<Content>: View where Content: View {
+
+    let style: AnyShapeStyle
+    let brightness: CGFloat
+    let paddings: EdgeInsets
+    let scale: CGFloat
+    let playback: AnimationPlayback
+
+    let content: () -> Content
+
+    init(
+        style: some ShapeStyle,
+        brightness: CGFloat,
+        paddings: EdgeInsets,
+        scale: CGFloat,
+        animations playback: AnimationPlayback = .normal,
+        @ContentBuilder content: @escaping () -> Content
+    ) {
+        self.style = AnyShapeStyle(style)
+        self.brightness = brightness
+        self.paddings   = paddings
+        self.scale      = scale
+        self.playback   = playback
+        self.content    = content
+    }
+
+    var body: some View {
+        // Style & brightness is animated automatically when it changes. There is no way to directly
+        // track for `style` changes.
+        let styleAnimation: Animation? = .default.speed(2).playback(playback)
+
+        // Paddings and scale are animated when each changes.
+        let paddingsAndScaleAnimation: Animation? = .bouncy(duration: 0.25, extraBounce: 0.3).playback(playback)
+
+        content()
+        .background {
+            ClearRectangle()
+            .animation(styleAnimation) { content in
+                content.background {
+                    Capsule()
+                    .fill(style)
+                    .brightness(brightness)
+                }
+            }
+            .padding(paddings.negative)
+            .animation(paddingsAndScaleAnimation, value: paddings)
+        }
+        .scaleEffect(scale, anchor: .center)
+        .animation(paddingsAndScaleAnimation, value: scale)
+    }
+
+}
+
+
+#Preview("PopCapsule", traits: .spacing(20)) {
+    @Previewable @State var scaleToggle = false
+    @Previewable @State var styleToggle = true
+
+
+    Button("Default Bordered", systemImage: "circle") {}
+    .buttonStyle(.borderedProminent)
+
+    let style: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
+    let brightness: CGFloat = scaleToggle ? 0.15 : .zero
+    let paddings: EdgeInsets = scaleToggle ? .init(horizontal: 6, vertical: 4) : .zero
+    let scale: CGFloat = scaleToggle ? 1.2 : .one
+    PopCapsule(
+        style: style,
+        brightness: brightness,
+        paddings: .zero,
+        scale: scale
+    ) {
+        Label("Pop Scale", systemImage: "popcorn")
+        .padding(horizontal: 12, vertical: 7)
+        .labelStyle(.uniformIcon)
+        .foregroundStyle(.white)
+    }
+
+    PopCapsule(
+        style: style,
+        brightness: brightness,
+        paddings: paddings,
+        scale: .one
+    ) {
+        Label("Pop Padding", systemImage: "popcorn")
+        .padding(horizontal: 12, vertical: 7)
+        .labelStyle(.uniformIcon)
+        .foregroundStyle(.white)
+    }
+
+    Button("Pop") {
+        if scaleToggle { styleToggle.toggle() }
+        scaleToggle.toggle()
+    }.buttonStyle(.bordered)
+
+    Text("""
+        scale: \(scaleToggle.description)
+        style: \(styleToggle.description)
+        """
+    ).font(.caption.monospaced())
+}
+
+
 // FIXME: Move to own additions.
 extension Equatable where Self == Int {
 
@@ -324,6 +439,15 @@ extension EdgeInsets: @retroactive Hashable {
         hasher.combine(all: top, leading, bottom, trailing)
     }
 
+}
+
+
+// FIXME: Move to own additions.
+extension View {
+
+    func padding(horizontal: CGFloat, vertical: CGFloat) -> some View {
+        self.padding(EdgeInsets(horizontal: horizontal, vertical: vertical))
+    }
 }
 
 
