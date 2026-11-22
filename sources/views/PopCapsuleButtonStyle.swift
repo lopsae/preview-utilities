@@ -40,7 +40,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     }
 
     func makeBody(configuration: Configuration) -> some View {
-        PopCapsule(
+        PopCapsuleBackup(
             pop: configuration.isPressed,
             capsuleStyle: capsuleStyle,
             paddings: paddings,
@@ -81,6 +81,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 }
 
 
+// MARK: Scale&Padding
 #Preview("Scale&Padding", traits: .paddingSpacing, .headerFooter) {
     @Previewable @State var colorToggle = true
 
@@ -157,7 +158,7 @@ enum PopCapsuleDefaults {
 ///
 /// The `playback` parameter can be used to modify the animations, or disable them entirely.
 ///
-struct PopCapsule<Content>: View where Content: View {
+struct PopCapsuleBackup<Content>: View where Content: View {
 
     let pop: Bool
     let capsuleStyle: AnyShapeStyle
@@ -225,7 +226,7 @@ struct PopCapsule<Content>: View where Content: View {
 }
 
 
-#Preview("PopCapsule", traits: .spacing(20)) {
+#Preview("PopCapsuleBackup", traits: .spacing(20)) {
     @Previewable @State var pop = false
     @Previewable @State var style = true
 
@@ -233,7 +234,7 @@ struct PopCapsule<Content>: View where Content: View {
     .buttonStyle(.borderedProminent)
 
     let popStyle: AnyShapeStyle = .if(style, then: .tint, else: .gray.secondary)
-    PopCapsule(pop: pop, capsuleStyle: popStyle) {
+    PopCapsuleBackup(pop: pop, capsuleStyle: popStyle) {
         Label("PopCapsule", systemImage: "popcorn")
         .foregroundStyle(.background)
     }
@@ -244,21 +245,6 @@ struct PopCapsule<Content>: View where Content: View {
     }
     Text("pop: \(pop.description)\nstyle: \(style.description)")
     .font(.caption.monospaced())
-
-
-
-    // FIXME: Expected API:
-
-//    Button("PopCapsule", systemImage: "popcorn") { }
-//    .buttonStyle(PopCapsuleButtonStyle(capsuleStyle: .brown))
-//    .environment(\.backgroundProminence, .increased)
-//    .foregroundStyle(.background)
-
-//    Button("PopCapsuleIcon", systemImage: "popcorn") { }
-//    .buttonStyle(PopCapsuleIconButtonStyle(capsuleStyle: .brown))
-//    .labelStyle(.iconOnly)
-//    .labelStyle(PopCapsuleIconLabelStyle(isPopping: false, capsuleStyle: .brown))
-//    .foregroundStyle(.background)
 }
 
 
@@ -277,7 +263,7 @@ struct PopCapsule<Content>: View where Content: View {
     VisibleSpacer()
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
-        PopCapsule(
+        PopCapsuleBackup(
             pop: popToggle,
             capsuleStyle: capsuleStyle,
             paddings: paddings,
@@ -380,7 +366,7 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
         Label {
             configuration.title
         } icon: {
-            PopCapsule(
+            PopCapsuleBackup(
                 pop: isPopping,
                 capsuleStyle: capsuleStyle,
                 paddings: paddings,
