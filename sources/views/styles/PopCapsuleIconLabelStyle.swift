@@ -64,6 +64,9 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
 // MARK: - Previews
 
 
+// FIXME: Preview default configuration.
+
+// FIXME: Rename this to Pop.
 #Preview("Default", traits: .spacing(20)) {
     @Previewable @State var popToggle = false
     @Previewable @State var styleToggle = true
