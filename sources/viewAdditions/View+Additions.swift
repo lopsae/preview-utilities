@@ -4,10 +4,11 @@
 //
 
 
+public import GeometryAdditions
 public import SwiftUI
 
 
-// MARK: Frame Extensions
+// MARK: - Frame Extensions
 
 
 extension View {
@@ -107,7 +108,7 @@ extension View {
 }
 
 
-// MARK: Rectangles Extensions
+// MARK: - Miscelaneous
 
 
 extension View {
@@ -117,10 +118,15 @@ extension View {
         clipShape(RoundedRectangle(cornerRadius: cornerRadius))
     }
 
+    @inlinable nonisolated
+    public func padding(horizontal: CGFloat, vertical: CGFloat) -> some View {
+        self.padding(EdgeInsets(horizontal: horizontal, vertical: vertical))
+    }
+
 }
 
 
-// MARK: GeometryChange Extensions
+// MARK: - GeometryChange Extensions
 
 
 extension View {

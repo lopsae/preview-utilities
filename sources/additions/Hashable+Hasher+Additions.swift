@@ -45,3 +45,12 @@ extension Hasher {
     }
 
 }
+
+
+extension Equatable where Self == Int {
+
+    static func hashOf(_ hashables: any Hashable...) -> Self {
+        Hasher.combining(hashables: hashables)
+    }
+
+}

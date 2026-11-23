@@ -485,16 +485,6 @@ struct PopCapsule<Content>: View where Content: View {
 }
 
 
-// FIXME: Move to own additions.
-extension Equatable where Self == Int {
-
-    static func hashOf(_ hashables: any Hashable...) -> Self {
-        Hasher.combining(hashables: hashables)
-    }
-
-}
-
-
 // FIXME: Move to its own file, remove public from SwiftUI import here.
 extension EdgeInsets: @retroactive Hashable {
 
@@ -502,13 +492,4 @@ extension EdgeInsets: @retroactive Hashable {
         hasher.combine(all: top, leading, bottom, trailing)
     }
 
-}
-
-
-// FIXME: Move to own additions.
-extension View {
-
-    func padding(horizontal: CGFloat, vertical: CGFloat) -> some View {
-        self.padding(EdgeInsets(horizontal: horizontal, vertical: vertical))
-    }
 }
