@@ -9,14 +9,14 @@ import SwiftUI
 
 /// Applies an animated scale effect and a padded capsule background.
 ///
-/// Applies to the given content a background padded outwardly with the given padding and
-/// brightness, and a scale effect to the whole view.
+/// Applies to the given content a capsule background padded outwardly and with a brightness effect.
+/// Also applies a scale effect to the entire view.
 ///
-/// The style and brightness is animated when those given properties change.
+/// The capsule fill style and brightness is animated when those properties change.
 ///
 /// The padding and scale are animated with a fast bouncy animation when those properties change.
 ///
-/// The `playback` parameter can be used to modify the animations, or disable them entirely.
+/// The `playback` parameter can be used to modify or disable the animations.
 struct PopCapsule<Content>: View where Content: View {
 
     let style: AnyShapeStyle
@@ -71,7 +71,10 @@ struct PopCapsule<Content>: View where Content: View {
 }
 
 
-#Preview("PopCapsule", traits: .spacing(20)) {
+// MARK: - Previews
+
+
+#Preview("Default", traits: .spacing(20)) {
     @Previewable @State var popToggle = false
     @Previewable @State var styleToggle = true
 
@@ -116,6 +119,7 @@ struct PopCapsule<Content>: View where Content: View {
 }
 
 
+// MARK: Properties
 #Preview("Properties", traits: .spacing(20), .fixedHeaderFooter) {
     @Previewable @State var styleToggle = true
     @Previewable @State var brightnessToggle = false
