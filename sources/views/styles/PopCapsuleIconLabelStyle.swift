@@ -7,52 +7,53 @@
 import SwiftUI
 
 
+// FIXME: Document.
+// Label with the icon wrapped in PopCapsule+UniformSizeSymbol.
 struct PopCapsuleIconLabelStyle: LabelStyle {
 
-    // FIXME: Rename to pop terms.
-    static let defaultPressedScale: CGFloat = 1.4
     static let defaultPaddings: EdgeInsets = .all(4)
-    static let defaultPressedPaddings: EdgeInsets = .zero
+    static let defaultPopPaddings: EdgeInsets = .zero
+    static let defaultPopScale: CGFloat = 1.4
 
-    let isPopping: Bool
-    let capsuleStyle: AnyShapeStyle
+    let style: AnyShapeStyle
+    let brightness: CGFloat
     let paddings: EdgeInsets
-    let pressedPaddings: EdgeInsets
-    let pressedScale: CGFloat
+    let popPaddings: EdgeInsets
+    let popScale: CGFloat
     let playback: AnimationPlayback
 
     init(
-        isPopping: Bool,
-        capsuleStyle: some ShapeStyle,
+        style: some ShapeStyle,
+        brightness: CGFloat = .zero,
         paddings: EdgeInsets = defaultPaddings,
-        pressedPaddings: EdgeInsets = defaultPressedPaddings,
-        pressedScale: CGFloat = defaultPressedScale,
+        popPaddings: EdgeInsets = defaultPopPaddings,
+        popScale: CGFloat = defaultPopScale,
         animations playback: AnimationPlayback = .normal
     ) {
-        self.isPopping = isPopping
-        self.capsuleStyle = AnyShapeStyle(capsuleStyle)
-        self.paddings = paddings
-        self.pressedPaddings = pressedPaddings
-        self.pressedScale = pressedScale
-        self.playback = playback
+        self.style = AnyShapeStyle(style)
+        self.brightness  = brightness
+        self.paddings    = paddings
+        self.popPaddings = popPaddings
+        self.popScale    = popScale
+        self.playback    = playback
     }
 
     func makeBody(configuration: Configuration) -> some View {
         Label {
             configuration.title
         } icon: {
-            PopCapsuleBackup(
-                pop: isPopping,
-                capsuleStyle: capsuleStyle,
-                paddings: paddings,
-                popPaddings: pressedPaddings,
-                popScale: pressedScale,
+            PopCapsule(
+                style: style,
+                brightness: brightness,
+                paddings: popPaddings,
+                scale: popScale,
                 animations: playback
             ) {
                 UniformSizeSymbol {
                     configuration.icon
                 }
                 .foregroundStyle(.white)
+                .padding(paddings)
             }
         }
     }
@@ -60,18 +61,46 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
 }
 
 
-#Preview("PopIconLabel") {
-    @Previewable @State var pop = false
-    @Previewable @State var style = true
+// MARK: - Previews
 
-    let popStyle: AnyShapeStyle = .if(style, then: .tint, else: .gray.secondary)
-    Label("Pop Label", systemImage: "popcorn")
-    .labelStyle(PopCapsuleIconLabelStyle(isPopping: pop, capsuleStyle: popStyle))
+
+#Preview("Default", traits: .spacing(20)) {
+    @Previewable @State var popToggle = false
+    @Previewable @State var styleToggle = true
+
+    let style: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
+    let brightness: CGFloat =  popToggle ? 0.15 : .zero
+    let paddings: EdgeInsets = popToggle ? .all(6) : .zero
+    let scale: CGFloat =       popToggle ? 1.4 : .one
+
+    let scaleLabelStyle = PopCapsuleIconLabelStyle(
+        style: style,
+        brightness: brightness,
+        paddings: .all(4),
+        popPaddings: .zero,
+        popScale: scale
+    )
+    Label("Pop Scale", systemImage: "popcorn")
+    .labelStyle(scaleLabelStyle)
+
+    let paddingLabelStyle = PopCapsuleIconLabelStyle(
+        style: style,
+        brightness: brightness,
+        paddings: .all(4),
+        popPaddings: paddings,
+        popScale: .one
+    )
+    Label("Pop Scale", systemImage: "popcorn")
+    .labelStyle(paddingLabelStyle)
 
     Button("Pop") {
-        if pop { style.toggle() }
-        pop.toggle()
-    }
-    Text("pop: \(pop.description)\nstyle: \(style.description)")
-    .font(.caption.monospaced())
+        if popToggle { styleToggle.toggle() }
+        popToggle.toggle()
+    }.buttonStyle(.bordered)
+
+    Text("""
+        pop:   \(popToggle.description)
+        style: \(styleToggle.description)
+        """
+    ).font(.caption.monospaced())
 }
