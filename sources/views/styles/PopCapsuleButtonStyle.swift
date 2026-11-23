@@ -4,7 +4,7 @@
 //
 
 
-public import SwiftUI
+import SwiftUI
 
 
 // FIXME: Recheck docs. This style creates a button similar to .borderedProminent with a pop effect.
@@ -482,14 +482,4 @@ struct PopCapsule<Content>: View where Content: View {
         """)
     .font(.caption.monospaced())
     .fixedSize()
-}
-
-
-// FIXME: Move to its own file, remove public from SwiftUI import here.
-extension EdgeInsets: @retroactive Hashable {
-
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(all: top, leading, bottom, trailing)
-    }
-
 }
