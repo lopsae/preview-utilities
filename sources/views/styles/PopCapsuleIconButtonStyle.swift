@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+// FIXME: Document.
 struct PopCapsuleIconButtonStyle: ButtonStyle {
 
     static let defaultPaddings: EdgeInsets = .all(4)
@@ -40,7 +41,6 @@ struct PopCapsuleIconButtonStyle: ButtonStyle {
         let popPaddings: EdgeInsets = isPressed ? pressedPaddings : .zero
         let popScale: CGFloat = isPressed ? pressedScale : .one
 
-        // FIXME: Reenable after incorporating updates of PopCapsuleIconLabelStyle
         let labelStyle = PopCapsuleIconLabelStyle(
             style: style,
             brightness: brightness,
