@@ -8,12 +8,11 @@ import SwiftUI
 
 
 // FIXME: Document.
-// Label with the icon wrapped in PopCapsule+UniformSizeSymbol.
+// Label with the icon wrapped in PopCapsule.
+// Compose with .uniformIcon to make a circular capsule.
 struct PopCapsuleIconLabelStyle: LabelStyle {
 
     static let defaultPaddings: EdgeInsets = .all(4)
-    static let defaultPopPaddings: EdgeInsets = .zero
-    static let defaultPopScale: CGFloat = 1.4
 
     let style: AnyShapeStyle
     let brightness: CGFloat
@@ -26,8 +25,8 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
         style: some ShapeStyle,
         brightness: CGFloat = .zero,
         paddings: EdgeInsets = defaultPaddings,
-        popPaddings: EdgeInsets = defaultPopPaddings,
-        popScale: CGFloat = defaultPopScale,
+        popPaddings: EdgeInsets = .zero,
+        popScale: CGFloat = .one,
         animations playback: AnimationPlayback = .normal
     ) {
         self.style = AnyShapeStyle(style)
@@ -49,9 +48,7 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
                 scale: popScale,
                 animations: playback
             ) {
-                UniformSizeSymbol {
-                    configuration.icon
-                }
+                configuration.icon
                 .foregroundStyle(.white)
                 .padding(paddings)
             }
@@ -64,10 +61,23 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
 // MARK: - Previews
 
 
-// FIXME: Preview default configuration.
-
-// FIXME: Rename this to Pop.
 #Preview("Default", traits: .spacing(20)) {
+    Label("Default", systemImage: "popcorn")
+    .labelStyle(PopCapsuleIconLabelStyle(style: .orange))
+
+    Label("Uniform", systemImage: "popcorn")
+    .labelStyle(.uniformIcon)
+    .labelStyle(PopCapsuleIconLabelStyle(style: .red))
+
+    Label("Icon Only", systemImage: "popcorn")
+    .labelStyle(.uniformIcon)
+    .labelStyle(PopCapsuleIconLabelStyle(style: .brown))
+    .labelStyle(.iconOnly)
+}
+
+
+// MARK: Pop
+#Preview("Pop", traits: .spacing(20)) {
     @Previewable @State var popToggle = false
     @Previewable @State var styleToggle = true
 
@@ -84,7 +94,9 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
         popScale: scale
     )
     Label("Pop Scale", systemImage: "popcorn")
+    .labelStyle(.uniformIcon)
     .labelStyle(scaleLabelStyle)
+
 
     let paddingLabelStyle = PopCapsuleIconLabelStyle(
         style: style,
@@ -94,6 +106,7 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
         popScale: .one
     )
     Label("Pop Scale", systemImage: "popcorn")
+    .labelStyle(.uniformIcon)
     .labelStyle(paddingLabelStyle)
 
     Button("Pop") {
