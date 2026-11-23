@@ -9,10 +9,9 @@ import SwiftUI
 
 struct PopCapsuleIconButtonStyle: ButtonStyle {
 
-    // FIXME: Rename to pop terms.
-    static let defaultPressedScale: CGFloat = 1.4
     static let defaultPaddings: EdgeInsets = .all(4)
     static let defaultPressedPaddings: EdgeInsets = .zero
+    static let defaultPressedScale: CGFloat = 1.4
 
     let style: AnyShapeStyle
     let paddings: EdgeInsets
@@ -72,15 +71,44 @@ struct PopCapsuleIconButtonStyle: ButtonStyle {
 }
 
 
-// FIXME: Preview with just scale, and just padding.
-#Preview("PopIconButton") {
+// MARK: Pops
+#Preview("Pops", traits: .spacing(20)) {
     @Previewable @State var styleToggle = true
 
     let style: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
-    Button("Pop Button", systemImage: "popcorn") { styleToggle.toggle() }
-    .buttonStyle(PopCapsuleIconButtonStyle(style: style))
 
-    Button("Pop Button", systemImage: "popcorn") { styleToggle.toggle() }
-    .buttonStyle(PopCapsuleIconButtonStyle(style: style))
-    .labelStyle(.iconOnly)
+    let padStyle = PopCapsuleIconButtonStyle(
+        style: style,
+        pressedPaddings: .all(8),
+        pressedScale: .one
+    )
+    Button("Paddings", systemImage: "popcorn") { styleToggle.toggle() }
+    .buttonStyle(padStyle)
+
+    let scaleStyle = PopCapsuleIconButtonStyle(
+        style: style,
+        pressedPaddings: .zero,
+        pressedScale: 2
+    )
+    Button("Scale", systemImage: "popcorn") { styleToggle.toggle() }
+    .buttonStyle(scaleStyle)
+}
+
+
+// MARK: Playback
+#Preview("Playback") {
+    @Previewable @State var styleToggle = true
+
+    let style: AnyShapeStyle = .if(styleToggle, then: .tint, else: .gray.secondary)
+
+    VStack(items: AnimationPlayback.fixedCases, alignment: .leading, spacing: 16) { playback in
+        let buttonStyle = PopCapsuleIconButtonStyle(
+            style: style,
+            animations: playback
+        )
+
+        Button(playback.displayName.capitalized, systemImage: "popcorn") { styleToggle.toggle() }
+        .buttonStyle(buttonStyle)
+    }
+    .scaleEffect(2)
 }
