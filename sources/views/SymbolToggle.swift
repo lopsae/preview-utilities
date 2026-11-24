@@ -95,7 +95,7 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
 
     SymbolToggle(toggle: symbolToggle)
     .caliperLabel("Default", from: .trailing)
- 
+
     SymbolToggle(toggle: symbolToggle, firstStyle: .red, secondStyle: .secondary)
     .caliperLabel("Styled", from: .trailing)
 
@@ -105,36 +105,4 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
     .caliperLabel("Stock Image", from: .trailing)
 
     Button("Toggle") { imageToggle.toggle() }
-}
-
-
-// FIXME: Move to Caliper.
-extension View {
-
-    // Currently has fixed span and stem, how to make the span take the length of the view?
-    @ContentBuilder
-    func caliperLabel(
-        _ key: LocalizedStringKey,
-        from edge: Edge,
-        span: CGFloat = 12,
-        stem: CGFloat = 16,
-        spacing: CGFloat = 8
-    ) -> some View {
-        let alignment: FloatingAlignment = switch edge {
-        case .top:      .outerTop
-        case .leading:  .outerLeading
-        case .bottom:   .outerBottom
-        case .trailing: .outerTrailing
-        }
-
-        self.caliperLabel(
-            key,
-            to: edge.opposite,
-            span: span,
-            stem: stem,
-            alignment: alignment,
-            spacingSize: .square(of: spacing)
-        )
-    }
-
 }

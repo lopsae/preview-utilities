@@ -14,6 +14,9 @@ import Testing
 @Suite(.snapshotTesting)
 struct CaliperSnapshots {
 
+    // FIXME: Move to snapshots folder.
+    // FIXME: Use TestViews.
+
     @Test func labeled() {
         Snapshots.assertView("all", colorSchemes: .all) {
             Rectangle()

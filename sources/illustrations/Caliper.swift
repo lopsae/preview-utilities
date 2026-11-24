@@ -120,6 +120,38 @@ extension View {
         }
     }
 
+
+    /// Overlays on the owner view the given label and caliper from an edge.
+    ///
+    /// Span and stem length are provided as fixed values.
+    @ContentBuilder
+    func caliperLabel(
+        _ key: LocalizedStringKey,
+        from edge: Edge,
+        span: CGFloat = 12,
+        stem: CGFloat = 16,
+        spacing: CGFloat = 8
+    ) -> some View {
+        let alignment: FloatingAlignment = switch edge {
+        case .top:      .outerTop
+        case .leading:  .outerLeading
+        case .bottom:   .outerBottom
+        case .trailing: .outerTrailing
+        }
+
+        // FUTURE: caliper label span could take the owner view length, with size modifications
+        // similar to the traits used in debugAlignmentGuides.
+
+        self.caliperLabel(
+            key,
+            to: edge.opposite,
+            span: span,
+            stem: stem,
+            alignment: alignment,
+            spacingSize: .square(of: spacing)
+        )
+    }
+
 }
 
 
@@ -187,4 +219,6 @@ private struct PreviewContent {
         alignment: .outerLeading,
         spacingSize: .square(of: 4)
     )
+
+    // FIXME: Add previews of caliperLabel(from:).
 }
