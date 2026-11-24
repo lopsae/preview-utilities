@@ -58,8 +58,8 @@ extension View {
         }
 
         let mark = Caliper(barEdge: barEdge)
-            .stroke(.primary)
-            .frame(size: size)
+        .stroke(.primary)
+        .frame(size: size)
 
         // FUTURE: can this be laid-out with a generic Layout and the direction?
         let labelAndMark = Group { self; mark }
@@ -219,6 +219,7 @@ private struct PreviewContent {
 
 
 private extension AnyLayout {
+
     static func stack(along axis: Axis, spacing: CGFloat? = nil) -> AnyLayout {
         switch axis {
         case .horizontal:
@@ -227,14 +228,14 @@ private extension AnyLayout {
             AnyLayout(VStackLayout(spacing: spacing))
         }
     }
+
 }
 
 
-// Could this be an extension of Group?
-private extension View {
+private extension Group where Content: View {
 
     func reversed() -> some View {
-        Group(subviews: self) { subviews in
+        Group<_>(subviews: self) { subviews in
             ForEach(subviews.reversed()) { $0 }
         }
     }
