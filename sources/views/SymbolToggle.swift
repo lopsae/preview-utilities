@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-
+// FIXME: Delete once not used, keep docs for SymbolToggle.
 /// Button that displays two symbols with independent styles and can toggle between them.
 ///
 /// The symbol size is stabilized using ``UniformSizeSymbol``, so that toggling between them does
@@ -192,15 +192,47 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
     @Previewable @State var imageToggle = true
 
     SymbolToggle(toggle: symbolToggle)
-    .caliperLabel("Default", to: .leading, span: 12, stem: 16, alignment: .outerTrailing, spacingSize: .square(of: 8))
+    .caliperLabel("Default", from: .trailing)
 
     SymbolToggle(toggle: symbolToggle, firstStyle: .red, secondStyle: .secondary)
-    .caliperLabel("Styled", to: .leading, span: 12, stem: 16, alignment: .outerTrailing, spacingSize: .square(of: 8))
+    .caliperLabel("Styled", from: .trailing)
 
     Button("Toggle") { symbolToggle.toggle() }
 
     Image(systemName: imageToggle ? "guidepoint.horizontal" : "guidepoint.vertical")
-    .caliperLabel("Stock Image", to: .leading, span: 12, stem: 16, alignment: .outerTrailing, spacingSize: .square(of: 8))
+    .caliperLabel("Stock Image", from: .trailing)
 
     Button("Toggle") { imageToggle.toggle() }
+}
+
+
+// FIXME: Move to Caliper.
+extension View {
+
+    // Currently has fixed span and stem, how to make the span take the length of the view?
+    @ContentBuilder
+    func caliperLabel(
+        _ key: LocalizedStringKey,
+        from edge: Edge,
+        span: CGFloat = 12,
+        stem: CGFloat = 16,
+        spacing: CGFloat = 8
+    ) -> some View {
+        let alignment: FloatingAlignment = switch edge {
+        case .top:      .outerTop
+        case .leading:  .outerLeading
+        case .bottom:   .outerBottom
+        case .trailing: .outerTrailing
+        }
+
+        self.caliperLabel(
+            key,
+            to: edge.opposite,
+            span: span,
+            stem: stem,
+            alignment: alignment,
+            spacingSize: .square(of: spacing)
+        )
+    }
+
 }
