@@ -23,7 +23,7 @@ struct Caliper: Shape {
     nonisolated func path(in rect: CGRect) -> Path {
         Path { path in
             rect.segment(at: barEdge).add(to: &path)
-            rect.bisectorSegment(of: barEdge.axis).add(to: &path)
+            rect.bisectorSegment(along: barEdge.axis).add(to: &path)
         }
     }
 

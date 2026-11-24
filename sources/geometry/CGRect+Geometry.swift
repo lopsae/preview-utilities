@@ -78,7 +78,7 @@ extension CGRect {
     }
 
     nonisolated
-    func bisectorSegment(of axis: Axis) -> Segment {
+    func bisectorSegment(along axis: Axis) -> Segment {
         switch axis {
         case .horizontal: horizontalBisectorSegment
         case .vertical:   verticalBisectorSegment
