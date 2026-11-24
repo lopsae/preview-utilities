@@ -12,7 +12,8 @@ public import SwiftUI
 
 extension Label {
 
-    /// Creates a label with custom icon and a title generated from a localized string.
+    /// Creates a label with a custom icon and a title generated from a localized string.
+    ///
     /// - Parameters:
     ///   - key: The title of the label.
     ///   - icon: The view to use as icon for the label.
@@ -30,7 +31,8 @@ extension Label {
     }
 
 
-    /// Creates a label with custom icon and a title generated from a localized string.
+    /// Creates a label with a custom icon and a title generated from a localized string.
+    ///
     /// - Parameters:
     ///   - key: The title of the label.
     ///   - icon: The view to use as icon for the label.
@@ -41,6 +43,25 @@ extension Label {
         self.init(
             title: { Text(key) },
             icon: { icon }
+        )
+    }
+
+
+    /// Creates a label with a custom title and icon.
+    ///
+    /// This initializer overloads its parameters to autoclosures.
+    ///
+    /// - Parameters:
+    ///   - key: The view to use as title of the label.
+    ///   - icon: The view to use as icon for the label.
+    @inlinable
+    public init(
+        title: @autoclosure () -> Title,
+        icon: @autoclosure () -> Icon
+    ) {
+        self.init(
+            title: { title() },
+            icon: { icon() }
         )
     }
 

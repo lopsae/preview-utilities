@@ -229,19 +229,3 @@ extension Button {
     }
 
 }
-
-
-// FIXME: Move to additions.
-extension Label {
-
-    // title+icon with autoclosures.
-    init(
-        title: @autoclosure () -> Title,
-        icon: @autoclosure () -> Icon
-    ) {
-        self.init(
-            title: { title() },
-            icon: { icon() }
-        )
-    }
-}
