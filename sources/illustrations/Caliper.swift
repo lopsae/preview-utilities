@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-/// A annotation mark that spans a length and points toward a describing label.
+/// An annotation mark that spans a length and points toward a describing label.
 ///
 /// A caliper draws a bar along one edge of its frame and a stem from the middle of the bar to the
 /// opposite edge. The stem points away from the bar, toward the label that describes the spanned
@@ -22,28 +22,8 @@ struct Caliper: Shape {
 
     nonisolated func path(in rect: CGRect) -> Path {
         Path { path in
-            switch barEdge {
-            case .leading:
-                rect.leadingSegment
-                    .add(to: &path)
-                rect.horizontalBisectorSegment
-                    .add(to: &path)
-            case .trailing:
-                rect.trailingSegment
-                    .add(to: &path)
-                rect.horizontalBisectorSegment
-                    .add(to: &path)
-            case .top:
-                rect.topSegment
-                    .add(to: &path)
-                rect.verticalBisectorSegment
-                    .add(to: &path)
-            case .bottom:
-                rect.bottomSegment
-                    .add(to: &path)
-                rect.verticalBisectorSegment
-                    .add(to: &path)
-            }
+            rect.segment(at: barEdge).add(to: &path)
+            rect.bisectorSegment(of: barEdge.axis).add(to: &path)
         }
     }
 
@@ -196,7 +176,7 @@ private struct PreviewContent {
     .fill(.gray.gradient.tertiary)
     .frame(squareOf: 100)
     .caliperLabel(
-        "Top Caliper", to: .top,
+        "Top\nCaliper", to: .top,
         span: 40, stem: 20,
         alignment: .outerBottom,
         spacingSize: .square(of: 4)
@@ -208,7 +188,7 @@ private struct PreviewContent {
         spacingSize: .square(of: 4)
     )
     .caliperLabel(
-        "Bottom Caliper", to: .bottom,
+        "Bottom\nCaliper", to: .bottom,
         span: 40, stem: 20,
         alignment: .outerTop,
         spacingSize: .square(of: 4)
@@ -219,17 +199,16 @@ private struct PreviewContent {
         alignment: .outerLeading,
         spacingSize: .square(of: 4)
     )
-    .expandingWidthFrame(height: 200)
+    .expandingWidthFrame(height: 220)
 
     DashedDivider()
 
     RoundedRectangle(cornerRadius: 8)
     .fill(.gray.gradient.tertiary)
     .frame(squareOf: 100)
-    .caliperLabel("From Top",       from: .top)
+    .caliperLabel("From\nTop",       from: .top)
     .caliperLabel("From\nLeading",  from: .leading)
-    .caliperLabel("From Bottom",    from: .bottom)
+    .caliperLabel("From\nBottom",    from: .bottom)
     .caliperLabel("From\nTrailing", from: .trailing)
-    .expandingWidthFrame(height: 200)
-    // FIXME: Add previews of caliperLabel(from:).
+    .expandingWidthFrame(height: 220)
 }

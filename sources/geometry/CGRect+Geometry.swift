@@ -52,6 +52,18 @@ extension CGRect {
     }
 
 
+    /// Segment at the given edge.
+    @inlinable nonisolated
+    public func segment(at edge: Edge) -> Segment {
+        switch edge {
+        case .top:      topSegment
+        case .leading:  leadingSegment
+        case .bottom:   bottomSegment
+        case .trailing: trailingSegment
+        }
+    }
+
+
     nonisolated
     var horizontalBisectorSegment: Segment {
         leadingCenterPoint
@@ -63,6 +75,14 @@ extension CGRect {
     var verticalBisectorSegment: Segment {
         topCenterPoint
         .segmentToOffset(y: height)
+    }
+
+    nonisolated
+    func bisectorSegment(of axis: Axis) -> Segment {
+        switch axis {
+        case .horizontal: horizontalBisectorSegment
+        case .vertical:   verticalBisectorSegment
+        }
     }
 
 }
