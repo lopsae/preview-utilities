@@ -24,10 +24,7 @@ extension Label {
     ) where
         Title == Text
     {
-        self.init(
-            title: { Text(key) },
-            icon: icon
-        )
+        self.init(title: Text(key), icon: icon())
     }
 
 
@@ -40,10 +37,7 @@ extension Label {
     public init(_ key: LocalizedStringKey, icon: Icon)
     where Title == Text
     {
-        self.init(
-            title: { Text(key) },
-            icon: { icon }
-        )
+        self.init(title: Text(key), icon: icon)
     }
 
 
