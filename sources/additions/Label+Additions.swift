@@ -16,7 +16,7 @@ extension Label {
     ///
     /// - Parameters:
     ///   - key: The title of the label.
-    ///   - icon: The view to use as icon for the label.
+    ///   - icon: The view to use as icon of the label.
     @inlinable
     public init(
         _ key: LocalizedStringKey,
@@ -32,7 +32,7 @@ extension Label {
     ///
     /// - Parameters:
     ///   - key: The title of the label.
-    ///   - icon: The view to use as icon for the label.
+    ///   - icon: The view to use as icon of the label.
     @inlinable
     public init(_ key: LocalizedStringKey, icon: Icon)
     where Title == Text
@@ -47,7 +47,7 @@ extension Label {
     ///
     /// - Parameters:
     ///   - key: The view to use as title of the label.
-    ///   - icon: The view to use as icon for the label.
+    ///   - icon: The view to use as icon of the label.
     @inlinable
     public init(
         title: @autoclosure () -> Title,
