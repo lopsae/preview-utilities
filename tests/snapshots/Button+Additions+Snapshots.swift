@@ -11,7 +11,7 @@ import Testing
 
 
 @MainActor
-@Suite(.snapshotCapture)
+@Suite(.snapshotTesting)
 struct ButtonAdditionsSnapshots {
 
     @Test func iconInits() {
