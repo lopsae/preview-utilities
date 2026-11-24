@@ -16,6 +16,7 @@ struct CaliperSnapshots {
 
     // FIXME: Move to snapshots folder.
     // FIXME: Use TestViews.
+    // FIXME: Add labeledFrom
 
     @Test func labeled() {
         Snapshots.assertView("all", colorSchemes: .all) {

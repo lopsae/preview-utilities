@@ -130,7 +130,7 @@ extension View {
         from edge: Edge,
         span: CGFloat = 12,
         stem: CGFloat = 16,
-        spacing: CGFloat = 8
+        spacing: CGFloat = 4
     ) -> some View {
         let alignment: FloatingAlignment = switch edge {
         case .top:      .outerTop
@@ -219,6 +219,17 @@ private struct PreviewContent {
         alignment: .outerLeading,
         spacingSize: .square(of: 4)
     )
+    .expandingWidthFrame(height: 200)
 
+    DashedDivider()
+
+    RoundedRectangle(cornerRadius: 8)
+    .fill(.gray.gradient.tertiary)
+    .frame(squareOf: 100)
+    .caliperLabel("From Top",       from: .top)
+    .caliperLabel("From\nLeading",  from: .leading)
+    .caliperLabel("From Bottom",    from: .bottom)
+    .caliperLabel("From\nTrailing", from: .trailing)
+    .expandingWidthFrame(height: 200)
     // FIXME: Add previews of caliperLabel(from:).
 }
