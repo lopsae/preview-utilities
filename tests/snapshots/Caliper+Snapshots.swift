@@ -14,15 +14,11 @@ import Testing
 @Suite(.snapshotTesting)
 struct CaliperSnapshots {
 
-    // FIXME: Move to snapshots folder.
-    // FIXME: Use TestViews.
     // FIXME: Add labeledFrom
 
-    @Test func labeled() {
+    @Test func labeledTo() {
         Snapshots.assertView("all", colorSchemes: .all) {
-            Rectangle()
-            .fill(.gray.tertiary)
-            .frame(squareOf: 50)
+            TestViews.quinaryGraySquare(length: 50)
             .caliperLabel(
                 "top", to: .top,
                 span: 30, stem: 20,
