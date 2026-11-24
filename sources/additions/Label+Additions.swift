@@ -49,6 +49,7 @@ extension Label {
 
 // MARK: - UniformIcon
 
+// FIXME: Move to the views/styles folder.
 
 /// A label style that places the icon inside a `UniformSizeSymbol`.
 ///
@@ -63,7 +64,8 @@ extension Label {
 /// .labelStyle(.uniformIcon)
 /// ```
 ///
-/// This style is composable, stack it with other label styles to compose its effects:
+/// This style internally builds a `Label` view and is composable with other label styles. Stack it
+/// with other label styles compose its effects:
 ///
 /// ```swift
 /// Label("Label", systemImage: "ladybug")

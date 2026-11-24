@@ -7,9 +7,18 @@
 import SwiftUI
 
 
-// FIXME: Document.
-// Label with the icon wrapped in PopCapsule.
-// Compose with .uniformIcon to make a circular capsule.
+/// A label style that applies an animated padded capsule background and scale effect to the label
+/// icon.
+///
+/// The style wraps the label icon in a configured ``PopCapsule``. Changes to the `style`,
+/// `brightness`, `popPaddings`, and `popScale` properties are animated. Use the `playback` property
+/// to modify or disable animations.
+///
+/// This style internally builds a `Label` view and is composable with other label styles. Stack it
+/// with other label styles compose its effects.
+///
+/// For example, compose with ``SwiftUI/LabelStyle/uniformIcon`` for a perfectly circular background
+/// behind any symbol icon.
 struct PopCapsuleIconLabelStyle: LabelStyle {
 
     static let defaultPaddings: EdgeInsets = .all(4)
@@ -93,6 +102,10 @@ struct PopCapsuleIconLabelStyle: LabelStyle {
         popPaddings: .zero,
         popScale: scale
     )
+
+    Label("Pop Scale", systemImage: "guidepoint.horizontal")
+    .labelStyle(scaleLabelStyle)
+
     Label("Pop Scale", systemImage: "popcorn")
     .labelStyle(.uniformIcon)
     .labelStyle(scaleLabelStyle)

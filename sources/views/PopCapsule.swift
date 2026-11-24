@@ -9,8 +9,8 @@ import SwiftUI
 
 /// Applies an animated scale effect and a padded capsule background.
 ///
-/// Applies to the given content a capsule background padded outwardly and with a brightness effect.
-/// Also applies a scale effect to the entire view.
+/// Applies to the given content a capsule background padded outwardly and with a brightness effect;
+/// and a scale effect to the entire view.
 ///
 /// The capsule fill style and brightness is animated when those properties change.
 ///
