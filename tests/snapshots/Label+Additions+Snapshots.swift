@@ -24,6 +24,7 @@ struct LabelAdditionsSnapshots {
         }
     }
 
+    // FIXME: Move these tests to its own style snapshots.
     @Test func uniformIcon() {
         Snapshots.assertView("alone", spacing: 20, colorSchemes: .all) {
             let symbolNames = ["guidepoint.horizontal", "guidepoint.vertical"]
