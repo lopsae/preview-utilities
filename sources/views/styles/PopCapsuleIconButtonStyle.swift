@@ -7,7 +7,19 @@
 import SwiftUI
 
 
-// FIXME: Document.
+/// A button style that applies an animated capsule background and scale effect to the button icon.
+///
+/// The style applies the ``UniformSizeSymbolLabelStyle`` and the ``PopCapsuleIconLabelStyle`` to
+/// the button label to animate the capsule background and scale when the button is pressed.
+///
+/// Use the `playback` property to modify or disable animations.
+///
+/// ### Style Composition
+///
+/// This style builds on top of the button default label and is composable with other label styles.
+/// Stack it with other label styles compose its effects.
+///
+/// For example, compose with `LabelStyle.iconOnly` to only display the button icon.
 struct PopCapsuleIconButtonStyle: ButtonStyle {
 
     static let defaultPaddings: EdgeInsets = .all(4)

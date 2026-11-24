@@ -7,18 +7,22 @@
 import SwiftUI
 
 
-/// A label style that applies an animated padded capsule background and scale effect to the label
-/// icon.
+/// A label style that applies an animated capsule background and scale effect to the label icon.
 ///
 /// The style wraps the label icon in a configured ``PopCapsule``. Changes to the `style`,
-/// `brightness`, `popPaddings`, and `popScale` properties are animated. Use the `playback` property
-/// to modify or disable animations.
+/// `brightness`, `popPaddings`, and `popScale` properties are animated.
+///
+/// Use the `playback` property to modify or disable animations.
+///
+/// ### Style Composition
 ///
 /// This style internally builds a `Label` view and is composable with other label styles. Stack it
 /// with other label styles compose its effects.
 ///
 /// For example, compose with ``SwiftUI/LabelStyle/uniformIcon`` for a perfectly circular background
 /// behind any symbol icon.
+///
+/// Use the `playback` property to modify or disable animations.
 struct PopCapsuleIconLabelStyle: LabelStyle {
 
     static let defaultPaddings: EdgeInsets = .all(4)

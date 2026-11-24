@@ -7,12 +7,20 @@
 import SwiftUI
 
 
-// FIXME: Recheck docs. This style creates a button similar to .borderedProminent with a pop effect.
-/// Configures the round toggle button to animate its background.
+/// A button style that applies an animated capsule background and scale effect to the button label.
 ///
-/// Style is animated when changed.
-/// Paddings and scale are animated when isPressed changes.
-/// Pressed paddings is applied negative to paddings, only when pressed.
+/// The style wraps the button label in a configured ``PopCapsule`` to animate the capsule
+/// background and scale when the button is pressed.
+///
+/// Use the `playback` property to modify or disable animations.
+///
+/// ### Style Composition
+///
+/// This style builds on top of the button default label and is composable with other label styles.
+/// Stack it with other label styles compose its effects.
+///
+/// For example, compose with ``SwiftUI/LabelStyle/uniformIcon`` to use a uniform symbol size, and
+/// with `LabelStyle.iconOnly` to only display the button icon.
 struct PopCapsuleButtonStyle: ButtonStyle {
 
     // FIXME: update defaults to make this buttons resemble bordered buttons.
