@@ -20,26 +20,25 @@ struct RoundCheckmarkToggleStyle: ToggleStyle {
     }
 
     func makeBody(configuration: Configuration) -> some View {
-        let backgroundStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
-        // FIXME: This will likely use PopCapsuleIconButtonStyle.
-        let buttonStyle = PopCapsuleButtonStyle(
-            style: backgroundStyle,
+        let capsuleStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
+        let buttonStyle = PopCapsuleIconButtonStyle(
+            style: capsuleStyle,
             animations: playback
         )
 
-        Label {
-            configuration.label
-        } icon: {
-            SymbolToggleButton(
-                "Toggle", toggle: configuration.$isOn,
-                firstStyle: .background, secondStyle: .secondary,
-                animations: playback
-            )
-            .labelStyle(.iconOnly)
-            .buttonStyle(buttonStyle)
-        }
+        let symbolToggle = SymbolToggle(
+            toggle: configuration.isOn,
+            firstStyle: .white,
+            secondStyle: .secondary,
+            animations: playback
+        )
+        Button(
+            action: { configuration.isOn.toggle() },
+            title: configuration.label,
+            icon: symbolToggle
+        )
+        .buttonStyle(buttonStyle)
     }
-
 }
 
 
@@ -177,4 +176,72 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
     .toggleStyle(.onlySwitch)
     .scaleEffect(2.5)
     .padding(.vertical, 20)
+}
+
+
+// FIXME: Move to additions.
+extension Button {
+
+    init<Title, Icon>(
+        action: @escaping VoidClosure,
+        @ContentBuilder title: () -> Title,
+        @ContentBuilder icon: () -> Icon
+    ) where
+        Title: View,
+        Icon: View,
+        Label == SwiftUI.Label<Title, Icon>
+    {
+        let label = Label(title: title(), icon: icon())
+        self.init(
+            action: action,
+            label: label
+        )
+    }
+
+
+    // title+icon with autoclosure.
+    init<Title, Icon>(
+        action: @escaping VoidClosure,
+        title: @autoclosure () -> Title,
+        icon: @autoclosure () -> Icon
+    ) where
+        Title: View,
+        Icon: View,
+        Label == SwiftUI.Label<Title, Icon>
+    {
+        self.init(
+            action: action,
+            title: { title() },
+            icon: { icon() }
+        )
+    }
+
+
+    // label with autoclosure.
+    init(
+        action: @escaping VoidClosure,
+        label: @autoclosure () -> Label
+    ) {
+        self.init(
+            action: action,
+            label: { label() }
+        )
+    }
+
+}
+
+
+// FIXME: Move to additions.
+extension Label {
+
+    // title+icon with autoclosures.
+    init(
+        title: @autoclosure () -> Title,
+        icon: @autoclosure () -> Icon
+    ) {
+        self.init(
+            title: { title() },
+            icon: { icon() }
+        )
+    }
 }
