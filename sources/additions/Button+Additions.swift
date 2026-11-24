@@ -54,6 +54,71 @@ extension Button {
         )
     }
 
+
+    /// Creates a button that displays a custom label.
+    ///
+    /// This initializer overloads its parameters to autoclosures.
+    ///
+    /// - Parameters:
+    ///   - label: A view that describes the purpose of the button's `action`.
+    ///   - action: The action to perform when the user triggers the button.
+    init(
+        label: @autoclosure () -> Label,
+        action: @escaping VoidClosure
+    ) {
+        self.init(
+            action: action,
+            label: { label() }
+        )
+    }
+
+
+    /// Creates a button with a custom title and icon.
+    ///
+    /// - Parameters:
+    ///   - action: The action to perform when the user triggers the button.
+    ///   - key: The view to use as title of the button.
+    ///   - icon: The view to use as icon of the button.
+    init<Title, Icon>(
+        action: @escaping VoidClosure,
+        @ContentBuilder title: () -> Title,
+        @ContentBuilder icon: () -> Icon
+    ) where
+        Title: View,
+        Icon: View,
+        Label == SwiftUI.Label<Title, Icon>
+    {
+        self.init(
+            label: Label(title: title(), icon: icon()),
+            action: action
+        )
+    }
+
+
+    /// Creates a button with a custom title and icon.
+    ///
+    /// This initializer overloads its parameters to autoclosures.
+    ///
+    /// - Parameters:
+    ///   - action: The action to perform when the user triggers the button.
+    ///   - key: The view to use as title of the button.
+    ///   - icon: The view to use as icon of the button.
+    init<Title, Icon>(
+        action: @escaping VoidClosure,
+        title: @autoclosure () -> Title,
+        icon: @autoclosure () -> Icon
+    ) where
+        Title: View,
+        Icon: View,
+        Label == SwiftUI.Label<Title, Icon>
+    {
+        self.init(
+            action: action,
+            title: { title() },
+            icon: { icon() }
+        )
+    }
+
 }
 
 
