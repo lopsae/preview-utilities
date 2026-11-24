@@ -62,15 +62,16 @@ extension View {
             .frame(size: size)
 
         // FUTURE: can this be laid-out with a generic Layout and the direction?
-        switch barEdge {
-        case .leading:
-            HStack(spacing: spacing) { mark; self }
-        case .trailing:
-            HStack(spacing: spacing) { self; mark }
-        case .top:
-            VStack(spacing: spacing) { mark; self }
-        case .bottom:
-            VStack(spacing: spacing) { self; mark }
+        let labelAndMark = Group { self; mark }
+
+        let layout: AnyLayout = .stack(along: barEdge.axis, spacing: spacing)
+        layout {
+            switch barEdge {
+            case .top, .leading:
+                labelAndMark.reversed()
+            case .bottom, .trailing:
+                labelAndMark
+            }
         }
     }
 
@@ -211,4 +212,31 @@ private struct PreviewContent {
     .caliperLabel("From\nBottom",    from: .bottom)
     .caliperLabel("From\nTrailing", from: .trailing)
     .expandingWidthFrame(height: 220)
+}
+
+
+// MARK: - Experimental
+
+
+private extension AnyLayout {
+    static func stack(along axis: Axis, spacing: CGFloat? = nil) -> AnyLayout {
+        switch axis {
+        case .horizontal:
+            AnyLayout(HStackLayout(spacing: spacing))
+        case .vertical:
+            AnyLayout(VStackLayout(spacing: spacing))
+        }
+    }
+}
+
+
+// Could this be an extension of Group?
+private extension View {
+
+    func reversed() -> some View {
+        Group(subviews: self) { subviews in
+            ForEach(subviews.reversed()) { $0 }
+        }
+    }
+
 }
