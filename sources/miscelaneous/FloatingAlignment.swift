@@ -761,8 +761,29 @@ private struct PreviewContent {
 }
 
 
-// MARK: Pickers
-#Preview("Pickers", traits: .headerFooter) {
+// MARK: Picker
+#Preview("Picker", traits: .headerFooter) {
+    @Previewable @State var alignment: FloatingAlignment = .bottom
+
+    FloatingAlignmentPicker(alignment: $alignment)
+
+    DashedDivider()
+
+    FilledRectangle(.teal.gradient.secondary, size: .square(of: 150))
+    .overlay {
+        FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
+            Text(verbatim: alignment.multilineName)
+            .fixedSize()
+            .padding(2)
+            .background(.quaternary)
+        }
+    }
+    .padding(.vertical, 80)
+}
+
+
+// MARK: SegmentedPickers
+#Preview("SegmentedPickers", traits: .headerFooter) {
     @Previewable @State var positionKey: FloatingAlignment.Key = .outer
     @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
     @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
@@ -806,57 +827,6 @@ private struct PreviewContent {
         case .trailing: .outer(.trailing(outerMinorVerticalAlignment))
         }
     }
-
-    FilledRectangle(.teal.gradient.secondary, size: .square(of: 150))
-    .overlay {
-        FloatingAlignedContainer(alignment: alignment, spacing: 2) { alignments in
-            Text(verbatim: alignment.multilineName)
-            .fixedSize()
-            .padding(2)
-            .background(.quaternary)
-        }
-    }
-    .padding(.vertical, 80)
-}
-
-
-// MARK: RoundToggles
-#Preview("RoundToggles", traits: .headerFooter) {
-    @Previewable @State var alignment: FloatingAlignment = .bottom
-
-    let toggleLength: CGFloat = 28
-    let toggleSpacing: CGFloat = 12
-    let edgeSpacing: CGFloat = 4
-
-    // FIXME: Use FloatingAlignmentPicker.
-    Rectangle()
-    .stroke(.gray.secondary)
-    .frame(size: .square(of: toggleLength*3 + toggleSpacing*2 + edgeSpacing*2))
-    .overlay {
-        ForEach(FloatingAlignment.allCases) { floatingAlignment in
-            FloatingAlignedContainer(alignment:floatingAlignment ,spacing: edgeSpacing) { contentAlignments in
-                // TODO: ZStack should be implicit in FloatingAlignedContainer.
-                ZStack {
-                    let isOn = Binding<Bool> {
-                        alignment == floatingAlignment
-                    } set: { newValue in
-                        if newValue {
-                            alignment = floatingAlignment
-                        }
-                    }
-
-                    Toggle("Toggle", isOn: isOn)
-                    .toggleStyle(.roundCheckmark)
-                    .labelStyle(.iconOnly)
-                    .frame(squareOf: toggleLength)
-                }
-
-            }
-        }
-    }
-    .padding(.vertical, toggleLength + edgeSpacing)
-
-    DashedDivider()
 
     FilledRectangle(.teal.gradient.secondary, size: .square(of: 150))
     .overlay {
