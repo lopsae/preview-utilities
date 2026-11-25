@@ -7,9 +7,14 @@
 import SwiftUI
 
 
-// Experimental Layout. Reports the size that contains all subviews multiplied by `scale`.
-// All subviews are placed centered and unscaled in the layout. Apply `scaleEffect` to the content
-// or to the layout to display the scaled content.
+/// Layout that reports the enveloping size of all subviews multiplied by a scale.
+///
+/// The subviews are placed centered and at their regular scale in the space they would occupy if
+/// scaled by a factor of `scale`. Apply `View/scaleEffect(_:)` to the content or the layout to
+/// display the content scaled.
+///
+/// This layout provides subviews with a size proposal divided by `scale` and reports the enveloping
+/// size of all subviews multiplied by `scale`.
 private struct ScaledLayout: Layout {
     let scale: CGFloat
 
