@@ -7,6 +7,7 @@
 import SwiftUI
 
 
+/// A picker to select a floating alignment.
 struct FloatingAlignmentPicker: View {
 
     @Binding private var alignment: FloatingAlignment
@@ -15,9 +16,11 @@ struct FloatingAlignmentPicker: View {
     let toggleSpacing: CGFloat = 12
     let edgeSpacing: CGFloat = 4
 
+
     init(alignment: Binding<FloatingAlignment>) {
         self._alignment = alignment
     }
+
 
     var body: some View {
         Rectangle()
@@ -26,22 +29,18 @@ struct FloatingAlignmentPicker: View {
         .overlay {
             ForEach(FloatingAlignment.allCases) { floatingAlignment in
                 FloatingAlignedContainer(alignment:floatingAlignment ,spacing: edgeSpacing) { contentAlignments in
-                    // TODO: ZStack should be implicit in FloatingAlignedContainer.
-                    ZStack {
-                        let isOn = Binding<Bool> {
-                            alignment == floatingAlignment
-                        } set: { newValue in
-                            if newValue {
-                                alignment = floatingAlignment
-                            }
+                    let isOn = Binding<Bool> {
+                        alignment == floatingAlignment
+                    } set: { newValue in
+                        if newValue {
+                            alignment = floatingAlignment
                         }
-
-                        Toggle("Toggle", isOn: isOn)
-                        .toggleStyle(.roundCheckmark)
-                        .labelStyle(.iconOnly)
-                        .frame(squareOf: toggleLength)
                     }
 
+                    Toggle("Toggle", isOn: isOn)
+                    .toggleStyle(.roundCheckmark)
+                    .labelStyle(.iconOnly)
+                    .frame(squareOf: toggleLength)
                 }
             }
         }
@@ -51,7 +50,10 @@ struct FloatingAlignmentPicker: View {
 }
 
 
-#Preview("FloatingAlignmentPicker") {
+// MARK: - Previews
+
+
+#Preview("Default") {
     @Previewable @State var alignment: FloatingAlignment = .center
 
     Text.caption(verbatim: alignment.displayName.capitalized)
