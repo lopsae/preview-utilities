@@ -229,7 +229,13 @@ extension DebugGeometryModifier.Configuration {
 
         // FIXME: Document, add to Trait list.
         // FIXME: Add snapshot testing.
-        public static func innerBordersStyle(style: some ShapeStyle) -> Trait {
+        public static func innerBorderWidth(width: CGFloat) -> Trait {
+            .mutate { $0.innerBorderWidth = width }
+        }
+
+        // FIXME: Document, add to Trait list.
+        // FIXME: Add snapshot testing.
+        public static func innerBorderStyle(style: some ShapeStyle) -> Trait {
             .mutate { configuration in
                 configuration.innerBorderStyle = AnyShapeStyle(style)
             }
@@ -237,7 +243,13 @@ extension DebugGeometryModifier.Configuration {
 
         // FIXME: Document, add to Trait list.
         // FIXME: Add snapshot testing.
-        public static func outerBordersStyle(style: some ShapeStyle) -> Trait {
+        public static func outerBorderWidth(width: CGFloat) -> Trait {
+            .mutate { $0.outerBorderWidth = width }
+        }
+
+        // FIXME: Document, add to Trait list.
+        // FIXME: Add snapshot testing.
+        public static func outerBorderStyle(style: some ShapeStyle) -> Trait {
             .mutate { configuration in
                 configuration.outerBorderStyle = AnyShapeStyle(style)
             }

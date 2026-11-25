@@ -184,13 +184,14 @@ public struct DebugGeometryModifier: ViewModifier {
     private func outerStrokeRect(geometry: GeometryProxy) -> some View {
         let localFrame = geometry.frame(in: .local)
         let correctedFrame = correctZeroRect(localFrame)
-        let boundedBordersWidth = configuration.outerBorderWidth.clamped(to: Self.minBordersWidth...)
+        let boundedBorderWidth = configuration.outerBorderWidth.clamped(to: Self.minBordersWidth...)
+        let shapeStyle = configuration.outerBorderStyle ?? defaultOuterStrokeShapeStyle
 
         Rectangle()
             // Stroke draws over the rectangle boundary, half inside half outside.
             // Drawn outset to sit outside the view's boundaries.
-            .inset(by: -boundedBordersWidth/2)
-            .stroke(outerStrokeShapeStyle, lineWidth: boundedBordersWidth)
+            .inset(by: -boundedBorderWidth/2)
+            .stroke(shapeStyle, lineWidth: boundedBorderWidth)
             // Setting this frame is important to force the view to draw. If `content` size is too
             // close to zero, that same size will be adopted by this view through the overlay, and
             // nothing in the view will draw, including paths larger that the view. This frame prevents
@@ -203,26 +204,27 @@ public struct DebugGeometryModifier: ViewModifier {
 
     @ViewBuilder
     private func innerStrokeRect(geometry: GeometryProxy) -> some View {
-        let boundedBordersWidth = configuration.innerBorderWidth.clamped(to: Self.minBordersWidth...)
+        let boundedBorderWidth = configuration.innerBorderWidth.clamped(to: Self.minBordersWidth...)
         // When content view is smaller that `bordersWidth*2` the lineWidth used is reduced to
         // allow drawing at smaller sizes, otherwise strokes smaller that half the half the side
         // of the rectangle are NOT drawn.
-        let correctedLineWidth = min(geometry.size.minComponent, boundedBordersWidth * 2) / 2.0
+        let correctedLineWidth = min(geometry.size.minComponent, boundedBorderWidth * 2) / 2.0
+
+        let shapeStyle = configuration.innerBorderStyle ?? defaultInnerStrokeShapeStyle
         let strokeStyle = StrokeStyle(
             lineWidth: correctedLineWidth, lineCap: .butt,
-            dash: [boundedBordersWidth * 3, boundedBordersWidth * 2]
+            dash: [boundedBorderWidth * 3, boundedBorderWidth * 2]
         )
-        // FIXME: Add support of styling inner and outer strokes.
         // FIXME: Add support for innerStrokePosition: .inner .outer .middle? .inset? .outset?
         // FIXME: Add support to ignore concentricCornerRadii.
         if let cornerRadii = geometry.backport.concentricCornerRadii.unwrappedValue,
            cornerRadii != .zero
         {
             UnevenRoundedRectangle(cornerRadii: cornerRadii)
-            .strokeBorder(innerStrokeShapeStyle, style: strokeStyle)
+            .strokeBorder(shapeStyle, style: strokeStyle)
         } else {
-            PhasedRect(phase: boundedBordersWidth * 1.5)
-            .strokeBorder(innerStrokeShapeStyle, style: strokeStyle)
+            PhasedRect(phase: boundedBorderWidth * 1.5)
+            .strokeBorder(shapeStyle, style: strokeStyle)
         }
     }
 
@@ -323,9 +325,8 @@ public struct DebugGeometryModifier: ViewModifier {
                 } // Group
                 .font(.caption.monospaced())
                 .foregroundStyle(.secondary)
-                .multilineTextAlignment(alignments.text)
                 .fixedSize()
-                .border(configuration.drawsCaptionBorder ? AnyShapeStyle(.tertiary) : AnyShapeStyle(.clear))
+                .border(.if(configuration.drawsCaptionBorder, then: .tertiary, else: .clear))
             }// FloatingAlignedContainer
         } // if
     }
@@ -405,21 +406,21 @@ public struct DebugGeometryModifier: ViewModifier {
     }
 
 
-    private var outerStrokeShapeStyle: AnyShapeStyle {
+    private var defaultInnerStrokeShapeStyle: AnyShapeStyle {
         let shapeStyle: any ShapeStyle = switch colorScheme {
-        case .light:      .blue.tertiary
-        case .dark:       .blue.secondary
-        @unknown default: .blue.tertiary
+        case .light:      .red.tertiary
+        case .dark:       .red.secondary
+        @unknown default: .red.tertiary
         }
         return AnyShapeStyle(shapeStyle)
     }
 
 
-    private var innerStrokeShapeStyle: AnyShapeStyle {
+    private var defaultOuterStrokeShapeStyle: AnyShapeStyle {
         let shapeStyle: any ShapeStyle = switch colorScheme {
-        case .light:      .red.tertiary
-        case .dark:       .red.secondary
-        @unknown default: .red.tertiary
+        case .light:      .blue.tertiary
+        case .dark:       .blue.secondary
+        @unknown default: .blue.tertiary
         }
         return AnyShapeStyle(shapeStyle)
     }
@@ -525,11 +526,12 @@ private struct PreviewContent {
 }
 
 
+// MARK: Configuration
 #Preview("Configuration", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var useContainerShape: Bool = true
     @Previewable @State var traitOptions: [(
-        label: String,
+        label: LocalizedStringKey,
         trait: DebugGeometryModifier.Configuration.Trait,
         enabled: Bool
     )] = [
@@ -570,6 +572,7 @@ private struct PreviewContent {
             .padding(.vertical, 4)
         }
     }
+    .toggleStyle(.roundCheckmark)
 
     DashedDivider()
 
@@ -598,6 +601,84 @@ private struct PreviewContent {
 }
 
 
+#Preview("Borders", traits: .fixedHeaderFooter, PreviewContent.layout) {
+    @Previewable @State var alignment: FloatingAlignment = .top
+    @Previewable @State var innerBorderWidth: Double = 4
+    @Previewable @State var outerBorderWidth: Double = 4
+
+    @Previewable @State var traitOptions: [(
+        label: LocalizedStringKey,
+        trait: DebugGeometryModifier.Configuration.Trait,
+        enabled: Bool
+    )] = [
+        ("Inner Style",       .innerBorderStyle(style: .green), false),
+        ("Outer Style",       .outerBorderStyle(style: .brown), false),
+        // FIXME: Add option to ignore corner radii.
+    ]
+
+    let defaultTraits: [DebugGeometryModifier.Configuration.Trait] = [
+        .caption("Caption\nwith `formatting`"),
+        .alignment(alignment),
+        .concentricCornerRadii,
+        .innerBorderWidth(width: innerBorderWidth),
+        .outerBorderWidth(width: outerBorderWidth),
+    ]
+
+    let makeTraits: () -> [DebugGeometryModifier.Configuration.Trait] = {
+        var traits: [DebugGeometryModifier.Configuration.Trait] = defaultTraits
+
+        let optionalTraits = traitOptions.compactMap { traitTuple in
+            return traitTuple.enabled
+                ? traitTuple.trait
+                : nil
+        }
+        traits.append(contentsOf: optionalTraits)
+        return traits
+    }
+
+    let traits = makeTraits()
+
+    VStack {
+        FloatingAlignmentPicker(alignment: $alignment)
+
+        LazyVGrid(
+            columns: .repeating(.flexible, count: 2),
+            alignment: .leading,
+            spacing: 4.0
+        ) {
+            ForEach(traitOptions.indexed(), id: \.index) { index, optionTuple in
+                Toggle(optionTuple.label, isOn: $traitOptions[index].enabled)
+            }
+            // FIXME: Add option to toggle round container.
+        }
+        .toggleStyle(.roundCheckmark)
+
+        Slider.captioned(
+            "Inner Border Width", value: $innerBorderWidth, in: 0...30,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger
+        )
+        Slider.captioned(
+            "Outer Border Width", value: $outerBorderWidth, in: 0...30,
+            currentValueFormat: .fractionLength(2),
+            boundsValueFormat: .arithmeticRoundedInteger
+        )
+    }
+
+    DashedDivider()
+
+    VisibleSpacer()
+
+    PreviewContent.star
+    .frame(squareOf: 150)
+    .debugGeometry(traits: traits)
+    .zIndex(.one)
+
+    VisibleSpacer()
+}
+
+
+// FIXME: Use FloatingAlignmentPicker.
 #Preview("Alignments", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var bordersWidth: Double = 5
@@ -685,7 +766,6 @@ private struct PreviewContent {
         .debugGeometry(traits: traits)
         .safeAreaPadding(.init(horizontal: 100, vertical: 120))
     }
-
 }
 
 
@@ -837,6 +917,7 @@ private struct PreviewContent {
     ZStack(alignment: .topLeading) {
         PreviewContent.star
 
+        // FIXME: Use pop capsule button? + Uniform icon.
         Button("Increment", systemImage: "ladybug") {
             counter += 1
         }
@@ -858,6 +939,7 @@ private struct PreviewContent {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
             ForEach(alignments) { alignment in
                 ClearRectangle()
+                // FIXME: Use styles to draw borders only once. Try inner+center.
                 .debugGeometry(
                     .width, .caption(verbatim: alignment.hyphenatedName),
                     .alignment(alignment)
@@ -870,6 +952,7 @@ private struct PreviewContent {
 }
 
 
+// FIXME: Add marks for all previews.
 #Preview("Caption Alignment", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var bordersWidth: Double = 5
 
