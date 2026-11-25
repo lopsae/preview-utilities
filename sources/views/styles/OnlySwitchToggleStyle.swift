@@ -23,13 +23,20 @@ struct OnlySwitchToggleStyle: ToggleStyle {
 }
 
 
+// MARK: ToggleStyle Extension
+
+
 extension ToggleStyle where Self == OnlySwitchToggleStyle {
+
     static var onlySwitch: Self { .init() }
+
 }
 
 
-// MARK: Standalone
-#Preview("Standalone", traits: .paddingSpacing, .headerFooter) {
+// MARK: - Previews
+
+
+#Preview("Default", traits: .paddingSpacing, .headerFooter) {
     @Previewable @State var toggleTrue = true
     @Previewable @State var toggleFalse = false
 
@@ -55,9 +62,9 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
 
     VStack {
         Toggle("True", isOn: $toggleTrue)
-            .border(.orange.secondary, width: 2)
+        .border(.orange.secondary, width: 2)
         Toggle("False", isOn: $toggleFalse)
-            .border(.orange.secondary, width: 2)
+        .border(.orange.secondary, width: 2)
     }
     .toggleStyle(.onlySwitch)
     .scaledLayout(3)
