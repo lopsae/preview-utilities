@@ -46,7 +46,7 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
                 insertion: .scale(scale: 2),
                 removal:   .scale(scale: 0.5)
             ).combined(with: .opacity)
-            let checkmarkAnimation: Animation? = .default.speed(2)
+            let checkmarkAnimation: Animation? = .default.speed(2).delay(toggle ? 0.1 : 0)
                 .playback(playback)
 
             // Xmark is fades in with a slight delay, and fades out with scale.
@@ -54,7 +54,7 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
                 insertion: .identity,
                 removal:   .scale(scale: 0.5)
             ).combined(with: .opacity)
-            let xmarkAnimation: Animation? = .default.speed(2).delay(toggle ? 0 : 0.2)
+            let xmarkAnimation: Animation? = .default.speed(2).delay(toggle ? 0 : 0.15)
                 .playback(playback)
 
             // The ZStacks are required for the dismiss animation to perform properly for each view.
@@ -99,10 +99,35 @@ where FirstStyle: ShapeStyle, SecondStyle: ShapeStyle
     SymbolToggle(toggle: symbolToggle, firstStyle: .red, secondStyle: .secondary)
     .caliperLabel("Styled", from: .trailing)
 
+    SymbolToggle(toggle: symbolToggle, animations: .slow)
+    .caliperLabel("Slow", from: .trailing)
+
     Button("Toggle") { symbolToggle.toggle() }
 
     Image(systemName: imageToggle ? "guidepoint.horizontal" : "guidepoint.vertical")
     .caliperLabel("Stock Image", from: .trailing)
 
     Button("Toggle") { imageToggle.toggle() }
+}
+
+
+#Preview("RoundToggle", traits: .headerFooter) {
+    @Previewable @State var toggleValues: [
+        (title: LocalizedStringKey, isOn: Bool, playback: AnimationPlayback)
+    ] = [
+        ("Normal",   false, .normal),
+        ("Slow",     true,  .slow),
+        ("Disabled", true,  .disabled)
+    ]
+
+    let stack = VStack($toggleValues.indexed(), id: \.index, alignment: .leading) { index, $values in
+        Toggle(values.title, isOn: $values.isOn)
+        .toggleStyle(RoundCheckmarkToggleStyle(playback: values.playback))
+    }
+
+    stack
+
+    DashedDivider()
+
+    stack.scaledLayout(2)
 }

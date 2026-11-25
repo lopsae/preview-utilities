@@ -12,7 +12,7 @@ import SwiftUI
 /// effects.
 struct RoundCheckmarkToggleStyle: ToggleStyle {
 
-    // FIXME: When animations are off, pressedScale may need to be adjusted to prevent the pop.
+    // TODO: Support disabled state.
     private let playback: AnimationPlayback
 
     init(playback: AnimationPlayback = .normal) {
@@ -28,8 +28,10 @@ struct RoundCheckmarkToggleStyle: ToggleStyle {
         )
 
         let capsuleStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
+        let pressedScale: CGFloat = playback.isDisabled ? .one : PopCapsuleIconButtonStyle.defaultPressedScale
         let buttonStyle = PopCapsuleIconButtonStyle(
             style: capsuleStyle,
+            pressedScale: pressedScale,
             animations: playback
         )
 
