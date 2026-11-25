@@ -22,34 +22,32 @@ private struct ScaledLayout: Layout {
     }
 
     func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let childProposal = unscaled(proposal)
-        // Since all subviews are centered, the union of their frames is
-        // as wide as the widest subview and as tall as the tallest one.
-        let size = subviews.reduce(CGSize.zero) { size, subview in
-            let subviewSize = subview.sizeThatFits(childProposal)
-            return CGSize(
-                width: max(size.width, subviewSize.width),
-                height: max(size.height, subviewSize.height))
+        let unscaledProposal = unscaled(proposal)
+        let size: CGSize = subviews.reduce(into: .zero) { size, subview in
+            let subviewSize = subview.sizeThatFits(unscaledProposal)
+            size.envelop(subviewSize)
         }
-        return CGSize(width: size.width * scale, height: size.height * scale)
+        return size.multiplying(by: scale)
     }
 
     func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        let childProposal = unscaled(proposal)
-        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        let unscaledProposal = unscaled(proposal)
+        let center = bounds.centerPoint
         for subview in subviews {
-            subview.place(at: center, anchor: .center, proposal: childProposal)
+            subview.place(at: center, anchor: .center, proposal: unscaledProposal)
         }
     }
 }
 
 extension View {
+
     /// Scales the view and makes it occupy its scaled size in layout.
     func scaledLayout(_ scale: CGFloat) -> some View {
         ScaledLayout(scale: scale) {
             self
         }.scaleEffect(scale)
     }
+
 }
 
 
