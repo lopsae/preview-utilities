@@ -22,9 +22,11 @@ import SwiftUI
 /// For example, compose with `LabelStyle.iconOnly` to only display the button icon.
 struct PopCapsuleIconButtonStyle: ButtonStyle {
 
+    // The default paddings are set to reproduce the size of a toggle, when used with a uniform
+    // symbol size.
     static let defaultPaddings: EdgeInsets = .all(4)
     static let defaultPressedPaddings: EdgeInsets = .zero
-    static let defaultPressedScale: CGFloat = 1.4
+    static let defaultPressedScale: CGFloat = 1.45
 
     let style: AnyShapeStyle
     let paddings: EdgeInsets
@@ -34,9 +36,9 @@ struct PopCapsuleIconButtonStyle: ButtonStyle {
 
     init(
         style: some ShapeStyle,
-        paddings: EdgeInsets = defaultPaddings,
+        paddings:        EdgeInsets = defaultPaddings,
         pressedPaddings: EdgeInsets = defaultPressedPaddings,
-        pressedScale: CGFloat = defaultPressedScale,
+        pressedScale:    CGFloat    = defaultPressedScale,
         animations playback: AnimationPlayback = .normal
     ) {
         self.style = AnyShapeStyle(style)
@@ -49,9 +51,9 @@ struct PopCapsuleIconButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         let isPressed = configuration.isPressed
 
-        let brightness: CGFloat = isPressed ? 0.15 : .zero
+        let brightness: CGFloat     = isPressed ? 0.15 : .zero
         let popPaddings: EdgeInsets = isPressed ? pressedPaddings : .zero
-        let popScale: CGFloat = isPressed ? pressedScale : .one
+        let popScale: CGFloat       = isPressed ? pressedScale : .one
 
         let labelStyle = PopCapsuleIconLabelStyle(
             style: style,
@@ -80,6 +82,48 @@ struct PopCapsuleIconButtonStyle: ButtonStyle {
     Button("Icon Only", systemImage: "popcorn") { }
     .buttonStyle(PopCapsuleIconButtonStyle(style: .pink))
     .labelStyle(.iconOnly)
+}
+
+
+// MARK: Comparison
+#Preview("Comparison", traits: .headerFooter) {
+    @Previewable @State var toggle = false
+
+    PreviewCaption("The default configuration matches the height of the default toggle.")
+
+    let comparisonView = VStack(spacing: .zero) {
+        DashedDivider()
+
+        HStack {
+            Button("Pop Capsule", systemImage: "checkmark") { }
+            .buttonStyle(PopCapsuleIconButtonStyle(style: .green))
+            .labelStyle(.iconOnly)
+
+            Toggle("Toggle", isOn: $toggle)
+            .toggleStyle(.onlySwitch)
+        }
+        .debugAlignmentGuide(vertical: .top, .extendedLength(20))
+        .debugAlignmentGuide(vertical: .bottom, .extendedLength(20))
+        .padding(.vertical, 5)
+
+        DashedDivider()
+    }
+
+    comparisonView
+
+    // FIXME: use ScaleLayout?
+    comparisonView
+    .scaleEffect(3)
+    .padding(.vertical, 50)
+
+    Button("Pop Capsule", systemImage: "checkmark") { }
+    .buttonStyle(PopCapsuleIconButtonStyle(style: .green))
+    .labelStyle(.iconOnly)
+    .floatingCaption(alignment: .outerTrailing, .padding(8), .height)
+
+    Toggle("Toggle", isOn: $toggle)
+    .toggleStyle(.onlySwitch)
+    .floatingCaption(alignment: .outerTrailing, .padding(8), .height)
 }
 
 

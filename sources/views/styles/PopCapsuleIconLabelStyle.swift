@@ -25,6 +25,8 @@ import SwiftUI
 /// Use the `playback` property to modify or disable animations.
 struct PopCapsuleIconLabelStyle: LabelStyle {
 
+    // The default paddings are set to reproduce the size of a toggle, when used with a uniform
+    // symbol size.
     static let defaultPaddings: EdgeInsets = .all(4)
 
     let style: AnyShapeStyle
