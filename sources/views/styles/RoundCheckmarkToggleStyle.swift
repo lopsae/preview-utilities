@@ -20,18 +20,19 @@ struct RoundCheckmarkToggleStyle: ToggleStyle {
     }
 
     func makeBody(configuration: Configuration) -> some View {
-        let capsuleStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
-        let buttonStyle = PopCapsuleIconButtonStyle(
-            style: capsuleStyle,
-            animations: playback
-        )
-
         let symbolToggle = SymbolToggle(
             toggle: configuration.isOn,
             firstStyle: .white,
             secondStyle: .secondary,
             animations: playback
         )
+
+        let capsuleStyle: AnyShapeStyle = .if(configuration.isOn, then: .tint, else: .gray.secondary)
+        let buttonStyle = PopCapsuleIconButtonStyle(
+            style: capsuleStyle,
+            animations: playback
+        )
+
         Button(
             action: { configuration.isOn.toggle() },
             title: configuration.label,
@@ -53,6 +54,8 @@ extension ToggleStyle where Self == RoundCheckmarkToggleStyle {
 
 
 // MARK: - OnlyToggle
+
+// FIXME: Move to its own file.
 
 
 /// A toggle style that displays only the switch.
@@ -115,7 +118,12 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
 // MARK: Comparison
 #Preview("Comparison", traits: .headerFooter) {
     @Previewable @State var toggle = false
-    Text("Comparison")
+
+    PreviewCaption("""
+        Default sizing from `PopCapsuleIconButton` is used, which matches the height of the default 
+        toggle.
+        """)
+
     let comparisonView = VStack(spacing: .zero) {
         DashedDivider()
 
@@ -127,8 +135,8 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
             Toggle("Toggle", isOn: $toggle)
             .toggleStyle(.onlySwitch)
         }
-        .debugAlignmentGuide(vertical: .top, .extendedLength(50))
-        .debugAlignmentGuide(vertical: .bottom, .extendedLength(50))
+        .debugAlignmentGuide(vertical: .top, .extendedLength(20))
+        .debugAlignmentGuide(vertical: .bottom, .extendedLength(20))
         .padding(.vertical, 5)
 
         DashedDivider()
@@ -136,9 +144,10 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
 
     comparisonView
 
+    // FIXME: Use ScaledLayout.
     comparisonView
-    .scaleEffect(2)
-    .padding(.vertical, 20)
+    .scaleEffect(3)
+    .padding(.vertical, 40)
 }
 
 
@@ -167,13 +176,52 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
 
     DashedDivider()
 
-    HStack {
+    VStack {
         Toggle("True", isOn: $toggleTrue)
-            .border(.orange.secondary, width: 3)
+            .border(.orange.secondary, width: 2)
         Toggle("False", isOn: $toggleFalse)
-            .border(.orange.secondary, width: 3)
+            .border(.orange.secondary, width: 2)
     }
     .toggleStyle(.onlySwitch)
-    .scaleEffect(2.5)
-    .padding(.vertical, 20)
+    .scaledLayout(3)
 }
+
+
+// MARK: - Experimental
+
+
+// Experimental, currently only works with one child.
+private struct ScaledLayout: Layout {
+    let scale: CGFloat
+
+    // Proposal for the child, in unscaled coordinate space.
+    private func unscaled(_ proposal: ProposedViewSize) -> ProposedViewSize {
+        ProposedViewSize(
+            width: proposal.width.map { $0 / scale },
+            height: proposal.height.map { $0 / scale }
+        )
+    }
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        guard let subview = subviews.first else { return .zero }
+        let size = subview.sizeThatFits(unscaled(proposal))
+        return CGSize(width: size.width * scale, height: size.height * scale)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        subviews.first?.place(
+            at: CGPoint(x: bounds.midX, y: bounds.midY),
+            anchor: .center,
+            proposal: unscaled(proposal))
+    }
+}
+
+extension View {
+    /// Scales the view and makes it occupy its scaled size in layout.
+    func scaledLayout(_ scale: CGFloat) -> some View {
+        ScaledLayout(scale: scale) {
+            self.scaleEffect(scale)
+        }
+    }
+}
+
