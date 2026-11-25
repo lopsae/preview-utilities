@@ -193,6 +193,31 @@ extension DebugGeometryModifier.Configuration {
         /// A trait that performs no changes.
         public static let empty: Trait = .traits([])
 
+        // MARK: Geometry Properties Traits
+
+        /// Prints the width of the owner view in the debug caption.
+        public static let width: Trait = .modifier(GeometryPropertiesModifier(property: .width))
+
+        /// Prints the height of the owner view in the debug caption.
+        public static let height: Trait = .modifier(GeometryPropertiesModifier(property: .height))
+
+        /// Prints the global origin coordinate of the owner view in the debug caption.
+        public static let origin: Trait = .modifier(GeometryPropertiesModifier(property: .origin))
+
+        /// Prints the safe area insets applied to the owner view in the debug caption.
+        public static let safeAreaInsets: Trait = .modifier(GeometryPropertiesModifier(property: .safeAreaInsets))
+
+        /// Prints the concentric corner radii applied to the owner view in the debug caption.
+        public static let concentricCornerRadii: Trait = .modifier(GeometryPropertiesModifier(property: .concentricCornerRadii))
+
+        /// Prints the width and height of the owner view in the debug caption.
+        public static let size: Trait = .modifier(GeometryPropertiesModifier(property: .size))
+
+        /// Prints all supported geometry properties in the debug caption.
+        public static let allGeometry: Trait = .modifier(GeometryPropertiesModifier(property: .allGeometry))
+
+        // MARK: Visual Traits
+
         /// Hides all elements of the geometry overlay.
         public static let hidden: Trait = .modifier(VisibilityModifier(isVisible: false))
 
@@ -255,26 +280,7 @@ extension DebugGeometryModifier.Configuration {
             }
         }
 
-        /// Prints the width of the owner view in the debug caption.
-        public static let width: Trait = .modifier(GeometryPropertiesModifier(property: .width))
-
-        /// Prints the height of the owner view in the debug caption.
-        public static let height: Trait = .modifier(GeometryPropertiesModifier(property: .height))
-
-        /// Prints the global origin coordinate of the owner view in the debug caption.
-        public static let origin: Trait = .modifier(GeometryPropertiesModifier(property: .origin))
-
-        /// Prints the safe area insets applied to the owner view in the debug caption.
-        public static let safeAreaInsets: Trait = .modifier(GeometryPropertiesModifier(property: .safeAreaInsets))
-
-        /// Prints the concentric corner radii applied to the owner view in the debug caption.
-        public static let concentricCornerRadii: Trait = .modifier(GeometryPropertiesModifier(property: .concentricCornerRadii))
-
-        /// Prints the width and height of the owner view in the debug caption.
-        public static let size: Trait = .modifier(GeometryPropertiesModifier(property: .size))
-
-        /// Prints all supported geometry properties in the debug caption.
-        public static let allGeometry: Trait = .modifier(GeometryPropertiesModifier(property: .allGeometry))
+        // MARK: Caption Traits
 
         /// Prints the given localized string in the debug caption.
         /// 
@@ -311,6 +317,8 @@ extension DebugGeometryModifier.Configuration {
         ///
         /// The default outer alignment is ``FloatingAlignment/outerTopLeading``.
         public static let outerAlignment: Trait = .modifier(CaptionAlignmentModifier(alignment: .outerTopLeading))
+
+        // MARK: Utlity Traits
 
         /// Enables drawing a border around the debug caption.
         ///
