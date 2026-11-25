@@ -233,8 +233,8 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        Snapshots.assertView("horizontal") {
-            VStack(items: [CGFloat(0), 1, 2, 4, 8, 10, 12], spacing: 20) { height in
+        Snapshots.assertView("horizontal", spacing: 20) {
+            ForEach(hashing: [CGFloat(0), 1, 2, 4, 8, 10, 12]) { height in
                 TestViews.quinaryGrayRect(size: [120, height])
                 .debugGeometry()
                 .safeAreaPadding(.horizontal, 20)
@@ -283,5 +283,21 @@ struct DebugGeometryModifierSnapshots {
 
 
     // FIXME: Test container radii.
+
+}
+
+
+// FIXME: Move to own file.
+private extension ForEach {
+
+    init(
+        hashing items: Data,
+        @ContentBuilder content: @escaping (Data.Element) -> Content
+    ) where
+        Data.Element: Hashable,
+        Data.Element == ID
+    {
+        self.init(items, id: \.self, content: content)
+    }
 
 }
