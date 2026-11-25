@@ -47,13 +47,16 @@ extension View {
     /// Scales the view and makes it occupy its scaled size in layout.
     func scaledLayout(_ scale: CGFloat) -> some View {
         ScaledLayout(scale: scale) {
-            self.scaleEffect(scale)
-        }
+            self
+        }.scaleEffect(scale)
     }
 }
 
 
-#Preview("ScaledLayout") {
+// MARK: - Previews
+
+
+#Preview("Default", traits: .paddingSpacing) {
     Image(systemName: "guidepoint.horizontal")
     .scaledLayout(4)
     .border(.orange.secondary, width: 2)
@@ -72,6 +75,7 @@ extension View {
 }
 
 
+// MARK: Text
 #Preview("Text", traits: .fixedHeaderFooter) {
     @Previewable @State var fixedWidth: CGFloat = 400
 
@@ -84,12 +88,11 @@ extension View {
     VisibleSpacer()
 
     VStack {
-        Text("Sphinx of Black Quartz")
+        Text("Sphinx of Black Quartz,")
         Text("Judge my vow.")
     }
     .scaledLayout(2.5)
     .frame(width: fixedWidth)
-//    .frame(minHeight: 10/*, maxHeight: 400*/)
     .border(.orange.secondary, width: 2)
     .layoutPriority(1)
 
