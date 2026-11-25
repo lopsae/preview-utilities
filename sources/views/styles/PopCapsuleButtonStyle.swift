@@ -23,11 +23,10 @@ import SwiftUI
 /// with `LabelStyle.iconOnly` to only display the button icon.
 struct PopCapsuleButtonStyle: ButtonStyle {
 
-    // FIXME: update defaults to make this buttons resemble bordered buttons.
-    // FIXME: Use this defaults for icon only style, since these are used for RoundToggle.
-    static let defaultPaddings: EdgeInsets = .all(4)
+    // The default paddings are set to reproduce the size of a bordered button.
+    static let defaultPaddings: EdgeInsets = .init(horizontal: 12, vertical: 7)
     static let defaultPressedPaddings: EdgeInsets = .zero
-    static let defaultPressedScale: CGFloat = 1.4
+    static let defaultPressedScale: CGFloat = 1.1
 
     let style: AnyShapeStyle
     let paddings: EdgeInsets
@@ -79,22 +78,44 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     @Previewable @State var colorToggle = true
     HStack(spacing: SpacingDefaults.padding) {
         Button("Pop Capsule") {}
-        .buttonStyle(PopCapsuleButtonStyle(style: .tint))
+        .buttonStyle(PopCapsuleButtonStyle(style: .blue))
 
-        Button("Icon Only", action: {}, icon: UniformSizeSymbol(systemName: "party.popper"))
+        Button("Icon Only", systemImage: "party.popper") { }
         .buttonStyle(PopCapsuleButtonStyle(style: .purple))
         .labelStyle(.iconOnly)
+
+        Button("Uniform Icon Only", systemImage: "party.popper") { }
+        .buttonStyle(PopCapsuleButtonStyle(style: .indigo))
+        .labelStyle(.uniformIcon)
+        .labelStyle(.iconOnly)
     }
-    .foregroundStyle(.background)
+
+    DashedDivider()
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
-        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
+        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .gray)
         let buttonStyle = PopCapsuleButtonStyle(style: capsuleStyle, animations: playback)
         Button("Uniform", systemImage: "popcorn") { colorToggle.toggle() }
-        .labelStyle(.uniformIcon)
         .buttonStyle(buttonStyle)
+        .labelStyle(.uniformIcon)
     }
-    .foregroundStyle(.background)
+}
+
+
+// MARK: Comparison
+#Preview("Comparison", traits: .paddingSpacing, .headerFooter) {
+    PreviewCaption("The default configuration matches the size of the bordered button.")
+
+    Button("Comparison", systemImage: "circle") { }
+    .buttonStyle(.borderedProminent)
+    .floatingCaption("Bordered Prominent", alignment: .outerBottomTrailing, .size)
+    .padding(.bottom, 40)
+
+    Button("Comparison", systemImage: "circle") { }
+    .labelStyle(.uniformIcon)
+    .buttonStyle(PopCapsuleButtonStyle(style: .tint))
+    .floatingCaption("PopCapsule Button", alignment: .outerBottomTrailing, .size)
+    .padding(.bottom, 40)
 }
 
 
@@ -103,7 +124,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     @Previewable @State var colorToggle = true
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
-        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
+        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .gray)
         let buttonStyle = PopCapsuleButtonStyle(
             style: capsuleStyle,
             paddings: .init(horizontal: 8, vertical: 4),
@@ -112,15 +133,14 @@ struct PopCapsuleButtonStyle: ButtonStyle {
             animations: playback
         )
         Button("Only Paddings", systemImage: "popcorn") { colorToggle.toggle() }
-        .labelStyle(.uniformIcon)
         .buttonStyle(buttonStyle)
+        .labelStyle(.uniformIcon)
     }
-    .foregroundStyle(.background)
 
     DashedDivider()
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
-        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
+        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .gray)
         let buttonStyle = PopCapsuleButtonStyle(
             style: capsuleStyle,
             paddings: .init(horizontal: 8, vertical: 4),
@@ -129,15 +149,14 @@ struct PopCapsuleButtonStyle: ButtonStyle {
             animations: playback
         )
         Button("Paddings + Scale", systemImage: "popcorn") { colorToggle.toggle() }
-        .labelStyle(.uniformIcon)
         .buttonStyle(buttonStyle)
+        .labelStyle(.uniformIcon)
     }
-    .foregroundStyle(.background)
 
     DashedDivider()
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
-        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .teal)
+        let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .gray)
         let buttonStyle = PopCapsuleButtonStyle(
             style: capsuleStyle,
             paddings: .init(horizontal: 8, vertical: 4),
@@ -145,8 +164,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
             animations: playback
         )
         Button("No Scale", systemImage: "popcorn") { colorToggle.toggle() }
-        .labelStyle(.uniformIcon)
         .buttonStyle(buttonStyle)
+        .labelStyle(.uniformIcon)
     }
-    .foregroundStyle(.background)
 }
