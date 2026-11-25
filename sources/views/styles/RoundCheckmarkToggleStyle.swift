@@ -144,22 +144,20 @@ extension ToggleStyle where Self == OnlySwitchToggleStyle {
 
     comparisonView
 
-    // FIXME: Use ScaledLayout.
     comparisonView
-    .scaleEffect(3)
-    .padding(.vertical, 40)
+    .scaledLayout(3)
 }
 
 
 // MARK: Standalone
-#Preview("Standalone", traits: .headerFooter) {
+#Preview("Standalone", traits: .paddingSpacing, .headerFooter) {
     @Previewable @State var toggleTrue = true
     @Previewable @State var toggleFalse = false
 
     HStack {
-        Toggle("Labeled", isOn: $toggleTrue)
+        Toggle("Only Switch", isOn: $toggleTrue)
         .toggleStyle(.onlySwitch)
-        Text("Labeled")
+        Text("Only Switch")
     }
     .expandingWidthFrame(alignment: .leading)
 

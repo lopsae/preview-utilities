@@ -86,7 +86,7 @@ struct PopCapsuleIconButtonStyle: ButtonStyle {
 
 
 // MARK: Comparison
-#Preview("Comparison", traits: .headerFooter) {
+#Preview("Comparison", traits: .paddingSpacing, .headerFooter) {
     @Previewable @State var toggle = false
 
     PreviewCaption("The default configuration matches the height of the default toggle.")
@@ -111,10 +111,8 @@ struct PopCapsuleIconButtonStyle: ButtonStyle {
 
     comparisonView
 
-    // FIXME: use ScaleLayout?
     comparisonView
-    .scaleEffect(3)
-    .padding(.vertical, 50)
+    .scaledLayout(3)
 
     Button("Pop Capsule", systemImage: "checkmark") { }
     .buttonStyle(PopCapsuleIconButtonStyle(style: .green))
@@ -166,5 +164,5 @@ struct PopCapsuleIconButtonStyle: ButtonStyle {
         Button(playback.displayName.capitalized, systemImage: "popcorn") { styleToggle.toggle() }
         .buttonStyle(buttonStyle)
     }
-    .scaleEffect(2)
+    .scaledLayout(2)
 }
