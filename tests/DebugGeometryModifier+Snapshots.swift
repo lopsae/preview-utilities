@@ -31,15 +31,13 @@ struct DebugGeometryModifierSnapshots {
 
 
     @Test(.snapshotTesting) func geometryProperties() {
-        Snapshots.assertView("sizes") {
-            VStack(spacing: 20) {
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.height)
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.width)
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.size)
-            }
+        Snapshots.assertView("sizes", spacing: 20) {
+            TestViews.quinaryGrayRect()
+                .debugGeometry(.height)
+            TestViews.quinaryGrayRect()
+                .debugGeometry(.width)
+            TestViews.quinaryGrayRect()
+                .debugGeometry(.size)
         }
 
         Snapshots.assertView("origin", size: [400, 200]) {
@@ -52,6 +50,10 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.safeAreaInsets)
             .safeAreaPadding(20)
         }
+
+        // FIXME: Test radii.
+
+        // FIXME: Test allGeometry.
     }
 
 
@@ -68,6 +70,7 @@ struct DebugGeometryModifierSnapshots {
 
         Snapshots.assertView("visible") {
             VStack(spacing: 20) {
+                // FIXME: Use quinary rects.
                 Rectangle()
                     .fill(.gray.quinary)
                     .frame(size: [120, 40])
@@ -93,6 +96,10 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(.horizontal, 20)
         }
 
+        // FIXME: Test inner/outer border visibility.
+
+        // FIXME: Test inner/outer border width.
+
         Snapshots.assertView("bordersWidth") {
             VStack(items: [CGFloat(1), 2, 4, 8], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
@@ -100,6 +107,8 @@ struct DebugGeometryModifierSnapshots {
             }
             .safeAreaPadding(.horizontal, 20)
         }
+
+        // FIXME: Test inner/outer border style.
 
         Snapshots.assertView("small") {
             VStack(items: [CGFloat.zero, 0.5, 1], spacing: 20) { borderWidth in
@@ -130,6 +139,67 @@ struct DebugGeometryModifierSnapshots {
             TestViews.quinaryGraySquare()
             .debugGeometry(.caption(verbatim: "Verbatim caption\nNewLines\n_No Formatting_"))
             .safeAreaPadding(20)
+        }
+    }
+
+
+    @Test(.snapshotTesting) func alignments() {
+        Snapshots.assertView("all") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment)
+                )
+            }
+        }
+
+        Snapshots.assertView("traits") {
+            VStack(spacing: 20) {
+                TestViews.quinaryGrayRect()
+                    .debugGeometry(.caption("Outer"), .outerAlignment)
+                TestViews.quinaryGrayRect()
+                    .debugGeometry(.caption("Inner"), .innerAlignment)
+            }
+        }
+
+        Snapshots.assertView("allWithBorders") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment),
+                    .drawsCaptionBorder
+                )
+            }
+        }
+
+        Snapshots.assertView("hairline") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment),
+                    .hairline,
+                    .drawsCaptionBorder
+                )
+            }
+        }
+
+        Snapshots.assertView("thickBorder") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment),
+                    .bordersWidth(10),
+                    .drawsCaptionBorder
+                )
+            }
         }
     }
 
@@ -212,64 +282,6 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func alignments() {
-        Snapshots.assertView("all") {
-            TestViews.quinaryGraySquare()
-            .overlayFloatingAlignments { alignment in
-                ClearRectangle()
-                .debugGeometry(
-                    .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment)
-                )
-            }
-        }
-
-        Snapshots.assertView("traits") {
-            VStack(spacing: 20) {
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.caption("Outer"), .outerAlignment)
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.caption("Inner"), .innerAlignment)
-            }
-        }
-
-        Snapshots.assertView("allWithBorders") {
-            TestViews.quinaryGraySquare()
-            .overlayFloatingAlignments { alignment in
-                ClearRectangle()
-                .debugGeometry(
-                    .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment),
-                    .drawsCaptionBorder
-                )
-            }
-        }
-
-        Snapshots.assertView("hairline") {
-            TestViews.quinaryGraySquare()
-            .overlayFloatingAlignments { alignment in
-                ClearRectangle()
-                .debugGeometry(
-                    .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment),
-                    .hairline,
-                    .drawsCaptionBorder
-                )
-            }
-        }
-
-        Snapshots.assertView("thickBorder") {
-            TestViews.quinaryGraySquare()
-            .overlayFloatingAlignments { alignment in
-                ClearRectangle()
-                .debugGeometry(
-                    .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment),
-                    .bordersWidth(10),
-                    .drawsCaptionBorder
-                )
-            }
-        }
-    }
+    // FIXME: Test container radii.
 
 }
