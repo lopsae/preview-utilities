@@ -15,11 +15,14 @@ In Development.
 + Moved `Path(crosshair:)` to `Paths.crosshair`.
 + Added `PathShape`.
 + Added `FilledRectangle`.
-+ Added `SymbolToggleButton`, and `PopCapsuleButtonStyle`.
++ Added `PopCapsule` and `SymbolToggle`.
++ Added `PopCapsuleButtonStyle`, `PopCapsuleIconButtonStyle`, and `PopCapsuleIconLabelStyle`. 
 + Added `UniformSizeSymbol`.
 + Added `AnimationPlayback`.
 + Added `ViewTemplate`.
++ Added `ScaledLayout`.
 + Added `FloatingPointFormatStyle.twoFractionals`.
++ Added `FloatingAlignmentPicker`.
 + Added `GeometryProxyFormatStyles` containing `ConcentricCornerRadiiDebugString` and `EdgeInsetsDebugString`.
 + Added `DebugGeometryModifier.Configuration.Trait/mutate` case.
 + Added `Edge/opposite`, `rotated`, and `counterRotated`.
