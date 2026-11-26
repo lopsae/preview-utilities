@@ -13,13 +13,14 @@ import Testing
 
 enum Snapshots {
 
+    static let defaultSize: CGSize = .square(of: 200)
     static let defaultColorSchemes: Set<ColorScheme> = [.light]
 
     static func assertView<Content: View>(
         _ name: String,
+        size: CGSize = defaultSize,
         layout: Layout = .vStack,
         spacing: CGFloat? = nil,
-        size: CGSize = .square(of: 200),
         colorSchemes: Set<ColorScheme> = defaultColorSchemes,
         timeout: TimeInterval = 5,
         record: SnapshotTestingConfiguration.Record? = nil,
