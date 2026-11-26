@@ -234,8 +234,8 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        Snapshots.assertView("vertical") {
-            HStack(items: [CGFloat(0), 1, 2, 4, 8, 10, 12], spacing: 20) { width in
+        Snapshots.assertView("vertical", layout: .hStack, spacing: 20) {
+            ForEach(hashing: [CGFloat(0), 1, 2, 4, 8, 10, 12]) { width in
                 TestViews.quinaryGrayRect(size: [width, 120])
                 .debugGeometry()
                 .safeAreaPadding(.vertical, 20)

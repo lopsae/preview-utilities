@@ -212,8 +212,8 @@ struct FloatingCaptionModifierSnapshots {
             }
         }
 
-        Snapshots.assertView("tall") {
-            HStack(items: [CGFloat(0.5), 1, 2, 4, 8], spacing: 20) { width in
+        Snapshots.assertView("tall", layout: .hStack, spacing: 20) {
+            ForEach(hashing: [CGFloat(0.5), 1, 2, 4, 8]) { width in
                 TestViews.quinaryGrayRect(size: [width, 120])
                 .floatingCaption(.borderStyle(.teal))
             }
