@@ -93,6 +93,17 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
+    @Test func bordersVisibility() {
+        Snapshots.assertView("specials") {
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.noBorders, .caption("`noBorders`"))
+            .safeAreaPadding(.horizontal, 20)
+        }
+
+        // FIXME: Test inner/outer border visibility, if added.
+    }
+
+
     @Test func bordersWidth() {
         Snapshots.assertView("specials") {
             TestViews.quinaryGrayRect()
@@ -128,8 +139,6 @@ struct DebugGeometryModifierSnapshots {
 
         // FIXME: Test inner/outer border style.
 
-        // FIXME: Test inner/outer border visibility, if added.
-
         Snapshots.assertView("small") {
             VStack(items: [CGFloat.zero, 0.5, 1], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
@@ -141,17 +150,35 @@ struct DebugGeometryModifierSnapshots {
         Snapshots.assertView("large") {
             VStack(items: [CGFloat(8), 10, 15], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                .debugGeometry(.bordersWidth(borderWidth.asDouble), .caption("`\(oneFractional: borderWidth)`"))
+                .debugGeometry(.bordersWidth(borderWidth), .caption("`\(oneFractional: borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
     }
 
 
-    @Test func bordersVisibility() {
-        Snapshots.assertView("specials") {
+    @Test func bordersStyle() {
+        Snapshots.assertView("innerBorderStyle", spacing: 20, colorSchemes: .all) {
             TestViews.quinaryGrayRect()
-            .debugGeometry(.noBorders, .caption("`noBorders`"))
+            .debugGeometry(.innerBorderStyle(style: .orange))
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.innerBorderStyle(style: .primary))
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.innerBorderStyle(style: .clear))
+            .safeAreaPadding(.horizontal, 20)
+        }
+
+        Snapshots.assertView("outerBorderStyle", spacing: 20, colorSchemes: .all) {
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.outerBorderStyle(style: .orange))
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.outerBorderStyle(style: .primary))
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.outerBorderStyle(style: .clear))
             .safeAreaPadding(.horizontal, 20)
         }
     }
