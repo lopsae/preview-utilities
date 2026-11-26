@@ -73,23 +73,21 @@ struct DebugGeometryModifierSnapshots {
 
 
     @Test func visibility() {
-        Snapshots.assertView("hidden") {
-            VStack(spacing: 20) {
-                TestViews.quinaryGrayRect(size: [120, 40])
-                    .debugGeometry(.caption("`~hidden`"), .size)
-                TestViews.quinaryGrayRect(size: [120, 40])
-                    .debugGeometry(.caption("`hidden`"), .size, .hidden)
-            }
+        Snapshots.assertView("hidden", spacing: 20) {
+            TestViews.quinaryGrayRect(size: [120, 40])
+            .debugGeometry(.caption("`~hidden`"), .size)
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect(size: [120, 40])
+            .debugGeometry(.caption("`hidden`"), .size, .hidden)
             .safeAreaPadding(.horizontal, 20)
         }
 
-        Snapshots.assertView("visible") {
-            VStack(spacing: 20) {
-                TestViews.quinaryGrayRect(size: [120, 40])
-                    .debugGeometry(.caption("`~visible`"), .size, .visible(true))
-                TestViews.quinaryGrayRect(size: [120, 40])
-                    .debugGeometry(.caption("`visible`"), .size, .visible(false))
-            }
+        Snapshots.assertView("visible", spacing: 20) {
+            TestViews.quinaryGrayRect(size: [120, 40])
+            .debugGeometry(.caption("`~visible`"), .size, .visible(true))
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect(size: [120, 40])
+            .debugGeometry(.caption("`visible`"), .size, .visible(false))
             .safeAreaPadding(.horizontal, 20)
         }
     }
@@ -242,11 +240,11 @@ struct DebugGeometryModifierSnapshots {
         Snapshots.assertView("zero") {
             VStack.expandingWidth(alignment: .leading) {
                 TestViews.quinaryGraySquare(length: .zero)
-                    .debugGeometry()
-                    .safeAreaPadding([.top, .leading], 20)
+                .debugGeometry()
+                .safeAreaPadding([.top, .leading], 20)
                 TestViews.quinaryGraySquare(length: .zero)
-                    .debugGeometry(.caption("Caption still visible"), .size)
-                    .safeAreaPadding([.top, .leading], 20)
+                .debugGeometry(.caption("Caption still visible"), .size)
+                .safeAreaPadding([.top, .leading], 20)
             }
             .padding(20)
         }
@@ -293,19 +291,19 @@ struct DebugGeometryModifierSnapshots {
         Snapshots.assertView("each", layout: .hStack, spacing: 20) {
             VStack(spacing: 20) {
                 TestViews.quinaryGraySquare(length: 40)
-                    .debugGeometry()
-                    .safeAreaPadding(.top, 20)
+                .debugGeometry()
+                .safeAreaPadding(.top, 20)
                 TestViews.quinaryGraySquare(length: 40)
-                    .debugGeometry()
-                    .safeAreaPadding(.leading, 20)
+                .debugGeometry()
+                .safeAreaPadding(.leading, 20)
             }
             VStack(spacing: 20) {
                 TestViews.quinaryGraySquare(length: 40)
-                    .debugGeometry()
-                    .safeAreaPadding(.trailing, 20)
+                .debugGeometry()
+                .safeAreaPadding(.trailing, 20)
                 TestViews.quinaryGraySquare(length: 40)
-                    .debugGeometry()
-                    .safeAreaPadding(.bottom, 20)
+                .debugGeometry()
+                .safeAreaPadding(.bottom, 20)
             }
         }
     }
