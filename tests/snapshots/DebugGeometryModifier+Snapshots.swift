@@ -302,8 +302,6 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        // FIXME: With clear borders.
-
         Snapshots.assertView("hairline") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
@@ -334,6 +332,32 @@ struct DebugGeometryModifierSnapshots {
                     baseTraits(alignment),
                     .innerBorderWidth(10),
                     .outerBorderWidth(2),
+                )
+            }
+        }
+
+        // FIXME: Thick Outer
+
+        Snapshots.assertView("clearHairline") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    baseTraits(alignment),
+                    .hairline,
+                    .clearStyles
+                )
+            }
+        }
+
+        Snapshots.assertView("clearThickBorders") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    baseTraits(alignment),
+                    .bordersWidth(10),
+                    .clearStyles
                 )
             }
         }
