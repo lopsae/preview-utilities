@@ -34,11 +34,11 @@ struct DebugGeometryModifierSnapshots {
     @Test func geometryProperties() {
         Snapshots.assertView("sizes", spacing: 20) {
             TestViews.quinaryGrayRect()
-                .debugGeometry(.height)
+            .debugGeometry(.height)
             TestViews.quinaryGrayRect()
-                .debugGeometry(.width)
+            .debugGeometry(.width)
             TestViews.quinaryGrayRect()
-                .debugGeometry(.size)
+            .debugGeometry(.size)
         }
 
         Snapshots.assertView("origin", size: [400, 200]) {
@@ -97,12 +97,15 @@ struct DebugGeometryModifierSnapshots {
 
     // FIXME: Likely rename to borderWidth.
     @Test func borders() {
+
         Snapshots.assertView("special") {
             VStack(spacing: 20) {
                 TestViews.quinaryGrayRect()
-                    .debugGeometry(.hairline, .caption("`hairline`"))
+                .debugGeometry(.hairline, .caption("`hairline`"))
+
+                // FIXME: no borders deals with visibility.
                 TestViews.quinaryGrayRect()
-                    .debugGeometry(.noBorders, .caption("`noBorders`"))
+                .debugGeometry(.noBorders, .caption("`noBorders`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
