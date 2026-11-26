@@ -46,13 +46,27 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.origin)
         }
 
-        Snapshots.assertView("insets") {
-            TestViews.quinaryGraySquare()
+        Snapshots.assertView("insets", spacing: 30) {
+            TestViews.quinaryGrayRect(size: [120, 40])
             .debugGeometry(.safeAreaInsets)
-            .safeAreaPadding(20)
+            .safeAreaPadding(EdgeInsets(horizontal: 20, vertical: 15))
+
+            TestViews.quinaryGrayRect(size: [120, 40])
+            .debugGeometry(.safeAreaInsets)
         }
 
-        // FIXME: Test radii.
+        // FIXME: This will report unavailable work till snapshots are migrated to iOS 27.
+        Snapshots.assertView("radii", spacing: 40) {
+            let container = UnevenRoundedRectangle(even: 5, odd: 10)
+            TestViews.quinaryGrayRect(size: [120, 40])
+            .debugGeometry(.concentricCornerRadii)
+            .containerShape(container)
+
+            TestViews.quinaryGrayRect(size: [120, 40])
+            .debugGeometry(.concentricCornerRadii)
+        }
+
+        // FIXME: Test radii + paddings.
 
         // FIXME: Test allGeometry.
     }
@@ -93,19 +107,35 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(.horizontal, 20)
         }
 
-        // FIXME: Test inner/outer border visibility.
+        let borderWidths: [CGFloat] = [.zero, 1, 2, 4, 8]
 
-        // FIXME: Test inner/outer border width.
-
-        Snapshots.assertView("bordersWidth") {
-            VStack(items: [CGFloat(1), 2, 4, 8], spacing: 20) { borderWidth in
+        Snapshots.assertView("bordersWidth", size: [200, 240]) {
+            VStack(items: borderWidths, spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
                 .debugGeometry(.bordersWidth(borderWidth), .caption("`\(oneFractional: borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
 
+        Snapshots.assertView("innerBorderWidth", size: [200, 240]) {
+            VStack(items: borderWidths, spacing: 20) { borderWidth in
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.innerBorderWidth(width: borderWidth), .caption("`\(oneFractional: borderWidth)`"))
+            }
+            .safeAreaPadding(.horizontal, 20)
+        }
+
+        Snapshots.assertView("outerBorderWidth", size: [200, 240]) {
+            VStack(items: borderWidths, spacing: 20) { borderWidth in
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.outerBorderWidth(width: borderWidth), .caption("`\(oneFractional: borderWidth)`"))
+            }
+            .safeAreaPadding(.horizontal, 20)
+        }
+
         // FIXME: Test inner/outer border style.
+
+        // FIXME: Test inner/outer border visibility, if added.
 
         Snapshots.assertView("small") {
             VStack(items: [CGFloat.zero, 0.5, 1], spacing: 20) { borderWidth in
@@ -128,7 +158,7 @@ struct DebugGeometryModifierSnapshots {
     @Test func captions() {
         Snapshots.assertView("localized") {
             TestViews.quinaryGraySquare()
-                .debugGeometry(.caption("Caption `monospaced`\nNewLine _Formatted_"))
+            .debugGeometry(.caption("Caption `monospaced`\nNewLine _Formatted_"))
             .safeAreaPadding(20)
         }
 
@@ -152,13 +182,11 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        Snapshots.assertView("traits") {
-            VStack(spacing: 20) {
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.caption("Outer"), .outerAlignment)
-                TestViews.quinaryGrayRect()
-                    .debugGeometry(.caption("Inner"), .innerAlignment)
-            }
+        Snapshots.assertView("traits", spacing: 20) {
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.caption("Outer"), .outerAlignment)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.caption("Inner"), .innerAlignment)
         }
 
         Snapshots.assertView("allWithBorders") {
@@ -198,6 +226,10 @@ struct DebugGeometryModifierSnapshots {
                 )
             }
         }
+
+        // FIXME: Test alignments with inner/outer border visibility.
+
+        // FIXME: Test alignments with inner/outer border width.
     }
 
 
