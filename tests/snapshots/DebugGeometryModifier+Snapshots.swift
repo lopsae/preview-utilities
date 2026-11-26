@@ -90,6 +90,10 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.caption("`visible`"), .size, .visible(false))
             .safeAreaPadding(.horizontal, 20)
         }
+
+        // FIXME: Move border visibility here.
+
+        // FIXME: Add safeareas visibility.
     }
 
 
@@ -163,6 +167,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
+    // FIXME: Rename to styles, add safeareas styles too.
     @Test func bordersStyle() {
         Snapshots.assertView("innerBorderStyle", spacing: 20, colorSchemes: .all) {
             TestViews.quinaryGrayRect()
