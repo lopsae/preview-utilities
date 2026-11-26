@@ -177,30 +177,51 @@ struct DebugGeometryModifierSnapshots {
 
     @Test func styles() {
         Snapshots.assertView("innerBorder", spacing: 20, colorSchemes: .all) {
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.innerBorderStyle(.orange))
-            .safeAreaPadding(.horizontal, 20)
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.innerBorderStyle(.primary))
-            .safeAreaPadding(.horizontal, 20)
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.innerBorderStyle(.clear))
-            .safeAreaPadding(.horizontal, 20)
+            Group {
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.innerBorderStyle(.orange))
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.innerBorderStyle(.primary))
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.innerBorderStyle(.clear))
+            }.safeAreaPadding(.horizontal, 20)
         }
 
         Snapshots.assertView("outerBorder", spacing: 20, colorSchemes: .all) {
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.outerBorderStyle(.orange))
-            .safeAreaPadding(.horizontal, 20)
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.outerBorderStyle(.primary))
-            .safeAreaPadding(.horizontal, 20)
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.outerBorderStyle(.clear))
-            .safeAreaPadding(.horizontal, 20)
+            Group {
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.outerBorderStyle(.orange))
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.outerBorderStyle(.primary))
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.outerBorderStyle(.clear))
+            }.safeAreaPadding(.horizontal, 20)
         }
 
-        // FIXME: Test clearStyles.
+        // FIXME: Test safeInsetStyles.
+
+        Snapshots.assertView("clearStyles", spacing: 20) {
+            Group {
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.caption("`clearStyles`"), .clearStyles)
+                TestViews.quinaryGrayRect()
+                .debugGeometry(
+                    .caption("overwrites"),
+                    .innerBorderStyle(.orange),
+                    .outerBorderStyle(.orange),
+                    .safeAreasStyle(.orange),
+                    .clearStyles
+                )
+                TestViews.quinaryGrayRect()
+                .debugGeometry(
+                    .caption("overwritten"),
+                    .clearStyles,
+                    .innerBorderStyle(.orange),
+                    .outerBorderStyle(.orange),
+                    .safeAreasStyle(.orange),
+                )
+            }.safeAreaPadding(.horizontal, 20)
+        }
 
         Snapshots.assertView("clearStylesExceptOnCenter", spacing: 20) {
             TestViews.quinaryGrayRect()
