@@ -333,6 +333,9 @@ extension DebugGeometryModifier.Configuration {
         public static var drawsCaptionBorder: Trait { .modifier(EnableCaptionBorder()) }
 
         // FIXME: Document, add to Trait list.
+        // FIXME: rename: clearStylesExceptCenter.
+        // Must be used after ``alignment`` in order to work propertly, since it depends on the
+        // alignment already set in the configuration.
         public static var clearExceptCenter: Trait {
             .mutate { configuration in
                 if configuration.captionAlignment == .center { return }

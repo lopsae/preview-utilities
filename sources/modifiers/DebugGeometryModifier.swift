@@ -901,11 +901,11 @@ private struct PreviewContent {
     ZStack(alignment: .topLeading) {
         PreviewContent.star
 
-        // FIXME: Use pop capsule button? + Uniform icon.
         Button("Increment", systemImage: "ladybug") {
             counter += 1
         }
-        .buttonStyle(.borderedProminent)
+        .buttonStyle(.popCapsule)
+        .labelStyle(.uniformIcon)
         .padding()
     }
     .debugGeometry(.allGeometry)
@@ -926,11 +926,13 @@ private struct PreviewContent {
                 // FIXME: Use styles to draw borders only once. Try inner+center.
                 .debugGeometry(
                     .width, .caption(verbatim: alignment.hyphenatedName),
-                    .alignment(alignment)
+                    .alignment(alignment),
+                    .clearExceptCenter
                 )
             }
         }
-        .padding(.vertical, 30)
+        .safeAreaPadding(20)
+        .padding(.vertical, 16)
     }
     DashedDivider()
 }
