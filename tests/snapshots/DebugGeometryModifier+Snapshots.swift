@@ -336,7 +336,17 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        // FIXME: Thick Outer
+        Snapshots.assertView("thickOuter") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    baseTraits(alignment),
+                    .innerBorderWidth(2),
+                    .outerBorderWidth(10),
+                )
+            }
+        }
 
         Snapshots.assertView("clearHairline") {
             TestViews.quinaryGraySquare()
@@ -361,10 +371,6 @@ struct DebugGeometryModifierSnapshots {
                 )
             }
         }
-
-
-
-        // FIXME: Test alignments with inner/outer border width.
 
         // FIXME: Test alignments with inner/outer border visibility.
     }
