@@ -63,44 +63,6 @@ extension UnevenRoundedRectangle {
     }
 
 
-    // FIXME: Consider if keeping.
-    // Alternate corners.
-    @inlinable nonisolated
-    public init(
-        tlbt: CGFloat,
-        bltt: CGFloat,
-        style: RoundedCornerStyle = .continuous
-    ) {
-        self.init(
-            topLeadingRadius:     tlbt,
-            bottomLeadingRadius:  bltt,
-            bottomTrailingRadius: tlbt,
-            topTrailingRadius:    bltt,
-            style: style
-        )
-    }
-
-
-    // FIXME: Consider if keeping.
-    // Alternate corners
-    //
-    // For forward leaning diagonal corners (tt & bl), and backward leaning (tl & bt).
-    @inlinable nonisolated
-    public init(
-        forwards:  CGFloat,
-        backwards: CGFloat,
-        style: RoundedCornerStyle = .continuous
-    ) {
-        self.init(
-            topLeadingRadius:     backwards,
-            bottomLeadingRadius:  forwards,
-            bottomTrailingRadius: backwards,
-            topTrailingRadius:    forwards,
-            style: style
-        )
-    }
-
-
     // Alternate corners
     //
     // For even diagonal corners (tl & bt), and odd (bl & tt).

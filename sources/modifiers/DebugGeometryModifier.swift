@@ -831,7 +831,7 @@ private struct PreviewContent {
         ConcentricRectangle(minimumConcentricRadius: .zero)
             .fill(.orange)
 
-        let container = UnevenRoundedRectangle(forwards: 50, backwards: 20)
+        let container = UnevenRoundedRectangle(even: 20, odd: 50)
 
         VStack {
             ZStack {
