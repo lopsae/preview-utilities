@@ -264,31 +264,25 @@ extension DebugGeometryModifier.Configuration {
             }
         }
 
-        // FIXME: Remove labels from trait parameters.
-
         // FIXME: Document, add to Trait list.
-        // FIXME: Add snapshot testing.
-        public static func innerBorderWidth(width: CGFloat) -> Trait {
+        public static func innerBorderWidth(_ width: CGFloat) -> Trait {
             .mutate { $0.innerBorderWidth = width }
         }
 
         // FIXME: Document, add to Trait list.
-        // FIXME: Add snapshot testing.
-        public static func innerBorderStyle(style: some ShapeStyle) -> Trait {
+        public static func innerBorderStyle(_ style: some ShapeStyle) -> Trait {
             .mutate { configuration in
                 configuration.innerBorderStyle = AnyShapeStyle(style)
             }
         }
 
         // FIXME: Document, add to Trait list.
-        // FIXME: Add snapshot testing.
-        public static func outerBorderWidth(width: CGFloat) -> Trait {
+        public static func outerBorderWidth(_ width: CGFloat) -> Trait {
             .mutate { $0.outerBorderWidth = width }
         }
 
         // FIXME: Document, add to Trait list.
-        // FIXME: Add snapshot testing.
-        public static func outerBorderStyle(style: some ShapeStyle) -> Trait {
+        public static func outerBorderStyle(_ style: some ShapeStyle) -> Trait {
             .mutate { configuration in
                 configuration.outerBorderStyle = AnyShapeStyle(style)
             }

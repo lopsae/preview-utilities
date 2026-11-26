@@ -606,8 +606,8 @@ private struct PreviewContent {
         trait: DebugGeometryModifier.Configuration.Trait,
         enabled: Bool
     )] = [
-        ("Inner Style",       .innerBorderStyle(style: .green), false),
-        ("Outer Style",       .outerBorderStyle(style: .brown), false),
+        ("Inner Style", .innerBorderStyle(.green), false),
+        ("Outer Style", .outerBorderStyle(.brown), false),
         // FIXME: Add option to ignore corner radii.
     ]
 
@@ -615,8 +615,8 @@ private struct PreviewContent {
         .caption("Caption\nwith `formatting`"),
         .alignment(alignment),
         .concentricCornerRadii,
-        .innerBorderWidth(width: innerBorderWidth),
-        .outerBorderWidth(width: outerBorderWidth),
+        .innerBorderWidth(innerBorderWidth),
+        .outerBorderWidth(outerBorderWidth),
     ]
 
     let makeTraits: () -> [DebugGeometryModifier.Configuration.Trait] = {

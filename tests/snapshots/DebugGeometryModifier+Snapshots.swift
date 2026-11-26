@@ -124,7 +124,7 @@ struct DebugGeometryModifierSnapshots {
         Snapshots.assertView("innerBorderWidth", size: [200, 240]) {
             VStack(items: borderWidths, spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                .debugGeometry(.innerBorderWidth(width: borderWidth), .caption("`\(oneFractional: borderWidth)`"))
+                .debugGeometry(.innerBorderWidth(borderWidth), .caption("`\(oneFractional: borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
@@ -132,7 +132,7 @@ struct DebugGeometryModifierSnapshots {
         Snapshots.assertView("outerBorderWidth", size: [200, 240]) {
             VStack(items: borderWidths, spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
-                .debugGeometry(.outerBorderWidth(width: borderWidth), .caption("`\(oneFractional: borderWidth)`"))
+                .debugGeometry(.outerBorderWidth(borderWidth), .caption("`\(oneFractional: borderWidth)`"))
             }
             .safeAreaPadding(.horizontal, 20)
         }
@@ -160,25 +160,25 @@ struct DebugGeometryModifierSnapshots {
     @Test func bordersStyle() {
         Snapshots.assertView("innerBorderStyle", spacing: 20, colorSchemes: .all) {
             TestViews.quinaryGrayRect()
-            .debugGeometry(.innerBorderStyle(style: .orange))
+            .debugGeometry(.innerBorderStyle(.orange))
             .safeAreaPadding(.horizontal, 20)
             TestViews.quinaryGrayRect()
-            .debugGeometry(.innerBorderStyle(style: .primary))
+            .debugGeometry(.innerBorderStyle(.primary))
             .safeAreaPadding(.horizontal, 20)
             TestViews.quinaryGrayRect()
-            .debugGeometry(.innerBorderStyle(style: .clear))
+            .debugGeometry(.innerBorderStyle(.clear))
             .safeAreaPadding(.horizontal, 20)
         }
 
         Snapshots.assertView("outerBorderStyle", spacing: 20, colorSchemes: .all) {
             TestViews.quinaryGrayRect()
-            .debugGeometry(.outerBorderStyle(style: .orange))
+            .debugGeometry(.outerBorderStyle(.orange))
             .safeAreaPadding(.horizontal, 20)
             TestViews.quinaryGrayRect()
-            .debugGeometry(.outerBorderStyle(style: .primary))
+            .debugGeometry(.outerBorderStyle(.primary))
             .safeAreaPadding(.horizontal, 20)
             TestViews.quinaryGrayRect()
-            .debugGeometry(.outerBorderStyle(style: .clear))
+            .debugGeometry(.outerBorderStyle(.clear))
             .safeAreaPadding(.horizontal, 20)
         }
     }
