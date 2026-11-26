@@ -96,15 +96,9 @@ struct DebugGeometryModifierSnapshots {
 
 
     @Test func bordersWidth() {
-        Snapshots.assertView("special") {
-            VStack(spacing: 20) {
-                TestViews.quinaryGrayRect()
-                .debugGeometry(.hairline, .caption("`hairline`"))
-
-                // FIXME: no borders deals with visibility.
-                TestViews.quinaryGrayRect()
-                .debugGeometry(.noBorders, .caption("`noBorders`"))
-            }
+        Snapshots.assertView("specials") {
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.hairline, .caption("`hairline`"))
             .safeAreaPadding(.horizontal, 20)
         }
 
@@ -151,6 +145,15 @@ struct DebugGeometryModifierSnapshots {
                 TestViews.quinaryGrayRect()
                 .debugGeometry(.bordersWidth(borderWidth.asDouble), .caption("`\(oneFractional: borderWidth)`"))
             }
+            .safeAreaPadding(.horizontal, 20)
+        }
+    }
+
+
+    @Test func bordersVisibility() {
+        Snapshots.assertView("specials") {
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.noBorders, .caption("`noBorders`"))
             .safeAreaPadding(.horizontal, 20)
         }
     }
