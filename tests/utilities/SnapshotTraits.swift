@@ -13,6 +13,10 @@ extension Trait where Self == _SnapshotsTestTrait {
     /// Configures snapshot testing to record all snapshots.
     ///
     /// Intended for new and updating tests.
+    ///
+    /// Use only during development. This trait is permanently marked as `Deprecated` as a reminder.
+    @available(*, deprecated, message: "Use only during development.")
+    nonisolated
     static var snapshotCapture: Self {
         .snapshots(record: .all)
     }
@@ -20,6 +24,10 @@ extension Trait where Self == _SnapshotsTestTrait {
     /// Configures snapshot testing to record all failed snapshots.
     ///
     /// Intended for new and updating tests.
+    ///
+    /// Use only during development. This trait is permanently marked as `Deprecated` as a reminder.
+    @available(*, deprecated, message: "Use only during development.")
+    nonisolated
     static var snapshotRecaptureFailed: Self {
         .snapshots(record: .failed)
     }
@@ -28,6 +36,7 @@ extension Trait where Self == _SnapshotsTestTrait {
     /// messages.
     ///
     /// Intended trait for committed tests.
+    nonisolated
     static var snapshotTesting: Self {
         .snapshots(record: .never, diffTool: .ksdiff)
     }
