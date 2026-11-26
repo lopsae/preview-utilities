@@ -43,8 +43,8 @@ struct SimulatorEnvironmentTest {
     /// Visual elements like fonts and spacing may differ in different environment.
     @Test func simulatorEnvironment() {
         let expected = """
-            OS: iOS 26.5
-            Simulator: iPhone 17 Pro (iPhone18,1, runtime 26.5)
+            OS: iOS 27.0
+            Simulator: iPhone 18 Pro (iPhone19,2, runtime 27.0)
             """
         #expect(TestEnvironment.description == expected)
     }
