@@ -372,7 +372,28 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        // FIXME: Test alignments with inner/outer border visibility.
+        Snapshots.assertView("noBorders") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    baseTraits(alignment),
+                    .noBorders
+                )
+            }
+        }
+
+        Snapshots.assertView("noBordersIgnoresBorderWidth") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                ClearRectangle()
+                .debugGeometry(
+                    baseTraits(alignment),
+                    .noBorders,
+                    .bordersWidth(10)
+                )
+            }
+        }
     }
 
 
