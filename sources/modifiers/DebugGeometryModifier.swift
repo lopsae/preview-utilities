@@ -518,8 +518,6 @@ private struct PreviewContent {
 
 // MARK: - Previews
 
-// FIXME: Mark all previews.
-
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
     PreviewContent.star
@@ -598,6 +596,7 @@ private struct PreviewContent {
 }
 
 
+// MARK: Borders
 #Preview("Borders", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var alignment: FloatingAlignment = .top
     @Previewable @State var innerBorderWidth: Double = 4
@@ -676,6 +675,7 @@ private struct PreviewContent {
 
 
 // FIXME: Use FloatingAlignmentPicker.
+// MARK: Alignments
 #Preview("Alignments", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var useSmallContent: Bool = false
     @Previewable @State var bordersWidth: Double = 5
@@ -767,7 +767,8 @@ private struct PreviewContent {
 
 
 // FIXME: Add capsule container shape, to test small sizes.
-#Preview("Zero size", traits: .fixedHeader, PreviewContent.layout) {
+// MARK: ZeroSize
+#Preview("ZeroSize", traits: .fixedHeader, PreviewContent.layout) {
     @Previewable @State var bordersWidth: Double = 5
     @Previewable @State var widthIndex: Double = .zero
     @Previewable @State var heightIndex: Double = .zero
@@ -814,6 +815,7 @@ private struct PreviewContent {
 }
 
 
+// MARK: SafeAreas
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
         .debugGeometry(.allGeometry, .outerAlignment)
@@ -824,6 +826,7 @@ private struct PreviewContent {
 
 
 // FIXME: Cleanup or delete.
+// MARK: Corners
 #Preview("Corners", traits: PreviewContent.layout) {
     @Previewable @State var printOnce: PrintOnce = .previewStarted
 
@@ -874,6 +877,7 @@ private struct PreviewContent {
 }
 
 
+// MARK: ColorSchemes
 #Preview("ColorSchemes", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     let content = HStack {
         PreviewContent.star
@@ -914,8 +918,8 @@ private struct PreviewContent {
 }
 
 
-// MARK: Grouped Alignments
-#Preview("Grouped Alignments", traits: PreviewContent.layout) {
+// MARK: GroupedAlignments
+#Preview("GroupedAlignments", traits: PreviewContent.layout) {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
         Text(horizontalAlignment.displayName, format: .capitalize)
@@ -941,8 +945,8 @@ private struct PreviewContent {
 }
 
 
-// MARK: Caption Alignments
-#Preview("Caption Alignments", traits: .headerFooter, PreviewContent.layout) {
+// MARK: CaptionAlignments
+#Preview("CaptionAlignments", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var bordersWidth: Double = 5
 
     Slider.captioned(
