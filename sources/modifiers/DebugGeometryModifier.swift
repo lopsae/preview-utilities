@@ -586,12 +586,7 @@ private struct PreviewContent {
             .safeAreaPadding(20)
         VisibleSpacer()
     } else {
-        let roundedRect = UnevenRoundedRectangle(
-            topLeadingRadius: 38,
-            bottomLeadingRadius: 12,
-            bottomTrailingRadius: 12,
-            topTrailingRadius: 38
-        )
+        let roundedRect = UnevenRoundedRectangle(top: 38, bottom: 12)
         PreviewContent.star
             .debugGeometry(traits: traits)
             .optionalContainerShape(useContainerShape ? roundedRect : nil)
@@ -820,12 +815,7 @@ private struct PreviewContent {
 #Preview("SafeAreas", traits: .headerFooter(.showDividers), PreviewContent.layout) {
     PreviewContent.star
         .debugGeometry(.allGeometry, .outerAlignment)
-        .safeAreaPadding(.init(
-            top:      20,
-            leading:  30,
-            bottom:   40,
-            trailing: 50
-        ))
+        .safeAreaPadding([20, 30, 40, 50])
         .border(.gray.tertiary)
         .padding(.vertical)
 }
@@ -841,13 +831,7 @@ private struct PreviewContent {
         ConcentricRectangle(minimumConcentricRadius: .zero)
             .fill(.orange)
 
-        let uneven = UnevenRoundedRectangle(
-            topLeadingRadius: 50,
-            bottomLeadingRadius: 20,
-            bottomTrailingRadius: 50,
-            topTrailingRadius: 20,
-            style: .continuous
-        )
+        let container = UnevenRoundedRectangle(forwards: 50, backwards: 20)
 
         VStack {
             ZStack {
@@ -873,13 +857,13 @@ private struct PreviewContent {
                     .fixedSize()
                 }
             }
-            .containerShape(uneven)
+            .containerShape(container)
             .frame(squareOf: 200)
 
             ConcentricRectangle()
             .fill(.purple.quinary)
             .debugGeometry(.concentricCornerRadii)
-            .containerShape(uneven)
+            .containerShape(container)
             .frame(squareOf: 200)
         }
     }
