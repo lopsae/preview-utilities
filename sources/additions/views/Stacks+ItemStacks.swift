@@ -7,9 +7,6 @@
 public import SwiftUI
 
 
-// FIXME: Move to additions/views. Likely move all other files here too.
-// FIXME: Rename file to Stacks+ItemStacks.
-
 // `ForEach` implicitly constrains `ValuesCollection `to `RandomAccessCollection`, and `ElementID`
 // to `Hashable`, as specified in its struct definition. The constraints in this initializers to
 // `RandomAccessCollection` and `Hashable` are not not strictly necessary (the initializers would
@@ -140,7 +137,8 @@ private struct PreviewContent {
         DashedDivider()
 
         HStack((7...9).enumerated(), id: \.offset, alignment: .bottom) { offset, element in
-            CaptionRectangle("Item \(element)", color: .green, size: [50, 50+10*offset.asDouble])
+            let height: CGFloat = 50+10*offset.asDouble
+            CaptionRectangle("Item \(element)", color: .green, size: [50, height])
         }
     }
 }
@@ -161,7 +159,8 @@ private struct PreviewContent {
         DashedDivider(axis: .vertical)
 
         VStack((7...9).enumerated(), id: \.offset, alignment: .trailing) { offset, element in
-            CaptionRectangle("Item \(element)", color: .green, size: [50+10*offset.asDouble, 50])
+            let width: CGFloat = 50+10*offset.asDouble
+            CaptionRectangle("Item \(element)", color: .green, size: [width, 50])
         }
     }
 }
