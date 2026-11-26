@@ -7,8 +7,7 @@
 import SwiftUI
 
 
-nonisolated
-enum TextSource {
+enum TextSource: Sendable {
     case localizedKey(LocalizedStringKey)
     case verbatim(String)
 
