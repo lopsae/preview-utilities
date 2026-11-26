@@ -141,7 +141,9 @@ extension DebugGeometryModifier.Configuration {
     /// ### Geometry Properties Traits
     /// + ``allGeometry``
     /// + ``safeAreaInsets``
+    /// + ``safeAreas``
     /// + ``concentricCornerRadii``
+    /// + ``cornerRadii``
     /// + ``origin``
     /// + ``size``
     /// + ``height``
@@ -207,8 +209,18 @@ extension DebugGeometryModifier.Configuration {
         /// Prints the safe area insets applied to the owner view in the debug caption.
         public static let safeAreaInsets: Trait = .modifier(GeometryPropertiesModifier(property: .safeAreaInsets))
 
+        /// Prints the safe area insets applied to the owner view in the debug caption.
+        ///
+        /// Alias of ``safeAreaInsets``.
+        public static let safeAreas: Trait = .safeAreaInsets
+
         /// Prints the concentric corner radii applied to the owner view in the debug caption.
         public static let concentricCornerRadii: Trait = .modifier(GeometryPropertiesModifier(property: .concentricCornerRadii))
+
+        /// Prints the concentric corner radii applied to the owner view in the debug caption.
+        ///
+        /// Alias of ``concentricCornerRadii``.
+        public static let cornerRadii: Trait = .concentricCornerRadii
 
         /// Prints the width and height of the owner view in the debug caption.
         public static let size: Trait = .modifier(GeometryPropertiesModifier(property: .size))
@@ -251,6 +263,8 @@ extension DebugGeometryModifier.Configuration {
                 configuration.outerBorderWidth = bordersWidth
             }
         }
+
+        // FIXME: Remove labels from trait parameters.
 
         // FIXME: Document, add to Trait list.
         // FIXME: Add snapshot testing.

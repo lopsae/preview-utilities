@@ -535,16 +535,16 @@ private struct PreviewContent {
         trait: DebugGeometryModifier.Configuration.Trait,
         enabled: Bool
     )] = [
-        ("Hidden",       .hidden,                                false),
-        ("Caption",      .caption("Caption\nwith `formatting`"), false),
-        ("Hairline",     .hairline,                              false),
-        ("Width",        .width,                                 true),
-        ("Height",       .height,                                false),
-        ("Origin",       .origin,                                false),
-        ("SafeAreas",    .safeAreaInsets,                        false),
-        ("CornerRadii",  .concentricCornerRadii,                 true),
-        ("All Geometry", .allGeometry,                           false),
-        ("Outer Align.", .outerAlignment,                        false)
+        ("Hidden",       .hidden,             false),
+        ("Caption",      .caption("Caption"), false),
+        ("Hairline",     .hairline,           false),
+        ("Width",        .width,              true),
+        ("Height",       .height,             false),
+        ("Origin",       .origin,             false),
+        ("SafeAreas",    .safeAreas,          false),
+        ("CornerRadii",  .cornerRadii,        true),
+        ("All Geometry", .allGeometry,        false),
+        ("Outer Align.", .outerAlignment,     false)
     ]
 
     let traits = traitOptions.compactMap { traitTuple in
