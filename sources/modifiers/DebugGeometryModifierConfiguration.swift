@@ -245,7 +245,6 @@ extension DebugGeometryModifier.Configuration {
             configuration.outerBorderVisibility = .hidden
         }
 
-        // FIXME: Recheck tests, now it updates only border width.
         /// Sets the geometry overlay borders to a width of `1`.
         public static let hairline: Trait = .mutate { configuration in
             configuration.innerBorderWidth = .one

@@ -105,9 +105,17 @@ struct DebugGeometryModifierSnapshots {
 
 
     @Test func bordersWidth() {
-        Snapshots.assertView("specials") {
+        Snapshots.assertView("hairline", spacing: 20) {
             TestViews.quinaryGrayRect()
             .debugGeometry(.hairline, .caption("`hairline`"))
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(
+                .caption("override"),
+                .innerBorderWidth(10),
+                .outerBorderWidth(10),
+                .hairline,
+            )
             .safeAreaPadding(.horizontal, 20)
         }
 
