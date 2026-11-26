@@ -277,12 +277,8 @@ public struct DebugGeometryModifier: ViewModifier {
 
                     // Caption.
                     switch configuration.captionSource {
-                        // FIXME: Use textSource.text.
-                    case .localizedKey(let localizedStringKey):
-                        Text(localizedStringKey)
-                        .font(.caption)
-                    case .verbatim(let string):
-                        Text(verbatim: string)
+                    case .some(let textSource):
+                        textSource.text
                         .font(.caption)
                     case .none:
                         EmptyView()
