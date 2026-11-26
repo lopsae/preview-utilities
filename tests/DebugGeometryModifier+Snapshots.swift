@@ -70,14 +70,9 @@ struct DebugGeometryModifierSnapshots {
 
         Snapshots.assertView("visible") {
             VStack(spacing: 20) {
-                // FIXME: Use quinary rects.
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 40])
+                TestViews.quinaryGrayRect(size: [120, 40])
                     .debugGeometry(.caption("`~visible`"), .size, .visible(true))
-                Rectangle()
-                    .fill(.gray.quinary)
-                    .frame(size: [120, 40])
+                TestViews.quinaryGrayRect(size: [120, 40])
                     .debugGeometry(.caption("`visible`"), .size, .visible(false))
             }
             .safeAreaPadding(.horizontal, 20)
@@ -218,18 +213,16 @@ struct DebugGeometryModifierSnapshots {
             .padding(20)
         }
 
-        Snapshots.assertView("safeAreas") {
-            HStack(alignment: .top, spacing: 20) {
-                VStack(items: [CGFloat(0), 0.5, 1, 2, 4], spacing: 10) { length in
-                    TestViews.quinaryGraySquare(length: length)
-                    .debugGeometry()
-                    .safeAreaPadding(10)
-                }
-                VStack(items: [CGFloat(6), 8, 10, 12], spacing: 10) { length in
-                    TestViews.quinaryGraySquare(length: length)
-                    .debugGeometry()
-                    .safeAreaPadding(10)
-                }
+        Snapshots.assertView("safeAreas", layout: .hStackTop, spacing: 20) {
+            VStack(items: [CGFloat(0), 0.5, 1, 2, 4], spacing: 10) { length in
+                TestViews.quinaryGraySquare(length: length)
+                .debugGeometry()
+                .safeAreaPadding(10)
+            }
+            VStack(items: [CGFloat(6), 8, 10, 12], spacing: 10) { length in
+                TestViews.quinaryGraySquare(length: length)
+                .debugGeometry()
+                .safeAreaPadding(10)
             }
         }
 
@@ -259,24 +252,22 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(edgeInsets)
         }
 
-        Snapshots.assertView("each") {
-            HStack(spacing: 20) {
-                VStack(spacing: 20) {
-                    TestViews.quinaryGraySquare(length: 40)
-                        .debugGeometry()
-                        .safeAreaPadding(.top, 20)
-                    TestViews.quinaryGraySquare(length: 40)
-                        .debugGeometry()
-                        .safeAreaPadding(.leading, 20)
-                }
-                VStack(spacing: 20) {
-                    TestViews.quinaryGraySquare(length: 40)
-                        .debugGeometry()
-                        .safeAreaPadding(.trailing, 20)
-                    TestViews.quinaryGraySquare(length: 40)
-                        .debugGeometry()
-                        .safeAreaPadding(.bottom, 20)
-                }
+        Snapshots.assertView("each", layout: .hStack, spacing: 20) {
+            VStack(spacing: 20) {
+                TestViews.quinaryGraySquare(length: 40)
+                    .debugGeometry()
+                    .safeAreaPadding(.top, 20)
+                TestViews.quinaryGraySquare(length: 40)
+                    .debugGeometry()
+                    .safeAreaPadding(.leading, 20)
+            }
+            VStack(spacing: 20) {
+                TestViews.quinaryGraySquare(length: 40)
+                    .debugGeometry()
+                    .safeAreaPadding(.trailing, 20)
+                TestViews.quinaryGraySquare(length: 40)
+                    .debugGeometry()
+                    .safeAreaPadding(.bottom, 20)
             }
         }
     }
