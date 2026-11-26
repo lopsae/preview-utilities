@@ -262,15 +262,14 @@ struct DebugGeometryModifierSnapshots {
 
 
     @Test func alignments() {
-        // FIXME: Figure out if style can be used to paint borders only once.
-
-        Snapshots.assertView("all") {
+        Snapshots.assertView("all", colorSchemes: .all) {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
                 ClearRectangle()
                 .debugGeometry(
                     .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment)
+                    .alignment(alignment),
+                    .clearStylesExceptOnCenter
                 )
             }
         }
