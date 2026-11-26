@@ -46,29 +46,34 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.origin)
         }
 
-        Snapshots.assertView("insets", spacing: 30) {
+        Snapshots.assertView("safeAreas", spacing: 30) {
             TestViews.quinaryGrayRect(size: [120, 40])
-            .debugGeometry(.safeAreaInsets)
-            .safeAreaPadding(EdgeInsets(horizontal: 20, vertical: 15))
+            .debugGeometry(.safeAreas)
+            .safeAreaPadding([20, 15])
 
             TestViews.quinaryGrayRect(size: [120, 40])
             .debugGeometry(.safeAreaInsets)
         }
 
         // FIXME: This will report unavailable work till snapshots are migrated to iOS 27.
-        Snapshots.assertView("radii", spacing: 40) {
+        Snapshots.assertView("cornerRadii", spacing: 40) {
             let container = UnevenRoundedRectangle(even: 5, odd: 10)
             TestViews.quinaryGrayRect(size: [120, 40])
-            .debugGeometry(.concentricCornerRadii)
+            .debugGeometry(.cornerRadii)
             .containerShape(container)
 
             TestViews.quinaryGrayRect(size: [120, 40])
-            .debugGeometry(.concentricCornerRadii)
+            .debugGeometry(.cornerRadii)
         }
 
         // FIXME: Test radii + paddings.
 
-        // FIXME: Test allGeometry.
+        Snapshots.assertView("allGeometry", size: [400, 200]) {
+            TestViews.quinaryGraySquare()
+            .debugGeometry(.allGeometry)
+            .safeAreaPadding([20, 15])
+            .containerShape(.roundedRect(even: 5, odd: 10))
+        }
     }
 
 
@@ -491,6 +496,15 @@ private extension View {
 
     func multiply(_ count: Int) -> some View {
         ForEach(0 ..< count, id: \.self) { _ in self }
+    }
+
+}
+
+
+private extension RoundedRectangularShape where Self == UnevenRoundedRectangle {
+
+    static func roundedRect(even: CGFloat, odd: CGFloat) -> Self {
+        .init(even: even, odd: odd)
     }
 
 }
