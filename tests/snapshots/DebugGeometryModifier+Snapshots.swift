@@ -392,11 +392,105 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        // FIXME: Test safeAreas set in the owner stack.
-        // FIXME: Test safeAreas set in the owner stack with negative paddings?
+
+        Snapshots.assertView("container", layout: .hStack, spacing: 20) {
+            VStack(spacing: 20) {
+                TestViews.quinaryGrayRect()
+                .debugGeometry()
+                .multiply(3)
+            }
+            .border(.orange.secondary, width: 2)
+            .safeAreaPadding([10, 15, 20, 25])
+            .border(.gray.quinary, width: 1)
+        }
+
+        Snapshots.assertView("negativePads", layout: .hStack, spacing: 20) {
+            VStack(spacing: 20) {
+                TestViews.quinaryGrayRect(size: [100, 20])
+                .debugGeometry()
+                .padding(.top, -10)
+
+                TestViews.quinaryGrayRect()
+                .debugGeometry()
+                .padding(.leading, -10)
+                .padding(.trailing, 10)
+
+                TestViews.quinaryGrayRect()
+                .debugGeometry()
+                .padding(.trailing, -10)
+                .padding(.leading, 10)
+
+                TestViews.quinaryGrayRect(size: [140, 20])
+                .debugGeometry()
+                .padding(.not(.top), -10)
+            }
+            .border(.orange.secondary, width: 2)
+            .safeAreaPadding(20)
+            .border(.gray.quinary, width: 1)
+        }
+
+        Snapshots.assertView("offsets", layout: .hStack, spacing: 20) {
+            VStack(spacing: 20) {
+                TestViews.quinaryGrayRect()
+                .debugGeometry()
+                .offset(x: -5, y: -5)
+
+                TestViews.quinaryGrayRect()
+                .debugGeometry()
+                .offset(x: -10)
+
+                TestViews.quinaryGrayRect()
+                .debugGeometry()
+                .offset(x: 10)
+
+                TestViews.quinaryGrayRect()
+                .debugGeometry()
+                .offset(y: 5)
+            }
+            .border(.orange.secondary, width: 2)
+            .safeAreaPadding(20)
+            .border(.gray.quinary, width: 1)
+        }
+
+
+        Snapshots.assertView("innerSafeAreas", layout: .hStack, spacing: 20) {
+            VStack(spacing: 20) {
+                TestViews.quinaryGrayRect(size: [120, 10])
+                .debugGeometry()
+                .safeAreaPadding(.top, 10)
+                .border(.orange)
+
+                TestViews.quinaryGrayRect(size: [110, 20])
+                .debugGeometry()
+                .safeAreaPadding(.leading, 10)
+
+                TestViews.quinaryGrayRect(size: [110, 20])
+                .debugGeometry()
+                .safeAreaPadding(.trailing, 10)
+
+                TestViews.quinaryGrayRect(size: [100, 10])
+                .debugGeometry()
+                .safeAreaPadding(10)
+            }
+            .border(.orange.secondary, width: 2)
+            .safeAreaPadding([20, 10])
+            .border(.gray.quinary, width: 1)
+        }
     }
 
 
     // FIXME: Test container radii.
+
+}
+
+
+// MARK: Experimental
+
+
+private extension View {
+
+    func multiply(_ count: Int) -> some View {
+        ForEach(0 ..< count, id: \.self) { _ in self }
+    }
 
 }
