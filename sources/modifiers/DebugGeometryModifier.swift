@@ -596,6 +596,7 @@ private struct PreviewContent {
 
 
 // MARK: Borders
+// FIXME: Rename to styles, add safeAreasStyle.
 #Preview("Borders", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var alignment: FloatingAlignment = .top
     @Previewable @State var innerBorderWidth: Double = 4
@@ -673,71 +674,20 @@ private struct PreviewContent {
 }
 
 
-// FIXME: Use FloatingAlignmentPicker.
 // MARK: Alignments
 #Preview("Alignments", traits: .fixedHeaderFooter, PreviewContent.layout) {
-    @Previewable @State var useSmallContent: Bool = false
+    @Previewable @State var alignment: FloatingAlignment = .outerTop
     @Previewable @State var bordersWidth: Double = 5
+    @Previewable @State var useSmallContent: Bool = false
 
-    @Previewable @State var positionKey: FloatingAlignment.Key = .outer
-    @Previewable @State var innerHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
-    @Previewable @State var innerVerticalAlignment: FloatingAlignment.VerticalAlignment = .top
-
-    @Previewable @State var outerMajorAlignment: FloatingAlignment.OuterAlignment.Key = .top
-    @Previewable @State var outerMinorHorizontalAlignment: FloatingAlignment.HorizontalAlignment = .center
-    @Previewable @State var outerMinorVerticalAlignment: FloatingAlignment.OuterVerticalAlignment = .center
-
-    let defaultTraits: [DebugGeometryModifier.Configuration.Trait] = [
-        .allGeometry,
-        .caption("Caption\nwith `formatting`")
-    ]
-
-    let makeTraits: () -> [DebugGeometryModifier.Configuration.Trait] = {
-        var traits: [DebugGeometryModifier.Configuration.Trait] = defaultTraits + [.bordersWidth(bordersWidth)]
-
-        let positionTrait: DebugGeometryModifier.Configuration.Trait
-        switch positionKey {
-        case .inner:
-            positionTrait = .alignment(.inner(.init(horizontal: innerHorizontalAlignment, vertical: innerVerticalAlignment)))
-        case .outer:
-            let outerAlignment: FloatingAlignment.OuterAlignment = switch outerMajorAlignment {
-            case .top:      .top(     outerMinorHorizontalAlignment)
-            case .bottom:   .bottom(  outerMinorHorizontalAlignment)
-            case .leading:  .leading( outerMinorVerticalAlignment)
-            case .trailing: .trailing(outerMinorVerticalAlignment)
-            }
-            positionTrait = .alignment(.outer(outerAlignment))
-        }
-        traits.append(positionTrait)
-        return traits
-    }
-
-    let traits = makeTraits()
+    let traits: DebugGeometryModifier.Configuration.Trait = .traits([
+        .caption("Caption\nwith `formatting`"),
+        .alignment(alignment),
+        .size, .origin
+    ])
 
     VStack {
-        Picker("Position", selection: $positionKey, caseFormat: .rawValueCapitalized())
-            .pickerStyle(.segmented)
-
-        switch positionKey {
-        case .inner:
-            Picker("Horizontal Alignment", selection: $innerHorizontalAlignment, caseFormat: .rawValueCapitalized())
-                .pickerStyle(.segmented)
-            Picker("Vertical Alignment", selection: $innerVerticalAlignment, caseFormat: .rawValueCapitalized())
-                .pickerStyle(.segmented)
-
-        case .outer:
-            Picker("Outer Major Alignment", selection: $outerMajorAlignment, caseFormat: .rawValueCapitalized())
-                .pickerStyle(.segmented)
-
-            switch outerMajorAlignment {
-            case .top, .bottom:
-                Picker("Horizontal Minor Alignment", selection: $outerMinorHorizontalAlignment, caseFormat: .rawValueCapitalized())
-                    .pickerStyle(.segmented)
-            case .leading, .trailing:
-                Picker("Vertical Minor Alignment", selection: $outerMinorVerticalAlignment, caseFormat: .rawValueCapitalized())
-                    .pickerStyle(.segmented)
-            }
-        }
+        FloatingAlignmentPicker(alignment: $alignment)
 
         Slider.captioned(
             "Borders Width", value: $bordersWidth, in: 0...30,
@@ -754,12 +704,12 @@ private struct PreviewContent {
         Text("Preview text")
             .foregroundStyle(.quaternary)
             .monospaced()
-            .debugGeometry(traits: traits)
+            .debugGeometry(traits)
             .safeAreaPadding(20)
         VisibleSpacer()
     } else {
-        PreviewContent.star
-        .debugGeometry(traits: traits)
+        PreviewContent.star(.pink.tertiary)
+        .debugGeometry(traits)
         .safeAreaPadding(.init(horizontal: 100, vertical: 120))
     }
 }
