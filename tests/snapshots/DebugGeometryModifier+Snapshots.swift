@@ -238,15 +238,23 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(.horizontal, 20)
         }
 
+        let baseTraits: (FloatingAlignment) -> DebugGeometryModifier.Configuration.Trait = { alignment in
+            .traits([
+                .caption(verbatim: alignment.abbreviatedName),
+                .alignment(alignment),
+                .innerBorderStyle(.red.opacity(0.6)),
+                .outerBorderStyle(.blue.opacity(0.6)),
+                .clearExceptCenter,
+                .drawsCaptionBorder
+            ])
+        }
+
         Snapshots.assertView("allWithBorders") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
                 ClearRectangle()
                 .debugGeometry(
-                    .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment),
-                    .clearExceptCenter,
-                    .drawsCaptionBorder
+                    baseTraits(alignment)
                 )
             }
         }
@@ -258,11 +266,8 @@ struct DebugGeometryModifierSnapshots {
             .overlayFloatingAlignments { alignment in
                 ClearRectangle()
                 .debugGeometry(
-                    .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment),
+                    baseTraits(alignment),
                     .hairline,
-                    .clearExceptCenter,
-                    .drawsCaptionBorder
                 )
             }
         }
@@ -272,11 +277,8 @@ struct DebugGeometryModifierSnapshots {
             .overlayFloatingAlignments { alignment in
                 ClearRectangle()
                 .debugGeometry(
-                    .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment),
+                    baseTraits(alignment),
                     .bordersWidth(10),
-                    .clearExceptCenter,
-                    .drawsCaptionBorder
                 )
             }
         }
@@ -286,12 +288,9 @@ struct DebugGeometryModifierSnapshots {
             .overlayFloatingAlignments { alignment in
                 ClearRectangle()
                 .debugGeometry(
-                    .caption(verbatim: alignment.abbreviatedName),
-                    .alignment(alignment),
+                    baseTraits(alignment),
                     .innerBorderWidth(10),
                     .outerBorderWidth(2),
-                    .clearExceptCenter,
-                    .drawsCaptionBorder
                 )
             }
         }
