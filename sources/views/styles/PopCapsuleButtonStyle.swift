@@ -105,7 +105,7 @@ extension ButtonStyle where Self == PopCapsuleButtonStyle {
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
         let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .gray)
-        let buttonStyle = PopCapsuleButtonStyle(animations: playback)
+        let buttonStyle = PopCapsuleButtonStyle(style: capsuleStyle, animations: playback)
         Button("Uniform", systemImage: "popcorn") { colorToggle.toggle() }
         .buttonStyle(buttonStyle)
         .labelStyle(.uniformIcon)
