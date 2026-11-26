@@ -595,9 +595,8 @@ private struct PreviewContent {
 }
 
 
-// MARK: Borders
-// FIXME: Rename to styles, add safeAreasStyle.
-#Preview("Borders", traits: .fixedHeaderFooter, PreviewContent.layout) {
+// MARK: Styles
+#Preview("Styles", traits: .fixedHeaderFooter, PreviewContent.layout) {
     @Previewable @State var alignment: FloatingAlignment = .top
     @Previewable @State var innerBorderWidth: Double = 4
     @Previewable @State var outerBorderWidth: Double = 4
@@ -607,8 +606,9 @@ private struct PreviewContent {
         trait: DebugGeometryModifier.Configuration.Trait,
         enabled: Bool
     )] = [
-        ("Inner Style", .innerBorderStyle(.green), false),
-        ("Outer Style", .outerBorderStyle(.brown), false),
+        ("Inner Style",     .innerBorderStyle(.green), false),
+        ("Outer Style",     .outerBorderStyle(.brown), false),
+        ("SafeAreas Style", .safeAreasStyle(.indigo),  false),
         // FIXME: Add option to ignore corner radii.
     ]
 
@@ -665,9 +665,10 @@ private struct PreviewContent {
 
     VisibleSpacer()
 
-    PreviewContent.star
+    PreviewContent.star(.pink.tertiary)
     .frame(squareOf: 150)
     .debugGeometry(traits: traits)
+    .safeAreaPadding(.horizontal, 40)
     .zIndex(.one)
 
     VisibleSpacer()
