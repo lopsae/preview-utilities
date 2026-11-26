@@ -17,6 +17,7 @@ enum Snapshots {
 
     static func assertView<Content: View>(
         _ name: String,
+        layout: Layout = .vStack,
         spacing: CGFloat? = nil,
         size: CGSize = .square(of: 200),
         colorSchemes: Set<ColorScheme> = defaultColorSchemes,
@@ -64,7 +65,8 @@ enum Snapshots {
                 continue
             }
 
-            let configuredContent = VStack(spacing: spacing) {
+            let resolvedLayout = layout(spacing: spacing)
+            let configuredContent = resolvedLayout {
                 content()
             }
             .frame(size: size)
@@ -117,6 +119,51 @@ enum Snapshots {
             // Test succeeded!
         }
     }
+
+}
+
+
+// MARK: - Layout
+
+
+extension Snapshots {
+
+    enum Layout {
+        case vStack(_ alignment: HorizontalAlignment)
+        case hStack(_ alignment: VerticalAlignment)
+        case zStack(_ alignment: Alignment)
+
+        func callAsFunction(spacing: CGFloat?) -> AnyLayout { lay(spacing: spacing) }
+
+        func lay(spacing: CGFloat?) -> AnyLayout {
+            switch self {
+            case .vStack(let alignment):
+                VStackLayout(alignment: alignment, spacing: spacing)
+                .toAnyLayout
+            case .hStack(let alignment):
+                HStackLayout(alignment: alignment, spacing: spacing)
+                .toAnyLayout
+            case .zStack(let alignment):
+                ZStackLayout(alignment: alignment)
+                .toAnyLayout
+            }
+        }
+
+        static let vStack: Self = .vStack(.center)
+        static let hStack: Self = .hStack(.center)
+        static let zStack: Self = .zStack(.center)
+
+        static let topHStack: Self = .hStack(.top)
+        static let hStackTop: Self = .hStack(.top)
+
+    }
+
+}
+
+
+private extension Layout {
+
+    var toAnyLayout: AnyLayout { AnyLayout(self) }
 
 }
 
