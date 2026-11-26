@@ -312,14 +312,14 @@ public struct DebugGeometryModifier: ViewModifier {
 
                     // ConcentricCornerRadii
                     if configuration.geometryProperties.contains(.concentricCornerRadii) {
-                        let label = "concentricCornerRadii"
+                        let label = "cornerRadii"
                         switch geometry.backport.concentricCornerRadii {
                         case .available(.some(let cornerRadii)):
                             Text("\(label):\n\(cornerRadii, format: .concentricRadiiDebugString)")
                         case .available(.none):
-                            Text("\(label): none)")
+                            Text("\(label): none")
                         case .unavailable:
-                            Text("\(label): unavailable)")
+                            Text("\(label): unavailable")
                         }
                     }
                 } // Group
