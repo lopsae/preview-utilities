@@ -277,9 +277,7 @@ extension DebugGeometryModifier.Configuration {
 
         // FIXME: Document, add to Trait list.
         public static func innerBorderStyle(_ style: some ShapeStyle) -> Trait {
-            .mutate { configuration in
-                configuration.innerBorderStyle = AnyShapeStyle(style)
-            }
+            .mutate { $0.innerBorderStyle = AnyShapeStyle(style) }
         }
 
         // FIXME: Document, add to Trait list.
@@ -289,9 +287,7 @@ extension DebugGeometryModifier.Configuration {
 
         // FIXME: Document, add to Trait list.
         public static func outerBorderStyle(_ style: some ShapeStyle) -> Trait {
-            .mutate { configuration in
-                configuration.outerBorderStyle = AnyShapeStyle(style)
-            }
+            .mutate { $0.outerBorderStyle = AnyShapeStyle(style) }
         }
 
         // FIXME: Document, add to Trait list.
@@ -301,9 +297,7 @@ extension DebugGeometryModifier.Configuration {
 
         // FIXME: Document, add to Trait list.
         public static func safeAreasStyle(_ style: some ShapeStyle) -> Trait {
-            .mutate { configuration in
-                configuration.safeAreasStyle = AnyShapeStyle(style)
-            }
+            .mutate { $0.safeAreasStyle = AnyShapeStyle(style) }
         }
 
         // MARK: Caption Traits
@@ -344,12 +338,12 @@ extension DebugGeometryModifier.Configuration {
         /// The default outer alignment is ``FloatingAlignment/outerTopLeading``.
         public static let outerAlignment: Trait = .modifier(CaptionAlignmentModifier(alignment: .outerTopLeading))
 
-        // MARK: Utlity Traits
+        // MARK: Utility Traits
 
         /// Enables drawing a border around the debug caption.
         ///
         /// Used internally for alignment visualization and debugging.
-        public static var drawsCaptionBorder: Trait { .modifier(EnableCaptionBorder()) }
+        public static let drawsCaptionBorder: Trait = .modifier(EnableCaptionBorder())
 
         // FIXME: Document, add to Trait list.
         public static let clearStyles: Trait = .mutate { configuration in
