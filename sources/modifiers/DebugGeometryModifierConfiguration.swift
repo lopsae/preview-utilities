@@ -48,6 +48,9 @@ extension DebugGeometryModifier {
         /// The style of the outer border.
         var outerBorderStyle: AnyShapeStyle? = nil
 
+        /// The visibility of the safe area insets rectangles.
+        var safeAreasVisibility: Visibility = .visible
+
         /// The style of the safe area insets rectangles.
         var safeAreasStyle: AnyShapeStyle? = nil
 
@@ -119,6 +122,7 @@ extension DebugGeometryModifier.Configuration {
         static let concentricCornerRadii: Self = .init(shift: .concentricCornerRadii)
 
         static let size: Self = [.width, .height]
+        // FIXME: Missing cornerRaddi?
         static let allGeometry: Self = [.width, .height, .origin, .safeAreaInsets]
     }
 
@@ -292,9 +296,14 @@ extension DebugGeometryModifier.Configuration {
         }
 
         // FIXME: Document, add to Trait list.
+        public static let noSafeAreas: Trait = .mutate { configuration in
+            configuration.safeAreasVisibility = .hidden
+        }
+
+        // FIXME: Document, add to Trait list.
         public static func safeAreasStyle(_ style: some ShapeStyle) -> Trait {
             .mutate { configuration in
-                configuration.outerBorderStyle = AnyShapeStyle(style)
+                configuration.safeAreasStyle = AnyShapeStyle(style)
             }
         }
 

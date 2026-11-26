@@ -91,20 +91,27 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(.horizontal, 20)
         }
 
-        // FIXME: Move border visibility here.
-
-        // FIXME: Add safeareas visibility.
-    }
-
-
-    @Test func bordersVisibility() {
-        Snapshots.assertView("specials") {
+        Snapshots.assertView("noBorders") {
             TestViews.quinaryGrayRect()
             .debugGeometry(.noBorders, .caption("`noBorders`"))
             .safeAreaPadding(.horizontal, 20)
         }
 
         // FIXME: Test inner/outer border visibility, if added.
+
+        // FIXME: Move border visibility here.
+
+        Snapshots.assertView("noSafeAreas", spacing: 10) {
+            Group {
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.caption("`noSafeAreas`"), .noSafeAreas)
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.caption("precedence"), .noSafeAreas, .safeAreasStyle(.orange))
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.caption("styled"), .safeAreasStyle(.orange))
+            }
+            .safeAreaPadding(10)
+        }
     }
 
 
@@ -384,6 +391,9 @@ struct DebugGeometryModifierSnapshots {
                 .safeAreaPadding(.bottom, 20)
             }
         }
+
+        // FIXME: Test safeAreas set in the owner stack.
+        // FIXME: Test safeAreas set in the owner stack with negative paddings?
     }
 
 

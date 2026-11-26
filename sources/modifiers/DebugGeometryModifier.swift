@@ -102,11 +102,15 @@ public struct DebugGeometryModifier: ViewModifier {
     }
 
 
+    // MARK: Body
+
     @_documentation(visibility: internal)
     public func body(content: Content) -> some View {
         content.overlay {
             GeometryReader { geometry in
-                safeAreaRects(geometry: geometry)
+                if configuration.safeAreasVisibility.isEqual(toAny: .visible, .automatic) {
+                    safeAreaRects(geometry: geometry)
+                }
                 if configuration.outerBorderVisibility.isEqual(toAny: .visible, .automatic) {
                     outerStrokeRect(geometry: geometry)
                 }
