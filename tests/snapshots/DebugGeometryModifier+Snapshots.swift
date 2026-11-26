@@ -226,6 +226,18 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.caption("Inner"), .innerAlignment)
         }
 
+        Snapshots.assertView("clearExceptCenter", spacing: 20) {
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.caption("leading"), .alignment(.leading), .clearExceptCenter)
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.caption("center"), .alignment(.center), .clearExceptCenter)
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.caption("trailing"), .alignment(.trailing), .clearExceptCenter)
+            .safeAreaPadding(.horizontal, 20)
+        }
+
         Snapshots.assertView("allWithBorders") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in

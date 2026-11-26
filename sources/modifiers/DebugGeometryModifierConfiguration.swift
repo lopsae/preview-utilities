@@ -52,7 +52,7 @@ extension DebugGeometryModifier {
         var geometryProperties: GeometryProperties = .empty
 
         /// The alignment of the debug caption.
-        var captionAlignment: FloatingAlignment = .inner(.topLeading)
+        var captionAlignment: FloatingAlignment = .topLeading
 
         /// Enables a border around the debug caption.
         ///
@@ -331,6 +331,15 @@ extension DebugGeometryModifier.Configuration {
         ///
         /// Used internally for alignment visualization and debugging.
         public static var drawsCaptionBorder: Trait { .modifier(EnableCaptionBorder()) }
+
+        // FIXME: Document, add to Trait list.
+        public static var clearExceptCenter: Trait {
+            .mutate { configuration in
+                if configuration.captionAlignment == .center { return }
+                configuration.innerBorderStyle = AnyShapeStyle(.clear)
+                configuration.outerBorderStyle = AnyShapeStyle(.clear)
+            }
+        }
 
     }
 }
