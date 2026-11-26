@@ -122,8 +122,7 @@ extension DebugGeometryModifier.Configuration {
         static let concentricCornerRadii: Self = .init(shift: .concentricCornerRadii)
 
         static let size: Self = [.width, .height]
-        // FIXME: Missing cornerRaddi?
-        static let allGeometry: Self = [.width, .height, .origin, .safeAreaInsets]
+        static let allGeometry: Self = [.width, .height, .origin, .safeAreaInsets, .concentricCornerRadii]
     }
 
 }
