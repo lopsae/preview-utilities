@@ -35,7 +35,7 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     let playback: AnimationPlayback
 
     init(
-        style: some ShapeStyle,
+        style: some ShapeStyle = .tint,
         paddings: EdgeInsets = defaultPaddings,
         pressedPaddings: EdgeInsets = defaultPressedPaddings,
         pressedScale: CGFloat = defaultPressedScale,
@@ -71,6 +71,16 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 }
 
 
+// MARK: - ButtonStyle Extension
+
+
+extension ButtonStyle where Self == PopCapsuleButtonStyle {
+
+    static var popCapsule: Self { .init() }
+
+}
+
+
 // MARK: - Previews
 
 
@@ -78,11 +88,12 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     @Previewable @State var colorToggle = true
     HStack(spacing: SpacingDefaults.padding) {
         Button("Pop Capsule") {}
-        .buttonStyle(PopCapsuleButtonStyle(style: .blue))
+        .buttonStyle(.popCapsule)
 
         Button("Icon Only", systemImage: "party.popper") { }
-        .buttonStyle(PopCapsuleButtonStyle(style: .purple))
+        .buttonStyle(.popCapsule)
         .labelStyle(.iconOnly)
+        .tint(.purple)
 
         Button("Uniform Icon Only", systemImage: "party.popper") { }
         .buttonStyle(PopCapsuleButtonStyle(style: .indigo))
@@ -94,10 +105,11 @@ struct PopCapsuleButtonStyle: ButtonStyle {
 
     VStack(items: AnimationPlayback.fixedCases, spacing: SpacingDefaults.padding) { playback in
         let capsuleStyle: AnyShapeStyle = .if(colorToggle, then: .orange, else: .gray)
-        let buttonStyle = PopCapsuleButtonStyle(style: capsuleStyle, animations: playback)
+        let buttonStyle = PopCapsuleButtonStyle(animations: playback)
         Button("Uniform", systemImage: "popcorn") { colorToggle.toggle() }
         .buttonStyle(buttonStyle)
         .labelStyle(.uniformIcon)
+        .tint(.orange)
     }
 }
 
@@ -112,8 +124,8 @@ struct PopCapsuleButtonStyle: ButtonStyle {
     .padding(.bottom, 40)
 
     Button("Comparison", systemImage: "circle") { }
+    .buttonStyle(.popCapsule)
     .labelStyle(.uniformIcon)
-    .buttonStyle(PopCapsuleButtonStyle(style: .tint))
     .floatingCaption("PopCapsule Button", alignment: .outerBottomTrailing, .size)
     .padding(.bottom, 40)
 }
