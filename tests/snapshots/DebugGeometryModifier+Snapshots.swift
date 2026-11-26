@@ -145,8 +145,6 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(.horizontal, 20)
         }
 
-        // FIXME: Test inner/outer border style.
-
         Snapshots.assertView("small") {
             VStack(items: [CGFloat.zero, 0.5, 1], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
@@ -208,6 +206,8 @@ struct DebugGeometryModifierSnapshots {
 
 
     @Test func alignments() {
+        // FIXME: Figure out if style can be used to paint borders only once.
+
         Snapshots.assertView("all") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
@@ -238,6 +238,8 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
+        // FIXME: With clear borders.
+
         Snapshots.assertView("hairline") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
@@ -251,7 +253,7 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        Snapshots.assertView("thickBorder") {
+        Snapshots.assertView("thickBorders") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
                 ClearRectangle()
@@ -264,9 +266,29 @@ struct DebugGeometryModifierSnapshots {
             }
         }
 
-        // FIXME: Test alignments with inner/outer border visibility.
+        Snapshots.assertView("thickInner") {
+            TestViews.quinaryGraySquare()
+            .overlayFloatingAlignments { alignment in
+                let style: DebugGeometryModifier.Configuration.Trait = alignment != .center
+                    ? .traits([.innerBorderStyle(.clear), .outerBorderStyle(.clear)])
+                    : .empty
+                ClearRectangle()
+                .debugGeometry(
+                    .caption(verbatim: alignment.abbreviatedName),
+                    .alignment(alignment),
+                    .innerBorderWidth(10),
+                    .outerBorderWidth(2),
+                    .drawsCaptionBorder,
+                    style
+                )
+            }
+        }
+
+
 
         // FIXME: Test alignments with inner/outer border width.
+
+        // FIXME: Test alignments with inner/outer border visibility.
     }
 
 
