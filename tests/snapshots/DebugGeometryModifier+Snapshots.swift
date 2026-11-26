@@ -102,10 +102,6 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(.horizontal, 20)
         }
 
-        // FIXME: Test inner/outer border visibility, if added.
-
-        // FIXME: Move border visibility here.
-
         Snapshots.assertView("noSafeAreas", spacing: 10) {
             Group {
                 TestViews.quinaryGrayRect()

@@ -219,7 +219,6 @@ public struct DebugGeometryModifier: ViewModifier {
             lineWidth: correctedLineWidth, lineCap: .butt,
             dash: [boundedBorderWidth * 3, boundedBorderWidth * 2]
         )
-        // FIXME: Add support for innerStrokePosition: .inner .outer .middle? .inset? .outset?
         // FIXME: Add support to ignore concentricCornerRadii.
         if let cornerRadii = geometry.backport.concentricCornerRadii.unwrappedValue,
            cornerRadii != .zero
@@ -278,10 +277,10 @@ public struct DebugGeometryModifier: ViewModifier {
 
                     // Caption.
                     switch configuration.captionSource {
+                        // FIXME: Use textSource.text.
                     case .localizedKey(let localizedStringKey):
                         Text(localizedStringKey)
                         .font(.caption)
-                        // FIXME: can multiline text alignment be moved to outside the group?
                     case .verbatim(let string):
                         Text(verbatim: string)
                         .font(.caption)
