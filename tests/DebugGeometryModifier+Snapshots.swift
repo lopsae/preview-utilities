@@ -13,9 +13,10 @@ import Testing
 
 
 @MainActor
+@Suite(.snapshotTesting)
 struct DebugGeometryModifierSnapshots {
 
-    @Test(.snapshotTesting) func defaults() {
+    @Test func defaults() {
         Snapshots.assertView("default", colorSchemes: .all) {
             TestViews.quinaryGraySquare()
             .debugGeometry()
@@ -30,7 +31,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func geometryProperties() {
+    @Test func geometryProperties() {
         Snapshots.assertView("sizes", spacing: 20) {
             TestViews.quinaryGrayRect()
                 .debugGeometry(.height)
@@ -57,7 +58,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func visibility() {
+    @Test func visibility() {
         Snapshots.assertView("hidden") {
             VStack(spacing: 20) {
                 TestViews.quinaryGrayRect(size: [120, 40])
@@ -80,7 +81,8 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func borders() {
+    // FIXME: Likely rename to borderWidth.
+    @Test func borders() {
         Snapshots.assertView("special") {
             VStack(spacing: 20) {
                 TestViews.quinaryGrayRect()
@@ -123,7 +125,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func captions() {
+    @Test func captions() {
         Snapshots.assertView("localized") {
             TestViews.quinaryGraySquare()
                 .debugGeometry(.caption("Caption `monospaced`\nNewLine _Formatted_"))
@@ -138,7 +140,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func alignments() {
+    @Test func alignments() {
         Snapshots.assertView("all") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
@@ -199,7 +201,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func smallSizes() {
+    @Test func smallSizes() {
         // BUG: Snapshot shows a tiny mismatch between safe area rects and outer stroke.
         Snapshots.assertView("zero") {
             VStack.expandingWidth(alignment: .leading) {
@@ -244,7 +246,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func safeAreaInsets() {
+    @Test func safeAreaInsets() {
         Snapshots.assertView("all") {
             let edgeInsets = EdgeInsets(top: 10, leading: 20, bottom: 30, trailing: 40)
             TestViews.quinaryGraySquare()
