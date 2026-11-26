@@ -276,19 +276,3 @@ struct DebugGeometryModifierSnapshots {
     // FIXME: Test container radii.
 
 }
-
-
-// FIXME: Move to own file.
-private extension ForEach {
-
-    init(
-        hashing items: Data,
-        @ContentBuilder content: @escaping (Data.Element) -> Content
-    ) where
-        Data.Element: Hashable,
-        Data.Element == ID
-    {
-        self.init(items, id: \.self, content: content)
-    }
-
-}

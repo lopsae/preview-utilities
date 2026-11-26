@@ -7,6 +7,9 @@
 public import SwiftUI
 
 
+// FIXME: Move to additions/views. Likely move all other files here too.
+// FIXME: Rename file to Stacks+ItemStacks.
+
 // `ForEach` implicitly constrains `ValuesCollection `to `RandomAccessCollection`, and `ElementID`
 // to `Hashable`, as specified in its struct definition. The constraints in this initializers to
 // `RandomAccessCollection` and `Hashable` are not not strictly necessary (the initializers would
