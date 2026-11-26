@@ -198,7 +198,16 @@ struct DebugGeometryModifierSnapshots {
             }.safeAreaPadding(.horizontal, 20)
         }
 
-        // FIXME: Test safeInsetStyles.
+        Snapshots.assertView("safeAreas", spacing: 20, colorSchemes: .all) {
+            Group {
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.safeAreasStyle(.orange))
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.safeAreasStyle(.primary))
+                TestViews.quinaryGrayRect()
+                .debugGeometry(.safeAreasStyle(.clear))
+            }.safeAreaPadding(.horizontal, 20)
+        }
 
         Snapshots.assertView("clearStyles", spacing: 20) {
             Group {
