@@ -960,7 +960,7 @@ private struct PreviewContent {
             .debugGeometry(
                 .bordersWidth(bordersWidth),
                 .caption("Ag"), .alignment(alignment),
-                .drawsCaptionBorder, .clearExceptCenter
+                .drawsCaptionBorder, .clearStylesExceptOnCenter
             )
         }
     }

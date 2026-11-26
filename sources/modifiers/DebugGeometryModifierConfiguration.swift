@@ -352,10 +352,9 @@ extension DebugGeometryModifier.Configuration {
         }
 
         // FIXME: Document, add to Trait list.
-        // FIXME: rename: clearStylesExceptCenter.
         // Must be used after ``alignment`` in order to work properly, since it depends on the
         // alignment already set in the configuration.
-        public static let clearExceptCenter: Trait = .mutate { configuration in
+        public static let clearStylesExceptOnCenter: Trait = .mutate { configuration in
             if configuration.captionAlignment == .center { return }
             clearStyles.apply(to: &configuration)
         }

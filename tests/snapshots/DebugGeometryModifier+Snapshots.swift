@@ -167,7 +167,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    // FIXME: Rename to styles, add safeareas styles too.
+    // FIXME: Move to styles, add safeareas styles too.
     @Test func bordersStyle() {
         Snapshots.assertView("innerBorderStyle", spacing: 20, colorSchemes: .all) {
             TestViews.quinaryGrayRect()
@@ -194,6 +194,21 @@ struct DebugGeometryModifierSnapshots {
         }
 
         // FIXME: Test clearStyles.
+    }
+
+
+    @Test func styles() {
+        Snapshots.assertView("clearStylesExceptOnCenter", spacing: 20) {
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.caption("leading"), .alignment(.leading), .clearStylesExceptOnCenter)
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.caption("center"), .alignment(.center), .clearStylesExceptOnCenter)
+            .safeAreaPadding(.horizontal, 20)
+            TestViews.quinaryGrayRect()
+            .debugGeometry(.caption("trailing"), .alignment(.trailing), .clearStylesExceptOnCenter)
+            .safeAreaPadding(.horizontal, 20)
+        }
     }
 
 
@@ -233,25 +248,13 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.caption("Inner"), .innerAlignment)
         }
 
-        Snapshots.assertView("clearExceptCenter", spacing: 20) {
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.caption("leading"), .alignment(.leading), .clearExceptCenter)
-            .safeAreaPadding(.horizontal, 20)
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.caption("center"), .alignment(.center), .clearExceptCenter)
-            .safeAreaPadding(.horizontal, 20)
-            TestViews.quinaryGrayRect()
-            .debugGeometry(.caption("trailing"), .alignment(.trailing), .clearExceptCenter)
-            .safeAreaPadding(.horizontal, 20)
-        }
-
         let baseTraits: (FloatingAlignment) -> DebugGeometryModifier.Configuration.Trait = { alignment in
             .traits([
                 .caption(verbatim: alignment.abbreviatedName),
                 .alignment(alignment),
                 .innerBorderStyle(.red.opacity(0.6)),
                 .outerBorderStyle(.blue.opacity(0.6)),
-                .clearExceptCenter,
+                .clearStylesExceptOnCenter,
                 .drawsCaptionBorder
             ])
         }
