@@ -95,9 +95,7 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    // FIXME: Likely rename to borderWidth.
-    @Test func borders() {
-
+    @Test func bordersWidth() {
         Snapshots.assertView("special") {
             VStack(spacing: 20) {
                 TestViews.quinaryGrayRect()
