@@ -48,6 +48,9 @@ extension DebugGeometryModifier {
         /// The style of the outer border.
         var outerBorderStyle: AnyShapeStyle? = nil
 
+        /// The style of the safe area insets rectangles.
+        var safeAreasStyle: AnyShapeStyle? = nil
+
         /// The geometry properties displayed in the debug caption.
         var geometryProperties: GeometryProperties = .empty
 
@@ -167,6 +170,7 @@ extension DebugGeometryModifier.Configuration {
     /// + ``empty``
     /// + ``drawsCaptionBorder``
     ///
+    nonisolated
     public enum Trait: Sendable {
 
         /// Applies the associated mutating closure.
@@ -287,6 +291,13 @@ extension DebugGeometryModifier.Configuration {
             }
         }
 
+        // FIXME: Document, add to Trait list.
+        public static func safeAreasStyle(_ style: some ShapeStyle) -> Trait {
+            .mutate { configuration in
+                configuration.outerBorderStyle = AnyShapeStyle(style)
+            }
+        }
+
         // MARK: Caption Traits
 
         /// Prints the given localized string in the debug caption.
@@ -333,15 +344,20 @@ extension DebugGeometryModifier.Configuration {
         public static var drawsCaptionBorder: Trait { .modifier(EnableCaptionBorder()) }
 
         // FIXME: Document, add to Trait list.
+        public static let clearStyles: Trait = .mutate { configuration in
+            let clear = AnyShapeStyle(.clear)
+            configuration.innerBorderStyle = clear
+            configuration.outerBorderStyle = clear
+            configuration.safeAreasStyle   = clear
+        }
+
+        // FIXME: Document, add to Trait list.
         // FIXME: rename: clearStylesExceptCenter.
-        // Must be used after ``alignment`` in order to work propertly, since it depends on the
+        // Must be used after ``alignment`` in order to work properly, since it depends on the
         // alignment already set in the configuration.
-        public static var clearExceptCenter: Trait {
-            .mutate { configuration in
-                if configuration.captionAlignment == .center { return }
-                configuration.innerBorderStyle = AnyShapeStyle(.clear)
-                configuration.outerBorderStyle = AnyShapeStyle(.clear)
-            }
+        public static let clearExceptCenter: Trait = .mutate { configuration in
+            if configuration.captionAlignment == .center { return }
+            clearStyles.apply(to: &configuration)
         }
 
     }
@@ -357,6 +373,7 @@ extension DebugGeometryModifier.Configuration {
     ///
     /// Applies an update to a geometry overlay configuration. Used by ``DebugGeometryModifier/Configuration/Trait``
     /// instances as building blocks for a configuration instance.
+    nonisolated
     public protocol Modifier: Sendable {
         func update(configuration: inout DebugGeometryModifier.Configuration)
     }

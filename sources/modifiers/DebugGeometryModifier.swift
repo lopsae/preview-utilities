@@ -144,26 +144,26 @@ public struct DebugGeometryModifier: ViewModifier {
         let bottomInset   = geometry.safeAreaInsets.bottom
         let trailingInset = geometry.safeAreaInsets.trailing
 
-        let fillShapeStyle = safeAreasShapeStyle
+        let shapeStyle = configuration.safeAreasStyle ?? defaultSafeAreasShapeStyle
 
         // Top.
         if topInset != .zero {
             Rectangle()
-            .fill(fillShapeStyle)
+            .fill(shapeStyle)
             .frame(width: minWidth, height: topInset)
             .offset(x: xOffset, y: -topInset)
         }
         // Leading.
         if leadingInset != .zero {
             Rectangle()
-            .fill(fillShapeStyle)
+            .fill(shapeStyle)
             .frame(width: leadingInset, height: minHeight)
             .offset(x: -leadingInset, y: yOffset)
         }
         // Bottom.
         if bottomInset != .zero {
             Rectangle()
-            .fill(fillShapeStyle)
+            .fill(shapeStyle)
             .frame(width: minWidth, height: bottomInset)
             .offset(x: xOffset, y: size.height)
         }
@@ -171,7 +171,7 @@ public struct DebugGeometryModifier: ViewModifier {
         // Trailing.
         if trailingInset != .zero {
             Rectangle()
-            .fill(fillShapeStyle)
+            .fill(shapeStyle)
             .frame(width: trailingInset, height: minHeight)
             .offset(x: size.width, y: yOffset)
         }
@@ -396,7 +396,7 @@ public struct DebugGeometryModifier: ViewModifier {
 
     // MARK: Fill Styles
 
-    private var safeAreasShapeStyle: AnyShapeStyle {
+    private var defaultSafeAreasShapeStyle: AnyShapeStyle {
         let shapeStyle: any ShapeStyle = switch colorScheme {
         case .light:      .green.tertiary
         case .dark:       .green.secondary
@@ -510,13 +510,15 @@ private struct PreviewContent {
 
     static func star(_ fill: some ShapeStyle) -> some View {
         StarShape(points: 6, concaveVertexRatio: 0.8)
-            .fill(fill)
+        .fill(fill)
     }
 
 }
 
 
 // MARK: - Previews
+
+// FIXME: Mark all previews.
 
 
 #Preview("Default", traits: .headerFooter, PreviewContent.layout) {
@@ -912,22 +914,23 @@ private struct PreviewContent {
 }
 
 
+// MARK: Grouped Alignments
 #Preview("Grouped Alignments", traits: PreviewContent.layout) {
     ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
         DashedDivider()
         Text(horizontalAlignment.displayName, format: .capitalize)
 
-        PreviewContent.star
-        .frame(size: [100, 130])
+        PreviewContent.star(.pink.gradient.secondary)
+        .frame(size: [80, 130])
         .overlay {
             let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
-            ForEach(alignments) { alignment in
+            ForEach(alignments.enumerated(), id: \.element) { offset, alignment in
                 ClearRectangle()
-                // FIXME: Use styles to draw borders only once. Try inner+center.
                 .debugGeometry(
-                    .width, .caption(verbatim: alignment.hyphenatedName),
+                    offset == .zero ? .empty : .clearStyles,
+                    .caption(verbatim: alignment.hyphenatedName),
                     .alignment(alignment),
-                    .clearExceptCenter
+                    .width
                 )
             }
         }
@@ -938,40 +941,35 @@ private struct PreviewContent {
 }
 
 
-// FIXME: Add marks for all previews.
-#Preview("Caption Alignment", traits: .fixedHeader, PreviewContent.layout) {
+// MARK: Caption Alignments
+#Preview("Caption Alignments", traits: .headerFooter, PreviewContent.layout) {
     @Previewable @State var bordersWidth: Double = 5
 
     Slider.captioned(
         "Borders Width", value: $bordersWidth, in: 0...30,
-        currentValueFormat: .fractionLength(2),
+        currentValueFormat: .twoFractionals,
         boundsValueFormat: .arithmeticRoundedInteger)
 
-    ForEach(FloatingAlignment.HorizontalAlignment.allCases) { horizontalAlignment in
-        DashedDivider()
-        Text(horizontalAlignment.displayName, format: .capitalize)
-
-        PreviewContent.star(.pink.gradient.tertiary)
-        .frame(squareOf: 100)
-        .overlay {
-            let alignments = FloatingAlignment.allCases(withHorizontal: horizontalAlignment)
-            ForEach(alignments) { alignment in
-                // FIXME: Implement style for all borders, setting it to clear would respect caption position, with no borders.
-                // TODO: Maybe implement borderVisibility trait, to allow only one border to draw, but keeping caption spacing.
-//                let noBorderTrait = alignment.innerAlignment?.vertical == .center
-//                    ? DebugGeometryModifier.Configuration.Trait.empty
-//                    : .noBorders
-                ClearRectangle()
-                .debugGeometry(
-                    .caption("Ag"), .alignment(alignment),
-                    .drawsCaptionBorder, .bordersWidth(bordersWidth)
-                )
-            }
-        }
-        .debugAlignmentGuide(horizontal: horizontalAlignment.swiftAlignment, .extendedLength(50))
-        .debugAlignmentGuide(vertical: .top,    .extendedLength(100))
-        .debugAlignmentGuide(vertical: .bottom, .extendedLength(100))
-        .padding(.vertical, 20)
-    }
     DashedDivider()
+
+    PreviewContent.star(.pink.gradient.tertiary)
+    .frame(squareOf: 100)
+    .overlay {
+        ForEach(FloatingAlignment.allCases) { alignment in
+            ClearRectangle()
+            .debugGeometry(
+                .bordersWidth(bordersWidth),
+                .caption("Ag"), .alignment(alignment),
+                .drawsCaptionBorder, .clearExceptCenter
+            )
+        }
+    }
+    .debugAlignmentGuide(horizontal: .leading,  .extendedLength(50))
+    .debugAlignmentGuide(horizontal: .center,   .extendedLength(50))
+    .debugAlignmentGuide(horizontal: .trailing, .extendedLength(50))
+    .debugAlignmentGuide(vertical: .top,    .extendedLength(80))
+    .debugAlignmentGuide(vertical: .center, .extendedLength(80))
+    .debugAlignmentGuide(vertical: .bottom, .extendedLength(80))
+    .padding(.vertical, 40)
+    .scaledLayout(2)
 }

@@ -192,6 +192,8 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.outerBorderStyle(.clear))
             .safeAreaPadding(.horizontal, 20)
         }
+
+        // FIXME: Test clearStyles.
     }
 
 
