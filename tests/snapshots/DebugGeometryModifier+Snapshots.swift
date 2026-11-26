@@ -245,6 +245,7 @@ struct DebugGeometryModifierSnapshots {
                 .debugGeometry(
                     .caption(verbatim: alignment.abbreviatedName),
                     .alignment(alignment),
+                    .clearExceptCenter,
                     .drawsCaptionBorder
                 )
             }
@@ -260,6 +261,7 @@ struct DebugGeometryModifierSnapshots {
                     .caption(verbatim: alignment.abbreviatedName),
                     .alignment(alignment),
                     .hairline,
+                    .clearExceptCenter,
                     .drawsCaptionBorder
                 )
             }
@@ -273,6 +275,7 @@ struct DebugGeometryModifierSnapshots {
                     .caption(verbatim: alignment.abbreviatedName),
                     .alignment(alignment),
                     .bordersWidth(10),
+                    .clearExceptCenter,
                     .drawsCaptionBorder
                 )
             }
@@ -281,17 +284,14 @@ struct DebugGeometryModifierSnapshots {
         Snapshots.assertView("thickInner") {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
-                let style: DebugGeometryModifier.Configuration.Trait = alignment != .center
-                    ? .traits([.innerBorderStyle(.clear), .outerBorderStyle(.clear)])
-                    : .empty
                 ClearRectangle()
                 .debugGeometry(
                     .caption(verbatim: alignment.abbreviatedName),
                     .alignment(alignment),
                     .innerBorderWidth(10),
                     .outerBorderWidth(2),
-                    .drawsCaptionBorder,
-                    style
+                    .clearExceptCenter,
+                    .drawsCaptionBorder
                 )
             }
         }
