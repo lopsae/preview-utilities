@@ -175,9 +175,8 @@ struct DebugGeometryModifierSnapshots {
     }
 
 
-    // FIXME: Move to styles, add safeareas styles too.
-    @Test func bordersStyle() {
-        Snapshots.assertView("innerBorderStyle", spacing: 20, colorSchemes: .all) {
+    @Test func styles() {
+        Snapshots.assertView("innerBorder", spacing: 20, colorSchemes: .all) {
             TestViews.quinaryGrayRect()
             .debugGeometry(.innerBorderStyle(.orange))
             .safeAreaPadding(.horizontal, 20)
@@ -189,7 +188,7 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(.horizontal, 20)
         }
 
-        Snapshots.assertView("outerBorderStyle", spacing: 20, colorSchemes: .all) {
+        Snapshots.assertView("outerBorder", spacing: 20, colorSchemes: .all) {
             TestViews.quinaryGrayRect()
             .debugGeometry(.outerBorderStyle(.orange))
             .safeAreaPadding(.horizontal, 20)
@@ -202,10 +201,7 @@ struct DebugGeometryModifierSnapshots {
         }
 
         // FIXME: Test clearStyles.
-    }
 
-
-    @Test func styles() {
         Snapshots.assertView("clearStylesExceptOnCenter", spacing: 20) {
             TestViews.quinaryGrayRect()
             .debugGeometry(.caption("leading"), .alignment(.leading), .clearStylesExceptOnCenter)
