@@ -11,6 +11,7 @@ import Testing
 
 
 @MainActor
+@Suite(.snapshotTesting)
 struct DebugTextRendererSnapshots {
 
     enum TestContent {
@@ -23,7 +24,7 @@ struct DebugTextRendererSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func defaultConfig() {
+    @Test func defaultConfig() {
         Snapshots.assertView("body", colorSchemes: .all) {
             TestContent.multi
             .textRenderer(DebugTextRenderer())
@@ -37,7 +38,7 @@ struct DebugTextRendererSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func otherConfigs() {
+    @Test func otherConfigs() {
         Snapshots.assertView("none") {
             TestContent.multi
             .textRenderer(DebugTextRenderer(configuration: .none))
