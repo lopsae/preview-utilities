@@ -33,6 +33,7 @@ struct OverlayFloatingAlignmentsSnapshots {
             TestViews.quinaryGraySquare()
             .overlayFloatingAlignments { alignment in
                 FloatingAlignedContainer(alignment: alignment, spacing: 4) { alignments in
+                    // TODO: Remove ZStack when container defaults to ZStack content.
                     ZStack(alignment: alignments.content) {
                         Rectangle().fill(.brown.secondary)
                         .frame(squareOf: 25)
