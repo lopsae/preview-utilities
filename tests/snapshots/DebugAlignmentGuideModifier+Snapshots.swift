@@ -154,8 +154,7 @@ struct DebugAlignmentGuideModifierSnapshots {
     }
 
 
-    @Test(.snapshots(record: .missing))
-    func alignmentsWithStyle() {
+    @Test func alignmentsWithStyle() {
         Snapshots.assertView("both", colorSchemes: .all) {
             TestContent.single
             .debugAlignmentGuide(horizontal: .center, .style(.green.secondary))
@@ -182,8 +181,7 @@ struct DebugAlignmentGuideModifierSnapshots {
     }
 
 
-    @Test(.snapshots(record: .missing))
-    func alignmentsWithLineWidth() {
+    @Test func alignmentsWithLineWidth() {
         Snapshots.assertView("horizontal") {
             TestContent.single
             .edgeGraticule(insetSpacing: 10, insetCount: 1)
@@ -247,8 +245,7 @@ struct DebugAlignmentGuideModifierSnapshots {
         }
     }
 
-    @Test(.snapshots(record: .missing))
-    func alignmentsWithFixedLength() {
+    @Test func alignmentsWithFixedLength() {
         Snapshots.assertView("horizontal") {
             TestContent.square
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
@@ -291,8 +288,7 @@ struct DebugAlignmentGuideModifierSnapshots {
     }
 
 
-    @Test(.snapshots(record: .missing))
-    func alignmentsWithExtendedLength() {
+    @Test func alignmentsWithExtendedLength() {
         Snapshots.assertView("horizontal") {
             TestContent.single
             .edgeGraticule(insetSpacing: 15, outsetSpacing: 25)
@@ -336,8 +332,7 @@ struct DebugAlignmentGuideModifierSnapshots {
     }
 
 
-    @Test(.snapshots(record: .missing))
-    func alignmentsWithScaledLength() {
+    @Test func alignmentsWithScaledLength() {
         Snapshots.assertView("horizontal") {
             TestContent.square
             .edgeGraticule(spacing: 20)
@@ -381,8 +376,7 @@ struct DebugAlignmentGuideModifierSnapshots {
     }
 
 
-    @Test(.snapshots(record: .missing))
-    func alignmentsWithAnchor() {
+    @Test func alignmentsWithAnchor() {
         Snapshots.assertView("horizontal") {
             TestContent.single
             .edgeGraticule(spacing: 20)
