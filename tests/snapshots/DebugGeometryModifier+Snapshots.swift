@@ -23,16 +23,17 @@ struct DebugGeometryModifierSnapshots {
             .safeAreaPadding(20)
         }
 
-        Snapshots.assertView("caption", size: [400, 200], colorSchemes: .all) {
+        Snapshots.assertView("caption", size: [400, 240], colorSchemes: .all) {
             TestViews.quinaryGraySquare()
             .debugGeometry(.caption("_Formatted_ Caption"), .allGeometry)
             .safeAreaPadding(20)
+            .offset(y: -10)
         }
     }
 
 
     @Test func geometryProperties() {
-        Snapshots.assertView("sizes", spacing: 20) {
+        Snapshots.assertView("sizes", size: [240, 200], spacing: 20) {
             TestViews.quinaryGrayRect()
             .debugGeometry(.height)
             TestViews.quinaryGrayRect()
@@ -46,7 +47,7 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.origin)
         }
 
-        Snapshots.assertView("safeAreas", spacing: 30) {
+        Snapshots.assertView("safeAreas", size: [240, 200], spacing: 30) {
             TestViews.quinaryGrayRect(size: [120, 40])
             .debugGeometry(.safeAreas)
             .safeAreaPadding([20, 15])
@@ -55,8 +56,7 @@ struct DebugGeometryModifierSnapshots {
             .debugGeometry(.safeAreaInsets)
         }
 
-        // FIXME: This will report unavailable work till snapshots are migrated to iOS 27.
-        Snapshots.assertView("cornerRadii", spacing: 40) {
+        Snapshots.assertView("cornerRadii", size: [240, 200], spacing: 40) {
             let container = UnevenRoundedRectangle(even: 5, odd: 10)
             TestViews.quinaryGrayRect(size: [120, 40])
             .debugGeometry(.cornerRadii)
@@ -67,12 +67,15 @@ struct DebugGeometryModifierSnapshots {
         }
 
         // FIXME: Test radii + paddings.
+        // FIXME: Test radii + safeAreaInsets.
+        // FIXME: Test radii + offsets.
 
-        Snapshots.assertView("allGeometry", size: [400, 200]) {
+        Snapshots.assertView("allGeometry", size: [400, 240]) {
             TestViews.quinaryGraySquare()
             .debugGeometry(.allGeometry)
-            .safeAreaPadding([20, 15])
             .containerShape(.roundedRect(even: 5, odd: 10))
+            .safeAreaPadding([20, 15])
+            .offset(y: -10)
         }
     }
 
@@ -89,10 +92,10 @@ struct DebugGeometryModifierSnapshots {
 
         Snapshots.assertView("visible", spacing: 20) {
             TestViews.quinaryGrayRect(size: [120, 40])
-            .debugGeometry(.caption("`~visible`"), .size, .visible(true))
+            .debugGeometry(.caption("`visible(true)`"), .size, .visible(true))
             .safeAreaPadding(.horizontal, 20)
             TestViews.quinaryGrayRect(size: [120, 40])
-            .debugGeometry(.caption("`visible`"), .size, .visible(false))
+            .debugGeometry(.caption("`visible(false)`"), .size, .visible(false))
             .safeAreaPadding(.horizontal, 20)
         }
 
@@ -158,6 +161,7 @@ struct DebugGeometryModifierSnapshots {
         }
 
         Snapshots.assertView("small") {
+            // FIXME: Add 2.
             VStack(items: [CGFloat.zero, 0.5, 1], spacing: 20) { borderWidth in
                 TestViews.quinaryGrayRect()
                 .debugGeometry(.bordersWidth(borderWidth), .caption("`\(oneFractional: borderWidth)`"))
