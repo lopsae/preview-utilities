@@ -12,9 +12,10 @@ import SnapshotTesting
 
 
 @MainActor
+@Suite(.snapshotTesting)
 struct HighlightTextRendererSnapshots {
 
-    @Test(.snapshotTesting) func lineRendering() {
+    @Test func lineRendering() {
         let renderer = HighlightTextRenderer { context, runs, bounds, leadingStart, trailingEnd in
             bounds.stroke(in: context, style: .orange, lineWidth: 2, alignment: .inner)
 
@@ -65,7 +66,7 @@ struct HighlightTextRendererSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func debugRendering() {
+    @Test func debugRendering() {
         let drawHighlight: HighlightTextRenderer.DrawHighlight = { context, runs, bounds, leadingStart, trailingEnd in
             bounds.outset(by: 2).stroke(in: context, style: .orange.tertiary, lineWidth: 2, alignment: .outer)
             context.draw(runs: runs)
@@ -91,7 +92,7 @@ struct HighlightTextRendererSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func dashedCapsule() {
+    @Test func dashedCapsule() {
         Snapshots.assertView("default", colorSchemes: .all) {
             VStack(spacing: SpacingDefaults.padding) {
                 Text("Default \(highlight: "ladybug", label: "Label")")
@@ -121,7 +122,7 @@ struct HighlightTextRendererSnapshots {
     }
 
 
-    @Test(.snapshotTesting) func dashedCapsuleLines() {
+    @Test func dashedCapsuleLines() {
         let renderer = HighlightTextRenderer.dashedCapsule(style: .orange)
 
         Snapshots.assertView("singleLine") {
