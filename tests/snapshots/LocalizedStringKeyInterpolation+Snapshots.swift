@@ -9,9 +9,10 @@ import Testing
 
 
 @MainActor
+@Suite(.snapshotTesting)
 struct LocalizedStringKeyInterpolationSnapshots {
 
-    @Test(.snapshotTesting) func iconAndLabel() {
+    @Test func iconAndLabel() {
         Snapshots.assertView("non-breaking") {
             VStack {
                 Text("!Breaking \(systemImage: "ladybug", label: "Icon Label", breaking: true) breaking")
