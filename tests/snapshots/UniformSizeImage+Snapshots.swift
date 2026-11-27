@@ -151,7 +151,7 @@ struct UniformSizeImageSnapshots {
             "ladybug",
             "guidepoint.horizontal",
             "guidepoint.vertical",
-            "photo.badge.shield.exclamationmark",
+            "photo.badge.shield.exclamationmark", // FIXME: in iOS 27 this symbol has a top-trailing badge.
             "clock.badge.airplane",
             "circle",
         ]
